@@ -1,0 +1,292 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: November 23: Memory lane}
+\author{Math 152, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$12$ people took this quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $2$: $5$ people
+\item Score of $3$: $3$ people
+\item Score of $4$: $2$ people
+\item Score of $6$: $1$ person
+\item Score of $7$: $1$ person
+\end{itemize}
+
+The mean score was $3.33$. The problem wise answers and performance
+are as follows:
+
+\begin{enumerate}
+\item Option (B): $5$ people
+\item Option (E): $7$ people
+\item Option (D): $9$ people
+\item Option (C): $7$ people
+\item Option (D): $5$ people
+\item Option (D): $2$ people
+\item Option (A): $5$ people
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+\item For which of the following specifications is there {\bf no
+  continuous function} satisfying the specifications?
+
+  \begin{enumerate}[(A)]
+  \item Domain $[0,1]$ and range $[0,1]$
+  \item Domain $[0,1]$ and range $(0,1)$
+  \item Domain $(0,1)$ and range $[0,1]$
+  \item Domain $(0,1)$ and range $(0,1)$
+  \item None of the above, i.e., we can get a continuous function for
+    each of the specifications.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: By the extreme value theorem, any continuous
+  function on a closed bounded interval must attain its maximum and
+  minimum, and hence its image cannot be an open interval.
+
+  {\em The other choices}:
+
+  For options (A) and (D), we can pick the identity functions $f(x) :=
+  x$ on the respective domains.
+
+  For option (C), we can pick the function $f(x) := \sin^2(2\pi x)$ on
+  the domain $(0,1)$. 
+
+  {\em Performance review}: $5$ out of $12$ got this. $6$ chose (C),
+  $1$ chose (D).
+
+  {\em Historical note (last year)}: $7$ out of $14$ people got this
+  correct. $5$ people chose (C) and $2$ people chose (E).
+
+  {\em Action point}: Any question that involves feasible options for
+  the range of a function should remind you of the {\em intermediate
+  value theorem} and {\em extreme value theorem}. It seems likely that
+  the people who got this question wrong (and perhaps some of the
+  point who got it right too!) did not even think of the extreme value
+  theorem.
+\item Suppose $f$ and $g$ are continuous functions on $\R$, such that
+  $f$ is continuously differentiable everywhere and $g$ is
+  continuously differentiable everywhere except at $c$, where it has a
+  vertical tangent. What can we say is {\bf definitely true} about $f
+  \circ g$?
+
+  \begin{enumerate}[(A)]
+  \item It has a vertical tangent at $c$.
+  \item It has a vertical cusp at $c$.
+  \item It has either a vertical tangent or a vertical cusp at $c$.
+  \item It has neither a vertical tangent nor a vertical cusp at $c$.
+  \item We cannot say anything for certain.
+  \end{enumerate}
+
+  {\em Answer}: Option (E).
+
+  {\em Explanation}: Consider $g(x) := x^{1/3}$. This has a vertical
+  tangent at $c = 0$. If we choose $f(x) = x$, we get (A). If we
+  choose $f(x) = x^2$, we get (B). If we choose $f(x) = x^3$, we get
+  neither a vertical tangent nor a vertical cusp. Hence, (E) is the
+  only viable option.
+
+  {\em Performance review}: $7$ out of $12$ got this correct. $4$
+  chose (C), $1$ chose (D).
+
+  {\em Historical note (last year)}: $5$ out of $14$ people got this
+  correct. Other choices were (A) (3), (C) (4), (B) (1),and (D) (1).
+
+  {\em Historical note}: In an earlier quiz where this question
+  appeared, $3$ out of $15$ people got this correct. Other choices were
+  (A) (7), (C) (4), and (D) (1). The main thing that people had
+  trouble with was thinking of possibilities for $f$ that could play
+  the role of converting the vertical tangent behavior of the original
+  function $g$ into vertical cusp or ``neither'' behavior for the
+  composite function.
+
+  {\em Action point}: Performance this time was a little better than
+  earlier, but it seems that many of you either did not read the
+  original solution or it did not register properly in your
+  minds. Well, there's always a second chance! Take it this time.
+
+\item Consider the function $p(x) := x^{2/3}(x - 1)^{3/5} +
+  (x-2)^{7/3}(x - 5)^{4/3}(x - 6)^{4/5}$. For what values of $x$ does
+  the graph of $p$ have a vertical cusp at $(x,p(x))$?
+
+  \begin{enumerate}[(A)]
+  \item $x = 0$ only.
+  \item $x = 0$ and $x = 5$ only.
+  \item $x = 5$ and $x = 6$ only.
+  \item $x = 0$ and $x = 6$ only.
+  \item $x = 0$, $x = 5$, and $x = 6$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: This uses local behavior heuristics, both
+  additive and multiplicative. We need the exponent on top to be $p/q$
+  where $0 < p < q$ with $p$ even and $q$ odd.
+
+  {\em Performance review}: $9$ out of $12$ got this correct. $1$ each
+  chose (A), (C), and (E).
+
+  {\em Historical note (last year)}: $3$ out of $14$ people got this
+  correct. $5$ people chose (E) (indcating that they probably forgot
+  the condition that $p < q$), $4$ people chose (C), $3$ people chose
+  (B), and $1$ person chose (A).
+
+  {\em Action point}: Review the local behavior heuristics section of
+  the review sheet for midterm 2. Or, if this was just a careless
+  error about not noting that a particular number was bigger than $1$,
+  don't make the careless error again.
+
+\item Consider the function $f(x) := \lbrace\begin{array}{rl}x, & 0
+  \le x \le 1/2 \\ x^2, & 1/2 < x \le 1\end{array}$. What is $f \circ f$?
+
+  \begin{enumerate}[(A)]
+  \item $x \mapsto \lbrace\begin{array}{rl} x, & 0 \le x \le 1/2\\ x^4, & 1/2 < x \le 1\end{array}$
+  \item $x \mapsto \lbrace\begin{array}{rl} x, & 0 \le x \le 1/2\\ x^2, & 1/2 < x \le 1\end{array}$
+  \item $x \mapsto \lbrace\begin{array}{rl} x, & 0 \le x \le 1/2\\ x^2, & 1/2 < x \le 1/\sqrt{2}\\ x^4, & 1/\sqrt{2} < x \le 1\end{array}$
+  \item $x \mapsto \lbrace \begin{array}{rl} x, & 0 \le x \le 1/\sqrt{2}\\ x^2,& 1/\sqrt{2} < x \le 1\end{array}$
+  \item $x \mapsto \lbrace\begin{array}{rl} x, & 0 \le x \le 1/\sqrt{2}\\ x^4, &1/\sqrt{2} < x \le 1\end{array}$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: If $0 \le x \le 1/2$, then $f(x) = x$, so
+  $f(f(x)) = x$. If $1/2 < x \le 1$, then $f(x) = x^2$. What happens
+  when we apply $f$ to that depends on where $x^2$ falls. If $0 \le
+  x^2 \le 1/2$, then $f(x^2) = x^2$, so $f(f(x)) = x^2$. This covers
+  $1/2 < x \le 1/\sqrt{2}$. Otherwise $f(x^2) = x^4$, so $f(f(x)) = x^4$.
+
+  {\em Performance review}: $7$ out of $12$ got this correct. $3$ chose
+  (A), $1$ chose (A), $1$ chose (B).
+
+  {\em Historical note (last year)}: $4$ out of $14$ people got this
+  correct. $4$ people chose (E), $4$ people chose (A), $1$ person
+  chose (D), and $1$ person left the question blank.
+
+  {\em Action point}: It seems that many people don't have the correct
+  conceptual picture of how to compose functions with piecewise
+  definitions. {\em You need to spend some time to understand this --
+  please do!} We will talk briefly about this in one of the subsequent
+  review opportunities.
+\item Suppose $f$ and $g$ are functions $(0,1)$ to $(0,1)$ that are
+  both right continuous on $(0,1)$. Which of the following is {\em not}
+  guaranteed to be right continuous on $(0,1)$?
+
+  \begin{enumerate}[(A)]
+  \item $f + g$, i.e., the function $x \mapsto f(x) + g(x)$
+  \item $f - g$, i.e., the function $x \mapsto f(x) - g(x)$
+  \item $f \cdot g$, i.e., the function $x \mapsto f(x)g(x)$
+  \item $f \circ g$, i.e., the function $x \mapsto f(g(x))$
+  \item None of the above, i.e., they are all guaranteed to be right
+    continuous functions
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: See the explanation for Question 2 on the October
+  1 quiz. Note that that quiz uses left continuity, but the example
+  can be adapted to right continuity.
+
+  {\em Performance review}: $5$ out of $12$ got this correct. $4$
+  chose (E), $3$ chose (C).
+
+  {\em Historical note (last year)}: $9$ out
+  of $14$ people got the question correct. $3$ people chose (E) and
+  $1$ person each chose (B) and (C).
+
+\item For a partition $P = x_0 < x_1 < x_2 < \dots < x_n$ of $[a,b]$
+  (with $x_0 = a$, $x_n = b$) define the norm $\| P \|$ as the maximum
+  of the values $x_i - x_{i-1}$. Which of the following {\bf is always
+  true} for any continuous function $f$ on $[a,b]$? (5 points)
+
+  \begin{enumerate}[(A)]
+  \item If $P_1$ is a finer partition than $P_2$, then $\| P_2 \| \le
+    \| P_1 \|$ (Here, {\em finer} means that, as a set, $P_2 \subseteq
+    P_1$, i.e., all the points of $P_2$ are also points of $P_1$).
+  \item If $\| P_2 \| \le \| P_1 \|$, then $L_f(P_2) \le L_f(P_1)$
+    (where $L_f$ is the lower sum).
+  \item If $\| P_2 \| \le \| P_1 \|$, then $U_f(P_2) \le U_f(P_1)$
+    (where $U_f$ is the upper sum).
+  \item If $\| P_2 \| \le \| P_1 \|$, then $L_f(P_2) \le U_f(P_1)$.
+  \item All of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (D).
+
+  {\em Explanation}: Option (D) is true for the rather trivial reason
+  that any lower sum of $f$ over any partition cannot be more than any
+  upper sum of $f$ over any partition. The norm plays no role.
+
+  Option (A) is incorrect because the inequality actually goes the
+  other way: the finer partition has the smaller norm. Options (B) and
+  (C) are incorrect because a smaller norm does not, in and of itself,
+  guarantee anything about how the lower and upper sums compare.
+
+  {\em Performance review}: $2$ out of $12$ got this correct. $5$
+  chose (C), $3$ chose (B), $1$ each chose (A) and (E).
+
+  {\em Historical note (last year)}: $9$ out of $14$ people got this
+  correct. $3$ people chose (B) and $1$ person each chose (A) and (C).
+
+  {\em Historical note 1}: In the previous quiz appearance, $4$ out of
+  $15$ prople got this correct. $8$ people chose (C), presumably with
+  the intuition that the smaller the norm of a partition, the smaller
+  its upper sums. While this intuition is right in a broad sense, it
+  is not correct in the precise sense that would make (C) correct. It
+  is possible that a lot of people did not read (D) carefully, and
+  stopped after seeing (C), which they thought was a correct
+  statement. $1$ person each chose (A), (E), and (C)+(D).
+
+  {\em Historical note 2}: This question appeared in a 152 midterm two
+  years ago, and $6$ of $29$ people got this right. Many people chose
+  (C) in that test too (though I haven't preserved numerical
+  information on number of wrong choices selected).
+
+\item A disk of radius $r$ in the $xy$-plane is translated parallel to
+  itself with its center moving in the $yz$-plane along the semicircle
+  $y^2 + z^2 = R^2, y \ge 0$. The solid thus obtained can be thought
+  of as a {\em cylinder of bent spine} with cross sections being disks
+  of radius $r$ along the $xy$-plane and the centers forming a
+  semicircle of radius $R$ in the $yz$-plane, with the $z$-value
+  ranging from $-R$ to $R$. What is the volume of this solid?
+
+  \begin{enumerate}[(A)]
+  \item $2\pi r^2R$
+  \item $\pi^2r^2R$
+  \item $2\pi rR^2$
+  \item $\pi^2rR^2$
+  \item $\pi^2R^3$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: For $-R \le z \le R$, the cross section in the
+  $xy$-plane has constant area with value $\pi r^2$. Thus, the total
+  volume is $\pi r^2 \times (R - (-R)) = \pi r^2 \times 2R = 2\pi
+  r^2R$.
+
+  {\em Performance review}: $5$ out of $12$ got this correct. $3$
+  chose (C), $2$ chose (B), $1$ each chose (D) and (E).
+
+  {\em Historical note (last year)}: $3$ out of $14$ people got this
+  correct. $5$ people chose (C), $4$ people chose (B), and $2$ people
+  chose (E).
+
+  {\em Action point}: Make sure you understand this really really
+  well! In particular, make sure you understand why this is {\em not},
+  repeat {\em not}, a solid of revolution but rather a {\em cylinder
+  with bent spine}.
+\end{enumerate}
+\end{document}

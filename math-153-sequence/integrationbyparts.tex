@@ -1,0 +1,908 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Integration by parts and related miscellanea}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 8.2, part of Section
+8.3 (some of the material of Section 8.3 is a repeat of earlier ideas;
+that part is not discussed in these lecture notes).
+
+{\bf Difficulty level}: For the key ideas, easy to moderate, depending
+on the extent to which you have seen integration by parts before. For
+some of the subtler notions, moderate to hard.
+
+{\bf What students should already know}: The product rule for
+differentiation, graphical interpretation of integral as area.
+
+{\bf What students should definitely get}: The formal
+procedure/formula for integration by parts. Applying it to products of
+polynomials and trigonometric functions, products of polynomial and
+exponential functions, products of trigonometric and exponential
+functions, expressions involving logarithmic and inverse trigonometric
+functions. Repeated application. The key idea for using it in circular
+or self-referential situations, i.e., the original integral
+reappearing as a new integral.
+
+{\bf What students should hopefully get}: The interpretation of
+integration by parts as two ways of calculating an area. The rationale
+for integration by parts. The notion of complexity that is critical to
+deciding how to choose parts correctly.
+
+{\bf Note on difference with text}: The text explains integration by
+parts with the letters $u$ and $v$ for what I have called $F$ and
+$G$. You may be more familiar with the letters $u$ and $v$ and the
+corresponding way of thinking. However, some of the added discussion
+of complexity and choosing parts becomes easier (in my view) with the
+notation and context set in the lecture notes. Rest assured, there is
+no substantive difference.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+
+\item Integration by parts is a technique that uses the product rule
+  to integrate a product of two terms. If $F$ and $g$ are the two
+  functions, and $G$ is an antiderivative of $g$, we obtain:
+
+  $$\int F(x) g(x) \, dx = F(x)G(x) - \int F'(x) G(x) \, dx$$
+
+  This basically follows from the product rule, which states that:
+
+  $$\frac{d}{dx} [F(x)G(x)] = F(x)G'(x) + F'(x)G(x) = F(x)g(x) + F'(x)G(x)$$
+
+  In particular, we {\em integrate} one function and {\em
+  differentiate} the other.
+\item Applying integration by parts twice stupidly tells us
+  nothing. In particular, if we choose to re-integrate the piece that
+  we just obtained from differentiation, we get nowhere.
+\item The definite integral version of this is:
+
+  $$\int_a^b F(x) g(x) \, dx = [F(x)G(x)]_a^b - \int_a^b F'(x) G(x) \, dx$$
+
+  In particular, note that the part outside the integral sign is
+  simply evaluated between limits.
+
+\item We can use integration by parts to show that integrating a
+  function $f$ twice is equivalent to integrating $f$ and the function
+  $xf(x)$. More generally, integration a function $f$ $k$ times is
+  equivalent to integrating $f(x)$, $xf(x)$, $x^2f(x)$, and so on up
+  till $x^{k-1}f(x)$.
+\item To integrate $e^xg(x)$, we can use integration by parts,
+  typically taking $e^x$ as the second part. We could also do this
+  integral by finding a function $f$ such that $f + f' = g$, and then
+  writing the answer as $e^x f(x) + C$. The latter approach is
+  feasible and sometimes quicker in case $g$ is a polynomial function.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+
+\item Integration by parts is {\em not} the first or best technique to
+  consider upon seeing a product. The first thing to attempt is the
+  $u$-substitution/chain rule. In cases where such a thing fails, we
+  move to integration by parts.
+\item For products of trigonometric functions, it is usually more
+  fruitful to apply the trigonometric identities, such as $2\sin A
+  \cos B = \sin(A + B) + \sin(A - B)$, than to use integration by
+  parts.
+\item To apply integration by parts, we need to express the function
+  as a product. The {\em part to integrate} should always be chosen as
+  something that we {\em know} how to integrate. Beyond this, we
+  should try to make sure that: (i) the part to differentiate gets
+  {\em simpler in some sense} after differentiating, and (ii) the part
+  to integrate does not get too much more complicated upon
+  integration.
+\item Beware of the circular trap when doing integration by parts. In
+  particular, when using integration by parts twice, you should always
+  make sure that the part to integrate is {\em not} chosen as the
+  thing you just got by differentiating.
+\item For polynomial times trigonometric or exponential, always take
+  the polynomial as the first part (the part to differentiate). The
+  trigonometric or exponential thing is the thing to integrate. After
+  enough steps, the polynomial is reduced to a constant, and the
+  trigonometric part (hopefully) does not become any more complex.
+\item The ILATE/LIATE rule is a reasonable precedence rule for doing
+  integration by parts.
+\item In some cases, we may use integration by parts once or twice and
+  then relate the integral we get at the end to the original integral
+  in some other way (for instance, using a trigonometric identity) to
+  solve the problem. Examples include $e^x \cos x$ and $\sec^3 x$.
+\item For functions such as $\ln (x)$, we typically take $1$ as the
+  part to integrate and the given function as the part to
+  differentiate.
+\item In general, for functions of the form $f(\ln x)$ or
+  $f(x^{1/n})$, we can first do a $u$-substitution (setting $u = \ln
+  x$ or $u = x^{1/n}$ respectively). This converts it to a product, on
+  which we can apply integration by parts. {\em We can also apply
+  integration by parts directly, but this tends to get messy.}
+\end{enumerate}
+
+\section{The product rule and the statement of integration by parts}
+
+\subsection{The product rule for differentiation, nicely stated}
+
+Suppose $F$ and $G$ are functions with $F' = f$ and $G' = g$. The
+product rule states that:
+
+$$(F \cdot G)' = f \cdot G + F \cdot g$$
+
+Stating this in terms of antiderivatives, we have:
+
+$$\int f \cdot  G + F \cdot g = F \cdot G$$
+
+More concretely:
+
+$$\int f(t)G(t) + F(t)g(t) \, dt = F(t)G(t)$$
+
+This can be rearranged as:
+
+$$\int F(t)g(t) \, dt = F(t)G(t) - \int f(t)G(t) \, dt$$
+
+Writing $G$ as $\int g(t) \, dt$ and $f$ as $F'$, we get:
+
+$$\int F(t)g(t) \, dt = F(t)\int g(t) \, dt - \int F'(t) (\int g(t) \, dt) \, dt$$
+
+The above formulation is termed {\em integration by parts}. But before
+getting into the explanation, let us understand the product rule a
+little more closely.
+
+\subsection{Parametric curves}
+
+There have been three ways we have created curves in the past:
+
+\begin{enumerate}
+\item A curve obtained by writing $y$ as a function of $x$.
+\item A curve obtained by writing $x$ as a function of $y$.
+\item A curve obtained as the set of $(x,y)$ such that $F(x,y) = 0$,
+  where $F$ is an expression in two variables. This came up in the
+  context of implicit differentiation.
+\end{enumerate}
+
+There is a fourth way of describing curves, where we write both $x$ and
+$y$ as functions of a variable $t$. The standard example of this is
+the circle, where we can describe the circle as the set $(\cos t, \sin
+t)$, with $t \in \R$. In this context, $x$ is given by the function
+$\cos$ and $y$ is given by the function $\sin$, with the parameter
+being $t$.
+
+Suppose $F$ and $G$ are two functions, with $F' = f$ and $G'
+=g$. First, consider the curve given by $(F(t),G(t))$. In other words,
+it is the set of points whose $x$-coordinate is $F(t)$ and whose
+$y$-coordinate is $G(t)$. Suppose $a < b$ are points such that $[a,b]$
+is in the domain of both $F$ and $G$. Then $[F(t)G(t)]_a^b = F(b)G(b)
+- F(a)G(a)$.
+
+This can be interpreted graphically as follows. Consider the rectangle
+with two sides along the axes and one vertex at the point
+$(F(a),G(a))$. The area of this rectangle is $F(a)G(a)$. Similarly,
+consider the rectangle with two sides along the axes and one vertex at
+the point $(F(b),G(b))$. The area of this rectangle is $F(b)G(b)$. The
+difference of these areas is also the area of the region between the
+rectangles, which is like a corridor with one turn.
+
+Now, the curve $(F(t),G(t))$ (in the simple case) divides this
+corridor region into two parts. One part is the region between the
+curve and the $x$-axis. The other part is the region between the curve
+and the $y$-axis. The area of the first part is given by:
+
+$$\int y \, dx = \int_a^b G(t)F'(t) \, dt$$
+
+The other part is given by:
+
+$$\int x \, dy = \int_a^b F(t)G'(t) \, dt$$
+
+We thus obtain:
+
+$$[F(t)G(t)]_a^b = \int_a^b F(t)G'(t) + F'(t)G(t) \, dt$$
+
+which is just a reformulation of the product rule for
+differentiation. This idea that the product rule in integral form is
+just {\em two ways of calculating areas} is an important idea.
+
+\subsection{Using integration by parts: the key idea}
+
+To begin integration by parts, we need to do the following: express
+the integrand as the product of a function $F$ (that we know how to
+differentiate) and a function $g$ (that we know how to integrate). We
+first find the derivative $f$ of $F$ and an antiderivative $G$ of
+$g$. We then use integration by parts:
+
+$$\int F(t)g(t) \, dt= F(t)G(t) - \int f(t)G(t) \, dt$$
+
+We can do everything inline:
+
+$$\int F(t) g(t) \, dt = F(t)\int g(t) \, dt - \int F'(t) [\int g(t) \, dt] \, dt$$
+
+The following things should be kept in mind, though:
+
+\begin{enumerate}
+\item Although we use the symbol $\int g(t) \, dt$, what we are
+  interested in is picking {\em one} antiderivative for $g$. We are
+  not interested in the general expression for the antiderivative
+  (i.e., we don't need the $+C$). Moreover, the expression for the
+  antiderivative must be the {\em same} in both parts of the formula.
+\item When using this formula for definite integration, the evaluation
+  between limits is done {\em after} the final expression is
+  calculated. Specifically, the inner integrals, such as $\int g$, are
+  {\em not} the places where we evaluate between limits -- we only
+  evaluate between limits the entirety of the expression.
+\end{enumerate}
+
+The part $F$ that we differentiate is typically termed the {\em first
+part}, or Part I, or the {\em part to differentiate}, while the part
+$g$ that we integrate is termed the {\em second part}, or Part II, or
+the {\em part to integrate}.
+\section{Using integration by parts}
+
+\subsection{The burden of choice}
+
+To use integration by parts, we need to write the integrand as a
+product of two terms, such that the first part is easy to
+differentiate and the second part is easy to integrate. There are many
+elements of choice here:
+
+\begin{enumerate}
+\item We first need to think of the integrand as a product. In some
+  cases, the integrand may not look like a product at all. In other
+  cases, it may be a product of a large number of pieces.
+\item We next need to decide which of the parts is Part I and which of
+  the parts is Part II.
+\end{enumerate}
+
+\subsection{Some reflections}
+
+We divide the elementary functions that we have found into five easy
+classes:
+
+\begin{enumerate}
+\item {\em Inverse trigonometric functions}: The derivatives of these
+  are algebraic functions (rational functions or functions involving
+  rational functions, radicals). Further differentiation keeps us in
+  the algebraic domain.
+\item {\em Logarithmic functions}: The derivatives of these are
+  algebraic functions (specifically, rational functions). Further
+  differentiation keeps us in the algebraic domain.
+\item {\em Algebraic functions}: These include polynomials, rational
+  functions, and functions created using rational functions and
+  radicals (squareroots, etc.). Differentiation keeps us in the
+  algebraic domain. Further, for polynomials, differentiation
+  eventually gets us down to constants, while integrating again and
+  again causes the degree to go to infinity. Integration of
+  polynomials keeps us in the algebraic domain, but for other rational
+  functions, it may land us in the inverse trigonometric or
+  logarithmic domains.
+\item {\em Trigonometric functions}: These include $\sin$, $\cos$, and
+  rational functions of these. Differentiation keeps us in the
+  trigonometric domain, and integrating once gets us into the domain
+  of linear plus trigonometric functions. Integrating $k$ times gets
+  us into the polynomial plus trigonometric domain. Note also another
+  interesting thing: for the most part, neither differentiation nor
+  integration increases the complexity of the trigonometric part. This
+  is particularly the case for $\sin$ and $\cos$, whose sequence of
+  derivatives is periodic with period $4$.
+\item {\em Exponential functions}: This includes $\exp$ and various
+  functions constructed from it such as $\cosh$ and $\sinh$. These
+  functions are remarkably stable under differentiation and
+  integration, and the complexity does not change much under either
+  operation.
+\end{enumerate}
+
+\subsection{Products of polynomials and trigonometric/exponential functions}
+
+Suppose we have a function of the form $F(x)\cos x$, where $F$ is a
+polynomial. How do we integrate it?
+
+It turns out that it is ideal to choose $F$, the polynomial, as the
+first part, since differentiating a polynomial gives a polynomial of
+lower degree. On the other hand, integrating $\cos$ gives $\sin$,
+which has the same amount of complexity.
+
+Consider, for instance:
+
+$$\int x \cos x \, dx$$
+
+We take $x$ as the first part and $\cos x$ as the second part. An
+antiderivative for $\cos x$ is $\sin x$, so we get:
+
+$$\int x \cos x \, dx = x \sin x - \int 1 \cdot \sin x \, dx = x\sin x + \cos x + C$$
+
+Now, consider:
+
+$$\int x^2 \cos x \, dx$$
+
+We take $x^2$ as the first part and $\cos x$ as the second part. An
+antiderivative of $\cos x$ is $\sin x$, so we get:
+
+$$\int x^2 \cos x \, dx= x^2 \sin x - \int 2x \sin x \, dx$$
+
+We now use integration by parts for the $2x \sin x$ integrand, first
+pulling the $2$ out and then taking $x$ and $\sin x$ as the first and
+second part respectively:
+
+$$\int x^2 \cos x \, dx= x^2 \sin x - 2x(-\cos x) + 2 \int (- \cos x) \, dx = x^2 \sin x + 2x \cos x -2 \sin x + C$$
+
+You can convince yourself that this technique can be used to handle
+the product of any polynomial with $\sin x$ or $\cos x$. Note,
+however, that this technique fails when we have a fractional or
+negative exponent, because what we really want is that, after a finite
+number of iterations of integration by parts, the polynomial gets down
+to a constant. If we start with something like $x^{3/2} \sin x$ then
+repeated differentiation never gets to a constant because the exponent
+jumps past $0$ from $1/2$ to $-1/2$. Similarly, when trying to
+integrate $(\sin x)/x$, we never hit an exponent of $0$ on the $x$
+because the exponent, starting from $-1$, keeps going down further and
+further.
+
+The technique does not {\em always} work for {\em everything} that is
+a product of a polynomial and a trigonometric function. $\sin$ and
+$\cos$ are particularly nice because they are (up to sign) integrals
+and derivatives of each other. The situation gets more complicated
+with $\tan$. For instance, suppose we are trying to integrate:
+
+$$\int x \tan x \, dx$$
+
+We start off by taking $x$ as the first part and $\tan x$ as the
+second part. We get:
+
+$$\int x \tan x \, dx = -x \ln |\cos x| - \int (-\ln |\cos x|) \, dx$$
+
+But the inner integral is no easier than what we started with. More
+generally, the problem with other trigonometric functions is that we
+may be unable to repeatedly integrate the trigonometric function the
+requisite number of times. But the technique does work
+occasionally. For instance, consider:
+
+$$\int x \tan^2 x \, dx$$
+
+We know that $\tan^2 x$ is the derivative of $\tan x - x$, and we thus get:
+
+$$\int x \tan^2 x \, dx = x(\tan x - x) - \int (\tan x - x) \, dx = x(\tan x - x) + \ln|\cos x| + \frac{x^2}{2} + C = x\tan x + \ln|\cos x| - \frac{x^2}{2} + C$$
+
+\subsection{Integration by parts could be a red herring}
+
+The fact that the integrand is a product is {\em not} a compelling
+case for integration by parts. In fact, integration by parts should be
+treated as a last resort approach. Generally a product suggests a
+$u$-substitution or chain rule approach. So how do we distinguish
+between the chain rule-suggesting products and integration by parts?
+
+Situations that are good for the chain rule are where one of the
+factors of the product is the derivative of something in terms of
+which the second factor can be written. Situations that are good for
+the product rule are those where the two factors seem unrelated.
+
+For instance, the integral $\int x \sin(x^2) \, dx$ suggests the chain
+rule, setting $u = x^2$. We also see that in this case, integration by
+parts cannot really be applied because $\sin(x^2)$ doesn't have an
+antiderivative expressible in elementary terms. On the other hand,
+$x^2 \sin x$ is suitable for integration by parts.
+
+Some situations are more mixed. For instance, consider an integrand of
+the form $x^3 \sin(x^2)$. Here, we first make a $u$-substitution,
+setting $u = x^2$, to get an integrand of the form $u \sin u$. Then,
+we use integration by parts. There are ways of combining this all
+into one step, but as beginners, you are encouraged to do it in two
+steps.
+
+\subsection{Products involving a polynomial and an exponential}
+
+These obey very similar rules to those outlined for products of
+polynomials and sine or cosine. Basically, the same nice feature is
+present: the exponential function, like sine and cosine, remains
+remarkably oblivious to any attempts to integrate and differentiate
+it. Thus, for its product with a polynomial, we can steadily bring
+down the degree of the polynomial to zero.
+
+Recall that to integrate a function of the form $g(x)e^x$, one
+approach was to find a function $f$ such that $f + f' =
+g$. Integration by parts gives an alternative, more hidden way of
+achieving the same goal.
+
+More on this is given in section \ref{sec:addlideaone}.
+
+\subsection{Logarithmic and inverse trigonometric functions}
+
+Logarithmic and inverse trigonometric functions have the behavior of
+being hard to integrate but easy to differentiate, and the derivatives
+land in the algebraic domain. This means that they can be
+differentiated as many times as desired, giving answers in the
+algebraic domain.
+
+Thus, when dealing with the product of a logarithmic or inverse
+trigonometric function and a polynomial or rational function, we take
+the polynomial or rational function as Part II.
+
+We first begin by integrating the logarithmic function itself. This is
+just a single function, but we use integration by parts by choosing it
+as Part I and the constant function $1$ as Part II.
+
+Thus:
+
+$$\int \ln x \, dx = \int \ln x \cdot 1 \, dx = \ln x \cdot x - \int \frac{1}{x} \cdot x \, dx = x\ln x - x + C$$
+
+Similarly, we obtain that:
+
+$$\int \arctan x \, dx = x \arctan x - \int \frac{x \, dx}{1 + x^2} = x \arctan x - \frac{1}{2} \ln(1 + x^2) + C$$
+
+where, for the latter integration, we use the form $g'/g$. We can use
+a similar approach to integrate $\arcsin$.
+
+This approach also extends to more tricky computations. For instance,
+consider the integral:
+
+$$\int x^r(\ln x)^s \, dx$$
+
+where $r \ne -1$ and $s$ is a nonnegative integer. We take $(\ln x)^s$
+as part I and $x^r$ as part II and integrate. We can then reduce this
+to integrating $x^r (\ln x)^{s - 1}$. Specifically, the power of $\ln
+x$ goes down by $1$. Repeating the procedure $s$ times, we finally get
+down to simply integrating $x^r$.
+
+As observed earlier, you should first be on the
+lookout for $u$-substitutions before attempting integration by
+parts. Thus, it is a bad idea to integrate $\int (\ln x)/x \, dx$
+using integration by parts: that integration is easily settled using a
+$u$-substitution.
+
+\subsection{Integration by parts and recursive relationships}
+
+In some cases, we attempt to do an integration by parts and end up
+with a new integral that just looks like a copy of the old
+integral. We consider a familiar example.
+
+$$\int \sin^2 x \, dx = \int \frac{1 - \cos(2x)}{2} \, dx = \frac{x}{2} - \frac{\sin(2x)}{4} + C$$
+
+We now consider another approach for this integral: integration by
+parts. We take $\sin x$ as the first part and $\sin x$ as the second
+part. An antiderivative for $\sin x$ is $-\cos x$, so we get:
+
+$$\int \sin^2 x \, dx = -\sin x \cos x - \int \cos x(- \cos x) \, dx = -\sin x \cos x + \int \cos^2x \, dx$$
+
+Now, we need to integrate $\cos^2 x$. We observe that $\cos^2 x = 1 -
+\sin^2 x$. We thus get:
+
+$$\int \sin^2 x \, dx = -\sin x \cos x + \int 1 - \sin^2 x \, dx = x - \sin x \cos x - \int \sin^2 x\, dx$$
+
+We now move terms around and obtain:
+
+$$2 \int \sin^2 x \, dx = x - \sin x \cos x$$
+
+Thus, we obtain:
+
+$$\int \sin^2 x \, dx = \frac{x - \sin x \cos x}{2}$$
+
+Note that this is the same as the previous answer, using the fact that
+$\sin(2x) = 2\sin x \cos x$.
+
+A similar approach works for $\int \cos^2 x \, dx$. So, it turns out
+that, by using integration by parts, we can avoid remembering the
+identities about $\cos(2x)$.
+
+Note that the key idea here is to identify the copy of the original
+integrand in the new integrand we get when we apply integration by
+parts.
+
+Here is another example:
+
+$$\int \sec^3 x \, dx$$
+
+We write $\sec^3 x = \sec x \cdot \sec^2 x$, taking $\sec x$ as the
+first part and $\sec^2 x$ as the second part. We thus obtain that:
+
+$$\int \sec^3 x \, dx = \sec x \tan x - \int \sec x \tan^2 x \, dx$$
+
+Since $\tan^2 x = \sec^2 x - 1$, the new integrand can be written as
+$\sec^3 x - \sec x$, and we get:
+
+$$2 \int \sec^3 x \, dx = \sec x \tan x + \int \sec x \, dx$$
+
+Thus, we obtain:
+
+$$\int \sec^3 x \, dx = \frac{1}{2}[\sec x \tan x + \ln|\sec x + \tan x|] + C$$
+
+Note that the $+C$ is added as an afterthought.
+
+This idea, combined with induction, can be used to integrate odd
+powers of secant, as well as even powers of sine and cosine. You see
+some of this in your homework problems.
+
+\subsection{Products of trigonometric and exponential functions}
+
+Consider the integration problem:
+
+$$\int e^x \cos x \, dx$$
+
+We can try resolving this using integration by parts, taking $e^x$ as
+the second part:
+
+$$\int e^x \cos x \, dx = (\cos x) e^x - \int (-\sin x) e^x \, dx$$
+
+We again take $e^x$ as the second part, and obtain:
+
+$$\int e^x \cos x \, dx = (\cos x + \sin x)e^x - \int e^x \cos x \, dx$$
+
+We can now rearrange and obtain:
+
+$$\int e^x \cos x \, dx = \frac{\cos x + \sin x}{2} e^x + C$$
+
+\subsection{Converting compositions to products}
+
+{\em Note}: I might not cover this in class, but you are encouraged to
+read it.
+
+In some cases, tricky composites can be integrated using integration
+by parts. The general rule is that the inner function of the
+composition should have an inverse that is nice. We take two kinds of
+examples.
+
+First, consider:
+
+$$\int f(x^{1/n}) \, dx$$
+
+The idea here is to set $u = x^{1/n}$. This gives:
+
+$$\int f(u) \cdot nu^{n-1} \, du$$
+
+Pulling the $n$ out, we are left with a polynomial times $f$. In
+particular, this technique can be used to integrate functions of the
+form $\sin(x^{1/n})$, $\cos(x^{1/n})$, $e^{x^{1/n}}$.
+
+We can directly use integration by parts on the original integrand and
+avoid this intermediate step by taking part II as $1$. This is
+essentially equivalent but perhaps less intuitive since it is not
+clear what is going on.
+
+A similar approach works for expressions of the form:
+
+$$\int f(\ln x) \, dx$$
+
+Here, we set $u = \ln x$, and obtain:
+
+$$\int e^u f(u) \, du$$
+
+after which we apply the usual techniques of integration by parts.
+
+\subsection{Circular traps}
+
+If applying integration by parts twice, one may end up with a
+tautology. This happens if the second application of integration by
+parts simply {\em reverses} the first application, in which case, you
+will just end up precisely with the original integrand. You need to be
+careful about this.
+
+What this means is that if you write your original function as $F
+\cdot g$, and reduce the computation of $\int F \cdot g$ to the
+computation of $ \int f \cdot G$, then taking $G$ as the first part and $f$
+as the second part will simply retrace your steps. To actually do
+something new, you need to take $f$ as the first part or $G$ as the
+second part.
+
+\subsection{The ILATE/LIATE rule: a thumb rule for integration}
+
+A reasonable thumb rule for integration by parts is the ILATE/LIATE
+rule. This says that we give preference for part I in the integration
+by parts to the following functions in decreasing order:
+
+\begin{enumerate}
+\item {\em Logarithmic and inverse trigonometric functions}: These
+  deserve first preference in integration by parts. In general, lump
+  together all of these into part I of the integration by parts and
+  whatever is left into part II (if nothing is left, take part II as
+  $1$).
+\item {\em Algebraic functions}: This includes polynomial and rational
+  functions, as well as things with radicals. These are taken as part
+  II when placed along with a logarithmic or inverse trigonometric
+  function, because by taking the logarithmic or inverse trigonometric
+  function as part I, we can differentiate it and get completely in
+  the algebraic domain (or so we hope).
+\item {\em Trigonometric and exponential functions}: These are taken
+  as the second part, because integrating them does not increase their
+  complexity (unlike the case of polynomials, where every integration
+  increases the degree). Among these, exponential functions are
+  preferred as part II when opposed to trigonometric functions.
+\end{enumerate}
+
+The ILATE/LIATE mnemonic arises by taking the first letters of these
+classes of functions (Inverse trigonometric, Logarithmic, Algebraic,
+Trigonometric, Exponential).
+
+\section{More on collections of functions closed under integration and differentiation}
+
+\subsection{Polynomial functions}
+
+The collection of polynomial functions is closed under the following
+operations:
+
+\begin{enumerate}
+\item Addition and subtraction: The sum of two polynomial functions is
+  a polynomial function. The difference of two polynomial functions is a
+  polynomial function.
+\item Scalar multiplication: Any scalar times a polynomial function is
+  a polynomial function.
+\item Multiplication: The product of two polynomial functions is a
+  polynomial function.
+\item Composition: A composition of two polynomial functions is a
+  polynomial function.
+\item Differentiation: The derivative of a polynomial function is a
+  polynomial function. Another important thing to note is that
+  polynomials are the only functions for which the higher derivatives
+  eventually become identically zero.
+\item Integration: Every antiderivative of a polynomial function is a
+  polynomial function.
+\end{enumerate}
+
+This collection is not closed under the following two operations:
+
+\begin{enumerate}
+\item Multiplicative inverses (reciprocals) and division: Applying
+  this operation to polynomial functions gets us into the larger class
+  of rational functions.
+\item Inverse functions: Even in the cases where a polynomial function
+  is one-to-one, its inverse is not a polynomial function unless the
+  polynomial we started out is linear.
+\end{enumerate}
+
+\subsection{Rational functions}
+
+Rational functions are closed under addition, subtraction, scalar
+multiplication, multiplication, division, and differentiation. With
+respect to multiplicative inverses, they are more closed (i.e.,
+better) than polynomials. On the other hand, with respect to
+integration, they are much worse behaved. Recall that we have so far
+seen two types of rational functions whose antiderivatives shatter the
+algebraic glass ceiling:
+
+\begin{enumerate}
+\item The rational function $1/x$, and more generally, rational
+  functions with linear denominators, have antiderivatives that
+  involve natural logarithms.
+\item Rational functions of the form $1/(x^2 + a^2)$, and more
+  generally, rational functions with quadratic denominators that have
+  negative discriminant, have antiderivatives that involve arctangents.
+\end{enumerate}
+
+It turns out that we can use the above two facts to obtain a method
+for integrating {\em any} rational function. This uses a technique
+called {\em partial fractions}, which essentially writes the original
+rational function as a sum of rational functions such that the
+denominator of each is either linear or a quadratic with negative
+discriminant. However, the question of interest for now is: can we
+integrate {\em repeatedly}? It is not enough to have a method for
+integrating the original rational function -- we must have a method
+for integrating the antiderivatives obtained.
+
+Indeed, the process of integration by parts gives a general approach
+for this. Note that:
+
+\begin{enumerate}
+\item Integrating $1/x$ gives $\ln x$. Integrating $\ln x$ gives
+  $x\ln x - x + C$. Each further round of integration gives a constant
+  times $x^k\ln x$ plus a polynomial in $x$. To execute each step, we
+  use integration by parts with $\ln x$ as the first part.
+\item Integrating $1/(x^2 + 1)$ gives $\arctan x$. Integrating
+  $\arctan x$ gives $x\arctan x - (1/2) \ln(1 + x^2) + C$. We can
+  integrate this again, but notice that it gets tricky: {\em both} the
+  expressions $x \arctan x$ and $\ln(1 + x^2)$ require integration by
+  parts to resolve. At any stage, the expression will involve a
+  polynomial times $\arctan x$, a polynomial times $\ln(1 + x^2)$, and
+  a free-floating polynomial. (See the discussion in the last
+  subsection on why a rational function can always be repeatedly
+  integrated).
+\end{enumerate}
+
+\subsection{Some functions that we cannot integrate}
+
+Integration by parts is the last of the classical methods of
+integration. (There remain a few tricks here and there, and some
+tying-together ideas, but no major further breakthrough). So, we are
+now in a position to start appreciating, at least at a basic level,
+why some kinds of functions do not have antiderivatives that can be
+expressed in elementary terms.
+
+Roughly, integration by parts is the {\em only} viable strategy for
+handling non-obvious heterogeneous products, i.e., products of
+functions of very different kinds. Thus, for such heterogeneous
+products, if integration by parts does not work, nothing can.
+
+We describe here some important classes of functions that are not easy
+to integrate:
+
+\begin{enumerate}
+\item {\em Product of a fractional or negative power and a
+  trigonometric or exponential function}: The famous examples are
+  $(\sin x)/x$ (the sinc function) and $e^x/x$ (integrating this is
+  equivalent, via a $u$-substitution, to integrating $e^{e^x}$, which
+  arises in the Gompertz function, and is also equivalent to
+  integrating $1/\ln x$, which is called the logarithmic integral).
+\item {\em A composition $f \circ g$ where $f$ is trigonometric or
+  exponential and $g$ is anything more complicated than a linear or
+  constant function}: Examples are $\sin(x^2)$ (whose integral is
+  termed the Fresnel integral) and $e^{-x^2}$ (which arises in the
+  normal distribution). Also, things like $\sin(\sin x)$.
+\item {\em Composites of logarithmic and trigonometric functions},
+  {\em composites of inverse trigonometric and exponential functions}:
+  This includes functions such as $\ln(\sin x)$ and $\arctan(e^x)$.
+\item {\em Squareroots of polynomials of degree greater than two, and
+  expressions involving them}: In most cases, these do not have
+  antiderivatives in the elementary domain. However, it is possible to
+  invent analogues of trigonometry to integrate some of these functions.
+\end{enumerate}
+
+\subsection{Equivalences between integrating functions that we cannot integrate}
+
+Even for the functions for which there is no elementary integral, it
+is useful to understand the rules of integration, because these allow
+us to relate the antiderivatives of different functions. For instance,
+we can use $u$-substitutions to move back and forth between
+integrating $e^{e^x}$, $e^x/x$ and $1/\ln x$. A $u$-substitution
+allows us to go back and forth between integrating $\sin(e^x)$ and
+$(\sin x)/x$.
+
+Integration by parts is also useful in relating different integrals to
+each either, even when none of them is elementary. For instance, we
+can try to integrate $x^2e^{-x^2}$ using integration by parts, taking
+the first part as $x$ and the second part as $xe^{-x^2}$. This allows
+us to write an antiderivative for $x^2 e^{-x^2}$ in terms of an
+antiderivative for $e^{-x^2}$.
+
+\section{Three additional ideas/elaborations}
+
+These were alluded to in the previous parts of the lecture notes, and
+are covered in more detail here.
+
+\subsection{A deeper understanding of integrating $e^xg(x)$}\label{sec:addlideaone}
+
+We have the following fact:
+
+$$f + f' = g \iff \int e^xg(x) \, dx = e^xf(x)$$
+
+In other words, finding, for a given function $g$, a function $f$ such
+that $f + f' = g$ is equivalent to solving $\int e^x g(x) \, dx$.
+
+Both directions of implication are useful. Sometimes, it is easy to
+find the function $f$ using the fact that $f + f' = g$. Sometimes, it
+is easier to use integration by parts to solve $\int e^xg(x) \, dx$.
+
+We first consider the case where $g$ is a polynomial. In this case, we
+guess (rightly) that $f$ is also a polynomial. Since $f'$ has smaller
+degree than $f$, $f$ and $f + f' = g$ have the same degree and same
+leading coefficient. We thus know the degree and leading coefficient
+of $f$. We next need to find the other coefficients.
+
+We give variable letter names to each of the coefficients of $f$ and
+then compare coefficients to get a system of linear equations. This
+system of linear equations is particularly nice -- it is {\em
+triangular}, so we can read off the solutions. In particular, we can
+compute the coefficients of $f$ quite easily.
+
+For instance, consider the case $g(x) = x^2 + x + 1$.
+
+In that case, we see that $f(x) = x^2 + Ax + B$, where $A$, $B$ are
+real numbers. Further, we have:
+
+$$f(x) + f'(x) = (x^2 + Ax + B) + (2x + A) = x^2 + (A + 2)x + (B + A)$$
+
+We thus have that, as polynomials:
+
+$$x^2 + (A + 2)x + (B + A) \equiv x^2 + x + 1$$
+
+If two polynomials are equal as polynomials, they are equal
+coefficient-wise, and we obtain:
+
+$$A + 2 = 1, \qquad B + A = 1$$
+
+This solves to give $A = -1$, $B = 2$, and we get that $f(x) = x^2 - x
++ 2$.
+
+We can also use integration by parts to obtain the same
+answer. Although integration by parts looks like a very different
+procedure, it is actually the same procedure in disguise.
+
+{\em Note for those who have seen matrices}: Integration by parts can
+literally be thought of as multiplying by the ``inverse matrix'' to
+the matrix of the (triangular) linear operator that sends $f$ to $f +
+f'$. There is some pretty mathematics going on here that is not
+completely accessible to you. (End note)
+
+We see that in order to solve $f + f' = g$, our approach was:
+
+\begin{enumerate}
+\item First make a guess about the {\em general form} of $f$ (in our
+  case, we guessed that $f$ is a polynomial).
+\item Next, use the constraints to reduce the general form to a form
+  with a finite number of unknown parameters (in our case, we noted
+  that $f$ has the same degree and leading coefficient as $g$, and the
+  other coefficients were the unknown parameters).
+\item Next, use the constraint $f + f' = g$ to obtain a system of
+  (typically linear) equations in the unknown parameters. (In our
+  case, the system was triangular).
+\item Finally, solve that system of linear equations.
+\item Check that the final solution you get is correct (we didn't need
+  to do this in our case, but it is advisable in general).
+\end{enumerate}
+
+We see that for things trickier than polynomials, step (1) is the most
+intimidating step, which is why this approach often flounders, and we
+decide to try integration by parts on $\int e^x g(x) \, dx$ instead.
+
+On the other hand, we are sometimes able to make inspired guesses even
+outside the polynomial guesses. For instance, for the integral $\int
+e^x \cos x \, dx$, we need to find $f$ such that $f + f' = \cos$. A
+nice guess is that $f = A \cos + B \sin$ for constants $A$ and $B$. We
+thus get:
+
+$$f'(x) = -A \sin x + B \cos x$$
+
+and:
+
+$$f(x) + f'(x) = (A + B) \cos x + (B - A)\sin x$$
+
+Thus:
+
+$$\cos x \equiv (A + B) \cos x + (B - A) \sin x$$
+
+Comparing coefficients, we see that $A + B = 1$ and $B - A = 0$,
+yielding that $A = B = 1/2$. We thus get $f(x) = (\cos x + \sin
+x)/2$. This is the same as the answer we got using integration by
+parts.
+
+\subsection{Integration by parts and dealing with unsimplified stuff}
+
+Suppose that, after integration by parts, we get an equality of the form:
+
+$$\int A(x) \, dx = P(x) + \int Q(x) \, dx$$
+
+Suppose that we now need to evaluate this between limits $a$ and
+$b$. The way we do this is:
+
+$$\int_a^b A(x) \, dx = [P(x)]_a^b + \int_a^b Q(x) \, dx = P(b) - P(a) + \int_a^b Q(x) \, dx$$
+
+In other words, for the parts that are still under the integral sign,
+we put the upper and lower limits on the integral sign. For the parts
+that have already been simplified, we do the evaluation between
+limits.
+
+\subsection{Repeated integration and integration of products with polynomials}
+
+We note the following equivalence:
+
+We know how to integrate $f$ twice $\iff$ We know how to integrate $f$
+and $xf(x)$.
+
+This is essentially a direct application of integration by parts. This
+is also related to the problem about Taylor series in advanced
+homework 2. For instance, if we start by integrating $xf(x)$ taking
+$f$ as the second part, we see that this reduces to integrating $f$
+once and twice.
+
+More generally:
+
+We know how to integrate $f$ $n$ times $\iff$ We know how to integrate
+$f$, $xf(x)$, $x^2f(x)$, $\dots$, $x^{n-1}f(x)$
+
+We note two applications:
+
+\begin{enumerate}
+\item Using repeated integrability to deduce integrability of products
+  with polynomials: Using the fact that $\cos$ and $\sin$ can be
+  integrated repeatedly, we obtain that any polynomial times $\cos$ or
+  $\sin$ can be integrated. On the other hand, since $\tan$ cannot be
+  integrated twice, we cannot integrate $x\tan x$.
+\item Using integrability of products with polynomials to deduce
+  repeated integrability: We begin with the ``fact'' (that we have not
+  yet established) that every rational function can be integrated
+  once. We want to argue that every rational function can be
+  integrated any number of times. To do this, we note that in order to
+  integrate a rational function $f$ $n$ times, we need to know how to
+  integrate $f$. $xf(x)$, $x^2f(x)$, and so on, up till
+  $x^{n-1}f(x)$. But all these are again rational functions, so we can
+  integrate all of them. Thus, a rational function can be repeatedly
+  integrated.
+\end{enumerate}
+\end{document}

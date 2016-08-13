@@ -1,0 +1,589 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: January 20: Mixed bowl of hard nuts}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$11$ people took this $14$-question quiz. The score distribution was
+as follows:
+
+\begin{itemize}
+\item Score of $4$: $1$ person
+\item Score of $7$: $2$ people
+\item Score of $10$: $1$ person
+\item Score of $11$: $1$ person
+\item Score of $12$: $1$ person
+\item Score of $13$: $1$ person
+\item Score of $14$: $4$ people
+\end{itemize}
+
+The mean score was $10.9$. The problem wise answers as as follows:
+
+\begin{enumerate}
+\item Option (B): $9$ people
+\item Option (B): $9$ people
+\item Option (B): $9$ people
+\item Option (D): $7$ people
+\item Option (D): $10$ people
+\item Option (B): $9$ people
+\item Option (B): $8$ people
+\item Option (A): $7$ people
+\item Option (C): $8$ people
+\item Option (A): $8$ people
+\item Option (C): $9$ people
+\item Option (E): $10$ people
+\item Option (C): $10$ people
+\item Option (E): $7$ people
+\end{enumerate}
+\section{Solutions}
+
+\begin{enumerate}
+\item Which of the following statements is {\bf always true}? 
+
+  \begin{enumerate}[(A)]
+  \item The range of a continuous nonconstant function on an open
+    bounded interval (i.e., an interval of the form $(a,b)$) is an
+    open bounded interval (i.e., an interval of the form $(m,M)$).
+  \item The range of a continuous nonconstant function on a closed
+    bounded interval (i.e., an interval of the form $[a,b]$) is a
+    closed bounded interval (i.e., an interval of the form $[m,M]$).
+  \item The range of a continuous nonconstant function on an open
+    interval that may be bounded or unbounded (i.e., an interval of
+    the form $(a,b)$,$(a,\infty)$, $(-\infty,a)$, or
+    $(-\infty,\infty)$), is also an open interval that may be bounded
+    or unbounded.
+  \item The range of a continuous nonconstant function on a closed
+    interval that may be bounded or unbounded (i.e., an interval of
+    the form $[a,b]$, $[a,\infty)$, $(-\infty,a]$, or
+    $(-\infty,\infty)$) is also a closed interval that may be bounded
+    or unbounded.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: This is a combination of the extreme-value
+  theorem and the intermediate-value theorem. By the extreme-value
+  theorem, the continuous function attains a minimum value $m$ and a
+  maximum value $M$. By the intermediate-value theorem, it attains
+  every value between $m$ and $M$. Further, it can attain no other
+  values because $m$ is after all the minimum and $M$ the maximum.
+
+  {\em The other choices}:
+
+  Option (A): Think of a function that increases first and then
+  decreases. For instance, the function $f(x) := \sqrt{1 - x^2}$ on
+  $(-1,1)$ has range $(0,1]$, which is not open. Or, the function
+  $\sin x$ on the interval $(0,2\pi)$ has range $[-1,1]$.
+
+  Option (C): The same counterexample as for option (A) works.
+
+  Option (D): We can get counterexamples for unbounded intervals. For
+  instance, consider the function $f(x) := 1/x$ on $[1,\infty)$. The
+  range of this function is $(0,1]$, which is not closed. The idea is
+  that we make the function approach but not reach a finite value as
+  $x \to \infty$ (we'll talk more about this when we deal with
+  asymptotes).
+
+  {\em Performance review}: $9$ out of $11$ got this. $1$ chose (A)
+  and $1$ chose (C).
+
+  {\em Historical note (last year)}: $16$ out of $28$ people got this
+  correct. $7$ people chose (A), $2$ people each chose (C) and (E),
+  and $1$ person chose (D).
+\item For which of the following specifications is there {\bf no
+  continuous function} satisfying the specifications? 
+
+  \begin{enumerate}[(A)]
+  \item Domain $(0,1)$ and range $(0,1)$
+  \item Domain $[0,1]$ and range $(0,1)$
+  \item Domain $(0,1)$ and range $[0,1]$
+  \item Domain $[0,1]$ and range $[0,1]$
+  \item None of the above, i.e., we can get a continuous function for
+    each of the specifications.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: By the extreme value theorem, any continuous
+  function on a closed bounded interval must attain its maximum and
+  minimum, and hence its image cannot be an open interval.
+
+  {\em The other choices}:
+
+  For options (A) and (D), we can pick the identity functions $f(x) :=
+  x$ on the respective domains.
+
+  For option (C), we can pick the function $f(x) := \sin^2(2\pi x)$ on
+  the domain $(0,1)$. 
+
+  {\em Performance review}: $9$ out of $11$ got this. $2$ chose (C).
+
+  {\em Historical note (last year)}: $21$ out of $28$ people got this
+  correct. $5$ people chose (C) and $2$ people chose (E).
+
+\item Suppose $f$ is a continuously differentiable function from the
+  open interval $(0,1)$ to $\R$. Suppose, further, that there are
+  exactly $14$ values of $c$ in $(0,1)$ for which $f(c) = 0$. What can
+  we say is {\bf definitely true} about the number of values of $c$ in
+  the open interval $(0,1)$ for which $f'(c) = 0$? 
+
+  \begin{enumerate}[(A)]
+  \item It is at least $13$ and at most $15$.
+  \item It is at least $13$, but we cannot put any upper bound on it
+    based on the given information.
+  \item It is at most $15$, but we cannot put any lower bound (other
+  than the meaningless bound of $0$) based on the given information.
+  \item It is at most $13$.
+  \item It is at least $15$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Suppose the zeros of $f$ are $a_1 < a_2 < \dots <
+  a_{14}$. By Rolle's theorem, there is {\em at least one} zero of
+  $f'$ between each $a_i$ and $a_{i+1}$. There may be more, since
+  Rolle's theorem gives only a {\em lower} bound. This gives thirteen
+  solutions $c$ to $f'(c) = 0$.
+
+  Note that in order to apply Rolle's theorem, it is enough to be
+  given that $f$ is differentiable, so the additional hypothesis that
+  $f'$ is continuous is not necessary.
+
+  {\em Performance review}: $9$ out of $11$ got this. $2$ chose (A).
+
+  {\em Historical note (last year)}: $19$ out of $28$ people got this
+  correct. $5$ people chose (A), $2$ people chose (C), and $1$ person
+  each chose (D) and (E).
+\item Consider the function $f(x) := \lbrace\begin{array}{rl} x, & 0
+  \le x \le 1/2 \\ x - (1/7), & 1/2 < x \le 1 \\\end{array}$. Define by
+  $f^{[n]}$ the function obtained by iterating $f$ $n$ times, i.e.,
+  the function $f \circ f \circ f \circ \dots \circ f$ where $f$
+  occurs $n$ times. What is the smallest $n$ for which $f^{[n]} =
+  f^{[n + 1]}$? {\em Earlier score: $3/16$}
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $5$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We need to iterate $f$ enough times that
+  everything gets inside $[0,1/2]$, after which it becomes
+  stable. Note that each time, the value goes down by $1/7$. Thus, for
+  any $x \le 1$, we need at most four steps to bring it in $[0,1/2]$,
+  with the upper bound of $4$ being attained for $1$.
+
+  {\em Performance review}: $7$ out of $11$ got this. $3$ chose (C),
+  $1$ chose (A).
+
+  {\em Historical note (last year)}: $10$ out of $28$ people got this
+  correct. $9$ people chose (C), $5$ people chose (B), $2$ people
+  chose (A), and $2$ people left the question blank.
+\item Suppose $f$ and $g$ are functions $(0,1)$ to $(0,1)$ that are
+  both right continuous on $(0,1)$. Which of the following is {\em
+  not} guaranteed to be right continuous on $(0,1)$? {\em Earlier
+  scores: $3/11$, $9/14$}
+
+  \begin{enumerate}[(A)]
+  \item $f + g$, i.e., the function $x \mapsto f(x) + g(x)$
+  \item $f - g$, i.e., the function $x \mapsto f(x) - g(x)$
+  \item $f \cdot g$, i.e., the function $x \mapsto f(x)g(x)$
+  \item $f \circ g$, i.e., the function $x \mapsto f(g(x))$
+  \item None of the above, i.e., they are all guaranteed to be right
+    continuous functions
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: See the explanation for Question 2 on the October
+  1 quiz. Note that that quiz uses left continuity, but the example
+  can be adapted to right continuity.
+
+  {\em Performance review}: $10$ out of $11$ got this. $1$ chose (B).
+
+  {\em Historical note (last year)}: $20$ out of $28$ people got this
+  correct. $4$ people chose (C), $2$ people chose (B), $1$ person
+  chose (E), and $1$ person left the question blank.
+\item Suppose $f$ and $g$ are increasing functions from $\R$ to
+  $\R$. Which of the following functions is {\em not} guaranteed to be
+  an increasing functions from $\R$ to $\R$? {\em Earlier scores:
+  $1/15$, $9/16$}
+
+  \begin{enumerate}[(A)]
+
+  \item $f + g$
+  \item $f \cdot g$
+  \item $f \circ g$
+  \item All of the above, i.e., none of them is guaranteed to be increasing.
+  \item None of the above, i.e., they are all guaranteed to be increasing.
+  \end{enumerate}
+
+      {\em Answer}: Option (B)
+
+  {\em Explanation}: The problem with option (B) arises when one or
+  both functions take negative values. For instance, consider the case
+  $f(x) := x$ and $g(x) := x$. Both are increasing functions on all of
+  $\R$. However, the pointwise product is the function $x \mapsto
+  x^2$, which is a decreasing function for negative $x$.
+
+  Formally, the issue is that we cannot multiply inequalities of the
+  form $A < B$ and $C < D$ unless we are guaranteed to be working with
+  positive numbers.
+
+  {\em The other choices}:
+
+  Option (A): For any $x_1 <
+  x_2$, we have $f(x_1) < f(x_2)$ and $g(x_1) < g(x_2)$. Adding up, we
+  get $f(x_1) + g(x_1) < f(x_2) + g(x_2)$, so $(f + g)(x_1) < (f + g)(x_2)$.
+
+  Option (C): For any $x_1 < x_2$, we have $g(x_1) < g(x_2)$ since $g$
+  is increasing. Now, we use the factthat $f$ is increasing to compare
+  its values at the two points $g(x_1)$ and $g(x_2)$, and we get
+  $f(g(x_1)) < f(g(x_2))$. We thus get $(f \circ g)(x_1) < (f \circ
+  g)(x_2)$.
+
+  {\em Performance review}: $9$ out of $11$ got this. $2$ chose (C).
+
+  {\em Historical note (last year)}: $18$ out of $28$ people got this
+  correct. $6$ people chose (E) and $4$ people chose (C).
+
+\item Suppose $F$ and $G$ are two functions defined on $\R$ and $k$ is
+  a natural number such that the $k^{th}$ derivatives of $F$ and $G$
+  exist and are equal on all of $\R$. Then, $F - G$ must be a
+  polynomial function. What is the {\bf maximum possible degree} of $F
+  - G$?  (Note: Assume constant polynomials to have degree zero) {\em
+  Earlier score: $6/16$}
+
+  \begin{enumerate}[(A)]
+  \item $k - 2$
+  \item $k - 1$
+  \item $k$
+  \item $k + 1$
+  \item There is no bound in terms of $k$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: $F$ and $G$ having the same $k^{th}$ derivative
+  is equivalent to requiring that $F - G$ have $k^{th}$ derivative
+  equal to zero. For $k = 1$, this gives constant functions
+  (polynomials of degree $0$). Each time we increment $k$, the degree
+  of the polynomial could potentially go up by $1$. Thus, the answer
+  is $k - 1$.
+
+  {\em Performance review}: $8$ out of $11$ got this. $2$ chose (E),
+  $1$ chose (D).
+
+  {\em Historical note (last year)}: $10$ out of $28$ people got this
+  correct. $5$ people each chose (D) and (E) and $4$ people each chose
+  (A) and (C).
+
+  {\em Action point}: This is a question you really {\em should} get
+  correct!
+\item Suppose $f$ is a continuous function on $\R$. Clearly, $f$ has
+  antiderivatives on $\R$. For all but one of the following
+  conditions, it is possible to guarantee, without any further
+  information about $f$, that there exists an antiderivative $F$
+  satisfying that condition. {\bf Identify the exceptional condition}
+  (i.e., the condition that it may not always be possible to
+  satisfy). {\em Earlier score: $3/16$}
+
+  \begin{enumerate}[(A)]
+  \item $F(1) = F(0)$.
+  \item $F(1) + F(0) = 0$.
+  \item $F(1) + F(0) = 1$.
+  \item $F(1) = 2F(0)$.
+  \item $F(1)F(0) = 0$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Suppose $G$ is an antiderivative for $f$. The
+  general expression for an antiderivative is $G + C$, where $C$ is
+  constant. We see that for options (b), (c), and (d), it is always
+  possible to solve the equation we obtain to get one or more real
+  values of $C$. However, (a) simplifies to $G(1) + C = G(0) + C$,
+  whereby $C$ is canceled, and we are left with the statement $G(1) =
+  G(0)$. If this statement is true, then {\em all} choices of $C$
+  work, and if it is false, then {\em none} works. Since we cannot
+  guarantee the truth of the statement, (a) is the exceptional
+  condition.
+
+  Another way of thinking about this is that $F(1) - F(0) = \int_0^1
+  f(x) \, dx$, regardless of the choice of $F$. If this integral is
+  $0$, then any antiderivative works. If it is not zero, no
+  antiderivative works.
+
+  {\em Performance review}: $7$ out of $11$ got this. $3$ chose (D),
+  $1$ chose (E).
+
+  {\em Historical note (last year)}: $10$ out of $28$ people got this
+  correct. $6$ people chose (B), $5$ people chose (E), $4$ people
+  chose (D), $2$ people chose (C), and $1$ person left the question
+  blank.
+\item Suppose $F$ is a function defined on $\R \setminus \{ 0 \}$ such
+  that $F'(x) = -1/x^2$ for all $x \in \R \setminus \{ 0 \}$. Which of
+  the following pieces of information is/are {\bf sufficient} to determine
+  $F$ completely? {\em Earlier score: $4/16$}
+  \begin{enumerate}[(A)]
+  \item The value of $F$ at any two positive numbers.
+  \item The value of $F$ at any two negative numbers.
+  \item The value of $F$ at a positive number and a negative number.
+  \item Any of the above pieces of information is sufficient, i.e., we
+    need to know the value of $F$ at any two numbers.
+  \item None of the above pieces of information is sufficient.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: There are two open intervals: $(-\infty,0)$ and
+  $(0,\infty)$, on which we can look at $F$. On each of these
+  intervals, $F(x) = 1/x + $ a constant, but the constant for
+  $(-\infty,0)$ may differ from the constant for $(0,\infty)$. Thus,
+  we need the initial value information at one positive number and one
+  negative number.
+
+  {\em Performance review}: $8$ out of $11$ got this. $3$ chose (D).
+
+  {\em Historical note (last year)}: $15$ out of $28$ people got this
+  correct. $9$ people chose (D), $2$ people chose (E), and $1$ person
+  each chose (A) and (B).
+
+\item Suppose $F$ and $G$ are continuously differentiable functions on
+  all of $\R$ (i.e., both $F'$ and $G'$ are continuous). Which of the
+  following is {\bf not necessarily true}? {\em Earlier scores: $0$,
+  $10/16$}
+
+  \begin{enumerate}[(A)]
+  \item If $F'(x) = G'(x)$ for all integers $x$, then $F - G$ is a
+    constant function when restricted to integers, i.e., it takes the
+    same value at all integers.
+  \item If $F'(x) = G'(x)$ for all numbers $x$ that are not integers,
+    then $F - G$ is a constant function when restricted to the set of
+    numbers $x$ that are not integers.
+  \item If $F'(x) = G'(x)$ for all rational numbers $x$, then $F - G$
+    is a constant function when restricted to the set of rational
+    numbers.
+  \item If $F'(x) = G'(x)$ for all irrational numbers $x$, then $F -
+    G$ is a constant function when restricted to the set of irrational
+    numbers.
+  \item None of the above, i.e., they are all necessarily true.
+  \end{enumerate}
+
+  {\em Answer}: Option (A).
+
+  {\em Explanation}: The fact that the derivatives of two functions
+  agree at integers says nothing about how the derivatives behave
+  elsewhere -- they could differ quite a bit at other places. Hence,
+  (A) is not necessarily true, and hence must be the right option. All
+  the other options are correct as statements and hence cannot be the
+  right option. This is because in all of them, the set of points
+  where the derivatives agree is {\em dense} -- it intersects every
+  open interval. So, continuity forces the functions $F'$ and $G'$ to
+  be equal everywhere, forcing $F - G$ to be constant everywhere.
+
+  {\em Performance review}: $8$ out of $11$ got this. $2$ chose (E),
+  $1$ chose (D).
+
+  {\em Historical note (last year)}: $11$ out of $28$ people got this
+  correct. $8$ people chose (E), $5$ people chose (C), and $2$ people
+  each chose (B) and (D).
+\item Consider the four functions $\sin(\sin x)$, $\sin(\cos x)$,
+  $\cos(\sin x)$, and $\cos(\cos x)$. Which of the following
+  statements are true about their periodicity? {\em Earlier score:
+  $5/16$}
+
+  \begin{enumerate}[(A)]
+  \item All four functions are periodic with a period of $\pi$.
+  \item All four functions are periodic with a period of $2\pi$.
+  \item $\cos(\sin x)$ and $\cos(\cos x)$ have a period of $\pi$,
+    whereas $\sin(\sin x)$ and $\sin(\cos x)$ have a period of $2\pi$.
+  \item $\sin(\sin x)$ and $\sin(\cos x)$ have a period of $\pi$,
+    whereas $\cos(\sin x)$ and $\cos(\cos x)$ have a period of $2\pi$.
+  \item $\sin(\sin x)$ has a period of $2\pi$, the other three
+    functions have a period of $\pi$.
+  \end{enumerate}
+  
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Since the inner functions in all cases have a
+  period of $2\pi$, it is clear that all the four functions have a
+  period of at most $2\pi$, in fact, the period of each divides
+  $2\pi$. The crucial question is which of them have the smaller
+  period $\pi$.
+
+  Let's look at $\sin \circ \sin$ first. We have:
+
+  $$\sin(\sin(x + \pi)) = \sin(-\sin x) = - \sin(\sin x)$$
+
+  So, we see that that value at $x + \pi$ is the negative, and hence
+  usually not the equal, of the value at $x$. Similarly:
+
+  $$\sin(\cos(x + \pi)) = \sin(-\cos x) = -\sin(\cos x)$$
+
+  On the other hand, for the functions that have a $\cos$ on the
+  outside, the negative sign on the inside gets eaten up by the even
+  nature of the outer function. For instance:
+
+  $$\cos(\sin(x + \pi)) = \cos(-\sin x) = \cos(\sin x)$$
+
+  and:
+
+  $$\cos(\cos(x + \pi)) = \cos(-\cos x) = \cos(\cos x)$$
+
+  Now, this is not a proof that $\pi$ is strictly the smallest period
+  for these functions, but that can be proved using other methods. In
+  any case, given the choices presented, it is now easy to single out
+  (D) as the only correct answer.
+
+  The key feature here is that both $\sin$ and $\cos$ (viewed as the
+  inner functions of the composition) have {\em anti-period} $\pi$:
+  their value gets negated after an interval of $\pi$.
+
+  The outer function $\cos$ is even, hence it converts an anti-period
+  for the inner function into a period for the overall function. The
+  outer function $\sin$ is odd, so it keeps anti-periods anti-periods.
+
+  {\em Performance review}: $9$ out of $11$ got this. $1$ chose (B),
+  $1$ chose (D).
+
+  {\em Historical note (last year)}: $14$ out of $28$ people got this
+  correct. $6$ people chose (D), $3$ people chose (B), $2$ people each
+  chose (A) and (E), and $1$ person left the question blank.
+\item Suppose $f$ is a one-to-one function with domain a closed
+  interval $[a,b]$ and range a closed interval $[c,d]$. Suppose $t$ is
+  a point in $(a,b)$ such that $f$ has left hand derivative $l$ and
+  right-hand derivative $r$ at $t$, with both $l$ and $r$
+  nonzero. What is the left hand derivative and right hand derivative
+  to $f^{-1}$ at $f(t)$? {\em Earlier score: $6/15$}
+
+  \begin{enumerate}[(A)]
+  \item The left hand derivative is $1/l$ and the right hand
+    derivative is $1/r$.
+  \item The left hand derivative is $-1/l$ and the right hand
+    derivative is $-1/r$.
+  \item The left hand derivative is $1/r$ and the right hand
+    derivative is $1/l$.
+  \item The left hand derivative is $-1/r$ and the right hand
+    derivative is $-1/l$.
+  \item The left hand derivative is $1/l$ and the right hand
+    derivative is $1/r$ if $l > 0$, otherwise the left hand derivative
+    is $1/r$ and the right hand derivative is $1/l$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Although it isn't necessary to note this, a
+  one-to-one function that satisfies the intermediate value property
+  is continuous, so even though $f$ is not explicitly given to be
+  continuous, it is in fact continuous on its domain.
+
+  If $l > 0$, then, since we are dealing with a one-to-one function,
+  the function is increasing throughout, and so $r \ge 0$ as
+  well. Since we know $r \ne 0$, we conclude that $r > 0$
+  strictly. The upshot is that as $x \to t^-$, $f(x) \to f(t)^-$ and
+  as $x \to t^+$, $f(x) \to f(t)^+$. Thus, when we pass to the inverse
+  function, the roles of left and right remain the same.
+
+  On the other hand, if $l < 0$, then as $x \to t^-$, $f(x) \to
+  f(t)^+$, and hence the roles of left and right get interchanged.
+
+  {\em Performance review}: $10$ out of $11$ got this. $1$ chose (C).
+
+  {\em Historical note (last year)}: $16$ out of $28$ people got this
+  correct. $5$ people chose (A), $3$ people chose (B), and $2$ people
+  each chose (C) and (D).
+\item Which of these functions is one-to-one? {\em Earlier score:
+  $2/15$}
+
+  \begin{enumerate}[(A)]
+  \item $f_1(x) := \lbrace \begin{array}{rl} x, & x \text{ rational} \\ x^2, & x \text{ irrational}\\\end{array}$ 
+  \item $f_2(x) := \lbrace \begin{array}{rl} x, & x \text{ rational} \\ x^3, & x \text{ irrational}\\\end{array}$
+  \item $f_3(x) := \lbrace\begin{array}{rl} x, & x \text{ rational} \\ 1/(x - 1), & x \text{ irrational}\\\end{array}$
+  \item All of the above
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Option (A) is easy to rule out: $\sqrt{2}$ and
+  $-\sqrt{2}$ map to the same thing. Option (B) is a little harder to
+  rule out, because the function is one-to-one within each piece,
+  i.e., no two rationals map to the same thing and no two irrationals
+  map to the same thing. However, a rational and an irrational can map
+  to the same thing. For instance, $2$ and $2^{1/3}$ both map to $2$.
+
+  For option (C), note that not only is the map one-to-one in each
+  piece, but also, the image of the rationals stays inside the
+  rationals and the image of the irrationals stays inside the
+  irrationals. In particular, this means that a rational number and an
+  irrational number cannot map to the same thing, so the function is
+  globally one-to-one.
+
+  {\em Performance review}: $10$ out of $11$ got this. $1$ chose (B).
+
+  {\em Historical note (last year)}: $13$ out of $28$ people got this
+  correct. $6$ people each chose (B) and (D), $2$ people chose (E),
+  and $1$ person chose (A).
+
+\item Consider the following function $f:[0,1] \to [0,1]$ given by
+  $f(x) := \lbrace\begin{array}{rl} \sin(\pi x/2), & 0 \le x \le 1/2 \\
+  \sqrt{x}, & 1/2 < x \le 1\\\end{array}$. What is the correct
+  expression for $(f^{-1})'(1/2)$? {\em Earlier score: $1/15$}
+
+  \begin{enumerate}[(A)]
+  \item It does not exist, since the two-sided derivatives of $f$ at
+    $1/2$ do not match.
+  \item $\sqrt{2}$
+  \item $2\sqrt{2}/\pi$
+  \item $4/\pi$
+  \item $4/(\sqrt{3}\pi)$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: We use:
+
+  $$(f^{-1})'(1/2) = \frac{1}{f'(f^{-1}(1/2))}$$
+
+  By inspection, we see that $f^{-1}(1/2)$ must be between $0$ and
+  $1/2$. Thus, we must solve $\sin(\pi x/2) = 1/2$. This gives $\pi x
+  / 2 = \pi/6$ (considering domain restrictions) so $x = 1/3$. Thus, we get:
+
+  $$(f^{-1})'(1/2) = \frac{1}{f'(1/3)}$$
+
+  The expression for the derivative is $(\pi/2)\cos(\pi x/2)$, which
+  evaluated at $1/3$ gives $(\pi\sqrt{3})/4$. Taking the reciprocal,
+  we get $4/(\pi\sqrt{3})$.
+
+  Note that (A) is a sophisticated distractor in the sense that if you
+  naively consider:
+
+  $$(f^{-1})'(1/2) = \frac{1}{f'(1/2)}$$
+
+  You will wrongly conclude (A). (B) and (C) are the one-sided
+  derivative at $f(1/2)$, so these too are attractive propositions for
+  the naive.
+
+  {\em Performance review}: $7$ out of $11$ got this. $2$ chose (C),
+  $1$ each chose (A) and (B).
+
+  {\em Historical note (last year)}: $12$ people got this correct. $9$
+  people chose (A), $4$ people chose (B), and $3$ people chose (C).
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,168 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz: due Monday October 7: Linear functions and equation-solving (part 2)}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+Your name (print clearly in capital letters): $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+
+{\bf PLEASE DO {\em NOT} DISCUSS ANY QUESTIONS EXCEPT THE STARRED OR DOUBLE-STARRED QUESTIONS.}
+
+This quiz covers some basics involving linear functions and
+equation-solving (notes at {\tt Linear functions: a primer} and {\tt
+  Equation-solving with a special focus on the linear case}). The quiz
+tests for the following:
+
+\begin{itemize}
+\item The distinction between behavior relative to the variables (the
+  inputs) and behavior relative to the parameters.
+\item Counting the number of parameters by creating the explicit
+  general functional form from a verbal description (with a special
+  focus on polynomial functional forms).
+\item Figuring out how to ``ask the right questions'' with respect to
+  input choices, so that the answers provide meaningful
+  information. This builds towards the ideas of hypothesis testing,
+  rank, and overdetermination that we will see in the future.
+\end{itemize}
+
+\begin{enumerate}
+\item {\em Do not discuss this!}: Suppose $f$ is a polynomial function
+  of $x$ of degree at most a {\em known number} $n$. What is the
+  minimum number of (input,output) pairs that we need in order to
+  determine $f$ uniquely? {\em Extra information: Somewhat
+    surprisingly, in this case, we do not need to be judicious about
+    our input choices. Any set of distinct inputs of the required
+    number will do. This has something to do with the ``Vandermonde
+    matrix'' and ``Vandermonde determinant'' and is also related to
+    the Lagrange interpolation formula.}
+
+  \begin{enumerate}[(A)]
+  \item $n - 1$
+  \item $n$
+  \item $n + 1$
+  \item $2n$
+  \item $n^2$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+\item {\em Do not discuss this!}: $f$ is a polynomial function of two
+  variables $x$ and $y$ of total degree at most $2$. In other words,
+  for each monomial occurring in $f$, the total of the degrees of $x$
+  and $y$ in that monomial is at most $2$. No other information is
+  given about $f$. What is the minimum number of judiciously chosen
+  (input,output) pairs we need in order to determine $f$ uniquely?
+
+  \begin{enumerate}[(A)]
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $6$
+  \item $7$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+\item {\em Do not discuss this!}: $f$ is a polynomial function of two
+  variables $x$ and $y$ of total degree at most $3$. In other words,
+  for each monomial occurring in $f$, the total of the degrees of $x$
+  and $y$ in that monomial is at most $3$. No other information is
+  given about $f$. What is the minimum number of judiciously chosen
+  (input,output) pairs we need in order to determine $f$ uniquely?
+
+  \begin{enumerate}[(A)]
+  \item $3$
+  \item $6$
+  \item $8$
+  \item $9$
+  \item $10$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+\item (*) {\em The perils of overfitting; see also Occam's Razor}:
+  Suppose we are trying to model a function that we expect to behave
+  in a polynomial-like manner, though we don't really have a good
+  reason to believe this. Additionally, there is a possibility for
+  measurement error in our observations. Our goal is to find the
+  parameters so that we can both predict unmeasured values and do a
+  qualitative analysis of the nature of the function and its
+  derivatives and integrals.
+
+  We have a large number of observations (say, several thousands). We
+  could attempt to ``fit'' the function using a polynomial of degree
+  $n$ for some fixed $n$ using all those data points, and we will get
+  a certain ``best fit'' that minimizes the deviation between the
+  curve used for fitting and the function being fit. For instance, for
+  $n = 1$, we are trying to find the best fit by a straight line
+  function. For $n = 2$, we are trying to find the best fit by a
+  polynomial of degree at most $2$. We could try fitting using
+  different values of $n$. Which of the following is true?
+
+  {\em If you are interested in more on this, look up
+    ``overfitting''. A revealing quote is by mathematician and
+    computer scientist John von Neumann: ``With four parameters I can
+    fit an elephant. And with five I can make him wiggle his trunk.''
+    Another is by prediction guru Nate Silver: ``The wide array of
+    statistical methods available to researchers enables them to be no
+    less fanciful and no more scientific than a child finding animal
+    patterns in clouds.''}
+
+  \begin{enumerate}[(A)]
+  \item Larger values of $n$ give better fits, therefore the larger
+    the value of $n$ we use, the better.
+  \item Smaller values of $n$ give better fits, therefore the smaller
+    the value of $n$ we use, the better.
+  \item Larger values of $n$ give better fits, therefore the larger
+    the value of $n$ we use, the less impressive a good fit (i.e., low
+    deviation between the polynomial and the actual set of
+    observations) should be.
+  \item Smaller values of $n$ give better fits, therefore the smaller
+    the value of $n$ we use, the less impressive a good fit (i.e., low
+    deviation between the polynomial and the actual set of
+    observations) should be.
+  \item The value of $n$ we use for trying to get a good fit is
+    irrelevant. A good fit is a good fit, regardless of the type of
+    function used.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+\item (*) $F$ is an affine linear function of two variables $x$ and
+  $y$, i.e., it has the form $F(x,y) := ax + by + c$ with $a$, $b$,
+  and $c$ real numbers. We want to determine the values of the
+  parameters $a$, $b$, and $c$ by using input-output pairs. It is,
+  however, costly to find input-output pairs. We have already found
+  $F(1,3)$ and $F(3,7)$. We want to find $F$ for one other pair of
+  inputs to determine $a$, $b$, and $c$. Which of these will {\em not}
+  be a good choice?
+
+  \begin{enumerate}[(A)]
+  \item $F(2,2)$, i.e., the input $x = 2$, $y = 2$
+  \item $F(2,3)$, i.e., the input $x = 2$, $y = 3$
+  \item $F(2,4)$, i.e., the input $x = 2$, $y = 4$
+  \item $F(2,5)$, i.e., the input $x = 2$, $y = 5$
+  \item $F(2,6)$, i.e., the input $x = 2$, $y = 6$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,265 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Review sheet for midterm 1: advanced}
+\author{Math 196, Section 57 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Please bring a copy (print or readable electronic) of this sheet
+  to the review session.}
+
+There is also a basic review sheet that contains executive summaries
+of the lecture notes. You should review that on your own time.
+
+Many of the error-spotting exercises correspond to ideas that you have
+already seen in quiz questions. We have parenthetically indicated at
+the beginning of the question whether it corresponds to material seen
+in lecture (we use L for that) or in a quiz (we use Q for that). We
+preface with a $\sim$ if there is a considerable gap between the way
+the idea was presented in the earlier context and the way it is being
+tested now.
+
+\section{Linear functions: a primer}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+
+\item (L, Q): $f$ is a function of two variables $x$ and $y$ that is
+  postulated to be {\em affine} linear, i.e., linear with a possibly
+  nonzero intercept. Since there are two unknowns, knowing the value
+  of $f$ at $2$ points will help us find $f$ precisely (assuming it is
+  linear) and also provide independent verification of the linearity
+  of $f$.
+\item (L, Q): $f$ is a function of one variable. It is believed to be
+  a polynomial of degree at most $n$, where $n$ is a known positive
+  integer. In order to find the function $f$ (assuming that it is
+  indeed such a polynomial) we need to know the values of $f$ at $n$
+  points. If the goal is not merely to find $f$ conditional to its
+  being a polynomial of degree at most $n$ but also to obtain
+  independent confirmation of the hypothesis, we need to know the
+  values of $f$ at $n + 1$ points.
+\item (Q): Suppose $x \mapsto mx + c$ is a linear function of one
+  variable. We know the value of the function at two points, albeit
+  there are uncorrelated measurement errors with a fixed error
+  distribution at both points. Regardless of what two points we
+  choose, we will end up with the same error range in our estimate of
+  the function.
+\item A function is known to be of the form $t \mapsto A \sin(t +
+  \varphi)$ where $A$ and $\varphi$ are constants. We need to use
+  input-output pairs to find the function. We can do this by setting
+  up a system of equations that are linear in terms of the parameters
+  $A$ and $\varphi$. Given enough input-output pairs, we will be able
+  to determine $A$ and $\varphi$ uniquely.
+\end{enumerate}
+
+\section{Equation solving}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item (L): Consider the system of simultaneous (not necessarily
+  linear) equations:
+
+  \begin{eqnarray*}
+    f(x) & = & 0\\
+    g(y) & = & 0\\
+  \end{eqnarray*}
+
+  Suppose the set of solutions to the first equation viewed as an
+  equation in $x$ alone is $\{ x_1,x_2,\dots,x_n\}$ and the set of
+  solutions to the second equation viewed as an equation in $y$ alone
+  is $\{ y_1, y_2, \dots, y_n \}$. Then, the set of solutions to the
+  system as a whole, viewed as a system of equations in two variables,
+  is the following set of points in the $xy$-plane: $(x_1,y_1)$,
+  $(x_2,y_2)$, $(x_3,y_3)$, $\dots$, $(x_n,y_n)$.
+
+\item (L): Consider a triangular system of the form:
+
+  \begin{eqnarray*}
+    f(x) & = & 0\\
+    g(x,y) & = & 0 \\
+    h(x,y,z)&=& 0\\
+  \end{eqnarray*}
+
+  Suppose the following are true:
+
+  \begin{itemize}
+  \item The first equation has $2$ solutions for $x$. 
+  \item For each solution to the first equation, the second equation
+    has $3$ solutions for $y$.
+  \item For each choice of $x$ and $y$ that solve the first two
+    equations, the third equation has $4$ choices for $z$.
+  \end{itemize}
+
+  Then, the total number of solutions for the system is $2 + 3 + 4 =
+  9$.
+
+\item (L): Consider the system:
+
+  \begin{eqnarray*}
+    x + e^{x^2 - x - y} & = & 1 \\
+    y + xe^{x^2 - x - y} & = & 0 \\
+  \end{eqnarray*}
+
+  Subtract $x$ times the first equation from the second equation. We get:
+
+  $$y - x^2 = - x$$
+
+  Thus, $y = x^2 - x$. The solution set is thus the set of all points
+  on the parabolic curve $y = x^2 - x$.
+\item (Q, $\sim$L): If we are trying to find an existing function of
+  one or more variables based on some input-output values with some
+  measurement error, and we believe that the function is a polynomial
+  function but we don't know the degree, it makes sense to try to fit
+  using a polynomial function of as large a degree as we can
+  computationally afford. This is because the larger the degree of the
+  polynomial, the easier it is to get a good fit on a given collection
+  of input-output pairs. For instance, given three input-output pairs
+  for a function of one variable, we can always fit them perfectly
+  (with zero measurement error) using a quadratic, but it may be
+  difficult to fit them using a linear function. Larger degree
+  polynomials are better because we have more parameters to work with
+  and they offer us more flexibility. And more flexibility is always
+  good.
+\end{enumerate}
+
+\section{Gauss-Jordan elimination}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item (L, Q): Any process to solve an arbitrary linear system with $n$
+  equations and $n$ variables must take time of the order at least
+  $n^3$, because Gauss-Jordan elimination is $\Theta(n^3)$. This is
+  true even if we can pre-process the coefficient matrix of the linear
+  system.
+\item (L, $\sim$Q): If Gauss-Jordan elimination gives us a row in the
+  coefficient matrix that is all zeros, then the system of linear
+  equations cannot have a solution.
+\item (L, Q): The dimension of the solution space to a system of
+  simultaneous linear equations equals the number of leading variables
+  in the system. This number can be effectively computed by converting
+  the coefficient matrix to reduced row-echelon form and counting the
+  number of pivotal $1$s. The columns corresponding to these $1$s give
+  us the leading variables.
+\item (L): There is a shorter variant of Gauss-Jordan elimination called
+  Gaussian elimination. The idea here is to skip the step of clearing
+  out entries below the pivotal $1$s, but concentrate on clearing out
+  all entries above the pivotal $1$s. This gets us to a form where it
+  is easy to read the solutions and answer questions about the
+  rank. The form of matrix we obtain at the end of this process is
+  called the {\em row-echelon form}.
+\item (L, Q): A system of linear equations is inconsistent if and only
+  if there is a row of the coefficient matrix that is all zeros such
+  that the corresponding augmenting entry is nonzero.
+\end{enumerate}
+
+\section{Linear systems and matrix algebra}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item (L): If the rank of the coefficient matrix of a linear system
+  equals the number of rows, then the system is consistent and has a
+  unique solution. Otherwise, it may or may not be consistent, and if
+  it is consistent, it has infinitely many solutions.
+\item ($\sim$L): If the number of columns in the coefficient matrix of a linear
+  system is less than the number of rows, then the system has either
+  no solution or a unique solution. It cannot have infinitely many
+  solutions.
+\item ($\sim$L): If the number of rows in the coefficient matrix of a linear
+  system is less than the number of columns, then the system has
+  either a unique solution or infinitely many solutions. In other
+  words, it must be consistent.
+\item ($\sim$L): A matrix has full row rank if and only if none of its
+  rows is a zero row {\em and} no row is a multiple of another
+  row. This is because, if both these conditions are satisfied, no two
+  rows are dependent on each other. From the equational perspective,
+  it means that every pair of equations is independent, so the
+  equations are all independent of each other.
+\item (Q): Let $m$, $n$, and $k$ be natural numbers with $m \ge 3$. We are
+  given a bunch of numbers $x_0 < x_1 < x_2< \dots<x_m$ and another bunch of
+  numbers $y_0,y_1,y_2,\dots,y_m$. We want to find a continuous function
+  $f$ on $[x_0,x_m]$, such that $f(x_i) = y_i$ for all $0 \le i \le
+  m$, and such that the restriction of $f$ to any interval of the form
+  $[x_i,x_{i+1}]$ (for $0 \le i \le m - 1$) is a polynomial of degree
+  $\le n$. Further, we want $f$ to be at least $k$ times
+  differentiable on the open interval $(x_0,x_m)$. Let's try to see
+  how many equations we can get from the constraints.
+
+  We have $m + 1$ equations of the form $f(x_i) = y_i$. In addition, at
+  each point of transition, we know that the first $k$ derivatives
+  have to match up. There are $m - 1$ transition points and $k$
+  derivatives to compare, so we get $k(m - 1)$ equations that way. In
+  total we thus have $k(m - 1) + m + 1$ equations. The number of
+  parameters is $mn$, because we have $m$ pieces, and polynomials of
+  degree $n$ in each piece, so $n$ parameters for the coefficients in
+  each piece.
+
+  Thus, we have $k(m - 1) + m + 1$ equations in $mn$ variables that we
+  need to solve.
+\end{enumerate}
+
+\section{Hypothesis testing, rank, and overdetermination}
+
+Nothing here (but some of these ideas appear in the error-spotting
+exercises for earlier sections).
+
+\section{Linear transformations}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item (L, Q): Suppose $T: \R^m \to \R^n$ is a linear
+  transformation. If $m < n$, $T$ is injective but not surjective. If
+  $m > n$, $T$ is surjective but not injective. If $m = n$, $T$ is
+  bijective, and hence invertible.
+\item (L, Q): Let $A$ be a $m \times n$ matrix that defines a linear
+  transformation $T: \R^n \to \R^m$ by $T(\vec{x}) = A\vec{x}$. Denote
+  by $\vec{e}_i$ the vector in $\R^n$ with a $1$ in the $i^{th}$
+  coordinate and $0$s elsewhere. Then, $T(\vec{e}_i)$ is the $i^{th}$
+  row of $A$.
+\item A matrix $A$ is termed {\em self-inverse} if $A = A^{-1}$. The
+  only self-inverse $2 \times 2$ matrices are the diagonal matrices
+  where each diagonal entry is either $1$ or $-1$.
+\end{enumerate}
+
+{\bf PLEASE TURN OVER FOR THE PRACTICE WORKSHEET}.
+
+\newpage
+
+\section{Practice worksheet: guiding questions}
+
+\begin{enumerate}
+\item I have an unknown function $f$ of one variable. I know $f(-1)$,
+  $f(0)$, $f(1)$, and $f(3)$ (but I haven't told you these values). If
+  I assumed that $f$ was a polynomial of degree $\le d$, I could use
+  input-output pairs to construct a linear system. The coefficient
+  matrix depends only on the inputs.
+
+  Suppose $d = 2$. Can you enumerate the parameters, then construct
+  the coefficient matrix? Row reduce the coefficient matrix, and store
+  all your steps. I will then provide you with an augmenting column,
+  and you should be able to quickly determine $f$ (if it exists).
+
+  Employ the same procedure for $d = 3$.
+
+\item I have a function $f$ that is continuous on $[0,3]$,
+  differentiable on $(0,3)$, and piecewise quadratic, with the pieces
+  on which it is quadratic being the $[0,1]$, $[1,2]$, and
+  $[2,3]$. I'm going to give you the values $f(0)$, $f(1)$, $f(2)$,
+  and $f(3)$. I will also give you the right hand derivative at
+  $0$. How would you use this information to find $f$?  I'll give
+  actual numerical examples in the session (or perhaps you can give
+  each other actual numerical examples in the session).
+
+\item What are the properties of $n \times m$ matrices with randomly
+  chosen entries in terms of whether the system is consistent, and
+  what the dimension of the solution space is? Start by noting that
+  the rank is almost certainly $\min \{ m,n \}$. A general rule of
+  thumb is that anything whose truth requires two independent random
+  values to coincide will almost certainly not happen.
+\end{enumerate}
+\end{document}

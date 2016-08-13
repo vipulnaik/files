@@ -1,0 +1,313 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: January 30: Partial fractions and radicals}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$11$ people took this $8$-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $3$: $2$ people.
+\item Score of $4$: $4$ people.
+\item Score of $5$: $4$ people.
+\item Score of $6$: $1$ person.
+\end{itemize}
+
+The mean score was $4.36$.
+
+Here is the performance summary by question:
+
+\begin{enumerate}
+\item Option (D): $10$ people.
+\item Option (D): $7$ people.
+\item Option (B): $1$ person.
+\item Option (B): $8$ people.
+\item Option (D): $2$ people.
+\item Option (E): $4$ people. {\em This will come up again later in
+  the course, so you might benefit from internalizing the answer right
+  now.}
+\item Option (D): $10$ people.
+\item Option (D): $6$ people.
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+\item Which of these functions of $x$ is {\em not} elementarily
+  integrable?
+
+  \begin{enumerate}[(A)]
+  \item $x\sqrt{1 + x^2}$
+  \item $x^2\sqrt{1 + x^2}$
+  \item $x(1 + x^2)^{1/3}$
+  \item $x\sqrt{1 + x^3}$
+  \item $x^2\sqrt{1 + x^3}$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {|em Explanation}: For options (A) and (C), the substitution $u = 1
+  + x^2$ works fine. For option (E), the substitution $u = 1 + x^3$
+  works fine. For option (B), we can solve the problem using a
+  trigonometric substitution. This leaves option (D) (which,
+  incidentally, requires the use of elliptic integrals).
+
+  {\em Performance review}: $10$ out of $11$ got this correct. $1$
+  chose (C).
+
+  {\em Historical note (last year)}: $22$ out of $27$ people got this
+  correct. $4$ people chose (B) and $1$ person chose (C).
+\item For which of these functions of $x$ does the antiderivative
+  necessarily involve {\em both} $\arctan$ {\em and} $\ln$?
+
+  \begin{enumerate}[(A)]
+  \item $1/(x + 1)$
+  \item $1/(x^2 + 1)$
+  \item $x/(x^2 + 1)$
+  \item $x/(x^3 + 1)$
+  \item $x^2/(x^3 + 1)$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Option (A) integrates to $\ln|x|$, option (B)
+  integrates to $\arctan x$, option (C) integrates to $(1/2) \ln(x^2 +
+  1)$, and option (E) integrates to $(1/3) \ln|x^3 + 1|$. For option
+  (D), we need to use partial fractions with denominators $x + 1$ and
+  $x^2 - x + 1$, and we end up getting nonzero coefficients on terms
+  that integrate to $\ln$ and to $\arctan$.
+
+  {\em Performance review}: $7$ out of $11$ got it. $3$ chose (C), $1$
+  chose (B).
+
+  {\em Historical note (last year)}: $21$ out of $27$ people got this
+  correct. $2$ people chose (E), and $1$ person each chose (A), (B),
+  and (C). $1$ person left the question blank.
+
+\item Consider the function $f(k) := \int_1^2 \frac{dx}{\sqrt{x^2 +
+  k}}$. $f$ is defined for $k \in (-1,\infty)$. What can we say about
+  the nature of $f$ within this interval?
+
+  \begin{enumerate}[(A)]
+  \item $f$ is increasing on the interval $(-1,\infty)$.
+  \item $f$ is decreasing on the interval $(-1,\infty)$.
+  \item $f$ is increasing on $(-1,0)$ and decreasing on $(0,\infty)$.
+  \item $f$ is decreasing on $(-1,0)$ and increasing on $(0,\infty)$.
+  \item $f$ is increasing on $(-1,0)$, decreasing on $(0,2)$, and
+    increasing again on $(2,\infty)$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: For any fixed value of $x \in [1,2]$, the
+  integrand $1/\sqrt{x^2 + k}$ is a {\em decreasing} function of $k$
+  for $k \in (-1,\infty)$. Hence, the value we get upon integrating it
+  for $x \in [1,2]$ should also be a decreasing function of $k$.
+
+  {\em Performance review}: $1$ out of $11$ got this. $4$ chose(D),
+  $3$ chose (E), $2$ chose (C), $1$ chose (A).
+
+  {\em Historical note (last year)}: $4$ out of $27$
+  people got this correct. $11$ people chose (A), $7$ people chose
+  (C), $3$ people chose (D), $1$ person chose (E), and $1$ person left
+  the question blank.
+
+  Mainly, people confused the roles of the dummy variable $x$ (which
+  gets integrated away) and the variable $k$.
+
+  {\em Action point}: This is qualitatively similar to Question 9 on
+  the midterm and a corresponding question on the mock midterm. The
+  solution approach is also the same. After reviewing this solution,
+  you may wish to take another look at that question.
+
+\item Suppose $F$ is a (not known) function defined on $\R \setminus
+  \{ -1,0,1\}$, differentiable everywhere on its domain, such that
+  $F'(x) = 1/(x^3 - x)$ everywhere on $\R \setminus \{-1,0,1\}$. For
+  which of the following sets of points is it true that knowing the
+  value of $F$ at these points {\bf uniquely} determines $F$?
+
+  \begin{enumerate}[(A)]
+  \item $\{ -\pi, -e, 1/e,1/\pi \}$
+  \item $\{ -\pi/2, -\sqrt{3}/2, 11/17,\pi^2/6 \}$
+  \item $\{ -\pi^3/7,-\pi^2/6,\sqrt{13},11/2 \}$
+  \item Knowing $F$ at any of the above determines the value of $F$
+    uniquely.
+  \item None of the above works to uniquely determine the value of
+    $F$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The domain of $F$ has four connected components:
+  the open intervals $(-\infty,-1)$, $(-1,0)$, $(0,1)$, and
+  $(1,\infty)$. We need to know the value of $F$ at one point in each
+  of these intervals. By computing values, we see that the set of
+  points in option (B) has the property that it contains one point in
+  each of these intervals, and those in options (A) and (C) do not.
+
+  {\em Performance review}: $8$ out of $11$ got this. $2$ chose (D)
+  and $1$ chose (C).
+
+  {\em Historical note (last year)}: $14$ out of $27$ people got this
+  correct. $6$ people chose (D), $4$ people chose (C), and $3$ people
+  chose (A).
+
+  Many people spent time trying to determine the coefficients of the
+  partial fraction decomposition. This is not relevant to what we need
+  to do in the question.
+
+  {\em Action point}: The idea here (that you need to know the value
+  at one point in each connected component) is a crucial one that you
+  should understand.
+
+\item Consider a rational function $f(x) := p(x)/q(x)$ where $p$ and
+  $q$ are nonzero polynomials and the degree of $p$ is strictly less
+  than the degree of $q$. Suppose $q(x)$ is monic of degree $n$ and
+  has $n$ distinct real roots $a_1,a_2,\dots,a_n$, so $q(x) =
+  \prod_{i=1}^n (x - a_i)$. Then, we can write:
+
+  $$f(x) = \frac{c_1}{x - a_1} + \frac{c_2}{x - a_2} + \dots + \frac{c_n}{x - a_n}$$
+
+  for suitable constants $c_i \in \R$. What can we say about the sum
+  $\sum_{i=1}^n c_i$?
+
+  \begin{enumerate}[(A)]
+  \item The sum is always $0$.
+  \item The sum equals the leading coefficient of $p$.
+  \item The sum is $0$ if $p$ has degree $n - 1$. If the degree of $p$
+  is smaller, the sum equals the leading coefficient of $p$.
+  \item The sum is $0$ if $p$ has degree smaller than $n - 1$. If $p$
+    has degree equal to $n - 1$, the sum is the leading coefficient of
+    $p$.
+  \item The sum is $0$ if $p$ is a constant polynomial. Otherwise, it
+    equals the leading coefficient of $p$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: If we take a common denominator and simplify the
+  right side, we see that the coefficient of $x^{n-1}$ on the
+  numerator of the right side is $\sum_{i=1}^n c_i$. Equating
+  coefficients, we obtain that the coefficient of $x^{n-1}$ on the
+  left side is also $\sum_{i=1}^n c_i$. If $p$ has degree less than $n
+  - 1$, the coefficient on the left side is $0$, so $\sum_{i=1}^n c_i
+  = 0$. If $p$ has degree equal to $n - 1$, the coefficient on the
+  left side is the leading coefficient of $p$.
+
+  {\em Performance review}: $2$ out of $11$ got this. $8$ chose (E)
+  (which is pretty close) and $1$ chose (B).
+
+  {\em Historical note (last year)}: $12$ out of $27$ people got this
+  correct. $7$ people chose (E), $3$ people each chose (B) and (C),
+  $1$ person chose (A).
+
+  When the denominator is quadratic, then options (D) and (E) are
+  euqivalent. This is what might have led to many people choosing
+  option (E).
+
+\item {\em Hard right now, will become easier later}: Suppose $F$ is a
+  continuously differentiable function whose domain contains
+  $(a,\infty)$ for some $a \in \R$, and $F'(x)$ is a rational function
+  $p(x)/q(x)$ on the domain of $F$. Further, suppose that $p$ and $q$
+  are nonzero polynomials. Denote by $d_p$ the degree of $p$ and by
+  $d_q$ the degree of $q$. Which of the following is a {\bf necessary
+  and sufficient condition} to ensure that $\lim_{x \to \infty} F(x)$
+  is finite?
+
+  \begin{enumerate}[(A)]
+  \item $d_p - d_q \ge 2$
+  \item $d_p - d_q \ge 1$
+  \item $d_p = d_q$
+  \item $d_q - d_p \ge 1$
+  \item $d_q - d_p \ge 2$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: This can be justified in terms of partial
+  fractions. Th ecase where $q$ is a product of linear factors can be
+  justified using the previous question. But that is not the most
+  elegant justification. When we cover sequences and series, we will
+  see some comparison tests that make it clear why this holds. The
+  basic example you can keep in mind is that the antiderivative of
+  $1/x^2$ is $-1/x$, which has a finite limit as $x \to \infty$.
+
+  {\em Performance review}: $4$ out of $11$ got this. $5$ chose (D),
+  $1$ each chose (A) and (C).
+
+  {\em Historical note (last year)}: $3$ out of $27$ people got this
+  correct. $10$ people chose (D), $7$ people chose (C), $6$ people
+  chose (B), and $1$ person chose (A).
+
+  Those who chose (D) had the right idea but failedto account for the
+  extra margin that needs to be maintained because an integration is
+  being performed.
+
+  For the remaining questions, we build on the observation: For any
+  nonconstant monic polynomial $q(x)$, there exists a finite
+  collection of transcendental functions $f_1, f_2, \dots, f_r$ such
+  that the antiderivative of any rational function $p(x)/q(x)$, on an
+  open interval where it is defined and continuous, can be expressed
+  as $g_0 + f_1g_1 + f_2g_2 + \dots + f_rg_r$ where $g_0, g_1, \dots,
+  g_r$ are rational functions.
+
+\item For the polynomial $q(x) = 1 + x^2$, what collection of $f_i$s
+  works (all are written as functions of $x$)?
+
+  \begin{enumerate}[(A)]
+  \item $\arctan x$ and $\ln|x|$
+  \item $\arctan x$ and $\arctan(1 + x^2)$
+  \item $\ln|x|$ and $\ln(1 + x^2)$ 
+  \item $\arctan x$ and $\ln(1 + x^2)$
+  \item $\ln|x|$ and $\arctan(1 + x^2)$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Follows from the standard partial fraction
+  decomposition. $2x/(1 + x^2)$ gives the $\ln$ integration and $1/(1
+  + x^2)$ gives the $\arctan$ integration.
+
+  {\em Performance review}: $10$ out of $11$ got this. $1$ chose (E).
+
+  {\em Historical note (last year)}: $15$ out of $27$ people got this
+  correct. $7$ people chose (A), $2$ people chose (C), $1$ person each
+  chose (A) and (E), and $1$ person left the question blank.
+\item For the polynomial $q(x) := 1 + x^2 + x^4$, what is the size of
+  the smallest collection of $f_i$s that works?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $5$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: The denominator factors into $x^2 - x + 1$ and
+  $x^2 + x + 1$. Each of these contributes one $\arctan$ possibility
+  and one $\ln$ possibility. A total of $4$ possibilities is achieved.
+
+  In general, if there are no repeated factors, the smallest number of
+  pieces equals the degree of the polynomial.
+
+  {\em Performance review}: $6$ out of $11$ got this. $2$ chose (B),
+  $1$ each chose (A), (C), and (E).
+
+  {\em Historical note (last year)}: $7$ out of $27$ people got this
+  correct. $9$ people chose (C), $6$ people chose (B), $4$ people
+  chose (A), and $1$ person left the question blank.
+\end{enumerate}
+
+\end{document}

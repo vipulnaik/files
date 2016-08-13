@@ -1,0 +1,459 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Summation techniques}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Scattered around, but the
+most cutting-edge parts are in Sections 12.8 and 12.9.
+
+{\bf What students should definitely get}: The myriad techniques for
+summing up series of various kinds, and how these interact.
+
+\section*{Executive summary}
+
+Here are useful guidelines on summing up functions (i.e., finding
+the actual sums, not just determining convergence):
+
+\begin{enumerate}
+\item For finite sums involving polynomials of small degree, use
+  linearity and the formulas for summations of $1$, $k$, $k^2$, $k^3$.
+\item For reciprocals of quadratic functions, use partial fractions
+  and then look for telescoping when the quadratic can be
+  factorized. If the quadratic cannot be factorized but is a perfect
+  square, try to use $\zeta(2) = \pi^2/6$. If the quadratic has
+  negative discriminant, there is no closed form expression.
+\item In general, look for telescoping wherever you go. This includes
+  rational functions, logarithms (e.g., $\ln((k + 1)/k)$).
+\item Sometimes, for higher degree rational functions, you can combine
+  telescoping with known information about zeta functions.
+\item See if the summation is a geometric series in disguise, or
+  combines two or more geometric series and some possibly anomalous
+  terms.
+\item Sometimes, the summation is related to a geometric series via
+  integration or differentiation. For instance $\sum kx^k$ is related
+  to $\sum x^k$ via differentiation. Use the differentiation and
+  integration theorems to use these to get closed forms.
+\item In some cases, the summation is a known series such as that for
+  the exponential, sine, cosine, arc tangent or logarithm, with some
+  modifications: it might involve a sum or difference of two such
+  series, it might be arrived at by composing such a series with
+  $mx^n$, it might be arrived by multiplying such a series with
+  $mx^n$, it might be arrived at by integrating or differentiating
+  such a series.
+\item To identify these possibilities better, here are some
+  heuristics: factorials in denominator suggests exponentials or
+  sine/cosine, and the nature of sign alternation helps decide
+  which. Ordinary $k$ in the denominator suggests logarithm or arc
+  tangent, and the nature of sign alternation helps decide
+  which. [Exponential and logarithm have a sign periodicity of at most
+  $2$, while sine, cosine and arc tangent have a sign periodicity of
+  $4$].
+\end{enumerate}
+
+\section{Summation techniques with polynomial and rational function coefficients}
+
+We break the discussion into two parts. First, we discuss summation
+techniques for series where the terms of the series are given by
+rational functions. Next, we discuss summation techniques for power
+series where the coefficients are given by rational functions.
+
+\subsection{The case of summing up polynomials}
+
+For summing up polynomials of degree up to $3$, we can use linearity
+of summation along with what we know about summation formulas for $1$,
+$k$, $k^2$, and $k^3$:
+
+$\sum_{k=1}^n 1 = n$, $\sum_{k=1}^n k = n(n+1)/2$, $\sum_{k=1}^n k^2 =
+n(n+1)(2n + 1)/6$, $\sum_{k=1}^n k^3 = n^2(n+1)^2/4$.
+
+Note that the infinite summation for any polynomial gives $+\infty$ or
+$-\infty$ depending upon the sign of the leading coefficient.
+
+\subsection{Summing up rational functions}
+
+We first consider the case of a quadratic denominator that can be
+factored. If the summation is of the form:
+
+$$\sum_{k=1}^n \frac{1}{(k - \alpha)(k - \beta)}$$
+
+Then the sum can be telescoped using the techniques of partial
+fractions if $\alpha$ and $\beta$ differ by a nonzero integer. In
+particular, we can use that telescoping to determine the infinite sum:
+
+$$\sum_{k=1}^\infty \frac{1}{(k - \alpha)(k - \beta)}$$
+
+This, however, is not good enough to tackle all summations with
+quadratic denominators. For summations of the form:
+
+$$\sum_{k=1}^\infty \frac{1}{k^2}$$
+
+use the fact that this sum is $\zeta(2) = \pi^2/6$.
+
+A related summation is:
+
+$$\sum_{k=1}^\infty \frac{1}{(2k - 1)^2}$$
+
+We can work out that this is the sum of reciprocals of all squares
+minus the sum of reciprocals of the squares of even numbers, giving
+$\pi^2/6 - \pi^2/24 = \pi^2/8$.
+
+Most other quadratic summations cannot be resolved using the
+techniques we have seen so far.
+
+For any summation that we cannot directly resolve, we can use the
+concrete version of the integral test to estimate the sum to infinity
+or within a finite interval. {\em Note that the concrete version
+requires the function to be non-increasing on the interval to which it
+is applied}, hence it may not be applicable starting $0$ or $1$, and
+we may need to move to a later point to start it.
+
+\subsection{Summing up reciprocals of linears: two special cases}
+
+We have two special summations that arise from the power series stuff
+and are not obvious otherwise:
+
+$$\ln 2 = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \dots = \sum_{k=1}^\infty \frac{(-1)^{k-1}}{k}$$
+
+and:
+
+$$\frac{\pi}{4} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \dots = \sum_{k=0}^\infty \frac{(-1)^k}{2k + 1}$$
+
+These two special cases can be used to do some alternating infinite
+summations.
+
+\subsection{Power series summations}
+
+For power series with rational function coefficients, the radius of
+convergence is always $1$. Convergence at the endpoints is determined
+either by comparison with a $p$-series (or the degree difference
+heuristic) or using the alternating series theorem.
+
+there are the following formulas of note:
+
+$$\sum_{k=0}^\infty x^k = 1/(1 - x)$$
+
+with radius of convergence $1$, does not converge at either endpoint.
+
+Also:
+
+$$\sum_{k=1}^\infty x^k/k = -\ln(1 - x)$$
+
+with radius of convergence $1$, converges at the endpoint $-1$ to
+$-\ln 2$ but not at the endpoint $1$.
+
+We can deduce from these a number of other formulas, such as
+expansions for $\ln(1 + x)$, $\ln((1 + x)/(1 - x))$, and more. In particular, $\ln((1 + x)/(1 - x))$ has the power series:
+
+$$\ln((1+x)/(1 - x)) = 2(x + \frac{x^3}{3} + \frac{x^5}{5} + \dots)$$
+
+The interval of convergence is $(-1,1)$.
+
+We also have an expansion for $\arctan$:
+
+$$\arctan x = x - \frac{x^3}{3} + \frac{x^5}{5} - \dots$$
+
+with radius of convergence $1$ and interval of convergence $[-1,1]$.
+
+We can combine these facts to see that:
+
+$$\frac{\arctan x}{2} + \frac{\ln((1 + x)/(1 - x))}{4} = x  + \frac{x^5}{5} + \frac{x^9}{9} + \dots $$
+
+\subsection{Applying these to summations with quadratic denominators}
+
+We can perform the summation:
+
+$$\sum_{k=1}^\infty \frac{1}{k(k - 1/2)}$$
+
+Let's perform this summation as an illustration. First, we rewrite this as:
+
+$$\sum_{k=1}^\infty \frac{4}{(2k)(2k - 1)}$$
+
+Now we use partial fractions to rewrite this as:
+
+$$4 \sum_{k=1}^\infty \left[\frac{1}{2k - 1} - \frac{1}{2k}\right]$$
+
+Rewrite this and notice that we get the summation for $\ln 2$ in
+there, so we get $4 \ln 2$. (This needs a little more justification,
+since the summation for $\ln 2$ is not absolutely convergent, so it is
+critical that our regrouping is not affecting the sum).
+
+\subsection{Index off by a constant}
+
+We know that:
+
+$$\sum_{k=1}^\infty \frac{x^k}{k} = -\ln(1 - x), |x| < 1$$
+
+We can use this to calculate summations such as:
+
+$$\sum_{k=1}^\infty \frac{x^k}{k + 1}$$
+
+For this kind of summation, the critical thing to note is that the
+denominator cannot be manipulated easily, so we manipulate the
+numerator instead. Specifically, for $x \ne 0$, we rewrite this as:
+
+$$\sum_{k=1}^\infty \frac{1}{x} \frac{x^{k+1}}{k + 1}$$
+
+The $1/x$ can be pulled out. Putting $l = k + 1$, we get:
+
+$$\frac{1}{x} \sum_{l=2}^\infty \frac{x^l}{l}$$
+
+Note that $l$ now starts at $2$. The summation is now almost the
+summation for $-\ln(1 - x)$, but not quite, because it is missing the
+first term. Thus, it is $-\ln(1 - x) - x$, and we get:
+
+$$\frac{-\ln(1 - x) - x}{x}$$
+
+Note that this expression is not valid for $x = 0$. However, using the
+LH rule, we can verify that its limit at $x = 0$ is $0$, which is the
+same as the value of the summation when we plug in $x = 0$.
+
+We can use these ideas to calculate things like:
+
+$$\sum_{k=1}^\infty \frac{x^k}{k(k + 1)}$$
+
+For more details on this worked examples, see the quiz on series and
+convergence.
+
+\subsection{Index off by a multiple}
+
+Consider the summation:
+
+$$\sum_{k=1}^\infty \frac{x^{3k}}{k}$$
+
+Here, even though the denominators cover all the natural numbers, the
+exponent in the numerator is growing by steps of $3$. In this case, we
+put $u = x^3$, and get:
+
+$$\sum_{k=1}^\infty \frac{u^k}{k}$$
+
+This simplifies to $-\ln(1 - u) = -\ln(1 - x^3)$.
+
+\subsection{A more challenging problem}
+
+Consider the summation:
+
+$$\sum_{k=2}^\infty \frac{1}{k^4 - k^2}$$
+
+First, we factorize the denominator:
+
+$$\sum_{k=2}^\infty \frac{1}{k^2(k^2 - 1)}$$
+
+As a first pass, we break partly into partial fractions:
+
+$$\sum_{k=2}^\infty \left[\frac{1}{k^2 - 1} - \frac{1}{k^2}\right]$$
+
+The full break-up is:
+
+$$\sum_{k=2}^\infty \left[\frac{1/2}{k - 1} - \frac{1/2}{k + 1} - \frac{1}{k^2}\right]$$
+
+Now, since $\sum 1/k^2$ is absolutely convergent it can be split
+off. Since the summation starts at $2$, this gives $\pi^2/6 - 1$. This leaves:
+
+$$\frac{1}{2} \sum_{k=2}^\infty \left[ \frac{1}{k -1} - \frac{1}{k + 1} \right]$$
+
+After telescoping and taking limits, we get $(1/2)(1 + 1/2) =
+3/4$. The overall answer is thus $3/4 - (\pi^2/6 - 1) = 7/4 - \pi^2/6$. 
+
+\subsection{Summations with polynomial coefficients}
+
+We know that:
+
+$$\sum_{k=0}^\infty x^k = \frac{1}{1 - x}$$
+
+Differentiating, we get:
+
+$$\sum_{k=1}^\infty kx^{k-1} = \frac{1}{(1 - x)^2}$$
+
+Relabeling gives:
+
+$$\sum_{k=0}^\infty (k + 1)x^k =  \frac{1}{(1 - x)^2}$$
+
+Now subtracting the original gives:
+
+$$\sum_{k=0}^\infty kx^k = \frac{x}{(1 - x)^2}$$
+
+We can do another differentiation and subtraction to get formulas for
+$\sum k^2x^k$. All these formulas are valid for $|x| < 1$. Once we
+have these basic formulas, we can again use linearity of summation.
+
+\section{Summations involving factorials}
+
+We have:
+
+\begin{eqnarray*}
+  \exp(x) & = & \sum_{k=0}^\infty \frac{x^k}{k!}\\
+  \exp(-x) & = & \sum_{k=0}^\infty \frac{(-1)^kx^k}{k!}\\
+  \cosh x & = & \sum_{k=0}^\infty \frac{x^{2k}}{(2k)!}\\
+  \sinh x & = & \sum_{k=0}^\infty \frac{x^{2k + 1}}{(2k + 1)!}\\
+  \cos x & = & \sum_{k=0}^\infty \frac{(-1)^kx^{2k}}{(2k)!}\\
+  \sin x & = & \sum_{k=0}^\infty \frac{(-1)^kx^{2k + 1}}{(2k + 1)!}\\
+  (\cosh x + \cos x)/2 & = & \sum_{k=0}^\infty \frac{x^{4k}}{(4k)!}\\
+  (\cosh x - \cos x)/2 & = & \sum_{k=0}^\infty \frac{x^{4k + 2}}{(4k + 2)!}\\
+  (\sinh x + \sin x)/2 & = & \sum_{k=0}^\infty \frac{x^{4k + 1}}{(4k + 1)!}\\
+  (\sinh x - \sin x)/2 & = & \sum_{k=0}^\infty \frac{x^{4k + 3}}{(4k + 3)!}
+\end{eqnarray*}
+
+The common feature in all these summations is that the exponent on $x$
+equals the quantity whose factorial appears in the denominator.
+
+If the exponent is off by a constant, it can be adjusted. For instance:
+
+$$\sum_{k=0}^\infty \frac{x^k}{(k + 1)!}$$
+
+can be rewritten as:
+
+$$\frac{1}{x} \sum_{l=1}^\infty \frac{x^l}{l!}$$
+
+This becomes $(e^x - 1)/x$. The $-1$ there arises because we are
+missing the $0^{th}$ term.
+
+If the exponent is off by a multiple, then we need to substitute to a
+power or fraction:
+
+$$\sum_{k=0}^\infty \frac{x^{2k}}{k!}$$
+
+is $e^{x^2}$. Similarly:
+
+$$\sum_{k=0}^\infty \frac{x^k}{(2k)!}$$
+
+is $\cosh \sqrt{x}$ when $x > 0$, and $\cos \sqrt{-x}$ when $x < 0$
+{\em Note: This sentence was corrected}. For the case $x = 0$, both
+definitions apply.
+
+Note that the nature of growth of the factorials in the denominator as
+well as the nature of sign alternation tell us about the kind of thing
+the summation goes to. In particular:
+
+\begin{itemize}
+\item If the inputs to the factorials in the denominator jump by one
+  and there is no sign alternation, we have $\exp$. Instead of
+  $\exp(x)$, we may have things like $\exp(x^m)$ or $((\exp(x) - 1)/x$.
+\item If the inputs to the factorials in the denominator jump by one and
+  there is sign alternation, we have something like $\exp(-x)$. We may
+  have $\exp(-x^2)$.
+\item If the inputs to the factorials in the denominator jump by two
+  and there is no sign alternation, then we have something based on
+  $\cosh$ if the inputs are even and something based on $\sinh$ if the
+  inputs are odd. Examples are $\cosh(x^2)$, $(1 - \cosh(x))/x^2$,
+  $\sinh(x^4)$, $\cosh(\sqrt{|x|})$, etc.
+\item If the inputs to the factorials in the denominator jump by two
+  and there is sign alternation, then we have something based on
+  $\cos$ if the inputs are even and something based on $\sin$ if the
+  inputs are odd. Examples are $\sin(x^2)$, $(\sin x)/x$, $(1 - \cos
+  x)/x^2$, etc.
+\item If the inputs jump by $4$ and there is no sign alternation, then
+  we have something based on one of these: $(\cosh + \cos)/2$ (if all
+  inputs are multiples of $4$), $(\cosh - \cos)/2$ (if all inputs have
+  a remainder of $2$ mod $4$), $(\sinh + \sin)/2$ (if all inputs have
+  a remainder of $1$ mod $4$) and $(\sinh - \sin)/2$ (if all inputs
+  have a remainder of $3$ mod $4$).
+\end{itemize}
+
+\section{Summation where the coefficients have a geometric component}
+
+If the coefficients in a summation have a part which is just $a^k$ for
+a constant $a$, we can do the substitution $u = ax$ to absorb this
+constant into $x$, and hence eliminate the geometric component of the
+summation.
+
+For instance:
+
+$$\sum_{k=1}^\infty \frac{x^k}{2^kk}$$
+
+Put $u = x/2$ and we get $\sum_{k=1}^\infty u^k/k$, for which we have
+a formula. Note that the radius of convergence for $x$ is not the same
+as that for $u$, because $x = 2u$. Rather, the radius of convergence
+for $u$ is $1$ whereas the radius of convergence for $x$ is $2$.
+
+\section{Bounding summations, estimating growth}
+
+It is extremely hard to do summations in general, apart from the few
+cases mentioned here. However, ideas such as concrete versions of the
+basic comparison test can be used to bound an existing summation in
+terms of the others.
+
+In the discussion here, we will assume that we are restricting to
+inputs $x > 0$, and all the power series coefficients are
+nonnegative. Further, our interest is in how the summation grows as $x
+\to \infty$.
+
+In general, the larger the terms being added, the larger the summation
+gets. Recall that we had the following hierarchy of functions we used
+for determining radius of convergence:
+
+\begin{enumerate}
+\item Double exponential and other such monstrosity.
+\item Exponential in $x^r, r > 1$.
+\item Factorial, or $\Gamma$ function. Roughly, exponential in $x \ln
+  x$.
+\item Exponential or geometric.
+\item Exponential in $x^r, r < 1$.
+\item Exponential in $(\ln x)^r, r > 1$.
+\item Polynomial, or about $x^r, r > 0$.
+\item Polynomial in the logarithm.
+\end{enumerate}
+
+\subsection{The case of very big denominators}
+
+In particular, we know that if the denominator is of types (1), (2),
+and (3) within this hierarchy (with the numerator being a constant or
+of type (4) or lower), then the series converges (and converges
+absolutely) everywhere on $\R$. However, the only cases for which we
+have actual formulas are the cases where the denominators are growing
+as factorials. That's what we just saw in the section just concluded.
+
+When the denominators are of types (1) and (2), then the terms being
+added (being reciprocals of their denominators) are {\em smaller} than
+the terms of an exponential series. Hence, a power series with
+denominators of types (1) or (2) grows {\em
+sub-exponentially}. However, assuming that there are infinitely many
+terms, it must grow {\em super-polynomially}. This is roughly all we
+can say offhand.
+
+Thus, for instance, the function $f$ defined as:
+
+$$f(x) := \sum_{k=0}^\infty \frac{x^k}{2^{k^2}}$$
+
+grows sub-exponentially but super-polynomially in $x$ as $x \to
+\infty$, because the denominator, being of type (2), is growing at a
+rate faster than anything factorial or factorial-like.
+
+The same is true for the function $g$ defined as:
+
+$$g(x) := \sum_{k=0}^\infty \frac{x^k}{2^{3^k}}$$
+
+grows sub-exponentially, because the denominator is of type (1).
+
+\subsection{The case of denominators that are sort of like type (3)}
+
+In some cases, the denominator has a growth rate comparable to
+factorials, but it does not precisely match any of the formulas we
+have seen. For instance:
+
+$$\sum_{x=0}^\infty \frac{x^k}{(k!)^2}$$
+
+Here, the denominator is the square of $k!$, which grows faster than
+$k!$. But it still grows slower than $(2k)!$. We can thus bound the
+summation between $\cosh(\sqrt{x})$ and $e^x$.
+
+Similarly, consider the summation:
+
+$$\sum_{k=0}^\infty \frac{x^k}{(3k)!}$$
+
+Here, if we put $u = x^{1/3}$, we get:
+
+$$\sum_{k=0}^\infty \frac{u^{3k}}{(3k)!}$$
+
+This is basically a subseries of the exponential series, picking out
+every third term. Hence, it is bounded from above by $\exp(u)$, which
+is $\exp(x^{1/3})$. It can also be bounded from below in terms of
+$\exp(x^{1/3})$, but that bounding procedure is trickier and we skip over
+it.
+\subsection{The case of denominators that are type (4) or slower}
+
+In this case, the radius of convergence is finite, so it does not make
+sense to talk of the behavior at or near infinity.
+\end{document}

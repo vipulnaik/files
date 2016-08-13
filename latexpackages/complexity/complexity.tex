@@ -1,0 +1,556 @@
+% complexity latex package documentation
+% Copyright 2005, by Chris Bourke <cbourke@cse.unl.edu>.
+% http://www.cse.unl.edu/~cbourke
+%
+% Please do not distribute altered versions of this document
+
+\documentclass{ltxdoc}
+
+\def\complexityversion{0.76}
+
+%\usepackage{amsmath}
+\usepackage[pdftex,a4paper,colorlinks,pdfpagemode=None]{hyperref}
+\usepackage{longtable}
+\usepackage{complexity}
+
+\setlength{\parindent}{0pt} %
+\setlength{\parskip}{.25cm} %
+
+\begin{document}
+
+\title{User's Guide for \texttt{complexity}: a \LaTeX\ package, Version \complexityversion}
+\author{Chris Bourke\\
+%  \href{mailto:cbourke@cse.unl.edu}{\texttt{cbourke@cse.unl.edu}}
+}
+\date{March 22nd, 2005}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+\subsection{What is \texttt{complexity}?}
+
+\texttt{complexity} is a \LaTeX\ package that typesets computational
+complexity classes such as $\P$ (deterministic polynomial time) and
+$\NP$ (nondeterministic polynomial time) as well as sets (languages)
+such as $\SAT$ (satisfiability).  In all, over 350 commands are
+defined for helping you to typeset Computational Complexity
+constructs.
+
+\subsection{Why a \texttt{complexity} package?}
+
+A better question is why not?  Complexity theory is a more recent,
+though mature area of Theoretical Computer Science.  Each researcher
+seems to have his or her own preferences as to how to typeset
+Complexity Classes and has built up their own personal \LaTeX\
+commands file. This can be frustrating, to say the least, when it
+comes to collaborations or when one has to go through an entire
+series of files changing commands for compatibility or to get
+exactly the look they want (or what may be required).  I find it
+amazing that a package hasn't been written \emph{already}!  (Maybe
+there has been, but I've not found it).
+
+I thought the best solution would be to develop a single \LaTeX\
+package to handle all of this for us.
+
+\section{Installation}
+
+You should place the |complexity| directory and its files
+(|complexity.sty| and |mycomplexity.sty| as well the documentation
+files if you like) in a place that your \TeX\ distribution will be
+able to find them.
+
+If you use MiK\TeX\ then you should place it in your |localtexmf|
+directory, making sure to refresh your \TeX\ tree (MiK\TeX\ options
+wizard $\rightarrow$ General $\rightarrow$ File Names Database,
+Refresh Now).
+
+In a unix \TeX\ distribution, you may find it useful to use a local
+\LaTeX\ path (i.e. creating a directory
+|/usr/local/username/mylatexfolder/| and tell your \TeX\
+distribution where to find it.  Depending on your distribution, you
+might declare an environmental variable (say
+in your |.cshrc| file) like %
+
+|setenv $TEXINPUTS = /usr/local/texdistro//:/usr/local/username/mylatexfolder//|%
+
+(note that the double slash will recursively search all
+subdirectories).
+
+\section{Package Options}
+
+The |complexity| package provides two general options---a
+\emph{font} option (of which there are three classes) and a
+\emph{mode} option. The font option specifies what font the
+complexity classes (as well as functions and languages) are typeset
+in while the mode option specifies \emph{how many} complexity
+classes are defined.
+
+One specifies these options in the usual manner.  When you use the
+package, you can pass it the options you wish; for example, calling
+the package with
+
+|\usepackage[bold,full]{complexity}|
+
+specifies that classes (and languages) should be typeset in bold and
+that the full list of classes should be defined.  Invalid options
+are ignored and only the last option (of each type) is used if
+multiple, conflicting options are given.  The complete options are
+described in the next two subsections.
+
+\subsection{Mode Options}
+
+The mode options specify to what extent the package declares
+commands for complexity classes.  By default, \emph{every}
+(supported) class command is defined.  Alternatively, you can limit
+the number of commands the |complexity| package defines (and perhaps
+limit conflicts with other packages or your own commands) by using
+the |basic| option. This option defines only the most commonly used
+complexity classes.\footnote{Deciding which classes were most
+``common'' was purely based on my judgement, for better or worse. If
+I've not considered your favorite complexity class as ``common,'' I
+humbly apologize.}
+
+\begin{description}
+
+  \item[|full|] (\emph{Default}) This option will load \emph{every} complexity class
+  that the package has defined.  See Section
+  \ref{sec:CompleteListOfComplexityCommands} for a complete list.
+
+  \item[|basic|]  This option will only load the
+  ``standard'' complexity classes so as to minimize the number of
+  commands the package defines (i.e. standard classes like $\P$ and
+  $\NP$ but not less well known classes like $\AWPP$ (Almost wide $\PP$).
+
+\end{description}
+
+\subsection{Font Options}
+
+Different researchers and different publications have their own
+preferences for how to typeset complexity classes.  The beauty of
+the |complexity| package is that it not only defines a whole sleigh
+of complexity classes \emph{for you}, but it also allows you to
+change the font they are typeset in with a simple option call.
+
+The |complexity| package defines three different font entities: a
+font for complexity classes (|classfont|), a font for languages
+(|langfont|), and a font for functions (|funcfont|).  By default,
+all of these fonts are typeset using the |mathsf| font.  You can
+change the font for all of them together or specify a font for each
+individually.  To apply a single font to all three entities, simply
+pass the font (by itself) as an option.  The supported font options
+are as follows.
+
+\begin{description}
+
+  \item[|sanserif|]  (\emph{Default}) This typesets the classes in a
+  |\mathsf| (sans serif) font.
+
+  \item[|roman|]  This option typesets the classes in a |\mathrm| (roman)
+  font.
+
+  \item[|bold|]   This option typesets the classes in a |\mathbf|
+  (roman, bold) font.
+
+  \item[|typewriter|]   This option typesets the classes in a |\mathtt|
+  (typewriter) font.
+
+  \item[|italic|]   This option typesets the classes in a |\mathit|
+  (math italic) font.
+
+  \item[|caps|]   This option typesets the classes in a |\textsc|
+  (small caps font) font.
+
+  \item[|slant|]   This option typesets the classes in a |\textsl|
+  (slanted font) font.
+
+\end{description}
+
+As an alternative, you can specify a different font for each of the
+three entities.  To do this, you simply qualify the font with a
+key-value pair: either |classfont|, |langfont|, or |funcfont|.  For
+example, if we want our complexity classes to be typeset in |bold|,
+our languages to be typeset in |roman| and our functions to be
+typeset in |italic|, we would call the package using:
+
+\begin{verbatim}
+\usepackage[classfont=bold,
+            langfont=roman,
+            funcfont=italic]{complexity}
+\end{verbatim}
+
+Examples of how each of the fonts appears when typeset can be found
+in Table \ref{table:Examples}.
+
+\begin{table}[h]
+  \centering
+  \caption{An Example of each font}\label{table:Examples}
+\begin{tabular}{lp{3cm}p{4cm}p{3.5cm}}
+Font & |classfont| & |langfont| & |funcfont| \\
+\hline %
+\hline %
+~\\
+|sanserif| & $\mathsf{P} \subseteq \mathsf{NP}$, & $\CVP \leq_m \SAT$, & $\polylog \in O(\poly)$,\\
+~ & $\PSPACE \subseteq \EXP$ & $\SAT \leq_T \MaxSAT$ & $\polylog \in \Omega(\llog)$ \\
+~\\
+|roman| & $\mathrm{P} \subseteq \mathrm{NP}$, & $\mathrm{CVP} \leq_m \mathrm{SAT}$, & $\mathrm{polylog} \in O(\mathrm{poly})$,\\
+~ & $\mathrm{PSPACE} \subseteq \mathrm{EXP}$ & $\mathrm{SAT} \leq_T \mathrm{MaxSAT}$ & $\mathrm{polylog} \in \Omega(\mathrm{log})$ \\
+~\\
+|bold| & $\mathbf{P} \subseteq \mathbf{NP}$, & $\mathbf{CVP} \leq_m \mathbf{SAT}$, & $\mathbf{polylog} \in O(\mathbf{poly})$,\\
+~ & $\mathbf{PSPACE} \subseteq \mathbf{EXP}$ & $\mathbf{SAT} \leq_T \mathbf{MaxSAT}$ & $\mathbf{polylog} \in \Omega(\mathbf{log})$ \\
+~\\
+|typewriter| & $\mathtt{P} \subseteq \mathtt{NP}$, & $\mathtt{CVP} \leq_m \mathtt{SAT}$, & $\mathtt{polylog} \in O(\mathtt{poly})$,\\
+~ & $\mathtt{PSPACE} \subseteq \mathtt{EXP}$ & $\mathtt{SAT} \leq_T \mathtt{MaxSAT}$ & $\mathtt{polylog} \in \Omega(\mathtt{log})$ \\
+~\\
+|italic| & $\mathit{P} \subseteq \mathit{NP}$, & $\mathit{CVP} \leq_m \mathit{SAT}$, & $\mathit{polylog} \in O(\mathit{poly})$,\\
+~ & $\mathit{PSPACE} \subseteq \mathit{EXP}$ & $\mathit{SAT} \leq_T \mathit{MaxSAT}$ & $\mathit{polylog} \in \Omega(\mathit{log})$ \\
+~\\
+|caps| & $\textsc{P} \subseteq \textsc{NP}$, & $\textsc{CVP} \leq_m \textsc{SAT}$, & $\textsc{polylog} \in O(\textsc{poly})$,\\
+~ & $\textsc{PSPACE} \subseteq \textsc{EXP}$ & $\textsc{SAT} \leq_T \textsc{MaxSAT}$ & $\textsc{polylog} \in \Omega(\textsc{log})$ \\
+~ & \multicolumn{2}{l}{Better example: $\textsc{promiseRP} \subseteq \textsc{promiseBPP}$}\\
+~\\
+|slant| & $\textsl{P} \subseteq \textsl{NP}$, & $\textsl{CVP} \leq_m \textsl{SAT}$, & $\textsl{polylog} \in O(\textsl{poly})$,\\
+~ & $\textsl{PSPACE} \subseteq \textsl{EXP}$ & $\textsl{SAT} \leq_T \textsl{MaxSAT}$ & $\textsl{polylog} \in \Omega(\textsl{log})$ \\
+~\\
+\end{tabular}
+\end{table}
+
+\subsubsection{The \texttt{small} Option}
+
+A special option is the |small| option and pertains only to how
+complexity classes (|classfont|) are typeset.  Since classes are
+typeset in uppercase letters, they tend to be more dominant.  This
+is not so important for classes such as $\P$ and $\NP$, but if you
+are referencing classes such as $\PSPACE$ or $\DTIME$ it can
+interrupt the normal flow of text layouts. One solution to this is
+to typeset classes 1pt smaller than the surrounding text.  This is
+the approach taken in some texts (most notably, Papadimitriou's book
+\emph{Computational Complexity}, 1994) and it works quite well.  To
+illustrate, consider the following:
+\begin{quote}
+There are deterministic classes such as $\PSPACE \hbox{\small
+\PSPACE}$\kern-.3em, nondeterministic classes such as $\NP
+\hbox{\small \NP}$\kern-.35em, and functional classes such as $\GapP
+\hbox{\small \GapP}$\kern-.35em. But I like them all.
+\end{quote} % Internal note: the negative kerning was added here
+            % for illustration only, the package typesets these classes
+            % with a correct amount of spacing when |small| is used!
+
+In the preceding pairs, the first was typeset in the document's
+default font size while the second was typeset 1pt smaller
+(internally, the |\small| command is used).  The difference is
+subtle but when used in a long text, flows more naturally.
+
+To get the same effect using |complexity|, simply use the |small|
+option (i.e. |\usepackage[small]{complexity}| with any combination
+of the other options (it works for all fonts, but some do not look
+as good as others; |typewriter| for example looks bad with this
+option). Remember, however that this option only affects how classes
+are typeset, not languages.
+
+It should be noted that this option only affects how classes are
+typeset in the display and in-line mathmodes.  It has no effect in,
+say, a footnote or some special environment. Subscripts,
+superscripts (as well as subsubscripts and supersuperscripts) are
+not effected either---\TeX\ is allowed to automatically change font
+sizes for these cases.
+
+
+\section{Using the Package}
+
+Each of the commands is defined using |\ensuremath| so that you need
+not be in \LaTeX's mathmode to use them.  A word of warning,
+however, if you use a command outside of mathmode, \TeX\ may not
+properly insert surrounding whitespace.  Thus, its best to always
+use |complexity| commands inside mathmode.  A complete list of
+commands for classes can be found in Section
+\ref{sec:CompleteListOfComplexityCommands}.
+
+\subsection{Overridden Commands}
+
+Three commands in the |complexity| package override built-in \TeX\
+commands.  Specifically, |\L| (which typesets the symbol
+\defaultL), |\P| (typesetting \defaultP), and |\S| (which typesets the
+symbol \defaultS) are all redefined for use in the package.  The
+|complexity| package preserves these commands so that you may still
+use them.  To use any of these symbols, use the commands
+|\defaultL|, |\defaultP|, and |\defaultS| instead.
+
+Additionally, it may be the case that other \LaTeX\ packages are
+loaded that already define (or redefine) some of the commands in the
+|complexity| package.  If this is the case, please email me so that
+I can work something out for future updates.  The quick solution is
+to simply comment out the definition of the conflicting command in
+|complexity.sty| and directly use |\ComplexityFont{}| to typeset
+your complexity class (see also Section \ref{sec:Customization} -
+Customization).
+
+\subsection{Special Commands}
+
+In addition to complexity classes, the |complexity| package also
+conveniently defines several commands for commonly used functions
+and languages.  In particular, |\co| (ex: $\co$) and |\parity| (an
+alias for |\oplus|, typesetting $\oplus$) can be placed preceding a
+class to refer to the complement or counting versions respectively.
+
+\subsection{Function Commands}
+
+|complexity| defines several general classes of functions such as
+logarithms and polynomials. Table \ref{table:SpecialCommands} gives
+a complete list of these functions.
+
+\begin{table}[h]
+\centering %
+\caption{\texttt{func} Commands} %
+\label{table:SpecialCommands}
+\begin{tabular}{llp{7cm}}
+Command &   Result      & Comment \\
+\hline\hline\\
+|\llog|     & $\llog$   & Denotes logarithmic functions.  Note that the command %
+                          is invoked with \emph{two} l's so as to not interfere
+                          with the \LaTeX\ |\log| command.\\
+|\poly|     & $\poly$   & Denotes polynomial functions \\
+|\polylog|  & $\polylog$ & Denotes polylogarithmic functions \\
+
+|\qpoly|    & $\qpoly$  & Denotes polynomial functions for quantum advice\\
+|\qlog|     & $\qlog$   & Denotes logarithmic functions for quantum advice \\
+
+|\MOD|      & $\MOD$    & Used for Modular classes/functions \\
+|\Mod|      & $\Mod$    & Used for Modular classes/functions \\
+\end{tabular}
+\end{table}
+
+\subsection{Language Commands}
+
+|complexity| also defines commands to typeset languages (subsets of
+$\{0,1\}^*$).  A complete list of predefined language commands can
+be found in Table \ref{table:LanguageCommands} below.  The number of
+commands is sparse; this was intentional.  How one refers to
+languages is far less standard than how one refers to classes.  Some
+people like to explicitly write \emph{every} word
+($\lang{WeightedHamiltonianCycle}$, or $\lang{WEIGHTED~HAMILTONIAN~
+CYCLE}$), while others have their own abbreviations.  Keeping the
+number of languages |complexity| defines to a minimum allows for the
+maximum flexibility.
+
+\begin{table}[h]
+\centering %
+\caption{Special \texttt{complexity} Commands} %
+\label{table:LanguageCommands}
+\begin{tabular}{llp{7cm}}
+Command &   Result      & Comment \\
+\hline\hline\\
+|\CVP|      & $\CVP$    & Used for the Circuit Value Problem (a $\P$-complete set) \\
+|\SAT|      & $\SAT$    & Used for Satisfiability (an $\NP$-complete set)\\
+|\MaxSAT|   & $\MaxSAT$ & Used for the Lexicographically maximum
+satisfiability optimization problem (complete for $\OptP$) \\
+\end{tabular}
+\end{table}
+
+
+\newpage
+\subsection{Complete List of Class Commands}
+\label{sec:CompleteListOfComplexityCommands}
+
+A complete list (in alpha-numeric order according to the command
+name) of complexity commands is given below.  The first item in each
+row is the command itself.  The second is an example of how it is
+typeset using the default |sanserif| font.  Finally, the third item
+indicates which mode the command is defined in.
+
+\begin{longtable}{lll}
+%\caption{Complete Table of \texttt{complexity} Commands}
+%\label{table:CompleteCommands}
+\input{tableofclasses}
+\end{longtable}
+
+
+\section{Customization}
+\label{sec:Customization}
+
+The |complexity| package provides some 350 commands to typeset
+complexity classes.  However, that should not mean that the commands
+here are the \emph{only} ones you'll ever need. Expanding the list
+of commands to suit your needs is very easy. Please note, however,
+it is preferred that you not alter the base style file
+(|complexity.sty|).  Instead, a file is provided for you to define
+your commands in (|mycomplexity.sty|).
+
+\subsection{Class Commands}
+To define a new complexity class, simply use the \LaTeX\
+command, |\newcommand| as follows.  Say that we want to define the
+new complexity class, ``VCCC'' (``very complex complexity class'').
+We would use something like
+
+|\newcommand{\VCCC}{\ComplexityFont{VCCC}}|
+
+Then, anytime we wanted to typeset our new class, we simply use
+|$\VCCC$|.  Internally, |complexity| typesets everything using the
+command |\ComplexityFont| which is setup at the invocation of the
+package.
+
+You also may have different preferences for typesetting the classes
+that |complexity| already defines.  For instance, the class
+$\promiseBPP$ (typeset using the command |\promiseBPP|) is typeset
+with ``promise'' explicitly written.  Preferring brevity over
+clarity, you wish to typeset the same class as
+$\ComplexityFont{pBPP}$.  To do this, we use the \LaTeX\ command,
+|\renewcommand| as follows.
+
+|\renewcommand{\promiseBPP}{\ComplexityFont{pBPP}}|
+
+However, this only changes what the command does, not how we invoke
+it---we would still use |$\promiseBPP$|.
+
+As another example, say we want to change how the class $\ModkL$
+(typeset using the command |\ModkL|) is typeset.  By default, the
+subscript $k$ is typeset in regular mathmode.  Say we want to change
+it so that it is typeset in the same font as the rest of the
+classes.  We may use something like the following.
+
+\begin{verbatim}
+\renewcommand{\ModkL}{ %
+  {
+    \ComplexityFont{Mod}_{\ComplexityFont{k}}\ComplexityFont{L}
+  }
+}
+\end{verbatim}
+
+Note the use of ``extra'' brackets.  In your commands, more is
+always better (or at least safer); since we are using subscripts and
+superscripts, we want to ensure that if we use the |\ModkL| command
+itself in a subscript or superscript (say as an oracle) are typeset
+correctly.
+
+\subsection{Language Commands}
+
+You can define languages (to be typeset in the |langfont|) in a
+similar manner.  Instead of using |\ComplexityFont|, however, you
+would use the command |\lang|.  You can use |\lang| as a stand alone
+command in your document (i.e. |$\lang{Matching} \in \P$|) or you
+can define a command (using |\lang|) that can be reused throughout
+your document. Again, we give an example.  Say we wanted to typeset
+the language ``Graph Non-Isomorphism'' using the abbreviation,
+``GNI''. We could define something like the following.
+
+|\newcommand{\GNI}{\lang{GNI}}|
+
+In our document, we would would use something like |$\GNI \in \AM$|.
+We can also redefine any predefined language commands using the
+|\renewcommand| command as before.
+
+\subsection{Function Commands}
+
+Again, the procedure for typesetting your own functions is the same
+as for classes.  Here, however, you use the |\func| command.  You
+can use it as a stand alone command (|$\func{lin}(n) \in \Theta(n)$|) %
+or you can define a command that can be reused.  Say we wanted to
+typeset a class of subexponential functions, say ``subexp''. We
+could define something like the following.
+
+|\newcommand{\subexp}{\func{subexp}}|
+
+In our document, we could then use |$\subexp(n) = 2^{o(n)}$|.
+
+\section{Extended Example}
+
+Here, we present an extended example using the package.  Consider
+the following \TeX\ code.
+
+\begin{verbatim}
+\documentclass{article}
+\usepackage{complexity}
+\begin{document}
+It follows immediately from the definitions of $\P$ and $\NP$ that
+$$\P \subseteq \NP$$
+but the million dollar question is whether or not $\P
+\stackrel{?}{=} \NP$.  In an effort to resolve this question,
+Stockmeyer (1976) defined a \emph{polynomial} hierarchy using
+oracles.
+
+\textbf{Definition}[Stockmeyer 1976] \\
+Let $\Delta_0\P = \Sigma_0\P = \Pi_0\P = \P$. Then for $i > 0$, let
+ \begin{itemize}
+   \item $\Delta_i\P = \P$ with a $\Sigma_{i-1}\P$ oracle.
+   \item $\Sigma_i\P = \NP$ with $\Sigma_{i-1}\P$ oracle.
+   \item $\Pi_i\P = \coNP$ with $\Sigma_{i-1}\P$ oracle.
+ \end{itemize}
+Then $\PH$ is the union of these classes for all nonnegative
+constant $i$.
+
+It has been shown that $\PH \subseteq \PSPACE$. Moreover, Toda
+(1989) showed the following
+\textbf{Theorem}
+$$\PH \subseteq \P^\PP$$
+and since since $\P^\PP = \P^{\#\P}$ it follows that
+$$\PH \subseteq \P^{\#\P}$$
+
+\end{document}
+\end{verbatim}
+
+\hrule
+
+Would produce something like the following:
+
+\hrule
+
+It follows immediately from the definitions of $\P$ and $\NP$ that
+$$\P \subseteq \NP$$
+but the million dollar question is whether or not $\P
+\stackrel{?}{=} \NP$.  In an effort to resolve this question,
+Stockmeyer (1976) defined a \emph{polynomial} hierarchy using
+oracles.
+
+\textbf{Definition}[Stockmeyer 1976] \\
+Let $\Delta_0\P = \Sigma_0\P = \Pi_0\P = \P$. Then for $i > 0$, let
+ \begin{itemize}
+   \item $\Delta_i\P = \P$ with a $\Sigma_{i-1}\P$ oracle.
+   \item $\Sigma_i\P = \NP$ with $\Sigma_{i-1}\P$ oracle.
+   \item $\Pi_i\P = \coNP$ with $\Sigma_{i-1}\P$ oracle.
+ \end{itemize}
+Then $\PH$ is the union of these classes for all nonnegative
+constant $i$.
+
+It has been shown that $\PH \subseteq \PSPACE$. Moreover, Toda
+(1989) showed the following.
+
+\textbf{Theorem}
+$$\PH \subseteq \P^\PP$$
+and since since $\P^\PP = \P^{\#\P}$ it follows that
+$$\PH \subseteq \P^{\#\P}$$
+
+\hrule
+
+For an even more complicated example, check out the \LaTeX ed (PDF)
+version of the Complexity Zoo (\url{http://www.ComplexityZoo.com})
+available on my webpage (\url{http://www.cse.unl.edu/~cbourke})
+
+\section{Feedback}
+
+I'd very much appreciate feedback that would improve this package.
+Specifically, I'm looking for the following.
+
+\begin{itemize}
+
+  \item Inconsistencies in (or suggestions for better) notation
+
+  \item Errors, Typos, etc
+
+  \item Incompatibilities with other packages
+
+  \item Feature requests
+
+\end{itemize}
+
+You can email me at
+\href{mailto:cbourke@cse.unl.edu}{cbourke@cse.unl.edu}
+
+\subsection{Acknowledgements}
+
+I'd like to thank Till Tantau for several useful suggestions and
+feature requests as well as some clever code segments for the
+|small| option.
+
+\end{document}

@@ -1,0 +1,325 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz: due February 24: Sequences and series, miscellaneous stuff}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+Your name (print clearly in capital letters): $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+
+{\bf YOU ARE FREE TO DISCUSS ALL QUESTIONS, BUT PLEASE MAKE SURE TO
+ONLY ENTER ANSWER CHOICES THAT YOU PERSONALLY ENDORSE}
+
+\begin{enumerate}
+\item {\em Forward difference operators and partial sums}: Recall that
+  for a function $g: \N \to \R$, the forward difference operator of
+  $g$, denoted $\Delta g$, is defined as the function $(\Delta g)(n) =
+  g(n+1) - g(n)$. Suppose we have two functions $f,g: \N \to \R$ such
+  that $g(n) = \sum_{k=1}^n f(k)$. What is the relationship between
+  $\Delta g$ and $f$? {\em This is a discrete version of the
+  fundamental theorem of calculus.}
+
+  \begin{enumerate}[(A)]
+  \item $(\Delta g)(n) = f(n)$ for all $n \in \N$
+  \item $(\Delta g)(n) = f(n + 1)$ for all $n \in \N$
+  \item $(\Delta g)(n + 1) = f(n)$ for all $n \in \N$
+  \item $(\Delta g)(n) = f(n + 2)$ for all $n \in \N$
+  \item $(\Delta g)(n + 2) = f(n)$ for all $n \in \N$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Which of the following is the correct definition of $\lim_{x \to
+  \infty} f(x) = L$ for $L$ a finite number?
+
+  \begin{enumerate}[(A)]
+  \item For every $\epsilon > 0$ there exists $a \in \R$ such that if
+    $0 < |x - L| < \epsilon$ then $f(x) > a$.
+  \item For every $\epsilon > 0$ there exists $a \in \R$ such that if
+    $x > a$ then $|f(x) - L| < \epsilon$.
+  \item For every $a \in \R$ there exists $\epsilon > 0$ such that if
+    $x > a$ then $|f(x) - L| < \epsilon$.
+  \item For every $a \in \R$ there exists $\epsilon > 0$ such that if
+    $0 < |x - L| < \epsilon$ then $f(x) > a$.
+  \item There exists $a \in \R$ and $\epsilon > 0$ such that if $x >
+    a$ then $|f(x) - L| < \epsilon$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item {\em Horizontal asymptote and limit of derivative}: Suppose
+  $\lim_{x \to \infty} f'(x)$ is finite. Which of the following is
+  true (be careful about $f$ versus $f'$ when reading the choices)?
+  \begin{enumerate}[(A)]
+  \item If $\lim_{x \to \infty} f'(x)$ is zero, then $\lim_{x \to
+    \infty} f(x)$ is finite.
+  \item If $\lim_{x \to \infty} f(x)$ is finite, then $\lim_{x \to
+    \infty} f'(x)$ is zero.
+  \item If $\lim_{x \to \infty} f(x)$ is finite, then $\lim_{x \to
+    \infty} f(x)$ is zero.
+  \item All of the above.
+  \item None of the above.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item {\em Convergent sequence and limit of forward difference
+  operator}: Suppose $f: \N \to \R$ is a function (so we can think of
+  it as a sequence). Which of the following is true? Here $(\Delta
+  f)(n) =f(n+1) - f(n)$.
+
+  \begin{enumerate}[(A)]
+  \item If $\lim_{n \to \infty} (\Delta f)(n)$ is zero, then $\lim_{n \to
+    \infty} f(n)$ is finite.
+  \item If $\lim_{n \to \infty} f(n)$ is finite, then $\lim_{n \to
+    \infty} (\Delta f)(n)$ is zero.
+  \item If $\lim_{n \to \infty} f(n)$ is finite, then $\lim_{n \to
+    \infty} f(n)$ is zero.
+  \item All of the above.
+  \item None of the above.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item {\em Function iteration converges at infinity}: Suppose $(a_n)$
+  is a sequence whose terms are given by the relation $a_n =
+  f(a_{n-1})$, with $a_1$ specified separately and $f$ is a continuous
+  function on $\R$. Further, suppose we know that $\lim_{n \to \infty}
+  a_n = L$ for some finite $L$. What can we conclude is true about
+  $L$?
+
+  \begin{enumerate}[(A)]
+  \item $f(L) = L$
+  \item $f(L) = 0$
+  \item $f'(L) = L$
+  \item $f'(L) = 0$
+  \item $f''(L) = 0$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item {\em Equilibrium at infinity}: Suppose a function $y$ of time
+  $t$ satisfies the differential equation $y' = f(y)$ for all time
+  $t$, where $f$ is a continuous function on $\R$. Further, suppose we
+  know that $\lim_{t \to \infty} y = L$ for some finite $L$. What can
+  we conclude is true about $L$?  {\em Note: Although the question is
+  conceptually similar to the preceding question, you have to reason
+  about the question differently.}
+  \begin{enumerate}[(A)]
+  \item $f(L) = L$
+  \item $f(L) = 0$
+  \item $f'(L) = L$
+  \item $f'(L) = 0$
+  \item $f''(L) = 0$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item A sequence $a_n$ is found to satisfy the recurrence $a_{n+1} =
+  2a_n(1 - a_n)$. Assume that $a_1$ is strictly between $0$ and
+  $1$. What can we say about the sequence $(a_n)$?
+  \begin{enumerate}[(A)]
+  \item It is monotonic non-increasing, and its limit is $0$.
+  \item It is monotonic non-decreasing, and its limit is $1$.
+  \item From $a_2$ onward, it is monotonic non-decreasing, and its
+    limit is $1/2$.
+  \item From $a_2$ onward, it is monotonic non-increasing, and its
+    limit is $1/2$.
+  \item It is either monotonic non-decreasing or monotonic
+    non-increasing everywhere, and its limit is $1/2$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Suppose $f$ is a continuous function on $\R$ and $(a_n)$ is a
+  sequence satisfying the recurrence $f(a_n) = a_{n+1}$ for all
+  $n$. Further, suppose the limit of the $a_n$s for odd $n$ is $L$ and
+  the limit of the $a_n$s for even $n$ is $M$. What can we say about
+  $L$ and $M$?
+  \begin{enumerate}[(A)]
+  \item $f(L) = L$ and $f(M) = M$
+  \item $f(L) = M$ and $f(M) = L$
+  \item $f(L) = f(M) = 0$
+  \item $f'(L) = f'(M) = 0$
+  \item $f'(L) = M$ and $f'(M) = L$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Consider a function $f$ on the natural numbers defined as
+  follows: $f(m) = m/2$ if $m$ is even, and $f(m) = 3m + 1$ if $m$ is
+  odd. Consider a sequence where $a_1$ is a natural number and we
+  define $a_n := f(a_{n-1})$. It is conjectured (see {\em Collatz
+  conjecture}) that $(a_n)$ is eventually periodic, regardless of the
+  starting point, and that there is only one possibility for the
+  eventual periodic fragment. Which of the following can be the
+  eventual periodic fragment?
+
+  \begin{enumerate}[(A)]
+  \item $(1,2,3)$
+  \item $(1,3,2)$
+  \item $(1,2,4)$
+  \item $(1,4,2)$
+  \item $(1,3,4)$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item For which of the following properties $p$ of sequences of real
+  numbers does $p$ equal {\em eventually} $p$?
+  \begin{enumerate}[(A)]
+  \item Monotonicity
+  \item Periodicity
+  \item Being a polynomial sequence (i.e., given by a polynomial function)
+  \item Being a constant sequence
+  \item Boundedness
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+  The remaining questions are based on a rule which we call the {\em
+  degree difference rule}. This states the following. Consider a
+  rational function $p(x)/q(x)$, and suppose $a \in \R$ is such that
+  $q$ has no roots in $[a,\infty)$. Then, the improper integral
+  $\int_a^\infty \frac{p(x)}{q(x)} \, dx$ is finite if and only if the
+  degree of $q$ minus the degree of $p$ is {\em at least} two, or in
+  other words, is strictly greater than one. The same rule applies to
+  $\int_{-\infty}^\infty \frac{p(x)}{q(x)} \, dx$ if $q$ has no zero.
+
+  The degree difference rule has a slight variation: we can apply it
+  to situation where $p$ and $q$ are not quite polynomials, but rather
+  their growth rates are of the same order as that of some polynomial
+  or power function. For instance, $(x^2 + 1)^{3/2}$ has ``degree''
+  three with this more liberal interpretation. {\em Added: In this
+    more liberal interpretation, we require that the degree difference
+    (which could now be a non-integer), be strictly greater than
+    one. For instance, a degree difference of $3/2$ means that the
+    integral converges.}
+
+  Consider a probability distribution on $\R$ with density function
+  $f$. In particular, this means that $\int_{-\infty}^\infty f(x) \,
+  dx = 1$. Further, assume that $f$ has mean zero and is an even
+  function, i.e., the probability distribution is symmetric about
+  zero.
+
+  The {\em mean deviation} of the distribution is defined as
+  $\int_{-\infty}^\infty |x|f(x) \, dx$. On account of the fact that
+  $f$ is an even function, this can be rewritten as $2
+  \int_0^\infty xf(x) \, dx$.
+
+  The {\em standard deviation} of the distribution, denoted $\sigma$, of $f$ is defined as
+  $\sqrt{\int_{-\infty}^\infty x^2 f(x) \, dx}$.
+
+  The {\em kurtosis} of the distribution is defined as $-3 +
+  (\int_{-\infty}^\infty x^4 f(x) \, dx)/\sigma^4$. Note that the
+  kurtosis does not make sense if the standard deviation is infinite.
+
+\item Consider the distribution with density function $f(x):=
+  (x^2+1)^{-1}/\pi$. (We divide by $\pi$ so that the integral on
+  $(-\infty,\infty)$ is $1$). Which of the following is true?
+
+  \begin{enumerate}[(A)]
+  \item The mean deviation is finite but the standard deviation is infinite.
+  \item The standard deviation and kurtosis are finite, but the mean deviation is infinite.
+  \item The standard deviation, mean deviation, and kurtosis are all finite.
+  \item The standard deviation and mean deviation are finite, but the kurtosis is infinite.
+  \item The standard deviation and mean deviation are both infinite.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Consider the distribution with density function $f(x):=
+  (x^2+1)^{-3/2}/2$. (We divide by $2$ so that the integral on
+  $(-\infty,\infty)$ is $1$). Which of the following is true?
+
+  \begin{enumerate}[(A)]
+  \item The mean deviation is finite but the standard deviation is infinite.
+  \item The standard deviation and kurtosis are finite, but the mean deviation is infinite.
+  \item The standard deviation, mean deviation, and kurtosis are all finite.
+  \item The standard deviation and mean deviation are finite, but the kurtosis is infinite.
+  \item The standard deviation and mean deviation are both infinite.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Consider the distribution with density function $f(x):=
+  (x^2+1)^{-2}/(\pi/2)$. (We divide by $\pi/2$ so that the integral on
+  $(-\infty,\infty)$ is $1$). Which of the following is true?
+
+  \begin{enumerate}[(A)]
+  \item The mean deviation is finite but the standard deviation is infinite.
+  \item The standard deviation and kurtosis are finite, but the mean deviation is infinite.
+  \item The standard deviation, mean deviation, and kurtosis are all finite.
+  \item The standard deviation and mean deviation are finite, but the kurtosis is infinite.
+  \item The standard deviation and mean deviation are both infinite.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Consider the distribution with density function $f(x):=
+  (x^2+1)^{-5/2}/(4/3)$. (We divide by $4/3$ so that the integral on
+  $(-\infty,\infty)$ is $1$). Which of the following is true?
+
+  \begin{enumerate}[(A)]
+  \item The mean deviation is finite but the standard deviation is infinite.
+  \item The standard deviation and kurtosis are finite, but the mean deviation is infinite.
+  \item The standard deviation, mean deviation, and kurtosis are all finite.
+  \item The standard deviation and mean deviation are finite, but the kurtosis is infinite.
+  \item The standard deviation and mean deviation are both infinite.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Consider the distribution with density function $f(x):=
+  (x^2+1)^{-3}/(3\pi/8)$. (We divide by $3\pi/8$ so that the integral on
+  $(-\infty,\infty)$ is $1$). Which of the following is true?
+
+  \begin{enumerate}[(A)]
+  \item The mean deviation is finite but the standard deviation is infinite.
+  \item The standard deviation and kurtosis are finite, but the mean deviation is infinite.
+  \item The standard deviation, mean deviation, and kurtosis are all finite.
+  \item The standard deviation and mean deviation are finite, but the kurtosis is infinite.
+  \item The standard deviation and mean deviation are both infinite.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+
+\end{enumerate}
+\end{document}

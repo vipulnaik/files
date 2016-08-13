@@ -1,0 +1,220 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: March 30: Parametric stuff}
+\author{Math 195, Section 59 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+
+\maketitle
+
+\section{Performance review}
+
+$21$ people took this $6$-question quiz. The score distribution was as
+follows:
+
+\begin{itemize}
+\item Score of $1$: $1$ person
+\item Score of $2$: $2$ people
+\item Score of $3$: $5$ people
+\item Score of $4$: $7$ people
+\item Score of $5$: $6$ people
+\end{itemize}
+
+The mean score was about $3.7$.
+
+Here are the question wise answers and performance:
+
+\begin{enumerate}
+\item Option (D): $20$ people got this.
+\item Option (A): $20$ people got this.
+\item Option (C): $15$ people got this.
+\item (*) Option (B): $7$ people got this.
+\item (*) Option (D): $11$ people got this.
+\item (+) Option (E): $5$ people got this.
+\end{enumerate}
+
+A (*) in front of a question indicates that there exist one or more
+strong distractors in the answer choices, so you need to be more
+careful. A (+) in front of a question indicates that one or more
+incorrect answer choice was chosen more frequently than the correct
+answer choice.
+
+\section{Solutions}
+
+\begin{enumerate}
+
+\item Suppose $f$ and $g$ are both twice differentiable functions
+  everywhere on $\R$. Which of the following is the correct formula
+  for $(f \circ g)''$?
+
+  \begin{enumerate}[(A)]
+
+  \item $(f'' \circ g) \cdot g''$
+  \item $(f'' \circ g) \cdot (f' \circ g') \cdot g''$
+  \item $(f'' \circ g) \cdot (f' \circ g') \cdot (f \circ g'')$
+  \item $(f'' \circ g) \cdot (g')^2 + (f' \circ g) \cdot g''$
+  \item $(f' \circ g') \cdot (f \circ g) + (f'' \circ g'')$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: This question is tricky because it requires the
+  application of both the product rule and the chain rule, with the
+  latter being used twice. We first note that:
+
+  $$(f \circ g)' = (f' \circ g) \cdot g'$$
+
+  Now, we differentiate both sides:
+
+  $$(f \circ g)'' = [(f' \circ g) \cdot g']'$$
+
+  The expression on the right side that needs to be differentiated is
+  a product, so we use the product rule:
+
+  $$(f \circ g)'' = [(f' \circ g)' \cdot g'] + [(f' \circ g) \cdot g'']$$
+
+  Now, the inner composition $f' \circ g$ needs to be
+  differentiated. We use the chain rule and obtain that $(f' \circ g)'
+  = (f'' \circ g) \cdot g'$. Plugging this back in, we get:
+
+  $$(f \circ g)'' = (f'' \circ g) \cdot (g')^2 + (f' \circ g) \cdot g''$$
+
+  {\em Remark}: What's worth noting here is that in order to
+  differentiate composites of functions, you need to use both
+  composites {\em and} products (that's the chain rule). And in order
+  to differentiate products, you need to use both products {\em and}
+  sums (that's the product rule). Thus, in order to differentiate a
+  composite twice, we need to use composites, products, {\em and}
+  sums.
+
+  {\em Performance review}: $20$ out of $21$ people got this
+  correct. $1$ person left the question blank.
+
+  {\em Historical note}: I put this question in a quiz for Math 152
+  back in October of this year, and $14$ of $14$ people who took that
+  quiz got it correct.
+\item Suppose $x = f(t)$ and $y = g(t)$ where $f$ and $g$ are both
+  twice differentiable functions. What is $d^2y/dx^2$ in terms of $f$
+  and $g$ and their derivatives evaluated at $t$?
+
+  \begin{enumerate}[(A)]
+  \item $(f'(t)g''(t) - g'(t)f''(t))/(f'(t))^3$
+  \item $(f'(t)g''(t) - g'(t)f''(t))/(g'(t))^3$
+  \item $(g'(t)f''(t) - f'(t)g''(t))/(f'(t))^3$
+  \item $(g'(t)f''(t) - f'(t)g''(t))/(g'(t))^3$
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: See lecture notes.
+
+  {\em Performance review}: $20$ out of $21$ people got this
+  correct. $1$ person chose (E).
+\item Which of the following pair of bounds works for the arc length
+  for the portion of the graph of the sine function between $(a,\sin
+  a)$ and $(b, \sin b)$ where $a < b$?
+
+  \begin{enumerate}[(A)]
+  \item Between $(b - a)/\sqrt{3}$ and $(b - a)/\sqrt{2}$
+  \item Between $(b - a)/\sqrt{2}$ and $b - a$
+  \item Between $(b - a)$ and $\sqrt{2}(b - a)$
+  \item Between $\sqrt{2}(b - a)$ and $\sqrt{3}(b - a)$
+  \item Between $\sqrt{3}(b - a)$ and $2(b - a)$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The derivative function is $\cos$, so the
+  corresponding arc length formula gives:
+
+  $$\int_a^b \sqrt{1 + \cos^2x} \, dx$$
+
+  The integrand is always between $1$ and $\sqrt{2}$, so the integral
+  must be between $1 \cdot (b - a)$ and $\sqrt{2} \cdot (b - a)$.
+
+  {\em Performance review}: $15$ out of $21$ people got this
+  correct. $2$ chose (B), $2$ left the question blank, $1$ each chose
+  (A) and (D).
+
+\item (*) Consider the parametric curve $x = e^t$, $y = e^{t^2}$. How does
+  $y$ grow in terms of $x$ as $x \to \infty$?
+
+  \begin{enumerate}[(A)]
+  \item $y$ grows like a polynomial in $x$.
+  \item $y$ grows faster than any polynomial in $x$ but slower than an
+    exponential function of $x$.
+  \item $y$ grows exponentially in $x$.
+  \item $y$ grows super-exponentially in $x$ but slower than a double
+    exponential in $x$.
+  \item $y$ grows like a double exponential in $x$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Note that a polynomial in $x$ is still
+  exponential in $t$, and not in $t^2$, i.e., it is too slow to be
+  $y$. Thus $y$ grows faster than any polynomial in $x$. On the other
+  hand, an exponential in $x$ is doubly exponential in $t$, which is
+  faster in growth than $e^{t^2}$. Thus, option (B).
+
+  {\em Performance review}: $7$ out of $21$ people got this
+  correct. $4$ each chose (A) and (E), $3$ chose (C), $1$ chose (D),
+  and $2$ left the question blank.
+
+\item (*) We say that a curve is {\em algebraic} if it admits a
+  parameterization of the form $x = f(t)$, $y = g(t)$, where $f$ and
+  $g$ are rational functions and $t$ varies over some subset of the real
+  numbers. Which of the following curves is {\em not} algebraic?
+
+  \begin{enumerate}[(A)]
+  \item $x = \cos t$, $y = \sin t$, $t \in \R$
+  \item $x = \cos t$, $y = \cos(3t)$, $t \in \R$
+  \item $x = \cos t$, $y = \cos^2t$, $t \in \R$
+  \item $x = \cos t$, $y = \cos(t^2)$, $t \in \R$
+  \item None of the above, i.e., they are all algebraic
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: In all the other cases, we can elucidate an
+  algebraic relationship between the variables.
+
+  For option (A), we can set both $\cos t$ and $\sin t$ as rational
+  functions in $\tan(t/2)$. In fact, the rational functions in
+  $\tan(t/2)$ approach works for options (B) and (C) as well, though
+  there are simpler approaches in those cases. The approach does not
+  work for option (D).
+
+  {\em Performance review}: $11$ out of $21$ people got this
+  correct. $8$ chose (E), $1$ chose (B), $1$ left the question blank.
+
+\item (+) Suppose $x = f(t)$, $y = g(t)$, $t \in \R$ is a parametric
+  description of a curve $\Gamma$ and both $f$ and $g$ are continuous
+  on all of $\R$. If both $f$ and $g$ are even, what can we conclude
+  about $\Gamma$ and its parameterization?
+
+  \begin{enumerate}[(A)]
+  \item $\Gamma$ is symmetric about the $y$-axis
+  \item $\Gamma$ is symmetric about the $x$-axis
+  \item $\Gamma$ is symmetric about the line $y = x$
+  \item $\Gamma$ has half turn symmetry about the origin
+  \item The parameterizations of $\Gamma$ for $t \le 0$ and for $t \ge
+    0$ both cover all of $\Gamma$, and in directions mutually reverse
+    to each other.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: See lecture notes.
+
+  {\em Performance review}: $5$ out of $21$ people got this
+  correct. $7$ chose (A), $4$ chose (D), $2$ each chose (B) and (C),
+  $1$ left the question blank.
+\end{enumerate}
+\end{document}

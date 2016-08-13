@@ -1,0 +1,313 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Review sheet for final: advanced}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+\section{Series and convergence}
+
+{\em Prior to trying the exercises, please review the corresponding sections on ``Words'',
+``Actions'', and ``Cautionary Notes'' in the basic review sheet}.
+
+Error-spotting exercises...
+
+\begin{enumerate}
+\item The sum $\sum_{k=0}^\infty 1/k^2$ converges. One way of seeing
+  this is that when $k = \infty$, $1/k^2 = 1/\infty^2 = 0$. Hence, we
+  know that the terms approach $0$. We know that for a series to
+  converge, the terms must go to zero. Hence, the terms go to
+  zero. Hence, the series converges.
+\item The sum $\sum_{k=1}^\infty 1/x^2$ converges. One way of seeing
+  this is to use the integral test. We know that $1/x^2$ is a
+  nonnegative continuous decreasing function of $x$. So we can apply
+  the integral test to it, and we get:
+
+  $$\sum_{k=1}^\infty 1/x^2 = \int_1^\infty dx/x^2 = -1/\infty - (-1/1) = 1$$
+
+  So the sum is $1$, which is a finite number.
+\item The sum $\sum_{k=0}^\infty 1/(k^3 + k^2)$ converges, because as
+  we all know:
+
+  $$\sum_{k=0}^\infty \frac{1}{k^3 + k^2} = \sum_{k=0}^\infty \frac{1}{k^3} + \sum_{k=0}^\infty \frac{1}{k^2}$$
+
+  The sum on the right side converges.
+\item The sum $\sum_{k=1}^\infty \frac{k^{5/2}}{k^4 - 4k - 8}$ diverges,
+  because the degree difference $4 - 5/2 = 3/2$ is less than $2$.
+\end{enumerate}
+
+\section{Root and ratio tests}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item We can use the root test to show that $\sum_{k=1}^\infty 1/k^2$
+  is convergent as follows. The $k^{th}$ root of the $k^{th}$ term is
+  $(1/k)^{2/k}$. As $k \to \infty$, $1/k \to 0^+$, so $(1/k)^{2/k} \to
+  0$. Hence, the root test applies and the series converges.
+\item By the ratio test, we can show that $\sum_{k=1}^\infty 1/k^2$
+  converges as follows. The ratio of the $(k+1)^{th}$ term to the
+  $k^{th}$ term is $k^2/(k + 1)^2$. This is clearly less than $1$. By
+  the ratio test, since the ratio is less than $1$, the series
+  converges.
+\item Consider the series $\sum_{k=0}^\infty \frac{(-3)^k}{k^2 +
+  1}$. Applying the ratio test, we get that the limit of ratio of
+  successive terms is $-3$. This limit is less than $1$, so the series
+  converges.
+\end{enumerate}
+
+\section{Absolute and conditional convergence}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item Consider the series $\sum (-1)^k k^3/(k^2 + 1)$. We know that
+  the terms are alternating in sign. Hence, by the alternating series
+  theorem, the summation converges.
+\item Consider the series $1 - 1/2 + 1/3 - 1/4 + 1/5 - \dots$. We know
+  that the series converges by the alternating series theorem, and by
+  Abel's theorem, it converges to $\ln 2$. Suppose $A = 1 + 1/2 + 1/3
+  + 1/4 + \dots$. Then $A/2 = 1/2 + 1/4 + 1/6 + \dots$. Thus $A - A/2
+  = 1 + 1/3 + 1/5 + 1/7 + \dots$. So we get:
+
+  $$A/2 = 1 + 1/3 + 1/5 + 1/7 + \dots$$
+
+  We also had:
+
+  $$A/2 = 1/2 + 1/4 + 1/6 + 1/8 + \dots$$
+
+  Subtracting, we get:
+
+  $$0 = 1 - 1/2 + 1/3 - 1/4 + 1/5 - 1/6 + \dots$$
+
+  But we already noted that the sum is $\ln 2$. Thus, $0 = \ln 2$.
+\end{enumerate}
+
+\section{Taylor series}
+
+\subsection{Taylor series at $0$}
+
+Error-spotting exercises:
+
+\begin{enumerate}
+\item The $n^{th}$ Taylor polynomial for a function that is $n$ times
+  differentiable at $0$ is a polynomial of degree $n$.
+\item The Taylor series for $\sin x$ is just $x$: The first derivative
+  of $\sin$ is $\cos$, the second derivative is $-\sin$. We see that
+  the second derivative of $\sin$ is $0$ at $0$. Differentiating $0$
+  further gives $0$, so all higher derivatives are also zero. So, the
+  Taylor series is just $P_1$, which is just the polynomial $x$.
+\item The Taylor series for $x^{34/3}$ is just the zero polynomial: We
+  know that all higher derivatives of $x^{34/3}$ are powers of $x$,
+  but since $34/3$ is not an integer, we never get to $x^0$, and hence
+  all the powers evaluated at $0$ give the value $0$. So the Taylor
+  series is just $0$.
+\item The Taylor polynomial $P_2$ for $e^x\sin x$ is the product of
+  the Taylor polynomials $P_2$ for $e^x$ and for $\sin x$.
+\end{enumerate}
+
+\subsection{Taylor series in $x - a$}
+
+No error-spotting exercises.
+
+\section{Power series}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item Suppose the radius of convergence of a power series is a
+  positive real number $c$. Then, the interval of convergence is the
+  {\em closed} interval $[-c,c]$ if and only if the power series is
+  {\em absolutely} convergent at $c$. If the power series is
+  conditionally convergent at $c$, then the interval of convergence is
+  $(-c,c]$. Similarly, if the power series is conditionally convergent
+  at $-c$, then the interval of convergence is $[-c,c)$. Finally, if
+  the power series is not convergent at either endpoint, the interval
+  of convergence is $(-c,c)$.
+
+\item Consider the function:
+
+  $$f(x) := \frac{1}{(2 - x)(3 - x)}$$
+
+  Then $f$ has a power series about $0$ with radius of convergence
+  $1$, because it is a rational function. We all know that rational
+  functions have radius of convergence $1$.
+
+\item Consider the function:
+
+  $$f(x) := \frac{1}{(x^2 + 4)(x - 3)(x + 5)}$$
+
+  The radius of convergence of $f$ is $3$ (because that's the smallest
+  number at which the function blows up. Further, the interval of
+  convergence is the open interval $(-3,3)$.
+
+\item Consider the power series $\sum_{k=0}^\infty x^k/2^{k^2}$. The
+  radius of convergence for this is $\lim_{k \to \infty}
+  1/(1/(2^{k^2}))^{1/k}$, which is $2^k$. So, the power series has radius of
+  convergence $2^k$.
+\item Consider the power series $\sum_{k=0}^\infty 2^{2^k}x^k$. The
+  radius of convergence is $\lim_{k \to \infty} 1/(2^{2^k})^{1/k} =
+  1/2^2 = 1/4$.
+\item $\arctan$ is a function defined and infinitely differentiable on
+  all of $\R$. So, the Taylor series of $\arctan$ must have radius of
+  convergence equal to $\infty$.
+\item Consider the function $f(x) := \sum_{k=0}^\infty
+  2^{k^2}x^k$. The Taylor series for $f$ converges to $f$ on all of
+  $\R$.
+\item Consider the power series $\sum_{k=0}^\infty
+  \frac{k^{11/4}3^kx^k}{p(k)}$ where $p$ is a polynomial with positive
+  leading coefficient that is not zero at any integer. The radius of
+  convergence of this power series is $3$. Moreover, the endpoints
+  $+3$ and $-3$ are included if and only if the degree of $p$ is at
+  least two more than $11/4$. Since $p$ is a polynomial and has
+  integer degree, this is equivalent to saying that the degree of $p$
+  is at least $5$.
+\end{enumerate}
+
+\section{Summation techniques}
+
+Error-spotting exercises...
+
+\begin{enumerate}
+\item Consider the summation:
+
+  $$\sum_{k=1}^\infty \frac{x^{2k}}{k!}$$
+
+  This picks out only the even degree terms in the power series of the
+  exponential function, hence it return the {\em even part} of the
+  exponential function. In other words, the summation gives the
+  hyperbolic cosine function $\cosh$.
+\item Consider the summation:
+
+  $$\sum_{k=1}^\infty \frac{x^k}{k(k+1)}$$
+
+  We can rewrite the terms as:
+
+  $$x^k\left(\frac{1}{k} - \frac{1}{k + 1}\right)$$
+
+  The series then telescopes, and the infinite sum is just $x^1/1 = x$.
+
+\item The summation:
+
+  $$\sum_{k=0}^\infty \frac{x^k}{(2k)!}$$
+
+  gives $\cosh \sqrt{x}$. To see this, substitute $u = \sqrt{x}$ into
+  the summation, and we obtain:
+
+  $$\sum_{k=0}^\infty \frac{u^{2k}}{(2k)!}$$
+
+  This is $\cosh u = \cosh \sqrt{x}$.
+\end{enumerate}
+
+\section{Approximations all in one place}
+
+To make life easier for you, we list here the various approximation
+techniques used.
+
+\begin{enumerate}
+\item {\em Approximating a sum by an integral}: This is done using a
+  numerical version of the integral test. This allows us to
+  approximate the values of the zeta function. Please see the notes
+  for how this is done. Note that this gives both an upper bound and a
+  lower bound.
+\item {\em Approximating a function by Taylor polynomials}: For a
+  function that is globally analytic or analytic about a point, we can
+  approximate its value by Taylor polynomials. The higher the degree
+  we allow for the Taylor polynomial, the better the approximation in
+  general. The magnitude of possible error is determined using the
+  max-estimate version of the Lagrange formula. {\em It is important
+  to note that the error estimate could vary quite a bit from function
+  to function. Some power series converge more slowly than others}. A
+  good rule of thumb is that the more quickly the terms go to zero,
+  the fewer the number of terms we need to take to get a good
+  approximation.
+
+  In some cases, the Taylor approximation applies nicely only in a
+  small range. For instance, the Taylor series for $\sin$ converges to
+  $\sin$ globally, but the convergence is quick only for small values
+  of $x$. The Taylor series for $\arctan$ converges to it only on
+  $[-1,1]$. However, we can use various identities such as those
+  relating $\sin x$ and $\cos(\pi/2 - x)$ and those relating $\arctan
+  x$ and $\arctan(1/x)$ to reduce to the case of a rapidly converging
+  Taylor series.
+\item {\em Approximating an integral computation using Taylor
+  polynomials}: Even computing the value of plain vanilla functions
+  like $\sin$ at specific points requires the use of Taylor
+  series. Miraculously, we can do with Taylor series what we cannot
+  always do with functions -- integrate term wise. This allows us to
+  calculate definite integrals of globally and locally analytic
+  functions by first integrating the Taylor series term wise and then
+  using a Taylor polynomial approximation. Examples of functions that
+  cannot be integrated in the language of elementary functions, but
+  whose integrals can be computed to a fair degree of accuracy using
+  this approach, are $(\sin x)/x$, $(e^x - 1)/x$, $e^{-x^2}$,
+  $\sin(x^2)$, and similar functions.
+
+  Note that, at least for cases where the power series is easy to
+  write down, this approach is a lot less cumbersome than the approach
+  of using upper and lower sums.
+\item {\em Trying to find where a function is zero}, particularly when
+  there is no algebraic method to solve this: We use techniques like
+  the intermediate value theorem and the mean value theorem to show
+  the existence of zeros in certain intervals. We also use derivative
+  behavior and other techniques to further narrow down the intervals
+  under consideration.
+\end{enumerate}
+
+\section{Limit computations and order of zero}
+
+\begin{enumerate}
+\item Suppose $f$ is a function that has a zero at $a$. The order $r$
+  of the zero at $a$ is the least upper bound of the set of values
+  $\beta$ such that $\lim_{x \to a} |f(x)|/|x - a|^\beta = 0$. For
+  $\beta < r$, the limit is $0$. For $\beta > r$, the limit is
+  undefined ($\infty$-types).
+\item To simplify notation, we concentrate on the case where $a = 0$
+  (the location of $a$ does not matter, because we can always translate).
+\item If $f$ is infinitely differentiable at $0$ and takes the value
+  $0$ at $0$, the order of $f$ at $0$ is the smallest $n$ such that
+  $f^{(n)}(0) \ne 0$. Note that it is possible, but rare, for a
+  function to have a zero of order $\infty$ at $0$ (an example is the
+  $e^{-1/x^2}$ function). We ignore such examples.
+\item In particular, for an infinitely differentiable function that is
+  $0$ at $0$, the order of the zero (if finite) if always a positive
+  integer. Moreover, if the order is $r$, them $\lim_{x \to 0}
+  f(x)/x^r = f^{(r)}(0)/r!$, which is the corresponding Taylor
+  coefficient.
+\item This is particularly intuitive for analytic functions, because
+  if we replace a function by its Taylor series we readily see that
+  the order of its zero is the lowest order with nonzero
+  coefficient. We also see that the limit of the quotient by $x^r$ is
+  that coefficient.
+\item We can have a function with a zero at a point that has
+  fractional order, but the function cannot be infinitely
+  differentiable. For instance, consider $x^{p/q}$, where $p$ and $q$
+  are positive and $q$ is odd, with $q$ not dividing $p$. This is
+  differentiable $k$ times where $k$ is the greatest integer less than
+  $p/q$. On the other hand, the order of the zero is $p/q$, which is a
+  fraction. What happens is that we cannot differentiate the
+  $(k+1)^{th}$ time at $0$, since that exceeds the order.
+\item We can also have a situation of a function $f$ with zero of
+  order $r$ such that $\lim_{x \to \infty} f(x)/x^r$ is zero. Again,
+  however, $f$ cannot be infinitely differentiable. Examples include
+  $x/(\ln x)$, which has a zero order order $1$. Intuitively, the
+  order of the zero here is $1^+$. (Note that $\ln$ in the denominator
+  has a positive effect near zero though it has a negative effect near
+  $\infty$. Ponder why).
+\item {\em Important note on order of zero of log}: Note that $\ln x
+  \to -\infty$ as $x \to 0^+$, so log has an {\em anti-zero} at zero
+  of order infinitesimally less than $0$, i.e., $0^-$. Thus, for $r >
+  0$, $x^r \ln x$ has a zero at $0$ of degree $r^-$.
+
+  {\em Thus, the rule for logarithm near $0$ (where the zero has
+  degree $0^-$) is somewhat opposite to the rule for logarithm out to
+  $\infty$ (where the growth is $0^+$)}.
+\item We can also have a situation of a function $f$ with zero of
+  order $r$ such that $\lim_{x \to \infty} f(x)/x^r$ is undefined or
+  infinite. Again, however, $f$ cannot be infinitely
+  differentiable. Examples include $x(\ln x)$, which has a zero order
+  order $1$ at $0$. Intuitively, the order of the zero here is $1^-$.
+\end{enumerate}
+
+\end{document}

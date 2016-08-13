@@ -1,0 +1,1246 @@
+\subsection{The Lazard correspondence for small global class}
+
+Suppose $L$ is a nilpotent Lie ring. We say that $L$ is a {\em Lazard
+  Lie ring of small global class type} if $L$ is powered over all
+primes less than {\em or equal to} its nilpotency class. {\em TODO: Is
+  there a better word for this?} Particular cases of interest for this
+are:
+
+\begin{itemize}
+\item The case where $L$ is a rationally powered nilpotent Lie
+  ring. Rationally powered nilpotent Lie rings are called {\em Malcev
+    Lie rings}.
+\item The case where $L$ is a Lie ring whose additive group is a (not
+  necessarily finite) $p$-group for some prime number $p$, and $L$ has
+  nilpotency class strictly less than $p$. 
+\end{itemize}
+
+Analogously, define {\em Lazard Lie group of small global class type}
+as a nilpotent group of class that is powered over all primes less
+than or equal to its nilpotency class.
+
+The Lazard correspondence for small global class type is a
+correspondence:
+
+Lazard Lie rings of small global class type $\leftrightarrow$ Lazard
+Lie groups of small global class type
+
+The correspondence is nice in a number of ways, including:
+
+\begin{itemize}
+\item We get element-to-element bijections between the Lazard Lie ring
+  and Lazard Lie group.
+\item The bijection corresponds subrings to subgroups and ideals to
+  normal subgroups.
+\item The bijection preserves automorphism groups. In fact, it is an
+  equivalence of categories, so it preserves homomorphisms and
+  endomorphisms.
+\item If we have an exact sequence of Lazard Lie rings of small global
+  class type, we get a corresponding exact sequence of their Lazard
+  Lie groups of small global class type.
+\item The element-to-element bijection is an isomorphism when
+  restricted to the additive groups of abelian subrings and their
+  images (abelian subgroups). In particular, it is an isomorphism
+  restricted to any cyclic subring/subgroup. Thus, it also preserves
+  all powering, divisibility, and torsion structure.
+\item The group multiplication can be described using the Lie ring
+  operations via the {\em Baker-Campbell-Hausdorff formula}.
+\item The Lie operations can be expressed in terms of the group
+  multiplication via {\em inverse Baker-Campbell-Hausdorff formulas}.
+\end{itemize}
+
+The Baker-Campbell-Hausdorff formula is an infinite series formula,
+but it can be truncated to give a finite formula for any fixed class.
+
+\subsection{Baker-Campbell-Hausdorff formula}
+
+In this section, we provide a little background regarding the
+Baker-Campbell-Hausdorff formula.
+
+The Baker-Campbell-Hausdorff formula is an infinite formula of the form:
+
+$$x + y + t_2(x,y) + t_3(x,y) + \dots+ t_n(x,y) + \dots$$
+
+where each $t_i(x,y)$ is a sum of iterated Lie brackets involving $x$
+and $y$ of homogeneous degree $i$ (in other words, each of the
+iterated Lie brackets used in the summation involves a product of $i$
+terms). The first few terms are described below:
+
+\begin{tabular}{|l|l|}
+  \hline
+  Term & Expression\\\hline
+  $t_2(x,y)$ & $\frac{1}{2}[x,y]$ \\\hline
+  $t_3(x,y)$ & $ \frac{1}{12}[x,[x,y]] - \frac{1}{12}[y,[x,y]]$ \\\hline
+  $t_4(x,y)$ & $-\frac{1}{24}[y,[x,[x,y]]]$\\\hline
+\end{tabular}
+
+The following are some general facts about these terms:
+
+\begin{itemize}
+\item All primes appearing as factors of the denominators of the
+  expressions used for $t_n(x,y)$ are less than or equal to $n$.
+\item $t_n(x,y)$ is symmetric in $x$ and $y$ for $n$ odd and is skew
+  symmetric in $x$ and $y$ for $n$ even. This can be verified by
+  noting that $t_n(-y,-x) = -t_n(x,y)$ (from the original defining
+  properties of the formula) and then using the linearity and other
+  properties of $t_n$.
+\end{itemize}
+
+We now explain how we can use these to construct the Lazard
+correspondence explicitly. It is helpful to break down the Lazard
+correspondence into subcorrespondences. For each positive integer $c$,
+consider the correspondence:
+
+\begin{quote}
+Lie rings of nilpotency class exactly $c$ and powered over all primes
+less than or equal to $c$ $\leftrightarrow$ Groups of nilpotency class
+exactly $c$ and powered over all primes less than or equal to $c$
+\end{quote}
+
+The subcorrespondence works as follows. We first truncate the
+Baker-Campbell-Hausdorff formula to the part of degree less than or
+equal to $c$. In other words, we define:
+
+\begin{equation*}
+  x + y + \sum_{i=2}^c t_i(x,y)
+\end{equation*}
+
+We now interpret this formula as follows. Given any Lie ring $L$ of
+nilpotency class exactly $c$ and powered over all primes less than or
+equal to $c$, we define a group with the same underlying set as $L$
+and with the group product as defined by the Baker-Campbell-Hausdorff formula. Explicitly:
+
+\begin{equation*}
+  \text{Group product } xy = x + y + \sum_{i=2}^c t_i(x,y)
+\end{equation*}
+
+Our assumptions about $L$ being powered over all primes less than or
+equal to $c$, and the previously mentioned fact that the denominators
+must involve primes less than or equal to the degree, tells us that
+the formula on the right side must make sense.
+
+We would need to check that this defines an associative operation and
+that the operation admits an identity element and inverses.
+
+For some purposes, it is useful to treat the Lie ring and the group as
+set-theoretically different. If this is the goal, then we would
+introduce, for each $x \in L$, a symbol $\exp(x)$ (alternatively
+written as $e^x$) to which $x$ corresponds. Let $G$ be the set of such
+symbols, with $\exp:L \to G$ the map $x \mapsto \exp(x)$. Let $\log$
+be the inverse map to $\exp$.
+
+We would then write the above formula as:
+
+\begin{equation*}
+   \exp(x)\exp(y) = \exp(x + y + \sum_{i=2}^c t_i(x,y))
+\end{equation*}
+
+Or equivalently:
+
+\begin{equation*}
+   \log(\exp(x)\exp(y)) = x + y + \sum_{i=2}^c t_i(x,y)
+\end{equation*}
+
+With some exceptions, we will generally identify the Lie ring and the
+group with each other, and therefore we will {\em not} use $\log$ and
+$\exp$.
+
+The above gives a complete account of how to perform the Lazard
+correspondence in the direction from Lie rings to groups. There is
+also a Lazard correspondence in the reverse direction -- from groups
+to Lie rings. This uses {\em inverse Baker-Campbell-Hausdorff
+  formulas} that express the Lie ring operations (addition and the Lie
+bracket) in terms of the group multiplication.
+
+\subsection{Class two case reduces to the Baer correspondence}
+
+We provide an illustration of the proof of the correspondence in class
+two. In class two, the correspondence is called the {\em Baer
+  correspondence}, which we discussed in detail in section
+\ref{sec:baer-correspondence}. For convenience, the truncated
+Baker-Campbell-Hausdorff formula and inverse Baker-Campbell-Hausdorff
+formula are given below:
+
+\begin{equation*}
+  \text{Group product } xy := x + y + \frac{1}{2}[x,y]
+\end{equation*}
+
+The formula for the Lie ring addition in terms of the group
+multiplication is:
+
+\begin{equation*}
+  \text{Lie ring sum } x + y := \frac{xy}{\sqrt{[x,y]_{\text{group}}}}
+\end{equation*}
+
+The formula for the Lie bracket is:
+
+\begin{equation*}
+  \text{Lie bracket} [x,y]_{\text{Lie}} = [x,y]_{\text{group}}
+\end{equation*}
+
+The equality of the group commutator and the Lie bracket is a special
+feature of being in class two. It is not true for higher class.
+
+\subsection{The class three Lazard correspondence}
+
+{\em TODO: Insert full formulas and proofs of associativity in class
+  three, including appropriate references}.
+
+\subsection{What the Lazard correspondence is getting us towards}
+
+In a preceding section (Section \ref{sec:group-powering}), we proved a
+number of results relating to powering, divisibility, and torsion for
+groups, with a special focus on the nilpotent case. In the next
+section, (Section \ref{sec:lie-ring-powering}), we proved some similar
+statements for Lie rings. The statements for Lie rings were a lot
+easier to prove than the corresponding statements for groups.
+
+With the statements for groups, we typically needed a proof by
+induction on the lower or upper central series. The reason we needed
+induction is that the group commutator map is bilinear or multilinear
+only in the extreme scenario where we have as many inputs as the class
+of the group. The commutator map for two elements is bilinear (i.e., a
+homomorphism in each coordinate holding the other coordinate constant)
+only in groups of class two. For class three or higher, it is
+not. Thus, when making arguments related to powering and divisibility,
+we needed to work in these extreme situations and then induct. In
+contrast, any iterated Lie bracket for Lie rings is additive in each
+coordinate, regardless of nilpotency assumptions.
+
+The Lazard correspondence is convenient in so far as it provides an
+alternative to the tedious inductive procedure: it allows us to direct
+convert the group to a Lie ring, prove results for the Lie ring, and
+then convert back. Admittedly, the results in Section
+\ref{sec:group-powering} are nontrivial only in the infinite case, so
+using the Lazard correspondence (if applicable) to simplify their
+proofs is not of direct use for finite $p$-group theory. There are
+many other results, however, that are specific to finite groups and
+where the Lazard correspondence can be helpful. {\em TODO: Provide
+  references}.
+
+The proofs we use are often of an ``upper triangular'' sort in the
+sense that instead of doing the proofs inductively, we could write a
+complicated formula, dependent on the nilpotency class, that would
+explicitly exhibit what we want. The Lazard correspondence, where
+applicable, simply does the work for us beforehand by already
+providing some basic formulas (such as the Baker-Campbell-Hausdorff
+formula and its inverse) that can then be used to obtain alternative
+derivations.
+
+An example might help make this point clear. Theorem
+\ref{powering-lcs} states that if $G$ is a nilpotent group that is
+powered over a prime $p$, then all the lower central series members of
+$G$ are also powered over $p$. The proof relies on an inductive
+approach to constructing the $p^{th}$ root, albeit the proof as
+presented is so indirect that it would require some work to
+reformulate it constructively. Once we do the constructive
+reformulation, it is possible to obtain an explicit formula (dependent
+on the nilpotency class) for the $p^{th}$ root of $[x,y]$ in terms of
+known commutators that involve $x$, $y$, and $p^{th}$ roots of
+expressions in terms of $x$ and $y$.
+
+The Lazard correspondence, if applicable, would give us an alternative
+route to the formula. We first write the group commutator in terms of
+the Lie operations using the Baker-Campbell-Hausdorff formula. We then
+take that Lie ring expression and divide by $p$. Now, we rewrite the
+Lie ring expression using the group operations by means of the inverse
+Baker-Campbell-Hausdorff formula. Simplify. The final expression we
+get should be the same as the expression we got using the earlier
+inductive proof.
+
+Another important thing worth noting here is that even though the
+Lazard correspondence method relies crucially on the existence of the
+Lazard correspondence (i.e., we are powered over all primes less than
+or equal to the nilpotency class, and not just powered over $p$), the
+final formula it gives us only requires powering over $p$. The
+important idea is that {\em formulas obtained using the Lazard
+  correspondence may have validity even for situations where the
+  Lazard correspondence itself does not make sense}. Our main
+application and generalization of the Lazard correspondence is of
+precisely this sort.
+
+\subsection{Group commutator formula for the Lazard correspondence}
+
+In the usual Lazard correspondence, there is an explicit formula for
+the group commutator of two elements in terms of Lie brackets. In
+fact, there is an infinite series, which can be obtained from the
+Baker-Cambell-Hausdorff formula series, whose truncations give the
+formula for the group commutator. Let's see how this is obtained.
+
+$$[x,y]_{\text{group}} = (yx)_{\text{group}}^{-1}(xy)$$
+
+Inverses in the group correspond to taking the negative in the Lie
+ring, so this becomes:
+
+$$[x,y]_{\text{group}} = (-(yx))(xy)$$
+
+We now need to apply the Baker-Campbell-Hausdorff formula to expand
+each piece.
+
+We have:
+
+\begin{eqnarray*}
+  yx = y + x + t_2(y,x) + t_3(y,x) + \dots + t_c(x,y)\\
+  xy = x + y + t_2(x,y) + t_3(x,y) + \dots + t_c(x,y)\\
+\end{eqnarray*}
+
+We thus get: the following expression for $[x,y]_{\text{group}}$.
+
+$$-(y + x + t_2(y,x) + t_3(y,x) + \dots) + (x + y + t_2(x,y) + t_3(x,y) + \dots) + t_2(-(yx),xy) + t_3(-yx,xy) + \dots + t_c(-(yx),xy)$$
+
+Based on the symmetry and skew symmetry properties deduced in the
+preceding section, we obtain the following, where $c'$ is the largest
+even number less than or equal to $c$:
+
+$$[x,y]_{\text{group}} = 2(t_2(x,y) + t_4(x,y) + \dots + t_{c'}(x,y)) + t_2(-(yx),xy) + t_3(-(yx),xy) + \dots + t_c(-(yx),xy)$$
+
+It is also the case that $t_c(-(yx),xy) = 0$. This is because when we
+expand these out, all the degree $c$ terms in the product are iterated
+products with each piece equal to $(x + y)$ or $-(x + y)$, and all
+higher degree terms are anyway zero. Thus, the group commutator
+simplifies to:
+
+$$[x,y]_{\text{group}} = 2(t_2(x,y) + t_4(x,y) + \dots + t_{c'}(x,y)) + t_2(-(yx),xy) + t_3(-(yx),xy) + \dots + t_{c-1}(-(yx),xy)$$
+
+Denote this formula of $x$ and $y$ by $M_c(x,y)$.
+
+We are now in a position to prove a lemma.
+
+\begin{lemma}\label{commutator-denominators}
+  In the formula $M_c(x,y)$ for the group commutator
+  $[x,y]_{\text{group}}$ in terms of Lie ring operations (addition and
+  Lie bracket) for the Lazard correspondence for $3$-local class $c$,
+  all prime divisors of the denominators are less than or equal to $c
+  - 1$.
+\end{lemma}
+
+
+\begin{proof}
+  We make cases:
+
+  \begin{itemize}
+  \item $c = 2$: In this case, we can work the formula out and we get
+    that $[x,y]_{\text{group}} = [x,y]$. This satisfies the condition,
+    since there are no prime factors of the denominator.
+  \item $c$ is odd: In this case, the formula above shows that we use
+    terms only up to $t_{c - 1}$, and do not use $t_c$. Thus, we can
+    only get the primes less than or equal to $c - 1$.
+  \item $c$ is even and greater than $2$: In this case, $c$ is
+    composite. We know from the formula that we only use primes less
+    than or equal to $c$. Since $c$ is composite, this means we only
+    use primes less than or equal to $c - 1$.
+  \end{itemize}
+\end{proof}
+
+It is also possible to construct an infinite series expression whose
+truncations give the group commutator formulas for various choices of
+$3$-local nilpotency class.
+
+The importance of these observations is as follows. We can make sense
+of the formula for $M_c(x,y)$ for certain Lie rings that are {\em not}
+Lazard Lie rings. Specifically, we can make sense of this formula for
+Lie rings of $3$-local nilpotency class $c$ which are uniquely
+divisible by primes strictly {\em less} than $c$, but not by $c$
+itself. This case is of interest when $c$ itself is a prime number.
+
+\subsection{The general Lazard correspondence allowing for $3$-local nilpotency class}
+
+{\em TODO: Fill this in later} (carefully!)
+
+\section{New stuff}
+
+\subsection{Lazard correspondence up to isoclinism: the small global class case}
+
+Suppose $L$ is a nilpotent Lie ring and $G$ is a nilpotent group such
+that the following hold:
+
+\begin{itemize}
+\item $L$ is powered over all primes {\em strictly} less than its
+  nilpotency class.
+\item $G$ is powered over all primes {\em strictly} less than its
+  nilpotency class.
+\item $L$ and $G$ have the same nilpotency class.
+\end{itemize}
+  
+A {\em Lazard correspondence up to isoclinism} between $L$ and $G$ is
+the following data:
+
+\begin{itemize}
+\item An isomorphism $\zeta$ from $\operatorname{Inn}L$ to the Lazard
+  Lie ring of $\operatorname{Inn}(G)$.
+\item An isomorphism $\varphi$ from the Lazard Lie group of $L'$ to
+  $G'$.
+\item A compatibility condition between the Lie bracket map for $L$
+  and the commutator map for $G$, described below.
+\end{itemize}
+
+Denote by $\gamma_G$ the map $\operatorname{Inn}(G) \times
+\operatorname{Inn}(G) \to G'$ obtained from the group commutator map.
+
+We can now define a function $\hat{M}_c:\operatorname{Inn}(L) \times
+\operatorname{Inn}(L) \to L'$ as follows: for elements $x,y$ of
+$\operatorname{Inn}(L)$, first lift them to $L$, then apply $M_c$ to
+the lifts, and get an element of $L'$. Recall that $M_c$ is the
+formula that outputs the putative group commutator (which doesn't
+actually exist!) in terms of Lie brackets. The compatibility condition
+now states that:
+
+$$\varphi \circ \hat{M}_c = \gamma_G \circ (\zeta \times \zeta)$$
+
+Explicitly:
+
+$$\varphi(\hat{M}_c(x,y)) = \gamma_G(\zeta(x),\zeta(y))$$
+
+Note that the leeway of being off by one in the formula for $M_c$
+(proved in Lemma \ref{commutator-denominators}) is crucial for us to
+make sense of this: we are guaranteed that the formula makes sense for
+$L$ because we are guaranteed unique divisibility by all primes less
+than $c$.
+
+\subsection*{The edge case of genuine interest}
+
+The only subcase of genuine interest here is where the nilpotency
+class $c$ is a prime number, which we call $p$. In this case, what we
+have is a potential for a Lazard correspondence up to isoclinism
+between Lie rings of class $p$ that are uniquely divisible by all
+primes less than $p$, and groups of class $p$ that are uniquely
+divisibly by all primes less than $p$. The interesting case is the
+edge case that would not be covered by the ordinary Lazard
+correspondence. For finite Lie rings and groups, this involves:
+
+finite $p$-Lie rings of class exactly $p$ up to isoclinism
+$\leftrightarrow$ finite $p$-groups of class exactly $p$ up to
+isoclinism
+
+\subsection{Basic facts about the Lazard correspondence up to isoclinism}
+
+We begin with a simple lemma:
+
+\begin{lemma}
+  Suppose $L_1$ and $L_2$ are isoclinic Lie rings and $G$ is a
+  group. Then, $L_1$ is in Lazard correspondence up to isoclinism with
+  $G$ if and only if $L_2$ is in Lazard correspondence up to
+  isoclinism with $G$.
+\end{lemma}
+
+Other results to be lemmized:
+
+\begin{itemize}
+\item If $G_1$ and $G_2$ are isoclinic groups, then a Lazard Lie ring
+  $L$ being in Lazard correspondence up to isoclinism with $G_1$ is
+  equivalent to $L$ being in Lazard correspondence up to isoclinism
+  with $G_2$: The reason is that we can ``compose'' an isoclinism of
+  Lie rings with a Lazard correspondence up to isoclinism, and
+  conversely, we can take the ``quotient'' of two Lazard
+  correspondences up to isoclinism to get isoclinisms of Lie rings.
+\item If $L_1$ and $L_2$ are Lie rings that are both Lazard
+  correspondent up to isoclinism to a group $G$, then $L_1$ and $L_2$
+  are isoclinic to each other as Lie rings: The reason is that we can
+  compose the Lazard correspondence up to isoclinism from $L_1$
+  to $G$ with the inverted Lazard correspondence from $L_2$ to $G$ to
+  get an isoclinism of Lie rings from $L_1$ to $L_2$.
+\item If $G_1$ and $G_2$ are groups that are both Lazard correspondent
+  up to isoclinism to a Lie ring $L$, then $G_1$ and $G_2$ are
+  isoclinic to each other as groups: The reason is that we can compose
+  the inverted Lazard correspondence up to isoclinism from $L$ to
+  $G_1$ with the Lazard correspondence up to isoclinism from $L$ to
+  $G_2$ and get an isoclinism of groups from $G_1$ to $G_2$.
+\item If $L$ is a Lazard Lie ring and $G$ is its Lazard Lie group,
+  then $L$ is also in Lazard correspondence up to isoclinism with $G$:
+  We take the isomorphisms induced by the Lazard correspondence, and
+  note that they definitionally satisfy the conditions for giving a
+  Lazard correspondence up to isoclinism.
+\end{itemize}
+
+{\em TODO: I will insert proofs of (some of) these later}.
+
+In other words, the Lazard correspondence up to isoclinism is only a
+correspondence up to isoclinism on both sides. Explicitly, it is a
+correspondence between equivalence classes up to isoclinism of Lie
+rings on the one hand and of groups on the other.
+
+Further, in cases where the ordinary Lazard correspondence is
+applicable, the Lazard correspondence up to isoclinism simply clubs
+together equivalence classes of groups up to isoclinism on the one
+hand and equivalence classes of Lie rings up to isoclinism on the
+other hand.
+
+\subsection{The hard task: what we need to show}
+
+We have so far established a {\em potential} for a
+correspondence. What we need to show is that this potential is actually
+realized. We need to show two things:
+
+\begin{itemize}
+\item {\em Existence from Lie rings to groups}: For any Lie ring $L$
+  of class $c$ that is powered over all primes strictly less than $c$,
+  there is a group $G$ of class $c$ that is powered over all primes
+  strictly less than $c$, and a Lazard correspondence up to isoclinism from $L$ to $G$.
+\item {\em Existence from groups to Lie rings}: For any group $G$ of
+  class $c$ that is powered over all primes strictly less than $c$,
+  there is a Lie ring $L$ of class $c$ that is powered over all primes
+  strictly less than $c$, and a Lazard correspondence up to isoclinism
+  from $L$ to $G$.
+\end{itemize}
+
+In the next section, we prove these two facts. It turns out that we do
+not need to do any heavy lifting for the proof, because all the heavy
+lifting is already done by cohomology theory. Specifically, it will
+turn out that the short exact sequence for second cohomology arising
+from the universal coefficients theorem is exactly what we need to
+demonstrate our result.
+
+\section{The Lazard correspondence and extension theory}
+
+The Lazard correspondence between groups and Lie rings, where it does
+apply, is very nice. It establishes an {\em equivalence of categories}
+that allows us to easily go back and forth between standard concepts
+in the language of groups and of Lie rings. Our interest here is in
+figuring out how this relates to cohomology theory.
+
+\subsection{In the good Lazard case}
+
+Suppose $c$ is a natural number. Suppose $G$ is a group of nilpotency
+class at most $c - 1$ that is powered over all primes less than or
+equal to $c$. Note in particular that $G$ is powered over all primes
+dividing $c$. Suppose $A$ is an abelian group that is also powered
+over all primes less than or equal to $c$.
+
+We can consider all the group extensions with central subgroup $A$ and
+quotient group $G$. Each such extension group is of class at most
+$c$. Further, by Lemma \ref{powering-extension-group}, each such
+extension group is also powered over all primes less than or equal to
+$c$. Thus, each such extension group is a Lazard Lie group of small
+global class type. In other words, all the elements of $H^2(G;A)$
+correspond to Lazard Lie groups of small global class type.
+
+$G$ itself is a Lazard Lie group of small global class type. Thus, it
+has a Lazard Lie ring. Suppose that $L$ is the Lazard Lie ring of
+$G$. View $A$ as an abelian Lie ring. We can then consider the second
+cohomology group $H^2_{\text{Lie}}(L;A)$ of Lie ring extensions with
+$A$ as the central subring and $L$ as the quotient Lie ring. Each
+extension again satisfies the conditions for being a Lazard Lie ring.
+
+The following observations are easy to check:
+
+\begin{itemize}
+\item The groups $H^2_{\text{Lie}}(L;A)$ are $H^2(G;A)$ are isomorphic
+  as groups. In fact, there is a canonical isomorphism between them.
+\item Under this isomorphism, the element-to-element bijection matches
+  each Lie ring extension to its Lazard Lie group, with the Lazard
+  correspondence compatible with the short exact sequences.
+\end{itemize}
+
+\subsection{The case we are interested in}
+
+Suppose $p$ is a prime number. Suppose $G$ is a group of nilpotency
+class exactly $p - 1$ that is powered over all primes {\em strictly
+  less than} $p$. Suppose $A$ is an abelian group that is also powered
+over all primes strictly less than $p$.
+
+In this case, the group extensions that correspond to elements of
+$H^2(G;A)$ have nilpotency class $p - 1$ or $p$. If the class is $p -
+1$, the extension group is guaranteed to be a Lazard Lie group. If the
+class is $p$, however, the extension group is not guaranteed to be a Lazard Lie
+group.
+
+$G$ is still a Lazard Lie group, so we can take its Lazard Lie
+ring. Call this Lie ring $L$. The Lie ring extensions that correspond
+to elements of $H^2_{\text{Lie}}(L;A)$ may give Lie rings of class $p
+- 1$ or $p$. If the class is $p - 1$, the extension Lie ring is
+guaranteed to be a Lazard Lie ring. If the class is $p$, however, the
+extension Lie ring is not guaranteed to be a Lazard Lie ring.
+
+Although it will turn out that the groups $H^2(G;A)$ and
+$H^2_{\text{Lie}}(L;A)$ are still isomorphic, it is no longer the case
+that there exists a canonical isomorphism between $H^2(G;A)$ and
+$H^2_{\text{Lie}}(L;A)$. What {\em is} true is that there exists a
+canonical isomorphism between the ``extensions up to isoclinism.'' To
+understand what that means, we now turn to the cohomology
+interpretation of extensions up to isoclinism.
+
+In order to prove this, we need to take a short detour into the theory
+of tensor products and exterior products.
+
+\newpage
+
+\section{Exterior and tensor products}
+
+\subsection{Powering is inherited by Schur multiplier, Schur covering group, and exterior square}
+
+\begin{lemma}\label{schurcoverpipower}
+  Suppose $G$ is a $\pi$-powered nilpotent group of nilpotency class
+  $c$. The following are true.
+
+  \begin{enumerate}
+  \item The Schur multiplier $M(G)$ of $G$ is $\pi$-powered.
+  \item Every Schur covering group of $G$ is $\pi$-powered.
+  \item The exterior square of $G$ is $\pi$-powered.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Proof of (1): This follows from \cite{HiltonMislinRoitberg}, Theorem
+  2.9. {\em TODO: Add in more details about how to translate between
+    that language and this}.
+
+  Proof of (2): Any Schur covering group arises as a central extension of $G$
+  with central subgroup $M(G)$ and quotient group $G$. Thus, by Lemma
+  \ref{powering-extension-group}, the Schur covering group is also
+  $\pi$-powered.
+
+  Proof of (3): The exterior square of $G$ is isomorphic to the derived
+  subgroup of any Schur covering group of $G$. By (2) and Theorem
+  \ref{powering-lcs}, the exterior square of $G$ is also
+  $\pi$-powered.
+\end{proof}
+
+Note that the corresponding results are not true for $\pi$-divisible
+groups. Specifically, the group $G = UT(3,\Q)/\Z$ (where the $\Z$
+being factored out is central) is divisible by all primes, since
+$UT(3,\Q)$ is divisible by all primes. However, the Schur multiplier
+of this group is $\Z$, which is not divisible by any prime.
+
+Similarly, we have:
+
+\begin{lemma}\label{schurcoverpipower-lie}
+  Suppose $L$ is a $\pi$-powered nilpotent Lie ring of nilpotency
+  class $c$. The following are true.
+
+  \begin{enumerate}
+  \item The Schur multiplier $M(L)$ of $L$ is $\pi$-powered.
+  \item Every Schur covering group of $L$ is $\pi$-powered.
+  \item The exterior square of $L$ is $\pi$-powered.
+  \end{enumerate} 
+\end{lemma}
+
+\begin{proof}
+  Proof of (1): This follows from the way Lie ring cohomology is defined.
+
+  Proof of (2): Similar to proof of (2) in the preceding lemma.
+
+  Proof of (3): Similar to proof of (3) in the preceding lemma.
+\end{proof}
+
+\subsection{Rationally powered case}
+
+For this subsection, we restrict attention to the case where $G$ is a
+rationally powered nilpotent group. The advantage of this is that all
+groups involved will be Malcev Lie groups and hence Lazard Lie
+groups. The complications arising in other situations will be
+discussed in the next section.
+
+Suppose $G$ is a rationally powered nilpotent group and $L$ is its
+Lazard Lie ring. $L$ is a nilpotent $\Q$-Lie algebra. Notationally, $L
+= \log G$ and $G = \exp L$.
+
+\begin{itemize}
+\item Consider the category of central extensions of $G$ with
+  homoclinism {\em where the extension group is also rationally
+    powered nilpotent}. This is a subcategory of the category of all
+  central extensions of $G$ with homoclinism. Any Schur covering group
+  of $G$ would be an initial object in the bigger category, hence also
+  in the subcategory if it is in the subcategory. By Lemma
+  \ref{schurcoverpipower}, the Schur covering groups are in the
+  subcategory.
+\item Corresponding, consider the category of central extensions of
+  $L$ with homoclinism {\em where the extension Lie ring is also
+  rationally powered}. By reasoning analogous to the group case, and
+  using Lemma \ref{schurcoverpipower-lie}, we obtain that the Schur
+  covering Lie rings of $L$ are initial objects in this category.
+\item The two categories under consideration are in Lazard
+  correspondence with each other, hence their sets of initial objects
+  are also in Lazard correspondence. In particular, this means that if
+  $K$ is a Schur covering group for $G$, then $\log K$ is a Schur
+  covering Lie ring for $L$. Similarly, if $M$ is a Schur covering Lie
+  ring for $L$, then $\exp M$ is a Schur covering group for $G$.
+\end{itemize}
+
+\subsection{The free powered case}
+
+For $\pi$ a set of primes and $d$ and $c$ positive integers, denote by
+$FNG(\pi,d,c)$ the free $\pi$-powered class $c$ group on $d$
+generators. {\em This is not standard notation, and we are using it
+  only to make our statements in this section compact.} Similarly,
+denote by $FNL(\pi,d,c)$ the free $\pi$-powered class $c$ Lie ring on
+$d$ generators.
+
+Suppose $\pi$ is the set of all primes $\le c$. Let $\mathcal{L} =
+FNL(\pi,d,c)$ and $\mathcal{G} = FNG(\pi,d,c)$. Denote by $\Q
+\mathcal{L}$ and $\Q \mathcal{G}$ respectively the minimal rationally powered
+Lie ring and group containing $\mathcal{L}$ and $\mathcal{G}$ respectively. Then, the
+following are true.
+
+\begin{lemma}
+  With notation as in the preceding paragraph, the following are true:
+
+  \begin{enumerate}
+  \item $\Q \mathcal{L}$ is the free rationally powered Lie ring on $d$
+    generators and with class $c$.
+  \item $\Q \mathcal{G}$ is the free rationally powered group on $d$ generators
+    and with class $c$.
+  \item $\Q \mathcal{L}$ and $\Q \mathcal{G}$ are in Lazard correspondence with the Lazard
+    correspondence inducing a bijection between their respective
+    freely generating sets.
+  \item $\mathcal{L}$ and $\mathcal{G}$ are in Lazard correspondence, and the inclusion of
+    $\mathcal{L}$ in $\Q \mathcal{L}$ is Lazard correspondent with the inclusion of $G$ in
+    $\Q \mathcal{G}$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  The proofs of (1), (2) and (3) are straightforward. {\em TODO: Quote
+    standard references if possible}.
+
+  Proof of (4): The key point here is that the
+  Baker-Campbell-Hausdorff formula uses denominators all within
+  $\pi$. If the initial element of $\Q L$ is in $L$, that means it can
+  be obtained from the freely generating set through $\pi$-powered Lie
+  ring operations. Applying the Baker-Campbell-Hausdorff formula keeps
+  us within $\pi$-powered operations, so we land within $G$.
+\end{proof}
+
+We prove another lemma before proceeding to the main theorem.
+
+\begin{lemma}
+  With notation as above, the following are true:
+
+  \begin{enumerate}
+  \item $\Q(M(L)) = M(\Q L)$. In other words, taking the Schur
+    multiplier commutes with taking the minimal rationally powered
+    completion.
+  \item $\Q(M(G)) = M(\Q G)$.
+  \item $\Q(L \wedge L) = (\Q L) \wedge (\Q L)$.
+  \item $\Q(G \wedge G) = (\Q G) \wedge (\Q G)$.
+  \item If $I$ is an ideal in $L$ and $H$ is the corresponding normal
+    subgroup of $G$, then $\Q(I \wedge L) = (\Q I) \wedge (\Q L)$ and
+    $\Q(H \wedge G) = (\Q H) \wedge (\Q G)$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Proof of (2): This follows from \cite{HiltonMislinRoitberg}, Theorem
+  2.9. Note that in the language of that text, we are localizing at
+  the empty set.
+
+  Proof of (1): This is the Lie algebra analogue to (2).
+
+  
+\end{proof}
+\begin{theorem}
+  With the notation as above, the following are true:
+
+  \begin{enumerate}
+  \item The Schur multipliers $M(L)$ and $M(G)$ are isomorphic, with a
+    canonical isomorphism induced by the Lazard correspondence between
+    $L$ and $G$.
+  \item The exterior squares $L \wedge L$ and $G \wedge G$ are
+    isomorphic, with a canonical isomorphism induced by the Lazard
+    correspondence between $L$ and $G$.
+  \item Suppose $I$ is an ideal of $L$ and $H$ is the corresponding
+    normal subgroup of $G$. Then, $I \wedge L$ is in Lazard
+    correspondence with $H \wedge G$, and the induced maps $I \wedge L
+    \to L \wedge L$ and $H \wedge G \to G \wedge G$ are also in Lazard
+    correspondence.
+  \end{enumerate}
+\end{theorem}
+
+Finally, we have this theorem:
+
+\begin{theorem}
+  Suppose $L$ and $G$ are as above, with $I$ an ideal in $L$ and $H$
+  the Lazard correspondent normal subgroup of $G$. The, the following
+  are true:
+
+  \begin{enumerate}
+  \item $(L/I) \wedge (L/I) \cong (L \wedge L)/(\operatorname{Im}(I \wedge L))$. 
+  \item $(G/H) \wedge (G/H) \cong (G \wedge G)/(\operatorname{Im}(H \wedge G))$.
+  \item $(L/I) \wedge (L/I)$ and $(G/H) \wedge (G/H)$ are Lazard
+    correspondent.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Parts (1) and (2) follow from the definition.
+
+  (3) follows from (1) and (2) and the preceding theorem.
+\end{proof}
+
+\subsection{The final result that we want}
+
+The result that we want to show follows from the fact that the group
+that we are trying to get can be written in the form $G/H$ and the Lie
+ring in the form $L/I$ for the preceding theorem.
+
+\newpage
+
+\subsection{Extensions up to isoclinism: theory}
+
+The universal coefficients theorem gives a short exact sequence for
+computing the second cohomology group:
+
+$$0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G^{\text{ab}},A) \to H^2(G;A) \to \operatorname{Hom}(H_2(G;\mathbb{Z}),A) \to 0$$
+
+There is an analogous short exact sequence for Lie ring extensions:
+
+$$0 \to \operatorname{Ext}^1_{\mathbb{Z}}(L^{\text{ab}},A) \to H^2_{\text{Lie}}(L;A) \to \operatorname{Hom}(H_{2,\text{Lie}}(L;\mathbb{Z}),A) \to 0$$
+
+The following are obvious from the definition of cohomology: 
+
+\begin{itemize}
+\item The fibers of the map $H^2(G;A) \to
+  \operatorname{Hom}(H_2(G;\mathbb{Z}),A)$ correspond to equivalence
+  classes up to isoclinism of group extensions with central subgroup
+  $A$ and quotient group $G$.
+\item The fibers of the map $H^2_{\text{Lie}}(L;A) \to
+  \operatorname{Hom}(H_{2,\text{Lie}}(L;\mathbb{Z}),A)$ correspond to
+  equivalence classes up to isoclinism of Lie ring extensions with
+  central subring $A$ and quotient Lie ring $L$.
+\end{itemize}
+
+\subsection{Extensions up to isoclinism and the Lazard correspondence}
+
+{\em TODO: Provide background for the terminology here, some of which
+is not too standard. Relevant references}:
+
+\begin{itemize}
+\item R. K. Dennis. {\em In search of new homology functors having a
+  close relationship to K theory}. Cornell University Preprint.
+\item Van Kampen theorems for diagrams of spaces by Ronald Brown and
+  Jean-Louis Loday, Topology, Volume 26,Number 3, (Year 1987)
+\item The non-abelian tensor product of finite groups is finite by
+  Graham Ellis, Journal of Algebra, ISSN 00218693, Volume 111, Page 203
+  - 205(Year 1987)
+\item A non-abelian tensor product of Lie algebras by Graham J. Ellis,
+  Glasgow Journal of Math, Volume 33, Page 101 - 120(Year 1991)
+\end{itemize}
+
+\begin{lemma}
+  Suppose $L$ is a Lazard Lie ring with the property that any central
+  extension (with what kind of central subgroup?) with quotient $L$ is
+  a Lazard Lie ring. Then, if $G$ is the Lazard Lie group of $L$, we
+  have the following:
+
+  \begin{itemize}
+  \item There is a canonical isomorphism between $H_2(L;\mathbb{Z})$
+    and $H_2(G;\mathbb{Z})$.
+  \item There is a canonical Lazard correspondence beween $L \wedge
+    L$ and $G \wedge G$ that relates the maps $L \wedge L \to [L,L]$
+    and $G \wedge G \to [G,G]$ as Lazard correspondent.
+  \end{itemize}  
+\end{lemma}
+
+\begin{proof}
+  {\em TODO: This proof is correct but needs some more elaboration to
+  be accessible}.
+
+  For any abelian group $A$, we have a Lazard correspondence:
+
+  Lie rings that are central extensions with central subring $A$ (as
+  an abelian Lie ring) and quotient $L$ $\leftrightarrow$ Groups that
+  are central extensions with central subgroup $A$ and quotient $G$
+
+  The Schur multiplier is defined in terms of a universal property
+  with respect to abelian groups $A$ that arise as the base of such
+  central extensions, hence, we get that the Schur multipliers are
+  Lazard correspondent, and since they are abelian, they are
+  isomorphic as abelian groups.
+
+  Thus, we also get Lazard correspondences between the Schur covering
+  Lie rings of $L$ and the Schur covering groups of $G$. We can use
+  any of these to obtain the Lazard correspondence between $L \wedge
+  L$ (which is the derived subring of any Schur covering Lie ring) and
+  $G \wedge G$ (which is the derived subgroup of the corresponding
+  Schur covering group). Explicitly, the following short exact
+  sequences are in Lazard correspondence:
+
+  Short exact sequence of Lie rings:
+
+  $$0 \to H_2(L;\mathbb{Z}) \to L \wedge L \to [L,L] \to 0$$
+
+  Short exact sequence of groups:
+
+  $$1 \to H_2(G;\mathbb{Z}) \to G \wedge G \to [G,G] \to 1$$
+\end{proof}
+
+We next show that the condition that the extensions be Lazard is not
+necessary.
+
+\begin{lemma}
+  If $L$ is the Lazard Lie ring of $G$, then $L \wedge L$ is the
+  Lazard Lie ring of $G \wedge G$, and this is compatible with the Lie
+  bracket/commutator homomorphism to $[L,L]$ (respectively
+  $[G,G]$). In other words, the Lazard correspondence relates the map
+  $L \wedge L \to [L,L]$ to the map $G \wedge G \to [G,G]$.
+\end{lemma}
+
+\begin{proof}
+  {\em TODO: Improve this. This is the heart of the
+  proof, so I want to do it well}.
+
+  The previous lemma already establishes this result in the case that
+  the extensions themselves are Lazard Lie rings and groups
+  respectively. We would like to show that that condition is
+  unnecessary.
+
+  We note that if we start with $L$ a free Malcev $\Q$-Lie algebra,
+  then the previous lemma applies. However, the algebraic expressions
+  that we work out for free Malcev $\Q$-Lie algebras apply {\em
+  everywhere that they make sense}, so this shows the result
+  everywhere.
+\end{proof}
+
+Next:
+
+\begin{lemma}
+  If $L$ is the Lazard Lie ring of a Lazard Lie group $G$, then their
+  Schur multipliers are canonically isomorphic as abelian groups,
+  i.e.,:
+
+  $$H_2(G;\mathbb{Z}) \cong H_{2,\operatorname{Lie}}(L;\mathbb{Z})$$
+\end{lemma}
+
+\begin{proof}
+  $H_2(G;\mathbb{Z})$ is the kernel of the natural map $G \wedge G \to
+  [G,G]$ given by the commutator operation, while
+  $H_{2,\operatorname{Lie}}(L;\mathbb{Z})$ is the kernel of the
+  natural map $L \wedge L \to [L,L]$ given by the Lie bracket
+  operation. By the lemma above, these maps are Lazard correspondent,
+  so their kernels are Lazard correspondent. But the kernels are {\em
+    abelian}, so they are isomorphic abelian groups. This proves our
+  result.
+\end{proof}
+
+Finally:
+
+\begin{lemma}
+  If $L$ is the Lazard Lie ring of a Lazard Lie group $G$, and $A$ is
+  any abelian group, there is a canonical isomorphism (and hence, a
+  set-theoretic correspondence) between 
+
+  \begin{itemize} 
+  \item the set of Lie ring central extensions up to isoclinism of
+    extensions with central subring $A$ and quotient ring $L$,
+    identified with the group
+    $\operatorname{Hom}(H_2(L;\mathbb{Z}),A)$; and
+  \item the set of group central extensions up to isoclinism with
+    central subgroup $A$ and quotient group $G$, identified with the
+    group $\operatorname{Hom}(H_2(L;\mathbb{Z}),A)$.
+  \end{itemize}
+\end{lemma}
+
+\begin{proof}
+  This follows from the preceding lemma.
+\end{proof}
+
+\subsection{Moving from extensions up to isoclinism to all extensions}
+
+The preceding sections lay out a theory of how to identify extensions
+up to isoclinism at the Lie ring level with extensions up to
+isoclinism at the group level. We now turn to the question of how to
+identify groups up to isoclinism with Lie rings up to isoclinism.
+
+The idea is to simply look at the group as an extension with its full
+center as the central subgroup and its inner automorphism group as the
+corresponding quotient group.
+
+\section{The adjoint action}
+
+\subsection{The Lazard correspondence situation}
+
+Suppose $G$ is a Lazard Lie group and $L$ is its Lazard Lie
+ring. Then, there is a set bijection between $G$ and $L$, and hence
+the action of $G$ on itself by conjugation gives rise to an action of
+$G$ on $L$ by automorphisms. There is another way to understand this action.
+
+Suppose $x \in L$. Then, $\ad x$ is an inner derivation of
+$L$. Consider the function $\exp(\ad x)$ defined as the exponential of
+$\ad x$. Note that this is a finite sum because of the nilpotency
+conditions on $L$. Then, it turns out that $\exp(\ad x)$ is an
+automorphism and in fact coincides with the automorphism obtained as
+conjugation by the group element corresponding to $x$. This was proved
+in Lemma 3.3 of Glauberman's {\em Partial extensions} paper. {\em
+TODO: Cross-check, insert original reference}.
+
+\subsection{Our generalization}
+
+We need to construct an action of $G$ on $L$ by Lie ring automorphisms
+that mimics the ``action by conjugation'' that we used in the
+past. Note that there is no element-to-element correspondence between
+the elements of $G$ and $L$, so the naive method doesn't work. A
+slight modification does. Note that it suffices to construct an action
+of $G/Z(G)$ on $L$ by Lie ring automorphisms.
+
+For any element of $G/Z(G)$, consider the corresponding element of
+$L/Z(L)$, and let $x$ be a representative of it in $L$. Then, the
+automorphism we seek is $\exp(\ad x)$.
+
+To see that this is an automorphism, we first state the following
+lemma, which appears as Proposition 2.5(b) in {\em Limits of abelian
+subgroups of finite $p$-groups} by Alperin and Glauberman.
+
+\begin{lemma}
+  Suppose $R$ is a non-associative (i.e., not necessarily associative)
+  ring and $d$ is a derivation on $R$ and $n$ is a natural number such
+  that:
+  
+  \begin{itemize}
+  \item $d^n$ is the zero map.
+  \item $d^i(u)d^j(v) = 0$ for all $u,v \in R$ and $i + j \ge n$.
+  \item $R$ is uniquely divisible by all numbers $1,2,\dots,n-1$.
+  \end{itemize}
+  
+  Then we can define:
+
+  $$\exp(d) := \sum_{k=0}^{n-1} \frac{d^k}{k!}$$
+  
+  Then:
+
+  \begin{enumerate}
+  \item $\exp(d)$ is an automorphism.
+  \item $\exp(-d)$ is also an automorphism and is the inverse of
+  $\exp(d)$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  {\em TODO: Insert proof when expanding this into a thesis document}.
+\end{proof}
+
+We now use the lemma to obtain that $\exp(\ad x)$ is an automorphism
+in the case of Lie rings that are just one class higher than those
+eligible for the Lazard correspondence.
+
+\begin{lemma}
+  Suppose $L$ is a Lie ring such that $L$ is uniquely divisible by all
+  primes less than or equal to $c - 1$, and $L/Z(L)$ is a Lazard Lie
+  ring for class $c - 1$ (i.e., its $3$-local nilpotency class is at
+  most $c - 1$, and it is uniquely divisible by all primes less than
+  or equal to $c - 1$). Then, for any $x \in L$, $\exp(\ad x)$ is an
+  automorphism of $L$.
+\end{lemma}
+
+\begin{proof}
+  Note that since $L/Z(L)$ has $3$-local nilpotency class at most $c -
+  1$, this means that $L$ has $3$-local nilpotency class at most
+  $c$. Hence, any Lie product of length $c + 1$ or higher that
+  involves at most three distinct elements must be zero.
+
+  We verify that $\ad x$ satisfies the conditions for being the
+  derivation $d$ in the preceding lemma, setting $n = c$:
+
+  \begin{itemize}
+  \item $(\ad x)^c = 0$: To see this, note that $(\ad x)^cy$ is a Lie
+    product of length $c + 1$ involving at most two distinct elements,
+    hence is zero for all $y \in L$.
+  \item $(\ad x)^i(u)(\ad x)^j(v) = 0$ for all $i,j$ with $i + j \ge
+    c$: This is a Lie product of length $c + 2$ involving at most
+    three distinct elements, hence is zero for all $u,v \in L$.
+  \item $L$ is uniquely divisible by all numbers $1,2,\dots,n - 1$:
+    This is given to us.
+  \end{itemize}
+
+  Thus, the conditions apply, and we get an automorphism as desired.
+\end{proof}
+
+Our next claim makes this a group action.
+
+\begin{lemma}
+  Suppose $L$ is a Lie ring such that $L$ is uniquely divisible by all
+  primes less than or equal to $c - 1$, and $L/Z(L)$ is a Lazard Lie
+  ring for class $c - 1$ (i.e., its $3$-local nilpotency class is at
+  most $c - 1$, and it is uniquely divisible by all primes less than
+  or equal to $c - 1$). Let $K$ be the Lazard Lie group of
+  $L/Z(L)$. For an element $a \in K$, define the automorphism induced
+  by $a$ as follows: let $x \in L$ be such that its image mod $Z(L)$
+  is Lazard correspondent to $a$. Then, the automorphism corresponding
+  to $a$ is $\exp(\ad x)$.
+
+  This defines a group action of $K$ on $L$.
+\end{lemma}
+
+\begin{proof}
+  The preceding lemma already showed that each $\exp(\ad x)$ is an
+  automorphism. What we need to show next is that the composition rule
+  for the automorphisms is compatible with the multiplication in $K$.
+
+  To see this, we need to imagine everything happening inside the ring
+  $\operatorname{End}_{\Z}(L)$ of additive group endomorphisms of
+  $L$. By one of the original interpretations of the
+  Baker-Campbell-Hausdorff formula, it is true that in an associative
+  ring, if $a,b$ are nilpotent elements, then:
+
+  $$\exp(a)\exp(b) = \exp(\text{Baker-Campbell-Hausdorff formula of } a,b)$$
+  
+  The Baker-Campbell-Hausdorff formula is how we define multiplication
+  in $K$, so this is essentially the proof. {\em TODO: Make this
+  clearer}. {\em TODO: Add this original interpretation of the
+  Baker-Campbell-Hausdorff formula at the point of original
+  introduction of the formula}
+\end{proof}
+
+From all this, we obtain that if a Lie ring $L$ and a group $G$ are
+Lazard correspondent up to isoclinism, then we have a homomorphism
+(note that $G/Z(G)$ is the group $K$ of the preceding lemma:
+
+$$G/Z(G) \to \operatorname{Aut}(L)$$
+
+and hence also a homomorphism:
+
+$$G \to \operatorname{Aut}(L)$$
+
+\begin{lemma}
+  Suppose a finite Lie ring $L$ and a finite group $G$ are Lazard
+  correspondent up to isoclinism. Suppose $c$ is a positive
+  integer. Let $m_1$ be the number of orbits in $L$ under the
+  $G$-action that have size $c$, and let $m_2$ be the number of
+  conjugacy classes in $G$ of size $c$. Then, $m_1$ is nonzero if and
+  only if $m_2$ is nonzero, and if so, $m_1/m_2 = |L|/|G|$.
+\end{lemma}
+
+\begin{proof}
+  {\em TODO: insert proof}.
+\end{proof}
+
+\newpage
+
+\section{Some examples}
+
+\subsection{$2$-groups of class two}
+
+
+\newpage
+\section{Applications}
+
+\subsection{Conversion of questions about abelian subgroups of maximum order}
+
+In Glauberman's papers ({\em TODO: insert references}) on finding
+abelian subgroups of maximum order, one of the techniques used was to
+pass from a group $G$ to its Lazard Lie ring. However, this would only
+give results for $p$-groups of class up to $p - 1$. In order to give
+results for class $p$, it is necessary to consider separately the Lie
+rings for $G/Z(G)$ and $G'$ and consider the commutator map between
+them.
+
+The isoclinism results help shed new light on these constructions by
+Glauberman. Specifically, they guarantee that for a $p$-group of class
+$p$, it will always be possible to find a Lie ring $L$ such that
+$L/Z(L)$ is the Lazard Lie ring for $G/Z(G)$ and $L'$ is the Lazard
+Lie ring for $G'$, with a compatibility between the Lie bracket map
+and the comutator map via the group commutator formula. $L$ is not, of
+course, the Lazard Lie ring for $G$ because that concept doesn't make
+sense. However, abelian subrings of maximum order in $L$ still
+correspond to abelian subgroups of maximum order in $G$, because these
+both contain the respective centers. Our new approach does not give
+any result stronger than those found in Glauberman's papers (at least
+{\em prima facie}). However, they do help simplify some of the
+presentations of results.
+
+\subsection{Kirillov orbit method}
+
+This builds off of the paper:
+
+{\em The orbit method for profinite groups and a p-adic analogue of
+Brown's theorem} by Mitya Boyarchenko and Maria Sabitova, Israel
+Journal of Math, Volume 165, Page 67 - 91(Year 2008).
+
+In their paper, Boyarchenko and Sabitova describe the abstract
+Kirillov orbit method as a method to compute the degrees of
+irreducible representations for a finite $p$-group $G$ of $3$-local
+class less than $p$ (their method is more general, but we'll restrict
+attention to this case for now).
+
+The method is as follows. Let $L$ be the Lazard Lie ring of $G$. We
+have an action of $G$ on itself by conjugation, which, under the set
+identification of $G$ on $L$, gives an action of $G$ on $L$. Note that
+the orbits under this action correspond to the conjugacy classes of
+$G$.
+
+Instead of looking at these orbits, we consider the induced action of
+$G$ on the Pontryagin dual of $L$ as an abelian group, i.e., the
+one-dimensional characters of $L$. Note that if $L$ is a modulo over
+$\mathbb{Z}/p^k\mathbb{Z}$, this can be thought of (up to suitable
+choice of identification with roots of unity) as the dual module over
+that ring. Now, look at the orbits for the action of $G$ on this
+dual. The following are true:
+
+\begin{itemize}
+\item There is a canonical bijection between these orbits and the
+  irreducible representations of $G$ over the complex numbers.
+\item The size of each orbit is the square of the corresponding degree
+  of irreducible representation.
+\item There is a formula computing the character of the irreducible
+  representation. This is called the {\em Kirillov character formula}.
+\end{itemize}
+
+In a previous section, we noted that in the situation of a Lazard
+correspondence up to isoclinism, we still have an action that
+generalizes the action by conjugation:
+
+$$G \to \operatorname{Aut}(L)$$
+
+We showed earlier that the orbit sizes in $L$ are the same as the
+conjugacy class sizes in $G$, adjusted for the relative sizes of $L$
+and $G$.
+
+Fr convenience, we restrict attention to the case that $G$ and $L$ have the same size.
+
+The analogous result to the abstract Kirillov orbit method now states
+the following: there is a (possibly no longer canonical) bijection
+between the irreducible representations of $G$ and the orbits for the
+induced action of $G$ on the Pontryagin dual of $L$. Further, we can
+arrange this bijection so that the orbit size corresponding to a
+representation is the square of the degree of that representation.
+
+
+\begin{lemma}
+  Suppose $G$ is a finite group and $L$ is a finite Lie ring, that are
+  Lazard correspondent up to isoclinism. Suppose for simplicity that
+  both $G$ and $L$ have the same order. Then, the algebra of
+  $G$-invariant $\C$-valued functions on $L$ is isomorphic to the
+  algebra of $G$-invariant $\C$-valued functions on $G$.
+\end{lemma}
+
+\begin{proof}
+  Both algebras are just direct products of copies of $\C$. The number
+  of copies needed for $G$-invariant $\C$-valued functions on $L$ is
+  the number of orbits in $L$ under the action of $G$. The number of
+  copies needed for $G$-invariant $\C$-valued functions on $G$ is the
+  number of conjugacy classes in $G$. We've shown that these two
+  numbers are equal (we in fact showed a stronger result that the
+  orbit size multiset and conjugacy class size multiset are equal).
+\end{proof}
+
+Note that this is a considerably weaker statement than the statement
+of Theorem 1.1(ii) of Boyarchenko and Sabitova's paper, because that
+statement is about $\Z$-algebras, whereas our weaker statement is only
+about $\C$-algebras. In fact, there is no hope of the statement being
+true for $\Z$-algebras, and that is one of the disadvantages of
+working up to isoclinism. The reason is similar to the reason why
+isoclinic groups have isomorphic group algebras over $\mathbb{C}$ but
+not over $\mathbb{Z}$ or $\mathbb{Q}$.
+
+\subsection{What I hope to show}
+
+I hope to mimic Boyaarchenko and Sabitova's proof in order to show the
+following:
+
+\begin{conjecture}
+  Suppose $G$ is a finite group and $L$ is a finite Lie ring, that are
+  Lazard correspondent up to isoclinism. Suppose for simplicity that
+  both $G$ and $L$ have the same order. Consider the set action of $G$
+  on $L$. Now, consider the induced set action of $G$ on the
+  Pontryagin dual of $L$. The multiset of orbit sizes for this action
+  is precisely the same as the multiset of degrees of irreducible
+  representations of $G$.
+\end{conjecture}
+
+Note what we {\em don't} expect to get:
+
+\begin{itemize}
+\item We don't expect to get a canonical bijection between the orbits
+  and the irreducible representations.  
+\item We don't expect to get an explicit character formula, because
+  too much information is lost when going up to isoclinisms to allow us
+  to recover the character.
+\end{itemize}

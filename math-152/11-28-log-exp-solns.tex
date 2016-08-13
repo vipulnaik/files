@@ -1,0 +1,196 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: November 28: Logarithm and exponential}
+\author{Math 152, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$11$ people took this $6$-question quiz. The score distribution was as
+follows:
+
+\begin{itemize}
+\item Score of $2$: $1$ person
+\item Score of $4$: $6$ people
+\item Score of $5$: $4$ people
+\end{itemize}
+
+The mean score was $3.83$. The answers and performance review are as
+follows:
+
+\begin{enumerate}
+\item Option (B): $3$ people
+\item Option (A): $9$ people
+\item Option (A): $10$ people
+\item Option (C): $2$ people
+\item Option (B): $11$ people
+\item Option (B): $11$ people
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+\item Consider the function $f(x) := \exp(5 \ln x)$ defined for $x \in
+  (0,\infty)$. How does $f(x)$ grow as a function of $x$?
+
+  \begin{enumerate}[(A)]
+  \item As a linear function
+  \item As a polynomial function but faster than a linear function
+  \item Faster than a polynomial function but slower than an
+    exponential function
+  \item As an exponential function, i.e., $x \mapsto \exp(kx)$ for some $k > 0$
+  \item Faster than an exponential function
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: $\exp(5 \ln x) = (\exp (\ln x))^5 = x^5$ is a
+  polynomial in $x$.
+
+  {\em Performance review}: $3$ people got this correct. $3$ chose
+  (C), $3$ chose (D), $1$ chose (E).
+\item Consider the function $f(x) := \ln (5 \exp x)$ for $x \in
+  (0,\infty)$. How does $f(x)$ grow as a function of $x$?
+
+  \begin{enumerate}[(A)]
+  \item As a linear function
+  \item As a polynomial function but faster than a linear function
+  \item Faster than a polynomial function but slower than an
+    exponential function
+  \item As an exponential function, i.e., $x \mapsto \exp(kx)$ for some $k > 0$
+  \item Faster than an exponential function
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: $\ln(5 \exp x) = \ln 5 + \ln(\exp x) = \ln 5 +
+  x$, which is a linear function.
+
+  {\em Performance review}: $9$ people got this correct. $2$ people
+  chose (B).
+\item Consider the function $f(x) := \ln((\exp x)^5)$ defined for $x \in
+  (0,\infty)$. How does $f(x)$ grow as a function of $x$?
+
+  \begin{enumerate}[(A)]
+  \item As a linear function
+  \item As a polynomial function but faster than a linear function
+  \item Faster than a polynomial function but slower than an
+    exponential function
+  \item As an exponential function, i.e., $x \mapsto \exp(kx)$ for some $k > 0$
+  \item Faster than an exponential function
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: $\ln((\exp x)^5) = \ln(\exp (5x)) = 5x$ is a
+  linear function of $x$.
+
+  {\em Performance review}: $10$ people got this correct. $1$ chose
+  (C).
+
+\item Consider the function $f(x) := \exp((\ln x)^5)$ defined for $x \in
+  (0,\infty)$. How does $f(x)$ grow as a function of $x$?
+
+  \begin{enumerate}[(A)]
+  \item As a linear function
+  \item As a polynomial function but faster than a linear function
+  \item Faster than a polynomial function but slower than an
+    exponential function
+  \item As an exponential function, i.e., $x \mapsto \exp(kx)$ for some $k > 0$
+  \item Faster than an exponential function
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: This is a little tricky, so we break it down into
+  two parts.
+
+  First, note that any polynomial function (with positive leading
+  coefficient) grows like $x^n$ for $n$ a positive integer. The log of
+  that grows like $\ln(x^n) = n \ln x$, i.e., as a linear function of
+  $\ln x$. This is slower than $(\ln x)^5$. Thus, the polynomial
+  function grows slower than $\exp((\ln x)^5)$.
+
+  Second, note that an exponential function in $x$ is something like
+  $\exp x$ or $\exp(kx)$, and $x$ or $kx$ grows faster than any power
+  of $\ln x$, so the function $\exp x$ grows faster than $\exp((\ln
+  x)^5)$.
+
+  {\em Performance review}: $2$ people got this correct. $6$ chose
+  (E), $2$ chose (D), $1$ chose (B).
+
+\item {\em Consumption smoothing}: A certain measure of happiness is
+  found to be a logarithmic function of consumption, i.e., the
+  happiness level $H$ of a person is found to be of the form $H = a +
+  b \ln C$ where $C$ is the person's current consumption level, and
+  $a$ and $b$ are positive constants independent of the consumption
+  level.
+
+  The person has a certain total consumption $C_{tot}$ to be split
+  within two years, year 1 and year 2, i.e., $C_{tot} = C_1 +
+  C_2$. Thus, the person's happiness level in year 1 is $H_1 = a + b
+  \ln C_1$ and the person's happiness level in year 2 is $H_2 = a + b
+  \ln C_2$. How would the person choose to split consumption between
+  the two years to maximize average happiness across the years?
+
+  \begin{enumerate}[(A)]
+  \item All the consumption in either one year
+  \item Equal amount of consumption in the two years
+  \item Consume twice as much in one year as in the other year
+  \item Consumption in the two years is in the ratio $a:b$
+  \item It does not matter because any choice of split of consumption
+    level between the two years produces the same average happiness
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Basically, happiness is logarithmic in
+  consumption, so if consumption is unequal, then it can be
+  distributed from the higher consumption year to the lower
+  consumption year. The {\em fractional} loss in the higher
+  consumption year is lower than the {\em fractional} gain in the
+  lower consumption year. The nature of logarithmis means that the
+  {\em absolute} loss in the higher consumption year is lower than the
+  {\em absolute} gain in the lower consumption year. The process
+  continues till consumption in both years is exactly equal.
+
+  We can also do this formally. We are basically using the fact that
+  the logarithm function is concave down.
+
+  {\em Performance review}: Everybody got this correct.
+
+\item {\em Income inequality and subjective well being}: Subjective
+  well being {\em across} individuals is found to be logarithmically
+  related to income. Every doubling of income is found to increase an
+  individuals' measured subjective well being by $0.3$ points on a
+  certain scale. {\em Holding total income across two individuals
+  constant}, how should that income be divided between the two
+  individuals to maximize their average subjective well being?
+
+  \begin{enumerate}[(A)]
+  \item All the income goes to one person
+  \item Both earn the exact same income
+  \item One person earns twice as much as the other
+  \item One person earns $0.3$ times as much as the other
+  \item It does not matter because the average subjective well being
+  is independent of the distribution of income.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The logic is {\em exactly} the same as the
+  preceding question, except that instead of an individual
+  distributing consumption between years, income is being
+  ``distributed'' between individuals in the same year, and instead of
+  happiness, we are measuring subjective well being.
+
+  {\em Performance review}: Everybody got this correct.
+\end{enumerate}
+\end{document}

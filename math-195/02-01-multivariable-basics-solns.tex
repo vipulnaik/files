@@ -1,0 +1,203 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: Friday February 1:  Multivariable function basics}
+\author{Math 195, Section 59 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$27$ people took this $5$-question quiz. The score distribution was as
+follows:
+
+\begin{itemize}
+\item Score of $1$: $4$ people (this was mostly people who missed class!)
+\item Score of $2$: $7$ people
+\item Score of $3$: $12$ people
+\item Score of $4$: $2$ people
+\item Score of $5$: $2$ people
+\end{itemize}
+
+The question wise answers and performance summary:
+
+\begin{enumerate}
+\item Option (B): $21$ people.
+\item Option (D): $8$ people. {\em Please review this solution!}
+\item Option (A): $12$ people. {\em Please review this solution!}
+\item Option (C): $20$ people.
+\item Option (D): $11$ people. {\em Please review this solution!}
+\end{enumerate}
+
+\section{Solutions}
+\begin{enumerate}
+
+\item Suppose $f$ is a function of two variables, defined on all of
+  $\R^2$, with the property that $f(x,y) = f(y,x)$ for all real
+  numbers $x$ and $y$. What does this say about the symmetry of the
+  graph $z = f(x,y)$ of $f$?
+
+  \begin{enumerate}[(A)]
+  \item It has mirror symmetry about the plane $z = x + y$.
+  \item It has mirror symmetry about the plane $x = y$.
+  \item It has mirror symmetry about the plane $z = x - y$.
+  \item It has half turn symmetry about the line $x = y = z$.
+  \item It has half turn symmetry about the origin.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The condition $f(x,y) = f(y,x)$ implies that if
+  the point $(x,y,z)$ lies in the graph, so does the point
+  $(y,x,z)$. These two points are mirror images of each other with
+  respect to the plane $x = y$.
+
+  {\em Performance review}: $21$ out of $27$ got this. $4$ chose (D),
+  $1$ each chose (A) and (E).
+
+  {\em Historical note (last time)}: $16$ out of $21$ people got this
+  correct. $2$ each chose (A) and (D) and $1$ chose (E).
+
+\item Consider the function $f(x,y) := ax + by$ where $a$ and $b$ are
+  fixed nonzero reals. The level curves for this function are a bunch
+  of parallel lines. What vector are they all parallel to?
+
+  \begin{enumerate}[(A)]
+  \item $\langle a,b \rangle$
+  \item $\langle a,-b \rangle$.
+  \item $\langle b,a \rangle$
+  \item $\langle b,-a \rangle$
+  \item $\langle a - b, a + b \rangle$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: This can be seen by noting that the slope of the
+  line $ax + by = c$ is $-a/b$. It can also be seen using dot
+  products. The expression $ax + by$ is the dot product of the vector
+  $\langle a,b \rangle$ and the vector $\langle x,y \rangle$. To keep
+  this dot product constant (i.e., move along a level curve) one must
+  move along a vector orthogonal to $\langle a,b \rangle$. Of the
+  given vectors, $\langle b,-a \rangle$ is orthogonal to $\langle a,b
+  \rangle$.
+
+  Note that it is true that all the lines are {\em perpendicular} to
+  $\langle a,b \rangle$, but they are not parallel to $\langle a,b
+  \rangle$.
+
+  {\em Performance review}: $8$ out of $27$ got this. $12$ chose (B),
+  $6$ chose (A), $1$ chose (E).
+
+  {\em Historical note (last time)}: $5$ out of $21$ got the question
+  correct. $14$ chose (A), $2$ chose (B).
+
+\item Suppose $f$ is a function of one variable and $g$ is a function
+  of two variables. What is the relationship between the level curves
+  of $f \circ g$ and the level curves of $g$?
+
+  \begin{enumerate}[(A)]
+  \item Each level curve of $f \circ g$ is a union of level curves of
+    $g$ corresponding to the pre-images of the point under $f$.
+  \item Each level curve of $f \circ g$ is an intersection of level
+    curves of $g$ corresponding to the pre-images of the point under $f$.
+  \item The level curves of $f \circ g$ are precisely the same as the
+    level curves of $g$.
+  \item Each level curve of $g$ is a union of level curves of $f \circ g$.
+  \item Each level curve of $g$ is an intersection of level curves of $f \circ g$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: If $(f \circ g)(x,y) = c$, this means that
+  $f(g(x,y)) = c$, so $g(x,y)$ is one of the pre-images of $c$ under
+  $f$. The set of possibilities for $(x,y)$ is thus the union of the
+  set of level curves for each of the pre-images of $c$ under $f$.
+  
+  Basically, the application of $f$ can unite level curves, but it
+  cannot separate them again, because once the $g$-values already
+  agree, the $f \circ g$-values must also agree.
+
+  {\em Performance review}: $12$ out of $27$ got this. $6$ chose (E),
+  $5$ chose (B), $3$ chose (D), $1$ chose (C).
+
+  {\em Historical note (last time)}: $7$ out of $21$ people got this
+  correct. $8$ chose (B), $3$ chose (C), $3$ chose (E).
+
+\item Consider the following function $f$ from $\R^2$ to $\R^2$: the
+  function that sends $\langle x,y \rangle$ to $\langle \frac{x +
+  y}{2}, \frac{x - y}{2} \rangle$. What is the image of $\langle x,y
+  \rangle$ under $f \circ f$?
+
+  \begin{enumerate}[(A)]
+  \item $\langle x,y \rangle$
+  \item $\langle 2x,2y \rangle$
+  \item $\langle x/2,y/2 \rangle$
+  \item $\langle x + (y/2), y + (x/2) \rangle$
+  \item $\langle 2x + y, 2x - y \rangle$
+  \end{enumerate}
+  
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: We apply $f$ to $\langle (x + y)/2, (x - y)/2
+  \rangle$ and get the first coordinate as $((x + y)/2 + (x - y)/2)/2
+  = x/2$ and the second coordinate as $((x + y)/2 - (x - y)/2)/2 =
+  y/2$.
+
+  {\em Performance review}: $20$ out of $27$ got this. $3$ chose (A),
+  $2$ chose (D), $1$ each chose (B) and (E).
+
+  {\em Historical note (last time)}: $12$ out of $21$ people got this
+  correct. $4$ chose (A), $3$ chose (D), $2$ chose (E).
+
+\item Consider the following functions defined on the subset $x > 0$
+  of the $xy$-plane: $f(x,y) = x^y$. Consider the surface $z =
+  f(x,y)$. What do the intersections of this surface with planes
+  parallel to the $xz$-plane and $yz$-plane look like (ignore the
+  following two special intersections: intersection with the plane $x
+  = 1$ and intersection with the plane $y = 0$, also ignore
+  intersections that turn out to be empty).
+
+  \begin{enumerate}[(A)]
+  \item Intersections with any plane parallel to the $xz$ or $yz$
+    plane look like graphs of exponential functions.
+  \item Intersections with any plane parallel to the $xz$ or $yz$
+    plane look like graphs of power functions (only positive inputs allowed).
+  \item Intersections with any plane parallel to the $xz$-plane look
+    like graphs of exponential functions, and intersections with any
+    plane parallel to the $yz$-plane look like graphs of power
+    functions (only positive inputs allowed).
+  \item Intersections with any plane parallel to the $yz$-plane look
+    like graphs of exponential functions, and intersections with any
+    plane parallel to the $xz$-plane look like graphs of power
+    functions (only positive inputs allowed).
+  \item All the intersections are straight lines.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: A plane parallel to the $yz$-plane corresponds to
+  fixing a value of $x$. The intersection with such a plane is the
+  graph of the function $y \mapsto x^y$ with $x$ a constant. By
+  assumption, $x \ne 1$ and $x > 0$, so if we set $k = \ln x$, this
+  becomes $y \mapsto \exp(ky)$. This is an exponential function
+  (increasing if $k > 0$, decreasing if $k < 0$).
+
+  A plane parallel to the $xz$-plane corresponds to a fixed value of
+  $x$. The intersection with such a plane is the graph of the function
+  $x \mapsto x^y$ with $y$ a constant. By assumption $y \ne 0$. We
+  thus get a power function, and $x$ is restricted to being positive.
+
+  {\em Performance review}: $11$ out of $27$ got this. $8$ chose (C),
+  $6$ chose (E), $2$ chose (A).
+
+  {\em Historical note (last time)}: $5$ out of $21$ people got this
+  correct. $8$ chose (C), $3$ each chose (B) and (E), and $2$ chose
+  (A).
+\end{enumerate}
+
+\end{document}

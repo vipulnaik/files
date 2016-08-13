@@ -1,0 +1,302 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: October 21: Max-min problems}
+\author{Math 152, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+{\em Note}: The quiz was submitted in class on October 26.
+
+$12$ students took this quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $3$: $2$ persons.
+\item Score of $4$: $5$ persons.
+\item Score of $6$: $4$ persons.
+\item Score of $7$: $1$ person.
+\end{itemize}
+
+The mean score was $4.75$. Here are the problem solutions and problem
+wise scores:
+
+\begin{enumerate}
+\item Option (B): Everybody
+\item Option (B): Everybody
+\item Option (D): Everybody
+\item Option (A): $6$ people
+\item Option (A): $6$ people
+\item Option (C): $4$ people
+\item Option (C): $5$ people
+\end{enumerate}
+\section{Solutions}
+
+\begin{enumerate}
+
+\item Consider all the rectangles with perimeter equal to a fixed
+  length $p > 0$. Which of the following {\bf is true} for the unique
+  rectangle which is a square, compared to the other rectangles?
+
+  \begin{enumerate}[(A)]
+  \item It has the largest area and the largest length of diagonal.
+  \item It has the largest area and the smallest length of diagonal.
+  \item It has the smallest area and the largest length of diagonal.
+  \item It has the smallest area and the smallest length of diagonal.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: We can see this easily by doing calculus, but it
+  can also be deduced purely by thinking about how a square and a long
+  thin rectangle of the same perimeter compare in terms of area and
+  diagonal length.
+
+  {\em Performance review}: Everybody got this correct.
+
+  {\em Historical note (last year)}: Everybody got this correct.
+
+  {\em Historical note (two years ago)}: This question appeared on
+  last year's 151 final, and $31$ out of $33$ people got it correct.
+
+\item Suppose the total perimeter of a square and an equilateral
+  triangle is $L$. (We can choose to allocate all of $L$ to the
+  square, in which case the equilateral triangle has side zero, and we
+  can choose to allocate all of $L$ to the equilateral triangle, in
+  which case the square has side zero). Which of the following
+  statements {\bf is true} for the sum of the areas of the square and
+  the equilateral triangle? (The area of an equilateral triangle is
+  $\sqrt{3}/4$ times the square of the length of its side).
+  \begin{enumerate}[(A)]
+  \item The sum is minimum when all of $L$ is allocated to the square.
+  \item The sum is maximum when all of $L$ is allocated to the square.
+  \item The sum is minimum when all of $L$ is allocated to the
+    equilateral triangle.
+  \item The sum is maximum when all of $L$ is allocated to the
+    equilateral triangle.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Quick explanation}: The problem can also be solved
+  using the rough heuristic that works for these kinds of problems:
+  the maximum occurs when everything is allocated to the most
+  efficient use, but the minimum typically occurs somewhere in
+  between.
+
+  {\em Full explanation}: Suppose $x$ is the part allocated to the
+  square. Then $L - x$ is the part allocated to the equilateral
+  triangle. The total area is:
+
+  $$A(x) = x^2/16 + (\sqrt{3}/4)(L - x)^2/9$$
+
+  Differentiating, we obtain:
+
+  $$A'(x) = \frac{x}{8} - \frac{\sqrt{3}}{18} (L - x) = x \left(\frac{1}{8} + \frac{\sqrt{3}}{18} \right) - \frac{\sqrt{3}}{18}L$$
+
+  We see that $A'(x) = 0$ at
+
+  $$x = \frac{L(\sqrt{3}/18)}{(1/8) + (\sqrt{3}/18)}$$
+
+  This number is indeed within the range of possible values of $x$.
+
+  Further, $A'(x) > 0$ for $x$ greater than this and $A'(x) < 0$ for
+  $x$ less than this. Thus, this point is a local minimum and the
+  maximum must occur at one of the endpoints. We plug in $x = 0$ to
+  get $(\sqrt{3}/36)L^2$ and we plug in $x = L$ to get $L^2/16$. Since
+  $1/16 > \sqrt{3}/36$, we obtain the the maximum occurs when $x = L$,
+  which means that all the perimeter goes to the square.
+
+  {\em Performance review}: Everybody got this correct.
+
+  {\em Historical note (last year)}: $9$ out of $15$ people got this
+  correct. $2$ people each chose (E) and (C), $1$ person chose (D),
+  and $1$ person left the question blank.
+
+  {\em Historical note}: This question appeared in a 152 midterm last
+  year, and $20$ of $29$ people got it correct. This is a somewhat
+  better showing than you lot, but that midterm occurred after several
+  homeworks, lectures, and two review sessions covering max-min
+  problems. Also, in that midterm, option (E) wasn't there, so things
+  became a little easier.
+
+\item Suppose $x$ and $y$ are positive numbers such as $x + y =
+  12$. For {\bf what values} of $x$ and $y$ is $x^2y$ maximum?
+
+  \begin{enumerate}[(A)]
+  \item $x = 3$, $y = 9$
+  \item $x = 4$, $y = 8$
+  \item $x = 6$, $y = 6$
+  \item $x = 8$, $y = 4$
+  \item $x = 9$, $y = 3$
+  \end{enumerate}
+
+  {\em Answer}: Option (D).
+
+  {\em Quick explanation}: This is a special case of the general
+  Cobb-Douglas situation where we want to maximize $x^a(C - x)^b$. The
+  general solution is to take $x = Ca/(a + b)$, i.e., to take $x$ and
+  $C - x$ in the proportion of $a$ to $b$.
+
+  {\em Full explanation}: We need to maximize $f(x) := x^2(12 - x)$,
+  subject to $0 < x < 12$. Differentiating, we get $f'(x) = 3x(8 -
+  x)$, so $8$ is a critical point. Further, we see that $f'$ is
+  positive on $(0,8)$ and negative on $(8,12)$, so $f$ attains its
+  maximum (in the interval $(0,12)$) at $8$.
+
+  {\em Performance review}: Everybody got this correct.
+
+  {\em Historical note (last year)}: $12$ out of $15$ people got this
+  correct. $2$ people chose (E) and $1$ person chose (B). Of the
+  people who got this correct, some seem to have computed the
+  numerical values and others seem to have used calculus. Some who did
+  not show any work may have used the general result of the
+  Cobb-Douglas situation.
+\item Consider the function $p(x) := x^2 + bx + c$, with $x$
+  restricted to integer inputs. Suppose $b$ and $c$ are integers. The
+  minimum value of $p$ is attained either at a single integer or at
+  two consecutive integers. Which of the following is a {\bf
+  sufficient condition} for the minimum to occur at two consecutive
+  integers?
+
+  \begin{enumerate}[(A)]
+  \item $b$ is odd
+  \item $b$ is even
+  \item $c$ is odd
+  \item $c$ is even
+  \item None of these conditions is sufficient.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: The graph of $f$ is symmetric about the
+  half-integer axis value $-b/2$. It is an upward-facing parabola. For
+  odd $b$, it attains its minimum among integers at the two
+  consecutive integers $-b/2 + 1/2$ and $-b/2 - 1/2$. When $b$ is
+  even, the minimum is attained uniquely at $-b/2$, which is itself an
+  integer. $c$ being odd or even tells us nothing.
+
+  {\em Performance review}: $6$ out of $12$ got this correct. $5$
+  chose (E), $1$ chose (B).
+
+  {\em Historical note (last year)}: $4$ out of $15$ people got this
+  correct. $8$ people chose (E) and $3$ people chose (B).
+
+  {\em Action point}: While this problem can be solved using calculus,
+  it is much easier if you already know and remember important facts
+  about the graphs of quadratic functions. Please review basic facts
+  about quadratic functions.
+\item Consider a hollow cylinder with no top and bottom and total
+  curved surface area $S$. What can we say about the {\bf maximum and
+  minimum} possible values of the {\bf volume}? (for radius $r$ and height
+  $h$, the curved surface area is $2\pi rh$ and the volume is $\pi
+  r^2h$).
+
+  \begin{enumerate}[(A)]
+  \item The volume can be made arbitrarily small (i.e., as close to
+    zero as we desire) and arbitrarily large (i.e., as large as we
+    want).
+  \item There is a positive minimum value for the volume, but it can
+    be made arbitrarily large.
+  \item There is a finite maximum value for the volume, but it can be
+    made arbitrarily small.
+  \item There is both a finite positive minimum and a finite positive
+    maximum for the volume.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: We have $h = S/2\pi r$. Thus, the volume is
+  $rS/2$. We see that as $r \to \infty$, the volume goes to infinity,
+  and as $r \to 0$, the volume tends to zero. Thus, the volume can be
+  made arbitrarily large as well as arbitrarily small.
+
+  {\em Performance review}: $6$ out of $12$ got this correct. $4$
+  chose (C), $2$ chose (D).
+
+  {\em Historical note (last year)}: $6$ out of $15$ people got this
+  correct. $3$ people chose (B) and $6$ people chose (C).
+
+  {\em Action point}: Please make sure you understand this problem,
+  and also how it differs in nature from the next two problems.
+
+\item Consider a hollow cylinder with a bottom but no top and total
+  surface area (curved surface plus bottom) $S$. What can we say about
+  the {\bf maximum and minimum} possible values of the {\bf volume}?
+  (for radius $r$ and height $h$, the curved surface area is $2\pi rh$
+  and the volume is $\pi r^2h$).
+
+  \begin{enumerate}[(A)]
+  \item The volume can be made arbitrarily small (i.e., as close to
+    zero as we desire) and arbitrarily large (i.e., as large as we
+    want).
+  \item There is a positive minimum value for the volume, but it can
+    be made arbitrarily large.
+  \item There is a finite maximum value for the volume, but it can be
+    made arbitrarily small.
+  \item There is both a finite positive minimum and a finite positive
+    maximum for the volume.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Quick explanation}: We see that the radius cannot be expanded
+  too much, otherwise the area of the bottom will itself exceed
+  $S$. This puts a constraint on the total volume. On the other hand,
+  the cylinder can be made arbitrarily thin and thus have arbitrarily
+  small volume.
+
+  {\em Full explanation}: Try it yourself! There is a worked example
+  in the book that essentially computes the maximum with specific
+  numerical values -- locate it!
+
+  {\em Performance review}: $4$ out of $12$ got this correct. $3$ each
+  chose (B) and (D), $2$ chose (A).
+
+  {\em Historical note (last year)}: $8$ out of $15$ people got this
+  correct. $1$ person chose (A), $4$ people chose (B), and $2$ people
+  chose (D).
+\item Consider a hollow cylinder with a bottom and a top and total
+  surface area (curved surface plus bottom and top) $S$. What can we
+  say about the {\bf maximum and minimum} possible values of the {\bf
+  volume}?  (for radius $r$ and height $h$, the curved surface area is
+  $2\pi rh$ and the volume is $\pi r^2h$).
+
+  \begin{enumerate}[(A)]
+  \item The volume can be made arbitrarily small (i.e., as close to
+    zero as we desire) and arbitrarily large (i.e., as large as we
+    want).
+  \item There is a positive minimum value for the volume, but it can
+    be made arbitrarily large.
+  \item There is a finite maximum value for the volume, but it can be
+    made arbitrarily small.
+  \item There is both a finite positive minimum and a finite positive
+    maximum for the volume.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Quick explanation}: Identical to the previous problem.
+
+  {\em Full explanation}: Try it yourself!
+
+  {\em Performance review}: $5$ out of $12$ got this correct. $4$
+  chose (D), $2$ chose (B), and $1$ chose (A).
+
+  {\em Historical note (last year)}: $5$ out of $15$ people got this
+  correct. $8$ people chose (D) and $2$ people chose (A).
+
+  {\em Action point}: Please try to understand, both conceptually and
+  computationally, why the qualitative conclusion for this problem is
+  the same as for the previous problem.
+\end{enumerate}
+
+\end{document}

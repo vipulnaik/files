@@ -1,0 +1,243 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: March 4: Series convergence}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$26$ people took this $8$-question quiz. The mean score was
+$3.46$. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $1$: $4$ people.
+\item Score of $2$: $3$ people.
+\item Score of $3$: $6$ people.
+\item Score of $4$: $5$ people.
+\item Score of $5$: $6$ people.
+\item score of $6$: $2$ people.
+\end{itemize}
+
+Here are the answers and performance summary by question. A (*) in
+front of a question indicates that there was a single incorrect option
+that was chosen by more people than the correct option for that
+question:
+
+\begin{enumerate}
+\item Option (A): $14$ people.
+\item (*) Option (E): $7$ people. {\em Master this!}
+\item (*) Option (D): $8$ people. {\em Master this!}
+\item Option (E): $14$ people.
+\item Option (C): $14$ people.
+\item Option (B): $16$ people. {\em Master this!}
+\item Option (D): $10$ people.
+\item Option (A): $7$ people.
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+
+\item Consider the function $f(x) := \sum_{n=1}^\infty
+  \frac{x^n}{n(n + 2)}$ defined on the closed interval
+  $[-1,1]$. What are the values of $f(1)$ and $f(-1)$?
+
+  \begin{enumerate}[(A)]
+  \item $f(1) = 3/4$ and $f(-1) = 1/4$
+  \item $f(1) = 3/4$ and $f(-1) = -1/4$
+  \item $f(1) = 3/4$ and $f(-1) = -3/4$
+  \item $f(1) = 1/4$ and $f(-1) = 3/4$
+  \item $f(1) = 1/4$ and $f(-1) = -1/4$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: $f(1) =
+  \sum_{n=1}^\infty\frac{1}{n(n+2)}$. Rewrite each summand as:
+
+  $$\frac{1}{2}\left[\frac{1}{n} - \frac{1}{n + 2}\right]$$
+
+  The terms cancel (telescoping) and we are left with:
+
+  $$\frac{1}{2}\left(1 + \frac{1}{2}\right)$$
+
+  Simplifying, we get $3/4$.
+
+  Similarly, for $f(-1)$, the summands are:
+
+  $$\frac{(-1)^n}{2}\left[\frac{1}{n} - \frac{1}{n + 2}\right]$$
+
+  Because the term repetition is every two steps, the $n^{th}$ summand
+  and $(n+2)^{th}$ summand have the same outer sign, so cancellation
+  still proceeds as before. We are left with:
+
+  $$\frac{1}{2}\left[\frac{(-1)^1}{1} + \frac{(-1)^2}{2}\right]$$
+
+  Simplifying, we get $-1/4$.
+
+  {\em ``Alternative'' approach}: Even if you're unable to do these
+  summations, you can estimate the sums quickly using the first few
+  terms and rule out all the other possibilities. For $f(1)$, we have:
+
+  $$\frac{1}{3} + \frac{1}{8} + \frac{1}{15} + \dots$$
+
+  The sum of the first three terms is $21/40$, which is slightly more
+  than $1/2$, so $3/4$ is the only viable option.
+
+  For $f(-1)$, we have:
+
+  $$-\frac{1}{3} + \frac{1}{8} - \frac{1}{15} + \dots$$
+
+  The sum of the first three terms is $-11/30$, which bounds the
+  alternating sum from {\em below}. On the other hand, the sum of the
+  first two terms, $-5/24$, bounds the alternating sum from {\em
+  above}. Among the given options, the only possibility is $-1/4$.
+
+  {\em Performance review}: $16$ out of $26$ got this correct. $5$
+  chose (C), $3$ chose (A), and $1$ each chose (D) and (E).
+
+\item Given that we have the following: $\sum_{n=1}^\infty x^n/n =
+  -\ln(1 - x)$ for all $-1 < x < 1$ and the series converges
+  absolutely in the interval, what is an explicit expression for the
+  summation $\sum_{n=1}^\infty x^n/(n(n+1))$ for $x \in (-1,1)
+  \setminus \{ 0 \}$?
+
+  \begin{enumerate}[(A)]
+  \item $1 + \ln(1 - x)$
+  \item $1 - \ln(1 - x)$
+  \item $1 + \frac{(1 + x)\ln(1 - x)}{x}$
+  \item $1 + \frac{(1 - x)\ln(1 - x)}{x}$
+  \item $1 + \frac{(x - 1)\ln(1 - x)}{x}$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We telescope and rewrite the summands as:
+
+  $$x^n\left[\frac{1}{n} - \frac{1}{n + 1}\right]$$
+
+  Due to absolute convergence, we can split the summation across the
+  $-$ sign and get:
+
+  $$\sum_{n=1}^\infty \frac{x^n}{n} - \sum_{n=1}^\infty \frac{x^n}{n + 1}$$
+
+  The first sum is $-\ln(1 - x)$. We now calculate the second sum. If
+  $x \ne 0$, we can multiply and divide by $x$ to obtain:
+
+  $$\sum_{n=1}^\infty \frac{x^n}{n + 1} = \frac{1}{x} \sum_{n=1}^\infty \frac{x^{n +1}}{n + 1}$$
+
+  Choose $m = n + 1$ to rewrite the right side as $\frac{1}{x}
+  \sum_{m=2}^\infty \frac{x^m}{m}$. Note that the sum starts from $2$,
+  so adding and subtracting the case $m =1$ gives:
+
+  $$\frac{1}{x} \left[\frac{-x^1}{1} + \sum_{m=1}^\infty \frac{x^m}{m}\right]$$
+
+  This becomes:
+
+  $$\frac{1}{x}\left[-\ln(1 - x) - x \right]$$
+
+  which becomes:
+
+  $$\frac{-\ln(1 - x)}{x} - 1$$
+
+  Plugging this back into the original, we get:
+
+  $$-\ln(1 - x) - \left[\frac{-\ln(1 - x)}{x} - 1\right]$$
+
+  This simplifies to $1 + \ln(1 - x)(-1 + (1/x))$ which simplifies to
+  option (D).
+
+  {\em Reality check}: There are two reality checks we can perform on
+  the expression obtained: taking the limit as $x \to 1^-$, and $x \to
+  0$. We first consider the limit as $x$ approaches $1$ from the left.
+
+  In this case, the terms approach $1/(n(n+1))$, which is $(1/n) -
+  (1/(n+1))$, which upon telescoping cancellation gives $1$.
+
+  On the other hand, the limit:
+
+  $$\lim_{x \to 1^-} 1 + \frac{(1 - x)\ln(1 - x)}{x}$$
+
+  is also $1$.
+
+  Let's now consider the case that $x$ approaches $0$.
+
+  In this case, the summation approaches $0$ because all its terms
+  approach zero.
+
+  For the expression, we have:
+
+  $$\lim_{x \to 0} 1 + \frac{(1 - x)\ln(1 - x)}{x}$$
+
+  Take out the $1 + $ and we get:
+
+  $$1 + \lim_{x \to 0} (1 - x) \lim_{x \to 0} \frac{\ln(1 - x)}{x}$$
+
+  Simple stripping or LH rule gives that the remaining limit is $-1$,
+  so the overall answer is $1 + (-1) = 0$, as desired.
+
+  {\em Performance review}: $10$ out of $26$ got this correct. $6$
+  chose (C), $4$ chose (A), $4$ chose (E), $2$ chose (B).
+
+\item Given that we have the following: $\sum_{n=1}^\infty x^n/n =
+  -\ln(1 - x)$ for all $-1 < x < 1$ and the series converges
+  absolutely in the interval, what is an explicit expression for the
+  summation $\sum_{n=1}^\infty x^n/(n(n+2))$ for $x \in (-1,1)
+  \setminus \{ 0 \}$?
+
+  \begin{enumerate}[(A)]
+  \item $\frac{1}{4} + \frac{1}{2x} + \frac{(1 - x^2)\ln(1 - x)}{2x^2}$
+  \item $\frac{1}{4} + \frac{1}{2x} + \frac{(x^2 - 1)\ln(1 - x)}{2x^2}$
+  \item $\frac{1}{4} - \frac{1}{2x} + \frac{(x^2 - 1)\ln(1 - x)}{2x^2}$
+  \item $\frac{1}{4} - \frac{1}{2x} + \frac{(1 - x^2)\ln(1 - x)}{2x^2}$
+  \item $\frac{1}{4} + \frac{1}{2x}$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: This is similar to the previous question -- work
+  it out yourself. It is character building.
+
+  {\em Reality check}: We now have three interesting limit cases to
+  check: $1^-$, $-1^+$, and $0$. We know from Question 6 that the
+  limits for $1^-$ and $-1^+$ should be $3/4$ and $-1/4$
+  respectively. Plugging in the values gives the same answer.
+
+  This leaves the case $x = 0$. Here, the limit of the summation
+  should be $0$, because all the terms tend to $0$. Let's see if this
+  is indeed the case:
+
+  $$\lim_{x \to 0} \left[\frac{1}{4} + \frac{1}{2x} + \frac{(1 - x^2)\ln(1 - x)}{2x^2}\right]$$
+
+  We can take the $1/4$ out and take $2x^2$ as a common denominator on
+  the rest:
+
+  $$\frac{1}{4}  + \lim_{x \to 0} \frac{x + (1 - x^2)\ln(1 - x)}{2x^2}$$
+
+  The limit is now a $\to 0/\to 0$ form, so we can use LH rule:
+
+  $$\frac{1}{4} + \lim_{x \to 0} \frac{1 - 2x\ln(1 - x) - (1 - x^2)/(1 - x)}{4x}$$
+
+  Simplifying:
+
+  $$\frac{1}{4} + \lim_{x \to 0} \frac{1 - 2x\ln(1 - x) - (1 + x)}{4x}$$
+  
+  Simplify further:
+
+  $$\frac{1}{4} + \lim_{x \to 0} \frac{x(-1 - 2\ln(1 - x))}{4x}$$
+
+  Cancel the $x$ and evaluate. We get $-1/4$ for the limit, and adding
+  to the outer $+1/4$, we get $0$, as expected.
+
+  {\em Performance review}: $7$ out of $26$ got this correct. $6$ each
+  chose (B), (C), (D), and $1$ person left the question blank.
+\end{enumerate}
+
+\end{document}

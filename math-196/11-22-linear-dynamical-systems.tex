@@ -1,0 +1,307 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz: due Friday November 22: Linear dynamical systems}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+Your name (print clearly in capital letters): $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+This quiz covers a topic that we will not be able to get to formally
+in the course due to time constraints. The corresponding section of
+the book is Section 7.1, and there is more relevant material discussed
+in the later sections of Chapter 7. However, you do not need to read
+those sections in order to attempt this quiz. Also, simply mastering
+the computational techniques in those sections of the book will not
+help you much with the quiz questions.
+
+The questions here consider a linear dynamical system. Consider a
+linear transformation $T:\R^n \to \R^n$. Let $A$ be the matrix of $T$,
+so that $A$ is a $n \times n$ matrix. For any positive integer $r$,
+the matrix $A^r$ is the matrix for the linear transformation $T^r$
+(note here that $T^r$ refers to the $r$-fold {\em composite} of
+$T$). The goal is to determine, starting off with an arbitrary vector
+$\vec{x} \in \R^n$, how the following sequence behaves:
+
+$$\vec{x}, T(\vec{x}), T^2(\vec{x}), T^3(\vec{x}), \dots$$
+
+More explicitly, each term of the sequence is obtained by applying $T$
+to the preceding term. In other words, the sequence is:
+
+$$\vec{x}, T(\vec{x}), T(T(\vec{x})), T(T(T(\vec{x}))), \dots$$
+
+\begin{enumerate}
+\item What is the necessary and sufficient condition on $A$ such that
+  for {\em every} choice of $\vec{x} \in \R^n$, the sequence described
+  above eventually reaches, and stays at, the zero vector? Note that
+  if it reaches the zero vector, it must do so in at most $n$
+  steps. Please see Option (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $A$ is a nilpotent matrix.
+  \item $A$ is an idempotent matrix.
+  \item $A$ is an invertible matrix.
+  \item $A$ is a non-invertible matrix.
+  \item None of the above.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item What is the necessary and sufficient condition on $A$ such that
+  there {\em exists} a nonzero vector $\vec{x} \in \R^n$ for which the
+  sequence described above eventually reaches, and stays at, the zero
+  vector?  Note that if it reaches the zero vector, it must do so in
+  at most $n$ steps. Please see Option (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $A$ is a nilpotent matrix.
+  \item $A$ is an idempotent matrix.
+  \item $A$ is an invertible matrix.
+  \item $A$ is a non-invertible matrix.
+  \item None of the above.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item What is the necessary and sufficient condition on $A$ such that
+  for {\em every} choice of $\vec{x} \in \R^n$, the sequence described
+  above returns to $\vec{x}$ after a finite and positive number of
+  steps? Please see Option (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $A$ is a nilpotent matrix.
+  \item $A$ is an idempotent matrix.
+  \item $A$ is an invertible matrix.
+  \item $A$ is a non-invertible matrix.
+  \item None of the above.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item What is the necessary and sufficient condition on $A$ such that
+  there {\em exists} a nonzero vector $\vec{x} \in \R^n$ for which the
+  sequence described above returns to $\vec{x}$ after a finite and
+  positive number of steps? Please see Option (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $A$ is a nilpotent matrix.
+  \item $A$ is an idempotent matrix.
+  \item $A$ is an invertible matrix.
+  \item $A$ is a non-invertible matrix.
+  \item None of the above.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $n = 2$ and $T$ is a rotation by an angle that is a
+  rational multiple of $\pi$. What can we say about the range of
+  the sequence
+
+  $$\vec{x}, T(\vec{x}), T^2(\vec{x}), T^3(\vec{x}), \dots$$
+
+  starting from a nonzero vector $\vec{x}$?
+
+  \begin{enumerate}[(A)]
+  \item The range is finite, i.e., there are only finitely many
+    distinct vectors in the sequence.
+  \item The range is infinite and forms a dense subset of the circle
+    centered at the origin and with radius equal to the length of the
+    vector $\vec{x}$. However, it is not the entire circle.
+  \item The range is infinite and is the entire circle centered at the
+    origin and with radius equal to the length of the vector
+    $\vec{x}$.
+  \item The range is infinite and forms a dense subset of the line of
+    the vector $\vec{x}$ (excluding the origin), but is not the entire
+    line (excluding the origin).
+  \item The range is infinite and is the entire line of the vector
+    $\vec{x}$, excluding the origin.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $n = 2$ and $T$ is a rotation by an angle that is a
+  irrational multiple of $\pi$. What can we say about the range of
+  the sequence
+
+  $$\vec{x}, T(\vec{x}), T^2(\vec{x}), T^3(\vec{x}), \dots$$
+
+  starting from a nonzero vector $\vec{x}$?
+
+  \begin{enumerate}[(A)]
+  \item The range is finite, i.e., there are only finitely many
+    distinct vectors in the sequence.
+  \item The range is infinite and forms a dense subset of the circle
+    centered at the origin and with radius equal to the length of the
+    vector $\vec{x}$. However, it is not the entire circle.
+  \item The range is infinite and is the entire circle centered at the
+    origin and with radius equal to the length of the vector
+    $\vec{x}$.
+  \item The range is infinite and forms a dense subset of the line of
+    the vector $\vec{x}$ (excluding the origin), but is not the entire
+    line (excluding the origin).
+  \item The range is infinite and is the entire line of the vector
+    $\vec{x}$, excluding the origin.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+  We return to generic $n$ now.
+
+\item A nonzero vector $\vec{x}$ is termed an {\em eigenvector} for a
+  linear transformation $T: \R^n \to \R^n$ with {\em eigenvalue} a
+  real number $\lambda \in \R$ if $T(\vec{x}) = \lambda\vec{x}$. Note
+  that $\lambda$ is allowed to be $0$. We sometimes conflate the roles
+  of $T$ and its matrix $A$, so that we call $\vec{x}$ an eigenvector
+  for $A$ and $\lambda$ an eigenvalue for $A$.
+
+  If $\vec{x}$ is an eigenvector of $T$ (or equivalently, of $A$) with
+  eigenvalue $\lambda$, which of the following is true? We denote by
+  $I_n$ the identity transformation from $\R^n$ to itself.
+
+  \begin{enumerate}[(A)]
+  \item $\vec{x}$ must be in the kernel of the linear transformation
+    $T + \lambda I_n$
+  \item $\vec{x}$ must be in the image of the linear transformation $T
+    + \lambda I_n$
+  \item $\vec{x}$ must be in the kernel of the linear transformation
+    $T - \lambda I_n$
+  \item $\vec{x}$ must be in the image of the linear transformation $T
+    - \lambda I_n$
+  \item $\vec{x}$ must be in the kernel of the linear transformation
+    $\lambda T$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item As above, let $T: \R^n \to \R^n$ be a linear transformation with
+  matrix $A$. Use the terminology of eigenvector and eigenvalue from
+  the preceding question. Which of the following is a characterization
+  of the situation that $A$ is a diagonal matrix?
+
+  \begin{enumerate}[(A)]
+  \item Every nonzero vector in $\R^n$ is an eigenvector for $T$.
+  \item Every standard basis vector in $\R^n$ is an eigenvector for $T$.
+  \item Every vector with at least one zero coordinate in $\R^n$ is an
+    eigenvector for $T$.
+  \item $T$ has a unique eigenvector (up to scalar multiples, i.e.,
+    all eigenvectors of $T$ are scalar multiples of each other).
+  \item $T$ has no eigenvector.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item As above, let $T: \R^n \to \R^n$ be a linear transformation with
+  matrix $A$. Use the terminology of eigenvector and eigenvalue from
+  the preceding question. Which of the following is a characterization
+  of the situation that $A$ is a scalar matrix (i.e., a diagonal matrix
+  with all diagonal entries equal)?
+
+  \begin{enumerate}[(A)]
+  \item Every nonzero vector in $\R^n$ is an eigenvector for $T$.
+  \item Every standard basis vector in $\R^n$ is an eigenvector for $T$.
+  \item Every vector with at least one zero coordinate in $\R^n$ is an
+    eigenvector for $T$.
+  \item $T$ has a unique eigenvector (up to scalar multiples, i.e.,
+    all eigenvectors of $T$ are scalar multiples of each other).
+  \item $T$ has no eigenvector.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $A$ is a strictly upper-triangular $n \times n$ matrix,
+  i.e., all entries of $A$ that are on or below the main diagonal are
+  zero. $T$ is the linear transformation corresponding to $A$. It will
+  turn out that the only eigenvalue for $T$ is $0$. What can we say
+  about the eigenvectors for $T$ for this eigenvalue?
+
+  \begin{enumerate}[(A)]
+  \item All nonzero vectors in $\R^n$ are eigenvectors for $T$ with
+    eigenvalue $0$.
+  \item All standard basis vectors in $\R^n$ are eigenvectors for $T$
+    with eigenvalue $0$.
+  \item The vector $\vec{e}_1$ is an eigenvector for $T$ with
+    eigenvalue $0$. The information presented is not sufficient to
+    determine whether any of the other standard basis vectors is an
+    eigenvector.
+  \item The vector $\vec{e}_n$ is an eigenvector for $T$ with
+    eigenvalue $0$. The information presented is not sufficient to
+    determine whether any of the other standard basis vectors is an
+    eigenvector.
+  \item At least one of the standard basis vectors is an eigenvector
+    for $T$ with eigenvalue $0$. However, the information presented is
+    not sufficient to say definitively for any particular standard
+    basis vector that it is an eigenvector.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $A$ is a strictly upper-triangular $n \times n$ matrix,
+  i.e., all entries of $A$ that are on or below the main diagonal are
+  zero. $T$ is the linear transformation corresponding to $A$. Which
+  of the following is $A$ guaranteed to be? Please see Options (D) and
+  (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item Nilpotent
+  \item Idempotent
+  \item Invertible
+  \item All of the above
+  \item None of the above
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Consider the case $n = 2$ and let $T:\R^2 \to \R^2$ be a
+  rotation by an angle that is {\em not} an {\em integer} multiple of
+  $\pi$. What can we say about the set of eigenvectors and eigenvalues
+  for $T$?
+
+  \begin{enumerate}[(A)]
+  \item $T$ has no eigenvectors
+  \item $T$ has one eigenvector (up to scalar multiples) with
+    eigenvalue $1$
+  \item $T$ has one eigenvector (up to scalar multiples) and the
+    eigenvalue depends on the angle of rotation
+  \item $T$ has two linearly independent eigenvectors (so that the set
+    of all eigenvectors is obtained as the set of scalar multiples of
+    either one of these vectors) with the same eigenvalue
+  \item $T$ has two linearly independent eigenvectors (so that the set
+    of all eigenvectors is obtained as the set of scalar multiples of
+    either one of these vectors) with distinct eigenvalues
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+\end{enumerate}
+\end{document}

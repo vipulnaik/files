@@ -1,0 +1,1221 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Mathematical induction}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 1.8.
+
+{\bf Difficulty level}: Easy to moderate, depending on your past
+familiarity with induction.
+
+{\bf What students should definitely get}: To prove a statement using
+mathematical induction, it is important to prove the base case, and to
+show the induction step, which is the {\em conditional
+implication}. Also, the induction step needs to be shown for all
+natural numbers.
+
+{\bf What students should hopefully get}: The reason why mathematical
+induction is true, and the reason why encapsulating it as a principle
+allows us to show in finite time something that would otherwise take
+infinite time. Induction is most useful in problems where the
+statement for $k$ is closely related to the statement for $k +
+1$. Even when we use induction, we have to prove a new statement for
+all positive integers (namely, the inductive step). The hope is that
+this new statement is easier than the old statement. The concept of
+induction for sufficiently large integers.
+
+\section*{Executive summary}
+
+Words...
+
+\begin{enumerate}
+\item Induction is a powerful tool that allows us to prove a statement
+  for all positive integers (sometimes, for all positive integers
+  $\ge$ some given positive integer) by proving it in just two special
+  cases. These are the {\em base case} (proving it for the smallest
+  positive integer in the set, usually $1$) and the {\em induction
+  step}. The induction step is a {\em conditional implication} that
+  shows that if the statement is true for the positive integer $k$,
+  then it is true for $k + 1$.
+\item {\em Statement} here could be some equality or inequality
+  depending on the positive integer. Usually, it is something like a
+  sum of $n$ terms or a product of $n$ terms being equal to some nice
+  polynomial or rational function in $n$. Sometimes, we have an
+  inequality instead. There are other forms of statement too, such as
+  divisibility statements, but we aren't dealing with them as of now.
+\end{enumerate}
+
+Actions (try to recall problems on induction)...
+
+\begin{enumerate}
+
+\item Proving the base case is straightforward, as long as you
+  remember to do it.
+\item To prove the induction step, write what it means for the
+  statement to be true for $k$, and write what it means for the
+  statement to be true for $k + 1$. Try to figure out a way to prove
+  the {\em conditional implication}: assuming true for $k$, prove true
+  for $k + 1$.
+\item With summations, we usually start with the expression for $k$
+  and add the $(k+1)^{th}$ term to both sides. Then, we do some
+  algebraic manipulation and we're done. With products, we multiply
+  instead of add.
+\item When dealing with inequality instead of equality, it is usually
+  required to prove an {\em auxiliary inequality}. Basically, the
+  right side that you get from the $k$ assumption needs to be shown to
+  be related to the right side you need to get for the $k + 1$
+  conclusion.
+\item Sometimes, you may want to make an educated guess about what you
+  should prove before proving it by induction. We saw some examples
+  involving $(1-1/n)$ and $(1 - 1/n^2)$. These are all nice tricks,
+  and this kind of cancellation of successive terms is called {\em
+  telescoping}. But you will not be expected to guess what to prove --
+  you'll be told. Proving it by induction is largely procedural
+\end{enumerate}
+
+Caution ...
+
+\begin{enumerate}
+\item Always clearly indicate that statements that you want to show
+  and have not yet established are statements that you want to show.
+\item Please make sure that you show the base case correctly.
+\end{enumerate} 
+
+Frills ...
+
+\begin{enumerate}
+\item Induction is a bit like
+  differentiation/integration. Specifically, the inductive step is an
+  analogue of the derivative, and the base case is an analogue of a
+  specific value of the $+C$ that we see in indefinite integration.
+\item To prove the inductive step in an induction problem, we could
+  try using induction again. This is analogous to
+  differentiating/integrating twice.
+\item There is a concept of induction for sufficiently large integers,
+  where we try to establish a statement only for natural numbers $n
+  \ge n_0$. Both the base case and inductive step need to be suitably
+  modified (the base case is $n_0$ and the inductive step can assume
+  $k \ge n_0$).
+\item In some variants on induction, we show that $P(k)$ and $P(k-1)$
+  implies $P(k+1)$. If using such a variant, we need to make the base
+  case correspondingly thicker, i.e., we need to show $P(1)$ and
+  $P(2)$. In yet another variant of induction, we assume the truth of
+  $P$ for {\em all} smaller natural numbers.
+\item It is possible to induct on several parameters, either
+  simultaneously or sequentially. This is a bit like differentiating a
+  function of multiple variables in terms of each of the variables one
+  by one.
+\item Induction can also be used to prove statements that are
+  qualitatively different for different congruence classes modulo
+  $d$. For such statements, we can either do the usual induction $k
+  \leadsto k + 1$, making cases based on congruence class, or a jump
+  induction $k \leadsto k + d$, again making cases based on congruence
+  class. In the latter case, we need to establish the first $d$
+  natural numbers as base cases.
+\end{enumerate}
+\section{Basic ideas and motivation}
+
+\subsection{Basic idea: preview}
+
+The main aim of proofs by induction is to show that some statement
+holds for all natural numbers. A {\em natural number} here means one
+of the numbers $1,2,3,\dots$. The set of natural numbers will be noted
+$\N$. Now, some people have the convention that they call zero a
+natural number. We don't follow that convention, and neither does the
+book, but this is just to warn you. By the way, a {\em natural number}
+is also called a {\em positive integer}. When I want to include zero
+as well, I'll use the term {\em nonnegative integer}.
+
+The axiom of induction states that if $S$ is a set of positive
+integers, with (A) $1 \in S$, and (B) $k \in S \implies k + 1 \in S$,
+then $S$ is the set of all positive integers.
+
+In terms of properties: if (A) $1$ satisfies a property, and (B) whenever $k$
+satisfies the property, so does $k + 1$, then the property is
+satisfied by all natural numbers.
+
+Now, this is a somewhat tricky statement so I just want to emphasize
+one thing before we delve into examples. In daily language, the word
+{\em induction} is typically used for some form of heuristic reasoning
+-- it's supposed to be induction as opposed to deduction. So, for
+instance some of those ``think-outside-the-box'' type of people will
+tell you to use the creative, inductive, open-ended part of your brain
+as opposed to the formal, deductive, closed part of your brain. That
+kind of induction basically says something like: a statement is true
+for a few cases, so it's probably true for more. It's kind of a loose
+heuristic way of generalizing.
+
+But that is {\em not} the concept of {\em mathematical}
+induction. This isn't to say that the loose heuristics of
+generalization aren't useful in mathematics. They really are, but they
+are useful only as guesses -- they don't give clear proofs and they
+don't establish facts with certainty. {\em Mathematical induction}, on
+the other hand, {\em does} establish a fact with certainty.
+
+\subsection{The way things work}
+
+The book uses dominos to illustrate the notion of induction. And that
+is sort of how induction works. Think of all the positive integers as
+dominos lined up, with $1$ on the front, $2$ next, then $3$, and so
+on. The condition (A) for induction says that you topple $1$, and the
+condition (B) says that when $k$ gets toppled, it also topples $k +
+1$. So the ripple effect goes on and eventually everything gets
+toppled.
+
+Let's get away from domino language and take an example.
+
+Suppose $S$ is a set that contains $1$ and, whenever $k$ is in $S$, $k
++ 1$ is in $S$. How do we check, for instance, that $5$ is in $S$?
+Well, let's try. $1$ is in $S$. And if $k$ is in $S$, then $k + 1$ is
+in $S$. So putting $k = 1$, we have that $2$ is in $S$.
+
+And now putting $k = 2$, we get that $2 + 1 = 3$ is in $S$. And
+putting $k = 3$, we get that $3 + 1 = 4$ is in $S$. And putting $k =
+4$, we get that $4 + 1 = 5$ is in $S$.
+
+So you see how this works. Now if I wanted to explicitly write a proof
+that $2009$ is in $S$, that should take $2008$ steps. That's a lot,
+but you see that it can be done. What the concept of mathematical
+induction does is to allow us to not have to go through all these steps
+for every number and just directly arrive at the conclusion that every
+positive integer is in $S$.
+
+\subsection{A review of the idea of proof}
+
+The concept of proof may seem scary, but it is basically just the idea
+of showing that something is true beyond doubt, by exhaustively
+covering all cases.
+
+So suppose you have to prove that some statement is true for all
+numbers from $1$ to $10$. One way of proving the statement is to check
+the statement for every number from $1$ to $10$. If that statement
+looks very complicated, then you basically have to check a complicated
+statement ten times.
+
+So that would be a proof, but we can sometimes prove statements
+without checking each and every case. For example if you wanted to
+prove that $(2a)^2 = 4a^2$ for all $a \in \{ 1,2,3,\dots, 10\}$, one
+proof of the statement would check it for each number
+specifically. But you could also prove the statement simply by using
+algebra, which would in fact prove the statement not just for $a \in
+\{ 1,2,3, \dots, 10 \}$ but for {\em every} real number $a$.
+
+Now, the {\em brute-force}, {\em check-every-case} approach, that may
+work when the number of cases is small, doesn't work when the number
+of cases is large. So, when proving statements for all natural numbers
+$n$, we have an infinite number of cases to check. On the other hand,
+a {\em direct algebraic attack} may not work for statements specific
+to natural numbers. So we need to do something smarter than check the
+statement for every natural number. Induction offers one such tool.
+
+\subsection*{If $P$, then $Q$}
+
+I might discuss logical implications in proofs at some later stage,
+but for now, I'll state one very important fact.
+
+To prove a statement of the form $P \implies Q$, also written as ``if
+$P$ then $Q$,'' here's what you do: you assume that $P$ is true, and
+derive, or prove, from that that $Q$ is true. Now, this part often
+confuses people. How do we know that $P$ is true? Well, $P \implies Q$
+is what is called a {\em conditional implication}. We are not stating
+that $P$ is true, but we're saying that if we assume that $P$ is true,
+then $Q$ is true.
+
+For instance, suppose $P$ is the statement $x + y = 2$, and $Q$ is the
+statement $x^2 + y^2 = 4 - 2xy$. Well, how do you prove $Q$ using
+$P$. You prove it roughly as follows:
+
+\begin{eqnarray*}
+  x + y & = & 2\\
+  \implies (x + y)^2 & = & 2^2 \\
+  \implies x^2 + 2xy + y^2 & = & 4\\
+  \implies x^2 + y^2 & = & 4 - 2xy
+\end{eqnarray*}
+
+So notice that $P$ need not be true for every $x$ and $y$, but if $P$
+is true, then $Q$ is true as well.
+
+\subsection{Understanding the two main components of proof by induction}
+
+The part (A) in the proof, which is showing that $1$ satisfies the
+condition, is typically called the {\em base case} or {\em base step}
+for induction or {\em basis for induction}. You really do need a base
+case for an induction because without the base case, things don't
+really get started. If something isn't even true for $1$, how can it
+be true for {\em every} positive integer? Please remember this: {\em
+it is very important to show the base case}.
+
+Next, part (B) of the proof. This is the part that gives the {\em
+conditional implication}. This is sometimes called the {\em induction
+step} or {\em inductive step}. It says that if a statement is true for
+a positive integer $k$, then it is also true for the positive integer
+$k + 1$. The important thing to remember is that the induction step
+has to be proved for {\em all} positive integers $k$. It isn't enough
+to prove it for small values of $k$. So ultimately, instead of proving
+the original statement for all positive integer $k$, we are trying to
+prove a conditional implication -- the induction step -- for all
+positive integers $k$.
+
+So why should this be any simpler? Well, it isn't always simpler. But
+there are some problems, like the ones we will see, where the
+induction step is particularly simple to prove whereas proving the
+original statement directly requires some ingenuity. And it is those
+kinds of problems for which we use mathematical induction.
+
+\section{Induction to prove identities involving natural numbers}
+
+\subsection{Review of Example 1 from the book}
+
+This is a classic example of the use of induction. We want to prove
+that, for all positive integers $n$, the following holds:
+
+\begin{equation*}
+  1 + 2 + \dots + n = \frac{n(n+1)}{2}
+\end{equation*}
+
+Before getting started on the statement, notice a few things. The
+expression on the right side is a polynomial, which, as such, makes
+sense for all real numbers. The expression on the left side, in
+contrast, is a {\em summation}, and the nature of the summation makes
+it clear that it makes sense only for positive integers.
+
+Now, the kind of sum written on the left side can be a little
+confusing to some people, because some people may look at the
+expression and assume that $n$ has to be at least $3$. No, the
+left-hand side does not mean that. What it is code for is: {\em the
+sum of all the positive integers from $1$ to $n$}. So when $n = 1$,
+the sum is $1$, and when $n = 2$, the sum is $1 + 2$. When $n = 3$,
+the sum is $1 + 2 + 3$.
+
+So let's begin the proof. We have to first establish the base
+case. The base case would say that we need to establish the result in
+the particular case that $n = 1$. So let's evaluate the left and right
+sides in the special case that $n = 1$.
+
+When $n = 1$, the left side has just one term, namely $1$. The right
+side is $\frac{1(1 + 1)}{2} = 1$. So, the left and right sides are
+equal. Thus, the statement is true for $1$.
+
+Now, there are a lot of $1$s appearing in the above description, so it
+is worth emphasizing that what is important for the base case is not
+that the left side equals $1$ or the right side equals $1$, but that
+the left and the right side are equal.
+
+So that's the base case. Now we come to the tricky part, namely the
+induction step.
+
+For the induction step, what we need to assume is that if the
+statement is true for $k$, then the statement is true for $k +
+1$. Now, you may ask: {\em how can we assume that the statement is
+true for $k$}? Well, just assume it for now. The point of the
+induction step is to show precisely that if a statement is true for
+$k$, then it is true for $k + 1$. [See the discussion in the earlier
+section about conditional implications].
+
+So, we assume:
+
+\begin{equation*}
+  1 + 2 + \dots + k = \frac{k(k+1)}{2} \tag{*}
+\end{equation*}
+
+And we want to prove:
+
+\begin{equation*}
+  1 + 2 + \dots + k + (k + 1) = \frac{(k+1)((k+1)+1)}{2} \tag{**}
+\end{equation*}
+
+Now, there are lots of ways of proving this, but it is important to
+understand what we did so far and what we need to do. What we did was
+assumed the statement is true for $k$, and that gives $(*)$, which is
+assumed as given. What we hope to do is show that the statement is
+true for $k + 1$, and $(**)$ is just the mathematical formulation of
+that.
+
+So, we need to derive $(**)$ from $(*)$. There are many different ways
+of presenting this. I'll choose one way.
+
+Add $(k + 1)$ to both sides of $(*)$:
+
+\begin{eqnarray*}
+  1 + 2 + \dots + k + (k + 1) & = & \frac{k(k+1)}{2} + (k + 1)\\
+  \implies 1 + 2 + \dots + k + (k + 1) & = & (k+1) \left(\frac{k}{2} + 1 \right)\\
+  \implies 1 + 2 + \dots + k + (k + 1) & = & \frac{(k+1)(k+2)}{2}\\
+  \implies 1 + 2 + \dots + k + (k + 1) & = & \frac{(k+1)((k+1)+1)}{2}
+\end{eqnarray*}
+
+And this proves $(**)$.
+
+\subsection{Executing the induction step}
+
+The base case usually isn't very tricky -- the main difficulty that
+people usually have with the base case is that they forget to execute
+it. I very much hope you will not. The induction step, on the other
+hand, could be pretty tricky. So how do we execute the induction step?
+Also, how do we figure out that a problem needs or is helped by
+mathematical induction?
+
+The main feature of problems that are helped by mathematical induction
+are problems where the statement for $k$ is closely related to the
+statement for $k + 1$. For instance, in Example 1, the statement for
+$k$ was trying to compute $1 + 2 + \dots + k$, and the statement for
+$k + 1$, was trying to compute $1 + 2 + \dots + (k + 1)$. Now,
+computationally, if you've already added the first $k$ positive
+integers, adding one more doesn't take much time. So the left sides
+here are pretty close. What about the right sides? They're pretty
+close too -- a $k$ gets replaced by a $(k + 2)$.
+
+So a problem involving cumulative summation/product of the first $k$
+terms of a sequence is a problem that would probably benefit from
+induction. But there are some problems where induction helps
+unexpectedly. These are problems where it is not immediately obvious
+that we should choose induction as the strategy -- you may think at
+first there is some other method. But after a little while, you see
+induction as a possible strategy.
+
+\subsection{Proof writing red flag}
+
+It is {\em very important} that, when writing proofs by induction, and
+proofs in general, you clearly indicate any statement that you are
+trying to prove and that you have not already established. By default,
+when you write a sentence, or an equation, you are implicitly making
+an assertion that the statement {\em is already established to be true
+from what has been written so far}. Thus, for statements that you {\em
+want to show as true} but have {\em not yet shown as true}, please
+indicate clearly that the statement is still in the realm of desires
+rather than achievements.
+
+In particular, it is {\em wrong} to prove the base case as follows:
+
+\begin{eqnarray*}
+  1 & = & \frac{1(1 + 1)}{2}\\
+  1 & = & \frac{(1)(2)}{2}\\
+  1 & = & 1 \qquad \text{Proved}
+\end{eqnarray*}
+
+Rather, you should {\em work with the left and right sides
+separately}, get $1$ on both sides, and then note that this settles
+the base case. Starting off the way shown above would be interpreted
+as {\em already assuming} the base case is true rather than {\em
+showing it}.
+
+\subsection{Some additional caveats with proofs by induction}
+
+Here are some additional things to keep in mind for proofs by induction:
+
+\begin{enumerate}
+
+\item Sometimes, a problem may have multiple variables, some of which
+  are real-valued, some are integer-valued, etc. For these problems,
+  try inducting on a variable that takes values among the positive
+  integers. Further, choose the variable to induct on in such a way
+  that the induction step promises to work out well. (cf. previous
+  subsection).
+
+\item A slight modification of the idea is to prove that a statement
+  is true for all {\em sufficiently large} integers. For instance, we
+  may want to prove that a statement holds for all integers $n \ge
+  4$. In this case, we show the induction step as usual, but for the
+  base case, we take the base case $n = 4$. This is just induction,
+  shifted over.  
+
+\item Fancy induction techniques that we will see in a little while:
+  Simultaneous induction on two parameters, induction on absolute
+  values, induction after dividing into congruence classes.
+
+\end{enumerate}
+
+\subsection{Strengths and weaknesses of induction}
+
+The main weakness of mathematical induction is that it doesn't give a
+clear idea of how to formulate the statement in the first place. For
+instance, once you have a formula for the sum of the first $n$
+positive integers, you can verify it using induction. But how do you
+arrive at the formula in the first place?
+
+As you can see, dreaming up complicated formulas is not best done
+through mathematical induction. So in some sense most of the examples
+we have done here are not examples of mathematical discovery but of
+{\em post facto} proof. However, there are cases where qualitative
+statements are easy to guess, and the easiest proofs are by induction.
+
+Also, while inductive proofs are sometimes nice, they are not always
+the most insightful. Sometimes, a direct proof gives a much clearer
+idea of {\em why} a certain statement is true.
+
+\subsection{Summation notation: a brief introduction}
+
+Suppose we want to write:
+
+$$1^2 + 2^2 + 3^2 + \dots + n^2$$
+
+The ``...'' (called the ellipsis or ellipses) in betwee in somewhat
+ambiguous. Since we're good mind readers, we know what is
+meant. However, it would be better to have a notation that allows us
+to compactify this while removing the ambiguity. More generally, for a
+function $f$ defined on $\{ 1,2,3, \dots, n\}$, we want a shorthand
+notation for:
+
+$$f(1) + f(2) + \dots + f(n)$$
+
+The shorthand notation is:
+
+$$\sum_{k=1}^n f(k)$$
+
+Here, $k$ is a {\em dummy variable} called the {\em index of
+summation}. The expression $k = 1$ written under the $\sum$ symbol
+tells us where we start $k$ off. The $n$ on top of the $\sum$ symbol
+tells us the {\em last} value of $k$ that we use. The default
+increment is $1$.
+
+Similarly, the summation:
+
+$$\sum_{k=5}^8 2^k$$
+
+is shorthand for the summation:
+
+$$2^5 + 2^6 + 2^7 + 2^8$$
+
+The $k = $ is sometimes eliminated, when there is clearly only one
+dummy variable and there is no scope for confusion. So, we can write
+the above summation as:
+
+$$\sum_5^8 2^k$$
+
+We can also start the summation from $0$; for instance:
+
+$$\sum_{k=0}^6 k^3$$
+
+\subsection{More induction problems involving summation}
+
+Let's consider the result:
+
+\begin{equation*}
+  1^2 + 2^2 + \dots + n^2 = \frac{n(n+1)(2n+1)}{6}
+\end{equation*}
+
+(This is Exercise 5 of the book).
+
+In the summation notation, the result would read:
+
+\begin{equation*}
+  \sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}
+\end{equation*}
+
+{\em Base case}: For $n = 1$, the left-hand side is $1^2 = 1$, while
+the right-hand side is $1(2)(3)/6 = 1$. The left-hand side and
+right-hand side are equal, so the result is true for $n = 1$.
+
+{\em Induction step}: Suppose the result is true for a given value of
+$k$. In other words, we have:
+
+\begin{equation*}
+  1^2 + 2^2 + \dots + k^2 = \frac{k(k+1)(2k+1)}{6} \tag{*}
+\end{equation*}
+
+Adding $(k+1)^2$ to both sides, we get:
+
+\begin{eqnarray*}
+  1^2 + 2^2 + \dots + k^2 + (k+1)^2 & = & \frac{k(k+1)(2k+1)}{6} + (k + 1)^2\\
+  \implies 1^2 + 2^2 + \dots + k^2 + (k+1)^2 & = & (k+1) \left(\frac{k(2k+1)}{6} + (k + 1) \right)\\
+  \implies 1^2 + 2^2 + \dots + k^2 + (k+1)^2 & = & (k+1) \left(\frac{k(2k+1) + 6(k+1)}{6} \right)\\
+  \implies 1^2 + 2^2 + \dots + k^2 + (k+1)^2 & = & (k+1) \left(\frac{2k^2 + 7k + 6}{6} \right)\\
+  \implies 1^2 + 2^2 + \dots + k^2 + (k+1)^2 & = & (k+1) \left(\frac{(k + 2)(2k + 3)}{6} \right)\\
+  \implies 1^2 + 2^2 + \dots + k^2 + (k+1)^2 & = & \frac{(k + 1)(k + 2)(2k + 3)}{6}\\
+  \implies 1^2 + 2^2 + \dots + k^2 + (k+1)^2 & = & \frac{(k + 1)((k + 1) + 1)(2(k + 1) + 1)}{6}
+\end{eqnarray*}
+
+Thus, we have proved the statement for $k + 1$.
+
+Here's another one. We'll try to prove that:
+
+\begin{equation*}
+  1 + 3 + 5 + \dots + (2n - 1) = n^2
+\end{equation*}
+
+Thus is Exercise 4 from the book.
+
+This is basically the sum of the first $n$ terms where the $k^{th}$
+term is $2k - 1$. In the summation notation, this is written as:
+
+\begin{equation*}
+  \sum_{k=1}^n (2k - 1) = n^2
+\end{equation*}
+
+{\em Base case}: For $n = 1$, both the left and right side are equal
+to $1$.
+
+{\em Induction step}: Suppose the result is true for $k$. In other words:
+
+\begin{equation*}
+  1 + 3 + 5 + \dots + (2k - 1) = k^2 \tag{*}
+\end{equation*}
+
+We add $2k + 1 = 2(k+1) - 1$ to both sides:
+
+\begin{eqnarray*}
+  1 + 3 + 5 + \dots + (2k - 1) + (2k + 1) & = & k^2 + (2k + 1)\\
+  \implies 1 + 3 + 5 + \dots + (2k - 1) + (2(k+1) - 1) & = & (k + 1)^2
+\end{eqnarray*}
+
+This proves that the result is true for $n = k + 1$.
+
+Note that for this example, we skipped the step of writing what we
+{\em need to show} at the outset of the induction step. If you are
+confident of your approach, then you can skip writing this at the
+beginning of the induction step. However, if you're not sure of how to
+tackle the problem, it is best to explicitly write the statement for
+$k + 1$ that you hope to prove using the inductive step, since it
+helps set your sight on the goal.
+
+\subsection{The product notation}
+
+Similar to the summation notation, there is also a notation for
+products. You are unlikely to see this notation very often, and are
+not expected to know it, but it may be worthwhile seeing it at least
+once.
+
+Suppose $f$ is a function defined on $\{ 1,2,\dots,n\}$. The {\em
+product} $f(1)f(2) \dots f(n)$ can be expressed by the following notation:
+
+$$\prod_{k=1}^n f(k)$$
+
+As before, $k$ is a {\em dummy variable}. Further, the limits of the
+dummy variable (in this case $1$ and $n$) could be any pair of
+integers $a \le b$, and the product would be interpreted as the
+product of $f(k)$ for all $k$ between (and inclusive of) the two
+integers. For instance:
+
+$$\prod_{k=5}^8 \sin(k\pi/23)$$
+
+is the product $\sin(5\pi/23)\sin(6\pi/23)\sin(7\pi/23)\sin(8\pi/23)$.
+
+\subsection{A trickier example involving telescoping}
+
+This is Exercise 13 from the book. In the product notation, it would
+be written as:
+
+$$\prod_{k=2}^n \left(1 - \frac{1}{k}\right) = \frac{1}{n}$$
+
+
+We need to find a simplifying expression for:
+
+\begin{equation*}
+  \left(1 - \frac{1}{2}\right) \left(1 - \frac{1}{3}\right) \dots \left(1 - \frac{1}{n}\right)
+\end{equation*}
+
+So, this is a little different from the previous problems in the sense
+that we first have to figure out what to prove, and then use induction
+to prove it. The main trick here is to note that:
+
+$$1 - \frac{1}{k} = \frac{k - 1}{k}$$
+
+Thus, the original expression can be written as:
+
+\begin{equation*}
+  \frac{1}{2} \cdot \frac{2}{3} \dots \frac{n - 1}{n}
+\end{equation*}
+
+Now, notice what happens. The $2$ in the denominator of the first
+fraction cancels the $2$ in the numerator of the second fraction. The
+$3$ in the denominator of the second fraction cancels the $3$ in the
+numerator of the third fraction. And so on. So what finally gets left
+is a $1$ in the numerator and a $n$ in the denominator. So what we
+expect to get is $1/n$. This kind of cancellation is called {\em
+telescoping}. More specifically, this is {\em multiplicative
+telescoping} -- there is a similar notion of {\em additive
+telescoping}. We will see telescoping in more detail in the distant
+future.
+
+So let's now prove by induction the claim that:
+
+\begin{equation*}
+  \left(1 - \frac{1}{2}\right) \left(1 - \frac{1}{3}\right) \dots \left(1 - \frac{1}{n}\right) = \frac{1}{n}
+\end{equation*}
+
+Note that in this case, the smallest $n$ for which we can talk about
+this result is $n = 2$. So, the base case for induction is the case $n
+= 2$ rather than $n = 1$.
+
+{\em Base case}: The base case is $n = 2$, and in this case, the left
+side is $1 - (1/2) = 1/2$, which is the right side.
+
+{\em Induction step}: Suppose the result is true for $k$:
+
+\begin{equation*}
+  \left(1 - \frac{1}{2}\right) \left(1 - \frac{1}{3}\right) \dots \left(1 - \frac{1}{k}\right) = \frac{1}{k}
+\end{equation*}
+
+We multiply both sides by $1 - 1/(k+1)$:
+
+\begin{eqnarray*}
+  \left(1 - \frac{1}{2}\right) \left(1 - \frac{1}{3}\right) \dots \left(1 - \frac{1}{k}\right)\left(1 -\frac{1}{k + 1}\right) & = & \frac{1}{k}\left(1 - \frac{1}{k+1}\right)\\
+  \implies \left(1 - \frac{1}{2}\right) \left(1 - \frac{1}{3}\right) \dots \left(1 - \frac{1}{k}\right)\left(1 -\frac{1}{k + 1}\right) & = & \frac{1}{k} \cdot \frac{k}{k + 1}\\
+  \implies \left(1 - \frac{1}{2}\right) \left(1 - \frac{1}{3}\right) \dots \left(1 - \frac{1}{k}\right)\left(1 -\frac{1}{k + 1}\right) & = & \frac{1}{k + 1}
+\end{eqnarray*}
+
+This shows that the result is true for $k + 1$.
+
+We next look at a trickier example:
+
+$$\left(1 - \frac{1}{2^2}\right)\left(1 - \frac{1}{3^2}\right) \dots \left(1 - \frac{1}{n^2}\right)$$
+
+Let's first try to simplify by taking the common denominator in each
+term. We have:
+
+$$\left(\frac{2^2 - 1}{2^2} \right)\left(\frac{3^2 - 1}{3^2}\right) \dots \left(\frac{n^2 - 1}{n^2}\right)$$
+
+Now, there isn't any cancellation of the kind that we saw earlier, so
+what we need to do is a little trick. We write $k^2 - 1 = (k - 1)(k +
+1)$, and we get:
+
+$$\left(\frac{(2 - 1)(2 + 1)}{2^2}\right) \left(\frac{(3 - 1)(3 +
+1)}{3^2} \right) \dots \left(\frac{(n - 1)(n + 1)}{n^2}\right)$$
+
+{\em Now}, we see cancellations, and in fact, two kinds of
+cancellation. One kind of cancellation happens because the $k - 1$ in
+the numerator of one fraction cancels with the $k - 1$ in the
+denominator of the fraction to its left. The other kind of
+cancellation happens between the $k + 1$ in the numerator and the $k +
+1$ in the denominator of the fraction to the right.
+
+What finally survives the carnage is:
+
+$$ \frac{(2 - 1)(n+1)}{(2)(n)} = \frac{n + 1}{2n}$$
+
+This example also demonstrates why induction is useful, because when
+you do all this cancellation, you may be a little unsure of whether
+there is something you are not keeping track of well. So the answer we
+have got, namely $(n + 1)/(2n)$, may not be correct. To confirm it, we
+should use induction.
+
+{\em Base case for induction}: For $n = 2$, the left-hand side is $1 -
+(1/2^2) =3/4$ and the right side is $(2 + 1)/(2 \cdot 2) = 3/4$. Thus,
+the left-hand side and right-hand side are equal for $n = 2$, so the
+statement holds for $n = 2$.
+
+{\em Induction step}: Suppose the statement holds for $k$. In other words:
+
+\begin{equation*}
+  \left(1 - \frac{1}{2^2} \right) \dots \left(1 - \frac{1}{k^2} \right) = \frac{k + 1}{2k} \tag{*}
+\end{equation*}
+
+We want to prove the statement for $k + 1$. In other words, we want to prove:
+
+\begin{equation*}
+  \left(1 - \frac{1}{2^2} \right) \dots \left(1 - \frac{1}{k^2} \right)\left(1 - \frac{1}{(k + 1)^2}\right) = \frac{k + 2}{2(k + 1)} \tag{**}
+\end{equation*}
+
+Multiplying both sides of (*) by $1 - (1/(k+1)^2)$, we obtain:
+
+\begin{eqnarray*}
+  \left(1 - \frac{1}{2^2} \right) \dots \left(1 - \frac{1}{k^2} \right)\left(1 - \frac{1}{(k+1)^2}\right) & = & \frac{k + 1}{2k} \cdot \left(1 - \frac{1}{(k+1)^2}\right)\\
+  \implies \left(1 - \frac{1}{2^2} \right) \dots \left(1 - \frac{1}{k^2} \right)\left(1 - \frac{1}{(k+1)^2}\right) & = & \frac{k + 1}{2k} \cdot \frac{(k + 1)^2 - 1}{(k+1)^2}\\
+  \implies \left(1 - \frac{1}{2^2} \right) \dots \left(1 - \frac{1}{k^2} \right)\left(1 - \frac{1}{(k+1)^2}\right) & = & \frac{k + 1}{2k} \cdot \frac{k(k + 2)}{(k+1)^2}\\
+  \implies \left(1 - \frac{1}{2^2} \right) \dots \left(1 - \frac{1}{k^2} \right)\left(1 - \frac{1}{(k+1)^2}\right) & = & \frac{k + 2}{2(k + 1)}
+\end{eqnarray*}
+
+The last step gives (**), completing the proof.
+
+If you weren't able to guess the correct answer, you may have guessed
+something like $1/n^2$ (pattern-matching with the previous example)
+and then tried to prove it by induction. And when trying to do such a
+proof, you may have run into trouble. {\em That's a good thing},
+because it shows that you are not able to prove something wrong by
+induction.
+
+Incidentally, when we have a nice rational function or exponential
+function or that kind of compact expression for a sum or product, that
+is called a {\em closed-form expression}. Most summations and products
+do not have closed-form expressions. Some of those that do (and that
+you may have seen in high school) are arithmetic progressions and
+geometric progressions. Generally, proving closed-form expressions can
+be done using induction, but obtaining them requires some deeper
+thinking.
+
+For example, the product:
+
+$$\left(1 - \frac{1}{2^3}\right)\left(1 - \frac{1}{3^3}\right) \dots \left(1 - \frac{1}{n^3}\right)$$
+
+does {\em not} have a closed-form expression. In other words, we
+cannot write it down using a simple formula, let alone prove the
+formula by induction.
+
+\section{Induction and inequalities}
+
+\subsection{Induction and inequalities: why we need them}
+
+So far, we have looked at the principle of mathematical induction and
+its applicability to proving {\em equalities}, or {\em identities}
+that hold for all positive integers $n$, or for all large enough
+positive integers $n$. We looked at a range of examples:
+
+\begin{eqnarray*}
+  1 + 2 + \dots + n & = & \frac{n(n+1)}{2} \text{ (Example 1 of book) }\\
+  1 + 3 + \dots + (2n - 1) & = & n^2 \text{ (Exercise 4 of book) }\\
+  1^2 + 2^2 + \dots + n^2 & = & \frac{n(n+1)(2n + 1)}{6} \text{ (Exercise 5 of book) }\\
+  1^3 + 2^3 + \dots + n^3 & = & (1 + 2 + \dots + n)^2 \text{ (Exercise 6 of book)}\\
+  \left(1 - \frac{1}{2}\right)\left(1 - \frac{1}{3}\right) \dots \left(1 - \frac{1}{n}\right) & = & \frac{1}{n} \text{ (Exercise 13 of book) }\\
+  \left(1 - \frac{1}{2^2}\right)\left(1 - \frac{1}{3^2} \right) \dots \left(1 - \frac{1}{n^2}\right) & = & \frac{n +1}{2n} \text{ (Exercise 14 of book) }
+\end{eqnarray*}
+
+In all these cases, we were first lucky enough to come across a good
+closed form expression (a polynomial in the first four cases, and a
+rational function in the last two) which we were then easily able to
+establish by induction. However, in the vast majority of cases, when
+we are trying to determine the sums or products of series, closed-form
+expressions, such as polynomials or rational functions, do not
+exist. In other words, a simple formula doesn't even exist, so it is
+hopeless to try and prove it by induction.
+
+In these situations, we try the next best thing: get a handle on what
+the expression can be, by bounding it from above and below. For
+instance, suppose you are looking at:
+
+$$\frac{1}{1} + \frac{1}{2} + \frac{1}{3} + \dots + \frac{1}{n}$$
+
+There is no rational function or nice closed-form expression for this
+summation, but it would at least be helpful if we could get some
+easy-to-understand function that bounds this from below and an
+easy-to-understand function that bounds this from above. That would
+allow us to {\em understand the qualitative nature} of the function
+without having an actual expression for it.
+
+This brings us to the realm of inequalities and the proof of
+inequalities by induction. At some more advanced stage of mathematics,
+people are expected not just to prove the inequalities by induction
+but also to come up with likely candidates for what should be proved
+by induction. But as of now, all you're expected to do is prove by
+induction an inequality that is already stated explicitly.
+
+\subsection{Inequalities and auxiliary inequalities}
+
+The way we try to prove inequalities is a {\em little} different from
+the way we try to prove equalities when using proof by induction.
+
+When proving equality, we execute the induction step as follows: we
+write the statement for $k$, we write the statement for $k + 1$, and
+then we determine how we can manipulate the existing statement for $k$
+(typically by adding or multiplying something on both sides) in order
+to obtain the statement for $k + 1$. Since we are working with
+equality throughout, most of the manipulation work consists in (i)
+figuring out what to add/multiply, which is usually just the $(k +
+1)^{th}$ term of the summation/product expression that forms the left
+side, and (ii) simplifying some algebraic expression using rules
+learned in middle school.
+
+With inequalities, things are a little trickier. Again, we start with
+the inequality for $k$ and we write down the inequality for $k + 1$
+that we need to prove. But now, even after we add stuff and
+manipulate, we need not get precisely the expression we have with $k +
+1$.
+
+In this case, what we try to do is {\em guess an auxiliary inequality}
+such that, if that inequality were true, that would complete the
+problem. Then we prove that auxiliary inequality. 
+
+The typical situation is that we have:
+
+\begin{equation*}
+  \text{Long expression (summation, product) involving first $k$ terms } > \text{Short expression in $k$} \tag{*}
+\end{equation*}
+
+And we want to prove:
+
+\begin{equation*}
+  \text{Long expression (summation, product) involving first $k + 1$ terms } > \text{Short expression in $k + 1$} \tag{**}
+\end{equation*}
+
+What we do is add/multiply the $(k+1)^{th}$ term on both sides of
+(*), and we obtain:
+
+\begin{equation*}
+  \text{Long expression (summation, product) involving first $k + 1$ terms } > \text{Some new expression} \tag{***}
+\end{equation*}
+
+We now try to show that:
+
+\begin{equation*}
+  \text{Some new expression} \ge \text{Short expression in $k + 1$} \tag{****}
+\end{equation*}
+
+Because once we show that, then combining (***) and (****) gives (**).
+
+How do we show (****)? This basically boils down to the old tricks
+of proving inequalities.
+
+\subsection*{Detailed discussion of example 2 from the book}
+
+Example 2 from the book (Page 50) asks you to prove that, if $x \ge
+-1$, then, for all positive integers $n$, we have:
+
+$$(1 + x)^n \ge 1 + nx$$
+
+This problem is interesting for many reasons. First, notice that there
+are two variables, $x$ and $n$, in the problem. We need to choose
+which variable to do the induction on. For this, notice that the
+variable $x$ takes arbitrary real values, while $n$ takes values in
+the positive integers. Hence, it makes sense to induct on $n$.
+
+Second, this is an example of an inequality problem that is helped
+through proof by induction.
+
+We handle the base case and the induction step.
+
+{\em Base case}: Consider the case $n = 1$. In this case, the
+left-hand side is $(1 + x)^1 = 1 + x$ and the right-hand side is $1 +
+1 \cdot x = 1 + x$. Thus, the left-hand side and the right-hand side
+are equal, so the base case has been proved.
+
+{\em Induction step}: Let's assume the result for $n = k$. This says:
+
+\begin{equation*}
+  (1 + x)^k \ge 1 + kx \tag{*}
+\end{equation*}
+
+What we need to prove is the result for $n = k + 1$. In other words,
+we need to prove:
+
+\begin{equation*}
+  (1 + x)^{k + 1} \ge 1 + (k + 1)x \tag{**}
+\end{equation*}
+
+We need to derive (**) from (*). We begin by multiplying both
+sides of (*) by $1 + x$, to get:
+
+\begin{equation*}
+  (1 + x)^{k + 1} \ge (1 + kx)(1 + x) \tag{***}
+\end{equation*}
+
+{\em Note that this is valid because}, since $x \ge -1$, $1 + x \ge 0$
+and hence multiplying by $1 + x$ does not change the sign of the
+inequality.
+
+Thus, what we need to prove is:
+
+\begin{equation*}
+  (1 + kx)(1 + x) \ge 1 + (k + 1)x
+\end{equation*}
+
+Let's do this. Note that:
+
+$$(1 + kx)(1 + x) = 1 + (k + 1)x + x^2$$
+
+Since $x^2 \ge 0$, we get:
+
+\begin{equation*}
+  (1 + kx)(1 + x) \ge 1 + (k + 1)x \tag{****}
+\end{equation*}
+
+Combining (***) and (****), we obtain (**), as desired, and this
+completes the proof of the induction step.
+
+\subsection{Confusing: marching forwards and bending over backwards}
+
+These applications of induction are a little confusing because they
+involve a combination of working forwards and working backwards and
+jumping between them. So here's a little philosophical explanation of
+what is happening.
+
+In general, for most of the problems you've done in mathematics, you
+start with whatever you have and then work, step by step, to where you
+want to go. This is like you know you're at one end of the street, and
+you want to get to this coffee shop which is located at the other end
+of the street, and you need to walk from where you are to where the
+coffee shop is.
+
+But sometimes, you are not sure where the coffee shop is. So you call
+them up, or may be Google them, and you get to know that it is next to
+the gas station. So now, instead of looking for the coffee shop, you
+can look for a gas station, that might be a little more prominent and
+hence harder to miss. And that might be within sight, or may be it
+will be if you walk a little bit. And so this backward-forward thing
+is what we're doing with the induction inequality business as well. We
+start with what we have (the statement for $k$), where we need to get
+(the statement for $k + 1$), then we try to walk a little bit forward
+from where we are and a little bit backward from where we need to be
+until where we are matches where we need to be.
+
+{\em When doing this backward-forward thing, it is very important that
+for all statements that you want to show but have not yet shown, you
+clearly indicate this in words. By default, any statement you make
+comes with an implicit assertion that the statement has already been
+established from previous assertions.}
+
+\subsection{Discussion of Exercise 9 from the book (homework problem)}
+
+This exercises asks you to prove that, for $n$ a positive integer with
+$n \ge 2$:
+
+$$\frac{1}{\sqrt{1}} + \frac{1}{\sqrt{2}} + \dots \frac{1}{\sqrt{n}} > \sqrt{n}$$
+
+We consider the base case and induction step.
+
+{\em Base case}: The base case is $n = 2$. In this case, the left side
+is $1 + 1/\sqrt{2}$ and the right side is $\sqrt{2}$. Thus, to show
+the base case, we need to show that $1 + 1/\sqrt{2} - \sqrt{2} >
+0$. This can be shown as follows: $1 + 1/\sqrt{2} - \sqrt{2} =
+(\sqrt{2} - 1)/\sqrt{2}$. Since $\sqrt{2} > 1$, both the numerator and
+denominator are positive, so the expression is positive. This
+completes the proof for the base case.
+
+{\em Induction step}: Suppose the result is true for $k$. In other
+words, we have:
+
+\begin{equation*}
+  \frac{1}{\sqrt{1}} + \frac{1}{\sqrt{2}} + \dots + \frac{1}{\sqrt{k}} > \sqrt{k} \tag{*}
+\end{equation*}
+
+We need to prove:
+
+\begin{equation*}
+  \frac{1}{\sqrt{1}} + \frac{1}{\sqrt{2}} + \dots + \frac{1}{\sqrt{k}} + \frac{1}{\sqrt{k + 1}} > \sqrt{k + 1} \tag{**}
+\end{equation*}
+
+How do we get from (*) to (**)? This is the challenge. The first
+step to do might be to get the left sides to match. This can be done
+by adding $1/\sqrt{k+1}$ to both sides of (*), giving:
+
+\begin{equation*}
+  \frac{1}{\sqrt{1}} + \frac{1}{\sqrt{2}} + \dots + \frac{1}{\sqrt{k}} + \frac{1}{\sqrt{k + 1}} > \sqrt{k} + \frac{1}{\sqrt{k + 1}} \tag{***}
+\end{equation*}
+
+In order to get from (***) to (**), we should try showing that:
+
+\begin{equation*}
+  \sqrt{k} + \frac{1}{\sqrt{k + 1}} > \sqrt{k + 1} \tag{****}
+\end{equation*}
+
+So, we have {\em reduced the original problem} to proving (****). In
+other words, if we somehow manage to prove (****), then we would
+have completed the proof of the induction step. To prove this, try to
+prove that the difference of the left-hand side and the right-hand
+side is positive for $k \ge 2$.
+
+\subsection{Detailed discussion of an example not in the book or exercises}
+
+Suppose you are given that the following holds for all $x > 0$
+
+\begin{equation*}
+  x > \ln(1 + x) \tag{A}
+\end{equation*}
+
+$e = 2.718 \dots$.
+ 
+You want to show that for positive integers $n$:
+
+\begin{equation*}
+  \frac{1}{1} + \frac{1}{2} + \frac{1}{3} + \dots + \frac{1}{n} > \ln(n + 1)
+\end{equation*}
+
+Let's see how we can do this. First, the base case.
+
+{\em Base case}: Set $n = 1$. The left side is $1$ while the right
+side is $\ln(2)$. Since $2 < e$, $\ln(2) < 1$ so the left side is
+greater than the right side. This completes the proof of the base
+case.
+
+{\em Induction step}: Suppose the statement is true for $k$. In other
+words, we have that:
+
+\begin{equation*}
+  \frac{1}{1} + \frac{1}{2} + \dots + \frac{1}{k} > \ln(k + 1) \tag{*}
+\end{equation*}
+
+We want to prove that the statement is true for $k + 1$. In other
+words, we want to prove that:
+
+\begin{equation*}
+  \frac{1}{1} + \frac{1}{2} + \dots + \frac{1}{k} + \frac{1}{k+1} > \ln(k + 2) \tag{**}
+\end{equation*}
+
+Let's try to prove this. We try the usual recipe: we add stuff to (*),
+and see how things pan out.
+
+Adding $1/(k+1)$ to both sides of (*), we obtain:
+
+\begin{equation*}
+  \frac{1}{1} + \frac{1}{2} + \dots + \frac{1}{k} + \frac{1}{k + 1} > \ln(k + 1) + \frac{1}{k + 1} \tag{***}
+\end{equation*}
+
+Let's look at (***) and pause, because we need to remember what
+exactly we are trying to prove. We are trying to prove (**), whose
+left side looks exactly the same as that of (*), but whose right
+side looks a little different. The right side of (**) is $\ln(k +
+2)$, while the right side of (***) is $\ln(k+1) + 1/(k + 1)$.
+
+Thus, what we would like to prove is:
+
+\begin{equation*}
+  \ln(k + 1) + \frac{1}{k + 1} > \ln(k + 2)
+\end{equation*}
+
+We need to use $(A)$, which says that for any $x > 0$, we have $x >
+\ln(1 + x)$.
+
+What $x$ should we pick? A reasonable guess here would be $x = 1/(k +
+1)$. Let us see what happens when we put $x = 1/(k + 1)$ in $(A)$. We
+get:
+
+\begin{eqnarray*}
+  \frac{1}{k + 1} & > & \ln\left(1 + \frac{1}{k + 1}\right) \\
+  \implies \frac{1}{k + 1} & > & \ln \left(\frac{k + 2}{k + 1}\right)\\
+  \implies \frac{1}{k + 1} & > & \ln(k + 2) - \ln(k + 1)
+\end{eqnarray*}
+
+Rearranging this, we obtain:
+
+\begin{equation*}
+  \ln(k + 1) + \frac{1}{k + 1} > \ln(k + 2) \tag{****}
+\end{equation*}
+
+Combining (***) and (****), we obtain (**), as desired. This
+completes the induction step.
+
+\section{Fancy forms and interpretations of induction}
+
+These techniques are mentioned briefly for completeness. You will not
+get questions in the test that rely on such techniques (and if you do,
+you will be provided a sufficiently detailed solution template that
+you can fill in the details based on your basic knowledge of
+induction. Thus, the discussion here is kept at a qualitative
+level. The main purpose is to prepare you conceptually for
+encountering these ideas at a later stage.
+
+\subsection{Induction is conceptually like differentiation/integration}
+
+This seems preposterous at first but it's true in the following
+analogical sense: the inductive step is a lot like the ``derivative''
+of the statement that we are trying to prove by induction. Checking
+the induction step is a bit like checking that the ``derivatives''
+match, and the base case of induction serves as an analogue of the
+``+C'' that we see in integration.
+
+The conceptual analogy becomes more precise in specific situations --
+for instance, when dealing with summations $\sum_{k=1}^n f(k)$, the
+operation of summation is a {\em discrete} version of integration, and
+the inductive step, which involves considering the value $f(k + 1)$
+added, is basically taking the integrand, which is the derivative of
+the sum (fundamental theorem of calculus of sorts). We will flesh out
+this analogy in more detail when we move to the topic of series.
+
+One conceptual corollary is as follows: in cases where the inductive
+step is itself hard to prove, we might benefit by trying to prove the
+inductive step {\em itself} by induction, which is analogous to
+differentiating twice.
+
+\subsection{Induction for sufficiently large integers}
+
+Sometimes we want to prove that a statement is true for all natural
+numbers $n \ge n_0$, i.e., it is true for all {\em sufficiently large
+integers}. The approach in this case is as follows:
+
+\begin{itemize}
+\item The base case now becomes $n_0$.
+\item The inductive step $P(k) \implies P(k+1)$ needs to be shown only
+  for $k \ge n_0$. In some cases, we may not need the additional
+  assmuption $k \ge n_0$, while in others, this additional assumption
+  may be critical to executing the induction step.
+\end{itemize}
+\subsection{Induction where a statement is assumed for all smaller values}
+
+In all the cases we have seen so far, the inductive step was of the
+form $P(k)$ implies $P(k + 1)$. Often, however, for the statement as
+originally formulated, $P(k)$ is not strong enough to easily give $P(k
++ 1)$. We may need to use not just $P(k)$ but $P(k - 1)$ and the truth
+of $P$ for other smaller values. In other words, this modified variant
+of the induction step uses the truth of $P$ for all smaller values to
+deduce its truth for $k + 1$.
+
+In cases where we need the truth of $P(k)$ and $P(k-1)$ to deduce the
+truth of $P(k + 1)$, the {\em base case} needs to be correspondingly
+thicker: it needs to cover $P(1)$ and $P(2)$, because the inductive
+step can only kick in from $3$ onward.
+
+Pushing the analogy with differentiation further, this is a but like
+differentating/integrating twice -- there are {\em two} arbitrary
+constants that arise when integrating twice, and pinning them down
+requires checking/verifying two conditions. We will return to this
+analogy and its precise meaning after a dose of differential equations
+and while covering series.
+
+\subsection{Induction on multiple parameters: simultaneous and separate}
+
+Sometimes, a statement may involve more than one parameter that is a
+natural number, and to prove the statement, we may need to apply
+induction separately to both parameters.
+
+For instance, suppose $P(n,m)$ is a statement that takes in two
+natural number parameters $n$ and $m$. We could try this inductively
+as follows:
+
+\begin{itemize}
+\item We first assume $m$ fixed, and we try proving the statement by
+  induction on $n$. This involves proving a base case of $P(1,m)$ for
+  all $m$ (let's call this statement $B(m)$) and an inductive step
+  which says that $P(k,m)$ implies $P(k +1,m)$ (let's call this
+  $Q(k,m)$).
+\item In some cases, both $B(m)$ and $Q(k,m)$ are easy to show
+  directly. In others, proving these may itself require induction --
+  this time on $m$.
+\end{itemize}
+
+Using the analogy between induction and differentiation/integration,
+we first ``differentiate'' $P$ with respect to $n$, and then try
+``differentiating'' with respect to $m$. Perhaps we may need to
+``differentiate'' with respect to $n$ yet again.
+
+These is another approach to induction for statements involving more
+than one variable, which is an approach of {\em simultaneous}
+induction. The idea here is, roughly, to prove $P(k+1,l+1)$ assuming
+that {\em both} $P(k+1,l)$ and $P(k,l+1)$ are true. This has a nice
+graphical interpretation if we represent pairs of natural numbers as a
+lattice. [Explanation to be delivered in class, if there is time,
+otherwise ignore it].
+
+\subsection{Induction on congruence classes}
+
+Often, statements involving the natural numbers split into cases based
+on the congruence class modulo some small number like $2$, $3$, or
+$4$.
+
+The congruence class of a natural number $n$ mod $d$ is characterized
+the remainder obtained on dividing $n$ by $d$. For instance, when $d =
+2$, there are two congruence classes: the even numbers, which leave a
+remainder of $0$, and the odd numbers, which leave a remainder of
+$1$. The trait with values even and odd is termed ``parity.'' We are
+familiar by now with the way many aspects of behavior depend on parity
+-- for instance, many aspects of the asymptotic behavior of a
+polynomial or rational function depend upon its parity.
+
+In a similar fashion, there many be cases where a result depends on
+the congruence class of $n$ mod $3$, or perhaps mod $4$. Note that in
+each congruence class mod $d$, successive members are a distance $d$
+apart.
+
+There are two possible approaches to such problems using
+induction. The first is to use induction the usual way, but be wary
+that adjacent numbers are in different congruence classes. The second
+is to use induction by ``jumps'' of $d$. We use the even/odd situation
+to illustrate.
+
+Suppose I want to prove a statement $P(n)$ for all natural numbers
+$n$, but $P$ has different flavors for even $n$ and odd $n$, which we call
+$P_e(n)$ and $P_o(n)$ respectively. We consider both possible strategies:
+
+Strategy one: We prove $P(1)$ (the base case) and show that $P(k)$
+implies $P(k+1)$ for all natural numbers (the inductive step). For the
+inductive step, we split into cases: when $k$ is even, we show that $P_e(k)$
+implies $P_o(k+1)$, and when $k$ is odd, we show that $P_o(k)$ implies
+$P_e(k+1)$.
+
+Strategy two: We prove $P(1)$ and $P(2)$ (the base cases) and show
+that $P(k)$ implies $P(k+2)$ for all natural numbers $k$ (the
+inductive step). For the inductive step, we split int ocases: when $k$
+is even, we show that $P_e(k)$ implies $P_e(k+2)$, and when $k$ is
+odd, we show that $P_o(k)$ implies $P_o(k+2)$.
+
+
+\end{document}

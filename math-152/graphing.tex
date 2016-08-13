@@ -1,0 +1,1264 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Graphing}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 4.8
+
+{\bf Difficulty level}: Hard.
+
+{\bf What students should definitely get}: The main concerns in
+graphing a function, how to figure out what needs figuring out. It is
+important for students to go through all the graphing examples in the
+book and do more hands-on practice. Transformations of graphs. Quickly
+graphing constant, linear, quadratic graphs.
+
+{\bf What students should hopefully get}: How all the issues of
+symmetry, concavity, inflections, periodicity, and derivative signs
+fit together in the grand scheme of graphing. The qualitative
+characteristics of polynomial function and rational function graphs,
+as well as graphs involving a mix of trigonometric and polynomial
+functions.
+
+{\bf Weird feature}: Ironically, there are very few pictures in this
+document. The naive explanation is that I didn't have time to add many
+pictures. The more sophisticated explanation is that since the purpose
+here is to review how to graph functions, having actual pictures drawn
+perfectly is counterproductive. Please keep a paper and pencil handy
+and sketch pictures as you feel the need.
+
+\section*{Executive summary}
+
+\subsection{Symmetry yet again}
+
+Words...
+
+\begin{enumerate}
+\item All mathematics is the study of symmetry (well, not all).
+\item One interesting kind of symmetry that we often see in the graph
+  of a function is {\em mirror symmetry} about a vertical line. This
+  means that the graph of the function equals its reflection about the
+  vertical line. If the vertical line is $x = c$ and the function is
+  $f$, this is equivalent to asserting that $f(x) = f(2c - x)$ for all
+  $x$ in the domain, or equivalently, $f(c + h) = f(c - h)$ whenever
+  $c + h$ is in the domain. In particular, the domain itself must be
+  symmetric about $c$.
+\item A special case of mirror symmetry is the case of an {\em even
+  function}. An even function is a function with mirror symmetry about
+  the $y$-axis. In other words, $f(x) = f(-x)$ for all $x$ in the
+  domain. (Even also implies that the domain should be symmetric about $0$).
+\item Another interesting kind of symmetry that we often see in the
+  graph of a function is {\em half-turn symmetry} about a point on the
+  graph. This means that the graph equals the figure obtained by
+  rotating it by an angle of $\pi$ about that point. A point $(c,d)$
+  is a point of half-turn symmetry if $f(x) + f(2c - x) = 2d$ for all
+  $x$ in the domain. In particular, the domain itself must be
+  symmetric about $c$. If $f$ is defined at $c$, then $d = f(c)$.
+\item A special case of half-turn symmetry is an odd function, which
+  is a function having half-turn symmetry about the origin.
+\item Another symmetry is {\em translation symmetry}. A function is
+  {\em periodic} if there exists $h > 0$ such that $f(x + h) = f(x)$
+  for all $x$ in the domain of the function (in particular, the domain
+  itself should be invariant under translation by $h$). If a smallest
+  such $h$ exists, then such an $h$ is termed the period of $f$.
+\item A related notion is that of a function with {\em periodic
+  derivative}. If $f$ is differentiable for all real numbers, and $f'$
+  is periodic with period $h$, then $f(x + h) - f(x)$ is constant. If
+  this constant value is $k$, then the graph of $f$ has a
+  two-dimensional translational symmetry by $(h,k)$ and its multiples.
+\end{enumerate}
+
+Cute facts...
+
+\begin{enumerate}
+\item Constant functions enjoy mirror symmetry about every vertical
+  line and half-turn symmetry about every point on the graph (can't
+  get better).
+\item Nonconstant linear functions enjoy half-turn symmetry about
+  every point on their graph. They do not enjoy any mirror symmetry
+  because they are everywhere increasing or everywhere decreasing.
+\item Quadratic (nonlinear) functions enjoy mirror symmetry about the
+  line passing through the vertex (which is the unique absolute
+  maximum/minimum, depending on the sign of the leading
+  coefficient). They do not enjoy any half-turn symmetry.
+\item Cubic functions enjoy half-turn symmetry about the point of
+  inflection, and no mirror symmetry. Either the first derivative does
+  not change sign anywhere, or it becomes zero at exactly one point,
+  or there is exactly one local maximum and one local minimum,
+  symmetric about the point of inflection.
+\item Functions of higher degree do not necessarily have either
+  half-turn symmetry or mirror symmetry.
+\item More generally, we can say the following for sure: a nonconstant
+  polynomial of even degree greater than zero can have at most one
+  line of mirror symmetry and no point of half-turn symmetry. A
+  nonconstant polynomial of odd degree greater than one can have at
+  most one point of half-turn symmetry and no line of mirror symmetry.
+\item If a function is continuously differentiable and the first
+  derivative has only finitely many zeros in any bounded interval,
+  then the intersection of its graph with any vertical line of mirror
+  symmetry is a point of local maximum or local minimum. The converse
+  does not hold, i.e., points where local extreme values are attained
+  do {\em not} usually give axes of mirror symmetry.
+\item If a function is twice differentiable and the second derivative
+  has only finitely many zeros in any bounded interval, then any point
+  of half-turn symmetry is a point of inflection. The converse does
+  not hold, i.e., points of inflection do {\em not} usually give rise
+  to half-turn symmetries.
+\item The sine function is an example of a function where the points
+  of inflection and the points of half-turn symmetry are the same: the
+  multiples of $\pi$. Similarly, the points with vertical axis of
+  symmetry are the same as the points of local extrema: odd multiples
+  of $\pi/2$.
+\item For a periodic function, any translate by a multiple of the
+  period of a point of half-turn symmetry is again a point of
+  half-turn symmetry. (In fact, any translate by a multiple of half
+  the period is also a point of half-turn symmetry).
+\item For a periodic function, any translate by a multiple of the
+  period of an axis of mirror symmetry is also an axis of mirror
+  symmetry. (In fact, translation by multiples of half the period also
+  preserve mirror symmetry).
+\item A polynomial is an even function iff all its terms have even
+  degree. Such a polynomial is termed an {\em even polynomial}. A
+  polynomial is an odd function iff all its terms have odd
+  degree. Such a polynomial is termed an {\em odd polynomial}.
+\item Also, the derivative of an even function (if it exists) is odd;
+  the derivative of an odd function (if it exists) is even.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item Worried about periodicity? Don't be worried if you only see
+  polynomials and rational functions. Trigonometric functions should
+  make you alert. Try to fit in the nicest choices of period. Check if
+  smaller periods can work (e.g., for $\sin^2$, the period is
+  $\pi$). Even if the function in and of itself is not periodic, it
+  might have a periodic derivative or a periodic second
+  derivative. The sum of a linear function and a periodic function has
+  periodic derivative, and the sum of a quadratic function and a
+  periodic function has a periodic second derivative.
+\item Want to milk periodicity? Use the fact that for a periodic
+  function, the behavior everywhere is just the behavior over one
+  period translates over and over again. If the first derivative is
+  periodic, the increase/decrease behavior is periodic. If the second
+  derivative is periodic, the concave up/down behavior is periodic.
+\item Worried about even and odd, and half-turn symmetry and mirror
+  symmetry? If you are dealing with a quadratic polynomial, or a
+  function constructed largely from a quadratic polynomial, you are
+  probably seeing some kind of mirror symmetry. For cubic polynomials
+  and related constructions, think half-turn symmetry.
+\item Use also the cues about even and odd polynomials.
+\end{enumerate}
+
+\subsection{Graphing a function}
+
+Actions ...
+
+\begin{enumerate}
+\item To graph a function, a useful first step is finding the domain
+  of the function.
+\item It is useful to find the intercepts and plot a few additional points.
+\item Try to look for symmetry: even, odd, periodic, mirror symmetry,
+  half-turn symmetry, and periodic derivative.
+\item Compute the derivative. Use that to find the critical points,
+  the local extreme values, and the intervals where the function
+  increases and decreases.
+\item Compute the second derivative. Use that to find the points of
+  inflection and the intervals where the function is concave up and
+  concave down.
+\item Look for vertical tangents and vertical cusps. Look for vertical
+  asymptotes and horizontal asymptotes. For this, you may need to
+  compute some limits.
+\item Connect the dots formed by the points of interest. Use the
+  information on increase/decrease and concave up/down to join these
+  points. To make your graph a little better, compute the first
+  derivative (possibly one-sided) at each of these points and start
+  off your graph appropriately at that point.
+\end{enumerate}
+
+Subtler points... (see the ``More on graphing'' notes for an
+elaboration of these points; not all of them were covered in class):
+
+\begin{enumerate}
+\item When graphing a function, there may be many steps where you need
+  to do some calculations and solve equations and you are unable to
+  carry them out effectively. You can skip some of the steps and come
+  back to them later.
+\item If you cannot solve an equation exactly, try to approximate the
+  locations of roots using the intermediate value theorem or other
+  results such as Rolle's theorem.
+\item In some cases, it is helpful to graph multiple functions
+  together, on the same graph. For instance, we may be interested in
+  graphing a function and its second and higher derivatives. There are
+  other examples, such as graphing a function and its translates, or a
+  function and its multiplicative shifts.
+\item A graph can be used to suggest things about a function that are
+  not obvious otherwise. However, the graph should not be used as
+  conclusive evidence. Rather, the steps used in drawing the graph
+  should be retraced and used to give an algebraic proof.
+\item We are sometimes interested in sketching curves that are not
+  graphs of functions. This can be done by locally expressing the
+  curve piecewise as the graph of a function. Or, we could use many
+  techniques similar to those for graphing functions.
+\item For a function with a piecewise description, we plot each piece
+  within its domain. At the points where the definition changes,
+  determine the one-sided limits of the function and its first and
+  second derivatives. Use this to make the appropriate open circles,
+  asymptotes, etc.
+\end{enumerate}
+
+\section{Graphing in general}
+
+The goal of this lecture is to make you more familiar with the tools
+and techniques that can be used to graph a function. The book has a
+list of points that you should keep in mind. The list in the book
+isn't complete -- there are a number of additional points that tend
+to come up for functions of particular kinds, but it is a good
+starting point. But in this lecture, we'll focus on something more
+than just the techniques -- we'll focus on the broad picture of why we
+want to draw graphs and what information about the function we want
+the graph to convey. Working from that, we will be able to reconstruct
+much of the book's strategy.
+
+\subsection{Graphs -- utility, sketching and plotting}
+
+The graph of a function $f$ on a subset of the real numbers is the set
+of points in $\R^2$ (the plane) of the form $(x,f(x))$, where $x$ is
+in the domain of $f$. The graph of $f$ gives a geometric description
+of $f$, and it completely determines $f$. For a given $x = x_0$,
+$f(x_0)$ is the $y$-coordinate of the unique point of the graph that
+is also on the line $x = x_0$.
+
+Graphs are useful because they allow us to see many things about the
+function at the same time, and enable us to use our visual instincts
+to answer questions about the function. It is usually easy to look at
+the graph and spot, without precise measurement, phenomena such as
+periodicity, symmetry, increase, decrease, discontinuity, change in
+direction, etc. Thus, the graph of a function, {\em if correctly
+drawn}, is not only equivalent in information content to the function
+itself, it makes that information content much more easy to read.
+
+The problem is with the caveat {\em if correctly drawn}. The domains
+of most of the functions we consider are unions of intervals, so they
+contain infinitely many points. {\em Plotting the graph} in a complete
+sense would involve evaluating the function at these infinitely many
+points. In practice, {\em graph plotting} works by dividing the domain
+into very small intervals (say, of length $10^{-3}$), calculating the
+values of the function (up to some level of accuracy, say $10^{-4}$)
+at the endpoints of the intervals, and then drawing a curve that
+passes through all the graph points thus obtained. This last joining
+step is typically done using straight line segments.\footnote{If you
+have seen computer graphics in the old days where computer memory and
+processing speed was limited, you would have seen that computer
+renderings of geometric figures such as circles was done using small
+line segments. As we improve the resolution, the line segments become
+smaller and smaller until our eyes cannot make out the difference.}
+
+Unfortunately, although softwares such as Mathematica are good for
+plotting graphs, we humans would take too long to do the millions of
+evaluations necessary to plot graphs. However, we have another asset,
+which is our brains. We need to use our brains to find some substitute
+for plotting the graph that still gives a reasonable approximation of
+the graph and {\em captures the qualitative characteristics that make
+the graph such an informative representation of the function}. The
+process that we perform is called {\em graph sketching}.
+
+A sketch of a graph is good if any information that is visually
+compelling from the sketch (without requiring precise measurement) is
+actually {\em correct} for the function. In other words, a good sketch
+may mislead people into thinking that $f(2) = 2.4$ while it is
+actually $2.5$, but it should not make people think that $f$ is
+increasing on the interval $(2,3)$ if it is actually decreasing on the
+interval.\footnote{This does raise an interesting point, which is that
+the reason why sketches seem adequate even when inaccurate is because
+of our limited observational power -- the correctly plotted graph
+would not look too different in terms of compelling visual
+information, and hence, we find the sketch good enough for our
+purposes.}
+
+\subsection{The domain of a function}
+
+The domain of a function is easy to determine from its graph. Namely,
+the domain is the subset of the $x$-axis obtained by orthogonally
+projecting the graph onto the $x$-axis. In other words, it is the set
+of possible $x$-coordinates of points on the graph.
+
+So, the first step in drawing the graph is finding the domain. We
+consider two main issues here:
+
+\begin{enumerate}
+\item Sometimes, the domain may contain an open interval without
+  containing one or both of the endpoints of that interval. In other
+  words, there may be points in the boundary of the domain but not in
+  the domain. In such cases, try to determine the limits (left and/or
+  right, as applicable) of the function at these boundary points. If
+  finite, we have open circles. If equal to $+\infty$ or $-\infty$, we
+  have vertical asymptotes.
+\item In cases where the domain of the function stretches to $+\infty$
+  and/or $-\infty$, determine the limit(s). Any finite limit thus
+  obtained corresponds to a horizontal asymptote.
+\end{enumerate}
+
+\subsection*{Intercepts and a bit of plotting}
+
+So that the graph is not completely wrong, it is helpful to make it
+realistic using a bit of plotting. The book suggests computing the
+$x$-intercepts and the $y$-intercept.
+
+The $x$-intercepts are the points where the graph intersects the
+$x$-axis, i.e., the points of the form $(x,0)$ where $f(x) = 0$. There
+may be zero, one, or more than one $x$-intercepts. The $y$-intercept
+is the unique point where the graph intersects the $y$-axis, i.e., the
+point $(0,f(0))$. Note that if $0$ is not in the domain of the
+function, then the $y$-intercept does not make sense.
+
+In addition to finding the intercepts, it may also be useful to do a
+bit of plotting, e.g., finding $f(x)$ for some values of $x$, or
+finding solutions to $f(x) = y$ for a few values of $y$. The
+intercepts are the bare minimum of plotting. They're important to
+compute mainly because the values of the intercepts are visually
+obvious and it would be misleading to people viewing the graph if
+these values were obtained wrong.
+
+\subsection{Symmetry/periodicity}
+
+Another thing that is visually obvious from the graph is {\em patterns
+of repetition}. There are two kinds of patterns of repetition that we
+are interested in:
+
+\begin{enumerate}
+\item {\em Periodicity}: The existence of $h > 0$ such that $f(x + h)
+  = f(x)$ for all $x$ in $\R$. Periodicity is graphically visible --
+  the shape of the graph repeats after an interval of length $h$. Note
+  that we can talk of periodicity even for functions that are not
+  defined for all real numbers, as long as it is true that the domain
+  itself is invariant under the addition of $h$. For instance, $\tan$
+  has a period of $\pi$.
+\item {\em Symmetry: even and odd}: An even function ($f(x) = f(-x)$
+  for all $x \in \R$) exhibits a particular kind of symmetry: symmetry
+  about the $y$-axis. An odd function ($f(x) = -f(-x)$ for all $x \in
+  \R$) exhibits {\em half-turn symmetry} about the origin. Both these
+  properties are geometrically visible. Note that we can talk of even
+  and odd for functions not defined for all real numbers, as long as
+  the domain is symmetric about $0$. For instance, $f(x) := 1/x$ is
+  odd and $f(x) := 1/x^2$ is even.
+\end{enumerate}
+
+There are somewhat more sophisticated versions of this:
+
+\begin{enumerate}
+\item Periodicity with shift: This happens when there exists $h > 0$
+  and $k \in \R$ such that $f(x + h) = f(x) + k$ for all $x \in
+  \R$. Thus, the graph of $f$ repeats after an interval of length $h$,
+  but it is shifted vertically by $k$. Note that the case of shift $0$
+  is precisely the case where $f$ itself is periodic. If $f$ is also
+  differentiable, this is equivalent to the derivative being periodic.
+
+  A function is periodic with shift if and only if it is the sum of a
+  periodic function and a linear function. The breakup as a sum is
+  unique up to constants. The periodic function part can be thought of
+  as representing the seasonal trend and the linear function part can
+  be thought of as representing the secular trend.
+\item Half turn symmetry about axes other than the $y$-axis.
+\item Mirror symmetry about points other than the origin.
+\end{enumerate}
+
+With the exception of {\em periodicity with shift}, all the other
+notions are discussed in detail in the second set of lecture notes on
+functions (Functions: A Rapid Review (Part 2)) so we will not repeat
+that discussion. Since the mirror symmetry and half turn symmetry
+material was not covered in class at the time, we'll take a short
+detour in class to cover that material.
+
+\subsection{First derivative}
+
+The next step in getting a better picture of the function is to use
+the derivative. The derivative helps us find the intervals on which
+the function is increasing and decreasing, the critical points, and
+other related phenomena. We shall return in some time to the
+application of this information to graph-sketching.
+
+\subsection{Second derivative}
+
+If the function is twice differentiable (at most points) the second
+derivative is another useful tool. We can use the second derivative to
+find intervals where the function is concave up, intervals where the
+function is concave down, and inflection points of the
+function. Combining this with information about the first derivative,
+we can determine intervals where the function is increasing and
+concave up (i.e., increasing at an increasing rate), increasing and
+concave down (i.e., increasing at a decreasing rate), decreasing and
+concave up (i.e., decreasing at a decreasing rate), or decreasing and
+concave down (i.e., decreasing at an increasing rate).
+
+\subsection{Classifying and understanding points of interest}
+
+Some of the cases of interest are:
+
+\begin{enumerate}
+\item Point of discontinuity: Separately compute the left-hand limit,
+  right-hand limit and value. If either one-sided limit is $\pm
+  \infty$, we have a vertical asymptote. If a one-sided limit equals
+  the value, the graph has a closed circle. If a one-sided limit
+  exists but does not equal the value, the graph has an open circle.
+\item Critical point where the function is continuous and not
+  differentiable: Determine whether the left-hand derivative and
+  right-hand derivative individually exist. If so, determine the
+  values of these derivatives. If the left-hand and right-hand
+  derivatives do not exist as finite values, try determining the
+  left-hand limit and right-hand limit of the derivative. If the limit
+  of the derivative is $+\infty$ from both sides or $-\infty$ from
+  both sides, we have a vertical tangent at the point. if the limit of
+  the derivative is $+\infty$ from one side and $-\infty$ from the
+  other side, we have a vertical cusp at the point. In all cases,
+  determine the value of the function at the point.
+\item Critical points where the derivative of the function is zero:
+  Determine whether this is a point of local maximum, a point of local
+  minimum, a point of inflection, or none of these. In any case,
+  determine the value of the function at the point.
+\item Point of inflection: Determine the value of the function as well
+  as the value of the first derivative at the point. Also, determine
+  whether the graph switches from concave up to concave down or
+  concave down to concave up at the point.
+\end{enumerate}
+
+Critical points, and phenomena related to the first derivative, are
+usually geometrically compelling, so it is important to focus on
+getting them right so as not to paint a misleading picture. The
+precise location of points of inflection is less geometrically
+compelling, except when such a point is also a critical
+point. Generally, it is geometrically clear that there exists an
+inflection point in the interval between two points, because the graph
+is concave up at one point and concave down at the other. However, the
+precise location of the critical point may be hard to determine. Thus,
+getting the precise details of inflection points correct is desirable
+but not as basic as getting the critical points correct.
+
+\subsection{Sketching the graph}
+
+We first plot the points of interest and values (including $\pm
+\infty$, corresponding to vertical asymptotes), as well as the
+horizontal asymptotes for points at infinity. Here, {\em points of
+interest} includes the critical points and inflection points,
+intercept points, and a few other points added in to get a preliminary
+plot. In addition to plotting the graph points (which is the pair
+$(x,f(x))$ where $x$ is the point of interest in the domain), it is
+also useful to compute the one-sided derivatives at each of the points
+of interest, and draw a short segment of the tangent line (or
+half-line, if only one-sided derivatives exist) corresponding to that.
+
+Next, we use the increase/decrase and concave up/down information, as
+well as the tangent half-lines, to make the portions of the graph
+between these points of interest. This is the step that involves some
+guesswork. The idea is that because we are sure that the main
+qualitative characteristics (increase versus decrease, concave up
+versus concave down) are correct, errors in further shape details are
+not a big problem.
+
+Since these actual shapes are the result of guesswork, it is
+particularly important that the issues of symmetry and periodicity be
+taken into account while sketching. For a periodic function, it is
+better to have a {\em somewhat less accurate shape repeated faithfully
+in each period} than a number of different-looking shapes in different
+periods. Similar remarks apply for symmetry and even/odd functions.
+
+The book has a number of worked out examples, and you should go
+through them. To keep your homework set of manageable size, I haven't
+included graph sketching problems in the portion of the homework to be
+submitted. But I have recommended a few graph sketching problems from
+the book's exercises and you should try these (and others if you want)
+and can check your answer against a graphing calculator or software.
+
+\section{Graphing particular functions}
+
+Here we discuss various simple classes of functions and how they can
+be graphed. For functions in these well behaved classes, we do not
+need to go through the entire rigmarole for graphing.
+
+\subsection{Constant and linear functions}
+
+We begin by looking at the constant function $f(x) := k$. This
+function is soporific, because you know the graph of the function is a
+straight horizontal line, the derivative of the function is zero
+everywhere, it is constant everywhere. Every point is a local minimum
+and a local maximum in the trivial sense. The limits $\lim_{x \to
+\infty} f(x)$ and $\lim_{x \to -\infty} f(x)$ are also both equal to $k$.
+
+Next, we look at the linear function $f(x) := ax + b$ where $a \ne
+0$. This function has graph a straight line. The tangent line at any
+point on the graph is the same straight line. The slope of the
+straight line is $a$. If $a > 0$, the function is increasing
+everywhere, and if $a < 0$, the function is decreasing everywhere. The
+derivative is the constant $a$ and the second derivative is $0$.
+
+If $a > 0$, then $\lim_{x \to \infty} f(x) = +\infty$ and $\lim_{x \to
+  -\infty} f(x) = -\infty$. If $a < 0$, then $\lim_{x \to \infty} f(x)
+= -\infty$ and $\lim_{x \to -\infty} f(x) = +\infty$.
+
+\subsection{Quadratic functions}
+
+Consider the function $f(x) := ax^2 + bx + c$, where $a \ne 0$. This
+is a quadratic function. The derivative function $f'(x)$ is equal to
+$2ax + b$, the second derivative $f''(x)$ is the constant function
+$2a$, and the third derivative is $0$ everywhere. In other words, the
+slope of the tangent line to the graph of this function is not
+constant, but it is changing at a constant rate.
+
+The graph of this function is called a {\em parabola}. We describe the
+graph separately for the cases $a > 0$ and $a < 0$.
+
+In the case $a > 0$, we have $\lim_{x \to \infty} f(x) = \lim_{x \to
+  -\infty} f(x) = \infty$. The function attains a local as well as an
+absolute minimum at the point $x = -b/2a$, and the value of the
+minimum is $(4ac - b^2)/4a$. The point $(-b/2a,(4ac - b^2)/4a)$ is
+termed the {\em vertex} of the parabola. $f$ is decreasing on the
+interval $(-\infty,-b/2a]$ and increasing on the interval
+  $[-b/2a,\infty)$. Also, the graph of $f$ is symmetric (i.e., a {\em
+      mirror symmetry}) about the vertical line $x = -b/2a$.
+
+In the case $a < 0$, we have $\lim_{x \to \infty} f(x) = \lim_{x \to
+  -\infty} f(x) = -\infty$. The function attains a local as well as an
+absolute maximum at the point $x = -b/2a$, and the value of the
+maximum is $(4ac - b^2)/4a$. The point $(-b/2a,(4ac - b^2)/4a)$ is
+termed the {\em vertex} of the parabola. The function is increasing on
+the interval $(-\infty,-b/2a]$ and decreasing on the interval $[-b/2a,\infty)$.
+
+Finally, note the following about the existence of zeros, based on
+cases about the sign of the discriminant $b^2 - 4ac$:
+
+\begin{enumerate}
+\item Case $b^2 - 4ac > 0$ or $b^2 > 4ac$: In this case, there are two
+  zeros, and they are located symmetrically about $-b/2a$. If $a >
+  0$, the function $f$ is positive to the left of the smaller root,
+  negative between the roots, and positive to the right of the larger
+  root. If $a < 0$, the function $f$ is negative to the left of the
+  smaller root, positive between the roots, and negative to the right
+  of the larger root.
+\item Case $b^2 - 4ac = 0$ or $b^2 = 4ac$: In this case, $-b/2a$ is a
+  zero of multiplicity two. The vertex is thus a point on the $x$-axis
+  with the $x$-axis a tangent line to it. Note that if $a > 0$, the
+  parabola lies in the upper half-plane and if $a < 0$, the parabola
+  lies in the lower half-plane.
+\item Case $b^2 - 4ac < 0$ or $b^2 < 4ac$: In this case there are no
+  zeros. If $a > 0$, the parabola lies completely in the upper
+  half-plane, and if $a < 0$, the parabola lies completely in the
+  lower half-plane.
+\end{enumerate}
+
+\subsection{Cubic functions}
+
+We next look at the case of a cubic polynomial, $f(x) := ax^3 + bx^2 +
+cx + d$, where $a \ne 0$. We carry out the discussion assuming $a >
+0$. In case $a < 0$, maxima and minima get interchanged and the sign
+of infinities on limits get flipped.\footnote{Another way of thinking of it is
+that we can first plot the graph by taking out a minus sign on the
+whole expression, then flip it about the $x$-axis.}
+
+So let's discuss the case $a > 0$. We have $\lim_{x \to -\infty} f(x)
+= -\infty$ and $\lim_{x \to \infty} f(x) = \infty$. Notice that, by
+the intermediate-value theorem, the cubic polynomial takes all real
+values. The derivative of the function is $f'(x) = 3ax^2 + 2bx + c$,
+the second derivative is $f''(x) = 6ax + 2b$, the third derivative is
+$f'''(x) = 6a$ and the fourth derivative is zero. This means that not
+only is the slope changing, but it is changing at a changing rate, but
+the rate at which that rate is changing isn't changing (yes, you read
+that right).
+
+We now try to determine where the function has local maxima and
+minima, and where it is increasing or decreasing. For this, we need to
+first find the critical points. The critical points are solutions to
+$f'(x) = 0$. The discriminant of the quadratic polynomial $f'$ is
+$4b^2 - 12ac$. We make three cases based on the sign of the
+discriminant.
+
+\begin{enumerate}
+\item $4b^2 - 12ac > 0$, or $b^2 > 3ac$: In this case, there are two
+  critical points, given by the two solutions to the quadratic
+  equation. We also see that, since $a > 0$, $f'$ is positive to the
+  left of the smaller root, negative between the two roots, and
+  positive to the right of the larger root. Thus, $f$ is increasing
+  from $-\infty$ to the smaller root, decreasing between the two
+  roots, and increasing from the larger root to $\infty$. The smaller
+  root is thus a point of local maximum and the larger root is a point
+  of local minimum.
+\item $4b^2 - 12ac = 0$, or $b^2 = 3ac$: In this case, there is one
+  critical point, namely $-b/3a$. The function is increasing all the
+  way through, so although this is a critical point, it is neither a
+  local maximum nor a local minimum. In fact, it is a point of
+  inflection, where both the first and the second derivative become
+  zero.
+\item $4b^2 - 12ac<0$, or $b^2 < 3ac$: In this case, the function has
+  no critical points and is increasing all the way through.
+\end{enumerate}
+
+Any cubic polynomial enjoys a half-turn symmetry about the point
+$(-b/3a,f(-b/3a))$, i.e., the graph is invariant under a rotation by
+$\pi$ about this point. This center of half-turn symmetry is also the
+unique point of inflection for the graph. In the case that $b^2 >
+3ac$, the point of half-turn symmetry is the exact midpoint between
+the point of local maximum and the point of local minimum.
+
+\includegraphics[width=3in]{cubicwithmaxmin.png}
+
+\includegraphics[width=3in]{cubefunction.png}
+
+\includegraphics[width=3in]{cubicwithoutmaxmin.png}
+
+\subsection{Polynomials of higher degree}
+
+Here are some general guidelines to understanding polynomials of
+higher degree:
+
+\begin{enumerate}
+\item The limits at $\pm \infty$ are determined by whether the
+  polynomial has even or odd degree, and the sign of the leading
+  coefficient. Positive leading coefficient and even degree mean a
+  limit of $+\infty$ on both sides. Negative leading coefficient and
+  even degree mean a limit of $-\infty$ on both sides. Positive
+  leading coefficient and odd degree mean a limit of $+\infty$ as $x
+  \to \infty$ and $-\infty$ as $x \to -\infty$. Negative leading
+  coefficient and odd degree mean a limit of $+\infty$ as $x \to
+  -\infty$ and $-\infty$ as $x \to \infty$.
+\item The points where the function could potentially change direction
+  are the zeros of the first derivative. For a polynomial of degree
+  $n$, there are at most $n - 1$ of these points. For such a point, we
+  can use the first-derivative test and/or second-derivative test to
+  determine whether the point is a point of local maximum, local
+  minimum, or a point of inflection. {\em Note that for polynomial
+  functions, any critical point must be a point of local maximum,
+  local minimum, or a point of inflection}. There are no other
+  possibilities for polynomial functions, because the number of times
+  the first and/or second derivative switch sign is finite, hence we
+  cannot construct all those weird counterexamples involving
+  oscillations when dealing with polynomial functions.
+\item Between any two zeros of the polynomial there exists at least
+  one zero of the derivative (this follows from Rolle's theorem). This
+  can help us bound the number of zeros of a polynomial using
+  information we have about the number of zeros of the derivative of
+  that polynomial.
+\item A polynomial of odd degree takes all real values, and in
+  particular, intersects every horizontal line at least once.
+\item A polynomial of even degree and positive leading coefficient has
+  an absolute minimum value, and takes all values greater than or
+  equal to that absolute minimum value at least once. A polynomial of
+  even degree and negative leading coefficient has an absolute maximum
+  value, and takes all values less than or equal to that absolute
+  maximum value at least once.
+\end{enumerate}
+
+\subsection{Rational functions: the many concerns}
+
+A lot of things are going on with rational functions, so we need to
+think about them more carefully than we thought about polynomials.
+
+Graphing the function requires putting these pieces together, each of
+which we have dealt with separately:
+
+\begin{enumerate}
+\item Determine where the rational function is positive, negative,
+  zero, and not defined.
+\item At the points where the rational function is not defined,
+  determine the left-hand and right-hand limits. In most cases, these
+  limits are $\pm \infty$. The exceptions are for cases such as the
+  $FORGET$ function, defined as $FORGET(x) = x/x$, which is not
+  defined at $x = 0$, but has a finite limit at that point. {\em These
+  exceptions only occur in situations where the rational function as
+  originally expressed is not in reduced form.}
+\item Determine the limits of the rational function at $\pm
+  \infty$. Note that this depends on how the degrees of the numerator
+  and denominator compare and the signs of the leading coefficients.
+\item Consider the derivative $f'$, and do a similar analysis on the
+  derivative. The regions where the derivative is positive are the
+  regions where $f$ is increasing. The regions where the derivative is
+  negative are the regions where $f$ is decreasing.
+\item Consider the second derivative $f''$, and do a similar analysis
+  on this. Use this to find the regions where $f$ is concave up and
+  the regions where $f$ is concave down.
+\end{enumerate}
+
+We combine all of these to draw the graph of $f$. We can also use all
+this information to determine where the function attains its local
+maxima and local minima.
+
+\subsection{Piecewise functions}
+
+Let's now deal with functions that are piecewise polynomial or
+rational functions. We'll also use this occasion to discuss general
+strategies for handling functions with piecewise definitions.
+
+First, we need a clear piecewise definition, i.e., a definition that
+gives a polynomial or rational function expression on each part of the
+domain. The original definition may not be in that form. Here are some
+things we need to do:
+
+\begin{enumerate}
+\item Whenever the whole expression, or some component of it, is in
+  the absolute value, we make cases based on whether the expression
+  whose absolute value is being evaluated is positive or negative. The
+  transitions usually occur either at points where the expression is
+  not defined, or at points where the absolute value is zero.
+\item Whenever the expression involves something like $\max \{ f(x),
+  g(x) \}$, then we make cases based on whether $f(x) > g(x)$ or $f(x)
+  < g(x)$. The transition occurs at points where $f(x) = g(x)$ or at
+  points where one or both of $f$ and $g$ is undefined.
+\end{enumerate}
+
+Once we have the definition in piecewise form, we can differentiate,
+with the rule being to use the formula for differentiating in each
+piece where we have the expression. If the function is continuous at
+the points where the definition changes, we can use these formal
+expressions to calculate the left-hand derivative and right-hand
+derivative. We can then combine all this information to get a
+comprehensive picture of the function.
+
+\subsection{A max-of-two-functions example}
+
+{\em Note}: This or a very similar example appeared in a past
+homework. You might want to revisit that homework problem.
+
+Consider $f(x) := \max \{ x - 1, \frac{x}{x + 1}
+\}$. We first need to get a piecewise description of $f$. For this, we
+need to determine where $x - 1 > x/(x+1)$ and where $x - 1 <
+x/(x+1)$. This reduces to determining where $(x^2 - x - 1)/(x + 1)$ is
+positive, zero, and negative.
+
+The expression is positive on $((1 + \sqrt{5})/2,\infty) \cup (-1,(1 -
+\sqrt{5})/2)$, negative on $((1 - \sqrt{5})/2,(1 + \sqrt{5})/2) \cup
+(-\infty,-1)$, zero at $(1 \pm \sqrt{5})/2$, and undefined at
+$-1$. Thus, we get that:
+
+$$f(x) = \lbrace \begin{array}{rl} x - 1, & x \in ((1 + \sqrt{5})/2,\infty) \cup (-1,(1 - \sqrt{5})/2)\\\frac{x}{x+1}, & x \in (-\infty,-1) \cup [(1 - \sqrt{5})/2,1 + \sqrt{5}/2]\end{array}$$
+
+Next, we want to determine the limits of $f$ as $x \to \pm
+\infty$. Since the definition for $x > (1 + \sqrt{5})/2$ is $x - 1$,
+$\lim_{x \to \infty}f(x) = \lim_{x \to \infty} x - 1 = \infty$. On the
+other hand, the definition for $x < -1$ is $x/(x+1)$, so $\lim_{x \to
+-\infty} f(x) = \lim_{x \to -\infty} x/(x+1)$. This is a rational
+function where the numerator and denominator have equal degrees, and
+the leading coefficients are both $1$, so the limit as $x \to -\infty$
+is $1$.
+
+Next, we want to find out the left-hand limit and right-hand limit at
+the point $x = -1$. The definition from the left side is
+$x/(x+1)$. The denominator approaches $0$ from the left side and the
+numerator approaches a negative number, so the quotient approaches
+$+\infty$. The right-hand limit is $\lim_{x \to -1} x - 1 = -2$.
+
+Next, let us try to determine where the function is increasing and
+decreasing. For this, we need to differentiate the function on each
+interval.  
+
+On the intervals $(-\infty,-1)$ and $[(1 - \sqrt{5})/2,(1 +
+\sqrt{5})/2]$, $f$ is equal to $x/(x + 1)$. The derivative is thus
+$1/(x + 1)^2$, which is positive everywhere, and hence, in particular,
+on this region. Thus, $f$ is increasing on $(-\infty,-1)$ as well as
+on $[(1 - \sqrt{5})/2,(1 + \sqrt{5})/2]$. On the intervals $(-1,(1 -
+\sqrt{5})/2)$ and $(1 + \sqrt{5}/2,\infty)$, $f$ is defined as $x -
+1$. The derivative is $1$, so $f$ is increasing on these intervals as
+well. In fact, since $f$ is continuous at $1 + \sqrt{5}/2$, $f$ is
+increasing on $[(1 + \sqrt{5})/2,\infty)$. Combining all this
+information, we obtain that $f$ is increasing on $(-\infty,-1)$ and on
+$(-1,\infty)$.
+
+We can now understand and graph $f$ better. As $x \to -\infty$, $f(x)
+\to 1$, and as $x \to -1^-$, $f(x) \to +\infty$. Thus, on the interval
+$(-\infty,-1)$, $f$ increases from $1$ to $\infty$. Since the
+right-hand limit at $-1$ is $-2$ and the limit at $\infty$ is $\infty$,
+we see that on the interval $(-1,\infty)$, $f$ increases from $-2$ to
+$\infty$. There are two intermediate points where the definition
+changes: $(1 \pm \sqrt{5})/2$. From $-1$ to $(1 - \sqrt{5})/2$, $f$
+increases from $-2$ to $(-1 - \sqrt{5})/2$ in a straight line. Between
+$(1 - \sqrt{5})/2$ and $(1 + \sqrt{5})/2$, $f$ increases from $(-1 -
+\sqrt{5})/2$ to $(-1 + \sqrt{5})/2$, but not in a straight line. From
+$(1 + \sqrt{5})/2$ onward, $f$ increases in a straight line again.
+
+The critical points are $(1 \pm \sqrt{5})/2$. Neither of these is a
+local minimum or a local maximum. There is no absolute maximum,
+because the left-hand limit at $-1$ is $\infty$, so the function takes
+arbitrarily large positive values.
+
+The function does not take arbitrarily small values. In fact, a lower
+bound on the function is $-2$. Despite this, the function has no
+absolute minimum, because $-2$ arises only as the right-hand limit at
+$-1$ and not as the value of the function at any specific point. 
+
+Note that more careful graphing of the function would also take into
+account concavity issues. Here are the pictures:
+
+\includegraphics[width=3in]{twofunctionsformaxmin.png}
+
+\includegraphics[width=3in]{piecewisemax.png}
+
+\subsection{Trigonometric functions}
+
+Trigonometric functions are somewhat more difficult to study because,
+unlike the case of polynomials and rational functions, there could be
+infinitely many zeros.
+
+One technique that is sometimes helpful when dealing with periodic
+functions is to concentrate on the behavior in an interval the length
+of one period, draw conclusions from there, and then use that to
+determine what happens everywhere. A very useful fact here is that $f$
+is a periodic function with period $p$, then $f'$ (wherever it exists)
+also has period $p$. Similarly, the points and values of local maxima,
+local minima, absolute maxima and absolute minima all repeat after
+period $p$. In particular, in order to find the absolute maximum or
+absolute minimum, it suffices to find the absolute maximum or absolute
+minimum over a closed interval whose length is one period.
+
+Consider, for instance, the function $f(x) := \sin x \cos x$. Since
+both $\sin$ and $\cos$ have a period of $2\pi$, $f$ repeats after
+$2\pi$ (so the period divides $2\pi$). So, it suffices to find maxima
+and minima over the interval $[0,2\pi]$. At the endpoints the value is
+$0$. The derivative of the function is $\cos^2 x - \sin^2 x = \cos
+(2x)$. For this to be zero, we need $2x$ to be an odd multiple of
+$\pi/2$, so $x = \pi/4, 3\pi/4, 5\pi/4, 7\pi/4$. We can use the
+second-derivative test to see that the points $\pi/4, 5\pi/4$ are
+points of local maximum and the points $3\pi/4, 7\pi/4$ are points of
+local minimum. The value of the local maximum is $1/2$ and the value
+of the local minimum is $-1/2$.
+
+(It turns out that the function $\sin x \cos x$ has a period of $\pi$,
+and can also be thought of as $(1/2) \sin(2x)$.)
+
+\subsection{Mix of polynomial and trigonometric functions}
+
+When the function is a mix involving polynomial and trigonometric
+functions, it is not usually periodic, nor is it a polynomial, so we
+need to do some ad hoc work.
+
+For instance, consider the function $f(x) := x - 2 \sin x$. The
+derivative is $f'(x) = 1 - 2\cos x$. Note that although $f$ is not
+periodic, $f'$ is periodic, so in order to find out where $f' > 0$,
+$f' = 0$, and $f' < 0$, we can restrict attention to the interval
+$[-\pi,\pi]$.
+
+We have $f'(x) < 0$ for $x \in (-\pi/3,\pi/3)$, $f'(x) = 0$ for $x \in
+\{ -\pi/3,\pi/3\}$, and $f'(x) > 0$ for $x \in (\pi/3,\pi) \cup
+(-\pi,-\pi/3)$.
+
+Translating this by multiples of $2\pi$, we obtain that $f'(x) < 0$
+for $x \in (2n\pi - \pi/3, 2n\pi + \pi/3)$ for $n$ an integer, $f'(x)
+= 0$ for $x \in \{ 2n\pi - \pi/3, 2n\pi + \pi/3 \}$, and $f'(x) > 0$
+at other points. Thus, $f$ keeps shifting between increasing and
+decreasing.
+
+On the other hand, for the function $f(x) := 2x - \sin x$, the
+derivative is $f'(x) = 2 - \cos x$. This is always positive, so $f$ is
+increasing.
+
+\subsection{Functions involving square roots and fractional powers}
+
+For functions involving squareroots or other fractional powers, we
+first need to figure out the domain. Then, we use the usual techniques
+to handle things.
+
+Consider, for instance, the function:
+
+$$f(x) := \sqrt{x} + \sqrt{1 - x}$$
+
+The domain of this function is the set of values of $x$ for which both
+$\sqrt{x}$ and $\sqrt{1 - x}$ is defined. This turns out to be the set
+$[0,1]$, since we need both $x \ge 0$ and $1 - x \ge 0$. We can
+differentiate $f$ to get:
+
+$$f'(x) = \frac{1}{2\sqrt{x}} - \frac{1}{2\sqrt{1 - x}}$$
+
+Note that although $f$ is defined on the closed interval $[0,1]$, $f'$
+is defined on the {\em open} interval $(0,1)$ -- it is not defined at
+the endpoints. In fact, the right-hand limit at $0$ is $+\infty$ and
+the left-hand limit at $1$ is $-\infty$.
+
+Next, we want to determine where $f'(x) = 0$. Solving this, we get $x
+= 1/2$. Thus, $x = 1/2$ is a critical point. We also see that for $x <
+1/2$, $\sqrt{x} < \sqrt{1 - x}$, so the reciprocal $1/2\sqrt{x}$ is
+greater than the reciprocal $1/2\sqrt{1 - x}$. Thus, the expression
+for $f'(x)$ is greater than $0$. On the other hand, to the right of
+$1/2$, $f'(x) < 0$. Thus, $f'$ is positive to the left of $1/2$ and
+negative to the right of $1/2$, yielding that $f$ is increasing on
+$[0,1/2]$ and decreasing on $[1/2,1]$. Thus, $f$ attains a unique
+absolute maximum at $1/2$, with value $\sqrt{2}$.
+
+\subsection*{A more complicated version of the coffee shop problem}
+
+Remember the coffee shop problem, where there are two coffee shops
+located at points $a < b$ on a two-way street, and our task was to
+construct the function that describes distance to the nearest coffee
+shop. Let's now look at a somewhat different version, where the coffee
+shops are both located off the main street.
+
+Suppose coffee shop $A$ is located at the point $(0,1)$ and coffee
+shop $B$ is located at the point $(2,2)$, and our two-way street is
+the $x$-axis. The goal is similar to before: write as a piecewise
+function the distance from the nearest coffee shop.
+
+Define $p(x)$ as the distance from $A$ and $q(x)$ as the distance from
+$B$. Then, we have $p(x) = \sqrt{x^2 + 1}$ and $q(x) = \sqrt{(x - 2)^2
++ 4} = \sqrt{x^2 - 4x + 8}$. Our goal is to write down explicitly the
+function $f(x) := \min \{ p(x), q(x) \}$.
+
+In order to do this, we need to consider the function $p(x) - q(x)$
+and determine where it is positive, zero and negative. Define $g(x) :=
+p(x) - q(x)$. Then, for $g(x) = 0$, we need:
+
+$$\sqrt{x^2 + 1} = \sqrt{x^2 - 4x + 8}$$
+
+Squaring both sides and simplifying, we obtain that $x = 7/4$. Since
+$g$ is continuous, we can see that it has constant sign to the left of
+$7/4$ (which turns out to be negative, as we see by evaluating at $0$)
+and constant sign to the right of $7/4$ (which turns out to be
+positive, as we see by evaluating at $2$). Thus, our expression for
+$f$ is given by:
+
+$$f(x) = \lbrace \begin{array}{rl} \sqrt{x^2 + 1}, & x \in (-\infty,7/4]\\ \sqrt{x^2 - 4x + 8}, & x \in (7/4,\infty)\end{array}$$
+
+We can now use this to calculate $f'$. $f'(x) = x/\sqrt{x^2 + 1}$ to
+the left of $7/4$ and $(x - 2)/\sqrt{x^2 - 4x + 8}$ to the right of
+$7/4$. At the point $7/4$, the left-hand derivative is $7/\sqrt{65}$
+and the right-hand derivative is $-1/\sqrt{65}$. The function is not
+differentiable at $7/4$.
+
+Next, we want to determine where $f' > 0$, $f' = 0$ and $f' < 0$. For
+$x < 7/4$, we see that $f'(x) < 0$ for $x \in (-\infty,0)$, $f'(0) =
+0$, and $f'(x) > 0$ for $x \in (0,7/4)$. For $x > 7/4$, we see that
+$f'(x) < 0$ for $x \in (7/4,2)$, $f'(2) = 0$, and $f'(x) > 0$ for $x
+\in (2,\infty)$ (this should again be clear by looking at the picture
+geometrically. The distance to coffee shop $A$ decreases till we get
+to the same $x$-coordinate as $A$, then it increases. At some point,
+$B$ starts becoming closer, whence the distance to $B$ starts
+decreasing, till we reach the point with the same $x$-coordinate as
+$B$, and then it starts increasing).
+
+Thus, $f$ is decreasing on $(-\infty,0]$, increasing on $[0,7/4]$,
+decreasing on $[7/4,2]$, and increasing on $[2,\infty)$. The critical
+points are $0$, $7/4$, and $2$. There are local minima at $0$ (with
+value $1$) and $2$ (with value $2$) and a local maximum at $7/4$ (with
+value $\sqrt{65}/4$). The limits at $\pm \infty$ are both
+$\infty$. Thus, there is no absolute maximum, but the absolute maximum
+occurs at $0$, and it has value $1$.
+
+Notice that although the picture here is qualitatively somewhat
+similar to the case where both coffee shops are on the $x$-axis, there
+are also some small differences -- the graph never touches the
+$x$-axis, and the function is differentiable with derivative zero at
+two of the three critical points.
+
+Here are the pictures:
+
+\includegraphics[width=3in]{offroadcoffeeshops.png}
+
+Hre is the picture zoomed in (note: axes not centered at origin) near
+the value $x = 7/4$.
+
+\includegraphics[width=3in]{offroadcoffeeshopszoomin.png}
+
+\section{Subtle issues}
+
+\subsection{Equation-solving troubles}
+
+In some cases, it is not computationally easy to do each of the
+suggested steps. For instance, we may not have any known method for
+solving $f(x) = 0$ for the given function $f$. Similarly, we may not
+have any known method for solving $f'(x) = 0$ or $f''(x) = 0$. 
+
+In cases where we do not have exact solutions, what we should do is
+try to find the number of solutions and the intervals in which these
+solutions lie, to as close an approximation as possible. Two useful
+tools in this are the {\em intermediate-value theorem} and {\em
+Rolle's theorem}.
+
+For instance, consider the function $f(x) := x - \cos x$. $f$ is an
+infinitely differentiable function, and its derivative, $1 + \sin x$,
+is periodic with period $2\pi$. Thus, the graph of $f$ repeats after
+$2\pi$, with a vertical upward shift of $2\pi$. We can further find
+that $f$ is increasing everywhere, because $1 + \sin x \ge 0$ for all
+$x$, with equality occurring only at isolated points. $f''(x) = \cos
+x$, so $f$ is concave up on $(-\pi/2,\pi/2)$ and its
+$2\pi$-translates, and $f$ is concave down on $(\pi/2,3\pi/2)$ and its
+$2\pi$-translates. The inflection points of $f$ are precisely the odd
+multiples of $\pi/2$. The $x$-intercept is $-1$.We thus have a fairly
+complete picture of $f$, except that we do not know the
+$x$-intercept(s).
+
+\includegraphics[width=3in]{xminuscosx.png}
+
+Although we do not know the $x$-intercept(s) precisely, we have some
+qualitative information. First, there can be at most one
+$x$-intercept, because $f$ is increasing on $\R$. The
+intermediate-value theorem now reveals that the $x$-value must be
+somewhere between $0$ ($f(0) = -1$) and $\pi/2$ ($f(\pi/2) =
+\pi/2$). In other words, the zero occurs in the segment between the
+$y$-intercept and the first inflection point after that. This is fine
+for a rough visual guide, but for a more accurate graph, we might like
+to narrow the location of the zero further. We can narrow it down
+further to $(\pi/6,/\pi/4)$ using elementary trigonometric
+computations. Further narrowing is best done with the aid of a
+computer.
+
+Note that even if we did not bother about knowing the $x$-intercept
+before sketching the graph, our graph sketch would have been quite
+okay and would in fact have {\em suggested} the location of the
+$x$-intercept. This is an example of a general principle: {\em Often,
+even if we are computationally unable to handle all the suggested
+steps for graph-sketching, a preliminary sketch based on the steps we
+could successfully execute gives enough valuable hints.} The moral of
+the story is to not be discouraged about not executing a few steps and
+instead to do as much as possible with the steps already executed, and
+then seek alternative ways of tackling the recalcitrant steps.
+
+See also Example 5 in the book.
+
+\subsection{Graphing multiple functions together}
+
+In many situations, it is necessary to be able to graph multiple
+functions together. This is sometimes necessary to compare and
+contrast these functions. Some examples include:
+
+\begin{enumerate}
+\item Graphing a function and its first, second and higher derivatives
+  together: This is often visually useful in discerning patterns about
+  the function, and helps with rapid switching between the global and
+  local behavior of a function.
+\item Graphing a function and another function obtained by scaling or
+  shifting it: For instance, it may be helpful to graph $f(x)$ and
+  $g(x) := f(x + h)$ on the same graph. This allows for easy visual
+  insight into how the value of $f$ changes after an interval of
+  length $h$.
+\item Graphing two functions to determine their intersection points,
+  angles of intersection, etc.
+\end{enumerate}
+
+When graphing multiple functions together, the procedure is similar to
+that when graphing a single function, but the following additional
+point needs to be kept in mind: It is important to make sure that any
+visually obvious inferences made about the comparison of values of the
+functions are correct. For instance, it is important to get right
+which function is bigger where. The ideal way to do this is to find
+precisely the points of intersection -- however, that may not be
+possible because the equation involved cannot be solved. Nonetheless,
+try to bound the locations of intersection points in small intervals
+using the intermediate value theorem. (Note that for functions
+obtained as derivatives, we can use Rolle's theorem and the mean value
+theorem.)
+
+\subsection{Transformations of functions/graphs}
+
+Also, if the two functions are related in terms of a transform, it is
+important that the geometric picture suggested by the transform is the
+correct one. Here are some examples:
+
+\begin{enumerate}
+\item Suppose we have two functions $f$ and $g$ where $g(x) := f(x +
+  h)$. Then, the graph of $g$ should be the graph of $f$ shifted left
+  by $h$. If $h$ is negative, it is the graph of $f$ shifted right by
+  $-h = |h|$.
+\item Suppose we have $g(x) := f(x) + C$. Then, the graph of $g$
+  equals the graph of $f$ shifted upward by $C$. If $C$ is negative,
+  it is the graph of $f$ shifted downward by $-C = |C|$.
+\item Suppose $g(x) := f(\alpha x)$. Then, the graph of $g$ should be
+  the graph of $f$ shrunk along the $x$-dimension by a factor of
+  $\alpha$. If $\alpha$ is negative, then this shrinking is a
+  composite of a shrinking by $|\alpha|$ and a flip about the
+  $y$-axis.
+\item Suppose $g(x) := \alpha f(x)$. Then the graph of $g$ should be
+  the graph of $f$ expanded along the $y$-dimension by a factor of
+  $\alpha$. If $\alpha$ is negative, this involves an expansion by
+  $|\alpha|$ and a flip about the $x$-axis.
+\end{enumerate}
+
+\subsection{Can a graph be used to prove things about a function?}
+
+Yes and no. Remember that the way we drew the graph was using
+algebraic information about the function. So anything we deduce from
+the graph, we could directly deduce from that algebraic information,
+without drawing the graph.
+
+The importance of graphs is that {\em they suggest good guesses that
+may not be obvious simply by looking at the algebra}. In other words,
+they allow visual and spatial intuition to complement the formal,
+symbolic intuition of mathematics. However, once the guess is made, it
+should be possible to justify without resort to the graph. Such
+justifications may use theorems such as the intermediate value
+theorem, Rolle's theorem, the extreme value theorem, and the mean
+value theorem. {\em In cases where things suggested by the graph
+cannot be verified algebraically, it is possible that some unstated
+and unjustified assumption was made while drawing the graph.}
+
+\subsection{Sketching curves that are not graphs of functions}
+
+Some curves are not in the form of functions, and cannot be expressed
+in that form because there are multiple $y$-values for a given
+$x$-value. To sketch such curves, we follow similar guidelines, but
+there are some changes:
+
+\begin{enumerate}
+\item There is no clear concept of domain. However, it is still useful
+  to determine the possible $x$-values for the curve and the possible
+  $y$-values for the curve. This allows us to bound the curve in a
+  rectangle or strip. For instance, consider the curve $x^4 + y^4 =
+  16$. Then, the $x$-value is in the interval $[-2,2]$ and the
+  $y$-value is in the interval $[-2,2]$.
+\item We can use the techniques of sketching graphs of functions by
+  breaking the curve down into graphs of functions. For instance, the
+  curve $x^4 + y^4 = 16$ can be broken down as a union of graphs of
+  two functions: $y = (16 - x^4)^{1/4}$ and $y = -(16 -
+  x^4)^{1/4}$. We can sketch both graphs using the techniques of
+  graph-sketching (in fact, it suffices to sketch the first graph and
+  then construct the second graph as the reflection of the first graph
+  about the $x$-axis).
+\item In cases where this separation is not easy to do, we can still
+  try to draw the graph using the general techniques: use implicit
+  differentiation to find the first derivative and second derivative,
+  determine the critical points, local extreme values, points of
+  inflection, regions of increase and decrease, regions of concave up
+  and concave down, and so on.
+\end{enumerate}
+
+\subsection{Piecewise descriptions, absolute values and max/min of two functions}
+
+To graph a function explicitly given in piecewise form, we need to
+keep in mind the following things:
+
+\begin{enumerate}
+\item Within the domain of each definition, plot the graph of the
+  function the usual way.
+\item At the points where the definition changes, determine the
+  one-sided limits, one-sided limits of first derivatives, and
+  one-sided limits of second derivatives. These points are likely
+  candidates for discontinuity of the function, likely candidates for
+  discontinuity of the derivative, and likely candidates for
+  discontinuity of the second derivative of the function.
+\item Piece this information together to draw the overall graph. Use
+  open circles, closed circles etc. to mark clearly the limits at the
+  points of definition changes.
+\end{enumerate}
+
+In some cases, it is helpful to draw the graphs of each of the pieces
+over {\em all real values} and then pick out the requisite pieces from
+the relevant domains of definition.
+
+If a function is defined as the maximum of two functions or the
+minimum of two functions, or in terms of absolute values, then we can
+first express it as a piecewise function and then graph
+it. Alternatively, we can graph both the functions (taking care of the
+points of intersection) and then use a combination of visual insight
+and algebra to graph the maximum and/or minimum of the two functions.
+
+\section{Addenda}
+
+\subsection{Addendum: Plotting graphs using Mathematica}
+
+It is possible to plot the graph of a function using
+Mathematica. Doing a few such plots can help reinforce your intuition
+about the shape of graphs.
+
+The Mathematica syntax is:
+
+\begin{verbatim}
+Plot[f[x],{x,a,b}]
+\end{verbatim}
+
+This plots the graph of $f(x)$ for $x \in [a,b]$.
+
+For instance:
+
+\begin{verbatim}
+Plot[x^2,{x,0,1}]
+\end{verbatim}
+
+plots the graph of $x^2$ for $x \in [0,1]$.
+
+The command:
+
+\begin{verbatim}
+Plot[x - Sin[x],{x,-3*Pi,3*Pi}]
+\end{verbatim}
+
+plots the graph of the function $x - \sin x$ on the interval
+$[-3\pi,3\pi]$. Note that it is not possible to graph a function from
+$-\infty$ to $\infty$, so we have to stay content with finite plots.
+
+It is also possible to plot the graphs of multiple functions together. For instance:
+
+\begin{verbatim}
+Plot[{Sin[x],(Sin[x])^2},{x, -Pi,Pi}]
+\end{verbatim}
+
+This plots the graphs of the fnuctions $\sin$ and $\sin^2$ on the
+interval $[-\pi,\pi]$. To learn more, see the Mathematica
+documentation on the Plot function.
+
+We can also use Mathematica to find where a function is positive,
+zero, and negative. You can use the Solve, Reduce, and FindRoot
+functions in Mathematica:
+
+\begin{enumerate}
+\item The Solve function only solves equalities, and may not find all
+  solutions. It also uses formal methods, so may not find the
+  solutions numerically. However, it will give a formal solution
+  saying $\pi$ instead of $3.14 \dots$, for instance).
+\item The Reduce function is more powerful. It solves both equalities
+  and inequalities, and finds all solutions. Like Solve, it only works
+  for certain kinds of functions where these analytical and formal
+  methods can be applied.
+\item The FindRoot function can be used to find points where a
+  function is zero numerically. It is applicable to functions that
+  involve a mixture of algebra and trigonometry. However, since it
+  uses numerical methods, it may not give the exactly correct answer
+  (for instance, it may compute $0.998$ instead of $1$).
+\end{enumerate}
+
+For instance, we can do:
+
+\begin{verbatim}
+Reduce[x^3 - x - 6 > 0,x]
+\end{verbatim}
+
+and find that the solution set to this is $x > 2$.
+
+For something non-algebraic, we can find the roots:
+
+\begin{verbatim}
+FindRoot[x - Cos[x],{x,1}]
+\end{verbatim}
+
+find a solution to $\cos x = x$. Note that Solve and Reduce do not
+work here because of the mixture of algebra and trigonometry. See the
+documentation on Solve, Reduce, and FindRoot.
+
+We can also find the derivative of a function. First, define the function, e.g.:
+
+\begin{verbatim}
+f[x_] := x - Sin[x]
+\end{verbatim}
+
+We can then refer to the derivative of $f$ as $f'$ and the second
+derivative as $f''$. Thus, we can do:
+
+\begin{verbatim}
+Reduce[{f''[x] > 0,-Pi < x, x < Pi},x]
+\end{verbatim}
+
+This finds all solutions to $f''(x) > 0$ for $x$ in the open interval
+$(-\pi,\pi)$.
+
+These commands allow us to execute most of the computational aspects
+needed for graph-sketching using Mathematica.
+
+\subsection*{Addendum: using a graphing software or graphing calculator}
+
+When using a graphing software or graphing calculator to plot the
+graph of a function, please make sure you zoom in and out enough to
+make sure that you are not fooled because of the scale chosen by the
+calculator. For instance, plotting the graph of $x^2 \sin(1/x)$ using
+a graphing software makes it seem like it crosses the $x$-axis at only
+finitely many points. However, zooming in closer to zero shows a lot
+of oscillation close to zero, and the more you zoom in, the more
+oscillation you see. Thus, it is important to use graphing software as
+a complement rather than a substitute for basic mathematical common
+sense.
+
+\end{document}

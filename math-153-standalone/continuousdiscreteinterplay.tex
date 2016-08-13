@@ -1,0 +1,323 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Continuous and discrete: the interplay}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+This is some additional material that does not directly correspond to
+material in the book but is helpful for perspective.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item Given a function on $\R$, we can restrict the function to $\N$
+  and obtain a sequence. This restriction is unique.
+\item Conversely, given a sequence, i.e., a function on $\N$, we can
+  extend it to a continuous function on $\R$. However, the extension
+  is not unique, and there are a lot of different ways of
+  extending. If the sequence is described by means of a nice closed
+  form functional expression, we may be able to extend it by
+  considering that functional expression for all real numbers.
+\item Usually, information about the function on the reals gives us
+  corresponding information about the corresponding sequence, but we
+  cannot get information in the reverse direction that easily. For
+  instance, an increasing function gives an increasing sequence, but
+  increasing sequences can arise from functions that are not
+  increasing. A decreasing function gives a decreasing sequence, a
+  monotonic function gives a monotonic sequence, and a bounded
+  function gives a bounded sequence.
+\item A function with integer period gives a periodic sequence.
+\item The mean value theorem relates the derivative of a function to
+  the discrete derivative (i.e., forward difference operator) of the
+  corresponding sequence.
+\item We can define a notion of concave up and concave down for
+  sequences based on the second discrete derivative. If a function is
+  concave up, so is the corresponding sequence. If the function is
+  concave down, so is the corresponding sequence.
+\end{enumerate}
+
+\section{Filling the holes: continuating the discrete}
+
+In the previous lecture or part of lecture, we developed the analogy
+between the calculus apparatus that we developed for continuous
+functions and the study of sequences. The analogy was illuminative,
+but is it more than just an analogy? Specifically, we know that:
+
+\begin{enumerate}
+\item {\em Continuous to discrete}: Any function on the reals can be
+  domain-restricted to give a function on the natural numbers, i.e., a
+  sequence.
+\item {\em Discrete to continuous}: If a function on the natural
+  numbers has a nice enough closed form expression (such as a
+  polynomial) that closed form expression can be extended to more real
+  numbers.
+\end{enumerate}
+
+Some natural questions are: how does the discrete derivative (i.e.,
+the forward difference operator) relate to its continuous counterpart
+for the same function? How does the discrete integral (which is
+basically just a summing up) relate to its continuous counterpart? The
+answers to these questions, while not completely satisfying, are
+useful.
+
+\subsection{Filling the gaps}
+
+Recall that $\N \subset \Z \subset \Q \subset \R$. Note that if a
+function is defined on a {\em bigger} set among these, it can always
+be restricted to a smaller set in a unique manner -- just restrict
+inputs to that smaller set. {\em Extending} functions is a more
+interesting question: can a function on a smaller set be extended to a
+bigger set in a nice way? The answers are as follows:
+
+\begin{enumerate}
+\item If $f$ is a function on $\Q$, there is at most one way of
+  extending $f$ {\em continuously} to all of $\R$. The uniqueness of
+  the extension arises from the fact that $\Q$ is dense in $\R$, so
+  where a particular real number goes is determined by where its
+  rational neighbors go. However, it may not always be possible to
+  extend. For instance, $f(x) := 1/(x^2 - 2)$ is defined and
+  continuous on $\Q$, but cannot be extended to the point $\sqrt{2}
+  \in \R$ continuously.
+\item If $f$ is a function on $\Z$ (or on $\N$), there are many ways
+  of extending it to a continuous function on $\R$. Basically, all we
+  have to do is join up the function values at consecutive integers by
+  continuous curves. With a few kindergarten lessons in smooth
+  drawing, we can even make sure that the function on $\R$ that we
+  obtain is {\em continuously differentiable}, and with more practice
+  yet, we can ensure that the function that we obtain is {\em
+  infinitely differentiable}. Basically, there is a lot of freedom.
+\end{enumerate}
+
+Since there are infinitely many ways of extending functions on $\N$ to
+continuous and even to infinitely differentiable functions on $\R$, we
+are faced with a paradox of choice. Nonetheless, in most cases, the
+nicest closed form expression for the function on $\N$ suggests an
+obvious extension to $\R$. Thus, for a polynomial sequence, the
+extension to a {\em polynomial} function on $\R$ is unique.
+
+In some cases, we need to be more ingenuous in finding a natural
+extension to $\R$. Luckily, calculus has provided us with enough tools
+to find these functions in many cases. We discuss some examples.
+
+\subsection{Exponential and superexponential sequences}
+
+Consider the sequence:
+
+$$1,2,4,8,16,32,\dots$$
+
+The recurrence relation is clear:
+
+$$a_n = 2a_{n-1}, \qquad a_1 = 1$$
+
+We can also see that a closed form expression is:
+
+$$a_n = 2^{n-1}$$
+
+This kind of sequence is termed a {\em geometric sequence} or {\em
+geometric progression} because the quotient of successive terms is
+constant. It is a solution to the discrete differential equation $a_n
+= 2a_{n-1}$, whose continuous analogue is $y' = ky$. Both the
+continuous and the discrete versions result in exponential growth.
+
+Note that in this case, the solution can be extended to all real
+numbers, via the function:
+
+$$f(x) := 2^{x-1}$$
+
+But we were able to do this {\em only because we had developed a prior
+theory of exponentiation} with arbitrary positive bases and arbitrary
+real exponents. Had we not developed such a theory, it would not have
+been clear how we could extend the function.
+
+Consider instead the function:
+
+$$-1,1,-1,1,\dots$$
+
+The $n^{th}$ term is given by:
+
+$$a_n = (-1)^n$$
+
+Now, this particular expression {\em cannot} be extended to all real
+numbers, because $(-1)^x$ does not make sense for arbitrary
+$x$. However, there is another way of defining the $n^{th}$ term,
+namely, as:
+
+$$a_n = \cos(n\pi)$$
+
+With this expression, we can extend it to all real numbers, as the function:
+
+$$f(x) := \cos(\pi x)$$
+
+This extension is not {\em natural} in any strong sense of the
+word. Other possible etensions to the reals include $\cos(3\pi x)$,
+$\cos(5\pi x)$ and $\cos^3(\pi x)$.
+
+Consider another example:
+
+$$1,2,6,24,120,720,5040,\dots$$
+
+The recurrence relation here is:
+
+$$a_n = na_{n-1}, \qquad a_1 = 1$$
+
+Note that this is {\em not} autonomous. We solve it to obtain that:
+
+$$a_n = n \cdot (n - 1) \cdot \dots 2 \cdot 1 =: n!$$
+
+We thus have a nice expression for $a_n$. However, unlike the previous
+case, it is not clear how this can be extended to a function on all
+real numbers, or even on {\em anything} that is not a positive
+integer. The reason is that {\em we have not pondered this question
+before}. However, a recent homework problem you did shows that:
+
+$$\int_0^\infty x^ne^{-x} = n!$$
+
+This actually gives a way of extending the function to all positive
+real numbers, and in fact, to all real numbers greater than
+$-1$. Basically, although the {\em right side} makes sense only for
+positive integers, the {\em left side} makes sense in a much broader
+context. This is closely related to the gamma function which is a
+mainstay of analysis and statistics, defined as $\Gamma(a) := (a -
+1)!$. We will not delve more into it, except to remark that
+$\Gamma(1/2) = (-1/2)! = \sqrt{\pi}$, and that this can be derived
+from the results about the integral of $e^{-x^2}$. 
+
+\section{Back and forth between discrete and continuous}
+
+\subsection{Continuous and discrete: relationship of the functions}
+
+When we restrict the domain to the natural numbers for a function
+defined on the reals, then what we are really doing is taking a very
+restrictive snapshot of the function. Some observations:
+
+\begin{enumerate}
+\item If $f$ is increasing on the reals, its restriction to the
+  natural numbers is increasing. However, the converse does not
+  hold. In other words, a function may be increasing on $\N$ but may
+  be a lot more desultory on the real numbers. For instance, consider
+  the function $f(x) := x - \sin(\pi x)$. Its restriction to the
+  natural numbers gives the sequence $1,2,3,\dots$ which is
+  increasing. However, the function is not increasing throughout $\R$,
+  because the derivative $f'(x) = 1 - \pi \cos(\pi x)$ takes both
+  positive and negative values. An analogous statement holds for
+  decreasing functions, and analogous examples work.
+\item If $\lim_{x \to \infty} f(x)$ exists, then the limit of the
+  restriction to natural numbers, i.e., $\lim_{n \to \infty} f(n)$
+  exists and is equal to $\lim_{x \to \infty} f(x)$. However, the
+  existence of the limit $\lim_{n \to \infty} f(n)$ for $n \in \N$
+  does {\em not} imply the existence of the limit for all $x$. For
+  instance, consider the function $f(x) := \sin (\pi x)$. This is a
+  {\em constant} function with value $0$ when restricted to $\N$ and
+  hence limits to $0$. On the other hand, the function on $\R$ is
+  periodic and oscillatory and has no limit.
+\end{enumerate}
+
+\subsection{Continuous and discrete: relationship of the derivatives}
+
+We now turn to the question of how the derivative of a continuous
+function is related to the discrete derivative (i.e., forward
+difference operator) of its restriction to $\N$ (or $\Z$). 
+
+The forward difference operator is a coarse measure of the average
+change over an interval of length $1$ (from $n$ to $n + 1$). The
+derivative, on the other hand, is an {\em instantaneous} rate of
+change at a given point. The forward difference operator is thus the
+{\em average} value of the derivative over the interval from $n$ to $n
++ 1$. We can thus apply the mean value theorem, and conclude that, if
+$f$ is continuous on $[n,n+1]$, and differentiable on $(n,n+1)$, then
+$(\Delta f)(n)$ equals the value $f'(c)$ for some $c \in (n,n+1)$.
+
+Similar to the way we made observations in the previous subsection, we
+make some observations here:
+
+\begin{enumerate}
+\item Suppose $f$ has a fixed sense of concavity on $[n,n+1]$, i.e., $f'$
+  is either increasing throughout the interval or decreasing throughout
+  the interval. This forces that $(\Delta f)(n)$ lies between $f'(n)$
+  and $f'(n + 1)$.
+\item If the continuous function $f$ has a certain sense of concavity,
+  then its discrete version also has the same sense of concavity. We
+  say that a function on $\N$ is {\em concave up} if $\Delta^2 f(n) >
+  0$ for all $n$, and is {\em concave down} if $\Delta^2 f(n) < 0$ for
+  all $n$.
+\item If $f$ is a differentiable function and $\lim_{x \to \infty}
+  f'(x) = L$ for some finite $L$, then $\lim_{n \to \infty} (\Delta
+  f)(n) = L$ as well. In particular, if $\lim_{x \to \infty} f'(x) = 0$,
+  then $\lim_{n \to \infty} f(n + 1) - f(n) = 0$.
+\end{enumerate}
+
+In all these cases, {\em universal constraints} on the continuous
+versions give, via some averaging procedures, corresponding
+constraints on the discrete versions. It is usually harder to go form
+universal constraints on the discrete version to corresponding
+constraints on the continuous version, because there is too much
+slack.
+
+\subsection{Continuous and discrete: periodic functions}
+
+Here are some easy facts:
+
+\begin{enumerate}
+\item If a continuous function is periodic with period a positive
+  integer, then the corresponding discrete function is also periodic
+  with period at most that positive integer. (The discrete function
+  could repeat at even shorter intervals).
+\item Given a discrete periodic function with period $k$, we can write
+  it as a linear combination of a bunch of continuous periodic
+  functions all arising from trigonometry. The details of this are
+  beyond the current scope and have to do with Fourier analysis. An
+  illustrative example is $k = 3$: any periodic sequence with period
+  $3$ can be expressed as a linear combination of the functions
+  $\sin(2 \pi n/3)$, $\cos(2\pi n/3)$ and the constant function
+  $1$. The coefficients for the linear combination can be determined
+  by solving a system of linear equations.
+\end{enumerate}
+\subsection{Continuous and discrete: integration}
+
+[We may not get time to cover this in class right now, but will get
+back to it later anyway.]
+ 
+We have already seen this, albeit without a lot of thoughtful
+reflection. Again, things are easiest to see when $f$ is a monotonic
+function, though some of the observations carry over to functions of
+bounded variation.
+
+Suppose we are looking at a continuous function $f$ defined on
+$[1,n]$. We can now take a partition of the interval $[1,n]$: $1 < 2 <
+3 < \dots < n$. Let's assume that $f$ is increasing on $[1,n]$. Then,
+the lower sum of $f$ for the partition is $f(1) + f(2) + \dots f(n -
+1)$. The upper sum is $f(2) + f(3) + \dots + f(n)$. The integral is
+between these, and we obtain:
+
+$$f(1) + f(2) + \dots + f(n-1) < \int_1^n f(x) \, dx < f(2) + \dots + f(n)$$
+
+On the other hand, if $f$ is decreasing, we get:
+
+$$f(1) + f(2) + \dots + f(n-1) > \int_1^n f(x) \, dx > f(2) + \dots + f(n)$$
+
+Now, suppse $f$ is a decreasing function, and suppose further that
+$\int_1^\infty f(x) \, dx$ is finite. Then, taking the limit as $n \to
+\infty$ in the above, we get:
+
+$$f(1) + f(2) + \dots > \int_1^\infty f(x) \, dx > f(2) + f(3) + \dots $$
+
+Rearranging, we obtain that the sum:
+
+$$f(1) + f(2) + f(3) + \dots $$
+
+is between $\int_1^{\infty} f(x) \, dx$ and $f(1) + \int_1^\infty f(x)
+\, dx$.
+
+{\em This procedure actually allows us to calculate sums using
+integrals}. Specifically, in cases where an infinite integral is easy
+to compute but an infinite sum is not, the infinite sum can be
+computed approximately using the computation of the infinite
+integral. A modification of this procedure, that we will look at
+later, allows us to compute the infinite sum to a very high degree of
+precision using a combination of integral calculations and finite
+sums.
+\end{document}

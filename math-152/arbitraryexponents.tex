@@ -1,0 +1,492 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Exponentiation with arbitrary bases, exponents}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 7.5.
+
+{\bf What students should definitely get}: The definition of $a^b$,
+where $a > 0$ and $b$ is real. The definition of logarithm to positive
+base. The method of differentiating functions where the exponent (or
+base of logarithm) itself is variable. Key properties of exponents and
+logarithms.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+
+\item For $a > 0$ and $b$ real, we define $a^b := \exp(b \ln a)$. This
+  coincides with the usual definition when $b$ is rational.
+\item All the laws of exponents that we are familiar with for integer
+  and rational exponents continue to hold. In particular, $a^0 = 1$,
+  $a^{b + c} = a^b \cdot a^c$, $a^1 = a$, and $a^{bc} = (a^b)^c$.
+\item The exponentiation function is continuous in the exponent
+  variable. In particular, for a fixed value of $a > 0$, the function
+  $x \mapsto a^x$ is continuous. When $a \ne 1$, it is also one-to-one
+  with domain $\R$ and range $(0,\infty)$, with inverse function $y
+  \mapsto (\ln y)/(\ln a)$, which is also written as $\log_a(y)$. In
+  the case $a > 1$, it is an increasing function, and in the case $a <
+  1$, it is a decreasing function.
+\item The exponentiation function is also continuous in the base
+  variable. In particular, for a fixed value of $b$, the function $x
+  \mapsto x^b$ is continuous. When $b \ne 0$, it is a one-to-one
+  function with domain and range both $(0,\infty)$, and the inverse
+  function is $y \mapsto y^{1/b}$. In case $b > 0$, the function is
+  increasing, and in case $b < 0$, the function is decreasing.
+\item Actually, we can say something stronger about $a^b$ -- it is
+  {\em jointly} continuous in both variables. This is hard to describe
+  formally here, but what it approximately means is that if $f$ and
+  $g$ are both continuous functions, and $f$ takes positive values
+  only, then $x \mapsto [f(x)]^{g(x)}$ is also continuous.
+\item The derivative of the function $[f(x)]^{g(x)}$ is
+  $[f(x)]^{g(x)}$ times the derivative of its logarithm, which is
+  $g(x)\ln(f(x))$. We can further simplify this to obtain the formula:
+
+  $$\frac{d}{dx} \left([f(x)]^{g(x)}\right) = [f(x)]^{g(x)}\left[\frac{g(x)f'(x)}{f(x)} + g'(x)\ln(f(x))\right]$$
+\item Special cases worth noting: the derivative of $(f(x))^r$ is
+  $r(f(x))^{r-1}f'(x)$ and the derivative of $a^{g(x)}$ is
+  $a^{g(x)}g'(x) \ln a$.
+\item Even further special cases: the derivative of $x^r$ is
+  $rx^{r-1}$ and the derivative of $a^x$ is $a^x \ln a$.
+\item The antiderivative of $x^r$ is $x^{r+1}/(r + 1) + C$ (for $r \ne
+  -1$) and $\ln|x| + C$ for $r = -1$. The antiderivative of $a^x$ is
+  $a^x/(\ln a) + C$ for $a \ne 1$ and $x + C$ for $a = 1$.
+\item The logarithm $\log_a(b)$ is defined as $(\ln b)/(\ln a)$. This
+  is called the logarithm of $b$ to base $a$. Note that this is
+  defined when $a$ and $b$ are both positive \underline{and $a \ne 1$}. This
+  satisfies a bunch of identities, most of which are direct
+  consequences of identities for the natural logarithm. In particular,
+  $\log_a(bc) = \log_a(b) + \log_a(c)$, $\log_a(b)\log_b(c) =
+  \log_a(c)$, $\log_a(1) = 0$, $\log_a(a) = 1$, $\log_a(a^r) = r$,
+  $\log_a(b) \cdot \log_b(a) = 1$ and so on.
+\end{enumerate}
+
+Actions...
+
+\begin{enumerate}
+\item We can use the formulas here to differentiate expressions of the
+  form $f(x)^{g(x)}$, and even to differentiate longer exponent towers
+  (such as $x^{x^x}$ and $2^{2^x}$).
+\item To solve an integration problem with exponents, it may be most
+  prudent to rewrite $a^b$ as $\exp(b \ln a)$ and work from there
+  onward using the rules mastered earlier. Similarly, when dealing
+  with relative logarithms, it may be most prudent to convert all
+  expressions in terms of natural logairthms and then use the rules
+  mastered earlier.
+\end{enumerate}
+
+\section{Review and definitions}
+
+\subsection{Exponents: what we know}
+
+Let us consider the expression $a^b$, with $a$ positive. So far, we
+have made sense of this expression in the following cases:
+
+\begin{enumerate}
+\item $b$ is a positive integer: In this case, $a^b$ is defined as the
+  product of $a$ with itself $b$ times. This definition is fairly
+  general; in fact, it makes sense even when $a < 0$.
+\item $b$ is an integer: If $b$ is positive, we use (1). If $b = 0$,
+  we define $a^b$ as $1$, and if $b < 0$, we define $a^b$ as
+  $1/a^{|b|}$.
+\item $b = p/q$ is rational, $p$, $q$ integers, $q > 0$: In this case,
+  $a^b$ is defined as the unique positive real number $c$ such that
+  $c^q = a^p$.  The existence of such a $c$ was not proved rigorously,
+  but it essentially follows by an application of the intermediate
+  value theorem. We proceed as follows: we show that the function $x
+  \mapsto x^q$ is less than $a^p$ for some positive $x$ and greater
+  than $a^p$ for some positive $x$, and hence, by the intermediate
+  value theorem, it must equal $a$ for some positive $x$. The
+  uniqueness of this is guaranteed by the fact that the function $x
+  \mapsto x^q$ is increasing.
+\end{enumerate}
+
+The notion of rational exponent has the added advantage that when the
+denominator is odd, it can be extended to the negative numbers as
+well. Also, note that when $b > 0$, we define $0^b = 0$.
+
+So far, exponents satisfy some laws, namely:
+
+\begin{eqnarray*}
+  a^0 & = & 1 \\
+  a^{b + c} & = & a^b \cdot a^c \\
+  a^{-b} & = & \frac{1}{a^b}\\
+  a^{bc} & = & (a^b)^c \\
+\end{eqnarray*}
+
+For the rest of this document, where we study arbitrary real exponents
+$b$, we restrict ourselves to the situation where the base $a$ of
+exponentiation is positive.
+
+\subsection{And here's how mathematicians would think about it}
+
+We're not mathematicians, but since we're doing mathematics, it might
+help to think about the way mathematicians would view this. A
+mathematician would begin by defining positive exponents: things like
+$a^b$ where $a$ is a positive real and $b$ is a positive
+integer. Then, the mathematician would observe that $a^{b + c} = a^b
+\cdot a^c$ and $a^{bc} = (a^b)^c$. The mathematician would then ask:
+is there a way of extending the definition to encompass more values of
+$b$ while preserving these two laws of exponents? Further, is the way
+more or less unique or are there multiple different extensions?
+
+It turns out that there is a way, and it is unique, and it is exactly
+the way I mentioned above. In other words, if we want exponentiation
+to behave such that $a^{b + c} = a^b \cdot a^c$ and if we have it
+defined the usual way for positive integers $b$, we are forced to
+define it the usual way for all integers $b$. Further, we are forced
+to define it the way we have defined it for rational numbers $b$. The
+rules constrain us.
+
+\subsection{Real exponents: continuity the realistic constraint}
+
+We now move to the situation involving real exponents. Unfortunately,
+the laws of exponents are not enough to force us to a specific
+definition of $a^b$ for $a$ positive real and $b$ real. However, the
+laws of exponents, along with {\em continuity in both $a$ and $b$} do
+turn out to be enough to force a specific definition of $a^b$. To see
+this, note that we already have defined $a^b$ for $b$ rational, and
+the rationals are {\em dense} in the reals, so to figure out the
+answer $a^b$ for a real value of $b$, we take rationals $c$ closer and
+closer to $b$ and consider the limit of $a^c$.
+
+For instance, to figure out $2^{\sqrt{2}}$, we look at $2$, $2^{1.4}$,
+$2^{1.41}$, and so on. Each of these is well-defined, because in each
+case, the exponent is a rational number. Thus, $2^{1.4}$ is the unique
+positive solution to $x^5 = 2^7$, and $2^{1.41}$ is the unique
+positive solution to $x^{100} = 2^{141}$. 
+
+However, we would ideally like a clearer description that does not
+involve this approximation procedure. It turns out that the
+exponentiation function (obtained as the inverse function to the
+natural logarithm function) works out.
+
+We define:
+
+$$a^b := \exp(b \ln a) = e^{b \ln a}$$
+
+Note that I use the $\exp$ notation because I want to emphasize that
+$\exp$ is just the inverse function to $\ln$; it does not have an {\em
+a priori} meaning as exponentation. Note that this definition
+coincides with the usual definition for positive integer exponents,
+because $a^b = a \cdot a \cdot \dots \cdot a$ $b$ times, and thus we get:
+
+$$\ln(a^b) = b \ln a$$
+
+Applying $\exp$ to both sides gives:
+
+$$a^b = \exp(b \ln a)$$
+
+Similarly, we can show that the definition $a^b := \exp(b \ln a)$
+coincides with the usual definition we have for negative integer
+exponents and for all rational exponents. Thus, this new definition
+extends the old definition.
+
+Next, we can use the properties of exponents and logarithms to verify:
+
+\begin{enumerate}
+\item With this new definition, the general laws for exponents listed
+  above continue to hold.
+\item Under this new definition of exponent, $a^b$ is continuous in
+  each variable. In other words, for any fixed $a$, it is a continuous
+  function of $b$, and for a fixed $b$, it is a continuous function of
+  $a$. Actually, something stronger holds; it is jointly continuous in
+  the two variables. However, joint continuity is a concept that is
+  based on ideas of multivariable calculus, and hence beyond our scope.
+\item For a fixed $a \ne 1$, the function $x \mapsto a^x$ is a
+  one-to-one function from $\R$ to $(0,\infty)$. When $a > 1$ the
+  function is increasing, and when $a < 1$, the function is
+  decreasing.
+\item For a fixed $b \ne 0$, the function is a one-to-one function
+  from $(0,\infty)$ to $(0,\infty)$. When $b > 0$, it is an increasing
+  function, and when $b < 0$, it is a decreasing function.
+\end{enumerate}
+
+\section{More perspective: exponents, logarithms, and radicals}
+
+\subsection{Addition, multiplication, and exponentiation}
+
+The {\em inverse operation} corresponding to addition is subtraction,
+and the {\em inverse operation} corresponding to multiplication is
+division. What is the inverse operation corresponding to
+exponentiation? The answer turns out to be tricky, because there are a
+couple of nice things about addition and multiplication that are no
+longer true for exponentiation:
+
+\begin{enumerate}
+\item Addition and multiplication are both {\em commutative}: We have
+  the remarkable fact that $a + b = b + a$ and $ab = ba$ for any $a$
+  and $b$. On the other hand, exponentiation is not commutative. In
+  fact, as we might see some time later, for every $a \in (0,\infty)$,
+  there exist at most two values of $b \in (0,\infty)$ such that $a^b
+  = b^a$, and one of those two values is $a$. For instance, the only
+  numbers $b$ for which $2^b = b^2$ are $b = 2$ and $b = 4$.
+\item Addition and multiplication are both {\em associative}: We have
+  the remarkable fact that $a + (b + c) = (a + b) + c$ and $a(bc) =
+  (ab)c$. On the other hand, exponentiation is not {\em associative},
+  i.e., it is not true in general that $a^{(b^c)} = (a^b)^c$. This is
+  because $(a^b)^c = a^{bc}$, and so the equality would give that $b^c
+  = bc$, which is very rare.
+\end{enumerate}
+
+The noncommutativity of exponentiation would mean that there are two
+notions of inverse operation: a left inverse operation and a right
+inverse operation. The nonassociativity would mean that these inverse
+operations behave very differently from subtraction and division, and
+the analogy cannot be stretched too far.
+
+\subsection{Radicals and logarithms}
+
+There are two kinds of inverse operations to the $a^b$ operation. The
+first is to find solutions $x$ to the equation:
+
+$$x^b = c$$
+
+Such a solution is a $b^{th}$ root or $b^{th}$ radical of $c$, and is given by:
+
+$$x = c^{1/b}$$
+
+It is also denoted as:
+
+$$x = {}^b\surd{c}$$
+
+Note that as per our general discussion of the $a^b$ function, we see
+that this is well-defined and unique if $b \ne 0$.
+
+The other kind of inverse operation we may want is to solve the equation:
+
+$$a^x = c$$
+
+To solve this, we need to use the definition:
+
+$$\exp(x \ln a) = c$$
+
+Taking $\ln$ both sides, we obtain:
+
+$$x \ln a = \ln c$$
+
+Thus, we get that if $a \ne 1$:
+
+$$x = \frac{\ln c}{\ln a}$$
+
+Note that the uniqueness of $x$ corresponds to the fact, observed
+earlier, that for fixed $a$, the map $x \mapsto a^x$ is one-to-one.
+
+This solution $x$ is also written as:
+
+$$x = \log_a c$$
+
+This is often read as {\em logarithm of $c$ to base $a$}. The map $c
+\mapsto \log_a(c)$ is called {\em taking logarithms to base $a$}. As
+shown above, it is equivalent to taking natural logarithms and dividing
+by $\ln a$.
+
+The upshot is that we define:
+
+$$\log_a(c) := \frac{\ln c}{\ln a}$$
+
+where $a,c$ are both positive and $a \ne 1$. In particular, logarithms
+cannot be taken to base $1$. Taking logarithms to base $1$ is like
+division by zero, a forbidden operation.
+
+\subsection{Properties of logarithms}
+
+We have the following notable properties of logarithms, where we
+assume that all elements appearing in the base of the logarithm are
+positive and not equal to $1$, and all elements whose logarithm is
+being taken are positive:
+
+\begin{eqnarray*}
+  \log_a(bc) & = & \log_a(b) + \log_a(c)\\
+  \log_a(b^c) & = & c \log_a(b)\\
+  \log_a(1/b) & = & -\log_a(b)\\
+  \log_a(1) & = & 0\\
+  \log_a(a) & = & 1\\
+  \log_a(a^r) & = & r\\
+  \log_{1/a}(b) & = & - \log_a(b)\\
+  \log_a(b) \log_b(c) & = & \log_a(c)\\
+  \log_b(a) & = & \frac{1}{\log_a(b)}
+\end{eqnarray*}
+
+All of these follow from the definition and the corresponding
+properties of $\ln$, which follow from its definition as the
+antiderivative of the reciprocal function.
+
+\subsection{Absolute and relative: natural bases and the bases for their naturality}
+We can think of logarithm to a given base as measuring a {\em relative
+logarithm}. The natural logarithm is the logarithm to base $e$, which
+is the {\em natural logarithm}, in that the base $e$ is the natural
+choice for a base. This behavior of logarithms is very similar to, for
+instance, the behavior of refractive indices for pairs of media
+through which light travels. For any pair of media, we can define a
+refractive index of the pair, but the {\em natural base} with respect
+to which we measure refractive index is vacuum. Natural logarithms
+play the role of vacuum: the natural base choice.
+
+There are two other common choices of base for logarithms. One is base
+$10$, which has no sound mathematical reason. The reason for taking
+logarithms to base $10$ is because it is easy to compute the logarithm
+of any number by writing it in scientific notation using a table of
+logarithm values for numbers from $1$ to $10$. This allows us to use
+logarithms to base $10$ as a convenient tool for multiplication, a
+convenience that seems to have been rendered moot in recent times with
+the proliferation of calculators.
+
+The second natural choice of base for logarithms, which we will talk
+about next time, is logarithms to base $2$. These come up for three
+reasons, listed below. We will return to some of these reasons in more
+detail when we study exponential growth and decay next quarter.
+
+\begin{enumerate}
+\item Halving and doubling are operations to which humans relate
+  easily. We measure and record the {\em half-life} of radioactive
+  substances, talk of the time it takes for a country to {\em double}
+  its GDP, and routinely hear campaign rhetoric and promotional NGO
+  material that talks of {\em doubling} and {\em halving} arbitrary
+  indicators. The reason is not that $2$ has any special mathematical
+  or real-world significance (or plausibility, in the case of
+  politicians and NGOs) but rather, that it is easy for people to
+  (believe they) understand. It's a lot less exciting to make a
+  campaign promise to multiply the number of tax breaks or subsidies
+  or scholarships by $e$, even though $e > 2$.
+\item The second reason is perhaps more legitimate. In computer
+  science algorithms, it is customary to use {\em divide-and-conquer
+  strategies} that work by breaking a problem up into two roughly
+  equal subproblems, and solving both of them separately. The amount
+  of time and resources needed to solve problems using such strategies
+  typically involves a logarithm to base $2$, since that is the number
+  of times you need to keep dividing the problem into two equal parts
+  until you get to problems of size $1$. Thus, logarithms to base $2$
+  frequently pop up in measuring the time and space requirements of
+  algorithms. Similarly, in psychology and the study of human
+  cognition and information processing, logarithms to base $2$ play a
+  role if we hypothesize that humans perform complex tasks by using
+  divide-and-conquer strategies.
+\item The third reason has to do with biology, more specifically with
+  the reproduction strategies of some unicellular organisms. These
+  organisms divide into two organisms. This form of asexual
+  reproduction is termed {\em binary fission}. Other reproduction
+  strategies or behaviors may also be associated with logarithms to
+  base $2$ or $3$, because of the discrete nature of numbers of
+  offspring and number of parents.
+\end{enumerate}
+
+One way of thinking about this is that logarithms to base $2$ are more
+natural when working with {\em finite, discrete problems} while
+logarithms to base $e$ are more common when dealing with {\em
+continuous processes}.
+
+\section{Applications to differentiation and integration}
+
+\subsection{Differentiating functions with variables in the exponent}
+
+We are now in a position to discuss the general procedure for
+differentiation the function $f(x)^{g(x)}$, where $f$ is a
+positive-valued function and $g$ is a real-valued function.
+
+To differentiate, note that:
+
+$$f(x)^{g(x)} = \exp(g(x) \ln(f(x)))$$
+
+We use logarithmic differentation and simplify to get:
+
+$$(f^g)'(x) = (f^g)(x) \frac{d}{dx}[g(x) \ln(f(x))]$$
+
+This can further be simplified using the product rule:
+
+$$(f^g)'(x) = (f(x))^{g(x)}\left[g'(x) \ln(f(x)) + \frac{g(x)f'(x)}{f(x)}\right]$$
+
+Two special cases are worth noting:
+
+\begin{enumerate}
+\item The case where $g(x)$ is a constant function with value $r$. In
+  this case, the derivative just becomes $rf(x)^{r-1}f'(x)$. An even
+  further special case is where $g(x) := r$ and $f(x) := x$, in which
+  case we obtain $rx^{r-1}$. This is the familiar rule for
+  differentiating power functions that we saw, but now, we have
+  established this rule for {\em all real exponents}, not just for the
+  rational ones.
+\item The case where $f(x)$ is a constant function with value $a$. In
+  this case, the derivative is $a^{g(x)}g'(x) \ln a$. In the further
+  special case where $g(x) = x$, we obtain $a^x \ln a$. In other
+  words, the derivative of $a^x$ with respect to $x$ is $a^x \ln a$.
+\end{enumerate}
+
+\subsection{Key special case formula summary}
+
+\begin{eqnarray*}
+  \frac{d}{dx}(x^r) & = & rx^{r-1}\\
+  \frac{d}{dx}(a^x) & = & a^x \ln a \\
+  \int x^r \, dx & = & \lbrace\begin{array}{ll} x^{r+1}/(r + 1) + C, & r \ne -1 \\ \ln |x| + C, & r = -1 \end{array}\\
+  \int a^x \, dx & = & \lbrace\begin{array}{ll} \frac{a^x}{\ln a} + C, & a \ne 1 \\ x + C, & a = 1 \end{array}
+\end{eqnarray*}
+
+Note: We don't need to put the $|x|$ in the $\ln$ antiderivative if
+the exponent is irrational because $x^r$ isn't even defined for
+irrational exponents, so $\ln x + C$ is a valid answer for irrational
+exponents.
+
+\subsection{Differentiating logarithms where both pieces are functions}
+
+Consider:
+
+$$\frac{d}{dx}\left[\log_{f(x)}(g(x))\right]$$
+
+To carry out this differentiate, we first rewrite the logarithm as a
+quotient of natural logarithms:
+
+$$\frac{d}{dx} \left[\frac{\ln(g(x))}{\ln(f(x))}\right]$$
+
+Note that the base of the logarithm has its $\ln$ in the denominator.
+
+We now use the quotient rule and get:
+
+$$\frac{\ln(f(x))g'(x)/g(x) - \ln(g(x))f'(x)/f(x)}{(\ln(f(x)))^2}$$
+
+\section{Fun miscellanea}
+
+\subsection{Dimension and sense of proportion}
+
+[This is optional -- will cover only if I have time.]
+
+When you double the lengths, the areas become four times their
+original value, and the volumes become eight times their original
+value. More generally, when you scale lengths by a factor of
+$\lambda$, the areas get scaled by a factor of $\lambda^2$, and the
+volumes gets scaled by a factor of $\lambda^3$.
+
+The {\em exponent} of $2$ occurs because area is two-dimensional and
+the exponent of $3$ occurs because volume is three-dimensional.
+
+Suppose there is a certain physical quantity such that, when we scale
+lengths by a factor of $\lambda \ne 1$, that quantity scales by a
+factor of $\mu$. What is the dimension of that quantity? It is the
+value $d$ such that $\lambda^d = \mu$. With our new understanding of
+logarithms, we can write:
+
+$$d := \log_{\lambda}(\mu) = \frac{\ln \mu}{\ln \lambda}$$
+
+When we put it this bleakly, it does not seem a foregone conclusion
+that $d$ must be a positive integer. In fact, there is a whole range
+of physical objects that have positive measure in {\em fractal
+dimension}, i.e., there are quantities that we associate with them
+whose dimension is not an integer. For instance, there are certain
+sets such as Cantor sets that we design in such a way that when we
+triple the lengths, the size of those objects {\em doubles}. Thus, the
+dimension of such an object is:
+
+$$\frac{\ln 2}{\ln 3} \approx \frac{0.7}{1.1} \approx 0.63$$
+
+Similarly, there are sets with the property that when you double
+lengths they increase by a factor of three times. The dimension of
+such sets is:
+
+$$\frac{\ln 3}{\ln 2} \approx \frac{1.1}{0.7} \approx 1.57$$
+
+
+\end{document}

@@ -1,0 +1,1180 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, amssymb}
+
+%Title details
+\title{Lazard Lie rings of 2-groups}
+\author{Vipul Naik}
+
+%List of new commands
+
+\makeindex
+
+\begin{document}
+\maketitle
+%\tableofcontents
+
+\begin{abstract}
+  The theory of Lazard Lie rings of $p$-groups makes some assumptions
+  about the nilpotency class of the group (or of important subgroups)
+  being smaller than $p$. Here, we consider some techniques that can
+  be used to extend this theory to more $p$-groups. In particular, we
+  consider the case of $2$-groups of class two.
+\end{abstract}
+
+\section{Lazard Lie rings for odd-order class two groups}
+
+\subsection{The construction}
+
+Suppose $p$ is an odd prime and $P$ is a finite $p$-group of
+nilpotency class two. The Lazard Lie ring of $P$ is defined, as a set,
+as equal to $P$, with the addition defined as:
+
+$$x + y := \frac{xy}{\sqrt{[x,y]}}$$
+
+and the Lie bracket $[x,y]$ coincides with the commutator $[x,y]$
+(hence, we use the same notation for both). Conversely, given a Lie
+ring $L$ of class two, we can define a corresponding Lazard Lie group
+with the same underlying set as $L$:
+
+$$xy := x + y + \frac{1}{2}[x,y]$$
+
+The expressions are more complicated for class greater than $2$. In
+particular, for class greater than $2$, the Lie bracket of the Lie
+ring does not coincide with the commutator in the group. In this
+document, we concentrate on class two.
+
+\subsection{Proof for going from groups to Lazard Lie rings}
+
+We state the result as a theorem. (It's already been proved earlier,
+but the proof is explicitly given here to make it easier to see how
+later proofs arise by modifying it).
+
+Note that for groups of nilpotency class two, it does not matter
+whether we use the left convention $[x,y] = xyx^{-1}y^{-1}$ or the
+right convention $[x,y] = x^{-1}y^{-1}xy$, because they both take the
+same value.
+
+\begin{theorem}
+  Suppose $p$ is an odd prime and $P$ is a finite $p$-group of
+  nilpotency class two. Then, $P$ has the structure of a Lie ring of
+  nilpotency class two with the following operations:
+
+  \begin{enumerate}
+  \item The $0$ element is the multiplicative identity of $P$.
+  \item The additive inverse operation is the same as the
+    multiplicative inverse operation.
+  \item The addition is defined as:
+
+    $$x + y := \frac{xy}{\sqrt{[x,y]}}$$
+
+    where $\sqrt{[x,y]}$ is the unique element whose square is
+    $[x,y]$, and is also given as $[x,y]^{(p^k + 1)/2}$ where $p^k$ is
+    the exponent of the group.
+  \item The Lie bracket $[x,y]$ is defined as the commutator $[x,y]$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  First, note that since $P$ has nilpotency class two, $[x,y]$ is
+  central and hence $\sqrt{[x,y]} = [x,y]^{(p^k+1)/2}$ is also
+  central. Thus, the fraction notation makes sense.
+
+  We show that the operation $+$ as defined in (3) is associative. We have:
+
+  $$(x + y) + z = \frac{\frac{xy}{\sqrt{[x,y]}} \cdot z}{\sqrt{\left[\frac{xy}{\sqrt{[x,y]}},z\right]}}$$
+
+  Noting that central elements can be eliminated from inside
+  commutators without affecting the value, we simplify to:
+
+  $$(x + y) + z = \frac{xyz}{\sqrt{[x,y]}\sqrt{[xy,z]}}$$
+
+  Since the $\sqrt{}$ operation is just a raising to the power of $(p^k
+  + 1)/2$ operation, it is a homomorphism on the center and we can thus write:
+
+  $$(x + y) + z = \frac{xyz}{\sqrt{[x,y][xy,z]}}$$
+
+  In a similar manner, we can deduce that:
+
+  $$x + (y + z) = \frac{xyz}{\sqrt{[x,yz][y,z]}}$$
+
+  Thus, it suffices to prove that:
+
+  $$[x,y][xy,z] = [x,yz][y,z]$$
+
+  But since the commutator map is a bihomomorphism for groups of class
+  two, both sides become $[x,y][x,z][y,z]$, so the equality holds.
+
+  This proves that the operation defined in (3) is associative.
+
+  It is also clear that the operation agrees with the group
+  multiplication whenever $x$ and $y$ commute in the group. In
+  particular, the identity element acts as zero and multiplicative
+  inverses act as additive inverses.
+
+  We next show that $+$ is commutative. For this, note that:
+
+  $$x + y = \frac{xy}{\sqrt{[x,y]}}$$
+
+  and
+
+  $$y + x = \frac{yx}{\sqrt{[y,x]}}$$
+
+  It thus suffices to show that:
+
+  $$\frac{xy}{\sqrt{[x,y]}} = \frac{yx}{\sqrt{[y,x]}}$$
+
+  which is equivalent to:
+
+  $$\frac{xy}{yx} = \frac{\sqrt{[x,y]}}{\sqrt{[y,x]}}$$
+
+  which follows immediately from the definition and the fact that
+  $[y,x] = [x,y]^{-1}$.
+
+  We have thus shown that $P$ is an abelian group under $+$ and have
+  demonstrated (1)-(3). Next, we need to argue that the commutator map
+  defines a Lie bracket on $P$.
+  Note that:
+
+  $$[x+y,z] = [\frac{xy}{\sqrt{[x,y]}},z] = [xy,z] = [x,z][y,z]$$
+  
+  Also:
+
+  $$[x,z] + [y,z] = \frac{[x,z][y,z]}{\sqrt{[[x,z],[y,z]]}} = [x,z][y,z]$$
+
+  This proves that the map is linear in the first variable. A similar
+  proof shows linearity in the second variable. Alternation follows
+  from the fact that $[x,x]$ is the identity element back in the
+  group.
+
+  The Jacobi identity holds vacuously since any commutator
+  $[[x,y],z]$ is the identity element. We thus need to check
+  bilinearity and alternation.
+
+  Also, since $[[x,y],z]$ is the identity, the Lie ring has nilpotency
+  class two.
+\end{proof}
+
+\subsection{Proof for going from Lie rings to groups}
+
+\begin{theorem}
+  Suppose $p$ is an odd prime and $L$ is a Lie ring of order a power
+  of $p$ and nilpotency class two. Then, $L$ has the structure of a
+  group of nilpotency class two with the following operations:
+
+  \begin{enumerate}
+  \item The identity element is the $0$ element of $L$.
+  \item The multiplicative inverse operation is the same as the
+    additive inverse operation.
+  \item The multiplication is defined by:
+
+    $$xy := x + y + \frac{1}{2}[x,y]$$
+
+  \item The commutator $[x,y]$ is defined as the Lie bracket $[x,y]$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  The two substantive parts of the proof are showing associativity and
+  showing that the commutator agrees with the Lie bracket.
+
+  For associativity:
+
+  $$(xy)z = \left(x + y + \frac{1}{2}[x,y]\right) + z + \frac{1}{2}\left[x + y + \frac{1}{2}[x,y],z\right]$$
+
+  This simplifies to:
+
+  $$(xy)z = x + y + z + \frac{1}{2}\left([x,y] + [x,z] + [y,z]\right)$$
+
+  Similarly, we can show that:
+
+  $$x(yz) = x + y + z + \frac{1}{2}\left([x,y] + [x,z] + [y,z]\right)$$
+
+  Thus, associativity holds.
+
+  The stuff about additive inverses being multiplicative inverses and
+  identity being $0$ is easily verified.
+
+  We next want to show that the commutator with this definition of
+  multiplication is the same as the Lie bracket. The multiplicative
+  commutator is $[x,y] = (xy)(yx)^{-1}$ which is $(xy)$ times $(-yx)$,
+  which is:
+
+  $$xy + (-yx) + \frac{1}{2}[xy,-yx]$$
+
+  which simplifies to:
+
+  $$x + y + \frac{1}{2}[x,y] - (y + x + \frac{1}{2}[y,x]) + \frac{1}{2}[x + y + \frac{1}{2}[x,y],-(y + x + \frac{1}{2}[y,x])]$$
+
+  Simplifying, we are left with the Lie bracket $[x,y]$.
+\end{proof}
+\subsection{Important things to note}
+
+Some important things to note about the constructions described above:
+
+\begin{enumerate}
+\item The $\sqrt{[x,y]}$ symbol is justified because $p$ is odd,
+  because in a finite $p$-group, there is a unique square root, and is
+  the $(p^k+1)/2^{th}$ power of $[x,y]$ where $p^k$ is the exponent of
+  the group.
+\item The fraction notation has been used for simplification and it is
+  justified because the element $[x,y]$ (and hence its square root) is
+  central.
+\end{enumerate}
+
+\subsection{Properties of the Lazard correspondence}
+
+The Lazard correspondence has the following properties (proofs not
+here, but are to be found in any standard reference on the subject
+(give refs)):
+
+\begin{enumerate}
+\item Any automorphism of a group is an automorphism of its Lazard Lie
+  ring as a Lie ring, and vice versa.
+\item Any endomorphism of a group is an endomorphism of its Lazard Lie
+  ring as a Lie ring, and vice versa.
+\item Subgroups of the group correspond to Lie subrings of the Lazard Lie
+  ring, and vice versa.
+\item Normal subgroups of the group correspond to Lie ideals of the
+  Lazard Lie ring, and vice versa.
+\item Abelian subgroups of the group correspond to abelian subrings
+  (i.e., trivial Lie bracket) of the Lazard Lie ring, and vice
+  versa. Moreover, the additive structure on the abelian subring is
+  exactly the same as the group operation on the abelian subgroup.
+\item In particular, cyclic subgroups of the group correspond to
+  cyclic subrings of the Lie ring. Thus, in particular, the order
+  statistics for a group are the same as those of the additive group
+  of its Lazard Lie ring.
+\end{enumerate}
+
+\section{Moving to $2$-groups}
+
+\subsection{The basic goal}
+
+The goal is to determine the conditions under which the above
+construction can be extended to the case of $2$-groups of class
+two. Let us look once again at the formula:
+
+$$x + y := \frac{xy}{\sqrt{[x,y]}}$$
+
+There are two problems with this:
+
+\begin{enumerate}
+\item It is not necessary that we have a square root of $[x,y]$ in the
+  center of $P$.
+\item Even if square roots exist for all elements of $[P,P]$, the
+  non-uniqueness of the square root creates a problem of choice.
+\end{enumerate}
+
+\subsection{Existence of square roots and ensuring associativity}
+
+A mathematical formulation for the existence of square roots in the
+{\em center} is that $[P,P] \le \mho^1(Z(P))$. This is a somewhat
+stronger condition than being of class two, and it eliminates many
+groups of class two. For instance, it eliminates the special and
+extraspecial groups and many others.
+
+However, it is not obvious that this condition is not sufficient. We
+want our choice of square root to be such that the $+$ operation
+defined using it is associative.
+
+Let us denote by $f(x,y)$ this {\em chosen} square root. Thus, $f$ is a
+function:
+
+$$f:P \times P \to Z(P)$$
+
+with the property that $(f(x,y))^2 =[x,y]$. Switching to additive
+notation in $Z(P)$, we get $2f(x,y) = [x,y]$. Also, $f$ should be
+constant on the cosets of $Z(P)$, so it is in fact a map:
+
+$$f:P/Z(P) \times P/Z(P) \to Z(P)$$
+
+Working out the associativity condition, for $+$, we obtain that:
+
+$$f(x,y) + f(xy,z) = f(x,yz) + f(y,z)$$
+
+{\em For now, I abuse notation and use $f$ both to denote the mapping
+$P \times P \to Z(P)$ and the descended mapping $P/Z(P) \times P/Z(P)
+\to Z(P)$. I will clean this up in later versions.}
+
+Thus, $f$ is a 2-cocycle from $P/Z(P)$ to $Z(P)$ for the trivial action,
+with the additional property that $2f$ is the commutator cocycle form
+$P/Z(P)$ to $Z(P)$.
+
+In particular, the set of possible values of $f$, if nonempty, is a
+coset of the set of elements of order two in the group of 2-cocycles.
+
+\subsection{The conditions: groups to Lie rings}
+
+We list here many important conditions on $f$:
+
+\begin{enumerate}
+\item The {\em cocycle condition}: This is the condition that $f$ be a
+  cocycle for the trivial action of $P/Z(P)$ on $Z(P)$.
+\item The {\em half-commutator condition}: This is the condition that
+  $2f$ be the commutator map.
+\item The {\em skew-symmetry condition}: This states that $f(y,x) =
+  -f(x,y)$.
+\item The {\em cyclicity-preserving condition}: This is the condition
+  that $f(x,y) = 0$ if $x$ and $y$ are both elements of a cyclic subgroup.
+\item The {\em commutativity-preserving condition}: This is the
+  condition that if $[x,y] = 0$, then $f(x,y) = 0$. Conditional to
+  (2), this states that if $2f(x,y) = 0$, we also have $f(x,y) = 0$.
+\item The {\em bilinearity condition}: This states that $f$ is
+  bilinear.
+\item The {\em strong congruence condition}: This states that if $x$
+  and $y$ commute, then $f(x,z) = f(x,yz)$ for all $z$.
+\item The {\em subgroup-closure condition}: This states that
+  restricting $f$ to any subgroup of $P$ gives a map to within that
+  subgroup. (Here, we think of $f$ as a map on elements rather than
+  cosets, which we can do).
+\item The {\em quotient-closure condition}: This states that $f$
+  descends to any quotient.
+\item The {\em subquotient-closure condition}: This states that $f$
+  restricts-cum-descends to any subquotient.
+\end{enumerate}
+
+Note that {\em all} these conditions (or rather, their analogues) are
+satisfied in the case when $p$ is an odd prime, $P$ is a $p$-group of
+class two, and $f$ is the square root of the commutator.
+
+On the other hand, all these conditions {\em cannot} be simultaneously
+true in the case of non-abelian 2-groups. The problem arises from the
+incompatibility of (2), (5), and (6). (2) and (5) imply that the image
+of $f$ does not contain any non-identity elements of order $2$. If we
+also assume condition (6), then the image of $f$ cannot contain any
+non-identity elements, because if $f(x,y)$ is a non-identity element
+of order $2^k$, we have that $f(x^{2^{k-1}},y)$ is an element of order
+$2$.
+
+We will encounter situations where we sacrifice (6) and have all the
+other conditions.
+
+Note also the implications: condition (7) implies condition (5)
+implies condition (4), and condition (10) implies conditions (9) and
+(8).
+
+\subsection{The theorems: groups to Lie rings}
+
+\begin{theorem}\label{lazardgrouptoring1234}
+  Suppose $P$ is a finite $2$-group and $f$ is a $2$-cocycle for the
+  trivial action of $P/Z(P)$ on $Z(P)$ satisfying conditions (1)-(4)
+  above (i.e., $f$ is a $2$-cocycle whose double is the commutator
+  map, it is skew-symmetric and it is cyclicity-preserving). Then,
+  we can define a Lie ring structure on $P$ as follows, giving a Lie
+  ring of nilpotency class two:
+
+  \begin{enumerate}
+  \item The zero element is the identity element of $P$.
+  \item The additive inverse is the same as the multiplicative inverse
+    in $P$.
+  \item The addition is defined as:
+
+    $$x + y := \frac{xy}{f(x,y)}$$
+  \item The Lie bracket is defined as the commutator in $P$.
+  \end{enumerate}
+\end{theorem}
+
+Before we go into the proof, note that the Lie ring structure here
+depends on the choice of $f$. This means that the statement of the
+theorem allows for different Lie ring structures to emerge from
+different choices of $f$. It may turn out later that some of these Lie
+rings are isomorphic. The possibility of multiple Lie rings of a group
+is something we shall explore later.
+
+\begin{proof}
+  Here is a broad sketch of the proof:
+  \begin{enumerate}
+  \item The cocycle condition on $f$ yields the associativity of $+$.
+  \item The cyclicity-preserving condition shows (1) and (2).
+  \item The half-commutator condition on $f$, along with the fact that
+    $f$ is skew-symmetric, yields the commutativity of $+$.
+  \item The statements about the Lie bracket follow directly form the
+    properties of class two.
+  \end{enumerate}
+
+  Let's execute these steps one by one.
+
+  {\em Associativity of $+$}: Consider:
+
+  $$(xy)z = \frac{\frac{xy}{f(x,y)} \cdot z}{f\left(\frac{xy}{f(x,y)},z\right)}$$
+
+  Note that since $f(x,y) \in Z(P)$ and $f$ depends only on the cosets
+  with respect to $Z(P)$ of its elements, $f(\frac{xy}{f(x,y)},z) =
+  f(xy,z)$. Thus, the above expression simplifies to:
+
+  $$(xy)z = \frac{xyz}{f(x,y)f(xy,z)}$$
+
+  Similarly, we obtain:
+
+  $$x(yz) = \frac{xyz}{f(x,yz)f(y,z)}$$
+
+  The equality of the two expressions depends on the equality:
+
+  $$f(x,y)f(xy,z) = f(x,yz)f(y,z)$$
+
+  which, in the additive notation, is precisely the 2-cocycle
+  condition.
+
+  {\em The agreement of identity and inverses}: $f$ is
+  cyclicity-preserving. Thus, if either of the inputs to $f$ is the
+  identity, $f$ takes the identity. This shows that $x + id = id + x =
+  x$. Also, since $f(x,x^{-1})$ is the identity, $x + x^{-1} =
+  xx^{-1}/id = xx^{-1} = id$.
+
+  We now move to commutativity:
+
+  {\em Commutativity of $+$}: We have:
+
+  $$x + y := \frac{xy}{f(x,y)}$$
+
+  We also have:
+
+  $$y + x := \frac{yx}{f(y,x)}$$
+
+  Equality of these requires that:
+
+  $$\frac{f(x,y)}{f(y,x)} = [x,y]$$
+
+  Or, in additive notation:
+
+  $$f(x,y) - f(y,x) = [x,y]$$
+
+  This follows from the skew-symmetry condition on $f$ and the fact
+  that $2f$ is the commutator map.
+
+  We finally turn to statements about the Lie bracket. We want to
+  argue that $[x,y]$ is a well-defined Lie bracket. In particular, we
+  want to show that $[x + y,z] = [x,z] + [y,z]$. We begin with the left side.
+
+  $$[x + y,z] = [\frac{xy}{f(x,y)},z] = [xy,z] = [x,z][y,z]$$
+
+  Here, we use the fact that since $f(x,y) \in Z(P)$, it can be
+  removed from inside the commutator. Later, we use nilpotency class two.
+
+  Also:
+
+  $$[x,z] + [y,z] = \frac{[x,z][y,z]}{f([x,z],[y,z])} = [x,z][y,z]$$
+
+  The denominator is the identity because both $[x,z]$ and $[y,z]$ are
+  in the center.
+
+  A similar proof works for right linearity. The alternation property
+  follows from the fact that $[x,x]$ is the identity element when the
+  commutator is viewed in the group.
+
+  Finally the Jacobi identity holds vacuously since class two forces
+  any commutator $[[x,y],z] = 0$. This also forces the Lie ring to
+  have nilpotency class two.
+\end{proof}
+
+Here now is a theorem listing some important fallouts.
+
+\begin{theorem}\label{lazardgrouptoringmore}
+  Suppose $P$ is a finite $2$-group and $f$ is a $2$-cocycle for the
+  trivial action of $P/Z(P)$ on $Z(P)$ satisfying conditions
+  (1)-(4). Use the Lie ring construction of the previous theorem.
+
+  \begin{enumerate}
+  \item Assume condition (5) (commutativity-preservation), two
+    elements commute in the multiplicative group of $P$ if and only if
+    their Lie bracket is zero, which in turn happens if and only if
+    their sum in the Lie ring equals their product in the group.
+  \item The subgroup-closure condition (numbered (8)): the statement
+    that $f$ is closed on subgroups guarantees that every subgroup of
+    $P$ is a Lie subring. Moreover, this Lie subring is precisely the
+    Lie ring for the subgroup using the restriction of $f$.
+  \item The subgroup-closure condition {\em or} the quotient-closure
+    condition also guarantees that every normal subgroup of $P$ is an
+    ideal in the corresponding Lie ring structure, and further, that
+    the normalizer of any subgroup of $P$ equals its idealizer as a
+    Lie subring.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  All these statements are directly proved from the definitions. I'll
+  fill in details later.
+\end{proof}
+
+\subsection{The conditions: Lie rings to groups}
+
+Let $L$ be a Lie ring and $f:L \times L \to L$ be a map that desends
+to a map $L/Z(L) \times L/Z(L) \to Z(L)$. We list here many important
+conditions on $f$:
+
+\begin{enumerate}
+\item The {\em cocycle condition}: This is the condition that $f$ be a
+  cocycle for the trivial action of $L/Z(L)$ on $Z(L)$.
+\item The {\em half-Lie bracket condition}: This is the condition that
+  $2f$ be the Lie bracket.
+\item The {\em skew-symmetry condition}: This states that $f(y,x) =
+  -f(x,y)$.
+\item The {\em cyclicity-preserving condition}: This is the condition
+  that $f(x,y) = 0$ if $x$ and $y$ are both elements of a common
+  cyclic subgroup.
+\item The {\em commutativity-preserving condition}: This is the
+  condition that if $[x,y] = 0$, then $f(x,y) = 0$. Combined with (2),
+  this states that if $2f(x,y) = 0$, then $f(x,y) = 0$.
+\item The {\em bilinearity condition}: This states that $f$ is
+  bilinear.
+\item The {\em strong congruence condition}: This states that if
+  $[x,y] = 0$, then $f(x,z) = f(x,yz)$ for all $z$.
+\item The {\em subring-closure condition}: This states that
+  restricting $f$ to any subgroup of $P$ gives a map to within that
+  subgroup. (Here, we think of $f$ as a map on elements rather than
+  cosets, which we can do).
+\item The {\em quotient-closure condition}: This states that $f$
+  descends to any quotient.
+\item The {\em subquotient-closure condition}: This states that $f$
+  restricts-cum-descends to any subquotient.
+\end{enumerate}
+
+The observations are the same as before.
+
+\subsection{The theorems: Lie rings to groups}
+
+\begin{theorem}\label{lazardringtogroup1234}
+  $L$ is a Lie ring of order a power of $2$ and nilpotency class
+  two. Suppose $f$ is a $2$-cocycle from $L/Z(L)$ to $Z(L)$ satisfying
+  conditions (1)-(4). Then, $L$ has the structure of a group of
+  nilpotency class two with the following operations:
+
+  \begin{enumerate}
+  \item The identity element is the $0$ element of $L$.
+  \item The multiplicative inverse operation is the same as the
+    additive inverse operation.
+  \item The multiplication is defined by:
+
+    $$xy := x + y + f(x,y)$$
+
+  \item The commutator $[x,y]$ is defined as the Lie bracket $[x,y]$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Here is a broad sketch of the proof:
+  \begin{enumerate}
+  \item The cocycle condition on $f$ yields the associativity of
+    multiplication.
+  \item The cyclicity-preserving condition shows (1) and (2).
+  \item The half-Lie bracket condition on $f$, along with
+    cyclicity-preservation and the fact that $f$ is skew-symmetric,
+    yields that the commutator coincides with the Lie bracket.
+  \item The statements about the Lie bracket follow direcly form the
+    properties of class two.
+  \end{enumerate}
+
+  Let's execute these steps:
+
+  {\em Associativity of group multiplication}:
+
+  We have:
+
+  $$(xy)z = x + y + f(x,y) + z + f(x + y + f(x,y),z)$$
+
+  Since $f$ descends to the cosets of $Z(L)$, $f(x + y + f(x,y),z) =
+  f(x + y,z)$, and we obtain:
+
+  $$(xy)z = x + y + z + f(x,y) + f(x + y,z)$$
+
+  Similarly, we obtain:
+
+  $$x(yz) = x + y + z + f(x,y + z) + f(y,z)$$
+
+  The cocycle condition tells us that:
+
+  $$f(x,y) + f(x + y,z) = f(x,y + z) + f(y,z)$$
+
+  This yields associativity.
+
+  {\em Agreement of identity and inverses}: From
+  cyclicity-preservation, we see that $f(x,0) = f(0,x) = 0$ and
+  $f(x,-x) = 0$, so $x\cdot 0 = x + 0 + f(x,0) = x$, and similarly, $0
+  \cdot x = 0$. Also, we have $x \cdot (-x) = 0$.
+
+  {\em Agreement of commutator and Lie bracket}: The commutator is
+  $(xy)(yx)^{-1}$ which is $(xy)$ times $(-yx)$. We simplify and obtain:
+
+  $$(x + y + f(x,y)) - (y + x + f(y,x)) + f(x + y + f(x,y),-(y + x + f(y,x)))$$
+
+  We simplify to:
+
+  $$f(x,y) - f(y,x) + f(x + y + f(x,y),-(y + x + f(y,x))$$
+
+  Going to cosets of the center, we note that $f(x + y + f(x,y),-(y +
+  x + f(y,x)) = f(x + y, -(y + x)) = 0$ by cyclicity-preservation. We
+  thus get $f(x,y) - f(y,x)$, which, by skew-symmetry, is $2f(x,y) =
+  [x,y]$.
+
+  The statements about class two now follow directly.
+
+\end{proof}
+
+\section{$M_{16}$: a case study}
+
+\subsection{The Lie ring and the correspondence}
+
+In order to get a good hands-on feel of what the Lazard Lie rings look
+like for $2$-groups, we consider in detail the group $M_{16}$, given
+by the presentation (I use $e$ to denote the identity element):
+
+$$M_{16} := \langle a, x \mid a^8 = x^2 = e, xax = a^5 \rangle$$
+
+In commutator notation, this is:
+
+$$M_{16} := \langle a,x \mid a^8 = x^2 = e, [a,x] = a^4 \rangle$$
+
+Let $P = M_{16}$. $P$ is a group of nilpotency class two with the
+property that every proper subgroup and every proper quotient is
+abelian. (hence it is a minimal non-abelian group). The derived
+subgroup $\langle a^4 \rangle$ is cyclic of order two. The center
+$\langle a^2 \rangle$ is cyclic of order four. The quotient by the
+center is elementary abelian and is generated by the images of $a$ and
+$x$.
+
+The commutator map, viewed as a map from $P/Z(P) \times P/Z(P) \to
+Z(P)$, is:
+
+$$[a,a] = e, [x,x] = [ax,ax] = e, [a,x] = a^4, [x,a] = [ax,x] = [x,ax] = [ax,a] = [a,ax] = a^4$$
+
+The map $f$ must double to this map. The cyclicity-preserving
+condition on $f$ forces $f(a,a) = f(x,x) = f(ax,ax) = e$. Further, we have
+$f(x,a) = f(a,x)^{-1}$ and two similar relations. We also have, by the
+cocycle condition, that:
+
+$$f(a,x)f(ax,x) = f(a,x^2)f(x,x)$$
+
+Both terms on the right side becomes zero, so we obtain that:
+
+$$f(ax,x) = f(a,x)^{-1}$$
+
+Similarly, we obtain that:
+
+$$f(a,a)f(a^2,x) = f(a,ax)f(a,x)$$
+
+Thus yielding that $f(a,ax) = f(a,x)^{-1}$. Thus, the only choice we
+have is for $f(a,x)$. Note that this general procedure can be mimicked
+whenever $P/Z(P)$ is a Klein four-group.
+
+We choose $f(a,x) = a^2$. Note that the other choice -- $a^6$ -- in
+this case gives an isomorphic Lie ring, something we shall return to
+later.
+
+We thus obtain:
+
+$$f(a,x) = f(ax,a) = f(x,ax) = a^2, \qquad f(x,a) = f(a,ax) = f(ax,x) = a^6$$
+
+We can use this to work out the general addition rules:
+
+\begin{eqnarray*}
+  a^k + a^l & = & a^{k+l}\\
+  a^{2k} + a^lx & = & a^{2k+l}x\\
+  a^{2k+1} + a^{2l}x & = & a^{2k + 2l-1}x\\
+  a^{2k+1} + a^{2l+1}x & = & a^{2k + 2l + 4}x\\
+  a^{2k}x + a^{2l}x & = & a^{2k + 2l}\\
+  a^{2k+1}x + a^{2l}x & = & a^{2k+2l+3}\\
+  a^{2k+1}x + a^{2l+1}x & = & a^{2k+2l+6}
+\end{eqnarray*}
+
+Since these multiplication rules seem a little unintuitive, here is a
+different way of thinking of the Lie ring that is computationally
+easier. 
+
+We define the Lie ring additively as $\Z_8 \oplus \Z_2$, with the Lie
+bracket given by $[(1,0),(0,1)] = (4,0)$. The group elements are
+identified with the Lie ring as follows: $a^k = (k,0)$, $a^{2k}x =
+(2k,1)$, and $a^{2k+1}x = (2k+3,1)$.
+
+Alternatively, the Lie ring presentation is:
+
+$$\langle a,x \mid 8a = 2x = 0, [a,x] = 4a \rangle$$
+
+\subsection{The mirror Lie ring}
+
+Notice that we made a choice in setting $f(a,x) = a^2$ and we could
+have chosen $f(a,x) = a^6$. This alternative choice would have yielded
+an alternative construction. The Lie ring would turn out to be
+isomorphic to the original one, but the correspondence would be:
+
+$$a^k = (k,0), a^{2k}x = (2k,1), a^{2k+1}x = (2k-1,1)$$
+
+In other words, the twisting happens the other way. We can verify
+that, by conjugating by suitable automorphisms of the groups, these
+two correspondences are equivalent in all relevant respects. The
+important point, though, is that as a set map, the Lazard-like
+correspondence is {\em not} uniquely determined even in this simple
+case.
+
+\subsection{Investigating the conditions on $f$}
+
+By construction $f$ satisfies conditions (1)-(4) (which is why we were
+able to construct a Lie ring in the first place). We now turn
+attention to properties (5)-(10).
+
+$f$ does satisfy property (5) (commutativity-preservation) for the
+simple reason that there isn't enough space for anything else -- if
+two elements commute, they are in the same cyclic group modulo the
+center. This is true whenever $P/Z(P)$ is a Klein four-group.
+
+Thus, $f$ obviously cannot satisfy property (6) (because (6) is
+incompatible with (2) + (5)).
+
+$f$ does not satisfy property (7), the strong congruence
+condition. For instance, $f(a,x)$ is not the same as $f(a,ax)$ -- they
+are $a^2$ and $a^6$ respectively.
+
+$f$ satisfies property (8) because any proper subgroup is abelian and
+by property (5), as already mentioned, $f$ is zero on any abelian
+subgroup.
+
+$f$ satisfies property (9). However, something interesting
+happens. When we look at the quotient of the group $M_{16}$ by the
+derived subgroup, we get $\Z_4 \times \Z_2$, an abelian group. When we
+take the quotient for Lie rings, we get the abelian Lie ring $\Z_4
+\times \Z_2$. Naively, we might hope that the bijection between them
+is the usual identity map.
+
+However, the bijection comes with a little twist, and the reason for
+this is that, roughly speaking, when we descend to a quotient, the
+property of being cyclicity-preserving is not preserved. Down in the
+quotient, we have cases where $f$ takes as its values elements of
+order $2$. This spoils the Lie ring proof.
+
+More surprises of this sort routinely occur.
+
+\subsection{Investigating the Lazard correspondence further in this case}
+
+How far does the Lazard correspondence between $M_{16}$ and its Lazard
+Lie group extend? Let's recall some general features of the Lazard
+correspondence and see whether they apply in this case:
+
+\begin{enumerate}
+\item {\em Automorphisms}: Indeed, the automorphisms of the group
+  match those of its Lie ring.
+\item {\em Endomorphisms}: ? (probably yes)
+\item {\em Subgroups and subrings}: Yes, by theorem
+\item {\em Normal subgroups}: Yes, by theorem
+\item {\em Abelian subgroups}: Yes, by theorem
+\item {\em Cyclic subgroups and order statistics}
+\end{enumerate}
+
+\subsection{A small lemma and another group of order $16$}
+
+Here is a little lemma that essentially reworks all the detailed steps
+we traced through for $M_{16}$.
+
+\begin{lemma}
+  If $P$ is a group of order $16$ such that the center $Z(P)$ is a
+  cyclic group of order four and the derived subgroup is cyclic of
+  order two, then we can find a cocycle $f$ satisfying conditions
+  (1)-(4). Moreover, there are precisely two possibilities for $f$ and
+  they both give mirror Lie rings. Also, both these choices of $f$ are
+  commutativity-preserving.
+\end{lemma}
+
+\begin{proof}
+  Since $Z(P)$ has order $4$, $P/Z(P)$ is abelian of order four. It
+  cannot be cyclic, so it must be a Klein four-group. Further, the
+  derived subgroup must be contained in the center, hence it must be
+  the unique subgroup of order two inside the center. Let $a,x$ be
+  elements of $P$ whose images generate $P/Z(P)$ and let $y$ be a
+  generator of $Z(P)$. Then, we must have $[a,x] = [x,a] = [ax,x] =
+  [x,ax] = [ax,a] = [a,ax] = y^2$. We can now set $f(a,x) = y$, and
+  this forces $f(x,a) = y^{-1}$, $f(a,ax) = y^{-1}$, $f(ax,a) = y$,
+  $f(x,ax) = y$, $f(ax,x) = y^{-1}$. Alternatively, setting $f(a,x) =
+  y^{-1}$ inverts all the other values of $f$. We can also see that
+  either choice of $f$ is commutativity-preserving.
+\end{proof}
+
+There are precisely two isomorphism classes of groups of order $16$
+with centerof order four. One of these is $M_{16}$, which has been
+discussed above. The other group, $P$, can be described as a central
+product of $D_8$ and $\Z_4$ over a common central subgroup of order
+two. Explicitly:
+
+$$P := \langle a,x,y \mid a^4 = x^2 = e, a^2 = y^2, xax = a^{-1}, ay = ya, xy = yx \rangle$$
+
+This group $P$ has a corresponding Lie ring, whose additive group is
+$\Z_4 \oplus \Z_2 \oplus \Z_2$. Note that the letters $a$, $x$, $y$
+exactly match up with the letters in the lemma above, so it is easy to
+work out the cocycles.
+
+Note that unlike the case of $M_{16}$, $f$ does {\em not} satisfy the
+subgroup-closure condition on $P$. In particular, subgroups of $P$
+need not always be subrings of the corresponding Lie ring. This is
+unsurprising since $P$ contains such renegade subgroups as the
+dihedral group and the quaternion group, which are well-known for not
+having anything resembling a Lie ring. While this seems problematic
+from the perspective of $P$, it is actually a great way of
+disciplining groups such as $D_8$ and $Q_8$ with Lie structures.
+
+\section{General considerations}
+
+\subsection{1-isomorphisms, quasihomomorphisms, and order statistics}
+
+How far can we take the Lazard correspondence for $2$-groups and in
+general? While the considerations given so far are {\em expansive},
+describing how we can expand the Lazard correspondence to new
+situations, we now give certain {\em restrictive} conditions. These
+restrictive conditions help narrow the field of empirical
+investigation (for instance, when looking at groups of order $16$,
+$32$, and $64$) and allows us to zero in on important cases.
+
+We make the following temporary definitions (these definitions are not
+standard but are similar to some standard terms used in related areas,
+hence the names are plausible):
+
+\begin{enumerate}
+\item We say that two finite groups have the same {\em order
+  statistics}, or are {\em order statistics-equivalent}, if, for every
+  positive integer $d$, they have the same number of elements of order $d$.
+\item A set map $f:G \to H$ between groups is termed a {\em
+  1-isomorphism} if $f$ is bijective and it restricts to an
+  isomorphism (both ways) on cyclic subgroups. We say that two groups
+  are {\em 1-isomorphic} if there is a 1-isomorphism between
+  them. Clearly, 1-isomorphic finite groups have the same order statistics.
+\item A set map $f:G \to H$ is termed a {\em quasihomomorphism} if its
+  restriction to any abelian subgroup of $G$ is a homomorphism.
+\end{enumerate}
+
+In particular, we are interested in finite $p$-groups that:
+
+\begin{enumerate}
+\item are order statistics-equivalent to abelian $p$-groups (weakest
+  condition)
+\item are 1-isomorphic to abelian $p$-groups (intermediate condition)
+\item admit bijective quasihomomorphisms to abelian $p$-groups
+  (strongest condition)
+\end{enumerate}
+
+Lazard Lie groups as we usually understand them satisfy all three
+conditions, with the corresponding abelian group being the Lazard Lie
+ring. Note that this holds for class bigger than two as well.
+
+What about $2$-groups of class two? The version of the Lazard correspondence
+in Theorem \ref{lazardgrouptoring1234}, where we assumed conditions
+(1)-(4), guarantees that the given group of nilpotency class two is
+1-isomorphic to an abelian $p$-group, but does not guarantee a
+bijective quasihomomorphism. If, however, we additionally assume
+condition (5) (commutativity-preservation), the identification with
+the Lazard Lie ring is a bijective quasihomomorphism (theorem
+\ref{lazardgrouptoringmore}, part (1)). $M_{16}$ is thus a special case.
+
+This suggests that, in order to determine examples for theorem
+\ref{lazardgrouptoring1234}, we can use the following empirical sieve:
+restrict attention to finite $2$-groups $P$ such that $[P,P] \le
+\mho^1(Z(P))$ (which is necessary for a cocycle of the required type
+to exist) and such that the group has the same order statistics as an
+abelian $2$-group. The advantage of these two conditions is that they
+can be used very quickly to filter out most groups given a computer or
+a classification by hand. The study of the few remaining cases for
+order $16$ and order $32$ are discussed in the next few sections.
+
+
+\subsection{Order $16$: groups with the same order statistics as abelian groups}
+
+We discussed earlier that there are exactly two isomorphism classes of
+groups of order $16$ whose center is cyclic of order four, and that we
+can construct Lie rings for these. These two groups are $M_{16}$ and
+the central product of $D_8$ and $\Z_4$. We now show that no other
+non-abelian groups of order $16$ come even close to having Lazard Lie
+rings -- because no other non-abelian group is 1-isomorphic to an
+abelian group of order $16$. More details are given below.
+
+(MOre )A link to more detailed A A
+There are the following five non-abelian groups of order $16$ that
+have the same order statistics as an abelian group:
+
+\begin{enumerate}
+\item $M_{16}$, which has been discussed above. It has $\Z_8 \times
+  \Z_2$ as the additive group of its Lazard Lie ring. Thus, it admits
+  a bijective quasihomomorphism to $\Z_8 \times \Z_2$ and is in
+  particular 1-isomorphic to that group.
+\item The group that can be described as the central product of $D_8$
+  and $\Z_4$ with common center cyclic of order two. It can also be
+  described as the central product of the quaternion group and $\Z_4$
+  with common center cyclic of order two. It has $\Z_4 \oplus \Z_2
+  \oplus \Z_2$ as the additive group of its Lazard Lie ring, and thus
+  admits a bijective quasihomomorphism to that abelian group.
+\item A group with presentation $\langle a,b,c \mid a^4 = b^2 =
+  c^2 = e, ab = ba, bc = cb, cac^{-1} = ab \rangle$. This has the same
+  order statistics as $\Z_4 \times \Z_2 \times \Z_2$ but is not
+  1-isomorphic to it because it has two non-identity elements that are
+  squares, unlike $\Z_4 \times \Z_2 \times \Z_2$.
+\item The group that can be described as the nontrivial semidirect
+  product of $\Z_4$ and $\Z_4$. This has the same order statistics as
+  $\Z_4 \times \Z_4$ but is not 1-isomorphic to it because it has two
+  non-identity elements that are squares, unlike $\Z_4 \times \Z_4$
+  which has three such elements.
+\item The group that can be described as the direct product $Q_8
+  \times \Z_2$. This has the same order statistics as $\Z_4 \times
+  \Z_4$ but is not 1-isomorphic to it because it has only one
+  non-identity element that is a square, unlike $\Z_4 \times \Z_4$
+  which has three such elements.
+\end{enumerate}
+
+Of the remaining groups $9$ groups of order $16$, three are abelian,
+one is $D_8 \times \Z_2$, and the other three are the maximal class
+groups ($D_{16}$, $SD_{16}$, and $Q_{16}$) -- clearly, none of the
+non-abelian groups among these has the same order statistics as an
+abelian group.
+
+\subsection{Caught in a Lie ring at last: $D_8$ and $Q_8$}
+
+Groups that are not order statistics-equivalent to abelian $p$-groups
+cannot have Lie rings of their own in the sense that we have been
+describing. However, this can be remedied if these groups can be
+realized as {\em subgroups} inside bigger groups that have Lazard Lie
+rings in the weak sense described by \ref{lazardgrouptoring1234}, but
+without the subgroup-closure condition.
+
+Consider, for instance, the group $P$ described a little earlier:
+
+$$P := \langle a,x,y \mid a^4 = x^2 = e, a^2 = y^2, xax^{-1} = a^{-1}, xy = yx, ay = ya\rangle$$
+
+$P$ contains a subgroup $\langle a,x\rangle$ isomorphic to $D_8$ (in
+fact, it contains three such subgroups related by outer
+automorphisms). $P$ also contains a subgroup $\langle a, xy \rangle$
+which is the unique subgroup isomorphic to a quaternion group. Its
+non-central elements are $a,a^3, xy, a^2xy, axy, a^3xy$.
+
+Since we have $f(a,x) = y$, neither the dihedral nor the quaternionic
+subgroups are closed under $f$. Thus, they are not Lie
+subrings. However, the addition is {\em partially defined}. It is
+likely that this approach to a patchy version of a Lie ring structure
+can be related to other such approaches in the past. For instance,
+Glauberman's approach (give refs) uses abelian normal subgroups and
+more generally, normal subgroups of small nilpotency class that
+generate the whole group. The approach here uses {\em supergroups}
+rather than {\em subgroups} to give a patchy Lie structure, but it
+might agree on some specifics.
+
+I intend to work out the example of this group $P$ in more detail,
+since it probably holds the key to many other similar examples for
+larger groups.
+
+\section{Questions raised}
+
+\subsection{Specific questions}
+
+These are very specific questions that will either have a {\em yes}
+answer with a proof or a {\em no} answer with an explicit
+counterexample.
+
+\begin{enumerate}
+\item Suppose $P$ is a finite $2$-group satisfying $[P,P] \le
+  \mho^1(Z(P))$. Is it necessary that $P$ has a Lazard Lie ring in the
+  sense of theorem \ref{lazardgrouptoring1234}? Specifically, does $P$
+  have the necessary cocycle by which we can carry out the
+  construction? 
+
+  My guess is {\em no}, but the counterexamples would probably be of
+  order $64$ or higher. The idea would be to have a lot of commutators
+  clashing to the same value in a manner that taking square roots gives
+  a collection of mutually inconsistent constraints.
+\item Suppose $L$ is a finite Lie ring of order a power of $2$ such
+  that $[L,L] \le \mho^1(Z(L))$. Is it necessary that $L$ has a Lazard
+  Lie group in the sense of theorem
+  \ref{lazardringtogroup1234}. Specifically, does $L$ have the
+  necessary cocycle by which we can carry out the construction?
+
+  My guess is {\em no}, for reasons similar to those in the previous
+  part.
+\item Suppose we have two Lazard Lie rings arising for a group from
+  different choices of cocycle in theorem \ref{lazardgrouptoring1234}?
+  Must they be isomorphic? (This is equivalent to asking whether two
+  different Lie rings can give rise to isomorphic Lazard Lie groups).
+
+  My guess is {\em no}.
+\item Suppose we have two Lazard Lie groups arising from a Lie ring
+  for different choices of cocycle in theorem
+  \ref{lazardgrouptoring1234}. Must they be isomorphic? (This is
+  equivalent to asking whether two different group can give rise to
+  isomorphic Lazard Lie rings).
+
+  My guess is {\em no}.
+\item If a finite $2$-group of class two is 1-isomorphic to an abelian
+  $2$-group, must it admit a Lazard Lie ring?
+\item If a finite $2$-group has a bijective quasihomomorphism to an
+  abelian group, must this homomorphism correspond to a Lazard Lie
+  ring construction?
+\item Is every finite $2$-group of class two a subgroup of a finite
+  $2$-group that admits a Lazard Lie ring in the sense of theorem
+  \ref{lazardgrouptoring1234}?
+\end{enumerate}
+
+\subsection{More open-ended questions}
+
+Here are some:
+
+\begin{enumerate}
+\item How does the construction here generalize to nilpotency class
+  $3$ or higher for $2$-groups? Does it involve more cocycles?
+\item How does the construction generalize to nilpotency class $p$ or
+  higher for $p$-groups?
+\item We see that the correspondence fails to perfectly match
+  subgroups to subrings, because the subgroup-closure condition is
+  violated. Can we better characterize these patchy sort-of subrings
+  in the Lie ring that correspond to subgroups of the Lazard Lie group?
+\item One of the problems with descending to quotients is that the
+  cyclicity-preserving condition is not preserved when we pass to
+  quotients. What is the best way to think about this and/or to
+  rectify this? Is there a procedure for rectifying a cocycle that is
+  not cyclicity-preserving to get one that is?
+\end{enumerate}
+
+\section{Groups of order $32$}
+
+\subsection{A metacyclic construction}
+
+The construction of the Lazard Lie ring for $M_{16}$ can be
+generalized to any group $P$ of the form:
+
+$$P := \langle a,x \mid a^{2^m} = x^{2^n} = e, xax^{-1} = a^{2^l + 1} \rangle$$
+
+where $m$, $n$, $l$ are positive integers with $2l + 1 \le n$.
+
+The corresponding Lie ring $L$ is $\Z_{2^m} \oplus \Z_{2^n}$ with the
+Lie bracket of the two generators being $2^l$ times the first
+generator. (I need to insert more details on what $f$ is).
+
+We now move to the groups of order $32$. We list here the various
+obvious possibilities for non-abelian groups of class two admitting
+Lazard Lie rings in the sense of theorem \ref{lazardgrouptoring1234}.
+
+\begin{enumerate}
+\item The direct product of $M_{16}$ and $\Z_2$ admits a Lazard Lie
+  ring which is the direct product of the Lazard Lie ring for $M_{16}$
+  and $\Z_2$. The additive group of this is $\Z_8 \times \Z_2 \times
+  \Z_2$. (for GAP reference: ID 36 for the abelian group and 37 for
+  $M_{16} \times \Z_2$).
+\item The direct product of the group $D_8 *_{\Z_2} \Z_4$ (the other
+  group of order $16$ admitting a Lazard Lie ring) with $\Z_2$ also
+  admits a Lazard Lie ring. The additive group is $\Z_4 \times
+  E_8$. (for GAP reference: ID 45 for the abelian group and 48 for the
+  non-abelian group).
+\item The group $M_{32}$ admits a Lazard Lie ring (using the general
+  metacyclic construction). The additive group of this is $\Z_{16}
+  \times \Z_2$. (for GAP reference: ID 16 for the abelian group and 17
+  for $M_{32}$).
+\item The semidirect product $\Z_8 \rtimes \Z_4$ where the generator
+  of $\Z_4$ acts by the multiplication by $5$ map, admits a Lazard Lie
+  ring (again by the metacyclic construction) whose additive group is
+  isomorphic to $\Z_8 \times \Z_4$. (for GAP reference: ID 3 and ID 4).
+\end{enumerate}
+
+Do these ``obvious'' examples of Lazard Lie groups exhaust all the
+Lazard Lie groups of order $32$? 
+
+As before, we first filter out the groups $P$ that satisfy the
+property that $P' \le \mho^1(Z(P))$. It turns out that all these
+groups are okay with respect to order statistics. There are only two
+non-abelian groups among these that are not covered in the above
+list. These two non-abelian groups are described by presentations
+below:
+
+$$\langle a,b,c \mid a^4 = b^4 = c^2 = e, ab = ba, ac = ca, cbc^{-1} = a^2b \rangle$$
+
+(has GAP ID 24 and has the same order statistics as $\Z_4 \times \Z_4
+\times \Z_2$)
+
+and
+
+$$\langle a,b,c \mid a^8 = b^2 = c^2 = e, ab = ba, cbc^{-1} = a^4b, cac^{-1} = a^5 \rangle$$
+
+(has GAP ID 38 and has the same order statistics as $\Z_8 \times \Z_2
+\times \Z_2$). I haven't yet been able to figure out more about the
+first group, so I turn now to the second group.
+
+\subsection{More information on groups of order $32$}
+
+Here's what I found via GAP for non-abelian groups:
+
+\begin{itemize}
+\item The derived subgroup in agemo subgroup of center ($P' \le
+  \mho^1(Z(P))$) gives precisely the six groups above: GAP IDs 4, 17, 24,
+  37, 38, 48.
+\item The condition that order statistics match those of an abelian
+  group gives 18 groups, including the above six and ten more, with
+  GAP IDs 2, 5, 8, 12, 22, 23, 28, 29, 33, 47. It turns out that the
+  group with GAP ID 8 has nilpotency class three, while all the others
+  have nilpotency class two.
+\item The condition that the order root statistics match those of an
+  abelian group gives 8 groups, including the six in point (1) and the
+  groups with GAP IDs 2 and 33.
+\end{itemize}
+\subsection{The group that is sort of like $M_{16} \times \Z_2$}
+
+Define:
+
+$$P := \langle a,b,c \mid a^8 = b^2 = c^2 = e, ab = ba, cbc^{-1} = a^4b, cac^{-1} = a^5 \rangle$$
+
+$P$ looks a lot like $M_{16} \times \Z_2$ (GAP ID: 37). In fact, if
+the relation $cbc^{-1} = a^4b$ were replcaed by the relation $cbc^{-1}
+= b$, then we would get $M_{16} \times \Z_2$.
+
+There is probably an alternative presentation of $P$ that casts more
+insight. This is something I will return to later.
+
+\section{Groups of order $64$}
+
+These are dumps from a GAP investigation.
+
+Here are the GAP IDs of all the non-abelian groups with the same order
+statistics as an abelian group (there are 88 of them):
+
+3, 4, 5, 15, 16, 17, 23, 24, 25, 27, 28, 29, 30, 31, 44, 45, 51, 56,
+57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 69, 70, 72, 73, 74, 76,
+77, 78, 79, 80, 81, 82, 84, 85, 86, 87, 88, 89, 91, 93, 94, 103,
+104, 105, 112, 113, 114, 152, 154, 184, 185, 193, 194, 195, 197,
+198, 200, 201, 203, 204, 208, 209, 210, 212, 214, 215, 216, 217,
+220, 222, 223, 224, 225, 247, 248, 249, 262, 263, 266
+
+Of these, 73 have class two, and these have group IDs:
+
+3, 17, 27, 28, 29, 44, 51, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66,
+68, 69, 70, 72, 73, 74, 76, 77, 78, 79, 80, 81, 82, 84, 85, 86, 87,
+88, 89, 103, 104, 105, 112, 113, 114, 184, 185, 193, 194, 195, 197,
+198, 200, 201, 203, 204, 208, 209, 210, 212, 214, 215, 216, 217, 220,
+222, 223, 224, 225, 247, 248, 249, 262, 263, 266
+
+The remaining 15 have nilpotency class exactly three, and these have group IDs:
+
+4, 5, 15, 16, 23, 24, 25, 30, 31, 45, 91, 93, 94, 152, 154
+
+Here are the GAP IDs of all the non-abelian groups with the same order
+root statistics as an abelian group (there are 33 of them):
+
+3, 17, 25, 27, 28, 51, 56, 57, 61, 64, 77, 82, 84, 85, 86, 112, 113,
+114, 184, 185, 195, 198, 201, 209, 210, 217, 220, 223, 247, 248, 249,
+263, 266
+
+Of these, 32 have nilpotency class two, and there is one group of
+nilpotency class three. This has group ID 25.
+
+Finally, there are 17 groups that satisfy the property that the
+derived subgroup is contained in the first agemo subgroup of the
+center, with group IDs:
+
+3, 27, 51, 57, 84, 85, 86, 112, 184, 185, 195, 198, 247, 248, 249, 263, 266
+
+and all of them have the same order root statistics as some abelian group.
+
+\section{Groups of order $128$}
+
+There are $50$ non-abelian groups of order $128$ whose derived
+subgroup is contained in the first agemo subgroup of the center. Here
+are the IDs:
+
+43, 44, 129, 130, 160, 180, 181, 182, 183, 184, 185, 186, 187, 457,
+458, 476, 479, 838, 839, 840, 842, 894, 989, 990, 999, 1002, 1602,
+1603, 1604, 1605, 1606, 1607, 1649, 1652, 1654, 1696, 1697, 2137,
+2138, 2139, 2153, 2156, 2160, 2176, 2302, 2303, 2304, 2305, 2322, 2325
+
+It is also true that each of these have the same order root statistics
+as an abelian group. This means that we cannot rule out the
+possibility that it actually arises as a Lazard Lie ring.
+
+\end{document}

@@ -1,0 +1,101 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul}
+
+%Title details
+\title{Lie cring: key results}
+\author{Vipul Naik}
+
+%List of new commands
+\newcommand{\Skew}{\operatorname{Skew}}
+
+\begin{document}
+\maketitle
+
+\section*{Generic facts with precise statements and wide-ranging consequences}
+
+Below is a list of nontrivial results for which we have precise
+statements of and (almost) have proofs of. Most of these are
+formulated in the language of crings, which is a nice structure; many
+of them have alternative phrasings that don't involve any cring
+terminology.
+
+\begin{enumerate}
+
+\item If we start with a cring and take its skew, we get something
+  distributive (easy to prove, not impressive per se)
+
+\item Two near-Lie crings are homologous if and only if they have the same
+  skew (can be formulated without using the "cring" terminology) (tricky
+  to prove, has deeper implications about "uniqueness" of division by
+  two)
+
+\item For the BCH formula, the denominators grow slowly enough for us
+  to make "smooth" versions of these that give us potential formulas
+  for crings. (Not our result; this is the one proved by Alekseev,
+  though it was probably shown originally by Lazard.)
+
+\item The 2-smooth version of the BCH formula, if applied to a
+  nilpotent near-Lie cring (satisfying 3-additivity and 3-skew
+  symmetry), gives a group. In other words, exponentiation of a
+  nilpotent near-Lie cring works and gives a group: We have a schema for
+  the proof, but need to figure out exactly how to write it. We have
+  explicit proofs for class two and class three.
+
+\item If we start with a nilpotent near-Lie cring (satisfying
+  3-additivity and 3-skew symmetry) of class $n$, we can skew it to
+  get a Lie ring, and use the 2-smooth BCH formula to get a group. The
+  Lie ring and the group have exactly the same nilpotency class, and
+  this is $\le n$, possibly smaller. So, we could have a class $k$
+  group with a class $k$ Lie ring but the Lie cring we need to go via
+  has class three: We don't have a general proof, but some
+  computations that suggest how a general proof would proceed.
+
+\end{enumerate}
+
+\section*{Generic facts we don't have precise statements for yet}
+
+These are all contingent on a definition of prings: A ring along with
+a piece of information that plays the role of ``division by $p$''. For
+$p = 2$, a pring should just turn out to be a cring. 
+
+\begin{enumerate}
+\item Analogue to (4) above: The $p$-smooth version of the BCH formula,
+  if applied to a (near-?)Lie pring, gives a group. We have some idea
+  of what this might mean and why it might be true, but need to
+  formulate definitions more clearly.
+\item Analogue to (5) above.
+\end{enumerate}
+
+\section*{Interpretation in finite groups, $2$-groups, etc.}
+
+The key for all points below is that the existence of a cring/pring
+gives a corresponding Lie ring, and a $1$-isomorphism between the
+additive group of the Lie ring (same as that of the cring/pring) and
+the group. Thus, it provides {\em an explanation of $1$-isomorphisms}.
+\begin{enumerate}
+\item Existence of class two Lie crings and near-Lie crings
+  interpreted in terms of extension theory, cohomology, and splitting.
+\item Necessary and sufficient condition for class two $2$-group to
+  have class two Lie cring: $P' \le \mho^1(Z(P))$. Necessity pretty
+  much clear with the definitional setup, sufficiency requires some
+  cool basic linear algebra manipulation to construct cocycles.
+\item Some sufficient conditions, and other necessary conditions, for
+  class two $2$-group to have class two near-Lie crings. There is
+  quite a gap here between the necessary and the sufficient.
+\item All $1$-isomorphisms between abelian and non-abelian groups
+  ``explained'' via crings for orders $16$ and $32$. Probably all for
+  order $64$ too? Still under investigation. True in general? What
+  about $1$-isomorphisms between non-abelian pairs? What about
+  $1$-isomorphisms for odd $p$ that are outside the scope of the
+  Lazard correspondence?
+\item Also gives an explanation for the absence of $1$-isomorphisms
+  and ``Lie rings'' for many groups, in terms of cohomology theory,
+  and in terms of the existence of crings that are not nilpotent.
+\item Lie trings (prings for $p = 3$) explain {\em some}
+  $1$-isomorphisms for order $3^5$, but probably not all. Need notion
+  of {\em near}-Lie pring/tring?
+\end{enumerate}
+
+\end{document}

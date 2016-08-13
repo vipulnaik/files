@@ -1,0 +1,2043 @@
+\section{Background definitions and basic theory}\label{appsec:background-grouptheory}
+
+\subsection{Rings and associativity}
+
+A {\em ring} is an abelian group $R$ (with the abelian group operation
+denoted additively) equipped with a $\mathbb{Z}$-bilinear operation $R
+\times R \to R$ called the ring multiplication. Here,
+``$\mathbb{Z}$-bilinear'' is equivalent to the left and right
+distributivity laws. The multiplication operation of a ring may be
+denoted by an explicit multiplicative symbol such as $*$ or $\cdot$
+but it will often be denoted by concatenation (also known as
+juxtaposition), i.e., we will denote by $ab$ the image of $(a,b)$.
+
+An {\em associative} ring is a ring where the multiplication is
+associative. With the notation above, $R$ is associative if the
+following holds:
+
+$$(ab)c = a(bc) \ \forall \ a,b,c \in R$$
+
+Note that we do {\em not} assume associativity as part of the
+definition of ring. Thus, our definition of ring includes associative
+rings, Lie rings, and other kinds of rings. The use of concatenation
+can be misleading in the non-associative case, because the string
+$abc$ has two differing interpretations: $(ab)c$ versus $a(bc)$. When
+considering products of length more than two in a non-associative
+ring, we must take care to use parentheses to clarify the order of
+operations.
+
+Note that when we use the term ``commutative unital ring'' we are by
+default referring to rings that are both commutative and associative
+ and where the ring multiplication has an identity element, that we
+denote as $1$.
+
+\subsection{Algebras over a commutative unital ring}
+
+Suppose $R$ is a commutative (associative) unital ring. An {\em algebra
+  over $R$}, also called a $R$-algebra, is a $R$-module $A$ equipped
+with a $R$-bilinear operation $A \times A \to A$ called the
+multiplication or product. Note that any algebra over $R$ is naturally
+also a ring. If the multiplication of $A$ is associative, we say that
+$A$ is an {\em associative algebra} over $R$. We can in fact define a
+ring as a $\Z$-algebra.
+
+\subsection{Structure constants and multilinear identities}
+
+Suppose $R$ is a commutative (associative) unital ring and $A$, $B$,
+$C$ are $R$-modules, with $f:A \times B \to C$ a $R$-bilinear
+map. Suppose $(a_i), (b_j),(c_k)$ form generating sets for $A$, $B$,
+and $C$ as $R$-modules. We can find values $\lambda_{ij}^k \in R$,
+called the {\em structure constants} of $f$, such that the following
+holds for all $i,j$:
+
+$$f(a_i,b_j) = \sum_k \lambda_{ij}^k c_k$$
+
+Note that the structure constants need not be uniquely determined by
+the knowledge of $f$ and the generating sets. However, in the case
+that $C$ is a free $R$-module and the $(c_k)$ form a freely generating
+set for $C$, the structure constants are uniquely determined by $f$
+and the choice of generating sets. The converse is always true: if we
+are given the structure constants and the generating sets, $f$ is
+uniquely determined.
+
+The typical case where we talk of structure constants is where $A$,
+$B$, and $C$ are all free $R$-modules and each of the generating sets
+is a {\em freely generating set}. In this case, {\em every} possible
+tuple of values for $\lambda_{ij}^k$ can be realized via a bilinear
+map. A further special case of this is where $R$ is a field. In this
+case, all $R$-modules are free (explicitly, they are vector spaces
+over the field, and each generating set is a basis for the
+corresponding vector space).
+
+In particular, given an algebra $A$ over a commutative unital ring $R$
+such that the additive group of $A$ is a free $R$-module, we can
+describe $A$ by choosing a freely generating set for it and then using
+structure constants for the multiplication of $A$. In this case, we
+will call the structure constants for the multiplication of $A$ the
+structure constants of $A$.
+
+\subsection{Lie rings}\label{appsec:Lie}
+
+A {\em Lie ring} is defined as an abelian group $L$ equipped with a
+$\mathbb{Z}$-bilinear map $[ \ , \ ]:L \times L \to L$ called the {\em
+  Lie bracket} satisfying the following conditions:
+
+\begin{itemize}
+\item {\em Alternating property}: $[x,x] = 0$ for all $x \in L$. It
+  also follows from this that $[x,y] = -[y,x]$ for all $x,y \in
+  L$. The latter condition is termed {\em skew symmetry}. The proof of
+  the implication uses that $[ \ , \ ]$ is $\Z$-bilinear. Explicitly,
+  the proof uses $\Z$-bilinearity to show that $[x,y] + [y,x] =
+  [x+y,x+y] - [x,x] - [y,y]$, and we then note that the right side is
+  zero by the alternating property.
+
+  The converse implication does not hold, i.e., skew symmetry does not
+  imply the alternating property, although it does so if $L$ is
+  $2$-torsion-free. Explicitly, $[x,y] = -[y,x]$ for all $x,y$ implies
+  that $[x,x] = -[x,x]$ for all $x$, so $2[x,x] = 0$. In the case that
+  $L$ is torsion-free, this implies that $[x,x] = 0$.
+\item {\em Jacobi identity}: There are two versions, both of which are
+  equivalent under skew symmetry (and hence under the alternating
+  property):
+  \begin{itemize}
+  \item {\em Left normed Jacobi identity}: $[[x,y],z] + [[y,z],x] +
+    [[z,x],y] = 0$ for all $x,y,z \in L$.
+  \item {\em Right normed Jacobi identity}: $[x,[y,z]] + [y,[z,x]] +
+    [z,[x,y]] = 0$ for all $x,y,z \in L$.
+  \end{itemize}
+\end{itemize}
+
+Let $R$ be a commutative (associative) unital ring. A {\em Lie
+  algebra} over $R$ is a $R$-module $L$ equipped with a $R$-bilinear
+map $[ \ , \ ]:L \times L \to L$ called the {\em Lie bracket}
+satisfying the two conditions above, namely, the alternating property
+and the Jacobi identity.
+
+Note in particular that any $R$-Lie algebra can naturally be viewed as
+a Lie ring. A Lie ring can be defined as a $\Z$-Lie algebra.
+
+The following additional definitions are useful:
+
+\begin{itemize}
+\item {\em Subring of a Lie ring}: A subset $S$ of a Lie ring is
+  termed a {\em subring} (or {\em Lie subring}) if it is an additive
+  subgroup of $L$ and is closed under the Lie bracket, i.e., $[x,y]
+  \in S$ for all $x,y \in S$.
+\item {\em Ideal of a Lie ring}: A subset $I$ of a Lie ring $L$ is
+  termed an {\em ideal} if $I$ is an additive subgroup of $L$ and
+  $[x,y] \in I$ for all $x \in I$, $y \in L$.
+
+  Any ideal is a subring, but a subring need not be an ideal.
+\item {\em Homomorphism of Lie rings}: Given Lie ring $L_1$ and $L_2$,
+  a {\em homomorphism} from $L_1$ to $L_2$ is a set map $\varphi:L_1
+  \to L_2$ that is a homomorphism between $L_1$ and $L_2$ as groups
+  and such that $\varphi([x,y]) = [\varphi(x),\varphi(y)]$ for all $x,y \in L$.
+\item {\em Quotient Lie ring}: Given a Lie ring $L$ and an ideal $I$
+  of $L$, the quotient group $L/I$ naturally inherits the structure of
+  a Lie ring from $L$.
+\end{itemize}
+
+We can also define corresponding notions of subalgebra of a Lie
+algebra, ideal of a Lie algebra, homomorphism of Lie algebras, and
+quotient Lie algebra, all in the context of a $R$-Lie algebra for a
+commutative (associative) unital ring $R$.
+
+There are analogues in Lie rings (and also in $R$-Lie algebras) of the
+four isomorphism theorems for groups.
+
+\subsection{The relationship between Lie rings and Lie algebras}
+
+Most of the basic ideas and definitions associated with Lie rings
+(that we can think of as $\Z$-Lie algebras) generalize to $R$-Lie
+algebras for any commutative (associative) unital ring $R$. In the
+Appendix, we discuss how the definitions for Lie rings relate to
+corresponding definitions for $R$-Lie algebras. However, all the
+definitions and results in the main document are framed in terms of
+Lie rings. 
+
+Many of the results in the main document generalize to Lie
+algebras. However, to correctly generalize the main results (which are
+about correspondences between groups and Lie rings) we need to develop
+a concept of a group powered over an arbitrary commutative
+(associative) unital ring. %%TODO: Link to appendix section
+
+\subsection{Verification of multilinear identities: associativity and the Jacobi identity}\label{appsec:multilinear}
+
+Suppose $R$ is a commutative unital ring and $M$ is a $R$-module. We
+use the term $R$-{\em multilinear identity} for an identity of the
+form:
+
+$$F(x_1,x_2,\dots,x_n) = 0$$
+
+where $F: M \times M \times \dots \times M \to M$ is $R$-linear in
+each coordinate. We say that the identity holds in $M$ if the above
+holds for all $x_1,x_2,\dots,x_n \in M$, i.e., $F$ is identically the
+zero function.
+
+For any commutative unital ring $R$ and any $R$-algebra $A$,
+associativity of $A$ is a $R$-multilinear identity (that may or may
+not hold for $A$). Similarly, the left-normed Jacobi identity for $A$
+is a $R$-multilinear identity (that may or may not hold for $A$).
+
+For any $R$-multilinear identity being considered on a $R$-module $M$,
+the following are true:
+
+\begin{itemize}
+\item It suffices to verify the identity on a generating set for $M$
+  as a $R$-module, i.e., it suffices to verify the identity for each
+  $x_i$ varying arbitrarily over a generating set for $M$ as a
+  $R$-module.
+\item In the case that $M$ is a free $R$-module and the multilinear
+  operation $F$ is built from a $R$-bilinear operation $f: M \times M
+  \to M$, the multilinear identity reduces to a polynomial condition
+  in terms of the structure constants for $f$ (this will be clearer
+  from the examples below).
+\end{itemize}
+
+Suppose $R$ is a commutative unital ring and $A$ is a $R$-algebra with
+multiplication $*$, i.e., $A$ is a $R$-module and $*:A \times A \to A$
+is a $R$-bilinear map. The {\em associator} of $*$ is a $R$-trilinear
+function $a: A \times A \times A \to A$ defined as:
+
+$$a(x,y,z) := ((x * y) * z) - (x * (y * z))$$
+
+$*$ is associative if and only if $a$ is the zero function. In order
+to verify that $a$ is the zero function, it suffices to choose a
+generating set $S$ for $A$ as a $R$-module and then verify that
+$a(x,y,z) = 0$ for all $x,y,z \in S$.
+
+In the case that $A$ is a free $R$-module with freely generating set
+$e_i, i \in I$ and structure constants $\lambda_{ij}^k$ for the
+multiplication, the associativity condition can be written as follows,
+for all $i,j,k,l \in I$:
+
+$$\sum_{m \in I} \lambda_{ij}^m\lambda_{mk}^l = \sum_{m \in I} \lambda_{im}^l \lambda_{jk}^m$$
+
+Suppose $R$ is a commutative unital ring and $L$ is a $R$-algebra with
+multiplication denoted by a bracket $[ \ , \ ]$. The left-normed and
+right-normed Jacobi identities respectively mean that the following
+$R$-trilinear functions are zero everywhere:
+
+\begin{eqnarray*}
+  J_l(x,y,z) & = & [[x,y],z] + [[y,z],x] + [[z,x],y]\\
+  J_r(x,y,z) & = & [x,[y,z]] + [y,[z,x]] + [z,[x,y]]\\
+\end{eqnarray*}
+
+In order to verify either of these identities, it suffices to verify
+it on a generating set for $L$ as a $R$-module. Explicitly, if $S$
+generates $L$ as a $R$-module, then $J_l(x,y,z) = 0$ for all $x,y,z
+\in L$ if and only if $J_l(x,y,z) = 0$ for all $x,y,z \in
+S$. Similarly, $J_r(x,y,z) = 0$ for all $x,y,z \in L$ if and only if
+$J_r(x,y,z) = 0$ for all $x,y,z \in S$.
+
+In the case that $L$ is free as a $R$-module, the left-normed and
+right-normed Jacobi identities can be verified in terms of the
+structure constants. Explicitly, if $e_i, i \in I$ form a freely
+generating set for $L$, and $\lambda_{ij}^k$ denote the structure
+constants, then the following hold:
+
+\begin{itemize}
+\item The left-normed Jacobi identity is equivalent to the condition that:
+
+  $$\sum_{m \in I} (\lambda_{ij}^m\lambda_{mk}^l + \lambda_{jk}^m\lambda_{mi}^l + \lambda_{ki}^m\lambda_{mj}^l) = 0$$
+
+\item The right-normed Jacobi identity is equivalent to the condition
+  that:
+
+  $$\sum_{m \in I} (\lambda_{im}^l\lambda_{jk}^m + \lambda_{jm}^l\lambda_{ki}^m + \lambda_{km}^l\lambda_{ij}^m) = 0$$
+\end{itemize}
+
+%\newpage
+
+\section{Abstract nonsense}\label{appsec:abstract-nonsense}
+
+\subsection{Basic category theory: categories, functors, and natural transformations}\label{appsec:category}
+
+We define here three foundational ideas of category theory:
+categories, functors, and natural transformations.
+
+\subsubsection{Definition of category}
+
+A {\em category} $\mathcal{C}$ is the following data:
+
+\begin{itemize}
+\item {\em Objects}: A collection $\operatorname{Ob}\mathcal{C}$ of
+  objects.\footnote{There are some set theory paradoxes due to which
+    we are using the term ``collection'' rather than ``set'' here.}
+\item {\em Morphisms}: For any objects $A,B \in
+  \operatorname{Ob}\mathcal{C}$, a collection $\mathcal{C}(A,B)$ of
+  morphisms. Every element in $\mathcal{C}(A,B)$ is termed a {\em
+    morphism} from $A$ (i.e., with source or domain $A$) to $B$ (i.e.,
+  with target or co-domain $B$). The morphism sets for different pairs
+  of objects are disjoint. Note that $f \in \mathcal{C}(A,B)$ is also
+  written as $f:A \to B$. The collection $\mathcal{C}(A,B)$ is
+  sometimes also denoted $\operatorname{Hom}_{\mathcal{C}}(A,B)$ or
+  simply $\operatorname{Hom}(A,B)$.
+\item {\em Identity morphism}: For every object $A \in
+  \operatorname{Ob}\mathcal{C}$, a distinguished morphism
+  $\operatorname{id}_A \in \mathcal{C}(A,A)$. This is called the
+  identity morphism of $A$.
+\item {\em Composition rule}: For $A,B,C \in
+  \operatorname{Ob}\mathcal{C}$, a map, called {\em composition of
+  morphisms}, from $\mathcal{C}(B,C) \times \mathcal{C}(A,B)$ to
+  $\mathcal{C}(A,C)$. This map is denoted by $\circ$.
+\end{itemize}
+
+satisfying the following compatibility conditions:
+
+\begin{itemize}
+\item {\em Associativity of composition}: For $A,B,C,D \in
+  \operatorname{Ob}\mathcal{C}$, with $f \in \mathcal{C}(A,B), g \in
+  \mathcal{C}(B,C), h \in \mathcal{C}(C,D)$, we have $h \circ (g \circ
+  f) = (h \circ g) \circ f$.
+\item {\em Identity behaves as an identity}: For $A,B \in
+  \operatorname{Ob}\mathcal{C}$, with $f \in \mathcal{C}(A,B)$, we
+  have $f \circ \operatorname{id}_A = \operatorname{id}_B \circ f =
+  f$.
+\end{itemize}
+
+We will also use the following terms:
+
+\begin{itemize}
+\item For $A \in \operatorname{Ob}\mathcal{C}$, an {\em endomorphism}
+  of $A$ is defined as an element of $\mathcal{C}(A,A)$. The
+  endomorphisms of $A$ form a {\em monoid} under composition, denoted
+  $\operatorname{End}_{\mathcal{C}}(A)$. The identity morphism
+  $\operatorname{Id}_A$ is the identity element of this monoid.
+\item For $A,B \in \operatorname{Ob}\mathcal{C}$, an {\em isomorphism}
+  from $A$ to $B$ is defined as an element $f \in \mathcal{C}(A,B)$
+  such that there exists an element $g \in \mathcal{C}(B,A)$ for which
+  $g \circ f = \operatorname{Id}_A$ and $f \circ g =
+  \operatorname{Id}_B$.
+\item For $A \in \operatorname{Ob}\mathcal{C}$, an {\em automorphism}
+  of $A$ is defined an an endomorphism of $A$ that is also an
+  isomorphism. The automorphisms of $A$ form a {\em group} under
+  composition, denoted $\operatorname{Aut}_{\mathcal{C}}(A)$. The
+  identity morphism $\operatorname{Id}_A$ is the identity element of
+  this group. $\operatorname{Aut}_{\mathcal{C}}(A)$ is the subgroup of
+  $\operatorname{End}_{\mathcal{C}}(A)$ comprising all the elements
+  with two-sided inverses.
+\end{itemize}
+
+The categories that we will consider in this document include:
+
+\begin{itemize}
+\item The category of groups, where the morphisms are group
+  homomorphisms. The notions of endomorphism, isomorphism, and
+  automorphism in this case coincide with our usual
+  notions. Similarly, we consider the category of Lie rings where the
+  morphisms are Lie ring homomorphisms. Note that these are the
+  default category structures on group and Lie rings respectively.
+\item The category of groups with homoclinisms, described in Section
+  \ref{sec:isoclinism-and-homoclinism} (specifically, Section
+  \ref{sec:homoclinism-category}). The isomorphisms in this category
+  are isoclinisms of groups. Similarly, we consider the category of
+  Lie rings with homoclinisms in Section
+  \ref{sec:isoclinism-and-homoclinism-lie}.
+\item The category of short exact sequences of groups, described in
+  Section \ref{sec:ses-group}. Similarly, we consider the category of
+  short exact sequences of Lie rings in Section \ref{sec:ses-lie}.
+\item The category of central extensions of a group, described in
+  Section \ref{sec:homomorphism-central-extensions}. Similarly, we
+  consider the category of central extensions of a Lie ring in Section
+  \ref{sec:homomorphism-central-extensions-lie}.
+\item The category of central extensions of a group with homoclinisms,
+  described in Section
+  \ref{sec:homoclinism-central-extensions}. Similarly, we consider the
+  category of central extensions of a Lie ring with homoclinisms in
+  Section \ref{sec:homoclinism-central-extensions-lie}.
+\item The category of $\pi$-powered groups for a prime set $\pi$,
+  described in Section \ref{sec:group-powering}. Similarly, the
+  category of $\pi$-powered Lie rings for a prime set $\pi$, described
+  in Section \ref{sec:lie-ring-powering}.
+\end{itemize}
+
+\subsubsection{Definition of functor}\label{appsec:functor}
+
+Suppose $\mathcal{C},\mathcal{D}$ are categories. A {\em functor}
+(also called {\em covariant functor}) $\mathcal{F}$ from $\mathcal{C}$
+to $\mathcal{D}$ comprises the following data:
+
+\begin{itemize}
+\item {\em Object level mapping}: A mapping $\mathcal{F}:
+  \operatorname{Ob}\mathcal{C} \to \operatorname{Ob}\mathcal{D}$.
+\item {\em Morphism level mapping}: For any $A,B \in \mathcal{C}$, a
+  mapping $\mathcal{F}: \mathcal{C}(A,B) \to \mathcal{D}(\mathcal{F}A,\mathcal{F} B)$.
+\end{itemize}
+
+satisfying the following conditions:
+
+\begin{itemize}
+\item {\em It preserves the identity morphism}: For any $A \in
+  \mathcal{C}$, $\mathcal{F}(\operatorname{id}_A) =
+  \operatorname{id}_{\mathcal{F}(A)}$.
+\item {\em It preserves composition}: For any $A,B,C \in \mathcal{C}$,
+  and $f \in \mathcal{C}(A,B), g \in \mathcal{C}(B,C)$, we have $\mathcal{F}(g
+  \circ f) = \mathcal{F}g \circ \mathcal{F}f$.
+\end{itemize}
+
+Suppose $\mathcal{C}, \mathcal{D}$ are categories. A {\em contravariant
+functor} $\mathcal{F}:\mathcal{C} \to \mathcal{D}$ is defined by the
+following data:
+
+\begin{itemize}
+\item A mapping $\mathcal{F}: \operatorname{Ob}\mathcal{C} \to
+  \operatorname{Ob}\mathcal{D}$.
+\item For every $A,B \in \operatorname{Ob}\mathcal{C}$, a mapping
+  $\mathcal{F}: \mathcal{C}(A,B) \to
+  \mathcal{D}(\mathcal{F}B,\mathcal{F}A)$.
+\end{itemize}
+
+satisfying the following conditions:
+
+\begin{itemize}
+\item It preserves the identity map: For any $A \in
+  \operatorname{Ob}\mathcal{C}$, $\mathcal{F}(\operatorname{id}_A) =
+  \operatorname{id}_{\mathcal{F}A}$.
+\item It preserves composition, albeit reversing the order of
+  composition: For any $A,B,C \in \operatorname{Ob}\mathcal{C}$, and
+  $f \in \mathcal{C}(A,B), g \in \mathcal{C}(B,C)$, we have
+  $\mathcal{F}(g \circ f) = \mathcal{F}f \circ \mathcal{F}g$.
+\end{itemize}
+
+We use the following terminology for functors. As above, let
+$\mathcal{F}:\mathcal{C} \to \mathcal{D}$ be a functor.
+
+\begin{itemize}
+\item $\mathcal{F}$ is {\em faithful} if the induced set map
+  $\mathcal{C}(A,B) \to \mathcal{D}(\mathcal{F}A,\mathcal{F}B)$ is
+  injective for all $A,B \in \operatorname{Ob}\mathcal{C}$.
+\item $\mathcal{F}$ is {\em full} if the induced set map
+  $\mathcal{C}(A,B) \to \mathcal{D}(\mathcal{F}A,\mathcal{F}B)$ is
+  surjective for all $A,B\in \operatorname{Ob}\mathcal{C}$.
+\item $\mathcal{F}$ is {\em essentially surjective on objects} if
+  every object of $\mathcal{D}$ is isomorphic in $\mathcal{D}$ to some
+  object in the image of $\mathcal{F}$.
+\item $\mathcal{F}$ is an {\em equivalence of categories} if it is
+  full, faithful, and essentially surjective on objects. An
+  equivalence of categories preserves many of the features we care
+  about. In particular, it preserves the existence of initial objects
+  and terminal objects, the nature of homomorphism sets, and the
+  isomorphism types of endomorphism monoids and automorphism groups.
+\item $\mathcal{F}$ is an {\em isomorphism of categories} if it is
+  full, faithful, and bijective on objects.
+\end{itemize}
+
+We will use functors in one important way. For each of the
+correspondences between suitably chosen groups and Lie rings, we will
+first identify full subcategories of the category of groups and the
+category of Lie rings respectively. Here, {\em full} subcategory means
+a subcategory where the inclusion functor into the whole category is a
+full functor. In other words, the full subcategory may not contain all
+the objects of the big category, but given two objects of the big
+category, it contains all the morphisms between them. Our
+correspondence will then explicitly describe functors $\exp$ and
+$\log$ between these full subcategories, where $\exp$ is from Lie
+rings to groups and $\log$ is from groups to Lie rings. The functors
+$\exp$ and $\log$ will turn out to be two-sided inverses of each
+other, and the full subcategories will therefore turn out to be
+isomorphic.
+
+Section \ref{sec:abelian-lie-correspondence} describes all the details
+for the abelian Lie correspondence. Similar ideas apply to the Baer
+correspondence (described in Section
+\ref{sec:baer-correspondence-isocat-consequences}), Malcev
+correspondence, global Lazard correspondence, and Lazard
+correspondence.
+
+We also use the idea of equivalence of categories when relating two
+alternate descriptions of the category of central extensions of a
+group where the morphisms are homomorphisms of central
+extensions. There are two alternative definitions of this category,
+and these definitions do {\em not} define isomorphic
+categories. However, they do define {\em equivalent} categories. In
+fact, there is a forgetful functor from one category (that stores the
+short exact sequence) to the other category (that simply stores the
+quotient map of the short exact sequence) that serves as the
+equivalence of categories. For more details, see Section
+\ref{sec:homomorphism-central-extensions}.
+
+Apart from the above fairly foundational uses of functors, we do not
+use functors explicitly. 
+
+However, many of the constructions we use
+throughout the document are functorial, although we do not explicitly
+use that fact. Some examples are below.
+
+\begin{itemize}
+\item The exterior square of a group, described in Section
+  \ref{sec:exteriorsquare}, defines a functor from the category of
+  groups to itself. In other words, given any homomorphism
+  $\varphi:G_1 \to G_2$ of groups, there is an induced homomorphism
+  $\varphi \wedge \varphi: G_1 \wedge G_1 \to G_2 \wedge G_2$
+  satisfying the conditions for being a functor.
+\item The Schur multiplier of a group, described in Section
+  \ref{sec:exteriorsquare}, defines a functor from the category of
+  groups to itself (or, alternatively, to the category of abelian
+  groups).
+\item The exterior square of a Lie ring, described in Section
+  \ref{sec:exteriorsquare-lie}, defines a functor from the category
+  of Lie rings to itself.
+\item The Schur multiplier of a Lie ring, described in Section
+  \ref{sec:exteriorsquare-lie}, defines a functor from the category of
+  Lie rings to the category of abelian groups.
+\item There are a number of free and forgetful functors we see. We
+  discuss these a little later in the Appendix.
+\end{itemize}
+
+\subsubsection{Definition of natural transformation}
+
+Given two functors $\mathcal{F},\mathcal{G}: \mathcal{C} \to
+\mathcal{D}$, a {\em natural transformation} $\eta$ from $\mathcal{F}$
+to $\mathcal{G}$ associates to each $A \in
+\operatorname{Ob}\mathcal{C}$ a morphism $\eta_A: \mathcal{F}A \to
+\mathcal{G}A$ such that for every morphism $f \in \mathcal{C}(A,B)$
+for $A,B \in \operatorname{Ob}\mathcal{C}$, we have:
+
+$$\eta_B \circ \mathcal{F}(f) = \mathcal{G}(f) \circ \eta_A$$
+
+Equivalently, the following diagram commutes:
+
+$$\begin{array}{llll}
+\mathcal{F}(A) & \stackrel{\mathcal{F}(f)}{\to} & \mathcal{F}(B)\\
+\eta_A \downarrow & & \eta_B \downarrow \\
+\mathcal{G}(A) & \stackrel{\mathcal{G}(f)}{\to} & \mathcal{G}(B)\\
+\end{array}$$
+
+We call $\eta$ a {\em natural isomorphism} if $\eta_A$ is an
+isomorphism in $\mathcal{D}$ for each $A \in
+\operatorname{Ob}\mathcal{C}$.
+
+We can also define an analogous concept of natural
+transformation between contravariant functors.
+
+%%TODO: Say more clearly: for something that depends on multiple
+%%variables, we can talk of being natural in some of the variables
+%%(paves the way for the definition of left and right adjoint functors)
+
+In our main proofs, we often use the term {\em canonical}. The
+definition of {\em canonical transformation} is similar to that of
+natural transformation, except that we impose the above condition only
+when $f$ is an isomorphism. In other words, natural means that the
+transformation behaves well (in the sense of giving a commutative
+diagram) for {\em all} morphisms, whereas canonical means that the
+transformation behaves well for {\em isomorphisms}. A {\em canonical
+  isomorphism} is a canonical transformation that is an isomorphism in
+every instance.
+
+It turns out that most of the canonical constructions that we use in
+our main proofs are also natural. This is not hard to prove, but we do
+not demonstrate it because it is not necessary for our main proofs. We
+list below some important instances of this.
+
+\begin{itemize}
+\item In Section \ref{sec:exteriorsquare}, we define the following
+  short exact sequence associated with any group $G$:
+
+  $$0 \to M(G) \to G \wedge G \to [G,G] \to 1$$
+
+  All the groups appearing in the short exact sequence are functorial
+  in $G$, and all the morphisms appearing in the short exact sequence
+  are natural in $G$, i.e., they define natural transformation between
+  the functors. Thus, we can view the short exact sequence itself as
+  functorial in $G$, i.e., we can define a functor from the category
+  of groups to the category of short exact sequences of groups that
+  sends a group $G$ to the above short exact sequence.
+
+  A similar observation applies to the corresponding short exact
+  sequence for Lie rings described in Section
+  \ref{sec:exteriorsquare-lie}.
+
+\item In Section \ref{sec:ses-uct}, we define the following short
+  exact sequence associated with a group $G$ and an abelian group $A$:
+
+  $$0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G;A) \to H^2(G;A) \to \operatorname{Hom}(M(G),A) \to 0$$
+
+  All the groups appearing in the short exact sequence are {\em
+    contravariant} functors of $G$ (holding $A$ constant) and
+  (covariant) functors of $A$ (holding $G$ constant). Further, the
+  morphisms of the short exact sequence are natural transformations
+  with respect to both $G$ and $A$: they are natural transformations
+  between the contravariant functors of $G$ (holding $A$ constant) and
+  also between the covariant functors of $A$ (holding $G$ constant).
+
+  A similar observation applies to the corresponding short exact
+  sequence for Lie ring extensions described in Section
+  \ref{sec:ses-uct-lie}.
+
+\item In Section \ref{sec:ses-coboundary-cocycle-cohomology}, we
+  consider the following short exact sequence associated with a group
+  $G$ and an abelian group $A$:
+
+  $$0 \to B^2(G;A) \to Z^2(G;A) \to H^2(G;A) \to 0$$
+
+  All the groups appearing in the short exact sequence are {\em
+    contravariant} functors of $G$ (holding $A$ constant) and
+  (covariant) functors of $A$ (holding $G$ constant). Further, the
+  morphisms of the short exact sequence are natural transformations
+  with respect to both $G$ and $A$: they are natural transformations
+  between the contravariant functors of $G$ (holding $A$ constant) and
+  also between the covariant functors of $A$ (holding $G$ constant).
+
+\end{itemize}
+
+\subsection{Initial objects, terminal objects, and zero objects}
+
+Suppose $\mathcal{C}$ is a category. We define the following:
+
+\begin{itemize}
+\item An {\em initial object} of $\mathcal{C}$ is an object $A$ of
+  $\mathcal{C}$ such that for every object $B$ of $\mathcal{C}$, there
+  is a unique morphism from $A$ to $B$, i.e., there is a unique
+  element of $\mathcal{C}(A,B)$. Any two initial objects must be
+  isomorphic and have a unique isomorphism between them. A category
+  may or may not have an initial object. For a category that has
+  initial objects, we therefore abuse notation by talking of {\em the}
+  initial object of the category.
+\item A {\em terminal object} of $\mathcal{C}$ is an object $A$ of
+  $\mathcal{C}$ such that for every object $B$ of $\mathcal{C}$, there
+  is a unique morphism from $B$ to $A$, i.e., there is a unique
+  element of $\mathcal{C}(B,A)$. Any two terminal objects must be
+  isomorphic and have a unique isomorphism between them. A category
+  may or may not have a terminal object. For a category that has
+  terminal objects, we therefore abuse notation by talking of {\em
+    the} terminal object of the category.
+\item A {\em zero object} of $\mathcal{C}$ is an object that is both
+  an initial object and a terminal object. A category may or may not
+  have a zero object. Any two zero objects must be isomorphic and have
+  a unique isomorphism between them.
+
+  Note that even if a category has an initial
+  object and a terminal object, it may lack a zero object because the
+  initial objects and terminal objects are not isomorphic. For
+  instance, for the category of commutative unital rings, the initial
+  object is $\Z$ and the terminal object is the zero ring, so there is
+  no zero object. For a category that has terminal objects, we
+  therefore abuse notation by talking of {\em the} terminal object of
+  the category.
+
+  For a category that has a zero object, we can define, between any
+  two objects of the category, a morphism called the {\em zero
+    morphism}. This is the morphism that is obtained by composing the
+  map from the source object to the zero object and the map from the
+  zero object to the target object. For instance, for the category of
+  groups, the zero object is the trivial group, and the corresponding
+  notion of zero morphism is the trivial homomorphism between any two
+  groups.
+\end{itemize}
+
+The discussion in Sections \ref{sec:exteriorsquare} and
+\ref{sec:exteriorsquare-lie} is motivated by the goal of finding an
+initial object in a category, namely, the category of central
+extensions of a particular group (or Lie ring) with the morphisms
+being homoclinisms of central extensions. We show that initial objects
+do exist for these categories, and these initial objects play an
+important role in the study of the categories.
+
+\subsection{Left and right adjoint functors}\label{appsec:adjoint}
+
+Suppose $\mathcal{C},\mathcal{D}$ are categories and $F:\mathcal{C}
+\to \mathcal{D}$ and $G:\mathcal{D} \to \mathcal{C}$ are covariant
+functors. We say that $\mathcal{F}$ is left adjoint to $\mathcal{G}$,
+or equivalently, that $\mathcal{G}$ is right adjoint to $\mathcal{F}$,
+if there is a family of bijections:
+
+$$\mathcal{D}(\mathcal{F} A, B) \cong \mathcal{C}(A, \mathcal{G}B)$$
+
+for all $A \in \operatorname{Ob} \mathcal{C}$ and $B \in
+\operatorname{Ob} \mathcal{D}$, such that the bijection is natural (in
+the sense of being a natural transformation) in both the variables $A$
+and $B$. The use of the word ``adjoint'' here is in analogy with the
+idea of adjoint linear transformations with respect to an inner
+product.
+
+\subsection{Universal algebra}\label{appsec:univalg-basic}
+
+Universal algebra is a branch of mathematics that provides a
+unifying framework for the study of algebraic structures. Universal
+algebra is fairly general and it is ill-suited to proving deep facts
+about specific structures (such as advanced results in group theory or
+in ring theory). Nonetheless, basic vocabulary from universal algebra
+is useful in the study of specific algebraic structures.
+
+The first concept we define is the concept of {\em signature}. A
+signature is a function from a fixed set (that we call the {\em
+  operator domain}) to $\N_0$ (the set of nonnegative integers). The
+elements of the operator domain are the {\em operators} and the
+signature sends each operator to a nonnegative integer that is its
+{\em arity}. An {\em algebra} of a given signature is defined to be a
+set equipped with operations as follows: for each operator in the
+operator domain, there is a $n$-ary operation from the set to itself
+where $n$ equals the arity of the operator. Note that a $0$-ary
+operation is understood to mean a constant function.
+
+An {\em identity} refers to a formal equality of two formal
+expressions that are constructed using operators in the operator
+domain, where the expressions make sense given what we know about the
+arities of the operations. An algebra is said to satisfy the identity
+if that identity holds for all choices of elements in that
+algebra.
+
+Given a signature and a collection of identities, the collection of
+all algebras of the signature satisfying all the identities in the
+collection will be called a {\em variety of algebras}.
+
+For instance, consider the signature with operator domain $\Omega = \{
+* \}$ where the arity of $*$ is $2$. We will use infix notation to
+denote $*$, i.e., $*(x,y)$ will be denoted as $x * y$. An algebra with
+this signature is equivalent to a set with a binary operation, also
+called a {\em magma}.\footnote{Historically, the term ``groupoid'' was
+  used but that term now has a somewhat different meaning.}
+
+Then, associativity of $*$ is an identity. Explicitly, it is the identity:
+
+$$(a * b) * c = a * (b * c)$$
+
+The collection of all magmas that {\em satisfy the identity of
+  associativity} is a {\em variety of algebras}. Algebras of this type
+are termed {\em semigroups}, and the variety of algebras is termed
+{\em the variety of semigroups}.
+
+Groups also form a variety of algebras. The variety of groups has an
+operator domain with three operations:
+
+\begin{itemize}
+\item An operation $*$ of arity $2$, called the {\em group
+  multiplication} or {\em product} (denoted using infix notation)
+\item An operation $e$ of arity $0$, called the {\em identity element}
+  or {\em neutral element}.\footnote{We use $1$ to denote the identity
+    element in this document, but it is more helpful to use the letter
+    $e$ here for pedagogical reasons.}
+\item An operation ${}^{-1}$ of arity $1$, called the {\em inverse
+  map} (denoted using postfix superscript notation).
+\end{itemize}
+
+The identities that need to be universally satisfied are:
+
+\begin{eqnarray*}
+  (a * b) * c & = & a * (b * c) \ \text{ (Associativity)}\\
+  a * e = e * a & = &  a \ \text{ (Identity element)}\\
+  a * a^{-1} = a^{-1} * a & = & a \ \text{ (Inverse map)}\\
+\end{eqnarray*}
+
+The following notions can readily be defined in the context of
+algebras of a given signature:
+
+\begin{itemize}
+\item {\em Subalgebra} refers to a subset of the underlying set of the
+  algebra that is closed under all the operations defined for the
+  algebra structure.
+\item {\em Homomorphism of algebras} (between algebras of the same
+  signature) refers to a set map between the algebras that commutes
+  with all the algebra operations.
+\item Based on the definition of homomorphism, we can define {\em
+  isomorphism}, {\em endomorphism}, and {\em automorphism}.
+\item {\em Direct product of algebras} (where all the algebras have
+  the same signature) is defined as follows: we take the Cartesian
+  product of the underlying sets, and define each of the operations
+  coordinate-wise.
+\end{itemize}
+
+An important theorem about varieties of algebras is {\em Birkhoff's
+  theorem}. The theorem states that a collection of algebras is a
+variety of algebras if and only if it is closed under taking
+subalgebras, homomorphic images, and direct products. One direction of
+the proof is easy: any variety of algebras is closed under taking
+subalgebras, homomorphic images, and direct products. The reverse
+direction is hard, and we omit the proof.
+
+The following are some examples of varieties of algebras that we
+consider in this document:
+
+\begin{itemize}
+\item The variety of groups.
+\item The variety of Lie rings.
+\item The variety of abelian groups.
+\item The variety of associative rings.
+\item For a fixed commutative unital ring $R$, the variety of $R$-Lie algebras.
+\item For a fixed commutative unital ring $R$, the variety of
+  associative $R$-algebras.
+\item For a fixed commutative unital ring $R$, the variety of
+  $R$-modules.
+\item For a set $\pi$ of primes, the variety of $\pi$-powered groups,
+  described in Section \ref{sec:group-powering}.
+\item For a set $\pi$ of primes, the variety of $\pi$-powered Lie
+  rings, described in Section \ref{sec:lie-ring-powering}.
+\item The variety of groups of nilpotency class $c$, for some fixed
+  positive integer $c$.
+\item The variety of Lie rings of nilpotency class $c$, for some fixed
+  positive integer $c$.
+\item The variety of $\pi$-powered groups of nilpotency class $c$.
+\item The variety of $\pi$-powered Lie rings of nilpotency class $c$.
+\end{itemize}
+
+\subsection{Universal algebra and category theory combined: free and forgetful functors}\label{appsec:free-forgetful}
+
+Every variety of algebras can naturally be interpreted as a {\em
+  category}. The objects of the category are the algebras of the
+variety. The morphisms of the category are homomorphisms between the
+algebras of the variety. Note that the definition of homomorphism uses
+only the signature and {\em not} the identities.
+
+The following are some immediate observations about the category
+corresponding to a particular variety of algebras:
+
+\begin{itemize}
+\item The notions of isomorphism, endomorphism, and automorphism
+  defined in universal algebra coincide with the corresponding notions
+  for the category.
+\item The terminal object of the variety has an underlying set of size
+  one, and all the operations are defined in the unique manner
+  possible.
+\item The category does have an initial object. If the variety has no
+  0-ary operations, the initial object of the variety has an empty
+  underlying set. If the varety has 0-ary operations, the initial
+  object has a nonempty underlying set.
+\item In general, the initial object and terminal object need not
+  coincide, and therefore the zero object need not exist. Some
+  varieties where they do coincide are the variety of groups, variety
+  of Lie rings, variety of abelian groups, variety of $R$-modules for
+  a commutative unital ring $R$, and variety of $R$-Lie algebras for a
+  commutative unital ring $R$. A variety where they do not coincide is
+  the variety of commutative unital rings. The initial object for this
+  variety is $\Z$ and the terminal object is the zero ring.
+\end{itemize}
+
+Suppose $\mathcal{V}_1$ and $\mathcal{V}_2$ are two varieties of
+algebras such that the operator domain of $\mathcal{V}_2$ is a subset
+of the operator domain of $\mathcal{V}_1$, with the operators having
+the same arities, and every identity true in $\mathcal{V}_2$ is also
+true in $\mathcal{V}_1$. Formally, we say that the variety
+$\mathcal{V}_2$ is a {\em reduct} of $\mathcal{V}_1$.
+
+In this case, there is a natural {\em forgetful functor} from the
+category corresponding to $\mathcal{V}_1$ to the category
+corresponding to $\mathcal{V}_2$. This functor is faithful: for any
+algebras $A$ and $B$ of $\mathcal{V}_1$, the set map
+$\operatorname{Hom}_{\mathcal{V}_1}(A,B) \to
+\operatorname{Hom}_{\mathcal{V}_2}(A,B)$ is injective. However, the
+functor is not necessarily {\em full} because the set map above need
+not be surjective. The functor also need not be {\em essentially
+  surjective}: it is not necessary that every isomorphism type of
+algebra in $\mathcal{V}_2$ must arise from an isomorphism type of
+algebra in $\mathcal{V}_1$.
+
+There is also a natural {\em free functor} from the category
+corresponding to $\mathcal{V}_2$ to the category corresponding to
+$\mathcal{V}_1$. This functor sends any algebra of $\mathcal{V}_2$ to
+the algebra of $\mathcal{V}_1$ ``generated'' by it, with all the
+identities of $\mathcal{V}_1$. The free functor is left adjoint to the
+forgetful functor.
+
+Below are some cases of interest:
+
+\begin{enumerate}
+\item $\mathcal{V}_2$ is the variety with {\em no}
+  operations and no identities, so that the corresponding category is
+  the category of sets. In this case, the forgetful functor simply
+  sends an algebra to its underlying set. The free functor sends a set
+  to the {\em free algebra} of the variety $\mathcal{V}_1$ generated
+  by the set.
+\item The varieties $\mathcal{V}_1$ and $\mathcal{V}_2$ have the same
+  operator domain, so the only difference is that $\mathcal{V}_1$ may
+  have more identities than $\mathcal{V}_2$. In this case, we say that
+  $\mathcal{V}_1$ is a subvariety of $\mathcal{V}_2$, and the
+  forgetful functor from the category for $\mathcal{V}_1$ to the
+  category for $\mathcal{V}_2$ is a full functor in this case. An
+  example is the case where $\mathcal{V}_1$ is the variety of groups
+  of nilpotency class $c$ (for some positive integer $c$) and
+  $\mathcal{V}_2$ is the variety of all groups.
+\item Cases other than (2) where the forgetful functor is still full,
+  i.e., every homomorphism in $\mathcal{V}_2$ between two algebras of
+  $\mathcal{V}_1$ defines a homomorphism in $\mathcal{V}_1$. For
+  instance, the forgetful functor from the variety of groups to the
+  variety of semigroups that ``forgets'' the identity element and
+  inverse map is full: any homomorphism of semigroups between two
+  groups is also a homomorphism of groups. Similarly, for a prime set
+  $\pi$, the forgetful functor from the variety of $\pi$-powered
+  groups to the variety of groups is a full functor: any homomorphism
+  of groups between two $\pi$-powered groups is also a homomorphism of
+  $\pi$-powered groups.
+\end{enumerate}
+
+%\newpage
+
+\section{Foundational results for manipulations in nilpotent groups}
+
+\subsection{Central series and nilpotency for groups and Lie rings}\label{appsec:group-basic}
+
+Suppose $G$ is a group. A subgroup series:
+
+$$G = K_1 \ge K_2 \ge \dots K_c \ge K_{c+1} = 1$$
+
+is termed a {\em central series} if it satisfies the following conditions:
+
+\begin{enumerate}
+\item It is a normal series:\footnote{Some people use the term
+  ``normal series'' for a series where each term is normal in its
+  predecessor, and use the term ``strongly normal series'' for a
+  series satisfying the condition stated here.} every $K_i$ is normal
+  in $G$.
+\item For every $i$, $K_i/K_{i+1}$ is contained in the center of $G/K_{i+1}$.
+\end{enumerate}
+
+Equivalently, it should satisfy the condition that for every $i$:
+
+$$[G,K_i] \subseteq K_{i+1}$$
+
+Note that the notation above uses a descending series, but the series
+may also be described as an ascending series.
+
+$G$ is termed a {\em nilpotent group} if it has a central series. The
+{\em nilpotency class} of $G$ is defined as the smallest $c$ for which
+there exists a central series of length $c$ (matching the above
+notation). We say that $G$ is a group of nilpotency class (at most)
+$c$ if the nilpotency class of $G$ is less than or equal to $c$. We
+often drop the ``(at most)'' qualifier for nilpotency class and simply
+say ``$G$ is a group of nilpotency class $c$'' to mean that $G$ is a
+nilpotent group and its nilpotency class is at most $c$.
+
+There is an ascending series termed the {\em upper central series} and
+a descending series termed the {\em lower central series}. Both
+of these can be defined for all groups. For each series, it reaches
+the other end in finitely many steps if and only if the group is
+nilpotent, and if so, its length is the nilpotency class of the group.
+
+The {\em upper central series} of $G$ is an ascending series
+$(Z^i(G))_{i \in \mathbb{N}_0}$ of subgroups of $G$ defined as
+follows:
+
+\begin{itemize}
+\item $Z^0(G)$ is the trivial subgroup of $G$.
+\item For $i > 0$, $Z^i(G)$ is defined as the unique subgroup of $G$
+  such that $Z^i(G)/Z^{i-1}(G) = Z(G/Z^{i-1}(G))$, where
+  $Z(G/Z^{i-1}(G))$ denotes the center of $G/Z^{i-1}(G)$. In
+  particular, $Z^1(G) = Z(G)$ is the center of $G$. The subgroup
+  $Z^2(G)$ is termed the second center of $G$, and so on.
+\end{itemize}
+
+The upper central series reaches the whole group $G$ in finitely many
+steps if and only if $G$ is nilpotent. Further, if $G$ has nilpotency
+class $c$, then $Z^c(G) = G$. More explicitly, if the nilpotency class
+of $G$ is precisely $c$, then $Z^c(G) = G$ and $Z^i(G) \ne G$ for $i <
+c$. In fact, the upper central series is the {\em fastest ascending}
+central series possible.\footnote{Technically, although we can define
+  the upper central series for a non-nilpotent group, and this
+  definition is useful, the upper central series is {\em not} a
+  central series if the group is non-nilpotent.
+
+We can also define a {\em transfinite} upper central series, where we
+define $Z^\alpha(G)$ for all ordinals $\alpha$. However, we do not
+need to use the transfinite upper central series here, so we will not
+define it.}
+
+The {\em lower central series} of $G$ is a descending series of
+subgroups $\gamma_i(G), i \in \mathbb{N}$, defined as follows:
+
+\begin{itemize}
+\item $\gamma_1(G) = G$
+\item For $i \in \mathbb{N}$, $\gamma_{i+1}(G) = [G,\gamma_1(G)] =
+  [\gamma_1(G),G]$ is the commutator of the subgroups $G$ and
+  $\gamma_i(G)$.
+\end{itemize}
+
+The lower central series reaches the trivial subgroup in finitely many
+steps if and only if $G$ is nilpotent. Further, if $G$ has nilpotency
+class $c$, then $\gamma_{c+1}(G) = 1$. More explicitly, if the
+nilpotency class of $G$ is precisely $c$, then $\gamma_{c+1}(G) = 1$
+and $\gamma_{i+1}(G) \ne 1$ for $i < c$. In fact, the lower central
+series is the {\em fastest descending} central series
+possible.\footnote{Technically, although we can define the lower
+  central series for a non-nilpotent group, and this definition is
+  useful, the lower central series is {\em not} a central series if
+  the group is non-nilpotent.
+
+We can also define a {\em transfinite} lower central series, where we
+define $\gamma_\alpha(G)$ for all ordinals $\alpha$. However, we do
+not need to use the transfinite lower central series here, so we will
+not define it.}
+
+\subsection{Commutator of element with products, and commutator as a homomorphism}
+
+The following computational result regarding the commutator of an
+element and a product is useful. The result has somewhat different explicit formulations depending on whether we use 
+
+With the {\em left action convention}, where we denote by ${}^xg$ the
+element $xgx^{-1}$ and where we denote by $[x,y]$ the commutator
+$xyx^{-1}y^{-1}$, the result states that:
+
+\begin{itemize}
+\item $[x,yz] = [x,y](^y[x,z])$
+\item $[xy,z] = ({}^x[y,z])[x,z]$
+\end{itemize}
+
+With the {\em right action convention}, where we denote by $g^x$ the
+elements $x^{-1}gx$ and where we denote by $[x,y]$ the commutator
+$x^{-1}y^{-1}xy$,the result states that:
+
+\begin{itemize}
+\item $[x,yz] = [x,z][x,y]^z$
+\item $[xy,z] = [x,z]^y[y,z]$
+\end{itemize}
+
+\begin{lemma}\label{lemma:iterated-commutator-is-multilinear}
+  \begin{enumerate}
+  \item {\em Independent of the action convention}: Suppose $G$ is a
+    group of nilpotency class two. For any fixed $x \in G$, the
+    commutator maps $y \mapsto [x,y]$ and $y \mapsto [y,x]$ are
+    endomorphisms of $G$. Note that since the image of both
+    endomorphisms is inside $[G,G]$, they can be viewed as
+    homomorphisms to $[G,G]$.
+  \item {\em Formulation specific to the left action convention}:
+    Suppose $G$ is a group, $H$ is a subgroup of $G$, and $x$ is an
+    element of $G$ such that $[x,H] \subseteq C_G(H)$, or
+    equivalently, $[[x,h_1],h_2] = 1$ for all $h_1, h_2 \in H$. Then,
+    the map $y \mapsto [x,y]$ is a homomorphism from $H$ to $G$. Note
+    that with the right action convention, the map may become an
+    anti-homomorphism, and the corresponding statement for the right
+    action convention would use $y \mapsto [y,x]$.
+  \item {\em Independent of the action convention}: Suppose $G$ is a
+    group of nilpotency class $c$. Consider the set map:
+
+    $$T: G \times G \times \dots \times G \to G$$
+
+    where $G$ occurs $c$ times on the left, given by:
+
+    $$T(x_1,x_2,\dots,x_c) := [[ \dots [[x_1,x_2],x_3],\dots,x_{c-1}],x_c]$$
+
+    Choose any $i$ with $1 \le i \le c$ and fix the values of $x_j, j
+    \ne i$. Then, $T$, viewed solely as a function of $x_i$, defines
+    an endomorphism of $G$. The image of $T$ is inside $\gamma_c(G)$,
+    so viewed this way, $T$ defines a homomorphism from $G$ to
+    $\gamma_c(G)$. In fact, $T$ descends to a homomorphism from
+    $G/Z_{c-1}(G)$ to $\gamma_c(G)$.
+  \item (A suitably worded generalization of (3) to situations where
+    the inputs are restricted to subgroups of $G$). %%TODO: Fill this in
+  \end{enumerate}
+\end{lemma}
+
+We will use the left action convention for our proofs, including
+proofs of the statements that are independent of the action
+convention.
+
+\begin{proof}
+  {\em Proof of (1)}: Showing that the map $y \mapsto [x,y]$ is an
+  endomorphism is equivalent to showing that $[x,yz] =
+  [x,y][x,z]$. This in turn follows from the identity $[x,yz] =
+  [x,y]({}^y[x,z])$ and the assumption of class two allowing us to
+  deduce that $[x,z] = {}^y[x,z]$. The proof for the other map is
+  similar.
+
+  {\em Proof of (2)}: This is similar to (1).
+
+  {\em Proof of (3)}: %%TODO: Fill this in
+
+  {\em Proof of (4)}: %%TODO: Fill this in
+\end{proof}
+\subsection{Witt's identity and the three subgroup lemma}\label{appsec:witt-three-subgroup}
+
+Witt's identity (stated here with the right action convention) applies
+to any elements $a,b,c$ in any group $G$. It says that:
+
+$$[[a,b^{-1}],c]^b \cdot [[b,c^{-1}],a]^c \cdot [[c,a^{-1}],b]^a  = 1$$
+
+The three subgroup lemma follows directly from Witt's identity:
+
+\begin{lemma}[Three subgroup lemma]
+  Suppose $G$ is a group and $A$, $B$, and $C$ are subgroups of
+  $G$. Then, any two of these three statements implies the third:
+
+  \begin{itemize}
+  \item $[[A,B],C] = 1$
+  \item $[[B,C],A] = 1$
+  \item $[[C,A],B] = 1$
+  \end{itemize}
+\end{lemma}
+
+\subsection{Strongly central series}
+
+A descending series of subgroups:
+
+$$G = G_1 \ge G_2 \ge G_3 \ge \dots \ge G_n = 1 = G_{n+1} = G_{n+2} = \dots$$
+
+is termed a {\em strongly central series} if $[G_i,G_j] \le G_{i+j}$
+for any positive integers $i$ and $j$.
+
+\begin{lemma}
+  For any group $G$ and any positive integers $i$ and $j$, we have
+  that $[\gamma_i(G),\gamma_j(G)] \le \gamma_{i+j}(G)$. In particular,
+  the lower central series of a nilpotent group is a strongly central series.
+\end{lemma}
+
+\begin{proof}
+  This follows from the three subgroup lemma and proof by induction.
+\end{proof}
+
+%\newpage
+
+\section{The use of grading}
+
+\subsection{Graded ring}
+
+Suppose $G$ is an abelian group with the group operation denoted
+additively. Suppose $R$ is a commutative (associative) unital ring. A
+$G$-graded $R$-algebra is a $R$-algebra $A$ whose additive group has a
+direct sum decomposition as a sum of $R$-submodules indexed by the
+group elements:
+
+$$A = \bigoplus_{g \in G} A_g$$
+
+such that for all $g,h \in G$, we have:
+
+$$A_gA_h \subseteq A_{g+h}$$
+
+An element of $A$ that lies inside $A_g$ for some $g \in G$ is termed
+a {\em homogeneous element}.
+
+A $G$-graded {\em ring} is a $G$-graded $\Z$-algebra.
+
+The following cases are of particular interest:
+
+\begin{itemize}
+\item A $\Z$-graded $R$-algebra is a $R$-algebra graded over the group
+  of integer $\Z$.
+\item A $\N_0$-graded $R$-algebra is a $\Z$-graded $R$-algebra $A$
+  where $A_i = 0$ for all $i < 0$.
+\item A $\N$-graded $R$-algebra a $\Z$-graded $R$-algebra $A$ where
+  $A_i = 0$ for all $i \le 0$.
+\end{itemize}
+
+Generally, the term {\em graded $R$-algebra} is used for a
+$\mathbb{N}_0$-graded $R$-algebra, and the term {\em graded ring} is
+used for a $\N_0$-graded $\Z$-algebra. We will follow this convention
+for the rest of the appendix and in the main document.
+
+\subsection{Verification of multilinear identities for graded rings}\label{appsec:multilinear-graded}
+
+A $R$-multilinear identity holds in a graded $R$-algebra $A$ if and
+only if it holds in the case where all inputs are homogeneous
+elements. This is because the set of homogeneous elements forms a
+generating set for $A$ as a $R$-module, and multilinear
+identities can be verified on a generating set, as described in
+Section \ref{appsec:multilinear}. In particular, this applies to
+verifying associativity and the Jacobi identity.
+\subsection{Associated graded Lie algebra for a Lie algebra}
+
+Suppose $L$ is a Lie algebra over a commuative (associative) unital
+ring $R$. The {\em associated graded $R$-Lie algebra} for $L$ is a
+graded $R$-Lie algebra defined as follows. The underlying $R$-module
+is:
+
+$$\bigoplus_{i=1}^\infty \gamma_i(L)/\gamma_{i+1}(L)$$
+
+where the $i^{th}$ component is the direct summand
+$\gamma_i(L)/\gamma_{i+1}(L)$, where $\gamma_i(L)$ and
+$\gamma_{i+1}(L)$ are the $i^{th}$ and $(i+1)^{th}$ members
+respectively of the lower central series of $L$. We now define the Lie
+bracket on the associated graded $R$-Lie algebra.
+
+First, note that the Lie bracket restricts to the following
+$R$-bilinear maps:
+
+\begin{eqnarray*}
+  \gamma_i(L) \times \gamma_j(L) & \to & \gamma_{i+j}(L)\\
+  \gamma_{i+1}(L) \times \gamma_j(L) & \to & \gamma_{i+j+1}(L)\\
+  \gamma_i(L) \times \gamma_{j+1}(L) & \to & \gamma_{i+j+1}(L)\\
+\end{eqnarray*}
+
+As a result, we get a canonical $R$-bilinear map:
+
+$$\gamma_i(L)/\gamma_{i+1}(L) \times \gamma_j(L)/\gamma_{j+1}(L) \to \gamma_{i+j}(L)/\gamma_{i+j+1}(L)$$
+
+The Lie bracket on the associated graded $R$-Lie algebra of $L$ is
+defined as the Lie bracket whose restriction to the bracket of the
+$i^{th}$ graded component and the $j^{th}$ graded component is the
+above map for all $i$ and $j$. In order to show that this is a {\em
+  Lie} bracket, we need to verify the Jacobi identity. Due to the
+multilinearity of the Jacobi identity, it suffices to verify it in the
+case that all three inputs are homogeneous (as explained in the
+preceding section, Section \ref{appsec:multilinear-graded}), and in
+that case, it follows from the Jacobi identity in the original $R$-Lie
+algebra $L$.
+
+Note in particular that if $L$ is a nilpotent $R$-Lie algebra of
+nilpotency class at most $c$, then the direct sum above is the finite
+direct sum:
+
+$$\bigoplus_{i=1}^c \gamma_i(L)/\gamma_{i+1}(L)$$
+
+For the case that $R = \Z$, we are thinking of $L$ simply as a Lie
+ring, and the corresponding associated graded $\Z$-Lie algebra will be
+called the {\em associated graded Lie ring}. Note that for any
+commutative unital ring $R$ and any $R$-Lie algebra $L$, the following
+coincide:
+
+\begin{itemize}
+\item The associated graded Lie ring of $L$, viewed as a Lie ring
+  (ignoring its structure as a $R$-Lie algebra).
+\item The underlying Lie ring for the associated graded $R$-Lie
+  algebra of $L$.
+\end{itemize}
+
+%%{\em TODO: Extend the definition to strongly central series}
+
+\subsection{Associated graded Lie ring for a group}
+
+Suppose $G$ is a group. The {\em associated graded Lie ring} for $G$
+is a graded Lie ring defined as follows. The additive group is:
+
+$$\bigoplus_{i=1}^\infty \gamma_i(G)/\gamma_{i+1}(G)$$
+
+where the $i^{th}$ component is the direct summand
+$\gamma_i(G)/\gamma_{i+1}(G)$.
+
+First, note that the Lie bracket restricts to the following
+$\mathbb{Z}$-bilinear maps:
+
+\begin{eqnarray*}
+  \gamma_i(G) \times \gamma_j(G) & \to & \gamma_{i+j}(G)\\
+  \gamma_{i+1}(G) \times \gamma_j(G) & \to & \gamma_{i+j+1}(G)\\
+  \gamma_i(G) \times \gamma_{j+1}(G) & \to & \gamma_{i+j+1}(G)\\
+\end{eqnarray*}
+
+As a result, we get a canonical $\mathbb{Z}$-bilinear map:
+
+$$\gamma_i(G)/\gamma_{i+1}(G) \times \gamma_j(G)/\gamma_{j+1}(G) \to \gamma_{i+j}(G)/\gamma_{i+j+1}(G)$$
+
+The Lie bracket on the associated graded Lie ring of $G$ is defined as
+the Lie bracket whose restriction to the bracket of the $i^{th}$
+graded component and the $j^{th}$ graded component is the above map
+for all $i$ and $j$. In order to show that this is a {\em Lie}
+bracket, we need to verify the Jacobi identity. Due to the
+multilinearity of the Jacobi identity, it suffices to verify it in the
+case that all three inputs are homogeneous (as explained in the
+preceding section, Section \ref{appsec:multilinear-graded}). The
+Jacobi identity in the homogeneous case follows from Witt's identity,
+described in Section \ref{appsec:witt-three-subgroup}.
+
+
+%\newpage
+
+\section{Some computational proofs related to the Baker-Campbell-Hausdorff formula}
+
+\subsection{Baker-Campbell-Hausdorff formula: class two: full derivation}\label{appsec:bch-class-two}
+
+In this case, we work with non-commuting variables $x_1,x_2$ such that
+$x_1^3 = x_1^2x_2 = x_1x_2x_1 = x_1x_2^2 = x_2x_1^2 = x_2x_1x_2 =
+x_2^2x_1 = x_2^3 = 0$. Thus:
+
+$$ \exp(x_1) = 1 + x_1 + \frac{x_1^2}{2}$$
+
+$$ \exp(x_2) = 1 + x_2 + \frac{x_2^2}{2}$$
+
+We thus get:
+
+$\exp(x_1)\exp(x_2) = \left(1 + x_1 + \frac{x_1^2}{2}\right)\left(1 + x_2 + \frac{x_2^2}{2}\right) = 1 + x_1 + \frac{x_1^2}{2} + x_2 + x_1x_2 + \frac{x_1^2x_2}{2} + \frac{x_2^2}{2} + \frac{x_1x_2^2}{2} + \frac{x_1^2x_2^2}{4}$
+
+We drop all products of degree three or more and rearrange the remaining terms to get:
+
+$$ \exp(x_1)\exp(x_2) = 1 + x_1 + x_2 + \frac{x_1^2}{2} + x_1x_2 + \frac{x_2^2}{2}$$
+
+We thus get:
+
+$$ w = \exp(x_1)\exp(x_2) - 1 = x_1 + x_2 + \frac{x_1^2}{2} + x_1x_2 + \frac{x_2^2}{2}$$
+
+Finally, we compute $\log(1 + w)$. We have:
+
+$$\log(1 + w) = w - \frac{w^2}{2}$$
+
+We note that $w^2$ is the same as the square of its linear part
+because the square of the degree two part, as well as products of the
+degree two and the linear part, are degree three or more and hence
+zero. Thus:
+
+$\log(1 + w) = x_1 + x_2 + \frac{x_1^2}{2} + x_1x_2 + \frac{x_2^2}{2} - (x_1 + x_2)^2/2$
+
+Simplifying, we get:
+
+$\log(1 + w) = x_1 + x_2 + \frac{x_1^2 + 2x_1x_2 + x_2^2 - (x_1 + x_2)^2}{2}$
+
+Now note that:
+
+$ (x_1 + x_2)^2 = x_1^2 + x_1x_2 + x_2x_1 + x_2^2$
+
+Plugging this in, we get:
+
+$\log(1 + w) = x_1 + x_2 + \frac{x_1^2 + 2x_1x_2 + x_2^2 - (x_1^2 + x_1x_2 + x_2x_1 + x_2^2)}{2}$
+
+Simplifying, we get:
+
+$\log(1 + w) = x_1 + x_2 + \frac{x_1x_2 - x_2x_1}{2}$
+
+Rewrite $x_1x_2 - x_2x_1 = [x_1,x_2]$ and we get the formula:
+
+$ x_1 + x_2 + \frac{1}{2}[x_1,x_2]$
+
+%% Recall that this {\em is the same as the formula for the group product
+%%   of $x_1$ and $x_2$ in terms of the Lie ring operations} that we saw
+%% in the Baer correspondence. This is not a coincidence. The
+%% significance will become clearer soon.
+
+\subsection{Baker-Campbell-Hausdorff formula: class three: full derivation}\label{appsec:bch-class-three}
+
+Before proceeding to work out the formula in class three, we obtain a
+more concise description of $w$ in terms of $x_1$ and $x_2$, thus
+saving steps on the initial computation. If we are working in class $c$, then:
+
+$$w = \sum_{k,l \ge 0, 0 < k + l \le c} \frac{x_1^kx_2^l}{k!l!} = \sum_{n=1}^c \frac{1}{n!} \sum_{k=0}^n \binom{n}{k} x_1^kx_2^{n-k}$$
+
+We now deduce the class three Baker-Campbell-Hausdorff formula:
+
+$w = \exp(x_1)\exp(x_2) -1 = (x_1 + x_2) + \frac{1}{2!}(x_1^2 + 2x_1x_2 + x_2^2) + \frac{1}{3!}(x_1^3 + 3x_1^2x_2 + 3x_1x_2^2 + x_2^3)$
+
+Since the class is three, we have $w^4 = 0$, hence we get:
+
+$\log(1 + w) = w - \frac{w^2}{2} + \frac{w^3}{3} = (x_1 + x_2) + \frac{1}{2!}(x_1^2 + 2x_1x_2 + x_2^2) + \frac{1}{3!}(x_1^3 + 3x_1^2x_2 + 3x_1x_2^2 + x_2^3) - \frac{1}{2}((x_1 + x_2) + \frac{1}{2!}(x_1^2 + 2x_1x_2 + x_2^2) + \frac{1}{3!}(x_1^3 + 3x_1^2x_2 + 3x_1x_2^2 + x_2^3))^2 + \frac{1}{3}((x_1 + x_2) + \frac{1}{2!}(x_1^2 + 2x_1x_2 + x_2^2) + \frac{1}{3!}(x_1^3 + 3x_1^2x_2 + 3x_1x_2^2 + x_2^3))^3$
+
+The calculations for the degree one and degree two parts proceed
+exactly as they did in the class two case covered in the preceding
+section. We thus concentrate on the degree three part:
+
+$\mbox{Degree three part} = \frac{1}{6}(x_1^3 + 3x_1^2x_2 + 3x_1x_2^2 + x_2^3) - \frac{1}{4}(x_1 + x_2)(x_1^2 + 2x_1x_2 + x_2^2) - \frac{1}{4}(x_1^2 + 2x_1x_2 + x_2^2) + \frac{1}{3}(x_1 + x_2)^3$
+
+Instead of simplifying directly, we adopt the following procedure. We rewrite:
+
+$x_1^2 + 2x_1x_2 + x_2^2 = (x_1 + x_2)^2 + [x_1,x_2]$
+
+We similarly rewrite:
+
+$x_1^3 + 3x_1^2x_2 + 3x_1x_2^2 + x_2^3 = (x_1 + x_2)^3 + 2x_1[x_1,x_2] + [x_1,x_2]x_1 + 2[x_1,x_2]x_2 + x_2[x_1,x_2]$
+
+This can be further rewritten as:
+
+$x_1^3 + 3x_1^2x_2 + 3x_1x_2^2 + x_2^3 = (x_1 + x_2)^3 + 3x_1[x_1,x_2] + 3[x_1,x_2]x_2 - [x_1,[x_1,x_2]] + [x_2,[x_1,x_2]]$
+
+Now, we plug these into the expression 
+
+$\mbox{Degree three part} = \frac{1}{6}((x_1 + x_2)^3 + 3x_1[x_1,x_2] + 3[x_1,x_2]x_2 - [x_1,[x_1,x_2]] + [x_2,[x_1,x_2]]) - \frac{1}{4}(x_1 + x_2)((x_1 + x_2)^2 + [x_1,x_2]) - \frac{1}{4}((x_1 + x_2)^2 + [x_1,x_2])(x_1 + x_2) + \frac{1}{3}(x_1 + x_2)^3$
+
+We rearrange to obtain:
+
+$\mbox{Degree three part} = \left(\frac{1}{6} - \frac{1}{4} - \frac{1}{4} + \frac{1}{3}\right)(x_1 + x_2)^3 + \frac{1}{2}(x_1[x_1,x_2] + [x_1,x_2]x_2) - \frac{1}{6}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]]) - \frac{1}{4}(x_1 + x_2)[x_1,x_2] - \frac{1}{4}([x_1,x_2](x_1 + x_2))$
+
+The $(x_1 + x_2)^3$ term has zero coefficient and disappears, and we are left with:
+
+$\mbox{Degree three part} = \frac{1}{2}(x_1[x_1,x_2] + [x_1,x_2]x_2) - \frac{1}{6}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]]) - \frac{1}{4}x_1[x_1,x_2] - \frac{1}{4}x_2[x_1,x_2] - \frac{1}{4}[x_1,x_2]x_1 - \frac{1}{4}[x_1,x_2]x_2$
+
+We now use that $x_2[x_1,x_2] = [x_1,x_2]x_2 + [x_2,[x_1,x_2]]$ and $[x_1,x_2]x_1 = x_1[x_1,x_2] - [x_1,[x_1,x_2]]$ to get:
+
+$\mbox{Degree three part} = \frac{1}{2}(x_1[x_1,x_2] + [x_1,x_2]x_2) - \frac{1}{6}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]]) - \frac{1}{4}x_1[x_1,x_2] - \frac{1}{4}[x_1,x_2]x_2 - \frac{1}{4}[x_2,[x_1,x_2]] - \frac{1}{4}x_1[x_1,x_2] + \frac{1}{4}[x_1,[x_1,x_2]] - \frac{1}{4}[x_1,x_2]x_2$
+
+Combining coefficients, we find that the coefficients on $x_1[x_1,x_2]$ and $[x_1,x_2]x_2$ are zero, and we are left with:
+
+$\mbox{Degree three part} = - \frac{1}{6}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]]) + \frac{1}{4}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]])$
+
+We simplify $1/4 - 1/6 = 1/12$ to get:
+
+$\mbox{Degree three part} = \frac{1}{12}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]])$
+
+Plug this back in to the formula, and get the overall formula:
+
+$x_1 + x_2 + \frac{1}{2}[x_1,x_2] + \frac{1}{12}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]])$
+
+\subsection{Bounds on prime power divisors of the denominator}\label{appsec:bch-prime-power-divisor-bound}
+
+For a prime $p$ and a natural number $c$, define $f(p,c)$ as
+follows. Consider the class $c$ Baker-Campbell-Hausdorff
+formula. $f(p,c)$ is defined as the largest positive integer $k$ such
+that $p^k$ appears as a divisor of the denominator for one of the
+coefficients for the formula.
+
+It turns out that:
+
+$$f(p,c) \le \left \lfloor \frac{c - 1}{p - 1} \right \rfloor$$
+
+This was proved in Lazard's original paper (\cite{Lazardsoriginal}).
+%% {\em TODO: Insert position within paper}
+The proof sketch for the
+{\em associative} version of the formula is below. %% The next subsection
+%% will explain why this is sufficient in obtaining a proof for the
+%% formula when expressed in terms of {\em Lie products}.
+
+Consider the ring of formal power series over $\mathbb{Q}$ in the two non-commuting variables $x_1$ and $x_2$.
+
+Consider a $p$-adic valuation on $\mathbb{Q}$, i.e., a valuation $v_p: \mathbb{Q} \setminus \{ 0 \} \to \mathbb{Z}$ that sends a rational number $a/b$ to the integer $k$ such that $a/(bp^k)$ in reduced form has no divisor of $p$ for either the numerator or the denominator.
+
+Extend the valuation to a value $1/(p-1)$ on the formal variables $x_1,x_2$. The valuation can then be extended to the whole ring. We then use multiplicativity to compute the valuation at various terms:
+
+$\! v_p(x_1^c/c!)=c/(p-1) - v_p(c!) \geq 1/(p-1)$
+
+where we have used that $v_p(c!) \leq
+\left \lfloor(c-1)/(p-1)\right\rfloor$. Then, $v_p(\exp x_1 - 1)\geq
+1/(p-1)$. Denote $w = \exp(x_1)\exp(x_2) - 1$. It is easy to see that
+$v_p(w) \geq 1/(p-1)$. The Baker-Campbell-Hausdorff formula is
+obtained by expanding
+
+$\! \log(1 + w)$
+
+Note that $v_p(w^c/c)=cv_p(w)-v_p(c)\geq c/(p-1) - v_p(c!) \geq
+1/(p-1)$. That is, $v_p(\log(1 + w))\geq 1/(p-1)$. For coefficients in
+degree $c$, we obtain:
+
+$v_p(\mbox{coefficient in degree c}) \geq 1/(p-1) - c/(p-1)=-(c-1)/(p-1)$
+
+%\newpage
+
+%% \section{Some results involving local nilpotency class}
+
+%% \subsection{$3$-local class three implies global class three for Lie rings}\label{appsec:3-local-class-three-implies-global-class-three}
+
+%\newpage
+
+\section{Homologism theory for arbitrary varieties}\label{appsec:homologism-theory}
+
+%%TODO: Connect with main document
+
+For basic background material on varieties of algebras, see the
+Appendix, Sections \ref{appsec:univalg-basic} and
+\ref{appsec:free-forgetful}.
+
+The terms and concepts alluded to in this section can be found in the
+paper \cite{Baerinvariantsandisolosigms} by Leedham-Green and
+McKay. The concepts of $n$-isoclinism and $n$-homoclinism are also
+described in \cite{Hekster} (for groups) and \cite{Moghaddametal} (for
+Lie rings).
+
+\subsection{Word maps: definition for an arbitrary variety of algebras}\label{appsec:word-maps}
+
+Suppose $\mathcal{V}$ is a variety of algebras. A {\em word} in $n$
+letters in $\mathcal{V}$ is defined as an element of the free algebra
+(with respect to the variety $\mathcal{V}$) in terms of the $n$
+letters. A word can be represented using an expression in terms of the
+$n$ letters and the operations of the variety. Two expressions
+describe the same word if they are formally equal, i.e., their
+equality can be dedued from the formal identities of the variety. We
+will often abuse notation by conflating the concepts of the word with
+a formal expression used to describe the word.
+
+Given a word $w$ in $n$ letters for the variety $\mathcal{V}$, and an
+algebra $A$ in $\mathcal{V}$, $w$ defines a set map $A^n \to A$ as
+follows. Denote by $F$ the free algebra on the $n$ letters, and denote
+the letters by $g_1,g_2,\dots,g_n$. Then, for any tuple
+$(x_1,x_2,\dots,x_n) \in A^n$, we can consider the unique homomorphism
+$\varphi:F \to A$ such that $\varphi(g_i) = x_i$. The image
+$\varphi(w)$ is the image of the tuple $(x_1,x_2,\dots,x_n)$ under the
+word map. Abusing notation, we will use $w$ to denote the word itself,
+the expression describing the word, {\em and} the word map, i.e., the
+image of the tuple $(x_1,x_2,\dots,x_n)$ will be denoted
+$w(x_1,x_2,\dots,x_n)$.
+
+For some varieties, such as the variety of groups, there is a concept
+of a {\em reduced word expression}. Any element of the free group on
+$n$ letters has a unique {\em reduced expression}, and the equality of
+two words can be determined by converting both of them to their
+corresponding reduced expressions and then checking for literal
+equality.
+
+For the variety of groups, words involve group multiplication and
+inverse map operations, and a word in reduced form is an expression
+written as a product of the letters and their inverses, with no letter
+and its inverse occurring adjacent to one another. For instance, the
+following is an example word in two letters $g_1$ and $g_2$:
+
+$$w(g_1,g_2) := g_1g_2g_1g_2^2g_1^{-1}$$
+
+We say that a group $G$ satisfies a word $w$ in $n$ letters (with
+respect to the variety of groups) if the image of the word map
+corresponding to $w$ is the trivial subgroup of $G$, i.e.,
+$w(x_1,x_2,\dots,x_n) = 1$ for all $x_1,x_2,\dots,x_n \in G$. 
+
+The concept generalizes to any {\em variety of algebras with zero},
+i.e., a variety of algebra with a distinguished 0-ary operation called
+the {\em zero element}. Given a variety $\mathcal{V}$ with zero, an
+algebra $A$ is said to {\em satisfy} a word $w$ in $n$ letters with
+respect to the variety $\mathcal{V}$ if $w(x_1,x_2,\dots,x_n)$ is the
+zero element of $A$ for all $x_1,x_2,\dots,x_n \in A$. For the variety
+of groups, the zero element is the identity element.
+\subsection{Word maps and subvarieties of the variety of groups}
+
+To specify a subvariety of the variety of groups, we need to specify a
+set of identities that define the subvariety. Note that the set of
+identities we choose need not be an {\em exhaustive} list of
+identities satisfied in the subvariety, but it needs to be sufficient
+to generate all other identities satisfied in the subvariety.
+
+An identity in the variety of groups has the form:
+
+$$w_1(x_1,x_2,\dots,x_n) = w_2(x_1,x_2,\dots,x_n)$$
+
+We can define a new word:
+
+$$w(x_1,x_2,\dots,x_n) := w_1(x_1,x_2,\dots,x_n)(w_2(x_1,x_2,\dots,x_n))^{-1}$$
+
+The identity can therefore be rewritten as:
+
+$$w(x_1,x_2,\dots,x_n) = 1$$
+
+Thus, any subvariety of the variety of groups can be described using a
+set of words, and a group is in the subvariety if and only if all the
+words are satisfied in the group.
+
+\subsection{Some examples of subvarieties of the variety of groups}
+
+The following are examples of subvarieties, each of which can be
+defined using {\em one} word. Note that for all these definitions, it
+does not matter whether we use the left or right convention for the
+commutator: both define the same variety.
+
+\begin{itemize}
+\item The variety of abelian groups: This can be defined using the
+  commutator word $w(x_1,x_2) = [x_1,x_2]$. 
+\item The variety of groups of nilpotency class at most $c$: This can
+  be defined using the iterated commutator word
+  $w(x_1,x_2,\dots,x_c,x_{c+1}) = [[ \dots
+      [x_1,x_2],\dots,x_c],x_{c+1}]$. 
+\item The variety of groups of derived length at most $\ell$: This can
+  be defined using an iterated balanced commutator of length
+  $2^\ell$. For instance, when $\ell = 2$, the commutator is
+  $[[x_1,x_2],[x_3,x_4]]$.
+\end{itemize}
+
+\subsection{Verbal and marginal subgroup corresponding to a subvariety}
+
+Suppose $\mathcal{V}$ is a subvariety of the variety of groups. For a
+group $G$, the $\mathcal{V}$-{\em verbal subgroup} of $G$ is defined
+as the subgroup generated by the images of the word maps in $G$ for
+all words that are satisfied in the subvariety
+$\mathcal{V}$. Equivalently, it is the smallest normal subgroup of $G$
+for which the quotient group is in $\mathcal{V}$.
+
+Suppose $C$ is a set of words that generates the variety
+$\mathcal{V}$, i.e., $\mathcal{V}$ is precisely the subvariety of the
+variety of groups comprising those groups that satisfy all the words
+in $C$. Then, the $\mathcal{V}$-verbal subgroup of $G$ is the subgroup
+of $G$ generated by the union of the images of the word maps for all
+words in $C$.
+
+The $\mathcal{V}$-{\em marginal subgroup} of $G$ is defined as
+follows. It is the set of elements $x$ in $G$ such that for every word
+$w$ satisfied in $\mathcal{V}$, the following is true. Let $n$ be the number of letters used in $w$. Then, we want:
+
+\begin{small}
+$$w(g_1,g_2,\dots,g_i, \dots,g_n) = w(g_1,g_2,\dots,xg_i,\dots,g_n) = w(g_1,g_2,\dots,g_ix,\dots,g_n) \ \forall \ g_1,g_2,\dots,g_n \in G, \ \forall \ i \in \{ 1,2,\dots,n\}$$
+\end{small}
+
+In other words, the marginal subgroup is the set of elements that do not
+affect the evaluation of any of the words that would become trivial in
+the variety.
+
+Suppose $C$ is a set of words that generates the variety
+$\mathcal{V}$, i.e., $\mathcal{V}$ is precisely the subvariety of the
+variety of groups comprising those groups that satisfy all the words
+in $C$. Then, we can define the $\mathcal{V}$-marginal subgroup as the
+set of elements of $G$ that satisfy the above condition for the words
+in $C$ alone.
+
+Some examples of verbal and marginal subgroups are below.
+
+\begin{itemize}
+\item Consider the variety of abelian groups. The verbal subgroup of a
+  group $G$ corresponding to this variety is the derived subgroup
+  $G'$, and the marginal subgroup is the center $Z(G)$.
+\item Consider the variety of groups of nilpotency class at most
+  $c$. The verbal subgroup of a group $G$ corresponding to this
+  variety is the lower central series member subgroup
+  $\gamma_{c+1}(G)$. The marginal subgroup is the upper central series
+  member $Z^c(G)$.
+%%\item {\em TODO: Decide whether to insert more stuff}
+\end{itemize}
+
+\subsection{Homologism for a subvariety of the variety of groups}
+
+Suppose $\mathcal{V}$ is a subvariety of the variety of groups. For any
+group $G$, denote by $V^*(G)$ the $\mathcal{V}$-marginal subgroup and
+by $V(G)$ the $\mathcal{V}$-verbal subgroup.
+
+For any word $w$ satisfied in the variety $\mathcal{V}$, suppose $w$
+uses $n_w$ letters. $w$ defines a word map:
+
+$$\beta_{w,G}: G^{n_w} \to G$$
+
+By the definitions of marginal and verbal subgroup, the map descends to a set map:
+
+$$\omega_{w,G}: (G/V^*(G))^{n_w} \to V(G)$$
+
+A {\em homologism} of groups $G_1$ and $G_2$ with respect to $\mathcal{V}$ is a pair $(\zeta,\varphi)$ where $\zeta: G_1/V^*(G_1) \to G_2/V^*(G_2)$, $\varphi: V(G_1) \to V(G_2)$ are homomorphisms, and for every $w$ satisfied in the variety $\mathcal{V}$, we have:
+
+\begin{small}
+$$\omega_{w,G_2}(\zeta(x_1), \zeta(x_2), \dots, \zeta(x_{n_w})) = \varphi(\omega_{w,G_1}(x_1,x_2,\dots, x_{n_w})) \ \forall \ (x_1,x_2,\dots,x_n) \in (G_1/V^*(G_1))^{n_w}$$
+\end{small}
+
+As with all the other definitions, it suffices to check this condition
+on a set of words that {\em generates} the variety rather than on all
+words satisfied in the variety.
+
+A homologism is termed an {\em isologism} if both its component
+homomorphisms are isomorphisms, or equivalently, if there is an
+inverse map to it that is also a homologism.
+
+For any subvariety $\mathcal{V}$ of the variety of groups, we can
+define the {\em category of groups with
+  $\mathcal{V}$-homologisms}. The objects of this category are groups
+and the morphisms are $\mathcal{V}$-homologisms, with composition of
+homologisms defined via composition of the corresponding
+homomorphisms. The isomorphisms in this category are precisely the
+$\mathcal{V}$-isologisms. Further, a group is isomorphic to the
+trivial group in this category if and only if it is in the subvariety
+$\mathcal{V}$. Thus, the category of groups with
+$\mathcal{V}$-homologisms can be thought of as going ``modulo'' the
+subvariety $\mathcal{V}$, in so far as the ``kernel'' is precisely
+$\mathcal{V}$.
+
+%% \subsection{Relation between homoclinism categories for subvarieties}
+
+%% {\em TODO: Fill this in later}
+
+\subsection{$n$-homoclinism and $n$-isoclinism}
+
+Suppose $n$ is a positive integer. A $n$-homoclinism is defined as a
+homologism with respect to the subvariety of the variety of groups
+comprising groups of nilpotency class at most $n$. The subvariety is
+defined by the word $w(x_1,x_2,\dots,x_n,x_{n+1}) = [[ \dots
+    [x_1,x_2],\dots,x_n],x_{n+1}]$. The {\em category of groups with
+  $n$-homoclinisms} is the category where the objects are groups and
+the homomorphisms are $n$-homoclinisms. A {\em $n$-isoclinism} is
+defined as an isomorphism in this category.
+
+The concepts of $n$-isoclinism and $c$-homoclinism are also
+described in \cite{Hekster} (for groups) and \cite{Moghaddametal} (for
+Lie rings).
+
+
+%% \subsection{Baer invariant and nilpotent multiplier}
+
+%% {\em TODO: Fill this in later}
+
+%% %\newpage
+
+
+%% \section{Operads}\label{appsec:operads}
+
+%% {\em TODO: Fill in}
+
+%% %\newpage
+
+%% \section{Multiplicative Lie rings}\label{appsec:multiplicative-lie-rings}
+
+%% {\em TODO: Fill in}
+ 
+%% %\newpage
+
+%% \section{Exploring groups of small order}
+
+\section{Additional proofs}
+
+\subsection{Proofs related to isoclinism}\label{appsec:isoclinism-extra-proofs}
+
+We begin with the proof of Theorem
+\ref{isoclinic-same-proportions-conjugacy-class-sizes}. The theorem is
+restated below.
+
+\begin{quote}
+  Suppose $G_1$ and $G_2$ are isoclinic groups. Suppose $c$ is a
+  positive integer. Let $m_1$ be the number of conjugacy classes in
+  $G_1$ of size $c$ (so that the {\em total} number of elements in
+  such conjugacy classes is $m_1c$). Let $m_2$ be the number of
+  conjugacy classes in $G_2$ of size $c$ (so that the {\em total}
+  number of elements in such conjugacy classes is $m_2c$). Then, $m_1$
+  is nonzero if and only if $m_2$ is nonzero, and if so, $m_1/m_2 =
+  |G_1|/|G_2|$.
+
+  In particular, if $G_1$ and $G_2$ additionally have the same order,
+  then they have precisely the same multiset of conjugacy class sizes.
+
+\end{quote}
+
+\begin{proof}
+  Let $W$ be the group identified with $\operatorname{Inn}(G_1) \cong
+  \operatorname{Inn}(G_2)$, and $T$ be the group identified with $G_1'
+  \cong G_2'$. Denote by $\alpha_1: G_1 \to W$ and $\alpha_2: G_2 \to
+  W$ the respective quotient maps. Denote by $\omega: W \times W \to
+  T$ the group commutator map. Note that the map $\omega$ is the same
+  for both groups -- that's precisely the point of their being
+  isoclinic.
+
+  For $w \in W$, the centralizer in $G_1$ of any element in
+  $\alpha_1^{-1}(w)$ is precisely $\alpha_1^{-1}(\mathcal{C}(w))$
+  where
+  
+  $$\mathcal{C}(w) = \{ u \in W \mid \omega(u,w) \mbox{ is the identity element of } T \}$$
+
+  Thus, the size of the conjugacy class in $G_1$ of any element in
+  $\alpha_1^{-1}(w)$ is the index of the subgroup $\mathcal{C}(w)$ in $W$.
+ 
+  From this, it follows that the set of elements of $G_1$ with
+  conjugacy class size $c$ is $\alpha_1^{-1}(S)$ where $S$ is the set
+  of $w \in W$ for which the index of the subgroup $\mathcal{C}(w) =
+  \{ u \in W \mid \omega(u,w) \mbox{ is the identity element of } T
+  \}$ in $W$ is $c$.
+
+  Thus, we get the equality of the following two expressions for the
+  number of elements of $G_1$ in conjugacy classes of size $c$:
+
+  $$m_1c = |S||Z(G_1)|$$
+
+  Analogously, we have:
+
+  $$m_2c = |S||Z(G_2)|$$
+
+  The crucial thing to note is that the subset $S$ of $W$ is the same
+  in both cases.
+
+  Taking the quotient, we get that $m_1$ is nonzero if and only if
+  $m_2$ is nonzero, and if so:
+
+  $$\frac{m_1}{m_2} = \frac{|Z(G_1)|}{|Z(G_2)|}$$
+
+  Since $[G_1:Z(G_1)] = |W| = [G_2:Z(G_2)]$, we have 
+  $|Z(G_1)|/|Z(G_2)| = |G_1|/|G_2|$, so we obtain:
+
+  $$\frac{m_1}{m_2} = \frac{|G_1|}{|G_2|}$$
+
+\end{proof}
+
+We now turn to the proof of the result on irreducible
+representations. We need some preliminary definitions.
+
+\begin{definer}[Projective general linear group]
+  Suppose $K$ is a field and $d$ is a positive integer. The {\em
+    projective general linear group} of degree $d$ over $K$, denoted
+  $PGL_d(K)$, is defined as the quotient group of the general linear
+  group $GL_d(K)$ by the subgroup of scalar matrices in $GL_d(K)$. The
+  subgroup of scalar matrices in $GL_d(K)$ is precisely the center of
+  $GL_d(K)$. Hence, $PGL_d(K)$ is isomorphic to the inner automorphism
+  group of $GL_d(K)$.
+\end{definer}
+
+\begin{definer}[Projective representation]
+  Suppose $G$ is a group and $K$ is a field. A {\em projective
+    representation} of $G$ over $K$ of degree $d$ is a homomorphism
+  from $G$ to the projective general linear group $PGL_d(K)$ for some
+  positive integer $d$. The value $d$ here is termed the {\em degree
+    of the projective representation}.
+
+  A projective representation $\rho:G \to PGL_d(K)$ is said to have a
+  linear lift $\theta:G \to GL_d(K)$ if $\pi \circ \theta = \rho$,
+  where $\pi: GL_d(K) \to PGL_d(K)$ is the natural quotient map. The
+  term ``linear lift'' here refers to the fact that $\theta$ is a {\em
+    linear} representation that serves as a ``lift'' of $\rho$.
+\end{definer}
+
+A projective representation may or may not admit a linear lift. The
+next lemma describes the nature of the set of linear lifts assuming
+that a linear lift exists.
+
+\begin{lemma}\label{stabilizer-kernel-description}
+  Suppose $G$ is a finite group and $\rho:G \to PGL_d(\mathbb{C})$ is
+  a projective representation. Suppose $\theta:G \to GL_d(\mathbb{C})$
+  a linear representation of $G$ that is a lift of $\rho$. In other
+  words, if $\pi: GL_d(\mathbb{C}) \to PGL_d(\mathbb{C})$ is the
+  natural quotient map, then we want that $\rho = \pi \circ
+  \theta$. We know that the set of one-dimensional representations of
+  $G$ (identified as the Pontryagin dual of $G/G'$) acts naturally on
+  the set of irreducible representations of $G$. The claim is that the
+  stabilizer of $\theta$ is precisely the set of one-dimensional
+  representations of $G$ whose kernel contains the subgroup generated
+  by $G'$ and all the elements $g$ of $G$ on which the trace of
+  $\theta(g)$ takes a nonzero value.
+\end{lemma}
+
+\begin{proof}
+  {\em One direction (one-dimensional representation whose kernel
+    contains $G'$ and the elements with nonzero trace values for
+    $\theta$ must be in the stabilizer of $\theta$)}: If a
+  one-dimensional representation $\beta$ has a kernel containing all
+  the points where $\theta$ has a nonzero-valued character, then that
+  means that for any $g \in G$, either $\theta(g)$ has trace zero or
+  $\beta(g)$ is the identity. Thus, in all cases, we have that
+  $\beta(g)\theta(g)$ and $\theta(g)$ have the same trace. Thus,
+  $\beta\theta$ and $\theta$ have the same character, hence, by basic
+  character theory, are equivalent as representations.
+
+  {\em Reverse direction (one-dimensional representation that
+    stabilizes $\theta$ must have kernel containing $G'$ and the
+    elements with nonzero trace values)}: Let $\beta$ be a
+  one-dimensional representation of $G$ that stabilizes $\theta$. Note
+  that the kernel of any one-dimensional representation already
+  contains $G'$, so $G'$ is contained in the kernel of $\beta$. Thus,
+  we only need to show it contains all the elements at which the trace
+  of $\theta$ is nonzero. Suppose $g \in G$ is an element at which
+  $\theta(g)$ has nonzero trace, and $\beta$ is a one-dimensional
+  representation in the stabilizer of $\theta$. Then $\beta \theta$
+  and $\theta$ are equivalent representations, hence they have the
+  same character. Thus, $\beta(g)\theta(g)$ and $\theta(g)$ have the
+  same trace. By assumption, $\theta(g)$ has nonzero trace, so this
+  forces the complex number $\beta(g)$ to equal $1$, so $g$ is in the
+  kernel of $\beta$, as desired.
+\end{proof}
+
+We can now turn to the proof of Theorem
+\ref{isoclinic-same-proportions-irrep-degrees}, the main theorem about
+irreducible representations.
+
+\begin{quote}
+  Suppose $G_1$ and $G_2$ are isoclinic finite groups. Suppose $d$ is
+  a positive integer. Let $m_1$ denote the number of equivalence
+  classes of irreducible representations of $G_1$ over $\mathbb{C}$
+  that have degree $d$. Let $m_2$ denote the number of equivalence
+  classes of irreducible representations of $G_2$ over $\mathbb{C}$
+  that have degree $d$. Then, $m_1$ is nonzero if and only if $m_2$ is
+  nonzero, and if so, $m_1/m_2 = |G_1|/|G_2|$.
+
+  In particular, if $G_1$ and $G_2$ additionally have the same order,
+  then they have precisely the same multiset of degrees of irreducible
+  representations.
+\end{quote}
+
+\begin{proof}
+  Let $W$ be the group identified with $\operatorname{Inn}(G_1) \cong
+  \operatorname{Inn}(G_2)$, and $T$ be the group identified with $G_1'
+  \cong G_2'$. Denote by $\alpha_1:G_1 \to W$ and $\alpha_2: G_2 \to
+  W$ the respective quotient maps. $\omega: W \times W \to T$ the group
+  commutator map, which is the same for both groups.
+
+  We have short exact sequences:
+
+  $$1 \to Z(G_1) \to G_1 \to W \to 1$$
+
+  and
+
+  $$1 \to Z(G_2) \to G_2 \to W \to 1$$
+
+  We will show the following:
+
+  \begin{enumerate}
+  \item For any irreducible projective representation $\rho: W \to
+    PGL_d(\mathbb{C})$, there exists a linear representation of $G_1$
+    that descends to $\rho$ if and only if there exists a linear
+    representation of $G_2$ that descends to $\rho$.
+  \item Further, if so, the ratio of the number of linear
+    representations of $G_1$ that descend to $\rho$ equals the number
+    of linear representations of $G_2$ that descend to $\rho$ is
+    $|G_1|/|G_2|$.
+  \end{enumerate}
+
+  Note that once we have (1) and (2), the result will follow: first,
+  simply list all the projective representations of $W$ of degree $d$
+  that lift to linear representations in the groups $G_1$ and/or
+  $G_2$. For each, the number of lifts in the two groups is in the
+  proportion $|G_1|:|G_2|$, so the overall proportion is also
+  $|G_1|:|G_2|$.
+
+  Proof of (1): This follows from Isaacs, Theorem 11.13, and the
+  observation that the condition Isaacs specifies for the
+  representation to lift is satisfied for $G_1$ if and only if it is
+  satisfied for $G_2$. %% {\em TODO: Add a little more detail here, since
+  %% the notation used in Isaacs is a little different, so it may be hard
+  %% for readers to follow this step; also, Suzuki's book might be a
+  %% better reference since Isaacs never explicitly discusses isoclinism}.
+
+  Proof of (2): If a projective representation lifts to $G_1$, then
+  the set of lifts has a transitive action on it of the set of
+  one-dimensional linear representations of $G_1$, which is the
+  Pontryagin dual of $G_1/G_1'$. By the fundamental theorem of group
+  actions, the size of the set of lifts equals the index of the
+  stabilizer in this Pontryagin dual of any lift. So the question is:
+  what is the necessary and sufficient condition for a one-dimensional
+  representation $\chi$ of $G_1/G_1'$ to fix a linear lift of $\rho$
+  to $G_1$?
+
+  The notion of whether the trace is zero is a well-defined notion for
+  $\rho$, even though the outputs are in $PGL_d(\mathbb{C})$ rather
+  than being matrices themselves. Let $\mathcal{N}(\rho)$ be the
+  subgroup of $W$ generated by $W'$ and all those elements of $W$ for
+  which the trace of the image under $\rho$ is nonzero. By the
+  preceding lemma (Lemma \ref{stabilizer-kernel-description}), the
+  stabilizer of any lift of $\rho$ is precisely the set of
+  one-dimensional representations of $G_1$ whose kernel contains
+  $\alpha_1^{-1}(\mathcal{N}(\rho))$. Another way of putting it is
+  that it is the Pontryagin dual of
+  $G_1/\alpha_1^{-1}(\mathcal{N}(\rho))$, viewed as a subgroup of the
+  Pontryagin dual of $G_1/G_1'$.
+
+
+  The number of linear lifts is therefore:
+
+  $$\frac{|G_1/G_1'|}{|G_1/\alpha_1^{-1}(\mathcal{N}(\rho))|}$$
+
+  By the third isomorphism theorem of basic group theory, this is the
+  same as:
+
+  $$|\alpha_1^{-1}(\mathcal{N}(\rho))/G_1'|$$
+
+  This simplifies to:
+
+  $$\frac{|\mathcal{N}(\rho)||Z(G_1)|}{|G_1'|}$$
+
+  Similarly, the number of lifts of $\rho$ to $G_2$ is:
+
+  $$\frac{|\mathcal{N}(\rho)||Z(G_2)|}{|G_2'|}$$
+
+  Note the crucial fact that $\mathcal{N}(\rho)$ is the same in both
+  cases.
+
+  Taking the quotient, we get $|Z(G_1)|/|Z(G_2)|$, which is the same
+  as $|G_1/G_2|$ because the groups have isomorphic inner automorphism
+  groups. This completes the proof of (2), and hence of the original
+  statement.
+\end{proof}
+
+%\end{document}
+
+%% Peter May back and forth:
+
+%% Forth:
+
+%% (1) The homology groups *with coefficients in the integers* for a Lie
+%% ring L whose additive group is T-local are all T-local abelian
+%% groups. I'm interested only in the nilpotent case and the second
+%% homology group.
+
+%% (2) Even better (though not necessary) would be the statement that for
+%% any Lie ring L, if we denote by L_T the tensor product obtained by
+%% extending the ring of scalars to Z_T, the following is true:
+
+%% H_*(L;integers) -> H_*(L_T;integers)
+
+%% Back:
+
+%% I don't know the Lie ring literature, but I'm perfectly comfortable working
+%% with Lie algebras over any commutative ring, and in your case I would
+%% think of your L as a Lie algebra over $\bZ_{(p)}$, but we have a silly
+%% choice: take the enveloping algebra as a Lie ring (Lie algebra over $\bZ$)
+%% or a Lie algebra over $\bZ_{(p)}$.  Defining cohomology in the obvious
+%% way using Ext over the universal enveloping algebra, these should differ
+%% only in degree $0$, giving $\bZ$ with one choice and $\bZ_{(p)}$ with
+%% the other there.  Modulo this distinction, the answer to (1) should be yes,
+%% in positive degrees, with either choice.   The answer to (2) should be yes
+%% in all degrees with either choice.   There should be nothing to prove.
+
+
+
+%% \subsection{Summary of attributes preserved under Baer correspondence}
+
+%% Let $G$ be a Baer Lie group and $L = \log G$ is its Baer Lie
+%% ring. The following are true:
+
+%% \begin{enumerate}
+%% \item Under the Baer correspondence, endomorphisms of $G$ correspond
+%%   to endomorphisms of $L$, as described in Section
+%%   \ref{sec:baer-correspondence-isocat-consequences}.
+%% \item Under the Baer correspondence, automorphisms of $G$ correspond
+%%   to automorphisms of $L$, as described in Section
+%%   \ref{sec:baer-correspondence-isocat-consequences}.
+%% \item Under the Baer correspondence, the center of $G$ corresponds to
+%%   the center of $L$.
+%% \item Under the Baer correspondence, the derived subgroup of $G$
+%%   corresponds to the derived subring of $L$.
+%% \item As described in Section
+%%   \ref{sec:baer-correspondence-sub-quot-dp}, we obtain the following
+%%   correspondences:
+
+%%   \begin{center}
+%%     Baer Lie subgroups of $G$ $\leftrightarrown$ Baer Lie subrings of
+%%     $L$
+%%   \end{center}
+
+%%   \begin{center}
+%%     Normal Baer Lie subgroups of $G$ $\leftrightarrow$ Baer Lie ideals in $L$
+%%   \end{center}
+
+%%   \begin{center}
+%%     Baer Lie quotient groups of $G$ $\leftrightarrow$ Baer Lie
+%%     quotient rings of $L$
+%%   \end{center}
+
+%% \item The Baer correspondence gives a correspondence:
+
+%%   \begin{center}
+%%     $2$-powered characteristic subgroups of $G$ $\leftrightarrow$ $2$-powered characteristic subrings in $L$
+%%   \end{center}
+
+%%   Note that this also implies that any $2$-powered characteristic
+%%   subring of $L$ is an ideal.
+
+%% \item Conjecture \ref{conj:charpowering} (respectively, Conjecture
+%%   \ref{conj:charpowering-lie}) stated that in a $\pi$-powered
+%%   nilpotent group (respectively, $\pi$-powered nilpotent Lie ring),
+%%   any characteristic subgroup (respectively, characteristic Lie
+%%   subring) must be $\pi$-powered. We can consider restricted versions
+%%   of Conjectures \ref{conj:charpowering} and
+%%   \ref{conj:charpowering-lie} to the case of Baer Lie groups and Baer
+%%   Lie rings respectively. The restricted versions of the conjectures
+%%   are equivalent. Further, if the equivalent conjectures are true, the
+%%   correspondence of the preceding point becomes a correspondence:
+
+%%   \begin{center}
+%%     Characteristic subgroups of $G$ $\leftrightarrow$ Characteristic
+%%     subrings of $L$
+%%   \end{center}
+%% \end{enumerate}
+
+%% \subsection{Some results about generating sets of the derived subgroup that we will use}\label{sec:derived-subgroup-results-to-use}
+
+%% The following two results are easy to prove, but useful to keep in
+%% mind.
+
+%% \begin{itemize}
+%% \item For a group $G$ with a generating set $S$, the derived subgroup
+%%   of $G$ has the following generating set: all elements that can be
+%%   expressed as commutator words (of length at least two) using the
+%%   elements of $S$. To see this, note that $G$ is the normal closure of
+%%   the set of commutators between elements of $S$, hence it is
+%%   generated by the set of all conjugates of commutators between
+%%   elements of $S$. It suffices to show that each such conjugate is
+%%   expressible as a product of iterated commutators involving elements
+%%   of $S$, and this is an easy exercise.
+%% \item For a Lie ring $L$ with a generating set $S$, the derived
+%%   subring of $L$ has the following generating set: all elements that
+%%   can be expressed as Lie products (of length at least two) using the
+%%   elements of $S$.
+%% \end{itemize}
+
+%% %\newpage
+
+
+%% %% \subsection{Replacement theorems}
+
+%% %% There is a considerable literature related to questions such as:
+
+%% %% \begin{quote}
+%% %%   Given a prime $p$ and positive integers $k \le n$, is it true
+%% %%   that for every group $G$ of order $p^n$ having an abelian subgroup
+%% %%   of order $p^k$, $G$ must have an abelian subring of order $p^k$?
+%% %% \end{quote}
+
+%% %% A major paper addressing questions of this type was a 1975 paper
+%% %% \cite{JK75} by Jonah and Konvisser. The paper proved that for an odd
+%% %% prime $p$ and for $0 \le k \le 5$, the answer to the question above
+%% %% was always {\em yes}. In fact, their paper demonstrated a
+%% %% substantially stronger result: they showed that if $G$ has an abelian
+%% %% subgroup of order $p^k$ for some fixed $k$ satisfying $0 \le k \le 5$,
+%% %% then the total number of abelian subgroup of $G$ of order $p^k$ is
+%% %% congruent to $1$ mod $p$. The counting methods proposed by Jonah and
+%% %% Konvisser were unsuited to settling the question above. In fact,
+%% %% another paper \cite{JK75.2} by the same authors published in the same
+%% %% journal issue constructed a generic example (valid for all odd primes
+%% %% $p$) of a group of order $p^9$ that has exactly two abelian subgroups
+%% %% of order $p^6$, both of which are elementary abelian and normal.
+
+%% %% The paper \cite{AG98} by Alperin and Glauberman proves more powerful
+%% %% results in the same direction. The paper uses the Lazard
+%% %% correspondence for its proof, and also uses group-theoretic reasoning
+%% %% to generalize the result somewhat to situations where the Lazard
+%% %% correspondence does not directly apply. Explicitly, Theorem C of the
+%% %% paper reads:
+
+%% %% \begin{theorem}[Theorem C of \cite{AG98}]
+%% %%   If $A$ is an abelian subalgebra of the Lie algebra $L$ over $F$ and
+%% %%   $L$ is nilpotent of class at most $p$, then there is an abelian
+%% %%   ideal $N$ of $L$, in the ideal closure of $A$ in $L$, of the same
+%% %%   dimension as $A$.
+%% %% \end{theorem}
+

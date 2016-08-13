@@ -1,0 +1,488 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Informal introduction to limits}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 2.1, parts of
+Sections 2.4.
+
+{\bf Corresponding material in homework problems}: Homework 2,
+Routine problems 1--4, 7--9.
+
+{\bf Difficulty level}: Easy to moderate, assuming you have seen some
+intuitive concept of limits before.
+
+{\bf Covered in class?}: Probably not. We may go over some small part
+of this quickly before covering $\epsilon-\delta$ definitions of
+limits.
+
+{\bf Things that students should definitely get}: To define limits,
+you need to get really really close. There are two directions from
+which to approach a real number: left and right. The notation for
+limits and one-sided limits. The intuitive meaning of the existence of
+limits and of continuity,, one-sided continuity, continuity on
+intervals. The notions of removable and jump discontinuity.
+
+{\bf Things that students should hopefully get}: The allusion to why
+taking limits for functions on a plane is harder because of multiple
+directions of approach.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+
+\item On the real line, there are two directions from which to
+  approach a point: the {\em left} direction and the {\em right}
+  direction.
+\item For a function $f$, $\lim_{x \to c} f(x)$ is read as ``the limit
+  as $x$ approaches $c$ of $f(x)$. Equivalently, as $x$ approaches
+  $c$, $\lim_{x \to c} f(x)$ is the value that $f(x)$ approaches.
+\item $\lim_{x \to c} f(x)$ makes sense only if $f$ is defined {\em
+  around} $c$, i.e., both to the immediate left and to the immediate
+  right of $c$.
+\item We have the notion of the {\em left hand limit} $\lim_{x \to
+  c^-} f(x)$ and the {\em right hand limit} $\lim_{x \to c^+}
+  f(x)$. The {\em limit} $\lim_{x \to c} f(x)$ exists if and only if
+  (both the left hand limit and the right hand limit exist and they are
+  both equal).
+\item $f$ is termed {\em continuous} at $c$ if $c$ is in the domain of
+  $f$, the limit of $f$ at $c$ exists, and $f(c)$ equals the
+  limit. $f$ is termed {\em left continuous} at $c$ if the left hand
+  limit exists and equals $f(c)$. $f$ is termed {\em right continuous}
+  at $c$ if the right hand limit exists and equals $f(c)$.
+\item $f$ is termed {\em continuous} on an interval $I$ in its domain
+  if $f$ is continuous at all points in the interior of $I$,
+  continuous from the right at any left endpoint in $I$ (if $I$ is
+  closed from the left) and continuous fromthe left at any right
+  endpoint in $I$ (if $I$ is closed from the right).
+\item A {\em removable discontinuity} for $f$ is a discontinuity where
+  a two-sided limit exists but is not equal to the value. A {\em jump
+  discontinuity} is a discontinuity where both the left hand limit and
+  right hand limit exist but they are not equal.
+\end{enumerate}
+
+Actions: See the procedure in the last subsection on computing limits
+for polynomial and rational functions.
+
+{\em Note}: These notes cover only the informal and intuitive concept
+of limits that you should be familiar with, and do not include the
+$\epsilon-\delta$ definitions. The $\epsilon-\delta$ definitions are
+covered in subsequent notes which we will go through very carefully in
+class.
+\section{Intuitive conception of limits}
+
+\subsection{The real numbers and two-sidedness of approach}
+
+The first thing you need to know is that in order to understand
+limits, you really need to appreciate the real numbers. There's
+something particularly interesting about the real numbers: you can get
+{\em really really close} to a real number without equaling it. That's
+not something you can do with more sparse sets such as the integers.
+
+It is this ability to sneak really close to something without being
+equal to it that allows us to talk of limits. This is something you
+should keep in mind -- we'll get back to it later again when we talk
+of another kind of limit in 153 -- the limit of a sequence. That's a
+very different but in some ways remarkably similar notion, but we'll
+come to it in due course.
+
+\includegraphics[width=3in]{twosidedapproach.png}
+
+Now, in the picture, I sneaked up on this number from one side -- the
+left side. But I could sneak up to it from another side -- the right
+side. This two-sidedness makes things pretty interesting. By the way,
+this is one advantage of dealing with a line -- there are only two
+directions to worry about. Imagine, just imagine, if you were dealing
+with a plane. Then there would be the left side, the right side, the
+up side, the down side, this side, that side -- too many! Luckily for
+us, we can postpone all those headaches for multivariable calculus,
+which is beyond the scope of the 150s. So we focus right now on this
+simple real line.
+
+Here's the kind of picture you can avoid thinking about for now:
+
+\includegraphics[width=3in]{multidirectionalapproach.png}
+
+\subsection{Beginning and verbal gymnastics}
+
+\includegraphics[width=3in]{monotoniccontinuouslimit.png}
+
+So let's be really abstract. Suppose $f$ is a function from a subset
+of the reals to a subset of the reals and $c$ is a real number. What
+we would like to know is the answer to this question: as $x$ gets
+really close to $c$, what does $f(x)$ get close to? If $f(x)$ is
+heading towards a specific destination, that's called its limit, and
+it has the notation:
+
+$$\lim_{x \to c} f(x)$$
+
+This is read as ``the limit as $x$ approaches $c$ of $f(x)$''. An
+equation such as:
+
+\begin{equation*}
+  \lim_{x \to c} f(x) = b
+\end{equation*}
+
+can be read in two ways: ``the limit as $x$ approaches $c$ of $f(x)$
+is $b$'' or ``as $x$ approaches $c$, $f(x)$ approaches $b$''. By the
+way, some people say {\em tends to} instead of {\em approaches}. Some
+people say {\em goes to} and those who're living at the point $c$ may
+say {\em comes to}.
+
+Now, let's take some examples. Suppose $f(x) = x$. So $f$ is what is
+called the {\em identity function}. It is like a mirror that gives
+back what is put into it. Well, what then is $\lim_{x \to 0} f(x)$?
+Well, $f(x) = x$, so this is $\lim_{x \to 0} x$. So this reads like a
+word puzzle: ``as $x$ tends to $0$, what does $x$ tend to?'' Of
+course, $0$. In fact, more generally,
+
+\begin{equation*}
+  \lim_{x \to c} x = c
+\end{equation*}
+
+\subsection{Beyond our reach: can't limit to what you can't approach}
+
+Okay, here's the next question: what is $\lim_{x \to -1} \sqrt{x}$. By
+the way, remember that $\sqrt{x}$ is defined as the nonnegative
+square root. So what is this limit? In other words, as $x$ approaches,
+gets really really close to $-1$, what does $\sqrt{x}$ approach?
+
+Verbal gymnastics doesn't work the same way as it does for the
+previous limit, so this one requires some serious thought. Okay, to
+simplify matters, let's first tackle the right side and then the left
+side.
+
+Okay, let's try the right side. Let's start from far off. What is the
+square root of $4$? It's $2$. What is the square root of $3$? $\sqrt{3}$
+is approximately $1.732 \dots$. Square Root of $2$ is $1.414 \dots$,
+square root of $1$ is $1$, square root of $0$ is $0$. Hmmm. So the
+square root seems to be decreasing. So you might guess right now that
+the limit is some negative number.
+
+But to check this guess, you need to go down the negative aisle. And
+because there's a paucity of integers, we need to use fractional
+numbers. So let's try some negative number between $0$ and $-1$. Say
+$-1/4$. What's the square root of $-1/4$?
+
+\includegraphics[width=3in]{squarerootfunctionlonelyminusone.png}
+
+It doesn't {\em have a square root}. It's a negative number. In fact,
+the domain of the square root function is the nonnegative reals, the
+interval $[0,\infty)$. And that's bad. Which means that as we get even
+a little close to $-1$, we cannot evaluate the function from the right
+side. So the limit from the right side doesn't make sense.
+
+The limit from the left side doesn't make sense either, because the
+function isn't defined {\em anywhere} to the left of $-1$.
+
+What's the message to take from this? It makes sense to talk of the
+limit of a function at a point, if the function is defined at places
+very close to the point. If it isn't, it's like, as some people say,
+putting ``lipstick on a pig.'' You can take the limit of a function
+that doesn't exist, and it still doesn't exist.
+
+\subsection{One-sided limits}
+
+There are two further notions, that are mirror images of each
+other: the {\em left hand limit} and the {\em right hand limit}. The
+left hand limit at $a$ is denoted as $\lim_{x \to a^-} f(x)$ and
+$\lim_{x \to a^+} f(x)$.
+
+The left hand limit of a function is the limit as you approach the
+domain value from the left side. The right hand limit of a function is
+the limit as you approach the domain value from the right side. If a
+function is defined on both the left and the right side of a point,
+there are five possibilities:
+
+\begin{enumerate}
+
+\item Neither the left hand limit nor the right hand limit exist.
+
+\item The left hand limit exists but the right hand limit does not
+  exist.
+
+\item The left hand limit does not exist but the right hand limit
+  exists.
+
+\item Both the left hand and the right hand limit exist, but they are
+  not equal.
+
+\item Both the left hand and the right hand limit exist, and they are
+  equal. In this case, we say that the function {\em has a limit} and
+  the limit is equal to both these values.
+
+\end{enumerate}
+
+Phew! What a wide range of possibilities! But you should be happy that
+there are only two directions of approach: left and right. If and when
+you study multivariable calculus, you'll be studying functions on a
+plane, where you have not two, but {\em infinitely many}
+directions. If computing limits from two directions is a headache,
+computing limits from infinitely many directions is like enduring
+torture for eternity.
+
+Things are a little different for values that are at extreme ends of
+the domain. For instance, think about the function $f:[0,1] \to [0,1]$
+given by $f(x) = \sqrt{1 - x^2}$. Now, at the point $-1$, a left hand
+limit doesn't make sense because the function is not defined to the
+left of $-1$. So, only the right hand limit does. Similarly at the
+point $1$, the right hand limit doesn't make sense but the left hand
+limit does.
+
+There's a little confusion about conventions in what I'm going to say,
+but I'll just stick with the book on this one: if the point $c$ is at
+the boundary of the domain and so the function isn't defined on one
+side, the book says that talking of the limit at $c$, or writing
+$\lim_{x \to c} f(x)$, is not meaningful. However, we can talk of the
+one-sided limit from the side that the function is defined. You may
+see a different convention at other places, but we'll just stick to
+the book for now. That means that if the point is at the boundary of
+the domain, you should clearly specify a one-sided limit instead of
+just taking {\em the limit}.
+
+\section{Continuity}
+\subsection{The concept of continuity}
+
+Suppose $f$ is a function and it is defined {\em around} a point $a$,
+i.e., $f$ is defined at the point $a$ and is also defined in some open
+interval containing $a$. Then $f$ is continuous at $a$ if the limit of
+$f$ exists at $a$ and equals $f(a)$. This means that the left hand
+limit and the right hand limit of $f$ exist at $a$ and are equal to
+$f(a)$. In symbols:
+
+$$f \text{ continuous at } a \iff \lim_{x \to a^-} f(x) = \lim_{x \to
+a^+} f(x) = f(a)$$
+
+If $f$ is defined at $a$ and on the {\em immediate right} of $a$, then
+we say that $f$ is {\em right continuous} or {\em continuous from the
+right} at $a$ if the right hand limit of $f$ at $a$ equals $f(a)$. In
+symbols:
+
+$$f \text{ right continuous at } a \iff \lim_{x \to a^+}f(x) = f(a)$$
+
+If $f$ is defined at $a$ and on the {\em immediate left} of $a$, then
+we say that $f$ is {\em left continouus} or {\em continuous from the
+left} at $a$ if the left hand limit of $f$ at $a$ equals $f(a)$. In symbols:
+
+$$f \text{ left continuous at } a \iff \lim_{x \to a^-}f(x) = f(a)$$
+
+\subsection{Continuity on an interval}
+
+Suppose $I$ is an interval (open, closed, half-open half-closed,
+possibly infinite in one or both directions). A function $f$ whose
+domain contains $I$ is termed {\em continuous} on $I$ if $f$ is
+continuous for all {\em interior} points of $I$ (i.e., all points of
+$I$ that are not at the boundary of $I$) and is continuous from the
+appropriate side at all boundary points. We consider all cases below:
+
+\begin{enumerate}
+\item If $I = (a,b)$, $f$ needs to be continuous at all points of $I$.
+\item If $I = [a,b]$, $f$ needs to be continuous at all points of
+  $(a,b)$, right continuous at $a$, and left continuous at $b$.
+\item If $I = [a,b)$, $f$ needs to be continuous at all points of
+  $(a,b)$ and right continuous at $a$.
+\item If $I = (a,b]$, $f$ needs to be continuous at all points of
+  $(a,b)$ and left continuous at $b$.
+\item If $I = (a,\infty)$ or $(-\infty,b)$ or $(-\infty,\infty)$, $f$
+  needs to be continuous at all points of $I$.
+\item if $I = [a,\infty)$, $f$ needs to be continuous at all points of
+  $(a,\infty)$ and right continuous at $a$.
+\item If $I = (-\infty,b]$, $f$ needs to be continuous at all points
+  of $(-\infty,b)$ and left continuous at $b$.
+\end{enumerate}
+
+\section{Plumbing leaks}
+
+\subsection{Filling in the hole in the FORGET function}
+
+I hope you remember the $FORGET$ function that we defined a little earlier:
+
+\begin{equation*}
+  FORGET(x) = \frac{x}{x}
+\end{equation*}
+
+When I defined this function, we discussed that the function is {\em
+not} defined at zero. Why? Because at $0$, when we plug in, we get a
+$0$ in the numerator and a $0$ in the denominator. Zero in the
+denominator is bad! This expression makes no sense. So forget about
+evaluating this function at $0$.
+
+However, it definitely makes sense to ask whether the {\em limit}
+exists at $0$:
+
+\begin{equation*}
+  \lim_{x \to 0} FORGET(x)
+\end{equation*}
+
+Why does it make sense? Because the function is defined at all points
+other than $0$, it is defined at all points that are close to $0$ but
+not equal to it. It's defined at all points to the left of $0$ and at
+all points to the right of $0$. The {\em only} point where it is not
+defined is $0$. So, it makes sense to evaluate the limit at $0$.
+
+It makes sense, but can we actually do this? Well, let's use the
+graph.
+
+\includegraphics[width=3in]{forgetfunctionlimit.png}
+
+Okay, so we see that the function is $1$ to the
+left of zero, $1$ to the right of zero. What should the limit be? If
+there's any justice in the world, it should be $1$. And it is.
+
+Let's see this mathematically:
+
+\begin{equation*}
+  FORGET(x) = \frac{x}{x}, \qquad x \ne 0
+\end{equation*}
+
+Thus:
+
+\begin{equation*}
+  \lim_{x \to 0} FORGET(x) = \lim_{x \to 0} \frac{x}{x} = \lim_{x \to 0} 1 = 1
+\end{equation*}
+
+Now you may say: {\em why can we cancel now?} The reason why we can
+cancel $x$ in that step above is that now, since we are {\em only
+approaching} $0$ and {\em are not equal to it}, $x$ can be
+canceled. And that is the beauty of limits. The thing that gives you
+trouble {\em at} a point doesn't give you any trouble {\em near} the
+point, and because you are sneaking up from nearby rather than
+evaluating at the point, you evade trouble. It's the roundabout
+maneuver when a direct assault fails.
+
+
+\subsection{Looking back at the signum function}
+
+The signum function, denoted $\operatorname{sgn}$, is the function
+defined as $x/|x|$ when $x \ne 0$. Under some conventions, it is
+considered undefined at $x = 0$. Under other conventions, its value at
+$0$ is defined to be $0$.
+
+The signum function is continuous -- in fact, locally constant -- at
+all nonzero points in the domain. At the point $0$, it takes the value
+$-1$ everywhere on the left and it takes the value $1$ everywhere on
+the right. Thus, the left hand limit is $-1$ and the right hand limit
+is $1$. Thus, the function jumps from the value $-1$ to $1$ at $0$.
+
+\includegraphics[width=3in]{signumfunctionlimit.png}
+
+The signum function differs from the FORGET function in this important
+respect: for the FORGET function, we could {\em fix} or {\em remove}
+the discontinuity at $0$ by filling in the value $1$, because the {\em
+limit at $0$ exists}. However, for the signum function, there is no
+way of fixing the discontinuity at $0$ because the limit does not
+exist, which happens in turn because the left and right hand limits
+differ.
+
+\subsection{Kinds of discontinuities}
+
+We now consider some important kinds of {\em discontinuities} for
+functions, i.e., situations where a function $f$ is defined aound a
+point $c$ but is not continuous at $c$. Here are two important kinds
+of discontinuities:
+
+\begin{enumerate}
+\item {\em Removable discontinuities} are discontinuities where the
+  limit of $f$ at $c$ exists but is not equal to $f(c)$. There could
+  be two reasons for this: either $f(c)$ is not defined (as for the
+  FORGET function) or it is defined but is not equal to the limit.
+\item {\em Jump discontinuities} are discontinuities where both the
+  left hand limit and the right hand limit exist and are finite, but
+  they are not equal. Note that the value of the function at $c$ can
+  be changed to make the function continuous from the left at $c$. It
+  can also be changed to make the function continuous from the right
+  at $c$. But we cannot choose a value $f(c)$ such that both things
+  happen simultaneously. An example is the signum function.
+\end{enumerate}
+
+These are not the only possibilities. There are also infinite
+discontinuities (where the left hand limit or the right hand limit or
+both is/are $\pm \infty$) and oscillatory discontinuities. We will
+return to this topic later.
+
+\subsection*{Aside:Left and right are based on source, not target}
+
+The left hand limit is the limit where the approach is {\em from} the
+left, but the direction in which the approach happens is {\em toward}
+the right. In other words, the choice of hand is based on the
+direction {\em from} which approach is being made rather than the
+direction in which the approach is happening.
+
+A similar convention is followed when specifying the direction of
+winds. A {\em northern} wind is a wind that blows {\em from} north to
+south. If you took geography in school or read weather forecasts, you
+should be familiar with this.
+
+[I have a guess as to the reason for choosing this convention, but
+it's purely speculative, so I won't include it here.]
+
+
+\section{Our nice cocooned world}
+
+Living on Planet Earth in an age of affluence, we are used to taking
+niceties for granted. Of course, if we consider the whole world
+throughout history, poverty is more the default condition of humans
+than affluence.
+
+In the same way, the functions you've been dealing with so far are
+nice and sweet. For all their complications and complexities, they
+don't throw tantrums. In this course, we'll continue to deal, for the
+most part, with nice functions, but we'll explore the more rugged
+terrain every once in a while to appreciate our good fortune and the
+boundaries of our understanding. For now, let's review how good we
+have it and how to handle the occasional hiccup.
+
+\subsection{Limits of polynomial and rational functions}
+
+All polynomial functions are continuous, so the limit of a polynomial
+function at a point equals the value of the polynomial function at
+that point. In other words, if $f$ is a polynomial function and $c$ is
+a number, then $\lim_{x \to c} f(x) = f(c)$.
+
+For rational functions, we evaluate the limit of a rational function
+$f$ at a point $c$ using the following rules:
+
+\begin{enumerate}
+\item First, try to evaluate the numerator and the denominator at the
+  point. If the denominator is nonzero at the point, the limit equals
+  the value. If the denominator evaluates to $0$ at the point, and the
+  numerator evaluates to something nonzero at the point, then the
+  limit is not defined. If both the numerator and the denominator
+  evaluate to $0$ at the point, then {\em more work is needed}.
+\item If both the numerator and the denominator are $0$ at the point
+  $c$, then there is a factor of $x - c$ in both the numerator and the
+  denominator. Cancel this factor. This is permissible because we are
+  only doing this cancellation {\em near} the point $c$, not {\em at}
+  the point $c$. Keep doing such cancellations till there are no
+  common factors of $x - c$ in the numerator and the denominator, and
+  go back to step (1).
+\end{enumerate}
+
+Here are some examples:
+
+The function $f(x) = (x^2 - 3x + 2)/(x - 3)$ has $\lim_{x \to 1} f(x)
+= 0/(-2) = 0$.
+
+The function $f(x) = (x^2 - 3x + 2)/(x - 1)$ has $\lim_{x \to 1} f(x)
+= ?$? Well, evaluation gives $0$ for both the numerator and the
+denominator, so we cancel the $(x - 1)$ factor, and we get:
+
+$$\lim_{x \to 1} \frac{x^2 - 3x + 2}{x - 1} = \lim_{x \to 1} \frac{(x-1)(x-2)}{x-1} = \lim_{x \to 1} x - 2 = 1 - 2 = -1$$
+
+Similarly, if $f(x) = (x - 1)/(x^2 - 3x + 2)$, we have:
+
+$$\lim_{x \to 1} \frac{x - 1}{x^2 - 3x + 2} = \lim_{x \to 1} \frac{1}{x - 2} = \frac{1}{1 - 2} = -1$$
+
+And here's another example:
+
+$$\lim_{x \to 1} \frac{x - 3}{x^2 - 3x + 2}$$
+
+This limit is not defined, because the numerator approaches $-2$ and
+the denominator approaches $0$.
+
+\end{document}

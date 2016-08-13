@@ -1,0 +1,310 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Derivative as rate of change, implicit derivatives: rough approximation of lecture}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Sections 3.4 and 3.7
+
+{\bf Difficulty level}: Easy to moderate, since most of these should
+be familiar to you and there are no new subtleties being added here.
+
+{\bf What students should definitely get}: The notion of derivative as
+a rate of change, handling word problems that ask for rates of
+change. The main idea and procedure of implicit differentiation.
+
+{\bf What students should hopefully get}: The distinction between
+conceptual and computational, the significance of implicit
+differentiation, understanding the relative rates concept and its
+intuitive relationship with the chain rule.
+
+\section*{Executive summary}
+
+\subsection*{Derivative as rate of change}
+
+Words...
+
+\begin{enumerate}
+\item The derivative of $A$ with respect to $B$ is the rate of change
+  of $A$ with respect to $B$. Thus, to determine rates of change of
+  various quantities, we can use the techniques of differentiation.
+\item If there are three linked quantities that are changing together
+  (e.g., different measures for a circle such as radius, diameter,
+  circumference, area) then we can use the chain rule.
+\end{enumerate}
+
+Most of the actions in this case are not more than a direct
+application of the words.
+
+\subsection*{Implicit differentiation}
+
+Words...
+
+\begin{enumerate}
+\item Suppose there is a curve in the plane, whose equation cannot be
+  manipulated easily to write one variable in terms of the other. We
+  can use the technique of implicit differentiation to determine the
+  derivative, and hence the slope of the tangent line, at different
+  points to the curve.
+\item For a curve where neither variable is expressible as a function
+  of the other, the notion of derivative still makes sense as long as
+  {\em locally}, we can get $y$ as a function of $x$. For instance,
+  for the circle $x^2 + y^2 = 1$, $y$ is not a function of $x$, but if
+  we restrict attention to the part of the circle above the $x$-axis,
+  then on this restricted region, $y$ is a function of $x$.
+\item In some cases, even when one variable is expressible as a
+  function of the other, implicit differentiation is easier to handle
+  as it may involve fewer messy squareroot symbols.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item To determine the derivative using implicit differentiation,
+  write down the equations of both curves, differentiate both sides
+  with respect to $x$, and simplify using all the differentiation
+  rules, to get everything in terms of $x$, $y$, and $dy/dx$. Isolate
+  the $dy/dx$ term in terms of $x$ and $y$, and compute it at whatever
+  point is needed.
+\item This procedure can be iterated to compute higher order
+  derivatives at specific points on the curve where the curve locally
+  looks like a function.
+\end{enumerate}
+
+\section{Conceptual versus computational}
+
+Back in the first lecture, I defined the concept of function. A
+function is some kind of machine that takes an input and gives an
+output. And the important thing about functions is that {\em equal
+inputs give equal outputs}.
+
+The interesting thing about functions is that this way of thinking
+about functions is a sort of {\em black box}, {\em hands-off}
+approach. If you think of the function as this box machine which sucks
+in an input from one side and spits out the output on the other side,
+we don't really care {\em how the black box works}. It doesn't matter
+what is happening inside, as long as we are guaranteed that equal
+inputs give equal outputs. 
+
+With this abstract concept of function, we defined the notion of
+limit, which was the $\epsilon-\delta$ definition, and this definition
+didn't really depend on how you compute $f$. Then we defined the
+notion of derivative, which is a particular kind of limit, namely, the
+limit of the different quotient. And in all this, how to {\em compute}
+things wasn't the focus. And simply thinking of things conceptually,
+we got a lot of insights. We understood what limits mean and we
+understood what derivatives mean, and we saw the qualitative
+significance.
+
+Complementing this conceptual understanding of the concepts of
+functions, limits, continuity, derivatives, and differentiation, there
+is the computational aspect. The computational aspect tells us how,
+for functions with specific functional forms or expressions, we can
+calculate limits and derivatives. And in order to do this, we use
+general theorems (limits for sums, differences, ...; derivatives for
+sums, differences ...) and specific tricks and formulas.
+
+What you should remember, though, is that {\em just because you cannot
+compute something, doesn't mean that it cannot be understood
+qualitatively}. So, if you encounter a function and there's no formula
+to differentiate it, that's not the same as saying that it isn't
+differentiable. Computation is one tool among many to get a conceptual
+understanding of ideas.
+
+This is really important because a lot of the places where you'll see
+these mathematical ideas applied are cases where the functions
+involved are inherently {\em unknown} or {\em unknowable} -- there
+aren't explicit expressions for them. Still, we want to talk about the
+broad qualitative properties -- is the function continuous? Is it
+differentiable? Is it twice differentiable? Is it increasing or
+decreasing, is it oscillating? Often, we can answer these qualitative
+questions without having explicit expressions for the functions.
+
+\section{Derivative as a rate of change}
+
+Recall that if $f$ is a function, the derivative $f'$ is the {\em rate
+of change} of the output of $f$ relative to the input. Or, if we are
+thinking of two quantities $x$ and $y$, where $y$ is functionally
+dependent on $x$, then the rate of change of $y$ with respect to $x$
+is $dy/dx$. That is the limit of the {\em difference quotient} $\Delta
+y/\Delta x$.
+
+This means that if we want to ask the question: {\em if the rate of
+change of $x$ is this much, what is the rate of change of $y$}, we
+should think of derivatives.
+
+For instance, we know that the area of a circle of radius $r$ is $\pi
+r^2$. We may ask the question: what is the rate of change of the area
+with respect to the radius? This is the derivative of $\pi r^2$ with
+respect to $r$, and that turns out to be $2\pi r$.
+
+For instance, if $r = 5$, the rate of change of the area with respect
+to the radius is $10\pi$.
+
+Now, suppose the radius is changing at the rate of $5 m/hr$. That
+means that every hour, the radius increases by $5m$. What is the rate
+of increase of the area with respect to time, when the radius is
+$100m$. Well, here we have three quantities, the area $A$, the radius
+$r$, and the time $t$. $r$ is a function of $t$, and $dr/dt = 5 m/hr$
+and $dA/dr = 2\pi r$. So by the chain rule, we have $dA/dt =
+(dA/dr)(dr/dt = (2\pi r) (5m/hr)$. And since $r = 100m$, we get
+$1000\pi m^2/hr$.
+
+\section{Implicit differentiation}
+
+\subsection{Introduction}
+
+So far, when trying to differentiate one quantity with respect to
+another quantity, what we do is to write one as a function of the
+other, and then differentiate that function. This is all very good
+when we have an explicit expression for the function. Sometimes,
+however, we do not really have a functional expression for one
+quantity in terms of the other, but we do know of a {\em relation}
+between the two quantities.
+
+Let's think of this a little differently. One importance of
+differentiation is that it allows us to find tangent lines to curves
+that arise as the graph of a function. This has some geometric
+significance, if we are trying to understand the geometry of a curve
+that arises as the graph of a function. But what about the curves that
+don't arise from explicit functions? Or, where we don't have explicit
+functional expressions?
+
+For instance, let's look at the circle of radius $1$ centered at the
+origin. This is given by the equation $x^2 + y^2 = 1$. Note that in
+this case, $y$ is {\em not} a function of $x$, because for many values
+of $x$, there are two values of $y$. For instance, for $x = 0$, we
+have $y = 1$ and $y = -1$. For $x = 1/2$, we have $y = \sqrt{3}/2$ and
+$y = -\sqrt{3}/2$. So, $y$ is not a function of $x$.
+
+However, {\em locally} $y$ is still a function of $x$, in the
+following sense. If you just restrict yourself to the part above the
+$x$-axis, then you do get $y$ as a function of $x$. This is the
+function $y := \sqrt{1 - x^2}$ for $-1 \le x \le 1$.  If we restrict
+ourselves to the part below the $x$-axis, we consider the function $y
+:= -\sqrt{1 - x^2}$ for $-1 \le x \le 1$.
+
+Now, how do we calculate $dy/dx$? Well, it depends on whether we are
+interested in the part above the $x$-axis or in the part below the
+$x$-axis. For the part above the $x$-axis, we have the function
+$\sqrt{1 - x^2}$, and we get that the derivative is:
+
+$$\frac{d(\sqrt{1 - x^2})}{dx} = \frac{d(\sqrt{1 - x^2})}{d(1 - x^2)} \frac{d(1 - x^2)}{dx} = \frac{1}{2\sqrt{1 - x^2}} \cdot (2x) = \frac{-x}{\sqrt{1 - x^2}}$$
+
+If we are interested in the lower side, we get $x/\sqrt{1 - x^2}$.
+
+Now, in this case, we have to split into two cases, and do a painful
+calculation involving differentiating a square root via the chain rule.
+
+Here's another way of handling this differentiation, that does not
+involve a messy square root.
+
+We start with the original expression:
+
+$$x^2 + y^2 = 1$$
+
+This is an {\em identity}, which means that it's true for every point
+on the curve. When we have an equation that is identically true, it is
+legitimate to differentiate both sides and still get an
+identity. Differentiating both sides with respect to $x$, we get:
+
+$$\frac{d(x^2)}{dx} + \frac{d(y^2)}{dx} = 0$$
+
+Simplifying and using the chain rule, we get:
+
+$$2x + 2y\frac{dy}{dx} = 0$$
+
+We thus get:
+
+$$\frac{dy}{dx} = \frac{-x}{y}$$
+
+Notice that with this method, we get $-x/y$, which works in {\em both}
+cases. When $y = \sqrt{1 - x^2}$, we get $-x/\sqrt{1 - x^2}$, and when
+$y = -\sqrt{1 - x^2}$, we get $x/\sqrt{1 - x^2}$. The method that we
+used is called {\em implicit differentiation}.
+
+So the idea of implicit differentiation is that, instead of writing $y
+= f(x)$ and then differentiating both sides, we differentiate the
+messy mixed-up expression on both sides with respect to $x$. Next, we
+use the various rules (sum rule, difference rule, product rule,
+quotient rule) to keep splitting things up into smaller and smaller
+pieces, and in the final analysis, we get everything in terms of $x$,
+$y$, and $dy/dx$. Then, we try to separate $dy/dx$ completely to one
+side.
+
+Let's look at another example:
+
+$$\sin(x + y) = xy$$
+
+So, what we do is differentiate both sides:
+
+$$\frac{d(\sin(x + y))}{dx} = \frac{d(xy)}{dx}$$
+
+Now, how would we handle something like $\sin(x + y)$? It is something
+in terms of $x + y$, so we use the chain rule on the left side,
+thinking of $v = x + y$ as the intermediate function:
+
+$$\frac{d(\sin(x + y))}{d(x + y)} \frac{d(x + y)}{dx} = x \frac{dy}{dx} + y \frac{dx}{dx}$$
+
+This simplifies to:
+
+$$ \cos (x + y) \left[1 + \frac{dy}{dx}\right] = x \frac{dy}{dx} + y$$
+
+Opening up the parentheses, we get:
+
+$$\cos(x + y) + \cos(x + y) \frac{dy}{dx} = x \frac{dy}{dx} + y$$
+
+Now, we move stuff together to one side, to get:
+
+$$(\cos(x + y) - x)\frac{dy}{dx} = y - \cos(x + y)$$
+
+And we now isolate $dy/dx$:
+
+$$\frac{dy}{dx} = \frac{y - \cos(x + y)}{\cos(x + y) - x}$$
+
+\subsection{Implicit differentiation: understood better}
+
+So, in implicit differentiation, what we're doing is, instead of
+thinking of an explicit functional form, we are using a relation that
+is true for every point in the curve, then {\em differentiating both
+sides}. Next, we keep trying to simplify the expression we have using
+the various rules until we land up with something that just involves
+$x$, $y$, and $dy/dx$. Till this point, it's usually smooth
+sailing. Now, it may be the case that we can {\em isolate} $dy/dx$ and
+hence get an expression for it in terms of $x$ and $y$. If that's the
+case, then we're in good shape.
+
+Note the following key difference: when $y$ is an explicit function of
+$x$, then the expression we get for $dy/dx$ only involves $x$ and does
+not have the letter $y$ appearing in it. However, in the implicit
+case, the expression we get for $dy/dx$ involves both $x$ and $y$
+together.
+
+\subsection{Higher derivatives using implicit differentiation}
+
+We can also use implicit differentiation to compute second derivatives
+and higher derivatives. Here's what we do. First, we get the
+expression for $dy/dx$. In other words, we write:
+
+$$\frac{dy}{dx} = \text{Some expression in terms of $x$ and $y$}$$
+
+We now differentiate both sides with respect to $x$. Again, this
+differentiation is valid because the above relation holds as an
+identity, and not just as an isolated point.
+
+The left side becomes $d^2y/dx^2$. For the right side, we again use
+the same idea: we split as much as possible using the sum rule,
+product rule, etc. For the expressions that purely involve $x$, we
+differentiate the usual way. For the expressions that purely involve
+$y$, we differentiate with respect to $y$ and multiply by $dy/dx$.
+The upshot is that we get:
+
+$$\frac{d^2y}{dx^2} = \text{Some expression in terms of $x$, $y$, and $\frac{dy}{dx}$}$$
+
+Now, we plug back the earlier expression for $dy/dx$ in terms of $x$
+and $y$ into this expression, and get an expression for $d^2y/dx^2$.
+
+\end{document}
+

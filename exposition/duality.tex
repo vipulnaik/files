@@ -1,0 +1,1882 @@
+\documentclass[a4paper]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul}
+
+%Title details
+\title{Duality, manifolds and some algebraic topology}
+\author{Vipul Naik}
+%\thanks{\copyright Vipul Naik, B.Sc. (Hons) Math and C.S., Chennai Mathematical Institute}
+
+%List of new commands
+
+\newcommand{\field}{\mathbf{k}}
+\newcommand{\Quat}{\mathbb{H}}
+\makeindex
+
+\begin{document}
+\maketitle
+%\tableofcontents
+
+\begin{abstract}
+  This is a short note intended to explore the applications of duality
+  theory to the study of manifolds. I discuss Alexander duality,
+  Lefschetz duality and Poincare duality, along with applications to
+  the study of compact connected orientable manifolds.
+\end{abstract}
+
+\section{Manifolds and points}
+
+\subsection{The core question}
+
+One of the questions we shall be interested in is:
+
+\begin{quote}
+  Given two manifolds $M$ and $N$, what are the ways in which $N$
+  embeds as a submanifold of $M$? In other words, what are the
+  submanifolds of $M$ homeomorphic to $N$?
+\end{quote}
+
+Roughly speaking, we want to know how $N$ ``sits inside'' $M$ merely
+from the data of what $M$ and $N$ look like abstractly. First, we need
+to define what it means for ``ways in which $N$ embeds''.
+
+\begin{definer}[Equivalently embedded subsets]
+  Given a topological space $X$ and subspaces $Y_1$ and $Y_2$, we say
+  that $Y_1$ and $Y_2$ are \definedind{equivalently embedded
+    subsets} if there is a homeomorphism of $X$ under which $Y_1$ maps
+  homeomorphically to $Y_2$, or equivalently, there is a homeomorphism
+  of the pair $(X,Y_1)$ and $(X,Y_2)$.
+\end{definer}
+
+The question we want to ask, more precisely is: what are the various
+ways of embedding one manifold inside another,  upto equivalence?
+
+The answer in general could be {\em lots}. Moreover, non-equivalent
+embeddings may also look very similar to the algebraic
+topologist. Algebraic topology tries to partially solve this problem
+by looking at an ``invariant'' of embeddings:
+
+\begin{quote}
+  Given a topological space $X$ and a subspace $Y$, describe all
+  possibilities for the induced maps of homology:
+
+  $$H_i(X \setminus Y) \to H_i(X)$$
+
+  Given only the datum of what $Y$ looks like as an abstract
+  topological space.
+\end{quote}
+
+\subsection{Points in manifolds}
+
+There are some special cases where we can prove that just knowing the
+abstract homeomorphism type of the manifold and the submanifold,
+determines a unique way of embedding the submanifold. More precisely,
+there are special cases of manifolds $M$ and $N$ such that any two
+embeddings of $N$ in $M$ ar eequivalent. Before beginning this, let's
+define a manifold:
+
+\begin{definer}[Manifold]
+  A \definedind{manifold} of dimension $n$ is a topological space such that:
+
+  \begin{itemize}
+  \item Every point in the manifold is contained in an open set
+    homeomorphic to Euclidean space.
+  \item The space is Hausdorff
+  \item The space has a countable basis of open sets, viz., it is
+    second-countable.
+  \end{itemize}
+
+  A topological space which satisfies only the first condition is
+  called a \definedind{locally Euclidean space}.
+\end{definer}
+
+Now the big theorem:
+
+\begin{theorem}[Connected manifolds are homogeneous]
+  Let $M$ be a connected manifold. Then any two embeddings of a point
+  in $M$ are equivalent. In other words, given any two points $p,q \in
+  M$, there is a homeomorphism of $M$ which sends $p$ to $q$.
+\end{theorem}
+
+\begin{proof}
+  Consider the group of self-homeomorphisms of $M$. This group acts on
+  $M$, and $M$ is partitioned into orbits. We will prove that each
+  orbit is open. Since $M$ is connected, this will force the action to
+  be transitive.
+
+  To prove that each orbit is open, it suffices toshow that every
+  point is contained in an open set such that all points in the open
+  set are in its orbit.
+
+  Let $p \in M$ be a point. Then there exists a neighbourhood $U$ of
+  $p$ which is homeomorphic to $\R^n$ via $f:\R^n \to U$. Let $V$ be
+  the image of the interior of the unit disc under $f$, and $D$ be the
+  image of the unit disc under $f$. Now, we claim that any point $q
+  \in V$ is in the same orbit as $p$. To see this:
+
+  \begin{itemize}
+
+  \item Define a map $g_1:D \to D$ which sends $p$ to $q$, and is
+    identity on $D \setminus V$ (this can be done; it's a problem in
+    $\R^n$).
+
+  \item Define a map $g_2:M \setminus V \to M \setminus V$ given by
+    the identity map.
+
+  \end{itemize}
+
+  Now note that:
+
+  \begin{itemize}
+
+  \item $D$ is homeomorphic to the unit disc, so it is
+    compact. Moreover, $M$ is {\em Hausdorff}, so $D$ is closed in
+    $M$.
+
+  \item $V$ is open in $U$, and $U$ is open in $M$, so $V$ is open in
+    $M$. Hence $M \setminus V$ is closed in $M$.
+
+  \item $g_1$ and $g_2$ agree on $(M \setminus V) \cap D$.
+
+  \end{itemize}
+
+  Thus the gluing lemma allows us to get a map $g:M \to M$ which
+  restricts to $g_1$ on $D$ and $g_2$ on $M \setminus V$. $g(p) = q$,
+  and we are done.
+\end{proof}
+
+The proof crucially relies on the Hausdorffness of $M$. In general,
+Hausdorffness is necessary for us to be able to conclude that compact
+subsets are closed, and this is something we shall keep needing as we
+proceed.
+
+A locally Euclidean space for which the above proposition fails is the
+``line with two origins'': the real line with two copies of zero.
+
+The proof does not depend on the second-countability assumption. Many
+of the proofs we shall see do not depend on
+second-countability. However, second-countability turns out to be
+necessary to force stronger separation and metrizability properties.
+
+Another theorem, which can be proved along similar lines:
+
+\begin{theorem}[Multiple transitivity]
+  Let $M$ be a connected manifold of dimension greater than $1$, and
+  $\{ p_1, p_2, \ldots, p_r \}$ and $\{ q_1, q_2, \ldots, q_r \}$ be
+  two sets of points.  Then there is a homeomorphism $\phi$ of $M$
+  such that $\phi(p_i) = q_i$ for every $i$.
+\end{theorem}
+
+\subsection{Relative homology for a point}
+
+Let's study the point-deletion inclusion problem, viz., the problem of
+how the inclusion maps look:
+
+$$H_i(M \setminus p) \to H_i(M)$$
+
+Since (for a connected manifold) any two points in a manifold are
+equivalently embedded, the nature of the above map should {\em not}
+depend on the choice of point. Let's prove our first theorem.
+
+\begin{theorem}[Homology of pair with point removed]
+  Let $M$ be a topological space and $p$ a closed point in $M$, such
+  that $p$ is inside an open neighbourhood $U$ homeomorphic to $\R^n$. Then:
+
+  $$H_n(M, M \setminus p) = \Z, \qquad H_i(M, M \setminus p) = 0 \ \forall \ i \ne n$$
+\end{theorem}
+
+\begin{proof}
+  Note that since $p$ is closed, $M \setminus p$ is open. Excision at
+  $p$ yields:
+
+  $$H_i(M, M \setminus p) \cong H_i(U, U \setminus p)$$
+
+  The result holds for $U$, since $U$ is homeomorphic to $\R^n$, and
+  hence we are done.
+\end{proof}
+
+The proof does not require Hausdorffness. In fact, since locally
+Euclidean spaces are $T_1$, the proof works for every point in a
+locally Euclidean space.
+
+Also, the proof requires a Euclidean neighbourhood only at the
+particular point. Thus, for manifolds with boundary, the result holds
+for any point not in the boundary. For CW-complexes, the result holds
+for points in an attached $n$-cell, if there is no cell of higher
+dimension whose boundary contains that point.
+
+The homology of the pair gives a first foot into the problem we're
+after. We write down the long exact sequence of homology of the
+pair. We see immediately that for $i \ne n, n-1$, the inclusion:
+
+$$H_i(M \setminus p) \to H_i(M)$$
+
+is an isomorphism. For $i = n,n-1$, we have the picture:
+
+$$0 \to H_n(M \setminus p) \to H_n(M) \to H_n(M,M \setminus p) \to H_{n-1}(M \setminus p) \to H_{n-1}(M) \to 0$$
+
+What happens at $n$ and at $n-1$ depends on the nature of $M$. This is
+part of a more general principle: the homology of a pair cares only
+about local information, whereas the actual inclusion maps care a bit
+about the global structure as well.
+
+\subsection{Some particular cases}
+
+We assume here the following results:
+
+\begin{itemize}
+
+\item If $M$ is any manifold, then $H_i(M) = 0$ for $i$ greater than
+  the dimension of $M$.
+\item If $M$ is a compact connected orientable $n$-manifold, then the map
+  $H_n(M) \to H_n(M, M \setminus p)$ is an isomorphism for all $p$.
+
+\item If $M$ is a compact connected non-orientable $n$-manifold, $H_n(M) =
+  0$.
+
+\item All the homology groups of a compact connected orientable
+  $n$-manifold are finitely generated.
+\end{itemize}
+
+Let's see some consequences of this. First, the fact that higher
+homologies of $M$ being zero, also tells us that higher homologies of
+$M \setminus p$ are zero.
+
+For a compact connected orientable manifold, we obtain that:
+
+\begin{itemize}
+
+\item $H_n(M \setminus p) = 0$
+
+\item The map from $M \setminus p$ to $M$ induces an isomorphism on
+  $(n-1)^{th}$ homology
+
+\end{itemize}
+
+On the other hand, when $M$ is a compact connected non-orientable
+manifold, we get:
+
+\begin{itemize}
+
+\item $H_n(M \setminus p) = 0$
+
+\item There is a short exact sequence:
+
+  $$0 \to H_n(M, M \setminus p) \to H_{n-1}(M \setminus p) \to H_{n-1}(M) \to 0$$
+
+\end{itemize}
+
+In sharp contrast to these cases, when $M = \R^n$, then $H_n(M
+\setminus p) = 0$ and $H_{n-1}(M \setminus p) = \Z$.
+
+\section{Alexander duality}
+
+\subsection{Statement of Alexander duality}
+
+Alexander duality is a tool for computing the relative homology of the
+pair $(M, M \setminus K)$ where $M$ is a connected orientable manifold
+and $K$ is a compact subset of $M$. We state the result in two parts:
+
+\begin{itemize}
+
+\item There is a natural isomorphism:
+
+  $$\overline{H}^i(K) \to H_{n-i}(M, M \setminus K)$$
+
+\item When $K$ is a submanifold, or when $K$ is a strong deformation
+  retract of an open neighbourhood, we have:
+
+  $$H^i(K) \cong \overline{H}^i(K)$$
+
+\end{itemize}
+
+The precise statement of Alexander duality also gives us the maps,
+with a very concrete interpretation of those maps. However, we shall
+not be too interested in the specific maps as of now. Our main
+objective in looking at Alexander duality is to study the problem of
+how submanifolds can be embedded inside orientable manifolds.
+
+Actually, we do not require a global condition of orientability or a
+global manifold property for $M$; we only require that $K$ has a
+neighbourhood which looks like an orientable manifold. Thus, for
+instance, the Alexander duality statement works out for points in
+arbitrary manifolds.
+
+Alexander duality does for compact submanifolds what out explicit
+excision argument did for points. In fact, applying Alexander duality
+for a {\em point} in a manifold gives exactly the answer we got in the
+previous subsection.
+
+\subsection{The general problem formulation}
+
+Suppose $M$ is a connected orientable manifold and $K$ is a compact connected
+submanifold, and we know $K$ upto homeomorphism, but have no clue
+about how $K$ sits inside $M$. We want to compute the maps:
+
+$$H_i(M \setminus K) \to H_i(M)$$
+
+Clearly, if $K$ embeds in $M$ in only one possible way (as happens
+when $K$ is a point) then the maps are uniquely determined. However,
+there are situations where different possible embeddings of $K$ give
+rise to the same maps on homology.
+
+In the coming sections, we shall see what can be said under special
+cases where:
+
+\begin{itemize}
+
+\item $M$ is a compact connected orientable manifold
+
+\item $K$ is a sphere
+
+\item $M$ is a sphere
+
+\item $M$ is highly connected, and $K$ has small codimension
+
+\end{itemize}
+
+\subsection{When the manifold is compact connected orientable}
+
+\begin{claimer}
+  Suppose $M$ is a compact connected orientable manifold and $K$ is a
+  compact connected submanifold of $M$. Then the map:
+
+  $$H_n(M) \to H_n(M, M \setminus K)$$
+
+  is an isomorphism.
+\end{claimer}
+
+\begin{proof}
+  Let $p \in K$. Then consider:
+
+  $$H_n(M) \to H_n(M, M \setminus K) \to H_n(M, M \setminus p)$$
+
+  Note that $H_n(M, M \setminus K)$ is, by Alexander duality, the same
+  as $H^0(K)$, which is $\Z$.
+
+  Thus, all three groups are $\Z$, and the composite map is an
+  isomorphism, so both maps are isomorphisms.
+\end{proof}
+
+The consequence is that $H_n(M \setminus K) = 0$, and we can start our
+homology chase from $n-1$ instead of $n$.
+
+\subsection{When the submanifold is a sphere}
+
+Suppose $M$ is a connected orientable $n$-manifold and $K$ is
+homeomorphic to $S^m$. Then Alexander duality tells us that:
+
+$$H_n(M, M \setminus K) = H_{n-m}(M, M \setminus K) = \Z$$
+
+and all other relative homologies are $0$. Thus the inclusion of $M
+\setminus K$ in $M$ induces isomorphisms on all homologies except
+possibly $n,n-1$, and $n-m,n-m-1$.
+
+If we are also given that $M$ is compact connected orientable, then
+$H_n(M \setminus K) = 0$ and we have isomorphisms everywhere else except
+possibly at $n-m$ and $n-m-1$.
+
+\subsection{When the manifold is a sphere}
+
+If $M$ itself is a sphere, then all the homologies of $M$ vanish
+except the $0^{th}$ and $n^{th}$ homology. Also, $M$ is compact
+connected orientable, so what we get is:
+
+\begin{itemize}
+
+\item $H_n(M \setminus K) = 0$
+
+\item $H_i(M, M \setminus K) \cong \tilde{H}_{i-1}(M \setminus K)$ for
+  $i \le n-1$.
+
+\end{itemize}
+
+\subsection{When both the manifold and submanifold are spheres}
+
+Combining all the results above, we see that when $M = S^n$ and $K$ is
+homeomorphic to $S^m$, then $\tilde{H}_i(M \setminus K)$ is $\Z$ for
+$i = n - m - 1$ and $0$ elsewhere.
+
+Thus, we have the surprising result that the Alexander duality method
+cannot distinguish between different ways that $S^m$ may sit inside
+$S^n$. This might lead to the question: are any two $S^m$s inside
+$S^n$ equivalently embedded? The answer is {\em no}: The Alexander
+Horned sphere inside $S^3$ is homeomorphic to $S^2$, but it is not
+embedded in the same way as an equatorial $S^2$.
+
+There are other interesting consequences. Note that nowhere did we use
+that $K$ is actually homeomorphic to $S^m$: all we used was that $K$
+is compact and has the same homology groups as $S^m$. Thus, the
+results hold for any compact $m$-manifold with the same homology
+groups as $S^m$. Such manifolds are called {\em homology spheres}, and
+there exists a homology sphere of dimension $3$ which are not
+homotopy-equivalent to $S^3$.
+
+\subsection{The circle inside the torus}
+
+Let's now look at a situation where we have multiple ways of embedding
+a submanifold inside a manifold. Suppose $M$ is the torus, and $K$ is
+homeomorphic to a circle. There are two obviously distinct ways in
+which $K$ can be embedded inside $M$:
+
+\begin{itemize}
+
+\item $K$ can be embedded as a circle inside a Euclidean open subset. In
+  this case, $M \setminus K$ has two connected components, one of
+  which is contractible, and the other is homotopy-equivalent to a
+  wedge of two circles.
+
+\item $K$ can be embedded as one of the $S^1$s of $S^1 \times
+  S^1$. The complement of $K$ is now a single connected component,
+  homotopy-equivalent to a circle.
+
+\end{itemize}
+
+Let's see if Alexander duality gives us both these possibilities, and
+if it gives any others. Since $M$ is compact connected orientable, the
+homology chase can start from $1$, so we get the following long exact
+sequence:
+
+$$0 \to H_1(M \setminus K) \to H_1(M) \to H_1(M, M \setminus K) \to \tilde{H}_0(M\setminus K) \to 0$$
+
+Putting known values, we get:
+
+$$0 \to H_1(M \setminus K) \to \Z \oplus \Z \to \Z \to \tilde{H}_0(M \setminus K) \to 0$$
+
+Some homological algebra yields two possibilities:
+
+\begin{itemize}
+
+\item $H_1(M \setminus K) = \Z \oplus \Z$, with the map from it being
+  an isomorphism, and $\tilde{H}_0(M \setminus K) = \Z$.
+
+\item $H_1(M \setminus K) = \Z$, with the map from it being a direct
+  factor embedding, and $\tilde{H}_0(M \setminus K) = Z$.
+
+\end{itemize}
+
+These are the two possibilities we have already sketched ``visually''.
+
+\subsection{Connectivity and embeddings}
+
+Here is an interesting result:
+
+\begin{theorem}[Compact connected submanifolds are separating]
+  Suppose $M$ is a path-connected simply connected $n$-manifold, and
+  $K$ is a compact simply connected submanifold of codimension
+  $1$. Then $K$ is a separating submanifold: $M \setminus K$ has
+  exactly two connected components. Moreover, $K$ must be orientable.
+\end{theorem}
+
+\begin{proof}
+  We would like to use Alexander duality, but the problem is that we do
+  not know whether the highest cohomology of $K$ is $\Z$. The trick is
+  to use Alexander duality with $\Z/2\Z$-coefficients, because every
+  manifold is $\Z/2\Z$-orientable. 
+
+  Since $K$ is $\Z/2\Z$-orientable, its top homology is $\Z/2\Z$.
+  Also, since $M$ is $\Z/2\Z$-orientable, Alexander duality applies to
+  $M$, and we get:
+
+  $$\Z/2\Z \cong H^{n-1}(K;\Z/2\Z) \cong H_1(M, M \setminus K; \Z/2\Z)$$
+  
+  We now use a similar argument with the pair $(M, M \setminus
+  K)$. First note that since $M$ is simply connected, $H_1(M) =
+  0$. For first homology, $H_1(M;R) = H_1(M) \otimes R$, so we get
+  $H_1(M;\Z/2\Z) = 0$. Also $\tilde{H}_0(M;\Z/2\Z) = 0$ since $M$ is
+  connected. Thus the long exact sequence of homology yields an
+  isomorphism:
+
+  $$H_1(M, M \setminus K; \Z/2\Z) \to \tilde{H}_0(M \setminus K; \Z/2\Z)$$
+
+  Combining with the previous observation, we see that the reduced
+  homology of $M \setminus K$ is $\Z/2\Z$.
+
+  Now the zeroth reduced homology is free on $1$ less than the number
+  of connected components; hence, $M \setminus K$ has exactly two
+  connected components. But now we can go back and put
+  $\Z$-coefficients, and we'll have:
+
+  $$\tilde{H}_0(M \setminus K; \Z) = \Z$$
+
+  Proceeding backwards, we get that the top cohomology of $K$ is $\Z$;
+  hence $K$ is orientable. Note that to proceed backwards, we use the
+  following facts:
+
+  \begin{itemize}
+
+  \item $H_1(M) = 0$ because $M$ is simply connected
+
+  \item Alexander duality applies, because $M$ is simply connected,
+    and hence orientable
+
+  \end{itemize}
+
+\end{proof}
+
+This proves, among other things, results like the Jordan separation
+theorem (set $M = \R^n$, $K = S^{n-1}$). Note that the assumption of
+$M$ simply connected was crucial; in the previous section, we saw that
+when $M$ is not simply connected, then we can embed curves of
+codimension $1$ that do not separate $M$.
+
+\section{Homology, cohomology and connected sums}
+
+\subsection{Facts}
+
+This is a list of well-known ``facts'':
+
+\begin{enumerate}
+
+\item If a map from a topological space $X$ to a topological space $Y$
+  induces isomorphisms on all homologies for $1 \le i \le r$, then it
+  also induces isomorphisms on all cohomologies for $1 \le i \le r$,
+  and moreover, it preserves the cup product structure for $i,j,i + j
+  \in \oneton{r}$. The first part follows from naturality of the
+  universal coefficient theorem; the second part follows from the fact
+  that the cup product commutes with homomorphisms, which in turn
+  follows from naturality of the Alexander-Whitney map.
+
+\item The cohomology ring of a wedge sum is the direct sum of the
+  cohomology rings (preserving gradation) modulo an identification of
+  the zeroth cohomology group. One can see this, for instance, from
+  the fact that the map from the disjoint union to the wedge sum
+  induces isomorphisms on all positive homologies.
+
+\item The cohomology ring of a connected sum of compact connected
+  orientable manifolds is the direct sum of the cohomology rings
+  (preserving gradation) modulo an identification of the zeroth
+  cohomology group, and an identification of the $n^{th}$ cohomology
+  group. We shall discuss this in a little more detail.
+
+\end{enumerate}
+
+\subsection{Homology of a connected sum}
+
+For now, let $M_1$ and $M_2$ be connected manifolds.
+
+There are many approaches to computing the homology of a connected
+sum; perhaps the most elementary is a Mayer-Vietoris. The upshot of
+the initial Mayer-Vietoris computation is that for $i \ne n, n-1$, we
+have isomorphisms:
+
+$$H_i(M_1 \sharp M_2) \cong H_i(M_1) \oplus H_i(M_2)$$
+
+To prove this, we use two basic facts:
+
+\begin{itemize}
+
+\item The inclusion of $M_i \setminus p$ in $M_i$ induces isomorphism
+  on all homologies except possibly $n, n - 1$.
+
+\item The only place where the intersection of the open sets (which is
+  effectively $S^{n-1}$) has nonzero reduced homology is at
+  $n-1$. Hence it can affect only $n,n-1$.
+
+\end{itemize}
+
+Again, the behaviour of the connected sum at $n,n-1$ depends on the
+nature of the manifolds. When $M_i$ is compact connected orientable,
+then the inclusion of the glued $S^{n-1}$ into $M_i$ is nullhomotopic
+(since $S^{n-1}$ is assumed to live inside a Euclidean neighbourhood,
+and the inclusion factors through that). Hence, we get that the
+inclusion of $S^{n-1}$ in the manifold minus a point is also
+nullhomotopic, and using this, we see that if both manifolds are
+compact connected orientable:
+
+\begin{itemize}
+
+\item The connected sum is also compact connected orientable
+
+\item The $(n-1)^{th}$ homology of the connected sum is the sum of the
+  $(n-1)^{th}$ homology of the pieces.
+
+\end{itemize}
+
+It turns out that the $(n-1)^{th}$ homology of the connected sum
+remains the sum of the homologies of the pieces, even if {\em one} of
+the manifolds is non-orientable; however, the result fails if both are
+non-orientable.
+
+\subsection{Maps from the connected sum to the pieces}
+
+Suppose $M$ and $N$ are manifolds. Then there is a map from $M \sharp
+N$ to $M$, given by collapsing the whole of $N$ to a point. (The
+manifold we get is not $M$ itself, but is homeomorphic to $M$ via
+shrinking inside a Euclidean neighbourhood). There is a similar map to
+$N$.
+
+These maps have some very nice properties, as we shall see. First, a
+little definition:
+
+\begin{definer}[Degree of a map]
+  Let $M$ and $N$ be compact connected orientable manifolds, and let
+  $[M]$ and $[N]$ be fundamental classes for $M$ and $N$ respectively
+  (viz., generators of the top homologies). Then if $f:M \to N$ is a
+  continuous map, the degree of $f$ is defined as the unique integer
+  $d$ such that $[M]$ maps to $d[N]$.
+\end{definer}
+
+Given compact connected orientable manifolds, one question is whether
+there exists a map of degree $\pm 1$ between them (a map of degree $1$
+can be converted to a map of degree $-1$ by reversing the orientation
+on one side). It turns out that the existence of degree one maps poses
+fairly strong restrictions; in some sense $M$ must have ``more
+complexity'' than $N$ for there to exist a degree $1$ map from $M$ to
+$N$.
+
+\begin{theorem}[Degree one maps from connected sum]
+  The map $M \sharp N \to M$ obtained by pinching $N$ to a point, is a
+  degree one map.
+\end{theorem}
+
+\begin{proof}
+  Pick a point $p$ anywhere in $M$ outside the part which got pinched.
+  Then the inverse image of $p$ in $M \sharp N$ is also one point, and
+  the map at the inverse image is a local homeomorphism.  Call the
+  inverse image $q$. Consider the following commutative diagram:
+
+  \begin{eqnarray*}
+    M \sharp N & \rightarrow & (M \sharp N, M \sharp N \setminus q)\\
+    \downarrow & & \downarrow \\
+    M & \rightarrow & (M, M \setminus p)
+  \end{eqnarray*}
+
+  The map on the right is an orientation-preserving local
+  homeomorphism so it induces isomorphism on top homology. The
+  horizontal arrows induce isomorphism on top homology, so the left
+  vertical arrow should have degree $1$ (if we gave our orientations
+  correctly).
+\end{proof}
+
+The proof idea generalizes to computing local degrees: given any point
+$p$ in the target space, look at $f^{-1}(p)$. If $f^{-1}(p)$ is a
+discrete set, we can use an excision argument to see that the total
+degree is the sum of the local degrees at each point. If the map is a
+local homeomorphism at each point in $f^{-1}(p)$, then the total
+degree is the size of the inverse image. This is what happens, for
+instance, in the case of covering maps. Incidentally, this also shows
+that any map of nonzero degree must be surjective.
+
+A particular case of a degree one map from the connected sum is the
+case where we take $M$ to be $S^n$. Then we get a degree one map from
+$S^n \sharp N$ to $S^n$, and since $N$ is the same as $S^n \sharp N$,
+we get a degree one map from any compact connected orientable manifold
+to $S^n$. In fact, we shall see soon that $S^n$ is a terminal object
+in the category of compact connected orientable manifolds with degree
+one maps.
+
+To get a better understanding of compact connected orientable
+manifolds, we need to look a bit at Poincare duality.
+
+\section{Poincare duality}
+
+\subsection{Statement of Poincare duality}
+
+Poincare duality is a special case of Alexander duality when the
+manifold $M$ itself is compact, and hence we can set $K = M$. Thus,
+Poincare duality tells us that if $M$ is a compact connected
+orientable manifold:
+
+$$H^i(M) \cong H_{n-i}(M)$$
+
+Here are some corollaries of Poincare duality:
+
+\begin{enumerate}
+
+\item The top homology and the top cohomology of $M$ are $\Z$.
+  This can be proved by taking $i = 0$ and $i = n$ respectively,
+  and using the fact that $M$ is connected.
+
+\item The second highest homology group of $M$ is free Abelian.  This
+  is because it is isomorphic to the first cohomology group, which is
+  free Abelian, since it is obtained as the group of homomorphisms
+  from an Abelian group to $\Z$.
+
+\item The Betti numbers of $M$ are symmetric. In other words, the rank
+  of the $k^{th}$ homology group equals the rank of the $(n-k)^{th}$
+  homology group.
+
+\end{enumerate}
+
+More is true. To see this, we need to look at the Poincare duality map
+carefully.
+
+The Poincare duality map is the map from $H^i(M)$ to $H_{n-i}(M)$. The
+map sends $a \in H^i(M)$ to $a \cap [M]$, where $[M]$ is a fundamental
+class of $M$. This map is unique up to a choice of fundamental class.
+
+To understand the Poincare duality map, we note some facts about cap
+products.
+
+\subsection{Cap products}
+
+The cap product is a structure by which homology becomes a module over
+cohomology; it is a collection of maps:
+
+$$H^i(X) \otimes H_j(X) \to H_{j-i}(X)$$
+
+The cap product satisfies a ``naturality'' condition, which is
+interesting because one of the functors is covariant and the other is
+contravariant. Suppose $f:X \to Y$ is a continuous map.
+
+Then $H^*(X)$ admits $H_*(X)$ as a module. Via the induced map from
+$H^*(Y)$ to $H^*(X)$, we see that $H_*(X)$ becomes a
+$H^*(Y)$-module. $H_*(Y)$ is already a $H^*(Y)$-module, and the
+naturality condition is that the natural map from $H_*(X)$ to $H_*(Y)$
+is a map of $H^*(Y)$-modules.
+
+We now prove an easy result:
+
+\begin{claimer}
+  Consider a topological space obtained as $A \vee B$. Then the cap
+  product of any nonzero cohomology class coming from $A$, with any
+  nonzero homology class coming from $B$, is $0$.
+\end{claimer}
+
+\begin{proof}
+  Let $X = B$, $Y = A \vee B$ and $f: X \to Y$ be the
+  inclusion. Suppose $h$ is a cohomology class coming from $A$. From
+  observations we made about the cohomology ring of a wedge sum, it is
+  clear that $h$ gets mapped to $0$ under $f^*$.
+
+  Now consider the action of $H^*(Y)$ on $H_*(X)$. $h$ must act
+  trivially, because its image $f^*(h)$ in $H^*(X)$ is $0$. But now
+  $f_*$ is a $H^*(Y)$-module map, and hence $h \in H^*(Y)$ acts
+  trivially on any element of $H_*(Y)$ coming from $H_*(X)$. This
+  proves the claim.
+\end{proof}
+
+This immediately rules out ``wedge-type'' structures from being
+homotopy-equivalent to compact connected orientable manifolds. For
+instance, $S^2 \vee S^6 \vee S^8$ cannot have the homotopy type of a
+compact connected orientable manifold, because the cap product of the
+second cohomology with the top cohomology is trivial.
+
+\subsection{More from cap products}
+
+Cap products can actually tell us a fair deal about compact connected
+orientable manifolds. Let us return to the theme of studying the
+degrees of maps between compact connected orientable manifolds. So
+far, we have noted the following:
+
+\begin{enumerate}
+
+\item Given two compact connected orientable manifolds, we can compute
+  the degree of a map between them via a ``local degree'' computation:
+  pick a point, look at the set of its inverse images, and compute the
+  degree of the map in neighbourhoods at each of the inverse
+  images. This works if the set of inverse images is discrete.
+
+\item In particular, a covering map of finite degree $d$ has degree $d$ as a
+  map of compact connected orientable manifolds.
+
+\item The map from a connected sum to either piece obtained by
+  pinching the other piece, has degree $1$.
+
+\item Given any manifold, there is a map from the manifold to the
+  sphere, of degree $1$.
+
+\end{enumerate}
+
+We are now interested in developing tools whereby one can conclude
+that there does {\em not} exist a degree one map between compact
+connected orientable manifolds. Cap products give us such a tool.
+Suppose $M$ and $N$ are compact connected orientable manifolds with
+chosen fundamental classes $[M]$ and $[N]$, and suppose $f:M \to N$ is
+a continuous map which sends $[M]$ to $[N]$. Then we get the following
+maps:
+
+$$H^i(N) \to H^i(M) \to H_{n-i}(M) \to H_{n-i}(N)$$
+
+Here, the middle map involves capping with the fundamental class of $M$.
+
+Moreover, what we said earlier about the ``naturality'' of cap
+products {\em and} the fact that the fundamental class $[M]$ gets
+mapped to the fundamental class of $N$, tells us that the composite is
+capping with $[N]$. But since the composite is an isomorphism, we see
+that the left-most map must be injective and the right-most map must be
+surjective. 
+
+Thus, the cohomology of $N$ is ``smaller'' than the cohomology of $M$
+and the homology of $M$ is ``bigger'' than the homology of $N$ (both
+statements are consistent with each other). We can view degree one
+maps as a kind of ``going-down'' in complexity, as far as the amount
+of homology is concerned. Some more facts which can be deduced along
+similar lines:
+
+\begin{itemize}
+
+\item If $f:M \to N$ is a degree one map of compact connected
+  orientable manifolds, then the induced map on the fundamental groups
+  is also surjective.
+
+\item Suppose there exists a degree one map from $M$ to $N$ and a
+  degree one map from $N$ to $M$. Then the composite of these maps
+  induces a surjective map from $H_*(M)$ to $H_*(M)$. Since all the
+  homology groups are finitely generated, the surjective map must be
+  an isomorphism, and hence the composite induces isomorphisms on the
+  homology of $M$. It also induces an isomorphism on the fundamental
+  group of $M$, and hence turns out to be a homotopy equivalence from
+  $M$ to itself (by Whitehead's theorem). Similar reasoning shows that
+  the composite at the $N$-end is also a homotopy-equivalence, so $M$
+  and $N$ are homotopy-equivalent.
+
+\item Thus, we can define a partial order on homotopy classes of
+  compact connected orientable manifolds, where $M \ge N$ iff there
+  exists a degree one map from $M$ to $N$.
+
+\item If $M \ge N$, then each Betti number of $M$ is greater than or
+  equal to the corresponding Betti number of $N$.
+\end{itemize}
+
+\subsection{The partial order for surfaces}
+
+For compact connected orientable surfaces, we get a total ordering. A
+classification theorem tells us that the only compact connected
+orientable surfaces are the surfaces of genus $g$, where a surface of
+genus $g$ is a connected sum of $g$ tori (the surface of genus $0$ is
+the sphere).
+
+Let $M_g$ denote the surface of genus $g$. Then for $g \ge h$, there
+exists a degree $1$ map from $M_g$ to $M_h$, because $M_g = M_h \sharp
+M_{g-h}$. Moreover, there cannot exist a degree one map from $M_h$ to
+$M_g$ if $g > h$, because the first Betti number of $M_g$ is $2g$, and
+the first Betti number of $M_h$ is $2h$.
+
+Thus, the partial order we described in the previous subsection yields
+a total ordering for surfaces. In fact, more is true. The argument of
+the previous subsection generalizes to any ring of coefficients;
+hence, we conclude that there does not even exist a map from $M_h$ to
+$M_g$ which induces an isomorphism on the top {\em rational} homology
+if $g > h$. Equivalently, there does not exist a map of nonzero degree
+from $M_h$ to $M_g$ if $g > h$.
+
+\section{Constructing and studying compact connected orientable manifolds}
+
+We now enter the murky waters of compact connected orientable
+manifolds in higher dimensions than $2$. While anything resembling a
+classification is far beyond the scope here, we would at least like to
+get a reasonable number of manifolds and study their properties. Let
+us recall the various techniques for constructing compact connected
+orientable manifolds:
+
+\begin{enumerate}
+
+\item Connected sums: This is a technique for {\em adding up} the
+  homological complexity (as in, adding up the number of holes in each
+  dimension). To take a connected sum, we need two manifolds of the
+  same dimension, and we would like both of them to be orientable.
+
+\item Product: A product of compact connected orientable manifolds is
+  compact connected orientable. The dimensions add up in a product, so
+  this can be a tool for constructing higher-dimensional compact
+  connected orientable manifolds from lower-dimensional ones.
+
+\item Spheres: The starting point of all homology theory is the
+  spheres. These are the ``simplest'' compact connected orientable
+  manifolds.
+
+\item Gluing cells: A more complicated construction than taking
+  products is to glue cells in non-conventional ways. This is how, for
+  instance, complex projective spaces are constructed. That takes us
+  into the realm of CW-complexes.
+
+\end{enumerate}
+
+These constructions can be used to construct manifolds that are
+non-compact and non-orientable as well (provided we start out with
+some that aren't) but we'll restrict attention to the relatively smaller
+class of compact connected orientable manifolds.
+
+Our goal will be to relate the geometric, algebraic and topological
+effect of each of the operations, and hopefully gain some intuition
+into the way each operation works.
+
+\subsection{Products}
+
+There are many ways to understand how products work. Let's first do it
+using cell structures (as in CW-complex structures).
+
+Suppose $X$ and $Y$ are (sufficiently nice) topological spaces, each
+of which is given a certain cell structure. Then $X \times Y$ also
+gets a natural cell structure. What happens is that for each $i$-cell
+of $X$ and each $j$-cell of $Y$, we get a corresponding $(i+j)$-cell
+of $X \times Y$. A convenient way to compute the number of $n$-cells
+in the product is by considering generating functions of the number of
+cells in $X$ and the number of cells in $Y$; specifically, define:
+
+$$p_c(X) = \sum_i \alpha_i x^i$$
+
+where $\alpha_i$ is the number of $i$-dimensional cells of $X$. Then we have:
+
+$$p_c(X \times Y) = p_c(X)p_c(Y)$$
+
+The following fact is true (we will defer the proof for later, because
+it would take us too far afield):
+
+\begin{quote}
+  If all the homologies of a CW-complex are free Abelian, then we can
+  construct a homotopy-equivalent CW-complex, where all the boundary
+  maps are zero. In fact, we can give the CW-complex a cell structure
+  where the boundary of every $k$-cell lies inside the
+  $(k-2)$-skeleton (except at $k=1$, of course). With this new
+  CW-complex structure, the cellular chain groups are precisely the
+  homology groups.
+\end{quote}
+
+Thus, a good model for spaces with free homology are spaces where all
+the boundary maps go into the $(k-2)$-skeleton. For such a cell
+structure, the number of cells in dimension $i$ is precisely equal to
+the rank of the $i^{th}$ homology group.
+
+\begin{definer}[Poincare polynomial]
+  The Poincare polynomial of a topological space with finitely
+  generated homology, is the generating function for the Betti
+  numbers.  In other words, it is a polynomial where the coefficient
+  of $x^j$ is the Betti number $b_j$.
+\end{definer}
+
+For spaces with free homology, the Poincare polynomials multiply.  For
+instance, the Poincare polynomial of the sphere $S^n$ is $1 + x^n$,
+and the Poincare polynomial for a product of spheres $S^{m_1} \times
+S^{m_2} \times S^{m_r}$ is:
+
+$$(1 + x^{m_1})(1 + x^{m_2}) \ldots (1 + x^{m_r})$$
+
+In particular, the Poincare polynomial for $S^1 \times S^1 \times \ldots S^1$
+is:
+
+$$(1 + x)^n$$
+
+Hence the $k^{th}$ Betti number is $\binom{n}{k}$.
+
+There is a general theory for what happens if the spaces involved do
+not have free homology, but in that case, we need to actually look at
+the homology groups, and cannot simply work with Betti numbers. The
+formula that we get is termed the ``Kunneth formula'', which involves
+taking tensor products of the homology groups and adding. The ``tensor
+product'' operation is analogous to multiplication of monomials and
+the ``adding up'' is analogous to adding up monomials to get a
+polynomial.
+
+Note that the Euler characteristic is the value taken by the Poincare
+polynomial at $-1$. This shows us immediately that for a product of
+circles, the Euler characteristic is always zero. On the other hand,
+for a product of arbitrary spheres, the Euler characteristic is zero
+iff at least one of the spheres is odd-dimensional.
+
+As we proceed, we shall see an interesting even-versus-odd bifurcation
+in properties.
+
+Let's also describe the cohomology ring of a product. The cohomology
+ring of a product is a graded tensor product of the cohomology rings
+of each of the pieces. In the particular case where the pieces are $S^{m_1},S^{m_2},\ldots,S^{m_r}$, the cohomology ring looks like:
+
+$$\Z\langle e_1,e_2,\ldots,e_r\rangle/\langle \langle e_ie_j - (-1)^{m_im_j}e_je_i, e_i^2 \rangle \rangle$$
+
+We're essentially taking the associative algebra generated by the
+cohomology rings, modulo the commutation relations that need to be
+satisfied because of degree constraints. Each $e_i$ lives in degree $m_i$,
+and is the generator for the cohomology that ``comes from'' the projection
+onto the sphere $S^{m_i}$.
+
+Some further points:
+
+\begin{itemize}
+
+\item For a product of spheres, whenever $m_i$ is even, $e_i$ is in
+  the center. Thus, if the product is only of even-dimensional
+  spheres, then we get a quotient of the polynomial ring in $r$
+  variables, by the ideal generated by the squares of the variables:
+
+  $$\Z\langle e_1, e_2, \ldots, e_r \rangle/\langle \langle e_i^2 \rangle \rangle$$
+
+\item If all the $m_i$s are odd, then we get an exterior algebra on
+  the $e_i$s -- an algebra generated by anticommuting elements, namely:
+
+  $$\Z \langle e_1, e_2, \ldots, e_r \rangle/\langle \langle e_i^2, e_ie_j + e_je_i \rangle \rangle$$
+
+  The $e_i$ here lives in degree $m_i$.
+
+\end{itemize}
+ 
+\subsection{Connected sum}
+
+When we take a connected sum, we add up the homologies in each of the
+dimensions, except in the {\em top} dimension, where the fundamental
+classes coming from each piece get identified.
+
+Intuitively, we are ``adding up'' the number of holes in all
+dimensions except the top dimension. The reason why the number of
+holes in the top dimension doesn't get added up is because we are
+gluing along a $S^{n-1}$.
+
+Thus a connected sum is a good way to ``add up'' the complexity of two
+manifolds.
+
+One point deserves mention here. When we take a connected sum of two
+manifolds, there are two possible ways of gluing together the sphere
+of one manifold with the sphere of the other. These two ways could
+give manifolds which are not even homotopy-equivalent.
+
+This non-equivalence is reflected in the structure of the cohomology
+ring.  The choice of how to glue together the $S^{n-1}$s is related to
+the choice of how to identify the fundamental class coming from one
+piece, with the fundamental class coming from the other piece. For
+certain kinds of manifolds, both choices give the same ring, whereas
+for certain choices of manifolds, we could get two non-isomorphic ring.
+
+Let's first see what's happening for products of spheres, in which
+case connected sum {\em is} unique -- this is essentially because
+spheres possess orientation-reversing homeomorphisms. Consider the connected sum of $S^2 \times S^2$ and $S^1 \times S^3$.
+
+The cohomology ring of $S^2 \times S^2$ looks like:
+
+$$\Z[e_1,e_2]/(e_1^2,e_2^2) $$
+
+Here both $e_1$ and $e_2$ live in degree $2$.
+
+The cohomology ring of $S^3 \times S^1$ looks like:
+
+$$\Z\langle e_3,e_4\rangle/\langle \langle e_3^2,e_4^2, e_3e_4 + e_4e_3 \rangle \rangle$$
+
+When we take a connected sum, we need to ensure that a product of
+anything from one piece with anything from the other piece is zero; we
+also need to identity the top cohomology classes. The end result is this:
+
+$$\Z \langle e_1, e_2, e_3, e_4 \rangle/I$$
+
+where $I$ is the two-sided ideal generated by:
+
+$$e_1^2, e_2^2, e_3^2, e_4^2, e_1e_2 - e_2e_1, e_3e_4 + e_4e_3, e_1e_3, e_2e_3, e_1e_4, e_2e_4, e_1e_2 - e_3e_4$$
+
+The last relation identifies the top cohomology classes in both pieces.
+
+Taking products is like multiplying complexity; taking connected sums
+is like adding complexity within the same dimension. We now consider
+the third construction, which is all about gluing things in a way that
+cannot be ``decomposed''.
+
+\subsection{The projective spaces}
+
+Let $\field$ be one of $\R$, $\C$ or $\Quat$. Then one can talk of
+$\field^{n+1}$ as the standard $n+1$-dimensional vector space over
+$\field$ (for the case of $\Quat$, one must talk of ``left vector
+space'').  Inside $\field^{n+1}$, one can look at the ``sphere'' $S^n(\field)$,
+which is the set of elements $(z_1, z_2, \ldots, z_{n+1})$ such that:
+
+$$\sum_{i=1}^n |z_i|^2 = 1$$
+
+The following are true:
+
+\begin{itemize}
+
+\item By treating $\R$, $\C$ and $\Quat$ as $\R^1$, $\R^2$ and $\R^4$,
+  we can identify $S^n(\R)$ with $S^n$, $S^n(\C)$ with $S^{2n+1}$, and
+  $S^n(\Quat)$ with $S^{4n+3}$.
+
+\item $S^0(\field)$ is the group of units in $\field$ which have norm
+  $1$. $S^0(\R)$ is the group $S^0 = \Z/2\Z$, $S^0(\C)$ is the group $S^1$,
+  and $S^0(\Quat)$ is the group $S^3$ of unit quaternions.
+
+\item There is a natural action of $S^0(\field)$ on $S^n(\field)$ by
+  coordinate-wise multiplication, and the quotient of $S^n(\field)$ by
+  this action is the so-called ``projective space'' $\field \mathbb{P}^n$.
+  In other words, we get fiber bundles:
+
+  \begin{eqnarray*}
+    S^0 & \to S^n & \to \R\mathbb{P}^n\\
+    S^1 & \to S^{2n+1} & \to \C\mathbb{P}^n\\
+    S^3 & \to S^{4n+3} & \to \Quat \mathbb{P}^n
+  \end{eqnarray*}
+
+\item The quotient $\field\mathbb{P}^1$ is the one-point
+  compactification of $\field$, which is a sphere: $\R\mathbb{P}^1 =
+  S^1$, $\C\mathbb{P}^1 = S^2$ and $\Quat \mathbb{P}^1 = S^4$. We thus
+  get three fiber bundles of the form:
+
+  \begin{eqnarray*}
+    S^0 & \to S^1 & \to S^1 \\
+    S^1 & \to S^3 & \to S^2 \\
+    S^3 & \to S^7 & \to S^4
+  \end{eqnarray*}
+
+\end{itemize}
+
+Equipped with this knowledge, let us try to realize projective spaces
+over $\R$, $\C$ and $\Quat$ in terms of CW-complexes. Explicitly:
+
+
+\begin{itemize}
+
+\item The projective space $\field \mathbb{P}^n$ is constructed from
+  $\field \mathbb{P}^{n-1}$ via the attaching map $S^n(\field) \to
+  \field\mathbb{P}^{n-1}$.
+
+\item For real projective space, we are attaching a $n$-cell to the
+  $(n-1)$-skeleton. For complex projective space, we are attaching a
+  $2n+2$-cell to the $2n$-skeleton, and for Hamiltonian projective
+  space, we are attaching a $4n + 4$-cell to the $4n$-skeleton.
+
+\item Thus, for complex projective space, the cellular chain complex
+  has homology group $\Z$ in even dimensions upto $2n$ and $0$ in odd
+  dimensions. For Hamiltonian projective space, the cellular chain
+  complex has homology group $\Z$ in dimensions $4,8,\ldots,4n$ and
+  $0$ elsewhere. Real projective spaces require a bit more of
+  computation for homology which we won't do.
+
+\item All projective spaces are compact. This is because they are
+  quotients of spheres, which are already compact.
+
+\item In fact, complex and Hamiltonian projective spaces are simply
+  connected, because they have no $1$-cells. Thus, they are
+  orientable. This gives us some genuinely new examples of compact
+  connected orientable manifolds.
+
+\item Real projective spaces are orientable iff the dimension is odd.
+  One way of seeing this is that the real projective space is obtained
+  by quotienting the sphere by the antipodal identification; and the
+  antipodal identification is orientation-preserving iff the dimension
+  is odd.
+
+\item The cellular structure of projective spaces is pretty
+  rigid: each new cell that we are adding has its boundary mapping
+  surjectively to the previous skeleton. We shall see that this is
+  closely related to the fact that in the cohomology ring, the lowest
+  cohomology generates all the higher cohomologies.
+
+\end{itemize}
+
+So far, we have discussed the operation of taking products and
+connected sums. Products had more complexity, but the complexity was
+multiplicatively decomposed; connected sums had complexity, but the
+complexity was additively decomposed. However, constructions like
+those of the complex projective space are {\em indecomposable} because
+each layer of complexity is built into the previous one.
+
+Let's look at the cohomology rings. The cohomology ring of
+$\C\mathbb{P}^n$ is $\Z[x]/(x^{n+1})$ where $x$ is a generator of the
+second cohomology. In other words, generators of all the higher
+cohomology groups, are obtained by taking cup powers of
+$\C\mathbb{P}^n$. Some remarks:
+
+\begin{itemize}
+
+\item Any map from $\C\mathbb{P}^n$ to itself, which is multiplication
+  by $d$ on the second cohomology, is multiplication by $d^k$ on the
+  $2k^{th}$ cohomology. Hence its Lefschetz number is $1 + d + d^2 +
+  \ldots + d^n$ and its degree (as a map of compact connected
+  orientable manifolds) is $d^k$.
+
+\item If a map from $\C\mathbb{P}^n$ to itself takes the $2$-skeleton
+  to itself, then the effect of the map on the cohomology of the
+  $2$-skeleton, determines the effect of the map on the whole
+  cohomology ring. In other words, if it is multiplication by $d$ on
+  the cohomology ring of the $2$-skeleton, then it is multiplication
+  by $d^k$ on the $2k^{th}$ cohomology.
+
+\item The first observation tells us that $\C\mathbb{P}^n$ can possess
+  an orientation-reversing homeomorphism only if $n$ is odd. Also,
+  combined with the Lefschetz fixed-point theorem, it tells us that
+  $\C\mathbb{P}^n$ has the fixed-point property if $n$ is even. That
+  the converses of these hold requires explicit constructions of maps.
+
+\end{itemize}
+
+These two facts may seem surprising, but what's going on is that what
+happens on the ``outermost'' part determines more or less what happens
+everywhere, as far as the cohomology ring is concerned.
+
+We see that looking at the cohomology ring, and the cup product
+structure, already gives us significantly more constraints than merely
+looking at the effect on the homology groups individually.
+
+\section{Manifolds and maps}
+
+In this section we study the problem of manifolds, self-maps of
+manifolds, and maps between manifolds. 
+
+Some of the questions we shall be concerned with:
+
+\begin{itemize}
+
+\item Given a topological space, what do its homology groups and
+  cohomology ring look like?
+
+\item Given a topological space, what are the possible graded ring
+  endomorphisms of its cohomology ring? Which of these can be realized
+  by a continuous map, and to what extent does the effect of the map
+  on the cohomology ring, determine its homotopy type?
+
+\item Similar questions, but for maps between different topological
+  spaces.
+
+\end{itemize}
+
+The typical approach we will use is to restrict our attention to what
+the map does in the dimensions which generate the cohomology ring. For
+instance, if the cohomology ring is, as a ring, generated by the first
+cohomology group, then we shall restrict attention to possible
+endomorphisms of the first cohomology group, and ask which such
+endomorphisms extend to ring endomorphisms.
+
+\subsection{A review of compact connected orientable surfaces}
+
+Essentially there was only one kind of compact connected orientable
+surface: the surface of genus $g$. The cohomology ring of this surface
+in general looks like:
+
+$$\Z \langle x_1,y_1,\ldots,x_g,y_g \rangle/ \langle \langle x_iy_i + y_ix_i, x_i^2, y_i^2, x_ix_j, x_iy_j, y_iy_j, x_iy_i - x_jy_j \rangle \rangle$$
+
+All the $x_i$ and $y_i$ live in degree $1$.
+
+Any self-map of a topological space induces an endomorphism of the
+cohomology ring as a graded ring. Some thought reveals that the
+endomorphisms of this graded ring correspond to maps which preserve an
+alternating nondegenerate bilinear form on $\Z^{2n}$. Here the
+$(x_i,y_i)$ are paired together under the bilinear form.
+
+\subsection{The product of circles}
+
+For the product of many copies of the circle, the corresponding
+cohomology algebra is the exterior algebra in the generators for each
+circle, and once again, any map is determined by its effect on first
+cohomology. In this case, it turns out that {\em any} $\Z$-module map
+on the first cohomology, can be achieved via a continuous map from the
+product of circles to itself.
+
+\subsection{Product of even-dimensional spheres}
+
+For $S^2 \times S^2$, the cohomology ring looks like:
+
+$$\Z[e_1,e_2]/(e_1^2,e_2^2)$$
+
+Something interesting happens here: not every $\Z$-module map of
+second cohomology extends to a continuous map from $S^2 \times S^2$ to
+itself. The constraint is that since $e_1$ and $e_2$ are nilpotent of
+order $2$, they must get sent to nilpotents of order $2$, and the only
+nilpotents of order $2$ are multiples of $e_1$ and $e_2$. Thus, the
+map must send each one to a multiple of one of them.
+
+The crucial difference with the odd-dimensional case is that the
+generators here {\em commute}, and thus not every element's square is
+zero. When they {\em anti-commute}, we could deduce that the square of
+any combination of them is zero.
+
+
+\subsection{Some more compact connected orientable manifolds}
+
+We have seen most of the basic operations that go into constructing
+compact connected orientable manifolds; it's now time to put some of
+these operations together and see what are some possibilities for
+$3$-manifolds:
+
+\begin{enumerate}
+
+\item There's $S^3$ (which has the minimum possible homology, and
+  trivial fundamental group, so it's the ``smallest'' compact
+  connected orientable manifold). The cohomology ring of $S^3$ is
+  $\Z[x]/x^2$ where $x$ is in degree $3$.
+
+  The only endomorphisms of this ring are those which take $x$ to
+  $\lambda x$: each of these can be realized by an explicit continuous
+  map; in fact, we can construct the map inductively using the fact
+  that $S^n$ is the suspension of $S^{n-1}$.
+
+  $S^3$ is, as a topological group, the same as $SU(2)$. It is also
+  the unit quaternion group, and is also the spin group $Sp(3)$.
+
+\item There's $S^1 \times S^2$. The cohomology ring is
+  $\Z[x_1,x_2]/(x_1^2, x_2^2)$. As one can see from the cohomology
+  ring, the top homology (and cohomology) are controlled by what
+  happens in the first and second cohomology. Moreover, the first
+  cohomology must go to itself, and the second cohomology must go to itself.
+
+  Any pair of $\Z$-module maps separately on the first and second
+  cohomology can be realized by a continuous map.
+
+\item There's $S^1 \times S^1 \times S^1$, which is a product of
+  circles. The cohomology ring is an exterior algebra in three
+  variables, and any linear map on the first cohomology can be
+  realized by a continuous map.
+
+\item There's $\R\mathbb{P}^3$, which does {\em not} have free
+  homology and is not simply connected. $\R\mathbb{P}^3$ is the
+  topological group $SO(3)$, and its double cover $S^3$ is also its
+  universal cover. We shall not concern ourselves with the study of
+  $\R\mathbb{P}^3$ for now.
+\end{enumerate}
+
+What I've listed above are some examples of {\em prime} manifolds:
+manifolds which cannot be expressed as connected sums of two
+``smaller'' manifolds. In the partial ordering between them, $S^3$ is
+at the bottom. Slightly higher is $S^2 \times S^1$, and $S^1 \times
+S^1 \times S^1$ is even higher (note that a distributivity law holds
+between connected sums and products, so the connected sum of $S^2
+\times S^1$ and $S^1 \times S^1 \times S^1$ is just $S^1 \times S^1
+\times S^1$).
+
+Incomparable with all of these is $\R\mathbb{P}^3$ (this can be seen
+from criteria of surjectivity on homology for degree one maps).
+
+There are other examples of compact connected orientable manifolds,
+many of which arise by taking quotients of $S^3$ by finite subgroups
+of itself. Some of these ar equotients of
+$\R\mathbb{P}^3$ by finite subgroups of that, viz. quotients of
+$SO(3)$ by finite subgroups thereof. The classification of finite
+subgroups of $SO(3)$ gives a reasonable list of compact connected
+orientable manifolds (all of them are orientable because action of a
+group on itself by left multiplication is orientation-preserving).\footnote{In fact, all the manifolds have trivial tangent bundle} The
+quotient of $SO(3)$ by the action of $A_5$ is also the quotient of
+$S^3$ by the action of the group $\Gamma(2,3,5) = SL(2,5)$.
+
+\begin{theorem}[Homology sphere]
+  The quotient of $S^3$ by the action of $SL(2,5) = \Gamma(2,3,5)$,
+  which is the double cover of $A_5 \subset SO(3)$, is a homology sphere.
+\end{theorem}
+
+\begin{proof}
+  Note that the quotient is compact connected orientable.
+
+  The fundamental group of the quotient is $SL(2,5)$. Since $SL(2,5)$
+  equals its own commutator subgroup, the first homology of the
+  quotient is zero. Hence, its first cohomology is $0$. Poincare
+  duality tells us that the second homology is $0$, so the quotient is
+  a homology sphere.
+\end{proof}
+
+The famous lens spaces are also achieved as finite quotients of $S^3$
+by the action of certain subgroups.
+\section{A return to embedding problems}
+
+Let's return to the original problem that we were considering: given
+an abstract manifold $M$ (say, connected and orientable) and an
+abstract compact connected manifold $K$, what are the possible ways
+(upto equivalence) in which we can embed $K$ in $M$?
+
+Here are some constraints we have derived (or which are ``obvious''):
+
+\begin{itemize}
+
+\item The dimension of $K$ has to be strictly less than that of $M$
+  for there to exist any embedding. This follows from Alexander
+  duality, or from more direct arguments.
+
+\item If $K$ is one-dimensional (viz., a point) then there is only one
+  embedding of $K$ in $M$ (upto equivalence). The induced maps on
+  homology by the inclusion of the complement at $n,n-1$ depend upon
+  the nature of $M$. Elsewhere, they are isomorphisms.
+
+\item If $K$ has codimension one, and $M$ is {\em simply connected},
+  then $K$ must be orientable. Further, $K$ must separate $M$.
+
+\item If $K$ is a sphere of dimension $m$, the only possibilities for
+  homology of the complement are at $n,n-1,n-m,n-m-1$. If $M$ is also
+  compact, connected and orientable, we have homology only at $n-m$
+  and $n-m-1$.
+
+\item If $M$ is a sphere, the $(n-i-1)^{th}$ homology of the complement
+  of $K$ equals the $i^{th}$ cohomology of $K$, for a suitable range
+  of $i$.
+
+\end{itemize}
+
+Let us now concentrate on a very specific class of embedding problems:
+what are the ways in which a compact connected $n$-manifold embeds
+inside $\R^{n+1}$? Note that this is equivalent to studying embeddings
+inside $S^{n+1}$, since any $n$-manifold in $S^{n+1}$ must miss a
+point.
+
+Since $\R^{n+1}$ (or $S^{n+1}$) is simply connected, we see that any
+submanifold of dimension $n$ must be orientable, and must separate the
+space into two pieces. Thus, manifolds like $\R\mathbb{P}^2$ or the
+Klein bottle, which are non-orientable, cannot be embedded in the real
+world.
+
+Further, we have that if $K$ is the submanifold:
+
+$$H_{n-i-1}(S^{n+1} \setminus K) \cong H^i(K)$$
+
+Thus, even if there are many inequivalent embeddings, the homology
+groups of the complement are determined uniquely by the homology
+groups of the manifold. For instance, if we try to embed compact
+connected orientable surfaces inside $S^3$, then the above formula
+yields:
+
+$$H_1(S^3 \setminus K) \cong H^1(K) = H_1(K)$$
+
+This is the ``intuitive'' statement that the number of one-dimensional
+holes in a surface of genus $g$ is the number of one-dimensional holes
+in its complement.
+
+However, homology with $\Z$-coefficients seems to have limitations:
+while it seems to yield the homology groups readily, it does not
+impose any further constraints on which manifolds can be
+embedded. Recall that the proof that any codimension one submanifold
+must be separating, and hence orientable, involved a mix of $\Z$ and
+$\Z/2\Z$-coefficients. Thus, it is sometimes helpful to look at other
+coefficient rings to get more constraints on which submanifolds can be
+embedded, and how.
+
+Thus, we are currently unable to answer questions like:
+
+\begin{itemize}
+
+\item Can real projective space of odd dimension $n$ be embedded in
+  $S^{n+1}$(the answer is {\em no}, for $n > 1$)?
+
+\item Can complex projective space be embedded inside a sphere, with
+  codimension $1$ (the answer is again {\em no})?
+
+\end{itemize}
+
+\section{Special kinds of compact connected orientable manifolds}
+
+\subsection{Parallelizable manifolds}
+
+\begin{definer}[Parallelizable manifold]
+  A differential manifold is termed
+  \adefinedproperty{manifold}{parallelizable} if its tangent bundle is
+  trivial; viz, it can be given a global coordinate system.
+\end{definer}
+
+Parallelizability is a condition that makes sense only for manifolds
+with a differential structure; however, it implies orientability,
+which makes sense for a manifold even without giving it a differential
+structure. All the manifolds that we have constructed do have natural
+differential structures, so the question of parallelizability makes
+sense. It turns out that the following are true:
+
+\begin{itemize}
+
+\item Any Lie group is parallelizable (we shall see Lie groups a
+  little more in coming sections)
+
+\item A product of parallelizable manifolds is parallelizable
+
+\item Any quotient of a connected Lie group by the action of a finite
+  subgroup by left multiplication is again parallelizable
+
+\end{itemize}
+
+Since $S^1$ and $S^3$ are Lie groups, we get a wide range of
+parallelizable manifolds: all products of $S^1$s and $S^3$, as well as
+all quotients of $S^3$ by finite subgroups, which includes $SO(3)$,
+the homology $3$-sphere, and the lens spaces.
+
+\subsection{Lie groups}
+
+\begin{definer}[Lie group]
+  A \definedind{Lie group} is a manifold with a compatible group structure.  It
+  turns out that any Lie group can be equipped with a differential
+  structure such that the group multiplication is smooth for that
+  structure (this is far from obvious).
+\end{definer}
+
+The remarkable thing about Lie groups, as opposed to arbitrary
+manifolds, is that they are much more homogeneous, and they have a lot
+more of symmetry. Here are some applications:
+
+\begin{theorem}[Euler characteristic of Lie group]
+  Any compact connected nontrivial Lie group, has zero Euler characteristic.
+\end{theorem}
+
+We assume here the fact that any compact connected nontrivial Lie
+group admits a simplicial complex structure.
+
+\begin{proof}
+  Let $G$ be the group, and $e$ its identity element. Pick $g \ne
+  e$. Then left multiplication by $g$ is in the same homotopy class as
+  the identity map (a homotopy is given by a path from $e$ to $g$).
+  Also, left multiplication by $g$ has no fixed points. Hence, the
+  identity map is homotopy-equivalent to a map which has no fixed
+  points, and thus the Lefschetz number of the identity map is zero.
+
+  (Here we are applying Lefschetz fixed-point theorem, and using the
+  fact that any compact connected Lie group admits a triangulation)
+
+  The Euler characteristic is the same as the Lefschetz number of the
+  identity map; thus we have proved that the Lefschetz number of the
+  identity map is zero.
+\end{proof}
+
+Also, another result:
+
+\begin{theorem}[Lie groups are parallelizable]
+  Any Lie group is parallelizable.
+\end{theorem}
+
+Here we are using the definition of a Lie group as a differential
+manifold with a compatible group structure. The proof uses the fact
+that left multiplication by group elements can be used to translate a
+basis of the tangent space at the identity, to a basis at all points.
+
+Thus, compact connected Lie groups are examples of compact connected
+orientable manifolds with Euler characteristic zero. The Euler
+characteristic does not impose additional constraints for {\em
+  odd}-dimensional manifolds, because for a compact connected
+orientable manifold, the Euler characteristic is anyway zero (the
+Betti numbers match up by Poincare duality). On the other hand, we do
+get a restriction on the Betti numbers for even-dimensional manifolds.
+For instance, we see trivially that even-dimensional spheres, and
+even-dimensional real projective spaces, cannot be Lie groups.
+
+Also, complex and quaternionic (Hamiltonian) projective spaces cannot
+be Lie groups.
+
+
+Here is yet another fact about Lie groups:
+
+\begin{theorem}
+  A compact connected nontrivial Lie group possesses an
+  orientation-reversing homeomorphism. Further, if there are precisely
+  $d$ $d^{th}$ roots of unity, then the map $x \mapsto x^d$ induces
+  multiplication by $d$ on the fundamental class.
+\end{theorem}
+
+Thus compact connected (nontrivial) Lie groups are parallelizable
+(hence orientable), have Euler characteristic zero, and possess
+orientation-reversing homeomorphisms.
+
+\subsection{Compact simply connected manifolds}
+
+Another important class of compact connected orientable manifolds is
+ithose which are {\em simply connected}. For instance, any manifold
+which admits a cell structure with no one-dimensional cells is simply
+connected. For instance, complex and quaternionic projective spaces,
+spheres of dimension at least $2$, products of spheres where each has
+dimension at least $2$, and so on.
+
+Given a compact connected orientable manifold with finite fundamental
+group, we can pass to the universal cover of the manifold -- that
+again is compact, connected and orientable. Conversely, starting with
+a compact simply connected manifold, we may be interested in what
+manifolds arise as quotients of this manifold by properly
+discontinuous actions. The quotient manifold is orientable iff the action
+is orientation-preserving.
+
+For instance, for an odd-dimensional sphere, the antipodal map is
+orientation-preserving, so the quotient, which is real projective
+space, is orientable. For even-dimensional spheres the quotient is
+non-orientable.
+
+Thus, when trying to classify all compact connected orientable manifolds
+with {\em finite} fundamental group, we can proceed as follows:
+
+\begin{itemize}
+
+\item First, classify all compact simply connected manifolds
+
+\item For each compact simply connected manifold, study the possible
+  properly discontinuous group actions on it, which preserve
+  orientation. The quotients give new compact connected orientable manifolds
+
+\end{itemize}
+
+For odd-dimensional spheres, the antipodal map is
+orientation-preserving, while for even-dimensional spheres, it is
+orientation-reversing. The Lefschetz fixed-point theorem tells us
+something better: there does not exist a fixed-point free map from the
+even-dimensional sphere to itself, that is orientation-preserving.
+
+\begin{theorem}
+  Any orientation-preserving self-homeomorphism of an even-dimensional
+  sphere, must have a fixed point.
+\end{theorem}
+
+\begin{proof}
+  Since the map is orientation-preserving, the trace on top dimension
+  is $1$, so the Lefschetz number is $2$. Applying the Lefschetz
+  fixed-point theorem, we see that there is a fixed point.
+\end{proof}
+
+In some sense, all the manifolds which have the same universal cover
+could be studied ``together'' because they share common properties
+(for instance, their higher homotopy groups are all equal). However,
+they may be very different homologically.
+
+\subsection{Compact connected orientables: quick review}
+
+We have seen that for compact connected orientable manifolds, there
+are the following properties of importance. Most of the properties
+listed here are properties that embody greater transitivity,
+homogeneity, and freedom of motion. The opposites of these (like
+having the fixed-point property, not possessing an
+orientation-reversing homeomorphism, being even-dimensional) embody
+greater rigidity and inflexibility:
+
+\begin{itemize}
+
+\item Being a compact connected (nontrivial) Lie group
+
+\item Being parallelizable
+
+\item Having Euler characteristic zero
+
+\item Being odd-dimensional
+
+\item Having Euler characteristic zero
+
+\item Possessing fixed-point-free self-maps
+
+\item Possessing orientation-reversing homeomorphisms
+
+\item Possessing self-maps of every possible degree
+
+\item Being simply connected
+
+\end{itemize}
+
+Here are the implications among them:
+
+\begin{itemize}
+
+\item Compact connected Lie group $\implies$ possesses
+  fixed-point-free self-maps (in fact possesses fixed-point-free
+  self-maps homotopic to the identity)
+
+\item Compact connected Lie group $\implies$ possesses
+  orientation-reversing homeomorphisms
+
+\item Compact connected Lie group $\implies$ has Euler characteristic zero
+
+\item Compact connected Lie group $\implies$ parallelizable
+
+\item Odd-dimensional $\implies$ has Euler characteristic zero
+
+\item Quotient of compact connected Lie group by finite subgroup
+  $\implies$ parallelizable
+
+\end{itemize}
+
+On the rigid side, we have spaces like $S^{2n}$, which does not
+possess a fixed-point-free orientation-preserving homeomorphism, and
+whose Euler characteristic is not zero. It is also far from
+parallelizable. The quotient of $S^{2n}$ by the antipodal map is not
+even orientable.
+
+Even more rigid than $S^{2n}$ are complex projective spaces of {\em
+  even} complex dimension. Although orientable, these spaces do not
+possess orientation-reversing homeomorphisms, nor do they possess
+fixed-point-free self-maps. Note that odd-dimensional complex
+projective spaces do possess orientation-reversing homeomorphisms and
+also possess fixed-point-free self-maps; in fact they possess maps
+which are both fixed-point-free and orientation-reversing.
+
+\section{Constructing manifolds upto homotopy}
+
+\subsection{A quick sketch for 3-manifolds}
+
+Assuming that every compact connected orientable manifold can be given
+a CW-complex structure, we would like to classify all compact
+connected orientable manifolds upto homotopy using what we know of the
+theory of CW-complexes. Let us first concentrate on the problem of
+classifying compact {\em simply connected} manifolds, for which we
+already have a headstart for applying Hurewicz's theorem. The idea:
+
+\begin{itemize}
+
+\item Classify all compact simply connected manifolds upto homotopy
+
+\item Using the classification upto homotopy, find all compact simply
+  connected manifolds upto homeomorphism
+
+\item Study all possible properly discontinuous orientation-preserving
+  group actions on these, and thus find all compact connected
+  orientable manifolds with finite fundamental group.
+
+\end{itemize}
+
+For a compact simply connected manifold $M$, $H_1(M) = H^1(M) = 0$ and
+thus, by Poincare duality, $H_{n-1}(M) = H^{n-1}(M) = 0$. We've almost
+completed the classification of compact simply connected manifolds
+upto homotopy:
+
+\begin{theorem}
+  Any compact simply connected $3$-manifold is homotopy-equivalent to
+  the $3$-sphere.
+\end{theorem}
+
+\begin{proof}
+  Let $M$ be a compact simply connected $3$-manifold. $M$ is
+  orientable, and above remarks show that $H_0(M) = H_3(M) = \Z$ and
+  all $H_1(M) = H_2(M) = 0$. Since $M$ is simply connected, Hurewicz's
+  theorem tells us that $\pi_3(M) = \Z$. Pick a generator for
+  $\pi_3(M)$, and consider a representative map $(S^3,p) \to
+  (M,x)$. This map induces isomorphism on all homologies, and by a
+  combination of Whitehead's and Hurewicz's theorem, is a homotopy
+  equivalence.
+\end{proof}
+
+It is acutally true that any compact simply connected $3$-manifold is
+homeomorphic to the $3$-sphere, but the proof of this is well beyond
+the scope of this write-up (it has everything to do with the
+``Poincare conjecture'').
+
+We also get compact connected orientable manifolds with finite
+fundamental group as quotients of $S^3$ by finite subgroups. It is not
+clear if all the properly discontinuous actions are actually realized
+by subgroups of $S^3$, but at any rate we get a reasonable number of
+compact connected orientable manifolds with finite fundamental group.
+
+In contrast, compact connected orientable manifolds like $S^1 \times
+S^1 \times S^1$ and $S^1 \times S^2$ elude this classification because
+they have infinite fundamental groups.
+
+\subsection{Generalities}
+
+Given a simply connected topological space, we can construct a
+CW-complex with a map from the CW-complex to the topological space,
+which induces isomorphism on all homologies, and is hence a weak
+homotopy equivalence by Whitehead's plus Hurewicz's. Suppose $M$ is
+the starting topological space. The idea is to, at the $k^{th}$ stage,
+choose the attaching maps in such a way as to ``kill'' the relative
+homotop between $M$ and the $k$-skeleton (precisely, we need to take
+mapping cylinders at each stage).
+
+The construction involves keeping track of two things:
+
+\begin{itemize}
+
+\item We need to, at each stage, kill the homology at that stage.
+
+\item If the homologies are not free Abelian, then we cannot achieve
+  the required $k^{th}$ homology in the $k$-skeleton itself -- we need
+  to go one skeleton further.
+
+\end{itemize}
+
+When all the homologies are free Abelian; we do not have the second
+headache -- essentially, there is no interaction between the $k$-cells
+and the $k-1$-cells (the boundary of the $k$-cells can be chosen
+inside the $k-2$-cells). When all the nonzero homology groups are
+spaced at a distance of at least $2$, we again have no problem,
+because at each stage we are either killing the ``current'' homology,
+or destroying the ``carry'' from the previous stage. However, when we
+have torsion {\em as well as} homology groups in adjacent dimensions,
+we have to choose attaching maps to take care of both factors.
+
+In all the examples we have seen so far, we do not simultaneously have
+both headaches. For spheres and complex projective spaces, we have
+free Abelian homology. In contrast, for real projective spaces, we
+have torsion in the homology but we have empty homologies in between
+which we can use to destroy the ``carries''.
+
+\subsection{Ways of pasting}
+
+Given a specific topological space, the CW-complex which we construct
+for it is unique upto homotopy equivalence. However, if we are {\em
+  only} given the sequence of homology groups of the topological
+space, there may be many possible homotopy types of CW-complexes. The
+homology groups essentially only measure the interaction between the
+$k$-cells and the $k-1$-cells; they do not capture any information
+about how the attaching map behaves on the $k-2$-skeleton.
+
+Thus, if we want to classify all homotopy types of CW-complexes with a
+certain sequence of homotopy groups, we need to classify all
+possibilities for the attaching maps. 
+
+For instance, suppose we know the $k-1$-skeleton of a simply connected
+CW-complex with exactly one $k$-cell. We want to find what are the
+possible ways in which the $k$-cell can be attached. Attaching a
+$k$-cell is equivalent to choosing a map from $S^{k-1}$ to the
+$k-1$-skeleton, and such maps are classified upto homotopy by
+$\pi_{k-1}(X^{k-1})$. Every element of this homotopy group gives a
+different possibility for the CW-complex.
+
+If we have multiple $k$-cells, then we are effectively choosing
+subsets of $\pi_{k-1}(X^{k-1})$ (the homotopy classes of the attaching
+maps) and things become more complicated.
+
+\subsection{For 4-manifolds}
+
+Let us now classify all compact simply connected 4-manifolds upto
+homotopy.  Let $M$ be a compact simply connected $4$-manifold. Then
+$H_1(M) = H^1(M) = 0$ and by Poincare duality, $H_3(M) = H^3(M) = 0$.
+Further $H_2(M) \cong H^2(M)$, and $H^2(M)$ is free Abelian (because
+$H_1(M) = 0$), hence $H_2(M)$ is free Abelian. Moreover, $H_2(M)$ is
+finitely generated. Let $k$ be the number of generators.
+
+In the construction of the CW-complex, the $2$-skeleton is a wedge of
+$k$ copies of $S^2$. Denote this wedge as $X^2$. There is exactly one
+$4$-cell, and the number of ways we can paste the $4$-cell is
+parametrized by elements of the group $\pi_3(X^2)$. Thus, we see that
+the third homotopy group of a wedge of spheres controls the possible
+homotopy types of CW-complexes.
+
+Of course, not all these homotopy types may be equivalent to compact connected
+orientable manifolds.
+
+Let us consider a few particular cases of this. Suppose $b_2 = k = 1$,
+viz., $H_2(M) = \Z$. Then the ways of attaching the $4$-cell are
+governed by elements of $\pi_3(S^2)$. It turns out that $\pi_3(S^2) =
+\Z$, and a generator for this is the Hopf fibration $S^3 \to S^2 =
+\C\mathbb{P}^1$.
+
+Some observations:
+
+\begin{itemize}
+
+\item Choosing the generator $1 \in \pi_3(S^2)$, namely the Hopf map itself,
+  yields $\C\mathbb{P}^2$.
+
+\item Choosing the element $0 \in \pi_3(S^2)$ yields $S^2 \vee
+  S^4$. This is not homotopy-equivalent to a compact connected
+  orientable manifold.
+
+\item I believe that choosing other elements in $\pi_3(S^2)$ also
+  gives a complex projective plane, but I'm not sure how one would
+  prove that.
+
+\end{itemize}
+
+Let's now consider the case $b_2 = 2$. The $3$-skeleton is now $S^2
+\vee S^2$, and the maps are parametrized by elements of $\pi_3(S^2
+\vee S^2)$. Although we do not explicitly know what this group is,
+we can still pick some elements from it:
+
+\begin{itemize}
+
+\item Picking the $0$ element here gives $S^2 \vee S^2 \vee S^4$. This
+  is {\em not} homotopy-equivalent to a compact connected orientable
+  manifold, because the cap product here is trivial.
+
+\item We can pick the Hopf map from $S^3$ to one of the $S^2$s -- this
+  yields $\C\mathbb{P}^2 \vee S^2$. This is again not
+  homotopy-equivalent to a compact connected orientable manifold,
+  because the cap product of the $S^2$-piece with the top cohomology is zero.
+
+\item We can pick an element of $\pi_3(S^2 \vee S^2)$ which
+  corresponds to the boundary of $S^2 \times S^2$, and the CW-complex
+  we get is $S^2 \times S^2$.
+
+\item We can first consider the pinch map $S^3 \to S^3 \vee S^3$ and
+  then apply the Hopf fibration on each piece. This gives a connected
+  sum of two copies of $\C\mathbb{P}^2$. The relative orientations we
+  choose for the two pieces determine which connected sum we do get.
+
+  Thus, the {\em wedge} in the $2$-skeleton corresponds to the {\em
+    connected sum} as far as the manifolds are concerned. This is
+  because the ``point'' at which the wedging is done blows up to a
+  $S^3$ after we paste the $4$-cell.
+
+\end{itemize}
+
+In general, an element of $\pi_3(X^2)$ can give rise to a compact
+connected orientable manifold only if it maps essentially into each of
+the $2$-cells; if it can be made to miss even one $2$-cells, Poincare
+duality is contradicted.
+
+As we increase $b_2$, we get various possible connected sums of
+$\C\mathbb{P}^2$ and $S^2 \times S^2$, by choosing combinations of
+pinching, the Hopf map, and the map from $S^3$ to $S^2 \vee S^2$ for
+pasting $S^2 \times S^2$.
+
+
+
+
+\printindex
+
+\end{document}

@@ -1,0 +1,190 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Diagnostic in-class quiz solutions: due Friday October 18: Linear transformations}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+27 people took this 5-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of 1: 2 people
+\item Score of 2: 4 people
+\item Score of 3: 5 people
+\item Score of 4: 8 people
+\item Score of 5: 8 people
+\end{itemize}
+
+The mean score was 3.59 out of 5.
+
+The question-wise answers and performance review were as follows:
+
+\begin{enumerate}
+\item Option (B): 24 people
+\item Option (B): 22 people
+\item Option (D): 19 people
+\item Option (E): 19 people
+\item Option (D): 13 people
+\end{enumerate}
+\section{Solutions}
+
+{\bf PLEASE DO {\em NOT} DISCUSS ANY QUESTIONS.}
+
+The quiz covers basics related to linear transformations (notes titled
+{\tt Linear transformations}, corresponding section in the book
+Section 2.1). Explicitly, the quiz covers:
+
+\begin{itemize}
+\item Representation of a linear transformation using a matrix, and
+  identifying the domain and co-domain in terms of the row and column
+  counts of the matrix.
+\item Relationship between injectivity, surjectivity, rank, row count,
+  and column count.
+\item Relationship between the entries of the matrix and the images of
+  the standard basis vectors under the corresponding linear
+  transformation.
+\end{itemize}
+
+The question are fairly easy if you understand the material. But it's
+important that you be able to answer them, otherwise what we study
+later will not make much sense.
+
+\begin{enumerate}
+\item {\em Do not discuss this!}: Which of the following correctly
+  describes a $m \times n$ matrix?
+
+  \begin{enumerate}[(A)]
+  \item There are $m$ rows, and each row gives a vector with $m$
+    coordinates. There are $n$ columns, and each column gives a vector
+    with $n$ coordinates.
+  \item There are $m$ rows, and each row gives a vector with $n$
+    coordinates. There are $n$ columns, and each column gives a vector
+    with $m$ coordinates.
+  \item There are $n$ rows, and each row gives a vector with $m$
+    coordinates. There are $m$ columns, and each column gives a vector
+    with $n$ coordinates.
+  \item There are $n$ rows, and each row gives a vector with $n$
+    coordinates. There are $m$ columns, and each column gives a vector
+    with $m$ coordinates.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: This should be obvious by looking at the
+  matrix. For instance, a $2 \times 3$ matrix is of the form:
+
+  $$\left[\begin{matrix} a & b & c \\ d & e & f \\\end{matrix}\right]$$
+
+  {\em Performance review}: 24 out of 27 got this. 3 chose (A).
+
+\item {\em Do not discuss this!}: For a $p \times q$ matrix $A$, we can
+  define a linear transformation $T_A$ by $T_A(\vec{x}) :=
+  A\vec{x}$. What type of linear transformation is $T_A$?
+
+  \begin{enumerate}[(A)]
+  \item $T_A$ is a linear transformation from $\R^p$ to $\R^q$
+  \item $T_A$ is a linear trnasformation from $\R^q$ to $\R^p$
+  \item $T_A$ is a linear transformation from $\R^{\max\{p,q \}}$ to $\R^{\min\{p,q\}}$
+  \item $T_A$ is a linear transformation from $\R^{\min\{p,q\}}$ to $\R^{\max\{p,q\}}$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The way matrix-vector multiplication works, a $p
+  \times q$ matrix multiplies with a $q \times 1$ vector to give a $p
+  \times 1$ vector. Thus the linear transformation takes as input a
+  $q$-dimensional vector and gives as output a $p$-dimensional vector,
+  and is hence a transformation from $\R^q$ to $\R^p$.
+
+  {\em Performance review}: 22 out of 27 got this. 3 chose (A), 2 chose (C).
+
+\item {\em Do not discuss this!}: With the same notation as for the
+  preceding question, which of the following is true?
+
+  \begin{enumerate}[(A)]
+  \item If $p < q$, $T_A$ must be injective
+  \item If $p > q$, $T_A$ must be injective
+  \item If $p = q$, $T_A$ must be injective
+  \item If $p < q$, $T_A$ cannot be injective
+  \item If $p > q$, $T_A$ cannot be injective
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: For the linear transformation $T_A$ to be
+  injective, the matrix $A$ needs to have full column rank $q$,
+  because that is what it means for there to be no non-leading
+  variables and for the solution to therefore be unique if it exists
+  (see the lecture notes for more). In other words, we require that
+  the matrix have rank $q$. However, we know that the rank of a matrix
+  is at most equal to the minimum of the number of rows and the number
+  of columns. Thus, if $p < q$, the matrix cannot have full column
+  rank, and the linear transformation cannot be injective.
+
+  Intuitively, the linear transformation goes from $\R^q$ to $\R^p$,
+  so in order for it to be injective, the target space should be at
+  least as big as the domain. Thus, $p < q$ is incompatible with
+  injectivity.
+
+  {\em Performance review}: 19 out of 27 got this. 4 chose (E), 3
+  chose (C), 1 left the question blank.
+
+\item {\em Do not discuss this!}: With the same notation as for the
+  previous two questions, which of the following is true?
+
+  \begin{enumerate}[(A)]
+  \item If $p < q$, $T_A$ must be surjective
+  \item If $p > q$, $T_A$ must be surjective
+  \item If $p = q$, $T_A$ must be surjective
+  \item If $p < q$, $T_A$ cannot be surjective
+  \item If $p > q$, $T_A$ cannot be surjective
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: For the linear transformation $T_A$ to be
+  surjective, the matrix $A$ needs to have full row rank $p$, because
+  we want the system to always be consistent and therefore we want
+  that there should be no zero rows in the rref. We also know that the
+  rank of the matrix is at most equal to the minimum of the number of
+  rows and number of columns. Therefore, if $p > q$, $A$ cannot have
+  full row rank and $T_A$ cannot be surjective.
+
+  {\em Performance review}: 19 out of 27 got this. 5 chose (D), 2
+  chose (C).
+\item {\em Do not discuss this!}: With the same notation as for the
+  last three questions, which of the following is true?
+
+  \begin{enumerate}[(A)]
+  \item The rows of $A$ are the images under $T_A$ of the standard
+    basis vectors of $\R^p$.
+  \item The columns of $A$ are the images under $T_A$ of the standard
+    basis vectors of $\R^p$.
+  \item The rows of $A$ are the images under $T_A$ of the standard
+    basis vectors of $\R^q$.
+  \item The columns of $A$ are the images under $T_A$ of the standard
+    basis vectors of $\R^q$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: See the lecture notes for details. Note, however,
+  that dimension considerations can get the answer here
+  immediately. $T_A$ is a map from $\R^q$ to $\R^p$, so only Options
+  (C) and (D) make sense from the domain perspective. Further, the
+  rows of $A$ are $q$-dimensional whereas the columns are
+  $p$-dimensional, so only the columns have the right dimension, thus
+  making (D) the only legitimate option.
+
+  {\em Performance review}: 13 out of 27 got this. 11 chose (D), 2
+  chose (C), 1 chose (A).
+\end{enumerate}
+\end{document}

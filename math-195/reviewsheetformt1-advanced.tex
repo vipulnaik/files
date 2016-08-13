@@ -1,0 +1,240 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Review sheet for midterm 1: advanced}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf To maximize efficiency, please bring a copy (print or readable
+electronic) of this review sheet to the review session.}
+
+\section{Formula summary}
+
+\subsection{Parametric}
+
+Set $x = f(t)$, $y = g(t)$, parametric curve in $\R^2$.
+\begin{itemize}
+\item $dy/dt = g'(t)$ and $dx/dt = f'(t)$.
+\item $\frac{dy}{dx} = \frac{g'(t)}{f'(t)}$.
+\item $\frac{d^2y}{dx^2} = \frac{f'(t)g''(t) - g'(t)f''(t)}{(f'(t))^3}$
+\item Arc length: $\int \sqrt{(f'(t))^2 + (g'(t))^2} \, dt$
+\end{itemize}
+
+\subsection{Polar}
+
+Set $r = F(\theta)$, polar equation of a curve.
+
+\begin{itemize}
+\item $y = F(\theta)\sin \theta$ and $x = F(\theta)\cos \theta$.
+\item $dy/d\theta = F'(\theta)\sin \theta + F(\theta)\cos \theta$ and
+  $dx/d\theta = F'(\theta) \cos \theta - F(\theta) \sin \theta$.
+\item $\frac{dy}{dx} = \frac{F'(\theta)\sin \theta + F(\theta)\cos
+  \theta}{F'(\theta)\cos \theta - F(\theta)\sin \theta}$
+\item Arc length: $\int \sqrt{(F(\theta))^2 + (F'(\theta))^2} \,
+  d\theta$
+\end{itemize}
+
+\subsection{Three-dimensional geometry}
+
+\begin{itemize}
+\item Distance formula between $(x_1,y_1,z_1)$ and $(x_2,y_2,z_2)$:
+  $\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$.
+\item Sphere with center having coordinates $(h,k,l)$ and radius $r$
+  is $(x - h)^2 + (y - k)^2 + (z - l)^2 = r^2$.
+\end{itemize}
+
+\subsection{Vectors}
+
+\begin{itemize}
+\item Vector dot product: $\langle v_1,v_2,\dots, v_n \rangle \cdot
+  \langle w_1,w_2,\dots,w_n \rangle = v_1w_1 + v_2w_2 + \dots + v_nw_n$.
+\item Length of vector $\langle v_1,v_2,\dots,v_n \rangle$ is
+  $\sqrt{v_1^2 + v_2^2 + \dots + v_n^2}$.
+\item Unit vector in the direction of a vector $v$ is $v/|v|$. Unit
+  vector in opposite direction but along same line (so parallel) is
+  $-v/|v|$.
+\item Vector cross product: $\langle a_1, a_2, a_3 \rangle \times
+  \langle b_1, b_2, b_3 \rangle = \langle a_2b_3 - a_3b_2, a_3b_1 -
+  a_1b_3, a_1b_2 - a_2b_1 \rangle$.
+\item For nonzero vectors $v$ and $w$ in three dimensions, we have $|v
+  \times w| = |v||w|\sin \theta$ where $\theta$ is the angle between
+  $v$ and $w$.
+\item Scalar triple product is $a \cdot (b \times c)$.
+\item Angle between nonzero vectors $v$ and $w$ is
+  $\arccos\left(\frac{v \cdot w}{|v||w|}\right)$.
+\item Scalar projection of $b$ onto $a$ is $(a \cdot b)/|a|$. {\em
+  Note: Be careful what is being projected onto what}.
+\item Vector projection of $b$ onto $a$ is $((a \cdot b)/|a|^2)a$.
+\item Area of triangle with vertices $P$, $Q$ and $R$ is $(1/2)|PQ
+  \times PR|$. Need to: (i) compute difference vectors, (ii) take
+  cross product, (iii) compute length of the cross product, (iv)
+  divide by 2.
+\item Area of parallelogram with vertices $P$, $Q$, $R$, $S$ is $|PQ
+  \times PR|$ or $|PQ \times PS|$ (same number). Steps (i)-(iii) of above.
+\item Volume of parallelepiped is {\em absolute value of} scalar triple
+  product of vectors for adjacent triple of edges.
+\end{itemize}
+
+\section{Quickly: what you should know from one-variable calculus}
+
+You need to be able to do the following from one-variable calculus and
+before:
+
+\begin{enumerate}
+\item Finding domains of functions
+\item Basic algebraic manipulation and trigonometric identities
+\item Graphing: Know equation of circle centered at origin, graph
+  linear functions, sine, cosine.
+\item Differentiation and integration: Everything you saw in
+  one-variable calculus. However, for this midterm, you will get only
+  simple integrations that rely on the very basic formulas and not,
+  for instance, those that use integration by parts.
+\end{enumerate}
+
+\section{Parametric stuff}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item Consider the parametric curve given by $x = \sin^3 t$, $y =
+  t^3$. We want to calculate $dy/dx$ at $t = 0$. We note that $dy/dt =
+  3t^2$, and at $t = 0$, this takes the value $0$. Thus:
+
+  $$\frac{dy}{dx}|_{t = 0} = \frac{dy/dt}{dx/dt}|_{t = 0} = \frac{3t^2}{dx/dt}|_{t = 0} = \frac{0}{dx/dt} = 0$$
+
+\item Consider the curve $x = (\cos t)^{2/3}$ and $y = (\sin
+  t)^{2/3}$, $t \in \R$. This curve is described by the relation $x^3
+  + y^3 = 1$.
+
+\item Consider the curve given by $x = e^t$, $y = e^{t^2}$, $t \in
+  \R$. Then, the graph of this function is the part of the parabola $y =
+  x^2$ for $x \ge 0$.
+
+\item Consider the curve given parametrically by $x = \cos(t^2)$, $y =
+  \sin(t^2)$. To calculate the length of the arc of this curve from $t
+  = 0$ to $t = 5$, we calculate:
+
+  $$\int_0^5 \sqrt{(\cos(t^2))^2 + (\sin(t^2))^2} \, dt = \int_0^5 \sqrt{\cos^2(t^2) + \sin^2(t^2)} \, dt = \int_0^5 \, dt = 5$$
+\end{enumerate}
+\section{Polar coordinates}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item Consider the parametric description $x = \cos^2 \theta$, $y =
+  \sin^2\theta$. To convert to a polar description, we set $x = r\cos
+  \theta$, $y = r \sin \theta$, so we get $r\cos \theta =
+  \cos^2\theta$ and $r\sin \theta = \sin^2\theta$. Simplifying, we get
+  either $r = \cos \theta = \sin \theta$ or $r = \cos \theta$, $\sin
+  \theta = 0$, or $r = \sin \theta$, $\cos \theta = 0$.
+\end{enumerate}
+
+\section{Three-dimensional geometry}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item Suppose $A$ and $B$ are points in $\R^3$. Suppose $\lambda$ is a
+  fixed positive real number. Then, the set of points $C$ such that
+  $|AC|/|BC| = \lambda$ is a plane whose intersection with the line
+  segment $AB$ divides it into the ratio $\lambda:1$. The case
+  $\lambda = 1$ is a case in point: in this case, the plane is the
+  perpendicular bisector of $AB$.
+\end{enumerate}
+
+\section{Introduction to vectors and relation with geometry}
+
+\subsection{$n$-dimensional generality}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item The product of the vectors $\langle 1,2,3 \rangle$ and $\langle
+  3,4,5 \rangle$ is the vector $\langle 3,8,15\rangle$.
+\item If $a$ is a scalar and $v = \langle v_1,v_2,\dots, v_n \rangle$
+  is a vector, the length of $av = \langle av_1,av_2,\dots,av_n
+  \rangle$ is $a$ times the length of $v$.
+\item The dot product of the three vectors $\langle 1,2,3 \rangle$,
+  $\langle 4,5,6 \rangle$, and $\langle 7,8,9 \rangle$ is $\langle 28,
+  80, 162 \rangle$.
+\end{enumerate}
+
+\subsection{Three-dimensional geometry}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item The cross product of the vectors $\langle 2,3,0 \rangle$ and
+  $\langle 4,5,0 \rangle$ is $\langle (2)(5) - (4)(3), (3)(0) -
+  (0)(5), (0)(4) - (0)(2) \rangle$ which simplifies to $\langle -2,0,0
+  \rangle$.
+\item We can compute the angle between vectors $v$ and $w$ by using
+  the formula $\arcsin(|v \times w|/(|v||w|))$.
+\item Because the dot product of two vectors $a$ and $b$ is symmetric
+  in $a$ and $b$, the scalar projection of $a$ on $b$ is the same as
+  the scalar projection of $b$ on $a$.
+\item To check whether three points are coplanar, we take the scalar
+  triple product of the vectors giving their coordinates and check if
+  the scalar triple product is zero.
+\end{enumerate}
+\section{Vector-valued functions}
+
+\subsection{Vector-valued functions, limits, and continuity}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item Consider the vector-valued function $\langle 1/t, 1/(t - 1),
+  1/(t + 1) \rangle$. The domain is all real numbers, because at every
+  real number, at least one of the coordinates is defined.
+\item Consider the vector-valued functions $\langle t,1,t \rangle$ and
+  $\langle t,-2t^2,t \rangle$. The dot product of these vector-valued
+  functions is identically the $0$ function. Thus, the corresponding
+  parametric curves for these functions are orthogonal curves, i.e.,
+  they intersect at right angles.
+\end{enumerate}
+
+\subsection{Top-down and bottom-up descriptions}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item If $S_1$ and $S_2$ are two surfaces in $\R^3$ given as the
+  solutions to $F_1(x,y,z) = 0$ and $F_2(x,y,z) = 0$ respectively,
+  then $S_1 \cap S_2$ is given by the equation $F_1(x,y,z) +
+  F_2(x,y,z) = 0$ and $S_1 \cup S_2$ is given by the equation
+  $F_1(x,y,z)F_2(x,y,z) = 0$.
+\item The intersection of finitely many two-dimensional subsets of
+  $\R^3$ is generically expected to be one-dimensional. For instance,
+  the intersection of two planes (each two-dimensional) is expected to
+  be a line (one-dimensional).
+\item Surfaces in $\R^3$ have dimension $2$ and codimension $1$. So,
+  the intersection of two surfaces should have codimension $1 + 1 = 2$
+  and dimension $3 - 2 = 1$, hence should be a curve. This means that
+  the intersection of any surface with itself should be a curve. In
+  other words, every surface should be a curve.
+\item The intersection of the surfaces $x^2 + y^2 + z^2 = 1$ and $x^4
+  + y^4 + z^4 = 1/2$ is the surface $(x^2 + y^2 + z^2 - 1)(x^4 + y^4 +
+  z^4 - (1/2)) = 0$.
+\item $x^2 + y^2 = 1$ defines a circle in the $xy$-plane in $\R^3$
+  centered at the origin and with radius $1$. Hence, the solution set
+  in $\R^3$ to $(x^2 + y^2 - 1)(y^2 + z^2 - 1)(z^2 + x^2 - 1) = 0$ is
+  the union of the three circles in the $xy$-plane, $yz$-plane, and
+  $xz$-plane, with center at the origin and radius $1$.
+\end{enumerate}
+
+\subsection{Differentiation, tangent vectors, integration}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item The indefinite integral of the vector-valued function $t \mapsto
+  \langle 2t,3t^2,4t^3 \rangle$ is $t \mapsto \langle t^2 + C, t^3 + C, t^4 +
+  C \rangle$.
+\item Suppose $f$ and $g$ are vector-valued functions. Then:
+
+  $$\int (f(t) \cdot g(t)) \, dt = f(t) \cdot \left(\int g(t) \, dt\right) + \left(\int f(t) \, dt \right) \cdot g(t)$$
+\end{enumerate}
+
+\end{document}

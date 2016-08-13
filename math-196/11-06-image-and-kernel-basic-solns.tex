@@ -1,0 +1,193 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Diagnostic in-class quiz solutions: due Wednesday November 6: Image and kernel (basic)}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+28 people took this 5-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of 2: 2 people
+\item Score of 3: 7 people
+\item Score of 4: 9 people
+\item Score of 5: 10 people
+\end{itemize}
+
+The mean score was slightly under 4.
+
+The question-wise answers and performance review are below:
+
+\begin{enumerate}
+\item Option (B): 26 people
+\item Option (A): 22 people
+\item Option (C): 17 people
+\item Option (B): 19 people
+\item Option (C): 27 people
+\end{enumerate}
+
+\section{Solutions}
+
+{\bf PLEASE DO NOT DISCUSS {\em ANY} QUESTIONS.}
+
+The questions here test for a very rudimentary understanding of the
+ideas covered in the lectures notes titled {\tt Image and kernel of a
+  linear transformation}. The corresponding section of the book is
+Section 3.1.
+\begin{enumerate}
+
+\item {\em Do not discuss this!}: For a linear transformation $T: \R^m
+  \to \R^n$, the kernel of $T$ is defined as the set of vectors
+  $\vec{x} \in \R^m$ satisfying the condition that $T(\vec{x}) =
+  \vec{0}$. Which of the following correctly describes the type of
+  subset of $\R^m$ that the kernel must be? Note that, as usual, we
+  identify a set of vectors with the set of corresponding points.
+
+  \begin{enumerate}[(A)]
+  \item The kernel is a line segment in $\R^m$.
+  \item The kernel is a linear subspace of $\R^m$, i.e., it passes
+    through the origin and, for any two points in the kernel, the line
+    joining them is completely inside the kernel.
+  \item The kernel is an affine linear subspace of $\R^m$ but it need
+    not be linear, i.e., it is non-empty and the line joining any two
+    points in it is also in it, but it need not contain the origin.
+  \item The kernel is a curve in $\R^m$ with a parametric description.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: See Section 4.3 of the lecture notes titled {\tt
+    Image and kernel of a linear transformation}.
+
+  Briefly: we can readily verify that $T(\vec{0}) =
+  \vec{0}$, and we can verify that the kernel is a linear subspace
+  based on our earlier definition (closed under addition and scalar
+  multiplication). It's easy to see that this also coincides with our
+  new definition of linear subspace.
+
+  {\em Performance review}: 26 out of 28 got this. 2 chose (C).
+\item {\em Do not discuss this!}: For a linear transformation $T: \R^m
+  \to \R^n$, the kernel of $T$ is defined as the set of vectors
+  $\vec{x} \in \R^m$ satisfying the condition that $T(\vec{x}) =
+  \vec{0}$. Given a vector $\vec{y} \in \R^n$, the set of solutions to
+  $T(\vec{x}) = \vec{y}$ is either empty, or it bears some relation
+  with the kernel. What relation does it bear to the kernel if it is
+  nonempty?
+
+  \begin{enumerate}[(A)]
+  \item The solution set is an affine linear subspace of $\R^m$ (see
+    definition in Option (C) of Q1) that is a translate of the kernel,
+    i.e., there is a vector $\vec{v}$ such that the vectors in the
+    solution set are precisely the vectors expressible as ($\vec{v}$
+    plus a vector in the kernel).
+  \item The solution set coincides precisely with the kernel.
+  \item The solution set comprises a single point (i.e., a single
+    vector) that is not in the kernel.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: See Section 5 of the lecture notes titled {\tt
+    Image and kernel of a linear transformation}.
+
+  {\em Performance review}: 22 out of 28 got this. 5 chose (B), 1 chose (C).
+\item {\em Do not discuss this!}: Given a linear transformation
+  $T:\R^m \to \R^n$, recall that we say that $T$ is {\em injective} if
+  for every $\vec{y} \in \R^n$, there exists {\em at most} one
+  $\vec{x} \in \R^m$ satisfying $T(\vec{x}) = \vec{y}$. Another way of
+  formulating this is that if $A$ is the $n \times m$ matrix for $T$,
+  then the linear system $A\vec{x} = \vec{y}$ has at most one solution
+  for $\vec{x}$ for each fixed value of $\vec{y}$. We had earlier
+  worked out that this condition is equivalent to full column rank
+  (recall: all the variables need to be leading variables), which in
+  this case means rank $m$.
+
+  What is the relationship between the injectivity of $T$ and the
+  kernel of $T$?
+
+  \begin{enumerate}[(A)]
+  \item $T$ is injective if and only if the kernel of $T$ is empty.
+  \item If $T$ is injective, then the kernel of $T$ is empty. However,
+    the converse is not in general true.
+  \item $T$ is injective if and only if the kernel of $T$ comprises
+    only the zero vector.
+  \item If $T$ is injective, then the kernel of $T$ comprises only the
+    zero vector. However, the converse is not in general true.
+  \item If the kernel of $T$ comprises only the zero vector, then $T$
+    is injective. However, the converse is not in general true.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: See Sections 5 and 6 of the lecture notes titled
+  {\tt Image and kernel of a linear transformation}.
+
+  {\em Performance review}: 17 out of 28 got this. 8 chose (D), 3
+  chose (E).
+
+\item {\em Do not discuss this!}: For a linear transformation $T: \R^m
+  \to \R^n$, the image of $T$ is defined as the set of vectors
+  $\vec{y} \in \R^n$ satisfying the condition that there exists a
+  vector $\vec{x} \in \R^m$ satisfying $T(\vec{x}) = \vec{y}$. In
+  other words, the image of $T$ equals the range of $T$ as a
+  function. Which of the following correctly describes the type of
+  subset of $\R^n$ that the image must be? Note that, as usual, we
+  identify a set of vectors with the set of corresponding points.
+ 
+  \begin{enumerate}[(A)]
+  \item The image is a line segment in $\R^n$.
+  \item The image is a linear subspace of $\R^n$, i.e., it passes
+    through the origin and, for any two points in the image, the line
+    joining them is completely inside the image.
+  \item The image is an affine linear subspace of $\R^n$ but it need
+    not be linear, i.e., it is non-empty and the line joining any two
+    points in it is also in it, but it need not contain the origin.
+  \item The image is a curve in $\R^n$ with a parametric description.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: See Section 4.1 of the {\tt Image and kernel of a
+    linear transformation} lecture notes.
+
+  {\em Performance review}: 19 out of 28 got this. 7 chose (C), 2
+  chose (A).
+
+\item {\em Do not discuss this!}: Given a linear transformation
+  $T:\R^m \to \R^n$, recall that we say that $T$ is {\em surjective} if
+  for every $\vec{y} \in \R^n$, there exists {\em at least} one
+  $\vec{x} \in \R^m$ satisfying $T(\vec{x}) = \vec{y}$. Another way of
+  formulating this is that if $A$ is the $n \times m$ matrix for $T$,
+  then the linear system $A\vec{x} = \vec{y}$ has at least one solution
+  for $\vec{x}$ for each fixed value of $\vec{y}$. We had earlier
+  worked out that this condition is equivalent to full row rank
+  (recall: we need all rows in the rref to be nonzero in order to
+  avoid the potential for inconsistency), which in this case means
+  rank $n$.
+
+  What is the relationship between the surjectivity of $T$ and the
+  image of $T$?
+
+  \begin{enumerate}[(A)]
+  \item $T$ is surjective if and only if the image of $T$ is empty.
+  \item $T$ is surjective if and only if the image of $T$ comprises
+    only the zero vector.
+  \item $T$ is surjective if and only if the image of $T$ is all of
+    $\R^n$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: This is obvious from the definition.
+
+  {\em Performance review}: 27 out of 28 got this. 1 chose (B).
+\end{enumerate}
+\end{document}

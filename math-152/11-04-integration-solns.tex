@@ -1,0 +1,208 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: November 4: Integration}
+\author{Math 152, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$12$ people took this quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $0$: $3$ people
+\item Score of $1$: $2$ people
+\item Score of $2$: $5$ people
+\item Score of $3$: $2$ people
+\end{itemize}
+
+The mean score was $1.5$. Here are the problem wise answers and performance:
+
+\begin{enumerate}
+\item Option (A): $7$ people
+\item Option (B): $4$ people
+\item Option (A): $3$ people
+\item Option (C): $3$ people
+\item Option (C): $1$ person
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+\item Which of the following is an {\bf antiderivative} of $x\cos x$?
+
+  \begin{enumerate}[(A)]
+  \item $x \sin x + \cos x$
+  \item $x \sin x - \cos x$
+  \item $-x \sin x + \cos x$
+  \item $-x \sin x - \cos x$
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (A).
+
+  {\em Explanation}: Differentiating the function given in option (A)
+  gives $x\cos x + \sin x - \sin x = x\cos x$.
+
+  When we study integration by parts next quarter, we will see a
+  constructive approach designed to arrive at the answer.
+
+  {\em Performance review}: $7$ out of $11$ people got this. $1$ chose
+  (B), $4$ chose (E).
+
+  {\em Historical note (last year)}: $11$ out of $16$ people got this
+  correct. Remaining were $2$ (B) and $3$ (E).
+
+  {\em Action point}: If you got this wrong, make sure you remember
+  and are comfortable with the differentiation rules. The time is not
+  yet ripe to forget those.
+
+\item (*) Suppose $F$ and $G$ are two functions defined on $\R$ and
+  $k$ is a natural number such that the $k^{th}$ derivatives of $F$
+  and $G$ exist and are equal on all of $\R$. Then, $F - G$ must be a
+  polynomial function. What is the {\bf maximum possible degree} of $F
+  - G$?  (Note: Assume constant polynomials to have degree zero)
+
+  \begin{enumerate}[(A)]
+  \item $k - 2$
+  \item $k - 1$
+  \item $k$
+  \item $k + 1$
+  \item There is no bound in terms of $k$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: $F$ and $G$ having the same $k^{th}$ derivative
+  is equivalent to requiring that $F - G$ have $k^{th}$ derivative
+  equal to zero. For $k = 1$, this gives constant functions
+  (polynomials of degree $0$). Each time we increment $k$, the degree
+  of the polynomial could potentially go up by $1$. Thus, the answer
+  is $k - 1$.
+
+  {\em Performance review}: $4$ out of $12$ got this correct. $4$
+  chose (E), $2$ chose (C), $1$ each chose (A) and (D).
+
+  {\em Historical note (last year)}: $6$ out of $16$ people got this
+  correct. Remaining were: $2$ (A), $2$ (C), $3$ (D), $3$ (E).
+
+  {\em Action point}: This is the kind of question you should {\em
+  definitely} get right in the future. Please review the notes on
+  repeated integration and finding functions with given $k^{th}$
+  derivative. It seems like we didn't cover this well enough in class,
+  which might be the reason for the not-so-good performance. We'll
+  review these ideas in class Friday.
+
+\item (**) Suppose $f$ is a continuous function on $\R$. Clearly, $f$
+  has antiderivatives on $\R$. For all but one of the following
+  conditions, it is possible to guarantee, without any further
+  information about $f$, that there exists an antiderivative $F$
+  satisfying that condition. {\bf Identify the exceptional condition}
+  (i.e., the condition that it may not always be possible to satisfy).
+
+  \begin{enumerate}[(A)]
+  \item $F(1) = F(0)$.
+  \item $F(1) + F(0) = 0$.
+  \item $F(1) + F(0) = 1$.
+  \item $F(1) = 2F(0)$.
+  \item $F(1)F(0) = 0$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Suppose $G$ is an antiderivative for $f$. The
+  general expression for an antiderivative is $G + C$, where $C$ is
+  constant. We see that for options (b), (c), and (d), it is always
+  possible to solve the equation we obtain to get one or more real
+  values of $C$. However, (a) simplifies to $G(1) + C = G(0) + C$,
+  whereby $C$ is canceled, and we are left with the statement $G(1) =
+  G(0)$. If this statement is true, then {\em all} choices of $C$
+  work, and if it is false, then {\em none} works. Since we cannot
+  guarantee the truth of the statement, (a) is the exceptional
+  condition.
+
+  Another way of thinking about this is that $F(1) - F(0) = \int_0^1
+  f(x) \, dx$, regardless of the choice of $F$. If this integral is
+  $0$, then any antiderivative works. If it is not zero, no
+  antiderivative works.
+
+  {\em Performance review}: $3$ out of $12$ got this correct. $4$
+  chose (E), $3$ chose (C), $2$ chose (D).
+
+  {\em Historical note (last year)}: $3$ out of $16$ people got this
+  correct. Remaining were: $2$ (B), $3$ (C), $1$ (D), $7$ (E).
+
+  {\em Action point}: This is the kind of question that everybody
+  should get correct in the future. Please make sure you understand
+  the solution process for this question.
+
+\item (**) Suppose $F(x) = \int_0^x \sin^2(t^2) \, dt$ and $G(x) =
+  \int_0^x \cos^2(t^2) \, dt$. Which of the following {\bf is true}?
+
+  \begin{enumerate}[(A)]
+  \item $F + G$ is the zero function.
+  \item $F + G$ is a constant function with nonzero value.
+  \item $F(x) + G(x) = x$ for all $x$.
+  \item $F(x) + G(x) = x^2$ for all $x$.
+  \item $F(x^2) + G(x^2) = x$ for all $x$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: $F(x) + G(x) = \int_0^x \sin^2(t^2) + \cos^2(t^2)
+  \, dt = \int_0^x 1 \, dt = x$.
+
+  Note that it is not possible to obtain closed expressions for $F$
+  and $G$ separately, and any attempt to do so is a waste of time.
+
+  {\em Performance review}: $3$ out of $12$ got this correct. $5$
+  chose (B), $2$ chose (D), $1$ each chose (A) and (E).
+
+  {\em Historical note (last year)}: $5$ out of $16$ people got this
+  correct. Remaining were: $2$ (A), $5$ (B), $4$ (D). It is likely
+  that many people noted that $\sin^2(t^2) + \cos^2(t^2) = 1$ but then
+  forgot to integrate it, hence (B) as a common wrong answer.
+
+  {\em Action point}: This one shouldn't trick you again!
+
+\item (**) Suppose $F$ is a function defined on $\R \setminus \{ 0 \}$
+  such that $F'(x) = -1/x^2$ for all $x \in \R \setminus \{ 0
+  \}$. Which of the following pieces of information is/are {\bf
+  sufficient} to determine $F$ completely?
+  \begin{enumerate}[(A)]
+  \item The value of $F$ at any two positive numbers.
+  \item The value of $F$ at any two negative numbers.
+  \item The value of $F$ at a positive number and a negative number.
+  \item Any of the above pieces of information is sufficient, i.e., we
+    need to know the value of $F$ at any two numbers.
+  \item None of the above pieces of information is sufficient.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: There are two open intervals: $(-\infty,0)$ and
+  $(0,\infty)$, on which we can look at $F$. On each of these
+  intervals, $F(x) = 1/x + $ a constant, but the constant for
+  $(-\infty,0)$ may differ from the constant for $(0,\infty)$. Thus,
+  we need the initial value information at one positive number and one
+  negative number.
+
+  {\em Performance review}: $1$ out of $12$ got this correct. $10$
+  chose (D) and $1$ chose (E).
+
+  {\em Historical note (last year)}: $4$ out of $16$ people got this
+  correct. Remaining were: $8$ (D), $4$ (E). It seems that most people
+  did not get the key idea for this question.
+
+  {\em Action point}: Once you have understood this question, you
+  should be able to get any similar question correct in the future.
+
+\end{enumerate}
+
+\end{document}

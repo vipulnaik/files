@@ -1,0 +1,581 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz: due Friday November 15: Image and kernel}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+Your name (print clearly in capital letters): $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+The purpose of this quiz is to review in greater depth the ideas
+behind image and kernel. The goal of the first seven questions is to
+review the ideas of injectivity, surjectivity, and bijectivity in the
+context of arbitrary functions between sets. The purpose is two-fold:
+(i) to give a functions-based approach to justifying, intuitively and
+formally, facts about the effect of matrix multiplication on rank, and
+(ii) to hint at ways in which linear transformations behave better
+than other types of functions.
+
+The corresponding lecture notes are titled {\tt Image and kernel of a
+  linear transformation} and the corresponding section of the text is
+Section 3.1.
+
+Just as a reminder, a function $f:A \to B$ between sets $A$ and $B$ is
+said to be:
+
+\begin{itemize}
+\item {\em injective} if for every $b \in B$, there is {\em at most}
+  one value of $a$ such that $f(a) = b$. In other words, if we denote
+  by $f^{-1}(b)$ the set $\{ a \in A \mid f(a) = b \}$, then
+  $|f^{-1}(b)| \le 1$ for all $b \in B$ (here $|f^{-1}(b)|$ denotes
+  the size of the set $f^{-1}(b)$).
+\item {\em surjective} if for every $b \in B$, there is {\em at least}
+  one value of $a$ such that $f(a) = b$. In other words, if we denote
+  by $f^{-1}(b)$ the set $\{ a \in A \mid f(a) = b \}$, then
+  $|f^{-1}(b)| \ge 1$ for all $b \in B$.
+\item {\em bijective} if for every $b \in B$, there is {\em exactly}
+  one value of $a$ such that $f(a) = b$. In other words, if we denote
+  by $f^{-1}(b)$ the set $\{ a \in A \mid f(a) = b \}$, then
+  $|f^{-1}(b)| = 1$ for all $b \in B$.
+\end{itemize}
+
+\begin{enumerate}
+\item Suppose $g:A \to B$ and $f:B \to C$ are functions. The composite
+  $f \circ g$ is a function from $A$ to $C$. What can we say the
+  relationship between the injectivity of $f \circ g$, the injectivity
+  of $f$, and the injectivity of $g$?
+
+  \begin{enumerate}[(A)]
+  \item $f \circ g$ is injective if and only if $f$ and $g$ are both injective.
+  \item If $f$ and $g$ are both injective, then $f \circ g$ is
+    injective. However, $f \circ g$ being injective does not imply
+    anything about the injectivity of either $f$ or $g$.
+  \item If $f$ and $g$ are both injective, then $f \circ g$ is
+    injective. If $f \circ g$ is injective, then at least one of $f$
+    and $g$ is injective, but we cannot conclusively say for any
+    specific one of the two that it must be injective.
+  \item If $f$ and $g$ are both injective, then $f \circ g$ is
+    injective. If $f \circ g$ is injective, then $f$ is injective, but
+    we do not have enough information to deduce whether $g$ is
+    injective.
+  \item If $f$ and $g$ are both injective, then $f \circ g$ is
+    injective. If $f \circ g$ is injective, then $g$ is injective, but
+    we do not have enough information to deduce whether $f$ is
+    injective.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $g:A \to B$ and $f:B \to C$ are functions. The composite
+  $f \circ g$ is a function from $A$ to $C$. What can we say the
+  relationship between the surjectivity of $f \circ g$, the surjectivity
+  of $f$, and the surjectivity of $g$?
+
+  \begin{enumerate}[(A)]
+  \item $f \circ g$ is surjective if and only if $f$ and $g$ are both
+    surjective.
+  \item If $f$ and $g$ are both surjective, then $f \circ g$ is
+    surjective. However, $f \circ g$ being surjective does not imply
+    anything about the surjectivity of either $f$ or $g$.
+  \item If $f$ and $g$ are both surjective, then $f \circ g$ is
+    surjective. If $f \circ g$ is surjective, then at least one of $f$
+    and $g$ is surjective, but we cannot conclusively say for any
+    specific one of the two that it must be surjective.
+  \item If $f$ and $g$ are both surjective, then $f \circ g$ is
+    surjective. If $f \circ g$ is surjective, then $f$ is surjective,
+    but we do not have enough information to deduce whether $g$ is
+    surjective.
+  \item If $f$ and $g$ are both surjective, then $f \circ g$ is
+    surjective. If $f \circ g$ is surjective, then $g$ is surjective,
+    but we do not have enough information to deduce whether $f$ is surjective.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $g:A \to B$ and $f:B \to C$ are functions. The composite
+  $f \circ g$ is a function from $A$ to $C$. Suppose $f \circ g$ is
+  bijective. What can we say about $f$ and $g$ individually?
+
+  \begin{enumerate}[(A)]
+  \item Both $f$ and $g$ must be bijective.
+  \item Both $f$ and $g$ must be injective, but neither of them need be surjective.
+  \item Both $f$ and $g$ must be surjective, but neither of them need be injective.
+  \item $f$ must be injective but need not be surjective. $g$ must be
+    surjective but need not be injective.
+  \item $f$ must be surjective but need not be injective. $g$ must be
+    injective but need not be surjective.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item $g:A \to B$ and $f:B \to C$ are functions. The composite $f
+  \circ g$ is a function from $A$ to $C$. Suppose both $f$ and $g$ are
+  surjective. Further, suppose that for every $b \in B$, $g^{-1}(b)$
+  has size $m$ (for a fixed positive integer $m$) and for every $c \in
+  C$, $f^{-1}(c)$ has size $n$ (for a fixed positive integer
+  $n$). Then, what can we say about the sizes of the fibers (i.e., the
+  inverse images of points in $C$) under the composite $f \circ g$?
+
+  \begin{enumerate}[(A)]
+  \item The size is $\min \{ m,n \}$
+  \item The size is $\max \{ m,n \}$
+  \item The size is $m + n$
+  \item The size is $mn$
+  \item The size is $m^n$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item {\bf PLEASE READ THIS VERY CAREFULLY AND CONSIDER A WIDE VARIETY
+  OF POLYNOMIAL EXAMPLES}: Suppose $f$ is a polynomial function of
+  degree $n > 2$ from $\R$ to $\R$. What can we say about the fibers
+  of $f$, i.e., the sets of the form $f^{-1}(x)$, $x \in \R$?
+
+  {\em Hint}: At the one extreme, consider a polynomial of the form
+  $x^n$. Consider the sizes of the fibers $f^{-1}(0)$ and $f^{-1}(x)$
+  for a positive value of $x$ (the fiber size for the latter will
+  depend on whether $n$ is even or odd). Alternatively, consider a
+  polynomial of the form $(x - 1)(x - 2) \dots (x - n)$. Consider the
+  size of the fiber $f^{-1}(0)$.
+  \begin{enumerate}[(A)]
+  \item Every fiber has size $n$.
+  \item The minimum of the sizes of fibers is exactly $n$, but every
+    fiber need not have size $n$.
+  \item The maximum of the sizes of fibers is exactly $n$, but every
+    fiber need not have size $n$.
+  \item The minimum of the sizes of fibers is at least $n$, but need
+    not be exactly $n$.
+  \item The maximum of the sizes of fibers is at most $n$, but need not
+    be exactly $n$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $f$ is a continuous injective function from $\R$ to
+  $\R$. What can we say about the nature of $f$?
+
+  \begin{enumerate}[(A)]
+  \item $f$ must be an increasing function on all of $\R$.
+  \item $f$ must be a decreasing function on all of $\R$.
+  \item $f$ must be a constant function on all of $\R$.
+  \item $f$ must be either an increasing function on all of $\R$ or a
+    decreasing function on all of $\R$, but the information presented
+    is insufficient to decide which case occurs.
+  \item $f$ must be either an increasing function or a decreasing
+    function or a constant function on all of $\R$, but the
+    information presented is insufficient for deciding anything
+    stronger.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item {\bf PLEASE READ THIS CAREFULLY, MAKE CASES, AND CHECK YOUR
+  REASONING}: Suppose $f$, $g$, and $h$ are continuous bijective
+  functions from $\R$ to $\R$. What can we say about the functions $f
+  + g$, $f + h$, and $g + h$?
+
+  {\em Hint}: Based on the preceding question, you know something
+  about the nature of $f$, $g$, and $h$ individually as functions, but
+  there is some degree of ambiguity in your knowledge. Make cases
+  based on the possibilities and see what you can deduce in the best
+  and worst case.
+
+  \begin{enumerate}[(A)]
+  \item They are all continuous bijective functions from $\R$ to $\R$.
+  \item At least two of them are continuous bijective functions from
+    $\R$ to $\R$. However, we cannot say more.
+  \item At least one of them is a continuous bijective function from
+    $\R$ to $\R$. However, we cannot say more.
+  \item Either all three sums are continuous bijective functions from
+    $\R$ to $\R$, or none is.
+  \item It is possible that none of the sums is a continuous
+    bijective functions from $\R$ to $\R$; it is
+    also possible that one, two, or all the sums are continuous
+    bijective functions from $\R$ to $\R$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.5in}
+
+  The questions that follow tripped up students quite a bit last time,
+  so I urge you to proceed with caution. You can do each of these
+  questions in either of two ways:
+
+  \begin{itemize}
+  \item Using abstract, general reasoning.
+  \item Constructing concrete examples.
+  \end{itemize}
+
+  While the former approach is one you should eventually be able to
+  embrace without trepidation, feel free to rely on the latter
+  approach for now. For this, consider matrices describing the linear
+  transformations and use matrix multiplication to compute the
+  composite where needed. Compute the kernel, image, and rank using
+  the methods known to you. Take matrices such as those arising from
+  finite state automata (as described in the ``linear transformations
+  and finite state automata'' quiz) or their generalizations to
+  rectangular matrices.
+
+  For instance, you might try taking a matrix such as
+  $\left[ \begin{matrix} 1 & 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 & 0\\ 0 &
+      0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 \\\end{matrix}\right]$. This
+  describes a linear transformation $\R^5 \to \R^4$ and has rank
+  three. The dimension of the kernel (inside $\R^5$) is 2 (explicitly,
+  the kernel is precisely the set of vectors in $\R^5$ whose first
+  three coordinates are zero) and the dimension of the image (inside
+  $\R^4$) is 3 (explicitly, the image is precisely the set of vectors
+  in $\R^4$ whose fourth coordinate is $0$).
+
+\item {\em This is the analogue for linear transformations of Question
+  1}: Suppose $m,n,p$ are positive integers. Suppose $A$ is a $m
+  \times n$ matrix and $B$ is a $n \times p$ matrix. The product $AB$
+  is a $m \times p$ matrix. Denote by $T_A$, $T_B$, and $T_{AB}$
+  respectively the linear transformations corresponding to $A$, $B$,
+  and $AB$. We have $T_A:\R^n \to \R^m$, $T_B: \R^p \to \R^n$, and
+  $T_{AB}: \R^p \to \R^m$. Note that $T_{AB} = T_A \circ T_B$.
+
+  Recall that a matrix has full column rank if and only if the
+  corresponding linear transformation is injective.
+
+  Which of the following describes correctly the relationship between
+  $A$ having full column rank (i.e., rank $n$), $B$ having full column
+  rank (i.e., rank $p$), and $AB$ having full column rank (i.e., rank
+  $p$)?
+
+  \begin{enumerate}[(A)]
+  \item $AB$ has full column rank (i.e., rank $p$) if and only if $A$
+    and $B$ both have full column rank (ranks $n$ and $p$
+    respectively).
+  \item If $A$ and $B$ both have full column rank, then $AB$ has full
+    column rank. However, $AB$ having full column rank does not imply
+    anything (separately or jointly) regarding whether $A$ or $B$ has
+    full column rank.
+  \item If $A$ and $B$ both have full column rank, then $AB$ has full
+    column rank. If $AB$ has full column rank, then at least one of
+    $A$ and $B$ has full column rank, but we cannot definitively say
+    for any particular one of $A$ and $B$ that it must have full column
+    rank.
+  \item If $A$ and $B$ both have full column rank, then $AB$ has full
+    column rank. $AB$ having full column rank implies that $A$ has
+    full column rank, but it does not tell us for sure that $B$ has
+    full column rank.
+  \item If $A$ and $B$ both have full column rank, then $AB$ has full
+    column rank. $AB$ having full column rank implies that $B$ has
+    full column rank, but it does not tell us for sure that $A$ has
+    full column rank.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item {\em This is the analogue for linear transformations of Question
+  2}: Suppose $m,n,p$ are positive integers. Suppose $A$ is a $m
+  \times n$ matrix and $B$ is a $n \times p$ matrix. The product $AB$
+  is a $m \times p$ matrix. Denote by $T_A$, $T_B$, and $T_{AB}$
+  respectively the linear transformations corresponding to $A$, $B$,
+  and $AB$. We have $T_A:\R^n \to \R^m$, $T_B: \R^p \to \R^n$, and
+  $T_{AB}: \R^p \to \R^m$. Note that $T_{AB} = T_A \circ T_B$.
+
+  Recall that a matrix has full row rank if and only if the
+  corresponding linear transformation is surjective.
+
+  Which of the following describes correctly the relationship between
+  $A$ having full row rank (i.e., rank $m$), $B$ having full row rank
+  (i.e., rank $n$), and $AB$ having full row rank (i.e., rank $m$)?
+
+  \begin{enumerate}[(A)]
+  \item $AB$ has full row rank if and only if $A$ and $B$ both have
+    full row rank.
+  \item If $A$ and $B$ both have full row rank, then $AB$ has full row
+    rank. However, $AB$ having full row rank does not imply anything
+    (separately or jointly) regarding whether $A$ or $B$ has full row
+    rank.
+  \item If $A$ and $B$ both have full row rank, then $AB$ has full
+    row rank. If $AB$ has full row rank, then at least one of
+    $A$ and $B$ has full row rank, but we cannot definitively say
+    for any particular one of $A$ and $B$ that it must have full row
+    rank.
+  \item If $A$ and $B$ both have full row rank, then $AB$ has full
+    row rank. $AB$ having full row rank implies that $A$ has
+    full row rank, but it does not tell us for sure that $B$ has
+    full row rank.
+  \item If $A$ and $B$ both have full row rank, then $AB$ has full
+    row rank. $AB$ having full row rank implies that $B$ has
+    full row rank, but it does not tell us for sure that $A$ has
+    full row rank.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item {\em This is the analogue for linear transformations of Question
+  3}: Suppose $m$ and $n$ are positive integers. Suppose $A$ is a $m
+  \times n$ matrix and $B$ is a $n \times m$ matrix. The product $AB$
+  is a $m \times m$ matrix. The corresponding linear transformations
+  are $T_A: \R^n \to \R^m$, $T_B: \R^m \to \R^n$, and $T_{AB}: \R^m
+  \to \R^m$. 
+
+  Suppose the square matrix $AB$ has full rank $m$. What can we deduce
+  about the ranks of $A$ and $B$?
+
+  \begin{enumerate}[(A)]
+  \item Both $A$ and $B$ have full row rank, {\em and} both $A$ and
+    $B$ have full column rank.
+  \item Both $A$ and $B$ have full column rank, but neither of them
+    need have full row rank.
+  \item Both $A$ and $B$ have full row rank, but neither of them need
+    have full column rank.
+  \item $A$ must have full column rank but need not have full row
+    rank. $B$ must have full row rank but need not have full column
+    rank.
+  \item $A$ must have full row rank but need not have full column
+    rank. $B$ must have full column rank but need not have full row
+    rank.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.5in}
+
+  For the coming questions, we will denote vector spaces by letters
+  such as $U$, $V$, and $W$. You can, however, consider them to be
+  finite-dimensional vector spaces of the form $\R^n$. However, you
+  should take care not to use a letter for the dimension of a vector
+  space if the letter is already in use elsewhere in the
+  question. Also, you should take care to use different letters for
+  the dimensions of different vector spaces, unless it is given to you
+  that the vector spaces have the same dimension. The results also
+  hold for infinite-dimensional vector spaces, but you can work on all
+  the problems assuming you are working in the finite-dimensional
+  setting.
+
+\item {\em This is an analogue for linear transformations of Question
+  4}: Suppose $T_1: U \to V$ and $T_2:V \to W$ are linear
+  transformations. The composite $T_2 \circ T_1$ is also a linear
+  transformation, this time from $U$ to $W$. Suppose the kernel of
+  $T_1$ has dimension $m$ and the kernel of $T_2$ has dimension
+  $n$. Suppose both $T_1$ and $T_2$ are surjective. What can you say
+  about the dimension of the kernel of $T_2 \circ T_1$?
+
+  {\em Please note this carefully}: Although this question is
+  analogous to Question 4, the correct answer options differ for the
+  two questions. Here is an intuitive explanation for the relationship
+  between the questions. Question 4 asked abot the {\em sizes} of the
+  fibers. This question asks about the dimensions of the kernels. The
+  fibers do correspond to the kernels. But the relationship between
+  dimension and size is of a {\em logarithmic nature}. What we mean is
+  that the dimension can be thought of as the logarithm of the
+  size. This isn't literally true, because the size is infinite. But
+  metaphorically, it makes sense, because, for instance, the dimension
+  of $\R^p$ is the exponent $p$, and that comports with the laws of
+  logarithms (similar to how the $\log_2(2^p) = p$).
+  
+  \begin{enumerate}[(A)]
+  \item The dimension is $\min \{ m,n \}$.
+  \item The dimension is $\max \{ m,n \}$.
+  \item The dimension is $m + n$.
+  \item The dimension is $mn$.
+  \item The dimension is $m^n$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $T_1: U \to V$ and $T_2:V \to W$ are linear
+  transformations. The composite $T_2 \circ T_1$ is also a linear
+  transformation, this time from $U$ to $W$. Suppose the kernel of
+  $T_1$ has dimension $m$ and the kernel of $T_2$ has dimension
+  $n$. However, unlike the preceding question, we are not given any
+  information about the surjectivity of either $T_1$ or $T_2$. The
+  answer to the preceding question gives an (inclusive) {\em upper}
+  bound on the dimension of the kernel of $T_2 \circ T_1$. Which of
+  the following is the best {\em lower} bound we can manage in
+  general?
+
+  \begin{enumerate}[(A)]
+  \item $|m - n|$
+  \item $m$
+  \item $n$
+  \item $m + n$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $T_1,T_2:U \to V$ are linear transformations. Which of
+  the following is true? Please see Options (D) and (E) before
+  answering and select the single option that best reflects your view.
+
+  \begin{enumerate}[(A)]
+  \item If both $T_1$ and $T_2$ are injective, then $T_1 + T_2$ is injective.
+  \item If both $T_1$ and $T_2$ are surjective, then $T_1 + T_2$ is surjective.
+  \item If both $T_1$ and $T_2$ are bijective, then $T_1 + T_2$ is bijective.
+  \item All of the above
+  \item None of the above
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $T_1, T_2: U \to V$ are linear transformations. Which of
+  the following best describes the relation between the kernels of
+  $T_1$, $T_2$, and $T_1 + T_2$?
+
+  \begin{enumerate}[(A)]
+  \item The kernel of $T_1 + T_2$ equals the intersection of the
+    kernel of $T_1$ and the kernel of $T_2$.
+  \item The kernel of $T_1 + T_2$ is contained inside the intersection
+    of the kernel of $T_1$ and the kernel of $T_2$, but need not be
+    equal to the intersection.
+  \item The kernel of $T_1 + T_2$ contains the intersection of the
+    kernel of $T_1$ and the kernel of $T_2$, but need not be equal to
+    the intersection.
+  \item The kernel of $T_1 + T_2$ is contained inside the sum of the
+    kernel of $T_1$ and the kernel of $T_2$, but need not be equal to
+    the sum.
+  \item The kernel of $T_1 + T_2$ contains the sum of the kernel of
+    $T_1$ and the kernel of $T_2$, but need not be equal to the sum.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $T_1, T_2: U \to V$ are linear transformations. Which of
+  the following best describes the relation between the images of
+  $T_1$, $T_2$, and $T_1 + T_2$?
+
+  \begin{enumerate}[(A)]
+  \item The image of $T_1 + T_2$ equals the intersection of the
+    image of $T_1$ and the image of $T_2$.
+  \item The image of $T_1 + T_2$ is contained inside the intersection
+    of the image of $T_1$ and the image of $T_2$, but need not be
+    equal to the intersection.
+  \item The image of $T_1 + T_2$ contains the intersection of the
+    image of $T_1$ and the image of $T_2$, but need not be equal to
+    the intersection.
+  \item The image of $T_1 + T_2$ is contained inside the sum of the
+    image of $T_1$ and the image of $T_2$, but need not be equal to
+    the sum.
+  \item The image of $T_1 + T_2$ contains the sum of the image of
+    $T_1$ and the image of $T_2$, but need not be equal to the sum.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $T$ is a linear transformation from a vector space $V$
+  to itself. Note that $V$ may be an infinite-dimensional space, such
+  as $C^\infty(\R)$ (with $T$ being differentiation), but for
+  convenience, you can imagine $V$ to be finite-dimensional (we will
+  not reference the dimension of $V$ in this question,
+  however). Suppose the kernel of $T$ has dimension $n$. What can you
+  say from this information about the dimension of the kernel of $T^r$
+  for a positive integer $r$?
+
+  \begin{enumerate}[(A)]
+  \item It is at least $n$ and at most $n + r$.
+  \item It is at least $n$ and at most $nr$.
+  \item It is at least $n + r$ and at most $nr$.
+  \item It is at least $n + r$ and at most $n^r$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.5in}
+
+  The next few questions deal with the relationship between the rows
+  and columns of the matrix on the one hand, and the image and kernel
+  of the linear transformation on the other hand.
+
+\item Suppose $A$ is a $n \times m$ matrix and $T_A: \R^m \to \R^n$ is
+  the corresponding linear transformation. Which of the following
+  correctly describes the relationship between the rows and columns of
+  $A$ and the image and kernel of $T_A$?
+
+  \begin{enumerate}[(A)]
+  \item The kernel of $T_A$ is precisely the subspace of $\R^m$
+    spanned by the rows of $A$. The image of $T_A$ is precisely the
+    subspace of $\R^n$ spanned by the columns of $A$.
+  \item The kernel of $T_A$ is precisely the subspace of $\R^m$
+    spanned by the columns of $A$. The image of $T_A$ is precisely the
+    subspace of $\R^n$ spanned by the rows of $A$.
+  \item The kernel of $T_A$ is precisely the subspace of $\R^m$
+    comprising the vectors that are {\em orthogonal} to the rows of
+    $A$. The image of $T_A$ is precisely the subspace of $\R^n$
+    comprising the vectors that are {\em orthogonal} to the columns of
+    $A$.
+  \item The kernel of $T_A$ is precisely the subspace of $\R^m$
+    comprising the vectors that are {\em orthogonal} to the rows of
+    $A$. The image of $T_A$ is the subspace of $\R^n$ spanned by the
+    columns of $A$.
+  \item The kernel of $T_A$ is precisely the subspace of $\R^m$
+    spanned by the rows of $A$. The image of $T_A$ is precisely the
+    subspace of $\R^n$ comprising the vectors that are {\em
+      orthogonal} to the columns of $A$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $A$ and $B$ are $n \times m$ matrices, $T_A:\R^m \to
+  \R^n$ is the linear transformation corresponding to $A$, and
+  $T_B:\R^m \to \R^n$ is the linear transformation corresponding to
+  $B$. Which of the following correctly describes the relation between
+  the rows, columns, image and kernel? Please see Option (E) before
+  answering.
+
+  \begin{enumerate}[(A)]
+  \item If $B$ can be obtained from $A$ by a sequence of row
+    interchange operations, then $T_A$ and $T_B$ have the same kernel
+    as each other and also the same image as each other.
+  \item If $B$ can be obtained from $A$ by a sequence of column
+    interchange operations, then $T_A$ and $T_B$ have the same kernel
+    as each other and also the same image as each other.
+  \item If $B$ can be obtained from $A$ by a sequence of row
+    interchange operations, then $T_A$ and $T_B$ have the same kernel
+    as each other. If $B$ can be obtained from $A$ by a sequence of
+    column interchange operations, then $T_A$ and $T_B$ have the same
+    image as each other.
+  \item If $B$ can be obtained from $A$ by a sequence of row
+    interchange operations, then $T_A$ and $T_B$ have the same image
+    as each other. If $B$ can be obtained from $A$ by a sequence of
+    column interchange operations, then $T_A$ and $T_B$ have the same
+    kernel as each other.
+  \item None of the above.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\end{enumerate}
+\end{document}

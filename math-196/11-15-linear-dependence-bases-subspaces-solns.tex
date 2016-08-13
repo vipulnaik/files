@@ -1,0 +1,164 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Diagnostic in-class quiz solutions: originally due Friday November 15, delayed to Wednesday November 20: Linear dependence, bases, and subspaces}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+25 people took this 3-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of 0: 1 person
+\item Score of 1: 8 people
+\item Score of 2: 13 people
+\item Score of 3: 3 people
+\end{itemize}
+
+The question-wise answers and performance review were as follows:
+
+\begin{enumerate}
+\item Option (E): 21 people
+\item Option (D): 14 people
+\item Option (C): 8 people
+\end{enumerate}
+
+\section{Solutions}
+
+{\bf PLEASE DO NOT DISCUSS {\em ANY} QUESTIONS}
+
+The purpose of this quiz is to review some basic ideas from part of
+the lecture notes titled {\tt Linear dependence, bases, and
+  subspaces}. The corresponding sections of the book are Sections 3.2
+and 3.3.
+
+\begin{enumerate}
+\item {\em Do not discuss this!}: Suppose $S$ is a finite nonempty set
+  of vectors in $\R^n$, and $T$ is a nonempty subset of $S$. What can
+  we say about $S$ and $T$?
+
+  \begin{enumerate}[(A)]
+  \item $S$ is linearly dependent if and only if $T$ is linearly
+    dependent. $S$ is linearly independent if and only if $T$ is
+    linearly independent.
+  \item If $S$ is linearly dependent, then $T$ is linearly
+    dependent. If $S$ is linearly independent, then $T$ is linearly
+    independent. However, we cannot deduce anything about the linear
+    dependence or independence of $S$ from the linear dependence or
+    independence of $T$.
+  \item If $T$ is linearly dependent, then $S$ is linearly
+    dependent. If $T$ is linearly independent, then $S$ is linearly
+    independent. However, we cannot deduce anything about the linear
+    dependence or independence of $T$ from the linear dependence or
+    independence of $S$.
+  \item If $S$ is linearly dependent, then $T$ is linearly
+    dependent. If $T$ is linearly independent, then $S$ is linearly
+    independent. We cannot make either of the two other deductions.
+  \item If $T$ is linearly dependent, then $S$ is linearly
+    dependent. If $S$ is linearly independent, then $T$ is linearly
+    independent. We cannot make either of the other two deductions.
+  \end{enumerate}
+    
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Any linear relation between the vectors in $T$ is
+  also a linear relation between the vectors in $S$, because all the
+  vectors in $T$ are vectors in $S$.
+
+  The corect statement in the reverse direction is actually a
+  logically equivalent statement, namely, the {\em
+    contrapositive}. All it's saying is that if $S$ is {\em not}
+  linearly dependent, then $T$ couldn't have been linearly dependent
+  either, because if $T$ had been linearly dependent, then $S$ would
+  have been too. Explicitly, given any implication $P \implies Q$, the
+  implication (not $Q$) $\implies$ (not $P$), called the {\em
+    contrapositive}, also holds. This is just a special case.
+
+  For more details, see the lecture notes or textbook.
+
+  {\em Performance review}: 21 out of 25 got this. 3 chose (B), 1 chose (D).
+
+\item {\em Do not discuss this!}: Suppose $S$ is a finite set of
+  vectors in $\R^n$. Consider the three statements: (i) $S$ is
+  linearly independent, (ii) $S$ does not contain the zero vector,
+  (iii) $S$ does not contain any two vectors that are scalar multiples
+  of one another. Which of the following options best describes the
+  relationship between these statements?
+
+  \begin{enumerate}[(A)]
+  \item (i) is equivalent to (ii), and both imply (iii), but the
+    reverse implication does not hold.
+  \item (i) is equivalent to (iii), and both imply (ii), but the
+    reverse implication does not hold.
+  \item (i) is equivalent to (ii) and (iii) combined.
+  \item (i) implies both (ii) and (iii), but (ii) and (iii), even if
+    combined, do not imply (i).
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: If either (ii) or (iii) is violated, we can
+  obtain a linear relation within $S$, making $S$ linearly
+  dependent. Thus, the negation of (ii) or (iii) implies the negation
+  of (i). Therefore, the contrapositive holds: (i) implies both (ii)
+  and (iii).
+
+  However, (ii) and (iii), even if combined, do not imply (i). This is
+  because there can be linear relations between the vectors that
+  involve more than two vectors at a time. For instance, consider the
+  set of vectors $\vec{v}_1 = \left[\begin{matrix} 1 \\ 0
+      \\\end{matrix}\right]$, $\vec{v}_2 = \left[\begin{matrix} 0 \\ 1
+      \\\end{matrix}\right]$, and $\vec{v}_3 = \left[\begin{matrix} 1
+      \\ 1 \\\end{matrix}\right]$. These three vectors are linearly
+  dependent, because $\vec{v}_1 + \vec{v}_2 - \vec{v}_3 =
+  \vec{0}$. But none of the vectors equals zero, and no two vectors
+  are scalar multiples of each other.
+
+  {\em Performance review}: 14 out of 25 got this. 6 chose (C), 5 chose (B).
+
+\item {\em Do not discuss this!}: Suppose $V$ is a linear subspace of
+  $\R^n$ for some $n$, and $W$ is a linear subspace of $V$. Assume
+  also that $W \ne V$, i.e., $W$ is a {\em proper} subspace of
+  $V$. Which of the following correctly describes the relationship
+  between bases of $V$ and bases of $W$?
+
+  \begin{enumerate}[(A)]
+  \item Given a basis of $V$, we can find a subset of that basis that
+    is a basis of $W$. Also, given a basis of $W$, we can find a set
+    containing that basis that is a basis of $V$.
+  \item Given a basis of $V$, we can find a subset of that basis that
+    is a basis of $W$. However, given a basis of $W$, we may not
+    necessarily be able to find a set containing that basis that is a
+    basis of $V$.
+  \item Given a basis of $V$, we may not necessarily be able to find a
+    subset of that basis that is a basis of $W$. However, given a
+    basis of $W$, we can find a set containing that basis that is a
+    basis of $V$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: For a counterexample for the part about getting a
+  basis for $W$ from a basis for $V$, consider the case that $V =
+  \R^2$ has the standard basis ($\vec{e}_1$ and $\vec{e}_2$) and $W$
+  is the subspace spanned by $\left[ \begin{matrix} 1 \\ 1
+      \\\end{matrix}\right]$. Clearly, there is no subset of the
+  standard basis of $V$ that forms a basis for $W$. In fact, none of
+  the standard basis vectors of $V$ is in $W$.
+
+  The idea behind showing the other direction is: start with a basis
+  of $W$. Then, keep adding vectors one by one, making sure that each
+  new vector being added is not in the span of the vectors so far. We
+  will eventually obtain a basis of $V$.
+
+  {\em Performance review}: 8 out of 25 got this. 10 chose (A), 7
+  chose (B).
+\end{enumerate}
+\end{document}

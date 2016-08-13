@@ -1,0 +1,607 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Integrating radicals}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 8.4.
+
+{\bf What students should already know}: The definitions of inverse
+trigonometric functions. The differentiation and integration formulas
+for these. The differentiation formulas for the straight-up
+trigonometric functions.
+
+{\bf What students should definitely get}: The three key integral
+formulations: $a^2 - x^2$, $a^2 + x^2$, and $x^2 - a^2$, and the
+mechanics of the trigonometric substitution for each. The procedure
+for completing the square term in quadratic functions and using this
+to integrate functions which have quadratics in denominators or with
+half-integer powers.
+
+{\bf What students should hopefully get}: The interpretation in terms
+of homogeneous degree, the contours of the relationship with inverse
+hyperbolic trigonometry.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item Expressions of the form $a^2 + x^2$ (with $a > 0$) in the
+  denominator or under the radical sign suggest the substitution
+  $\theta = \arctan(x/a)$. With this substitution, $x = a \tan
+  \theta$, $dx = a \sec^2 \theta \, d\theta$, $a^2 + x^2 = a^2 \sec^2
+  \theta$, and $\sqrt{a^2 + x^2} = a \sec \theta$. In the end, when
+  substituting back, we use $\theta = \arctan(x/a)$, $\tan \theta =
+  x/a$, $\sec \theta = \sqrt{a^2 + x^2}/a$, $\cos \theta = a/\sqrt{a^2
+  + x^2}$, and $\sin \theta = x/\sqrt{a^2 + x^2}$. The first sentence
+  of substitutions is useful when converting the given integrand into
+  a trigonometric integrand. The second sentence is useful when
+  converting the integrated answer back at the end. (This latter step
+  is unnecessary when we are dealing with a definite integral and we
+  transform limits simultaneously).
+\item For $a^2 - x^2$ under a squareroot, we have a similar
+  substitution $\theta = \arcsin(x/a)$. For $x^2 - a^2$, we take
+  $\theta = \arccos(a/x)$. It is useful to work out the forward and
+  backward substitutions for these. (See the notes for the details of
+  these substitutions). {\em It is strongly suggested that you
+  internalize both the forward and the backward substitutions to the
+  point where they become automatic. Memorization helps, but you
+  should also be able to re-derive things on the spot as the need
+  arises.}
+\item There is a little subtlety in these substitutions. When we take
+  $\theta$ as $\arcsin$, we know that $\cos \theta$ is
+  nonnegative. Hence, when we simplify $\sqrt{a^2 - x^2}$, we get
+  $\sqrt{a^2\cos^2 \theta}$. Because by assumption $a$ is positive,
+  and because $\cos \theta$ is nonnegative, we can write the answer as
+  $a\cos \theta$. In other words, we know how exactly we can lift off
+  the squareroot. Something similar happens when we are dealing with
+  the tangent and secant functions: secant is nonnegative on the range
+  of arc tangent. Unfortunately, tangent is {\em not} nonnegative on
+  the entire range of arc secant, so we need to actually look at the
+  region where we are carrying out the integration. In case both the
+  upper and lower bounds of integration are greater than $a$, we know
+  that we will in fact get $\tan \theta$.
+\end{enumerate}
+
+{\em Note}: Some of you may find it useful to draw right triangles, as
+suggested in the book, if reading trigonometric ratios off triangles
+is easier for you than algebraic manipulation of trigonometric
+expressions.
+
+Actions ...
+
+\begin{enumerate}
+\item Trigonometric substitutions allow us to integrate things like
+  $x^m(a^2 + x^2)^{n/2}$. However, some special cases of these can be
+  integrated without resort to trigonometric substitutions. For
+  instance, when $n$ is a nonnegative even integer, this is a sum of
+  powers of $x$ and can be integrated term wise. Also, if $m$ is odd,
+  we can do a $u$-substitution with $u = a^2 + x^2$.
+\item Similar remarks apply to expressions involving $\sqrt{a^2 -
+  x^2}$ and $\sqrt{x^2 - a^2}$.
+\item To apply this or similar techniques to more general quadratics,
+  we need to use a technique known as {\em completing the
+  square}. Here, we rewrite:
+
+  $$Ax^2 + Bx + C = A(x + (B/2A))^2 + (C - B^2/4A)$$
+
+  The special case where $A = 1$ is given by:
+
+  $$x^2 + Bx + C = (x + (B/2))^2 + (C - (B/2)^2)$$
+
+  Note that the left-over constant term after completing the square is
+  $-D/4A$ where $D$ is the discriminant of the quadratic
+  polynomial. In the case $A = 1$, when the polynomial has positive
+  discriminant, this left-over term is negative, whereas when the
+  polynomial has negative discriminant, this left-over term is
+  positive. In the latter case, we can write it as the square of
+  something. We would thus have written our original polynomial as $(x
+  - \beta)^2 + \gamma^2$, whereupon we can make the substitution
+  $\theta = \arctan((x - \beta)/\gamma)$ (or directly apply the
+  integration formula).
+\end{enumerate}
+
+\section{The key idea of substitution}
+
+We are often faced with situations where the integrand is an algebraic
+expression that involves a squareroot sign. The key idea is to use a
+trigonometric substitution that converts the problem to a
+trigonometric integration. We then use the plethora of trigonometric
+identities to simplify this integral.
+
+\subsection{Substitutions involving $\sqrt{a^2 - x^2}$}
+
+We first recall the following basic facts that will provide context
+for the trigonometric substitutions that follow:
+
+\begin{enumerate}
+\item If $\theta = \arcsin(u)$, then $\sin \theta = u$ and $\cos
+  \theta = \sqrt{1 - u^2}$. Note that it is the nonnegative squareroot
+  because {\em cosine is nonnegative on the range of the arcsine
+  function}.
+\item We have $\int dx/\sqrt{1 - x^2} = \arcsin(x)$. We obtained this
+  result by noting that $\arcsin'(x) = 1/\sin'(\arcsin(x))$ and
+  simplifying.
+\item In general, if we make the substitution $\theta = \arcsin(u)$ in
+  an integration problem, then $du = \cos \theta \, d\theta$, $u = \sin
+  \theta$, and $\sqrt{1 - u^2} = \cos \theta$.
+\item Even more generally, if we put $\theta = \arcsin(x/a)$ in an
+  integration problem (with $a > 0$ a constant), then $dx = a \cos
+  \theta \, d\theta$, $x = a \sin \theta$, and $\sqrt{a^2 - x^2} = a \cos
+  \theta$. In reverse, $\sin \theta = x/a$, $\cos \theta = \sqrt{1 -
+  (x/a)^2} = \sqrt{a^2 - x^2}/a$.
+\end{enumerate}
+
+This brings us to the key idea of integration: if we see the
+expression $\sqrt{a^2 - x^2}$ in the integrand, we should consider the
+substituion $\theta = \arcsin(x/a)$, further getting $dx = a \cos
+\theta d\theta$, $x = a \sin \theta$, and $\sqrt{a^2 - x^2} = a\cos
+\theta$. For instance, consider:
+
+$$\int \sqrt{a^2 - x^2} \, dx$$
+
+Using the substitution $\theta = \arcsin(x/a)$, we get:
+
+$$\int a \cos \theta (a \cos \theta d \theta) = \int a^2 \cos^2 \theta \, d\theta$$
+
+We can simplify this further, using the well-memorized formula for the
+antiderivative of $\cos^2\theta$. We get:
+
+$$a^2\left[\frac{\theta}{2} + \frac{\sin(2\theta)}{4} \right] = a^2\left[\frac{\theta + \sin \theta \cos \theta}{2}\right]$$
+
+Putting $\theta = \arcsin(x/a)$, and using $\sin \theta = x/a$ and
+$\cos \theta = \sqrt{1 - (x/a)^2}$, we simplify and obtain:
+
+$$\frac{a^2}{2} \arcsin(x/a) + \frac{x}{2} \sqrt{a^2 - x^2}$$
+
+This should all be familiar to you, since it was a homework problem.
+
+The idea works more generally for half-integer powers of $a^2 -
+x^2$. For instance, consider:
+
+$$\int (a^2 - x^2)^{3/2} \, dx$$
+
+After the trigonometric substitution, we obtain:
+
+$$\int a^3 \cos^3 \theta (a \cos \theta) \, d\theta$$
+
+This reduces to integrating $\cos^4 \theta$. We can now go a number of
+routes -- we can use the reduction formula to reduce it to the
+integral of $\cos^2 \theta$, or we can use a bunch of trigonometric
+identities using double angle formulas.
+
+More generally:
+
+$$\int (a^2 - x^2)^{n/2} \, dx$$
+
+becomes, after the appropriate trigonometric substitution $\theta =
+\arcsin(x/a)$:
+
+$$a^{n+1} \int \cos^{n+1} \theta \, d\theta$$
+
+Note that this formula works for negative $n$ as well. The particular
+case $n = -1$ is the familiar integration formula $\int dx/\sqrt{a^2 -
+x^2} = \arcsin(x/a)$.
+
+\subsection{A slight complication}
+
+Consider an integral of the form (as before, $a > 0$):
+
+$$\int x^m (a^2 - x^2)^{n/2} \, dx$$
+
+There are three cases of note:
+
+\begin{enumerate}
+\item $n$ is even and nonnegative: In this case, we can expand using
+  the binomial theorem and integrate termwise.
+\item $m$ is odd: In this case, we can make a $u$-substitution $u =
+  a^2 - x^2$, and solve the integral in a purely algebraic fashion. We
+  could also do the trigonometric substitution if we so desire, but to
+  solve that problem we would end up doing an algebraic substitution
+  back again..
+\item Other cases: We can use the trigonometric substitution $\theta =
+  \arcsin(x/a)$ and simplify. We basically reduce to the case of
+  integrating the product of a power of the sine function and a power
+  of the cosine function.
+\end{enumerate}
+
+\subsection{The two other key substitution ideas}
+
+We will now state the two other key ideas for substitutions:
+
+\begin{enumerate}
+\item An expression of the form $a^2 + x^2$ with a negative power or
+  squareroot to it should suggest $\theta = \arctan(x/a)$, giving $dx
+  = a \sec^2 \theta \, d\theta$, $x = a \tan \theta$, and $a^2 + x^2 =
+  a^2 \sec^2 \theta$. Also, $\sqrt{a^2 + x^2} = a \sec \theta$. Also,
+  $\tan \theta = x/a$, $\sec \theta = \sqrt{1 + (x/a)^2} = \sqrt{a^2 +
+  x^2}/a$. Here, we are using the fact that $\sec$ is positive on the
+  range of the arc tangent function.
+\item An expression of the form $\sqrt{x^2 - a^2}$ should suggest
+  $\theta = \operatorname{arcsec}(x/a) = \arccos(a/x)$, i.e., $x = a
+  \sec \theta$, giving $dx = a \sec \theta \tan \theta \, d\theta$ and
+  $\sqrt{x^2 - a^2} = a|\tan \theta|$. We cannot dispense with the
+  absolute value sign because tangent is not positive throughout the
+  range of the arc secant function (which is the same as the range of
+  the arc cosine function).
+\end{enumerate}
+
+We use this to calculate some important trigonometric integrals:
+
+$$\int \frac{dx}{\sqrt{a^2 + x^2}}$$
+
+We use the substitution $\theta = \arctan(x/a)$ and obtain:
+
+$$\int \frac{a \sec^2 \theta}{a \sec \theta} \, d\theta$$
+
+After some cancellation, this reduces to:
+
+$$\int \sec \theta \, d \theta$$
+
+This gives:
+
+$$\ln|\sec \theta + \tan \theta|$$
+
+Note that $\tan \theta = x/a$, and $\sec \theta = \sqrt{1 + (x/a)^2}$,
+so we get:
+
+$$\ln\left|\sqrt{1 + \frac{x^2}{a^2}} + \frac{x}{a} \right|$$
+
+Note that, interestingly, the final answer can be written in a manner
+that is completely devoid of trigonometry. However, the trigonometric
+route was useful in obtain this answer.
+
+Here's another example:
+
+$$ \int \sqrt{a^2 + x^2} \, dx$$
+
+We use the substitution $\theta = \arctan(x/a)$ and obtain:
+
+$$\int a\sec \theta a \sec^2 \theta \, d\theta$$
+
+This reduces to $a^2$ times the integral of $\sec^3 \theta$, which we
+have seen using integration by parts. The answer is:
+
+$$\frac{a^2}{2} \left[ \sec \theta \tan \theta + \ln|sec \theta + \tan \theta|\right]$$
+
+We can now substitute back and simplify, writing functions of $\theta$
+in terms of $x$ and $a$.
+
+\subsection{Application to higher powers of $x^2 + a^2$}
+
+Next, consider an integral of the form:
+
+$$\int \frac{dx}{(x^2 + a^2)^{n/2}}$$
+
+We use the substitution $\theta = \arctan(x/a)$, and simplify to obtain:
+
+$$\frac{1}{a^{n - 1}} \int \cos^{n - 2} \theta \, d\theta$$
+
+The special case $n = 2$ just gives $\theta/a = (1/a)
+\arctan(x/a)$. The case $n = 3$ gives:
+
+$$\frac{1}{a^2} \int \cos \theta \, d\theta = (\sin \theta)/(a^2)$$
+
+We can now rewrite $\sin \theta$ in terms of $x$ and $a$.
+
+The case $n = 4$ gives:
+
+$$\frac{1}{a^3} \int \cos^2 \theta \, d\theta$$
+
+which we can solve using the well memorized integral of $\cos^2$, and
+then substitute back in terms of $x$ and $a$.
+
+\subsection*{Aside: quick as a fox}
+
+To get really good at these integration problems, it helps to memorize
+the way the substitutions typically work. But it also helps to
+memorize key integration results in a manner that they can be easily
+applied to problems directly. Thus, I recommend that, once you have a
+basic mastery of the methods, you memorize the integrals of various
+half-integer powers of $x^2 - a^2$, $x^2 + a^2$, and $a^2 - x^2$. This
+memorization should include remembering the final answer clearly,
+remembering the steps used to reach it, and being able to quickly
+apply the learned formula to specific numerical values.
+
+\subsection*{Using triangles}
+
+If you find it hard to deal with ratios when doing trigonometric
+substitutions in forward and reverse, you may benefit from using right
+triangles. The book uses this approach. We'll briefly sketch it here,
+and you can see worked examples in the book.
+
+For instance, when doing the $u$-substitution $\theta = \arcsin(x/a)$,
+consider a right triangle with hypotenuse $a$, base angle $\theta$,
+and height $x$ (so $x$ is the side opposite $\theta$). Now use the
+Pythagorean theorem to deduce that the other side is $\sqrt{a^2 -
+x^2}$. It is now possible to compute all the trigonometric functions
+for $\theta$ in terms of the sides of the triangle.
+
+This approach is not really different from what we discussed, but some
+people find it more intuitive. Refer to examples in the book.
+
+\section{Interpretation of formulas in terms of homogeneous functions}
+
+This is optional material, in the sense that it will not be directly
+tested, but it may help you understand things.
+
+Here, we briefly discuss the concept of homogeneous degree and how it
+can be used to obtain a qualitative understanding of some of the
+integration formulas.
+
+Consider a function $F(x,a)$ of two variables. We say that $F$ is
+homogeneous of degree $d$ if, for any $\lambda$, we have:
+
+$$F(\lambda x, \lambda a) = \lambda^d F(x,a)$$
+
+A homogeneous function of degree zero is sometimes called {\em
+dimensionless}, and it depends only on the quotient $x/a$.
+
+A {\em homogeneous polynomial} of degree $d$ is a polynomial in which
+each monomial has total degree $d$ in the two variables. A homogeneous
+polynomial of degree $d$ is also a homogeneous function of degree $d$.
+
+We also have the following:
+
+\begin{itemize}
+\item The zero function can be viewed as homogeneous of any positive
+degree, but more properly, it is just treated as an anomaly.
+\item If $F_1$ and $F_2$ are homogeneous of the same degree $d$, so is
+  any {\em linear combination} $a_1F_1 +a_2F_2$ (unless that linear
+  combination is identically the zero function), where $a_1$ and $a_2$
+  are real constants. In particular, $F_1 + F_2$ and $F_1 - F_2$ are
+  homogeneous of degree $d$.
+\item If $F_1$ and $F_2$ are homogeneous of degrees $d_1$ and $d_2$
+  respectively, then $F_1 \cdot F_2$ is homogeneous of degree $d_1 +
+  d_2$ and $F_1/F_2$ is homogeneous of degree $d_1 - d_2$.
+\item If $F$ is homogeneous of degree $d$, then $F^m$ (where the power
+  denotes a pointwise power) is homogeneous of degree $dm$. Here $m$
+  could be an integer or a rational number.
+\item Applying any function to something homogeneous of degree zero
+  gives something homogeneous of degree zero.
+\end{itemize}
+
+Combining these two observations, we see that $1/\sqrt{a^2 - x^2}$ is
+homogeneous of degree $-1$, $1/(x^2 + a^2)$ is homogeneous of degree
+$-2$, and $(x^2 + a^2)^{3/2}$ is homogeneous of degree two. Now, we
+make the key observations relevant to the differentiation and
+integration formulas:
+
+\begin{itemize}
+\item Differentiation of a homogeneous function in $x$ and $a$ with
+  respect to $x$ gives a homogeneous function with degree one less.
+\item Conversely, integration of a homogeneous function in $x$ and $a$
+  with respect to $x$ usually gives a homogeneous function with degree
+  one more than the integrand, plus a constant.
+
+  {\em Note, please, that not every antiderivative expression is a
+  homogeneous function}. Rather, all we are saying is that {\em one}
+  of the antiderivatives is homogeneous, so every antiderivative is a
+  constant plus a homogeneous function. However, the {\em usual}
+  methods we use to integrate will naturally yield the homogeneous
+  antiderivative.
+\item The upshot is that when integrating some radically thing which
+  is homogeneous in $x$ and $a$ of degree $d$, we will get something
+  which is homogeneous in $x$ and $a$ of degree $d + 1$. {\em
+  Further}, all the parts that involve inverse trigonometric functions
+  will be of the form $a^{d+1}$ times some inverse trigonometric
+  function (or variant) of $x/a$. Any expression involving logarithms
+  should involve the logarithm of some function of $x/a$ (i.e., should
+  have degree zero).
+\end{itemize}
+
+Here are some examples (in all of which we assume $a > 0$):
+
+\begin{itemize}
+\item The integral of $1/\sqrt{a^2 - x^2}$ is $\arcsin(x/a)$. The
+  integrand is homogeneous of degree $-1$, and the expression we get
+  after integrating is homogeneous of degree $0$.
+\item The integral of $1/(x^2 + a^2)$ is $(1/a) \arctan(x/a)$. The
+  integrand is homogeneous of degree $-2$, and the expression we get
+  after integrating is homogeneous of degree $-1$ -- namely, it is the
+  product of $1/a$ and the dimensionless quantity $\arctan(x/a)$.
+\item The integral of $1/\sqrt{x^2 + a^2}$ is $\ln[(x/a) +
+  \sqrt{(x/a)^2 + 1}]$. The integrand is homogeneous of degree $-1$
+  and after integrating we get something that is homogeneous of degree
+  $0$.
+\item The integral of $\sqrt{a^2 - x^2}$ is $(a^2/2) \arcsin(x/a) +
+  x\sqrt{a^2 - x^2}/2$. The integrand is homogeneous of degree one and
+  after integrating we get something that is homogeneous of degree two
+  -- it is the sum of two terms each of which is homogeneous of degree
+  two.
+\end{itemize}
+
+\section{Alternative interpretation: inverse hyperbolic trigonometry}
+
+This section is optional, and is not officially part of the course,
+but is included to help offer another perspective to these
+integrations.
+
+Recall that we did the integration:
+
+$$\int \frac{dx}{\sqrt{x^2 + a^2}} = \ln\left[\frac{x}{a} + \sqrt{(x/a)^2 + 1}\right]$$
+
+We did this integration using a trigonometric substitution and then
+using the formula for integrating the secant function. That, however,
+is {\em not} the {\em natural} approach to this problem. The natural
+approach is to consider the {\em arc hyperbolic sine} function,
+briefly discussed here.
+
+Recall that $\sinh$ is a one-to-one function with domain and range
+$\R$. Thus, we can define an inverse function, which we denote
+$\sinh^{-1}$, on all of $\R$. If $\sinh x = y$, then we have:
+
+$$\cosh^2x = y^2 + 1$$
+
+Since $\cosh$ is positive, we get $\cosh x = \sqrt{y^2 + 1}$, so
+$\exp(x)$ becomes $\sinh x + \cosh x$, which is $y + \sqrt{y^2 + 1}$. Thus, we get:
+
+$$x = \ln[y + \sqrt{y^2 + 1}]$$
+
+Interchanging the roles of $x$ and $y$ to get the explicit expression
+for $\sinh^{-1}$, we get $\sinh^{-1} x = x + \sqrt{x^2 + 1}$. (This was
+seen in one of the quiz problems).
+
+Now, getting back to the integration problem (with $a > 0$):
+
+$$\int \frac{dx}{\sqrt{x^2 + a^2}}$$
+
+Put $t = \sinh^{-1}(x/a)$. Then $x = a \sinh t$, $dx = a \cosh t \, dt$, and we get:
+
+$$\int \frac{a \cosh t \, dt}{\sqrt{a^2(\sinh^2t + 1)}}$$
+
+Using that $\sqrt{\sinh^2 t + 1} = \cosh t$, we get:
+
+$$\int 1 \, dt$$
+
+which gives that the integral is $\sinh^{-1}(x/a)$. Now using the
+explicit expression for $\sinh^{-1}$ worked out above, we get the result
+indicated.
+
+In general, any integration that involves a half-integer power of $a^2
++ x^2$ is best done using inverse hyperbolic sine, and anything that
+involves an integer power (possibly negative) is best done using the
+arc tangent. However, as we have seen, it is possible (though messy)
+to do all these types of integrations using arc tangent alone, as long
+as we are prepared to integrate odd powers of secant using integration
+by parts. We'll stick to using only inverse circular trigonometry for
+this course.
+
+If you want to learn more on hyperbolic trigonometry, go through
+Section 7.9 of the book, which we're not including in the
+syllabus. $\sinh^{-1}$ and other related functions are discussed on
+Pages 394 and 395 of the book.
+
+\section{Dealing with quadratics: square completion}
+
+\subsection{The basics}
+We have looked at quadratics in the past, but we now need to consider
+them from a somewhat different perspective.
+
+Given a quadratic function $f(x) := Ax^2 + Bx + C$ with $A \ne 0$, we
+can write:
+
+$$f(x) = A\left(x + \frac{B}{2A}\right)^2 + \frac{4AC - B^2}{4A}$$
+
+The expression $B^2 - 4AC$ is termed the {\em discriminant} of the
+quadratic, and we will, for convenience, denote it by the letter
+$D$. We thus have:
+
+$$f(x) = A\left(x + \frac{B}{2A}\right)^2 - \frac{D}{4A}$$
+
+The derivative is:
+
+$$f'(x) = 2A\left(x + \frac{B}{2A}\right) = 2Ax + B$$
+
+The only critical point is $x = -B/2A$. We now consider various cases:
+
+\begin{enumerate}
+\item If $A > 0$, the quadratic goes to $+\infty$ as $x \to \pm
+  \infty$, it is decreasing for $x$ in $(-\infty,-B/2A)$ and it is
+  increasing for $x$ in $(-B/2A,\infty)$. The minimum is $-D/4A$,
+  attained at $-B/2A$.
+\item If $A < 0$, the quadratic goes to $-\infty$ as $x \to \pm
+  \infty$, it is increasing for $x$ in $(-\infty,-B/2A)$, and it is
+  decreasing for $x$ in $(-B/2A,\infty)$. The maximum is $-D/4A$,
+  attained at $-B/2A$.
+\end{enumerate}
+
+We also see from the above that if $D < 0$, then the function has
+constant sign on all of $\R$, and never becomes zero. If $D = 0$, the
+function attains the value $0$ at its vertex $-B/2A$ and has constant
+sign everywhere else. If $D > 0$, the function attains the value $0$
+at two distinct points. Note also that the symmetry of the graph about
+the line $x = -B/2A$ is clear from the context.
+
+\subsection{The upshot}
+
+The upshot of the above is that every quadratic function can be written as:
+
+$$[\text{constant}] \times [\text{square of ($x - $ something)}] + \text{constant}$$
+
+For simplicity, we will assume, through a change of variable, that
+that $x - $ something is just $x$, i.e., that $B = 0$ in the original
+quadratic. We can do this change of variable. The upshot is that every
+quadratic can, after this transformation, be written as:
+
+$$px^2 + q = p(x^2 + q/p)$$
+
+There are now the following three possibilities relevant to
+integration situations:
+
+\begin{enumerate}
+\item $p$ and $q$ are both positive or both negative: In this case, we
+  can find $a$ such that $a^2 = q/p$ and then use the substitution
+  $\theta = \arctan(x/a)$.
+\item $p$ and $q$ have opposite signs: In this case, we can find $a$
+  such that $a^2 = -q/p$. We can now put $\theta = \arcsin(x/a)$ (if
+  that makes sense in the context) or put $\theta = \arccos(a/x)$ (if
+  that makes sense in the context).
+\item $q = 0$: Here, integration poses no challenges.
+\end{enumerate}
+
+\subsection{Completing the square: some examples}
+
+For instance, consider:
+
+$$\int \frac{dx}{x^2 + x + 1}$$
+
+By the general discussion above, we can write this as:
+
+$$\int \frac{dx}{(x + 1/2)^2 + 3/4}$$
+
+We see that here, the second term is positive, and we obtain:
+
+$$\int \frac{dx}{(x + 1/2)^2 + (\sqrt{3}/2)^2}$$
+
+The trigonometric substitution is now clear: $\theta = \arctan{(x +
+1/2)/(\sqrt{3}/2)}$. In this case, we can directly apply one of the
+antiderivative formulas (so we don't even need to formally do the
+substitution) and we get:
+
+$$\frac{2}{\sqrt{3}} \arctan\left(\frac{x + (1/2)}{\sqrt{3}/2}\right) + C$$
+
+Here is another example:
+
+$$\int \frac{dx}{\sqrt{1 - 2x - x^2}}$$
+
+We can use the square completion to obtain:
+
+$$\int \frac{dx}{\sqrt{2 - (x + 1)^2}}$$
+
+We can thus write it as:
+
+$$\int \frac{dx}{\sqrt{(\sqrt{2})^2 - (x + 1)^2}}$$
+
+We now put $\theta = \arcsin((x + 1)/\sqrt{2})$ and obtain, after
+simplification, that the integral is:
+
+$$\arcsin\left(\frac{x + 1}{\sqrt{2}}\right) + C$$
+
+Note that in both the above cases, we have been lucky in the sense
+that the square term had a coefficient of $\pm 1$. Let's consider an
+example where it does not.
+
+$$\int \frac{dx}{2x^2 + 3x + 4}$$
+
+We can complete the square as:
+
+$$\int \frac{dx}{2(x + (3/4))^2 + (4 - (9/8))}$$
+
+We can now proceed, but it is usually easier if we take the
+coefficient of the square term outside the integral sign, obtaining,
+in this case:
+
+$$\frac{1}{2} \int \frac{dx}{(x + (3/4))^2 + 23/16}$$
+
+We now write $23/16 = (\sqrt{23}/4)^2$ and obtain the result in terms
+of the arc tangent function, namely:
+
+$$\frac{2}{\sqrt{23}} \arctan\left(\frac{x + (3/4)}{\sqrt{23}/4}\right)$$
+
+Mathematics is beautiful, but it is not always pretty.
+
+\end{document}

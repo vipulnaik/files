@@ -1,0 +1,310 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Review sheet for midterm 1: advanced}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf To maximize efficiency, please bring a copy (print or readable
+electronic) of this review sheet, the basic review sheet, AND the
+integration worksheet to the review session.}
+
+\section{Exponential growth and decay}
+
+Combined error-spotting exercises...
+
+\begin{enumerate}
+\item The growth of a population is exponential. In one year, the
+  population increases by $300\%$. The population increase in two
+  years should thus be the square of $300\%$, which is $900\%$.
+\item With exponential growth, the time taken for a quantity to
+  increase by $10\%$ is five years. Thus, the time taken for the
+  quantity to increase by $30\%$ must be fifteen years.
+\item With exponential decay, the time taken for a quantity to
+  decrease by $10\%$ is five years. Thus, the time taken for the
+  quantity to decrease by $30\%$ must be fifteen years.
+\item For a function undergoing exponential growth, the ratio of its
+  tripling time to its doubling time is $3/2$.
+\item To determine whether a quantity has exponential growth with
+  respect to time and to find the rate of exponential growth, it
+  suffices to observe the quantity at two points in time.
+\end{enumerate}
+
+\section{Inverse trigonometric functions}
+
+\subsection{Main points}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item The function $f(x):= \arcsin(\sin x)$ coincides with the
+  function $x \mapsto  x$ everywhere.
+\item The function $f(x) := \arccos(\sin x)$ coincides with the
+  function $x \mapsto \sqrt{1 - x^2}$ everywhere.
+\item The function $f(x) := \cos(\arcsin x)$ coincides with the
+  function $x \mapsto (\pi/2) - x$ everywhere.
+\end{enumerate}
+
+\subsection{The formulas for indefinite integration}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item We have:
+
+  $$\int_1^{\sqrt{3}} \frac{dx}{1 + x^2} = [\arctan x]_1^{\sqrt{3}} = \arctan \sqrt{3} - 1 = \frac{\pi}{6} -1$$
+\item We have:
+
+  $$\int_0^1 \frac{dx}{\sqrt{2 - x^2}} = (1/2)[\arcsin(x/2)]_0^1 = (1/2)(\pi/6) = \pi/12$$
+
+\item Consider:
+
+  $$\int \frac{\cos x \, dx}{3 - 2 \cos^2x} = \int \frac{\cos x \, dx}{3 - 2(1 - \sin^2x)} = \int \frac{\cos x \, dx}{1 + \sin^2x}$$
+
+  Now, with the $u$-substitution $u = \sin x$, we get:
+
+  $$\int \frac{du}{1 + u^2}$$
+
+  This becomes $\arctan u = \arctan (\sin x)$.
+
+\end{enumerate}
+
+\section{Hyperbolic functions}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item We have $\cosh(\ln x) - \sinh(\ln x) = \exp(-\ln x) = -\exp(\ln x) = -x$.
+\item We have $\cosh(2x) = 2\cosh^2x - 1 = 1 - 2\sinh^2x = \cosh^2x - \sinh^2x$
+\end{enumerate}
+
+\section{Integration by parts}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+
+\item Using integration by parts, knowledge of how to integrate both
+  $f$ and $g$ is sufficient to know how to integrate the product
+  function $fg$.
+\item The $u$-substitution method for integration is the correct
+  strategy for integrating the composite of two functions. Integration
+  by parts is the correct strategy for integrating the product of
+  two functions.
+\item We can use integration by parts to show that integrating a
+  function $f$ twice is equivalent to integrating the function
+  $xf(x)$.
+\item We can use integration by parts to show that integrating a
+  function $f$ on the interval $[a,b]$ is equivalent to integrating
+  $f^{-1}$ on the same interval $[a,b]$.
+\item The function $x \mapsto \ln(\sin x)$ can be integrated using the
+  $u$-substitution $u = \sin x$ and then performing integration by
+  parts (recursive version).
+\end{enumerate}
+
+\section{Induction}
+
+No error-spotting exercises.
+
+\section{Quickly}
+
+This section lists things you should be able to do quickly.
+
+\subsection{Our common values}
+
+Preferably remember these (or be capable of computing quickly) to at
+least one digit. Generally, you will {\em not} be asked to do any
+numerical computations using these. In practice, the main way this is
+useful is to figure out whether something is positive or negative. For
+instance, is $3\sqrt{2} - 4$ positive? What about $e^2 - 8$? Often,
+there are other ways of answering such questions, but remembering the
+numerical values is a quick and dirty approach.
+
+\begin{enumerate}
+\item Square roots of $2$, $3$, $5$, $6$, $7$, $10$.
+\item Natural logarithms of $2$, $3$, $5$, $7$, and $10$.
+\item Value of $\pi$, $1/\pi$, $\sqrt{\pi}$, and $\pi^2$.
+\item Value of $e$, $1/e$.
+\item Some relative logarithms, such as $\log_23$ or
+  $\log_2(10)$. Although you don't need these values to a significant
+  degree of precision, it is useful to have some idea of their
+  magnitude.
+\end{enumerate}
+
+\subsection{Adding things up: arithmetic}
+
+You should be able to:
+
+\begin{enumerate}
+\item Do quick arithmetic involving fractions.
+\item Sense when an expression will simplify to $0$.
+\item Compute approximate values for square roots of small numbers,
+  $\pi$ and its multiples, etc., so that you are able to figure out,
+  for instance, whether $\pi/4$ is smaller or bigger than $1$, or two
+  integers such that $\sqrt{39}$ is between them.
+\item Know or quickly compute small powers of small positive
+  integers. This is particularly important for computing definite
+  integrals. For instance, to compute $\int_2^3 (x + 1)^3 \, dx$, you
+  need to know/compute $3^4$ and $4^4$.
+\end{enumerate}
+
+\subsection{Computational algebra}
+
+You should be able to:
+
+\begin{enumerate}
+\item Add, subtract, and multiply polynomials.
+\item Factorize quadratics or determine that the quadratic cannot be
+  factorized.
+\item Factorize a cubic if at least one of its factors is a small and
+  easy-to-spot number such as $0$, $\pm 1$, $\pm 2$, $\pm 3$. {\em
+  This could be an area for potential improvement for many people.}
+\item Factorize an even polynomial of degree four. {\em This could be
+  an area for potential improvement for many people.}
+\item Do polynomial long division.
+\item Solve simple inequalities involving polynomial and rational
+  functions once you've obtained them in factored form.
+\end{enumerate}
+
+\subsection{Computational trigonometry}
+
+You should be able to:
+
+\begin{enumerate}
+\item Determine the values of $\sin$, $\cos$, and $\tan$ at multiples
+  of $\pi/2$.
+\item Determine the intervals where $\sin$ and $\cos$ are positive and
+  negative.
+\item Remember the formulas for $\sin(\pi \pm x )$ and $\cos(\pi \pm x)$,
+  as well as formulas for $\sin(-x)$ and $\cos(-x)$.
+\item Recall the values of $\sin$ and $\cos$ at $\pi/6$, $\pi/4$, and
+  $\pi/3$, as well as at the corresponding obtuse angles or other
+  larger angles.
+\item Reverse lookup for these, for instance, you should quickly
+  identify the acute angle whose $\sin$ is $1/2$.
+\item Formulas for double angles, half angles: $\sin(2x)$, $\cos(2x)$
+  in terms of $\sin$ and $\cos$; also the reverse: $\sin^2x$ and
+  $\cos^2x$ in terms of $\cos(2x)$.
+\item Remember the formulas for $\sin(A + B)$, $\cos(A + B)$, $\sin(A
+  - B)$, and $\cos(A - B)$.
+\item Convert between products of $\sin$ and $\cos$ functions and
+  their sums: for instance, the identity $2\sin A \cos B = \sin(A + B)
+  + \sin (A - B)$. You don't have to remember these identities
+  separately since they follow from the identities covered in the
+  previous point, but you should be comfortable going back and forth.
+\end{enumerate}
+
+\subsection{Computational limits}
+
+You should be able to: size up a limit, determine whether it is of the
+form that can be directly evaluated, of the form that we already know
+does not exist, or indeterminate.
+
+\subsection{Computational differentiation}
+
+You should be able to:
+
+\begin{enumerate}
+\item Differentiate a polynomial (written in expanded form) once or
+  twice on sight, without rough work.
+\item Differentiate sums of powers of $x$ on sight (without rough
+  work).
+\item Differentiate rational functions with a little thought.
+\item Do multiple differentiations of expressions whose derivative
+  cycle is periodic, e.g., $a \sin x + b \cos x$ or $a \exp(-x)$.
+\item Do multiple differentiations of expressions whose derivative
+  cycle is periodic up to constant factors, e.g. $a \exp(mx + b)$ or $a
+  \sin(mx + \varphi)$.
+\item Differentiate simple composites without rough work (e.g.,
+  $\sin(x^3)$).
+\item Differentiate $\ln$, $\exp$, and expressions of the form $f^g$
+  and $\log_f(g)$.
+\end{enumerate}
+
+\subsection{Computational integration}
+
+You should be able to:
+
+\begin{enumerate}
+\item Compute the indefinite integral of a polynomial (written in
+  expanded form) on sight without rough work.
+\item Compute the definite integral of a polynomial with very few
+  terms within manageable limits quickly.
+\item Compute the indefinite integral of a sum of power functions
+  quickly.
+\item Know that the integral of sine or cosine on any quadrant is $\pm
+  1$.
+\item Compute the integral of $x \mapsto f(mx)$ if you know how to
+  integrate $f$. In particular, integrate things like $(a + bx)^m$.
+\item Integrate $\sin$, $\cos$, $\sin^2$, $\cos^2$, $\tan^2$,
+  $\sec^2$, $\cot^2$, $\csc^2$, $\sin^3$, $\cos^3$, $\tan^3$,
+  $\sec^3$, $\cot^3$, $\csc^3$, and other higher powers of the basic
+  trigonometric functions.
+\item Integrate on sight things such as $x\sin(x^2)$, getting the
+  constants right without much effort.
+\item {\em By parts}: Integrate $\int xf(x) \, dx$ on sight if it is
+  easy to integrate $f$ twice, without having to think much (the
+  answer is $x \int f - \int \int f$). Similarly, do $\int x^2f(x) \,
+  dx$ if you know how to integrate $f$ twice.
+\item Using the previous point, integrate $\int f(\sqrt{x}) \, dx$
+  with minimal stress and effort.
+\item {\em By parts}: Integrate $\int f(x) \, dx$ on sight if $xf'(x)$
+  is easy to integrate, e.g., $\int \ln x \, dx$.
+\item Remember the integrals for formats such as $e^x \cos x$ and $e^x
+  \sin x$.
+\item If there is an easy choice of $f$ such that $f + f' = g$,
+  integrate $\int e^xg(x) \, dx = e^xf(x)$ on sight and similarly
+  integrate $\int g(\ln x) \, dx = xf(\ln x)$ on siht.
+\end{enumerate}
+\subsection{Being observant}
+
+You should be able to look at a function and:
+
+\begin{enumerate}
+\item Sense if it is odd (even if nobody pointedly asks you whether it
+  is).
+\item Sense if it is even (even if nobody asks you whether it is).
+\item Sense if it is periodic and find the period (even if nobody asks
+  you about the period).
+\end{enumerate}
+
+\subsection{Graphing}
+
+You should be able to:
+
+\begin{enumerate}
+\item Mentally graph a linear function.
+\item Mentally graph a power function $x^r$ (see the list of things to
+  remember about power functions). Sample cases for $r$: $1/3$, $2/3$,
+  $4/3$, $5/3$, $1/2$, $1$, $2$, $3$, $-1$, $-1/3$ $-2/3$.
+\item Graph a piecewise linear function with some thought.
+\item Mentally graph a quadratic function (very approximately) --
+  figure out conditions under which it crosses the axis etc.
+\item Graph a cubic function after ascertaining which of the cases for
+  the cubic it falls under.
+\item Mentally graph $\sin$ and $\cos$, as well as functions of the $A
+  \sin(mx)$ and $A\cos(mx)$.
+\item Graph a function of the form linear + trigonometric, after doing
+  some quick checking on the derivative.
+\item Graph the inverse trigonometric functions $\arctan$, $\arcsin$,
+  and $\arccos$.
+\end{enumerate}
+
+\subsection{Graphing: transformations}
+
+Given the graph of $f$, you should be able to quickly graph the following:
+
+\begin{enumerate}
+\item $f(mx)$, $f(mx + b)$: pre-composition with a linear function;
+  how does $m < 0$ differ from $m > 0$?
+\item $Af(x) + C$: post-composition with a linear function, how does
+  $A > 0$ differ from $A < 0$?
+\item $f(|x|)$, $|f(x)|$, $f(x^+)$, and $(f(x))^+$: pre- and
+  post-composition with absolute value function and positive part
+  fnuction.
+\item More slowly: $f(1/x)$, $1/f(x)$, $\ln(|f(x)|)$, $f(\ln|x|)$,
+  $\exp(f(x))$, and other popular composites.
+\end{enumerate}
+
+\end{document}

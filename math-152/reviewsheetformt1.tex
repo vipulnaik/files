@@ -1,0 +1,1042 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Review sheet for midterm 1}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+The document is arranged as follows. The initial sections/subsections
+correspond to topics. Each subsection has two sets of points,
+``Words'' which includes basic theory and definitions, and ``Actions''
+which provides information on strategies for specific problem
+types. In some cases, there are additional points. The lists of points
+are largely the same as the executive summaries at the beginning of
+the lecture notes, though some additional points (that make sense now
+but wouldn't have made sense at the time the lecture was delivered)
+have been added.
+
+For each subsection, there is also an ``Error-spotting exercises''
+list. We will be doing these exercises in the review session, though
+you may benefit by trying them out in advance. For the simpler topics,
+we may do {\em only} the error-spotting exercises in the review
+session so as to save time and concentrate on the harder topics.
+
+The section titled ``Tricky topics'' covers a bunch of topics and
+question types that habitually confuse students. This includes
+piecewise definitions by interval, piecewise definition by
+rational-irrational, $\sin(1/x)$ examples, and thinking about
+counterexamples to statements. You need to read each point carefully
+and then try to locate examples from class, homeworks, or quiz
+questions.
+
+The section titled ``High yield practice'' lists (without details) the
+areas where I think practice is most helpful if you feel you're
+already fairly thorough with the basic formulas. If you feel you are
+on top of AP-level material, for instance, then these are the areas
+where most of your energies should be devoted.
+
+The end of the document has some ``Quickly'' lists. These are lists of
+things you should be able to accomplish quickly. This includes
+numerical values, formulas, graphs, examples, and counterexamples,
+that should be ready for immediate recall in the test environment. I
+simply provide a list and do not include details of all the formulas
+and graphs.
+
+To maximize efficiency in the review session, here is what I
+suggest. Go through all the lists of points. For each point, make sure
+you understand it by jotting down a relevant example or illustration
+or providing a brief justification. If you have difficulty, go back to
+the lecture notes and read them in detail. You might also want to look
+at more worked examples in the book, and check out homework and quiz
+problems.
+
+If everybody is on top of the basic material, we will go very quickly
+over Sections 1--4 and Section 7 and concentrate most of our energies
+on Section 5 (``Tricky topics'') and Section 6 (``High yield
+practice'').
+
+\section{Functions}
+
+\subsection{Review part 1}
+
+Words ...
+
+\begin{enumerate}
+
+\item The {\em domain} of a function is the set of possible
+  inputs. The {\em range} is the set of possible outputs. When we say
+  $f:A \to B$ is a function, we mean that the domain is $A$, and the
+  range is a {\em subset} of $B$ (possibly equal to $B$, but also
+  possibly a proper subset).
+\item The main fact about functions is that {\em equal inputs give
+  equal outputs}. We deal here with functions whose domain and range
+  are both subsets of the real numbers.
+\item We typically define a function using an algebraic expression,
+  e.g. $f(x) := 3 + \sin x$. When an algebraic expression is given
+  without a specified domain, we take the domain to be the largest
+  possible subset of the real numbers for which the function makes
+  sense.
+\item Functions can be defined piecewise, i.e., one definition on one
+  part of the domain, another definition on another part of the
+  domain. Interesting things happen where the function changes
+  definition.
+\item Functions involving absolute values, max of two functions, min
+  of two functions, and other similar constructions end up having
+  piecewise definitions.
+\end{enumerate}
+
+Actions (think back to examples where you've dealt with these issues)...
+
+\begin{enumerate}
+\item To find the (maximum possible) domain of a function given using
+  an expression, exclude points where:
+  
+  \begin{enumerate}
+  \item Any denominator is zero.
+  \item Any expression under the square root sign is negative.
+  \item Any expression under the square root sign in the denominator is
+    zero or negative.
+  \end{enumerate}
+
+\item To find whether a given number $a$ is in the range of a function
+  $f$, try solving $f(x) = a$ for $x$ in the domain.
+\item To find the range of a given function $f$, try solving $f(x) =
+  a$ with $a$ now being an {\em unknown constant}. Basically, solve
+  for $x$ in terms of $a$. The set of $a$ for which there exists one
+  or more value of $x$ solving the equation is the range.
+\item To write a function defined as $H(x) := \max \{ f(x), g(x) \}$
+  or $h(x) := \min\{ f(x), g(x) \}$ using a piecewise definition, find
+  the points where $f(x) - g(x)$ is zero, find the points where it is
+  positive, and find the points where it is inegative. Accordingly,
+  define $h$ and $H$ on those regions as $f$ or $g$. {\em Added: Note
+  that when $f$ and $g$ are both continuous everywhere, then the
+  functions can cross each other only at points where they become
+  equal. However, if the two functions are not everywhere continuous,
+  the functions can cross each other at points of discontinuity as
+  well.}
+\item To write a function defined as $h(x) := |f(x)|$ piecewise, split
+  into regions based on the sign of $f(x)$.
+\item To solve an equation for a function with a piecewise definition,
+  solve for each definition within the piece (domain) for which that
+  definition is satisfied.
+\end{enumerate}
+
+Error-spotting exercises ...
+
+{\em Warning}: There may be one or more errors in each item.
+
+\begin{enumerate}
+\item Consider the function $f(x) := \sqrt{x - 1} + \sqrt{2 - x}$. The
+  domain of $\sqrt{x - 1}$ is $[1,\infty)$ and the domain of $\sqrt{2
+  - x}$ is $(-\infty,2]$. The domain of the sum is therefore the union
+  of the domains, which is $(-\infty,\infty)$, i.e., the set of all
+  real numbers.
+\item Consider the function $f(x) := \sqrt{(x - 1)(x - 2)}$. This is
+  the product of the functions $x \mapsto \sqrt{x - 1}$ and $x \mapsto
+  \sqrt{x - 2}$, hence its domain is the intersection of the domains
+  of the two functions, which are $[1,\infty)$ and $[2,\infty)$
+  respectively. The domain of $f$ is thus $[2,\infty)$.
+\item Consider the function $f(x) := \max \{ x - 1, 2x + 1 \}$. Then,
+  we get $(f(x))^2 = \max \{ (x - 1)^2, (2x + 1)^2 \}$.
+\end{enumerate}
+
+\subsection{Review part 2}
+
+Note: Although the lecture notes (and the executive summary in front
+of them) cover the notion of miror symmetry and half-turn symmetry in
+greater generality than just looking at even and odd functions, I
+didn't get time to cover this in class. Since this is also not in the
+book, we will omit these more general notions of symmetry for this
+midterm. We'll probably cover them when we turn to graphing functions.
+
+Words ...
+
+\begin{enumerate}
+\item Given two functions $f$ and $g$, we can define pointwise
+  combinations of $f$ and $g$: the sum $f + g$, the difference $f -
+  g$, the product $f \cdot g$, and the quotient $f/g$. For the sum,
+  difference, and product, the domain is the intersection of the
+  domains of $f$ and $g$. For the quotient, the domain is the
+  intersection of the domain of $f$ and the set of points where $g$
+  takes a nonzero value.
+\item Given a function $f$ and a real number $\alpha$, we can consider
+  the scalar multiple $\alpha f$.
+\item Given two functions $f$ and $g$, we can try talking of the
+  composite function $f \circ g$. This is defined for those points in
+  the domain of $g$ whose image lies in the domain of $f$.
+\item An {\em even function} is a function with mirror symmetry about
+  the $y$-axis. In other words, $f(x) = f(-x)$ for all $x$ in the
+  domain. (Even also implies that the domain should be symmetric about $0$).
+\item An odd function is a function having half-turn symmetry about
+  the origin. By definition, the domain of an odd function is
+  symmetric about $\R$. An odd function, if defined at $0$, takes the
+  value $0$ at $0$.
+\item A function $f$ defined on $\R$ is periodic if there exists $h >
+  0$ such that $f(x+ h) = f(x)$ for every $x \in \R$. If there is a
+  smallest $h > 0$ satisfying this, such a $h$ is termed the {\em
+  period}. Constant functions are periodic but have no period. The
+  sine and cosine functions are periodic with period $2\pi$.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item To prove that a function is periodic, try to find a $h$ that
+  {\em works} for every $x$. To prove that a function is periodic but
+  has no period, try to show that there are arbitrarily small $h > 0$
+  that work.
+\item To prove that a function is even or odd, just try proving the
+  corresponding equation for all $x$. Nothing but algebra.
+\item If a function is defined for the positive or nonnegative reals
+  and you want to extend the definition to negatives to make it even
+  or odd, extend it so that the formula is preserved. So define $f(-x)
+  = f(x)$, for instance, to make it even.
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item We know that odd + odd = even, so the sum of two odd functions
+  is an even function.
+\item Consider the function $\sin^2 x = \sin (\sin x)$. Since the
+  period of the $\sin$ function is $2\pi$, the period of the $\sin^2$
+  function is also $2\pi$.
+\item Suppose $f$ is a periodic function with period $h_f$ and $g$ is
+  a periodic function with period $h_g$. Then, the period of $f + g$
+  is $h_f + h_g$.
+\item Suppose $f$ is a periodic function with period $h_f$ and $g$ is
+  a periodic function with period $h_g$. Then, the period of the
+  composite $f \circ g$ is $h_fh_g$.
+\item The period of the function $x \mapsto \sin(x^2)$ is $\sqrt{\pi}$.
+\end{enumerate}
+
+\section{Limits}
+
+\subsection{Informal introduction to limits}
+
+Words ...
+
+\begin{enumerate}
+
+\item On the real line, there are two directions from which to
+  approach a point: the {\em left} direction and the {\em right}
+  direction.
+\item For a function $f$, $\lim_{x \to c} f(x)$ is read as ``the limit
+  as $x$ approaches $c$ of $f(x)$. Equivalently, as $x$ approaches
+  $c$, $\lim_{x \to c} f(x)$ is the value that $f(x)$ approaches.
+\item $\lim_{x \to c} f(x)$ makes sense only if $f$ is defined {\em
+  around} $c$, i.e., both to the immediate left and to the immediate
+  right of $c$.
+\item We have the notion of the {\em left hand limit} $\lim_{x \to
+  c^-} f(x)$ and the {\em right hand limit} $\lim_{x \to c^+}
+  f(x)$. The {\em limit} $\lim_{x \to c} f(x)$ exists if and only if
+  (both the left hand limit and the right hand limit exist and they are
+  both equal).
+\item $f$ is termed {\em continuous} at $c$ if $c$ is in the domain of
+  $f$, the limit of $f$ at $c$ exists, and $f(c)$ equals the
+  limit. $f$ is termed {\em left continuous} at $c$ if the left hand
+  limit exists and equals $f(c)$. $f$ is termed {\em right continuous}
+  at $c$ if the right hand limit exists and equals $f(c)$.
+\item $f$ is termed {\em continuous} on an interval $I$ in its domain
+  if $f$ is continuous at all points in the interior of $I$,
+  continuous from the right at any left endpoint in $I$ (if $I$ is
+  closed from the left) and continuous fromthe left at any right
+  endpoint in $I$ (if $I$ is closed from the right).
+\item A {\em removable discontinuity} for $f$ is a discontinuity where
+  a two-sided limit exists but is not equal to the value. A {\em jump
+  discontinuity} is a discontinuity where both the left hand limit and
+  right hand limit exist but they are not equal.
+\end{enumerate}
+
+Error-spotting exercises...
+
+\begin{enumerate}
+\item Consider the function $f(x) := 1/x$. At $x = 0$, both the left
+  hand limit and the right hand limit are equal to each other (since
+  they both do not exist), so $f$ has a limit at $x = 0$.
+\item If $f$ and $g$ both have removable discontinuities at $x = c$,
+  then $f + g$ also has a removable discontinuity at $x = c$.
+\item If $f$ and$g$ both have jump discontinuities at $x = c$, then $f
+  + g$ also has a jump discontinuity at $x = c$.
+\end{enumerate}
+
+\subsection{Formal definition of limits}
+
+Words ...
+
+\begin{enumerate}
+\item $\lim_{x \to c} f(x) = L$ if, for every $\epsilon > 0$, there
+  exists $\delta > 0$ such that, for every $x \in \R$ satisfying $0 <
+  |x - c| < \delta$ (in other words, $x \in (c-\delta,c) \cup
+  (c,c+\delta)$, we have $|f(x) - L| < \epsilon$ (in other words,
+  $f(x) \in (L - \epsilon,L+\epsilon)$.
+\item What that means is that however small a trap (namely $\epsilon$)
+  the skeptic demands, the person who wants to claim that the limit
+  does exist can find a $\delta$ such that when the $x$-value is
+  $\delta$-close to $c$, the $f(x)$-value is $\epsilon$-close to $L$.
+\item The negation of the statement $\lim_{x \to c} f(x) = L$ is: there
+  exists $\epsilon > 0$ such that for every $\delta > 0$ there exists
+  $x \in \R$ such that $0 < |x - c| < \delta$ but $|f(x) - L| \ge
+  \epsilon$.
+\item The statement $\lim_{x \to c} f(x)$ doesn't exist: for every $L
+  \in \R$, there exists $\epsilon > 0$ such that for every $\delta >
+  0$ there exists $x \in \R$ such that $0 < |x - c| < \delta$ but
+  $|f(x) - L| \ge \epsilon$.
+\item We can think of $\epsilon-\delta$ limits as a game. The skeptic,
+  who is unconvinced that the limit is $L$, throws to the prover a
+  value $\epsilon > 0$. The prover must now throw back a $\delta > 0$
+  that works. $L$ being the limit means that the prover has a winning
+  strategy, i.e., the prover has a wayof picking, for any $\epsilon >
+  0$, a value of $\delta > 0$ suitable to that $\epsilon$.
+\item The function $f(x) = \sin(1/x)$ is a classy
+  example of a limit not existing. The problem is that, however small
+  we choose a $\delta$ around $0$, the function takes all values
+  between $-1$ and $1$, and hence refuses to be confined within small
+  $\epsilon$-traps.
+\item We say that $f$ is continuous at $c$ if $\lim_{x \to c} f(x) =
+  f(c)$.
+\end{enumerate}
+
+Actions...
+
+\begin{enumerate}
+\item If a $\delta$ works for a given $\epsilon$, then every smaller
+  $\delta$ works too. Also, if a $\delta$ works for a given
+  $\epsilon$, the same $\delta$ works for any larger $\epsilon$.
+\item Constant functions are continuous, we can choose $\delta$ to be
+  anything. In this $\epsilon-\delta$ game, the person trying to prove
+  that the limit does exist wins no matter what $\epsilon$ the skeptic
+  throws and no matter what $\delta$ is thrown back.
+\item For the function $f(x) = x$, it's continuous, and $\delta =
+\epsilon$ works.
+\item For a linear function $f(x) = ax + b$ with $a \ne 0$, it's
+  continuous, and $\delta = \epsilon/|a|$ works. That's the largest
+  $\delta$ that works.
+\item For a function $f(x) = x^2$ taking the limit at a point $p$, the
+  limit is $p^2$ (the function is continuous) and $\delta = \min\{1,
+  \epsilon/(1 + |2p|) \}$ works. It isn't the best, but it works.
+\item For a function $f(x) = ax^2 + bx + c$, taking the limit at a
+  point $p$, the limit is $f(p)$ (the function is continuous) and
+  $\delta = \min \{1, \epsilon/(|a| + |2ap + b|) \}$ works. It isn't
+  the best, but it works.
+\item If there are two functions $f$ and $g$ and $\lim_{x \to c} f(x)
+  = \lim_{x \to c} g(x) = L$, and $h$ is a function such that $h(x) =
+  f(x)$ or $h(x) = g(x)$ for every $x$, then $\lim_{x \to c} h(x) =
+  L$. The $\delta$ that works for $h$ is the minimum of the $\delta$s
+  that work for $f$ and $g$. This applies to many situations:
+  functions defined differently on the left and right of the point,
+  functions defined differently for the rationals and the irrationals,
+  functions defined as the max or min of two functions.
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item Consider the limit game for $\lim_{x \to c} f(x) = L$. This is a
+  game between the prover and the skeptic. In this game, if the prover
+  wins, then the limit statement is true. If the skeptic wins, then we
+  say that the limit statement is false.
+\item A winning strategy for the prover in the game for $\lim_{x \to
+  c} f(x) = L$ involves the prover fooling the skeptic choosing a
+  suitably large value of $\epsilon$ so that the prover can trap the
+  function appropriately.
+\item Consider two continuous functions $f$ and $g$ on the reals with
+  $f(c) = g(c) = L$. Consider $h(x) := \min \{ f(x), g(x) \}$ and
+  $H(x) := \max \{ f(x),g(x) \}$. The winning strategy for the prover
+  for showing that $\lim_{x \to c} h(x) = L$ is to pick, for any given
+  $\epsilon$, the {\em minimum} of the $\delta$s that work for $f$ and
+  for $g$. The winning strategy for $H$ is to pick, for any given
+  $\epsilon$, the {\em maximum} of the $\delta$s that work for $f$ and
+  for $g$.
+\end{enumerate}
+
+\subsection{Limit theorems + quick/intuitive calculation of limits}
+
+Words...
+
+\begin{enumerate}
+\item If the limits for two functions exist at a particular point, the
+  limit of the sum exists and equals the sum of the limits. Similarly
+  for product and difference.
+\item For quotient, we need to add the caveat that the limit of the
+  denominator is nonzero.
+\item If $\lim_{x \to c} f(x) = L \ne 0$ and $\lim_{x \to c} g(x) =
+  0$, then $\lim_{x \to c} (f(x)/g(x))$ is undefined.
+\item If $\lim_{x \to c} f(x) = \lim_{x \to c} g(x) = 0$, then we
+  cannot say anything offhand about $\lim_{x \to c} (f(x)/g(x))$.
+\item Everything we said (or implied) can be reformulated for
+  one-sided limits.
+\end{enumerate}
+
+Error-spotting exercises...
+
+\begin{enumerate}
+\item Suppose $f$ and $g$ are functions both defined around a point
+  $c$. If $\lim_{x \to c} f(x)$ does not exist and $\lim_{x \to c}
+  g(x)$ does not exist, then $\lim_{x \to c} (f(x) + g(x))$ does not
+  exist either.
+\end{enumerate}
+\subsection{Continuity theorems}
+
+Words ...
+
+\begin{enumerate}
+\item If $f$ and $g$ are functions that are both continuous at a point
+  $c$, then the function $f + g$ is also continuous at $c$. Similarly,
+  $f - g$ and $f \cdot g$ are continuous at $c$. Also, if $g(c) \ne
+  0$, then $f/g$ is continuous at $c$.
+\item If $f$ and $g$ are both continuous in an interval, then $f + g$,
+  $f - g$ and $f \cdot g$ are also continuous on the
+  interval. Similarly for $f/g$ provided $g$ is not zero anywhere on
+  the interval.
+\item The composition theorem for continuous functions states that if
+  $g$ is continuous at $c$ and $f$ is continuous at $g(c)$, then $f
+  \circ g$ is continuous at $c$. The corresponding composition theorem
+  for limits is {\em not true but almost true}: if $\lim_{x \to c}
+  g(x) = L$ and $\lim_{x \to L} f(x) = M$, then $\lim_{x \to c}
+  f(g(x)) = M$.
+\item The one-sided analogues of the theorems for sum, difference,
+  product, quotient work, but the one-sided analogue of the theorem
+  for composition is not in general true.
+\item Each of these theorems at points has a suitable
+  analogue/corollary for continuity (and, with the exception of
+  composition, for one-sided conitnuity) on intervals.
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item Suppose $f$ and $g$ are both functions defined and continuous
+  around a point $c \in \R$. Then, $f + g$, $f - g$, $f \cdot g$, and
+  $f \circ g$ are all defined and continuous around $c$.
+\item Suppose $f$ and $g$ are both continuous functions on the domain
+  $[0,1]$. Then, $f + g$, $f - g$, $f \cdot g$, and $f \circ g$ are
+  all continuous functions on the domain $[0,1]$.
+\item Suppose $f$ and $g$ are both left continuous functions on the
+  domain $[0,1]$. Then, $f + g$, $f - g$, $f \cdot g$, and $f \circ g$
+  are all left continuous functions on the domain $[0,1]$.
+\item Suppose $\lim_{x \to 0} g(x)/x = A \ne 0$. Then, we have:
+
+  $$\lim_{x \to 0} \frac{g(g(x))}{x} = \lim_{x \to 0} \frac{g(g(x))}{g(x)} \lim_{x \to 0} \frac{g(x)}{x} = g \left(\lim_{x \to 0} \frac{g(x)}{x}\right) \cdot \lim_{x \to 0} \frac{g(x)}{x} = g(A) \cdot A = Ag(A)$$
+\item Suppose $\lim_{x \to 0} g(x)/x^2 = A \ne 0$. Then, we have:
+
+  $$\lim_{x \to 0} \frac{g(g(x))}{x^4} = \lim_{x \to 0} \frac{g(g(x))}{(g(x))^2} \lim_{x \to 0} \frac{g(x)}{x^2} = A \cdot A = A^2$$
+\end{enumerate}
+
+\subsection{Three important theorems}
+
+Words ...
+
+\begin{enumerate}
+\item The pinching theorem states that if $f(x) \le g(x) \le h(x)$,
+  and $\lim_{x \to c} f(x) = \lim_{x \to c} h(x) = L$, then $\lim_{x
+  \to c} g(x) = L$. A one-sided version of the pinching theorem also
+  holds.
+\item The intermediate-value theorem states that if $f$ is a
+  continuous function, and $a < b$, and $p$ is between $f(a)$ and
+  $f(b)$, there exists $c \in [a,b]$ such that $f(c) = p$. Note that
+  we need $f$ to be defined and continuous on the entire closed
+  interval $[a,b]$.
+\item The extreme-value theorem states that on a closed bounded
+  interval $[a,b]$, a continuous function attains its maximum and
+  minimum.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item When trying to calculate a limit that's tricky, you might want
+  to bound it from both sides by things whose limits you know and are
+  equal. For instance, the function $x \sin (1/x)$ taking the limit at
+  $0$, or the function that's $x$ on rationals and $0$ on irrationals,
+  again taking the limit at $0$.
+\item We can use the intermediate-value theorem to show that a given
+  equation has a solution in an interval by calculating the values of
+  the expression at endpoints of the interval and showing that they
+  have opposite signs.
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item Consider the function $f(x) := 1/x$ on the interval $[-1,1]$. We
+  have $f(-1) = -1$ and $f(1) = 1$, so by the intermediate value
+  theorem, there exists $x \in [-1,1]$, such that $f(x) = 1/2$. Thus,
+  we get that $1/x = 1/2$, so $x = 2$ is in the interval $[-1,1]$.
+\item By the intermediate value theorem, the image of a closed
+  interval $[a,b]$ under a continuous function $f$ is the closed
+  interval $[f(a),f(b)]$ if $f(a) < f(b)$ and the closed interval
+  $[f(b),f(a)]$ if $f(b) < f(a)$.
+\end{enumerate}
+
+\section{Derivatives}
+
+\subsection{Derivatives: basics}
+
+Words ...
+
+\begin{enumerate}
+\item For a function $f$, we define the {\em difference quotient}
+  between $w$ and $x$ as the quotient $(f(w) - f(x))/(w - x)$. It is
+  also the slope of the line joining $(x,f(x))$ and $(w,f(w))$. This
+  line is called a {\em secant line}. The segment of the line between the
+  points $x$ and $w$ is sometimes termed a {\em chord}.
+\item The limit of the difference quotient is defined as the {\em
+  derivative}. This is the slope of the {\em tangent line} through
+  that point. In other words, we define $f'(x) := \lim_{w \to x}
+  \frac{f(w) - f(x)}{w - x}$. This can also be defined as $\lim_{h \to
+  0} \frac{f(x + h) - f(x)}{h}$.
+\item If the derivative of $f$ at a point $x$ exists, the function is
+  termed {\em differentiable} at $x$.
+\item If the derivative at a point exists, then the tangent line to
+  the graph of the function exists and its slope equals the
+  derivative. The tangent line is horizontal if the derivative is
+  zero. Note that if the derivative exists, then the tangent line
+  cannot be vertical.
+\item Here are some misconceptions about tangent lines: (i) that the
+  tangent line is the line perpendicular to the radius (this makes
+  sense only for circles) (ii) that the tangent line does not
+  intersect the curve at any other point (this is true for some curves
+  but not for others) (iii) that any line other than the tangent line
+  intersects the curve at at least one more point (this is always
+  false -- the vertical line through the point does not intersect the
+  curve elsewhere, but is not the tangent line if the function is
+  differentiable).
+\item In the Leibniz notation, if $y$ is functionally dependent on
+  $x$, then $\Delta y/\Delta x$ is the difference quotient -- it is
+  the quotient of the difference between the $y$-values corresponding
+  to $x$-values. The limit of this, which is the derivative, is
+  $dy/dx$.
+\item The left-hand derivative of $f$ is defined as the left-hand
+  limit for the derivative expression. It is $\lim_{h \to 0^-}
+  \frac{f(x + h) - f(x)}{h}$. The right-hand derivative is $\lim_{h
+  \to 0^+} \frac{f(x + h) - f(x)}{h}$.
+\item Higher derivatives are obtained by differentiating again and
+  again. The {\em second} derivative is the derivative of the
+  derivative. The $n^{th}$ derivative is the function obtained by
+  differentiating $n$ times. In prime notation, the second derivative
+  is denoted $f''$, the third derivative $f'''$, and the $n^{th}$
+  derivative for large $n$ as $f^{(n)}$. In the Leibniz notation, the
+  $n^{th}$ derivative of $y$ with respect to $x$ is denoted
+  $d^ny/dx^n$.
+\item Derivative of sum equals sum of derivatives. Derivative of
+  difference is difference of derivatives. Scalar multiples can be pulled out.
+\item We have the {\em product rule} for differentiating products: $(f
+  \cdot g)' = f' \cdot g + f \cdot g'$.
+\item We have the {\em quotient rule} for differentiating quotients:
+  $(f/g)' = (g \cdot f' - f \cdot g')/g^2$.
+\item The derivative of $x^n$ with respect to $x$ is $nx^{n-1}$.
+\item The derivative of $\sin$ is $\cos$ and the derivative of $\cos$
+  is $-\sin$.
+\item The chain rule says that $(f \circ g)' = (f' \circ g) \cdot g'$
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+
+\item We can differentiate any polynomial function of $x$, or a sum of
+  powers (possibly negative powers or fractional powers), by
+  differentiating each power with respect to $x$.
+\item We can differentiate any rational function using the quotient
+  rule and our knowledge of how to differentiate polynomials.
+\item We can find the equation of the tangent line at a point by first
+  finding the derivative, which is the slope, and then finding the
+  point's coordinates (which requires evaluating the function) and
+  then using the point-slope form.
+\item Suppose $g$ and $h$ are everywhere differentiable
+  functions. Suppose $f$ is a function that is $g$ to the left of a
+  point $a$ and $h$ to the right of the point $a$, and suppose $f(a) =
+  g(a) = h(a)$. Then, the left-hand derivative of $f$ at $a$ is
+  $g'(a)$ and the right-hand derivative of $f$ at $a$ is $h'(a)$.
+\item The $k^{th}$ derivative of a polynomial of degree $n$ is a
+  polynomial of degree $n - k$, if $k \le n$, and is zero if $k > n$.
+\item We can often use the sum rule, product rule, etc. to find the
+  values of derivatives of functions constructed from other functions
+  simply using the values of the functions and their derivatives at
+  specific points. For instance, $(f \cdot g)'$ at a specific point
+  $c$ can be determined by knowing $f(c)$, $g(c)$, $f'(c)$, and
+  $g'(c)$.
+\item Given a function $f$ with some unknown constants in it (so a
+  function that is not completely known) we can use information about
+  the value of the function and its derivatives at specific points to
+  determine those constant parameters.
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item The derivative of the function $x \mapsto \sin^2x$ is:
+
+  $$\frac{d}{dx}(\sin(x^2)) = -\cos (x^2)$$
+
+  because the derivative of $\sin$ is $-\cos$.
+
+\item The derivative of the function $x \mapsto \sin(x^2)$ is:
+
+  $$\frac{d}{dx}(\sin(x^2)) = (\cos x)(2x) = 2x\cos x$$
+\item The derivative of the function $x \mapsto x \cos x$ is:
+
+  $$\frac{d}{dx} (x \cos x) = \frac{d}{dx}(x) \cdot \frac{d}{dx}(\cos x) = (1)(-\sin x) = -\sin x$$
+\end{enumerate}
+
+\subsection{Tangents and normals: geometry}
+
+Words...
+
+\begin{enumerate}
+\item The normal line to a curve at a point is the line perpendicular
+  to the tangent line. Since the tangent line is the best linear
+  approximation to the curve at the point, the normal line can be
+  thought of as the line best approximating the perpendicular line to
+  the curve.
+\item The angle of intersection between two curves at a point of
+  intersection is defined as the angle between the tangent lines to
+  the curves at that point. If the slopes of the tangent lines are
+  $m_1$ and $m_2$, the angle is $\pi/2$ if $m_1m_2 = -1$. Otherwise,
+  it is the angle $\alpha$ such that $\tan \alpha = |m_1 - m_2|/(|1 +
+  m_1m_2|)$.
+\item If the angle between two curves at a point of intersection is
+  $\pi/2$, they are termed {\em orthogonal} at that point. If the
+  curves are orthogonal at all points of intersection, they are termed
+  {\em orthogonal curves}.
+\item If the angle between two curves at a point of intersection is
+  $0$, that means they have the same tangent line. In this case, we
+  say that the curves {\em touch} each other or are {\em tangent} to
+  each other.
+\end{enumerate}
+
+Actions...
+
+\begin{enumerate}
+
+\item The equation of the normal line to the graph of a
+  function $f$ at the point $(x_0,f(x_0))$ is $f'(x_0)(y - f(x_0))
+  + (x - x_0) = 0$. The slope is $-1/f'(x_0)$.
+\item To find the angle(s) of intersection between two curves, we
+  first find the point(s) of intersection, then compute the value of
+  derivative (or slope of tangent line) to both curves, and then
+  finally plug that in the formula for the angle of intersection.
+\item It is also possible to find all tangents to a given curve, or
+  all normals to a given curve, that pass through a given point {\em
+  not} on the curve. To do this, we set up the generic expression for
+  a tangent line or normal line to the curve, and then plug into that
+  generic expression the specific coordinates of the point, and
+  solve. For instance, the generic equation for the tangent line to
+  the graph of a function $f$ is $y - f(x_1) = f'(x_1)(x - x_1)$ where
+  $(x_1,f(x_1))$ is the point of tangency. Plugging in the point
+  $(x,y)$ that we know the curve passes through, we can solve for
+  $x_1$.
+\item In many cases, it is possible to determine geometrically the
+  number of tangents/normals passing through a point outside the
+  curve. Also, in some cases, the algebraic equations may not be
+  directly solvable, but we may be able to determine the number and
+  approximate location of the solutions.
+
+\end{enumerate}
+
+\subsection{Deeper perspectives on derivatives}
+
+Words... 
+
+\begin{enumerate}
+\item A continuous function that is everywhere differentiable need not
+  be everywhere continuously differentiable.
+\item If $f$ and $g$ are functions that are both continuously
+  differentiable (i.e., they are differentiable and their derivatives
+  are continuous functions), then $f + g$, $f - g$, $f \cdot g$, and
+  $f \circ g$ are all continuously differentiable.
+\item If $f$ and $g$ are functions that are both $k$ times
+  differentiable (i.e., the $k^{th}$ derivatives of the functions $f$
+  and $g$ exist), then $f + g$, $f - g$, $f \cdot g$, and $f \circ g$
+  are also $k$ times differentiable.
+\item If $f$ and $g$ are functions that are both $k$ times
+  continuously differentiable (i.e., the $k^{th}$ derivatives of both
+  functions exist and are continuous) then $f + g$, $f - g$, and $f
+  \cdot g$, and $f \circ g$ are also $k$ times continuously
+  differentiable.
+\item If $f$ is $k$ times differentiable, for $k \ge 2$, then it is
+  $k-1$ times continuously differentiable, i.e., the $(k-1)^{th}$
+  derivative of $f$ is a continuous function.
+\item If a function is {\em infinitely differentiable}, i.e., it has
+  $k^{th}$ derivatives for all $k$, then its $k^{th}$ derivatives are
+  continuous functions for all $k$.
+\end{enumerate}
+
+Error-spotting exercises...
+
+\begin{enumerate}
+\item Suppose $f$ and $g$ are everywhere defined functions such that
+  $f$ is twice differentiable and $g$ is three times
+  differentiable. Then the function $f + g$ is $2 + 3 = 5$ times
+  differentiability and the function $f \cdot g$ is $2 \cdot 3 = 6$
+  times differentiable.
+\item A polynomial function of degree $n$ is $n$ times differentiable
+  but not $n + 1$ times differentiable, because the $(n+1)^{th}$ and
+  higher derivatives all vanish.
+\item The function $x \mapsto x^{11/3}$ is infinitely differentiable
+  everywhere because we can keep applying the differentiation formula as
+  many times as we want.
+\end{enumerate}
+
+\section{Trigonometry: review, limits, and derivatives}
+
+\begin{enumerate}
+\item The following three important limits form the foundation of
+  trigonometric limits: $\lim_{x \to 0} (\sin x)/x = 1$, $\lim_{x \to
+  0} (\tan x)/x = 1$, and $\lim_{x \to 0} (1 - \cos x)/x^2 = 1/2$.
+\item The derivative of $\sin$ is $\cos$, the derivative of $\cos$ is
+  $-\sin$. The derivative of $\tan$ is $\sec^2$, the derivative of
+  $\cot$ is $-\csc^2$, the derivative of $\sec$ is $\sec \cdot \tan$,
+  and the derivative of $\csc$ is $-\csc \cdot \cot$.
+\item The second derivative of any function of the form $x \mapsto
+  a\sin x + b \cos x$ is the negative of that function, and the fourth
+  derivative is the original function.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item Substitution is one trick that we use for trigonometric limits:
+  we translate $\lim_{x \to c}$ to $\lim_{h \to 0}$ where $x = c + h$.
+\item Multiplicative splitting, chaining, and stripping are some
+  further tricks that we often use.
+\item For derivatives of functions that involve composites of
+  trigonometric and polynomial functions, we {\em have} to use the
+  chain rule as well as rules for sums, differences, products, and
+  quotients when simplifying expressions.
+\end{enumerate}
+
+\section{Tricky topics}
+
+These are some tricky question types and some stumbling blocks across
+multiple question types. The selection here is based on class
+feedback, your quiz scores, and concerns raised in problem session.
+
+Some of this is a repeat of points given earlier. However, it may be
+helpful to have the information presented in this alternative format.
+
+\subsection{Piecewise definition by interval: left and right}
+
+{\em Think of examples} for each point. I've deliberately not included
+examples, because I want you to puzzle out each point here in terms of
+things like this that you've seen. The material straddles limits,
+continuity, and differentiability.
+
+\begin{enumerate}
+\item It is often the case that we define a function piecewise by
+  splitting the domain into intervals. Here, a function has different
+  expressions defining it on different intervals. For the remaining
+  observations, we will assume that each of the piece functions itself
+  is very nice (continuous, differentiable, etc.) so that most of the
+  trouble arises from the changes in definition between intervals.
+\item At a point that is at the common boundary of two intervals, the
+  function changes definition. The function at the boundary point may
+  be defined using either of the two intervals, or separately, as an
+  isolated definition just at that point. (Think of examples).
+\item If the point is included in the definition on one side, it is
+  automatically continuous from that side. (Remember, we're assuming
+  that the piece functions are continuous). For the other side, we
+  need to calculate the appropriate one-sided limit. If that piece
+  function extends continuously to the point, we substitute the
+  value. Otherwise, we use the limits techniques. (Think of examples).
+\item If the function is continuous from a particular side, that
+  one-sided derivative can be calculated by differentiating the
+  expression formally at the point and evaluating at the point. (Think
+  of examples).
+\item The function is differentiable at a point of definition change
+  if: (i) it is continuous (from both sides) and (ii) the left hand
+  derivative and the right hand derivative agree.
+\item To calculate second or higher derivatives of functions with
+  piecewise definitions, first get a piecewise definition for the
+  function and then differentiate it.
+\item To do an $\epsilon-\delta$ proof of continuity for a function at
+  a point where it may be changing definition, we need to find a
+  $\delta$ that works for each piece, and then pick the minimum of
+  those $\delta$s.
+\item In order to add, subtract, or multiply two functions with
+  piecewise definitions, we need to break the domains into further
+  pieces so that the pieces for both functions match up. (In
+  mathematical jargon, this is a common refinment). Then we can add,
+  subtract, and multiply in each piece.
+\item Also note that the limit, continuity, and differentiation
+  formulas hold for one-sided approach.
+\item Composition involving piecewise definitions is tricky. The
+  limit, continuity and differentiation theorems for composition do
+  not hold for one-sided approach. If one of the functions is
+  decreasing, then things can get flipped. For piecewise definitions,
+  when composing, we need to think clearly about how the intervals
+  transform.
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item Consider the function:
+
+  $$f(x) := \left\lbrace \begin{array}{rl} 1, & x = 0 \\ x + 1, & x > 0 \\ x + \cos x, & x < 0 \\\end{array}\right.$$
+
+  The derivative is given as follows:
+
+  $$f'(x) := \left\lbrace \begin{array}{rl} 0, & x = 0 \\ 1, & x > 0 \\ 1 - \sin x, & x < 0 \\\end{array}\right.$$
+\item Consider the function:
+
+  $$f(x) := \left\lbrace \begin{array}{rl} x^2, & x < 0 \\ x^3, & x \ge 0 \\\end{array}\right.$$
+
+  Then the function $f(x) + f(1 - x)$ is:
+
+  $$f(x) + f(1 - x) = \left\lbrace \begin{array}{rl} x^2 + (1 - x)^2, & x < 0 \\ x^3 + (1 - x)^3, & x \ge 0 \\\end{array}\right.$$
+\end{enumerate}
+
+\subsection{Piecewise definitions: rational and irrational}
+
+\begin{enumerate}
+\item Sometimes, we may define a function $f$ as one thing for
+  rational inputs and another thing for irrational inputs. The
+  important thing to remember is that {\em every open interval
+  contains both rational and irrational numbers}. Hence, however small
+  an interval we choose, both definitions are operational in that
+  interval. This is in sharp contrast to the piecewise definition by
+  interval, where different definitions operate in different regions.
+  We'll assume that both piece definitions are obtained by restriction
+  from continuous functions on $\R$.
+\item A function $f$ defined this way is continuous if both the
+  rational and irrational definitions ``agree'' at the point. (This is
+  assuming that both piece definitions are drawn from continuous
+  functions of $\R$).
+\item An $\epsilon-\delta$ proof of continuity would find the $\delta$
+  that works for the rational and irrational pieces and use the
+  minimum of these. The proof would involve splitting into cases for
+  $x$ based on whether $x$ is rational or irrational.
+\item If both piece definitions are drawn from differentiable
+  functions on $\R$, then $f$ is differentiable at a point if the
+  rational and irrational definitions for both $f$ and $f'$ ``agree''
+  at the point.
+\item In order for a second or higher derivative to exist, the first
+  derivative must be defined in a neighborhood of the point. Note that
+  in this sense, the rational-irrational version differs radically
+  from the left-right version. For instance, consider:
+
+  $$f(x) := \lbrace\begin{array}{rl}x^3, & x \le 0\\ x^5, & x > 0 \\\end{array}$$
+
+  and
+
+  $$g(x) := \lbrace\begin{array}{rl}x^3, & x \text{ rational}\\ x^5, & x \text{ irrational} \\\end{array}$$
+
+  For both $f$ and $g$, the function is continuous, and both ``piece''
+  derivatives at $0$ are $0$, so $f$ and $g$ are both differentiable
+  at $0$ and $f'(0) = g'(0) = 0$.
+
+  However, the situation becomes different with the second
+  derivative. It turns out that $f''(0)$ exists and equals $0$. But we
+  cannot talk of $g''(0)$, because, {\em although $g'(0)$ exists, $g'$
+  is not defined anywhere around $0$, so it does not make sense to
+  differentiate a second time.}
+
+  Thus, although the rational-irrational situation is somewhat similar
+  to the left-right situation.
+\end{enumerate}
+
+\subsection{The $\sin(1/x)$ examples}
+
+\begin{enumerate}
+\item The $\sin(1/x)$ and related examples are somewhat tricky because
+  the function definition differs at an {\em isolated point}, namely $0$.
+\item To calculate any limit or derivative at a point other than $0$,
+  we can do formal computations. However, to calculate the derivative
+  at $0$, we {\em must} use the definition of derivative as a limit of
+  a difference quotient.
+\item For all the facts below, the qualitative conclusions hold if we
+  replace $\sin$ by $\cos$. The expressions for the derivatives
+  change, but we haven't included those expressions below anyway.
+\item The function $f_0(x) := \lbrace \begin{array}{rl} \sin(1/x), & x
+  \ne 0 \\ 0, & x = 0 \\\end{array}$ satisfies the intermediate value
+  property but is not continuous at $0$. At all other points, it is
+  infinitely differentiable and we can calculate the derivative
+  formally.
+\item The function $f_1(x) := \lbrace \begin{array}{rl} x\sin(1/x), &
+  x \ne 0 \\ 0, & x = 0 \\\end{array}$ is continuous but not
+  differentiable at $0$. We can see this from the pinching theorem --
+  it is pinched between $|x|$ and $-|x|$. $f_1$ is infinitely
+  differentable at all points other than $0$.
+\item The function $f_2(x) := \lbrace \begin{array}{rl} x^2\sin(1/x), &
+  x \ne 0 \\ 0, & x = 0 \\\end{array}$ is differentiable at $0$, and
+  infinitely differentiable everywhere other than $0$, but the
+  derivative is not continuous at $0$. The limit $\lim_{x \to 0}
+  f_2'(x)$ does not exist. Note that $f_2'$ is defined everywhere and
+  satisfies the intermediate value property but is not continuous.
+\item The function $f_3(x) := \lbrace \begin{array}{rl} x^3\sin(1/x),
+  & x \ne 0 \\ 0, & x = 0 \\\end{array}$ is continuously
+  differentiable but not twice differentiable at $0$, and infinitely
+  differentiable everywhere other than $0$.
+\end{enumerate}
+
+\subsection{Testing hypotheses about functions}
+
+Many of you have faced tricky quiz problems where you're asked to
+determine whether certain general facts about functions are
+true. Ideally, to show that a general fact is true, you try to give a
+{\em generic} proof. However, to show that a general fact is not true,
+you usually need to come up with a counterexample.
+
+Since the quiz problems are meant to be tricky, I typically choose at
+least a few options where the most obvious examples you choose don't
+give counterexamples. However, you can be cleverer still and try to
+understand how to find good counterexamples. Here are some general
+tips in that direction:
+
+\begin{enumerate}
+\item Start trying to prove (in a rough sense) the statement to be
+  true. Locate the {\em precise step} where your proof encounters an
+  obstacle. What additional assumption do you need to make here? Try
+  to think of an example of a function that violates this additional
+  assumption.
+\item When the question involves one-sidedness, try both increasing
+  and decreasing functions. Try functions that increase on part of the
+  domain and decrease on another part. Also, try piecewise behavior.
+\item Wherever it makes sense, think of functions defined differently
+  on the rationals and irrationals. This is particularly helpful to
+  get functions that are well behaved at only a handful of points
+  (e.g., continuous at only $14$ points, or differentiable at only
+  $11$ points).
+\item Wherever it makes sense, think of the $\sin(1/x)$ examples. This
+  is particularly helpful to get functions that are: (i) badly behaved
+  at only one point, and (ii) give examples to show that the implications
+  continuously differentiable $\implies$ differentiable $\implies$
+  continuous $\implies$ intermediate value property are strict.
+\item If the property that you are interested in (e.g., being
+  periodic, or polynomial) remains preserved on adding a constant
+  function, add a whacko constant function and see if things still
+  hold up.
+\item For functions on intervals extending to infinity in one or both
+  directions, think of examples where the function approaches but does
+  not reach a value. For instance, $1/x^2$ approaches $0$ as $x$
+  approaches infinity, but does not reach it. This is useful for
+  showing that the analogue of the extreme value theorem does not hold
+  for intervals stretching out to infinity in one or both directions.
+\end{enumerate}
+
+\section{High yield practice}
+
+These are areas where practice shortly before the test should offer
+high yield. These are things that you're probably not yet very good
+at, but where being good gives you that extra edge:
+
+\begin{enumerate}
+\item $\epsilon-\delta$ proofs for quadratic and piecewise linear.
+\item Limit computations for trigonometric functions, particularly
+  those involving chaining. (Refer to the notes on ``trigonometric
+  limits and derivatives'' for a number of computational techniques).
+\item Converting a definition involving $\max$ and $\min$ into a
+  piecewise definition.
+\item Piecewise functions (see all the items listed under piecewise
+  functions in ``Tricky topics'').
+\end{enumerate}
+
+\section{Quickly}
+
+\subsection{Arithmetic}
+
+You should be able to:
+
+\begin{itemize}
+\item Do quick arithmetic involving fractions.
+\item Remember $\sqrt{2}$, $\sqrt{3}$, and $\pi$ to at least two
+  digits.
+\item Sense when an expression will simplify to $0$.
+\item Compute approximate values for square roots of small numbers,
+  $\pi$ and its multiples, etc., so that you are able to figure out,
+  for instance, whether $\pi/4$ is smaller or bigger than $1$, or two
+  integers such that $\sqrt{39}$ is between them.
+\end{itemize}
+
+\subsection{Computational algebra}
+
+You should be able to:
+
+\begin{enumerate}
+\item Add, subtract, and multiply polynomials.
+\item Factorize quadratics or determine that the quadratic cannot be
+  factorized.
+\item Factorize a cubic if you know one of its linear factors
+  (necessary for limit computations).
+\item Do polynomial long division (not usually necessary, but helpful).
+\item Solve simple inequalities involving polynomial and rational
+  functions once you've obtained them in factored form.
+\end{enumerate}
+
+\subsection{Computational trigonometry}
+
+You should be able to:
+
+\begin{enumerate}
+\item Determine the values of $\sin$ and $\cos$ at multiples of
+  $\pi/2$.
+\item Determine the intervals where $\sin$ and $\cos$ are positive and
+  negative.
+\item Recall the values of $\sin$ and $\cos$ at $\pi/6$, $\pi/4$, and
+  $\pi/3$.
+\end{enumerate}
+
+\subsection{Computational limits}
+
+You should be able to: size up a limit, determine whether it is of the
+form that can be directly evaluated, of the form that we already know
+does not exist, or indeterminate.
+
+\subsection{Computational differentiation}
+
+You should be able to:
+
+\begin{enumerate}
+\item Differentiate a polynomial (written in expanded form) on sight
+  (without rough work).
+\item Differentiate a polynomial (written in expanded form) twice
+  (without rough work).
+\item Differentiate sums of powers of $x$ on sight (without rough
+  work).
+\item Differentiate rational functions with a little thought.
+\item Do multiple differentiations of expressions whose derivative
+  cycle is periodic, e.g., $a \sin x + b \cos x$.
+\item Differentiate simple composites without rough work (e.g.,
+  $\sin(x^3)$).
+\end{enumerate}
+
+\subsection{Being observant}
+
+You should be able to look at a function and:
+
+\begin{enumerate}
+\item Sense if it is odd (even if nobody pointedly asks you whether it
+  is).
+\item Sense if it is even (even if nobody asks you whether it is).
+\item Sense if it is periodic and find the period (even if nobody asks
+  you about the period).
+\end{enumerate}
+
+\subsection{Graphing}
+
+You should be able to:
+
+\begin{enumerate}
+\item Mentally graph a linear function.
+\item Graph a piecewise linear function with some thought.
+\item Mentally graph a quadratic function (very approximately) --
+  figure out conditions under which it crosses the axis etc.
+\item Mentally graph $\sin$ and $\cos$, as well as functions of the $A
+  \sin(mx)$ and $A\cos(mx)$.
+\end{enumerate}
+
+\subsection{Fancy pictures}
+
+Keep in mind approximate features of the graphs of:
+
+\begin{enumerate}
+\item $\sin(1/x)$, $x\sin(1/x)$, $x^2 \sin(1/x)$ and $x^3\sin(1/x)$,
+  particularly the behavior near $0$.
+\item The Dirichlet function and its variants -- functions defined
+  differently for the rationals and irrationals.
+\end{enumerate}
+
+\end{document}

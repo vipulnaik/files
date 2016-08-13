@@ -1,0 +1,112 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz: October 28: Integration basics}
+\author{Math 152, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+Your name (print clearly in capital letters): $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+
+\begin{enumerate}
+
+\item Consider the function(s) $[0,1] \to \R$. {\bf Identify the
+  function}s for which the integral (using upper sums and lower sums)
+  is not defined. {\em Last year: $15/15$ correct}
+
+  \begin{enumerate}[(A)]
+  \item $f_1(x) := \lbrace\begin{array}{rl} 0, & 0 \le x < 1/2 \\ 1, &
+    1/2 \le x \le 1\end{array}$.
+  \item $f_2(x) := \lbrace\begin{array}{rl} 0, & x \ne 0 \text{ and } 1/x \text{ is an
+    integer } \\ 1, & \text{ otherwise} \end{array}$.
+  \item $f_3(x) := \lbrace\begin{array}{rl} 0, & x \text{ rational }\\
+    1, & x \text{ irrational}\end{array}$
+  \item All of the above
+  \item None of the above
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{1in}
+
+\item (**) Suppose $a < b$. Recall that a {\em regular partition} into $n$
+  parts of $[a,b]$ is a partition $a = x_0 < x_1 < \dots < x_{n-1} <
+  x_n = b$ where $x_i - x_{i-1} = (b - a)/n$ for all $1 \le i \le
+  n$. A partition $P_1$ is said to be a {\em finer partition} than a
+  partition $P_2$ if the set of points of $P_1$ contains the set of
+  points of $P_2$. Which of the following is a {\bf necessary and
+  sufficient condition} for the regular partition into $m$ parts to be
+  a {\em finer partition} than the regular partition into $n$ parts?
+  (Note: We'll assume that any partition is finer than itself). {\em
+  Last year: $5/15$ correct}
+
+  \begin{enumerate}[(A)]
+  \item $m \le n$
+  \item $n \le m$
+  \item $m$ divides $n$ (i.e., $n$ is a multiple of $m$)
+  \item $n$ divides $m$ (i.e., $m$ is a multiple of $n$)
+  \item $m$ is a power of $n$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{1in}
+
+
+  {\bf PLEASE TURN OVER FOR THIRD AND FOURTH QUESTIONS}
+\newpage
+\item (**) For a partition $P = x_0 < x_1 < x_2 < \dots < x_n$ of
+  $[a,b]$ (with $x_0 = a$, $x_n = b$) define the norm $\| P \|$ as the
+  maximum of the values $x_i - x_{i-1}$. Which of the following {\bf
+  is always true} for any continuous function $f$ on $[a,b]$? {\em
+  Last year: $4/15$ correct}
+
+  \begin{enumerate}[(A)]
+  \item If $P_1$ is a finer partition than $P_2$, then $\| P_2 \| \le
+    \| P_1 \|$ (Here, {\em finer} means that, as a set, $P_2 \subseteq
+    P_1$, i.e., all the points of $P_2$ are also points of $P_1$).
+  \item If $\| P_2 \| \le \| P_1 \|$, then $L_f(P_2) \le L_f(P_1)$
+    (where $L_f$ is the lower sum).
+  \item If $\| P_2 \| \le \| P_1 \|$, then $U_f(P_2) \le U_f(P_1)$
+    (where $U_f$ is the upper sum).
+  \item If $\| P_2 \| \le \| P_1 \|$, then $L_f(P_2) \le U_f(P_1)$.
+  \item All of the above.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{1in}
+
+\item (**) Suppose $F$ and $G$ are continuously differentiable
+  functions on all of $\R$ (i.e., both $F'$ and $G'$ are
+  continuous). Which of the following is {\bf not necessarily true}?
+  {\em Last year: $0/15$ correct}
+
+  \begin{enumerate}[(A)]
+  \item If $F'(x) = G'(x)$ for all integers $x$, then $F - G$ is a
+    constant function when restricted to integers, i.e., it takes the
+    same value at all integers.
+  \item If $F'(x) = G'(x)$ for all numbers $x$ that are not integers,
+    then $F - G$ is a constant function when restricted to the set of
+    numbers $x$ that are not integers.
+  \item If $F'(x) = G'(x)$ for all rational numbers $x$, then $F - G$
+    is a constant function when restricted to the set of rational
+    numbers.
+  \item If $F'(x) = G'(x)$ for all irrational numbers $x$, then $F -
+    G$ is a constant function when restricted to the set of irrational
+    numbers.
+  \item None of the above, i.e., they are all necessarily true.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{1in}
+
+\end{enumerate}
+
+\end{document}

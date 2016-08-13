@@ -1,0 +1,451 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul,graphicx}
+
+%Title details
+\title{Cohomology trees}
+\author{Vipul Naik}
+
+%List of new commands
+\newcommand{\Skew}{\operatorname{Skew}}
+
+\begin{document}
+\maketitle
+
+
+\section{Cohomology trees}
+
+\subsection{Idea}
+
+Suppose $G$ is a group and $A_2,A_3,A_4,\dots, A_n$ are abelian
+groups. Define:
+
+$$\mathcal{H}^2(G;A_2,\dots,A_n)$$
+
+as the collection of all extensions of the form:
+
+$$K_1 \ge K_2 \ge \dots K_n \ge K_{n+1}= 1$$
+
+where $K_1/K_2 = G$, $K_i/K_{i+1} \cong A_i$ for $2 \le i \le n$, and
+finally, $[K_1,K_i] \le K_{i+1}$ for $i \ge 2$. In other words, the
+series is {\em almost} a central series with the exception of how it
+starts: it is not necessary that $[K_1,K_1] \le K_2$.
+
+Isomorphism is defined with the usual commuting diagrams.
+
+This is a multi-group generalization of cohomology.
+
+We can see that as a set we can compute it as follows:
+
+$$\mathcal{H}^2(G;A_2,A_3,\dots,A_n) = \bigsqcup_{L \in H^2(G;A_2)} \mathcal{H}^2(L;A_3,A_4,\dots,A_n)$$
+
+Here $H^2(G;A_2)$ is the second cohomology group for trivial group action of $G$ on $A_2$.
+
+This immediately suggests a tree method for computing this
+structure. Namely, the root of the tree represents the string
+$(G;A_2,A_3,\dots,A_n)$. This branches out into children of the form
+$\mathcal{H}^2(L;A_3,A_4,\dots,A_n)$, with one child for each $L \in
+H^2(G;A_2)$. Each of these children further has children. For each
+$L$, the children are parametrized by $M \in H^2(L;A_3)$, and the
+strings for this are $\mathcal{H}^2(M;A_4,\dots,A_n)$. We proceed this
+way till the string has length $1$, and these are the leaves of the tree.
+
+The leaves of the tree represent the set of all possible extensions.
+
+\subsection{Symmetries of the tree}
+
+Many leaves of the tree give the same group under abstract
+isomorphism. There could be three possible reasons:
+
+\begin{itemize}
+\item The isomorphism traces back to the first branching out point,
+  and is explained by the action of automorphism groups on the second
+  cohomology group at the branch-out point (i.e., at that point, the
+  extensions are pseudo-congruent but not congruent).
+\item The isomorphism traces back to the first branching out point,
+  but is not explained by a pseudo-congruence of extensions.
+\item The isomorphism arises otherwise.
+\end{itemize}
+
+Let's consider an example. Consider $G = A_2 = A_3 = \Z_2$. We are
+interested in the object:
+
+$$\mathcal{H}^2(\Z_2;\Z_2,\Z_2)$$
+
+It's easy to see that this will classify {\em all} groups of order 8,
+because any group of order 8 has a central series where the factor
+groups are all $\Z_2$.
+
+We note that:
+
+\begin{itemize}
+\item The children are $\mathcal{H}^2(V_4;\Z_2)$ and
+  $\mathcal{H}^2(\Z_4;\Z_2)$. Note that once the string length becomes
+  $2$, then $\mathcal{H}^2$ becomes $H^2$, so the children are
+  $H^2(V_4;\Z_2)$ and $H^2(\Z_4;\Z_2)$.
+\item The children of the node $H^2(V_4;\Z_2)$ are as follows: one
+  copy of $E_8$, three copies of $\Z_4 \times \Z_2$ (permuted
+  transitively by the automorphism action), one copy of $Q_8$, the
+  quaternion group, and three copies of $D_8$ (permuted transitively
+  by the automorphism action).
+\item The children of the node $H^2(\Z_4;\Z_2)$ are as follows: one
+  copy of $\Z_4 \times \Z_2$ and one copy of $\Z_8.$
+\end{itemize}
+
+\includegraphics[width=4in]{cohomologytreesorder8groups.png}
+
+Note that $\Z_4 \times \Z_2$ occurs four times as a leaf. Three of
+these are equivalent under an automorphism action at the branch-out
+point. The fourth is not equivalent to these, and represents a
+fundamentally different choice of lower central series for the group.
+
+\subsection{Fun aside: weighting}
+
+Not sure this will get anywhere, but it can be done and may be useful for some other purpose:
+
+\begin{itemize}
+\item Assign a weight of $1$ to the root.
+\item At each branching, split the weight on the parent node equally
+  to all children (uniform distribution within each group).
+\item We get a weighting on leaves.
+\item For a given isomorphism class of group, add up the weights on
+  all leaves with that isomorphism class.
+\item We thus get a probability distribution on the finite set of all
+  groups arising as central extensions.
+\end{itemize}
+
+In particular, for groups of order $p^n$, view then as
+$\mathcal{H}^2(\Z_p;\Z_p,\Z_p,\dots,\Z_p)$ where the total (including
+the first) number of $\Z_p$s is $n$. This gives a canonical
+probability distribution on the set of isomorphism classes of groups
+of order $p^n$.
+
+Apply this to $2^3 = 8$. We get:
+
+\begin{itemize}
+\item The root has weight $1$
+\item The children $H^2(V_4;\Z_2)$ and $H^2(\Z_4;\Z_2)$ each have weight $1/2$.
+\item Each child of $H^2(V_4;\Z_2)$ has weight $(1/8)(1/2) =
+  1/16$. Thus $E_8$ and $Q_8$ have weight $1/16$, the three copies of
+  $\Z_4 \times \Z_2$ have combined weight $3/16$, and so do the three
+  copies of $D_8$.
+\item Each child of $H^2(\Z_4;\Z_2)$ has weight $1/4$: so $\Z_4 \times \Z_2$ has
+  weight $1/4$ and so does $\Z_8$.
+\end{itemize}
+
+The overall probability distribution is:
+
+\begin{itemize}
+\item $\Z_8$: $1/4$
+\item $\Z_4 \times \Z_2$: $7/16$ (adding up its appearance in both subtrees)
+\item $D_8$: $3/16$
+\item $Q_8$: $1/16$
+\item $E_8$: $1/16$
+\end{itemize}
+
+\subsection{Why cohomology trees?}
+
+Cohomology trees are particularly suited for the nilpotent situation, because:
+
+\begin{itemize}
+\item The inductive definition meshes well with the notion of nilpotency class
+\item Central series are critical to the idea of nilpotency
+\item We are always dealing with trivial group actions
+\item We are always dealing with at most one non-abelian group at any given time
+\end{itemize}
+
+\subsection{Cohomology trees for Lie ring extensions}
+
+We could do the same cohomology business for Lie ring extensions. We
+would need to replace group cohomology with Lie ring cohomology at the
+crucial place where we are using $H^2$.
+
+However, it is worth noting that the cohomology tree approach applied
+to $\mathcal{H}^2(\Z_p;\Z_p,\Z_p,\dots\Z_p)$ will {\em not} yield all
+Lie rings of order $p^n$, but only the nilpotent Lie rings of order
+$p^n$. This is exactly what we want, so not a problem. However, it
+does point a difference with groups, because for groups, any group of
+prime power order is nilpotent.
+
+\section{Our broad goals}
+
+At the classification level, we would like to compare the {\em group cohomology tree}:
+
+$$\mathcal{H}^2_{\operatorname{Grp}}(A_1;A_2,\dots,A_n)$$
+
+with the {\em Lie ring cohomology tree}:
+
+$$\mathcal{H}^2_{\operatorname{Lie}}(A_1;A_2,\dots,A_n)$$
+
+where $A_1,A_2,\dots,A_n$ are all abelian groups, treated as abelian
+Lie rings (trivial Lie bracket) for the Lie ring cohomology
+tree. (Another way of thinking of this is to write it as
+$\mathcal{H}^2_{\_}(1;A_1,A_2,\dots,A_n)$, which is the same thing but
+automatically enforces abelianness).
+
+A case of particular interest is when $A_1 = A_2 = \dots = A_n =
+\Z_p$. In this case, the leaves of the tree include all groups
+(respectively, nilpotent Lie rings) of order $p^n$, possibly with
+repetitions.
+
+How similar are the trees?
+
+
+\subsection{Restrict to a single prime}
+
+Cohomology groups for coprime group actions are trivial, etc., so in
+practice, we can restrict attention from finite groups to the case of
+finite $p$-groups for a single prime $p$.
+
+\subsection{Lazard isomorphism}
+
+A particular case where Lazard would be applicable is if $A_i$ are all
+finite $p$-groups for the same prime $p$ and $n < p$.
+
+In this case, there is an isomorphism between the trees that in fact
+induces the Lazard correspondence between every node and its
+identified node.
+
+\subsection{What happens when the Lazard isomorphism fails?}
+
+Suppose $n \ge p$. In this case the Lazard isomorphism fails all the
+way down. However, note that there is a substantial portion of the
+trees unto which the isomorphism does work. Specifically, it works to
+depth $p - 1$ (i.e., $p -2$ branchings). The interesting
+questions are as follows:
+
+\begin{itemize}
+\item Can the isomorphism obtained to depth $p - 1$ be extended to a
+  {\em tree} isomorphism all the way through?
+\item Can we choose this tree isomorphism such that the identification
+  of nodes happens between a group and a Lie ring whose additive group
+  is $1$-isomorphic to it?
+\end{itemize}
+
+\subsection{case $p = 2$ and depth two}
+
+In this case, we are looking at:
+
+$$\mathcal{H}^2_{\operatorname{Grp}}(A_1;A_2) = H^2(A_1;A_2)$$
+
+versus:
+
+$$\mathcal{H}^2_{\operatorname{Lie}}(A_1;A_2) = H^2_{\operatorname{Lie}}(A_1;A_2)$$
+
+It turns out that we have:
+
+$$H^2_{\operatorname{Lie}}(A_1;A_2) \cong H^2_{sym}(A_1;A_2) \oplus \operatorname{Hom}(\bigwedge^2(G),A)$$
+
+where the direct summation is by splitting the information into the
+``extension as an abelian group'' part and the ``Lie bracket
+description'' part.
+
+We also have a short exact sequence (at least in the finite case!):
+
+$$0 \to H^2_{sym}(A_1;A_2) \to H^2(A_1;A_2) \to \operatorname{Hom}(\bigwedge^2A_1,A_2) \to 0$$
+
+In cases of interest, this splits:
+
+$$H^2(A_1;A_2) \cong H^2_{sym}(A_1;A_2) \oplus \bigwedge^2(G;A)$$
+
+Under cases of interest to us, we can obtain an automorphism-invariant
+splitting, where we choose the complement as the subgroup comprising
+cohomology classes represented by cyclicity-preserving 2-cocycles.
+
+In these cases, we thus get a tree isomorphism where each node is
+identified with a node with which it is $1$-isomorphic.
+
+\section{Exploration of the class three situation}
+
+We consider the class three situation, which basically involves
+considering a cohomology tree of the form:
+
+$$\mathcal{H}^2(A_1;A_2,A_3)$$
+
+versus:
+
+$$\mathcal{H}^2_{\text{Lie}}(A_1;A_2,A_3)$$
+
+where $A_1$, $A_2$, and $A_3$ are all finite $p$-groups. We consider
+the general theory and also note how the Lazard situation (which in
+this case would be guaranteed if $p \ge 5$) is nicer than the more
+general situation.
+
+\subsection{The key parallelism idea}
+
+The key idea is that, as we proceed to build the cohomology tree on
+the group side, we try at every stage to break up the cohomology group
+as an internal direct sum of (weakly) symmetric cohomology classes
+(corresponding to abelian group extensions) and a suitable choice of
+complement. In the Lazard case, this suitable choice of complement can
+be represented canonically by cocycles that are alternating
+bihomomorphisms (or something like that). In other cases, we have to
+make do with other alternatives such as the cyclicity-preserving
+subgroup, or sometimes, we throw up our hand and say that there is no
+natural splitting.
+
+On the Lie ring side, we try to do a similar internal direct sum
+splitting. We then try to use the splittings done on both sides to
+obtain identifications between the nodes of the cohomology trees.
+
+The trick is then to patch these splittings with each other. This is
+trickier than it sounds.
+
+Overall, we will notice that our approach does more than just
+re-establish the Lazard correspondence. It should find a chain of
+intermediate groups as well. Recall that the Lazard correspondence relates:
+
+Groups of nilpotency class $\le p - 1$ $\leftrightarrow$ Abelian groups (with an additional Lie bracket structure)
+
+We can do better. We can, in the Lazard situation, form a descending
+nilpotency class chain:
+
+Group of nilpotency class $c$ $\leftrightarrow$ Group of nilpotency class $c - 1$ $\leftrightarrow$ $\dots$ Group of nilpotency class $1$ = Abelian group
+
+Further, in the non-Lazard situation, we can diagnose exactly {\em
+what step} the class reduction fails at. It may happen that a class
+three group can be brought down to a class two group which fails to go
+down to an abelian group. Or, it may happen that it's not possible to
+reduce to a class two group in the first place.
+
+Let's now return to the class three situation to see how all this is
+illustrated in that situation.
+
+\subsection{The first cut: the class two top}
+
+On the Lie ring side, we have:
+
+$$H^2_{\text{Lie}}(A_1;A_2) = H^2_{\text{sym}}(A_1;A_2) \oplus \operatorname{Hom}(\bigwedge^2A_1,A_2)$$
+
+The direct sum decomposition is explained as follows. To describe a
+Lie ring extension, we need to define the abelian group extension for
+the additive structure, and {\em separately} describe the Lie bracket
+as an alternating bihomomorphism from $A_1$ to $A_2$. The two direct
+summands correspond to these separate pieces of information.
+
+On the group side, we have a short exact sequence:
+
+$$0 \to H^2_{sym}(A_1;A_2) \to H^2(A_1;A_2) \stackrel{\Skew}{\to} \operatorname{Hom}(\bigwedge^2A_1,A_2) \to 0$$
+
+The goal is to find a natural splitting for this short exact sequence,
+and hence an isomorphism between $H^2_{\text{Lie}}(A_1;A_2)$ and
+$H^2(A_1;A_2)$.
+
+In the Lazard case, we choose a natural splitting by choosing cocycles
+that are halves of the alternating bihomomorphisms. In some of the
+non-Lazard cases, we can choose a complement that comprises the
+cohomology classes represented by cyclicity-preserving $2$-cocycles.
+
+What the isomorphism does (more concretely) is the following: for any
+group extension $L \in H^2(A_1;A_2)$, we have found an abelian group
+$M$ with a Lie bracket on it, and a bijection from $M$ to $L$ under
+which the Lie bracket on $M$ becomes the commutator map on $L$. The
+group $M$ is basically obtained by ``projecting'' the cohomology class
+describing $L$ onto the $H^2_{sym}(A_1;A_2)$ part.
+
+\subsection{The next cut}
+
+Let's say we have picked a group extension $L \in H^2(A_1;A_2)$, i.e.,
+we have chosen one of the child nodes of the root, namely
+$\mathcal{H}^2(L;A_3) = H^2(L;A_3)$. 
+
+Note now that $L$ is a (possibly) non-abelian group. Thus, we need to
+be a little more careful in describing $H^2(L;A_3)$. Note that because
+$L \in H^2(A_1;A_2)$, we are given an explicit identification of $A_2$
+with a central subgroup of $L$. We abuse notation and call this
+subgroup $A_2$.
+
+Note that since $A_2$ is in the center of $L$, it is true that $xy =
+yx$ for all $x \in A_2$ and $y \in L$. In particular, any
+$2$-coboundary $f$ from $L$ to $A_3$ has the property that $f(x,y) =
+f(y,x)$ for $x \in A_2$ and $y \in L$.
+
+Further, if a $2$-cocycle from $L$ to $A_3$ has the property that
+$f(x,y) = f(y,x)$ for all $x \in A_2$ and $y \in L$, then the
+corresponding extension of $L$ on top of $A_3$ has the property that
+the inverse image of $A_2$ in the extension (which is $A_2$ sitting
+atop $A_3$) is central in the whole extension, and thus the whole
+extension in particular has nilpotency class two.
+
+Define $Z^2_{sym,A_2}(L;A_3)$ as the group of $2$-cocycles $f$ from
+$L$ to $A_3$ satisfying $f(x,y) = f(y,x)$ for all $x \in A_2$ and $y
+\in L$. As already noted, $B^2(L;A_3) \le Z^2_{sym,A_2}(L;A_3)$, and
+we can hence define a quotient $H^2_{sym,A_2}(L;A_3)$ which is a
+subgroup of $H^2(L;A_3)$.
+
+Recall the short exact sequence in class two:
+
+$$0 \to H^2_{sym}(A_1;A_2) \to H^2(A_1;A_2) \stackrel{\Skew}{\to} \operatorname{Hom}(\bigwedge^2A_1,A_2) \to 0$$
+
+We would like to mimic this in class three. The right mimic is to
+consider, instead of alternating bilinear maps from $A_1 \times A_1$
+to $A_2$, to consider alternating bilinear maps from $A_2 \times A_1$
+to $A_3$. How did we get this? First, we are interested in the
+commutator map as it happens when one of the elements is in $A_2$ mod
+$A_3$, i.e., is in the piece that become s$A_2$ when we go mod
+$A_3$. We care about this element mod $A_3$ only. Further, because
+this element is already in $A_2$, we care only about the top part (mod
+$A_1,A_2$) of the other eleemnt. 
+
+The sequence we get is:
+
+$$0 \to H^2_{sym,A_2}(L;A_3) \to H^2(L;A_3) \stackrel{\Skew}{\to} \operatorname{Hom}(A_2 \wedge A_1,A_3) \to 0$$
+
+From the definitions, we can verify that it is left and middle
+exact. Right exactness is a little harder and may be isn't always
+true. So what we really have is:
+
+$$0 \to H^2_{sym,A_2}(L;A_3) \to H^2(L;A_3) \stackrel{\Skew}{\to} J \to 0$$
+
+where $J$ is a suitable subgroup of $\operatorname{Hom}(A_2 \wedge
+A_1,A_3)$ that depends on $L$.
+
+What we would ideally like to do is find a natural complement or
+equivalently a natural splitting of this short exact sequence, so
+that:
+
+$$H^2(L;A_3) = H^2_{sym,A_2}(L;A_3) \oplus J$$
+
+In the situation of $2$-divisible groups, the way this would work is
+that we would perform a halving to reverse the skew map.
+
+\subsection{Recombination}
+
+Let's say we start with a group $M \in H^2(L;A_3)$. We use the direct
+sum decomposition of $H^2(L;A_3)$ to project $M$ down to its
+$H^2_{sym,A_2}(L;A_3)$ component. Call that $N$.
+
+Now, we can rethink $N$ as follows. Consider the subgroup $A_2$ in $L$
+sitting atop $A_3$. That defines an extension group. Further, we know
+that this extension group is central in $N$ because $N \in
+H^2_{sym,A_2}(L;A_3)$. Call that group $K$. $N$ can be identified with
+an element of $H^2(A_1;K)$.
+
+Overall, we have a bijection between two bunches of disjoint unions of
+groups:
+
+$$\bigsqcup_{L \in H^2(A_1;A_2)} H^2_{sym,A_2}(L;A_3) \leftrightarrow \bigsqcup_{K \in H^2_{sym}(A_2;A_3)} H^2(A_1;K)$$
+
+and we are simply moving along this bijection from left to right.
+
+Now that we are in $H^2(A_1;K)$, we are in yet another class two situation and we try to decompose this:
+
+$$H^2(A_1;K) = H^2_{sym}(A_1;K) \oplus \text{complement}$$
+
+Further, we need to ensure that this ``canonical'' direct sum
+decomposition is compatible with the direct sum decomposition we chose
+for $H^2(A_1;A_2)$. More precisely, the surjection $K \to A_2$ induces
+a map $H^2(A_1;K) \to H^2(A_1;A_2)$ and we should get some kind of
+commuting diagram relating the direct sum decomposition.
+
+The upshot is that if we now project $N$ (viewed as an element of
+$H^2(A_1;K)$) down to $H^2_{sym}(A_1;K)$, we get a genuinely abelian
+group, say $P$. We have thus obtained a two-step procedure:
+
+Class three group $M$ $\leadsto$ Class two group $N$ $\leadsto$
+abelian group $P$.
+
+\subsection{This seems to work for $p=3$, but shouldn't. What gives?}
+
+\end{document}

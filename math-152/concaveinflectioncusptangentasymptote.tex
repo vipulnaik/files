@@ -1,0 +1,918 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Concavity, inflections, cusps, tangents, and asymptotes}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 4.6, 4.7.
+
+{\bf Difficulty level}: Moderate to hard. If you have seen these
+topics in AP Calculus, then moderate difficulty; if you haven't, then
+hard.
+
+{\bf What students should definitely get}: The definitions of {\em
+concave up}, {\em concave down}, and {\em point of inflection}. The
+strategies to determine {\em limits at infinity}, {\em limits valued
+at infinity}, {\em vertical tangents}, {\em cusps}, {\em vertical
+asymptotes}, and {\em horizontal asymptotes}.
+
+{\bf What students should hopefully get}: The intuitive meanings of
+these concepts, important examples and boundary cases, the
+significance of concavity in determining local extrema, the use of
+higher derivative tests. Important tricks for calculating limits at
+infinity.
+
+\section*{Executive summary}
+
+\subsection{Concavity and points of inflection}
+
+Words ...
+
+\begin{enumerate}
+\item A function is called {\em concave up} on an interval if it is
+  continuous and its first derivative is continuous and increasing on
+  the interval. If the function is twice differentiable, this is
+  equivalent to requiring that the second derivative be positive
+  except possibly at isolated points, where it can be zero. (Think
+  $x^4$, whose first derivative, $4x^3$, is increasing, and the second
+  derivative is positive everywhere except at $0$, where it is zero).
+\item A function is called {\em concave down} on an interval if it is
+  continuous and its first derivative is continuous and decreasing on
+  the interval. If the function is twice differentiable, this is
+  equivalent to requiring that the second derivative be negative
+  except possibly at isolated points, where it can be zero.
+\item A {\em point of inflection} is a point where the sense of
+  concavity of the function changes. A point of inflection for a
+  function is a point of local extremum for the first derivative.
+\item Geometrically, at a point of inflection, the tangent line to the
+  graph of the function {\em cuts through} the graph.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+
+\item To determine points of inflection, we first find critical points
+  for the first derivative (which are points where this derivative is
+  zero or undefined) and then use the first or second derivative test
+  at these points. Note that these derivative tests are applied to
+  the first derivative, so the first derivative here is the second
+  derivative and the second derivative here is the third derivative.
+\item In particular, if the second derivative is zero and the third
+  derivative exists and is nonzero, we have a point of inflection.
+\item A point where the first two derivatives are zero could be a
+  point of local extremum or a point of inflection. To find out which
+  one it is, we either use sign changes of the derivatives, or we use
+  higher derivatives.
+\item Most importantly, the second derivative being zero does {\em
+  not} automatically imply that we have a point of inflection.
+\end{enumerate}
+\subsection{Tangents, cusps, and asymptotes}
+
+Words...
+
+\begin{enumerate}
+
+\item We say that $f$ has a horizontal asymptote with value $L$ if
+  $\lim_{x \to \infty} f(x) = L$ or $\lim_{x \to -\infty} f(x) =
+  L$. Sometimes, both might occur. (In fact, in almost all the
+  examples you have seen, the limits at $\pm \infty$, if finite, are
+  both equal).
+\item We say that $f$ has a vertical asymptote at $c$ if $\lim_{x \to
+  c^-} f(x) = \pm \infty$ and/or $\lim_{x \to c^+} f(x) = \pm
+  \infty$. Note that in this case, it usually also happens that $f'(x)
+  \to \pm \infty$ on the relevant side, with the sign the same as that
+  of $f(x)$'s approach if the approach is from the left and opposite
+  to that of $f(x)$'s approach if the approach is from the
+  right. However, this is not a foregone conclusion.
+\item We say that $f$ has a vertical tangent at the point $c$ if $f$
+  is continuous (and finite) at $c$ and $\lim_{x \to c} f'(x) =
+  \pm \infty$, with the {\em same sign of infinity} from both sides. If
+  $f$ is increasing, this sign is $+\infty$, and if $f$ is decreasing,
+  this sign is $-\infty$. Geometrically, points of vertical tangent
+  behave a lot like points of inflection (in the sense that the
+  tangent line cuts through the graph). Think $x^{1/3}$.
+\item We say that $f$ has a vertical cusp at the point $c$ if $f$ is
+  continuous (and finite) at $c$ and $\lim_{x \to c^-} f'(x)$ and
+  $\lim_{x \to c^+} f'(x)$ are infinities of opposite sign. In other
+  words, $f$ takes a sharp about-turn at the $x$-value of $c$. Think
+  $x^{2/3}$.
+\item We say that $f$ is asymptotic to $g$ if $\lim_{x \to \infty}
+  f(x) - g(x) = \lim_{x \to -\infty} f(x) - g(x) = 0$. In other words,
+  the graphs of $f$ and $g$ come progressively closer as $|x|$ becomes
+  larger. (We can also talk of one-sided asymptoticity, i.e.,
+  asymptotic only in the positive direction or only in the negative
+  direction). When $g$ is a {\em nonconstant linear function}, we say
+  that $f$ has an {\em oblique asymptote}. Horizontal asymptotes are a
+  special case, where one of the functions is a constant function.
+\end{enumerate}
+
+Actions...
+
+\begin{enumerate}
+\item Finding the horizontal asymptotes involves computing limits as
+  the domain value goes to infinity. Finding the vertical asymptotes
+  involves locating points in the domain, or the boundary of the
+  domain, where the function limits off to infinity. For both of
+  these, it is useful to remember the various rules for limits related
+  to infinities.
+\item Remember that for a vertical tangent or vertical cusp at a
+  point, it is necessary that the function be continuous (and take a
+  finite value). So, we not only need to find the points where the
+  derivative goes off to infinity, we also need to make sure those are
+  points where the function is continuous. Thus, for the function
+  $f(x) = 1/x$, $f'(x) \to - \infty$ on both sides as $x \to 0$, but
+  we do {\em not} obtain a vertical tangent -- rather, we obtain a
+  vertical asymptote.
+\end{enumerate}
+
+\section{Concavity and points of inflection}
+
+\subsection{Concavity}
+
+{\em Concave up} means that the derivative of the function (which
+measures its rate of change) is itself increasing. Formally, a
+function $f$ differentiable on an open interval $I$ is termed {\em
+concave up} on $I$ if $f'$ is increasing on $I$. I hope you remember
+the definition of an {\em increasing function}: it means that for two
+points $x_1, x_2 \in I$, with $x_1 < x_2$, we have $f'(x_1) < f'(x_2)$.
+
+Here's three points:
+
+\begin{enumerate}
+\item If $f$ itself is increasing (so that $f'$ is positive), then
+  being concave up means that $f$ is increasing {\em at an increasing
+  rate}. In other words, the slope of the tangent line to the graph of
+  $f$ becomes steeper and steeper (up) as we go from left to
+  right. Here's a typical picture:
+
+  \includegraphics[width=3in]{increasingandconcaveup.png}
+\item If $f$ itself is decreasing (so that $f'$ is negative), then
+  being concave up means that $f$ is decreasing {\em at a decreasing
+  rate}. In other words, the slope of the tangent line to the graph is
+  negative, but it is becoming less and less steep as we go from left
+  to right. Here's a typical picture:
+
+  \includegraphics[width=3in]{decreasingandconcaveup.png}
+\item If $f$ is {\em twice differentiable}, i.e., $f'$ is
+  differentiable, then we can deduce whether $f'$ is increasing by
+  looking at $f''$. Specifically, if $f'$ is continuous on $I$, and
+  $f'' > 0$ everywhere on $I$ except at a few isolated points, then
+  $f$ is concave up throughout.
+\end{enumerate}
+
+Similarly, if $f$ is differentiable on an open interval $I$, we say
+that $f$ is {\em concave down} on $I$ if $f'$ is {\em decreasing} on
+the interval $I$. I hope you remember the definition
+of a {\em decreasing function}: it means that for two points $x_1,
+x_2 \in I$, with $x_1 < x_2$, we have $f'(x_1) > f'(x_2)$.
+
+Here's three points:
+
+\begin{enumerate}
+\item If $f$ itself is decreasing (so that $f'$ is negative), then
+  being concave down means that $f$ is decreasing {\em at an increasing
+  rate}. In other words, the slope of the tangent line to the graph of
+  $f$ becomes steeper and steeper (downward) as we go from left to right.
+
+  \includegraphics[width=3in]{decreasingandconcavedown.png}
+
+\item If $f$ itself is increasing (so that $f'$ is positive), then
+  being concave down means that $f$ is increasing {\em at a decreasing
+  rate}. In other words, the slope of the tangent line to the graph is
+  positive, but it is becoming less and less steep as we go from left
+  to right.
+
+  \includegraphics[width=3in]{increasingandconcavedown.png}
+
+\item If $f$ is {\em twice differentiable}, i.e., $f'$ is
+  differentiable, then we can deduce whether $f'$ is increasing by
+  looking at $f''$. Specifically, if $f'$ is continuous on $I$, and
+  $f'' < 0$ everywhere on $I$ except at a few isolated points, then
+  $f$ is concave down throughout.
+\end{enumerate}
+
+\subsection{Points of inflection}
+
+A point of inflection is a point $c$ in the interior of the domain of
+a differentiable function (i.e., the function is defined and
+differentiable on an open interval containing that point) such that
+the function is concave in one sense to the immediate left of $c$ and
+concave in the other sense to the immediate right of $c$.
+
+Another way of thinking of this is that points of inflection of a
+function are points where the derivative is increasing to the
+immediate left and decreasing to the immediate right, or decreasing to
+the immediate left and increasing to the immediate right. In other
+words, it is a point of local maximum or a point of local minimum for
+the derivative of the function.
+
+Recall that earlier, we noted that for a point of local maximum or a
+point of local minimum, either the derivative is zero or the
+derivative does not exist. Since everything we're talking about now is
+related to $f'$, we have that for a point of inflection, either $f'' =
+0$ or $f''$ does not exist.
+
+So the upshot: concave up means the derivative is increasing, concave
+down means the derivative is decreasing, point of inflection means the
+sense in which the derivative is changing changes at the point.
+
+\subsection{A point of inflection where the first two derivatives are zero}
+
+We now consider one kind of point of inflection: where the first
+derivative and the second derivative are both zero. Let's begin with
+the example.
+
+Consider the function $f(x):= x^3$. Recall first that since $f$ is a
+cubic function, it has odd degree, so as $x \to -\infty$, $f(x) \to
+-\infty$, and as $x \to \infty$, we also have $f(x) \to
+\infty$. Further, if we compute $f'(x)$, we get $3x^2$. Note that the
+function $3x^2$ is positive for $x \ne 0$, and is $0$ at $x = 0$. So,
+from our prior discussion of increasing and decreasing functions, we
+see that $f$ is increasing on $(-\infty,0]$ and then again on
+$[0,\infty)$. And since the point $0$ is common to the two intervals,
+$f$ is in fact increasing everywhere on $(-\infty,\infty)$.
+
+If you remember, this was an important and somewhat weird example
+because, although $f'(0) = 0$, $f$ does {\em not} attain a local
+extreme value at $0$. This is because the derivative of $f$ is
+positive {\em on both sides} of $0$.
+
+\includegraphics[width=3in]{cubefunction.png}
+
+This was the picture we had from our earlier analysis. But now, with
+the concepts of concave up, concave down, and points of inflection, we
+can get a better understanding of what's going on. Specifically, we
+see that the second derivative $f''$ is $6x$, which is negative for $x
+< 0$, zero for $x = 0$, and positive for $x > 0$. Thus, $f$ is concave
+down for $x < 0$, $x = 0$ is a point of inflection, and $f$ is concave
+up for $x > 0$.
+
+So, here's the picture: for $x < 0$, $f$ is negative, $f'$ is
+positive, and $f''$ is again negative. Thus, the graph of $f$ is below
+the $x$-axis (approaching $0$), it is going upward, and it is going up
+at a decreasing rate. So, as $x \to 0$, the graph becomes flatter and
+flatter.
+
+For $x > 0$, $f$ is positive, $f'$ is positive, and $f''$ is again
+positive. Thus, the graph of $f$ is above the $x$-axis (starting from
+the origin), it is going upward, and it is going up at an increasing
+rate. The graph starts out from flat and becomes steeper and steeper.
+
+So, $x = 0$ is a {\em no sign change} point for $f'$, which is why it
+is not a point of local maximum or local minimum. This is because on
+both sides of $0$, $f'$ is positive. What happens is that it is going
+down from positive to zero and then up again from zero to
+positive. But on a related note, because $f'$ itself dips down to zero
+and then goes back up, the point $0$ is a point of local minimum for
+$f'$, so it is a point of inflection for $f$.
+
+The main thing you should remember is that when we have a critical
+point for a function, where the derivative is zero, but it is neither
+a point of local maximum nor a point of local minimum, then it is {\em
+likely to be} a point of inflection. In other words, this idea of
+something that is increasing (or decreasing) and momentarily stops in
+its tracks, is the picture of neither a local maximum nor a local
+minimum but a point of inflection.
+
+\subsection{Points of inflection where the derivative is not zero}
+
+\includegraphics[width=3in]{sinegraph.png}
+
+Let's review the graph of the sine function. The sine function starts
+with $\sin(0) = 0$, goes up from $0$ to $\pi/2$, where it reaches the
+value $1$, then drops down to $0$, drops down further to $-1$ at
+$3\pi/2$, and then turns back up to reach $0$ at $2\pi$. And this
+pattern repeats periodically.
+
+So far, you've taken me on faith about the way the graph curves. But
+we can now start looking at things in terms of concave up and concave
+down.
+
+\includegraphics[width=3in]{sinecosinegraphs.png}
+
+The derivative of the $\sin$ function is the $\cos$ function. Let's
+graph the $\cos$ function. This starts with the value $1$ at $x = 0$,
+goes down to zero at $x = \pi/2$, dips down to $-1$ at $x = \pi$, goes
+back up to $0$ at $x = 3\pi/2$, and then goes up to $1$ at $x = 2\pi$.
+
+We see that $\cos$ is positive from $0$ to $\pi/2$, and $\sin$ is
+increasing on that interval. $\cos$ is negative from $\pi/2$ to
+$3\pi/2$, and $\sin$ is decreasing on that interval. $\cos$ is again
+positive from $3\pi/2$ to $2\pi$, and $\sin$ is again increasing on
+that interval.
+
+Next, we want to know where $\sin$ is concave up and where it is
+concave down. And for this, we look at the second derivative of
+$\sin$, which is the function $-\sin$. As you know, the graph of this
+function is the same as the graph of $\sin$, but flipped about the
+$x$-axis. This means that where $\sin$ is positive, its second
+derivative is negative, and where $\sin$ is negative, its second
+derivative is positive.
+
+So, from the interval between $0$ and $\pi$, $\sin$ is concave down
+and on the interval between $\pi$ and $2\pi$, $\sin$ is concave
+up. Breaking the interval down further, $\sin$ is increasing and
+concave down on $(0,\pi/2)$, decreasing and concave down on
+$(\pi/2,\pi)$, decreasing and concave up on $(\pi,3\pi/2)$, and
+increasing and concave up on $(3\pi/2,2\pi)$. The behavior repeats
+periodically.
+
+\includegraphics[width=3in]{sinegraphwithtangentatorigin.png}
+
+Now, let's concentrate on the points of inflection. Note that the
+sense of concavity changes at multiples of $\pi$ -- at the point $0$,
+the function changes from concave up to concave down. At the point
+$\pi$, the function changes from concave down to concave up. Another
+way of thinking about this is that just before $\pi$, the function is
+decreasing at an increasing rate -- it is becoming progressively
+steeper. But from $\pi$ onwards, it starts decreasing at a decreasing
+rate, in the sense that it starts becoming less steep. So $\pi$ is the
+point where the way the tangent line is turning starts changing.
+
+\subsection{A graphical characterization of inflection points}
+
+Inflection points are graphically special because they are points
+where the way the tangent line is turning changes sense. There's a
+related characterization. If you draw the tangent line through an
+inflection point, the tangent line {\em cuts through} the
+curve. Equivalently, the curve {\em crosses} the tangent line. This is
+opposed to any other point, where the curve {\em locally} lies to one
+side of the tangent line.
+
+For instance, for the cube function $f(x) := x^3$, the tangent line is
+the $x$-axis, and the curve crosses the $x$-axis at $x = 0$. We see
+something similar for the tangent lines at the points of inflection
+$0$ and $\pi$ for the $\sin$ function.
+
+\subsection{Third and higher derivatives: exploration}
+
+(I may not get time to cover this in class).
+
+A while ago, we had developed criteria to determine whether a critical
+point is a point where a local extreme value is attained. We discussed
+two tests that could be used: the {\em first derivative test} and the
+{\em second derivative test}. The first derivative test said that if
+$f'$ changes sign across the critical point, it is a point where a
+local extreme value occurs: a local maximum if the sign change is from
+positive on the left to negative on the right, and a local minimum if
+the sign change is from negative on the left to positive on the right.
+
+The second derivative test was a test specially suited for functions
+that are twice differentiable at the critical point. This test states
+that if the second derivative at a critical point is negative, the
+function attains a local maximum, and if the second derivative is
+positive, the function attains a local minimum. This leaves one case
+open: what happens if the second derivative at the critical point is
+zero?
+
+In this case, things are inconclusive. We might have a point of local
+maximum, a point of local minimum, an inflection point, or none of the
+above. How do we figure this out? I will give two general principles
+of alternation, and then we will look at some examples:
+
+\begin{enumerate}
+\item If $c$ is a point of inflection for $f'$ and and $f'(c) = 0$,
+  then $c$ is a point of local extremum for $f$. If the point of
+  inflection is a change from concave up to concave down, we get a
+  local maximum and if the change is from concave down to concave up,
+  we get a local minimum.
+\item If $c$ is a point of local maximum or minimum for $f'$, then $c$
+  is a point of inflection for $f$. Local maximum implies a change
+  from concave up to concave down and local minimum implies a change
+  from concave down to concave up.
+\end{enumerate}
+
+Let's illustrate this with the function $f(x) := x^5$ and the point $c
+= 0$. Let's also assume you knew nothing except differentiation and
+applying the derivative tests. We have $f'(x) = 5x^4$, $f''(x) =
+20x^3$, $f'''(x) = 60x^2$, $f^{(4)}(x) = 120x$, and $f^{(5)}(x) =
+120$. At $c = 0$, $f^{(5)}$ is the first nonzero derivative.
+
+Now, $0$ is a point at which $f^{(4)} = 0$ and $f^{(5)} > 0$. Thus, by
+the second derivative test, $0$ is a point of local minimum for
+$f^{(3)}$. So, $0$ is a point of inflection for $f^{(2)}$, by point
+(2) above. Thus, $0$ is a point of local minimum for $f'$, by point
+(1) above. Thus, $0$ is a point of inflection for $f$, by point (2) above.
+
+So, the upshot of this is the alternating behavior between
+derivatives.
+
+\subsection{Higher derivative tests}
+
+The discussion above gives a practical criterion to simply use
+evaluation of derivatives to determine whether a critical point, where
+a function is infinitely differentiable, is a point of local maximum,
+point of local minimum, point of inflection, or none of these.
+
+Suppose $f$ is an infinitely differentiable function around a critical
+point $c$ for $f$.. Let $k$ be the smallest integer for which
+$f^{(k)}(c) \ne 0$ and let $L$ be the nonzero value of the $k^{th}$
+derivative. Then:
+
+\begin{enumerate}
+\item If $k$ is odd, then $c$ is a point of inflection for $f$ and
+  hence neither a point of local maximum nor a point of local minimum.
+\item If $k$ is even and $L > 0$, then $c$ is a point of local minimum
+  for $f$.
+\item If $k$ is even and $L < 0$, then $c$ is a point of local maximum
+  for $f$.
+\end{enumerate}
+
+For instance, for the power function $f(x) := x^n, n \ge 2$. $0$ is a
+critical point and $f$ is infinitely differentiable. In this case, $c
+= 0$, $k = n$, and $L = n! > 0$. Thus, if $n$ is even, then $f$ does
+attain a local minimum at $0$. if $n$ is odd, $0$ is a point of
+inflection. In this simple situation, we could have deduced this
+directly from the first derivative test -- for $n$ even, the first
+derivative changes sign fron negative to positive at $0$, because $n -
+1$ is odd. For $n$ odd, $n - 1$ is even, so the first derivative has
+positive sign on both sides of $0$. However, the good news is that
+this general method is applicable for other situations where the first
+derivative test is harder to apply.
+
+\subsection{Notion of concave up and concave down for one-sided differentiable}
+
+So far, we have defined the notion of concave up and concave down on
+an interval assmuing the function is differentiable everywhere on the
+interval. In higher mathematics, a somewhat more general definition is
+used, and this makes sense for functions that have one-sided
+derivatives everywhere.
+
+{\em Note}: Please, please, please, please make sure you understand
+this clearly: we can calculate the left-hand derivative and right-hand
+derivative using the formal expressions {\em only} after we have
+checked that the function is continuous from that side! If there is a
+piecewise description of the function and it is not continuous from
+one side where the definition is changing, then the corresponding
+one-sided derivative is {\em not}, repeat {\em not} defined.
+
+Suppose $f$ is a function on an interval $I = (a,b)$ such that both
+the left-hand derivative and the right-hand derivative of $f$ are
+defined everywhere on $I$. Note that {\em both} one-sided derivatives
+being defined at every point in particular means that the function is
+continuous at each point, and hence on $I$. However, $f$ need not be
+differentiable at every point, because it is possible that the
+left-hand derivative and right-hand derivative differ at different
+points.
+
+We then say that:
+
+\begin{enumerate}
+\item $f$ is concave up if, at every point, the right-hand derivative
+  is greater than or equal to the left-hand derivative, and both
+  one-sided derivative are increasing functions on $\R$.
+\item $f$ is concave down if, at every point, the right-hand
+  derivative is less than or equal to the left-hand derivative, and
+  both one-sided derivatives are decreasing functions on $\R$.
+\end{enumerate}
+
+For instance, first consider the function $f$ on $(0,\infty)$:
+
+$$f(x) := \lbrace\begin{array}{rl} x^2, & 0 < x \le 1\\x^3, &1 < x \\\end{array}$$
+
+{\em Before we proceed further}, we check/note that the function is
+continuous at $1$. Indeed it is. Hence, to calculate the left-hand
+derivative and right-hand derivative at $1$, we can formally
+differentiate the expressions at $1$. We obtain that the left-hand
+derivative at $1$ is $2 \cdot 1 = 2$ and the right-hand derivative at
+$1$ is $3 \cdot 1^2 = 3$. We thus obtain the following piecewise
+definitions for the left-hand derivative and right-hand derivative:
+
+$$\text{LHD of $f$ at } x = \lbrace\begin{array}{rl} 2x, 0 < x \le 1 \\3x^2, &1 < x \\\end{array}$$
+
+and:
+
+$$\text{RHD of $f$ at } x = \lbrace\begin{array}{rl} 2x, 0 < x < 1 \\3x^2, &1 \le x \\\end{array}$$
+
+The derivative is undefined at $1$. Note that both one-sided
+derivatives are increasing everywhere, and at the point $1$, where the
+function is not differentiable, the right-hand derivative is
+bigger. Thus, the function is concave up on $(0,\infty)$.
+
+Here's the graph, with dashed lines indicating the one-sided derivatives:
+
+\includegraphics[width=3in]{squarecubemax.png}
+
+On the other hand, consider the function $g$ on $(0,\infty)$:
+
+$$g(x) := \lbrace\begin{array}{rl} x^3, & 0 < x \le 1\\x^2, & 1 < x \\\end{array}$$
+
+The function $g$ is continuous and has one-sided derivatives
+everywhere. Also note that on the intervals $(0,1)$ and $(1,\infty)$,
+$g$ is concave up. However, at the critical point $1$ where $g'$ is
+undefined, the right-hand derivative is smaller than the left-hand
+derivative. Thus, the function is not concave up overall on
+$(0,\infty)$, because at the critical point, its rate of increase
+takes a plunge for the worse. Here's the picture of $g$:
+
+\includegraphics[width=3in]{squarecubemin.png}
+
+\subsection{Graphical properties of concave functions}
+
+Here are some properties of the graphs of functions that are concave
+up, which are particularly important in the context of
+optimization. You should be able to do suitable role changes and
+obtain corresponding properties for concave down functions. In all the
+points below, $f$ is a continuous function on an interval $[a,b]$ and
+is concave up on the interior $(a,b)$.
+
+\begin{enumerate}
+\item The only possibilities for the increase-decrease behavior of $f$
+  are: increasing throughout, decreasing throughout, or decreasing
+  first and then increasing.
+\item In particular, $f$ either has exactly one local minimum or
+  exactly one endpoint minimum, and this local or endpoint minimum is
+  also the absolute minimum.
+\item Also, $f$ cannot have a local maximum in its interior. It has
+  exactly one endpoint maximum, and this is also the absolute maximum.
+\item For any two points $x_1, x_2$ in the domain of $f$, the part of
+  the graph of $f$ between $(x_1,f(x_1))$ and $(x_2,f(x_2))$ lies
+  below the chord joining the points $(x_1,f(x_1))$ and
+  $(x_2,f(x_2))$.
+\item If we assume that $f$ is differentiable on $(a,b)$, the tangent
+  line through any point $(x,f(x))$ for $a < x < b$ does {\em not}
+  intersect the curve at any other point. In the more general notion
+  where $f$ has one-sided derivatives, both the left and right tangent
+  line satisfy this property.
+\end{enumerate}
+
+For concave down functions, the role of minimum and maximum gets
+interchanged, and in point (3) above, the graph is now above the chord
+rather than below.
+
+\subsection{Addendum: concave and convex}
+
+The book uses the terminology {\em concave up} and {\em concave down},
+but it's worth knowing that in much of mathematics as well as
+applications of mathematics, the term {\em convex} is used for concave
+up and the term {\em concave} is used for concave down. However, there
+is some confusion about this since some people use {\em concave} for
+concave up and {\em convex} for concave down.
+
+\section{Infinity and asymptotes}
+
+\subsection{Limits to infinity and vertical asymptotes}
+
+We have already discussed what it means to say $\lim_{x \to c} f(x) =
++\infty$, but here's a friendly reminder. It means that as $x$ comes
+closer and closer to $c$ (from either side), $f(x)$ goes above every
+finite value and does not then come back down. You can similarly
+understand what it means to say that $\lim_{x \to c} f(x) = -
+\infty$. You should also be able to understand the {\em one-sided
+versions} of these concepts: $\lim_{x \to c^-} f(x) = \infty$,
+$\lim_{x \to c^+} f(x) = \infty$, $\lim_{x \to c^-} f(x) = -\infty$,
+and $\lim_{x \to c^+} f(x) = -\infty$.
+
+Now, here's a little guesswork question: if $\lim_{x \to c^-} f(x) =
+\infty$, what can you say about $\lim_{x \to c^-} f'(x)$? As a general
+rule, nothing, but in most of the situations that we see, it turns out
+that $f'(x)$ also approaches $+\infty$\footnote{More precisely, it
+turns out that if $f'$ is continuous and {\em does} approach
+something, that something must be $+\infty$. However, there are weird
+examples where it oscillates}. The reason is easy to see graphically:
+for $f(x)$ to head to $+\infty$ as $x$ approaches a finite value, $f$
+needs to climb faster and faster and faster.
+
+Similarly, it is usually the case that if $\lim_{x \to c^-} f(x) =
+-\infty$, then $\lim_{x \to c^-} f'(x) = -\infty$. Also, if $\lim_{x
+  \to c^+} f(x) = \infty$, then it is likely that $\lim_{x \to c^+}
+f'(x) = -\infty$ (because it has to drop very quickly down from
+infinity) and if $\lim_{x \to c^+} f(x) = -\infty$, then $\lim_{x \to
+  c^+} f'(x) = \infty$ (because it has to rise very quickly back up
+from $-\infty$). Again, these things are not always true, but for most
+of the typical examples you'll see, they will be.
+
+Now here's the meaning of {\em vertical asymptote}. If $\lim_{x \to
+c^-} f(x) = \pm \infty$ and/or $\lim_{x \to c^+} f(x) = \pm \infty$,
+then the line $x = c$ is termed a {\em vertical asymptote} for
+$f$. This is because the graph of $f$ is approaching the vertical line
+$x = c$. In some sense, if we think of $f(c) = +\infty$ or $-\infty$
+as the case may be, the vertical line becomes the tangent line to the
+curve at that infinite point.
+
+Some of the typical situations worth noting are:
+
+\begin{enumerate}
+\item $\lim_{x \to c} f(x) = +\infty$ from both sides. An example of
+  this is the function $f(x) = 1/x^2$ with $c = 0$. The vertical
+  asymptote is the $y$-axis, i.e., the line $x = 0$. In this case, and
+  in most other representative examples, $\lim_{x \to c^-} f'(x) =
+  +\infty$, and $\lim_{x \to c^+} f'(x) = -\infty$.
+  
+  \includegraphics[width=3in]{1byxsquare.png}
+
+\item $\lim_{x \to c} f(x) = -\infty$ from both sides. An example of
+  this is the function $f(x) = -1/x^2$ with $c = 0$. The vertical
+  asymptote is the $y$-axis, i.e., the line $x = 0$. In this case, and
+  in most other representative examples, $\lim_{x \to c^-} f(x) =
+  -\infty$, and $\lim_{x \to c^+} f(x) = +\infty$.
+
+  \includegraphics[width=3in]{-1byxsquare.png}
+
+\item $\lim_{x \to c^-} f(x) = \infty$ and $\lim_{x \to c^+} f(x) =
+  -\infty$. Examples include $f = \tan$ at $c = \pi/2$ (vertical
+  asymptote $x = \pi/2$) and $f(x) = -1/x$ at $c = 0$ (vertical
+  asymptote $x = 0$). In both these cases, as in most others, $\lim_{x
+    \to c} f'(x) = +\infty$.
+
+  \includegraphics[width=3in]{tangraphwithasymptote.png}
+
+  \includegraphics[width=3in]{-1byx.png}
+\item $\lim_{x \to c^-} f(x) = -\infty$ and $\lim_{x \to c^+} f(x) =
+  \infty$. Examples include $f = \cot$ at $c = 0$ and $f(x) := 1/x$ at
+  $c = 0$. In both these cases, as in most others, $\lim_{x \to c}
+  f'(x) = -\infty$.
+
+  \includegraphics[width=3in]{-1byxsquare.png}
+
+\end{enumerate}
+
+\subsection{Horizontal asymptotes}
+
+Horizontal asymptotes are horizontal lines that the graph comes closer
+and closer to, just as vertical asymptotes are vertical lines that the
+graph comes closer and closer to.
+
+We saw that vertical asymptotes arose when the {\em range value} was
+approaching $\pm \infty$ for a finite limiting value of the
+domain. Horizontal asymptotes arise where the {\em domain value}
+approaches $\pm \infty$ for a finite limiting value of the range.
+
+Explicitly, if $\lim_{x \to \infty} f(x) = L$ (with $L$ a finite
+number), then the line $y = L$ is a horizontal asymptote for the graph
+of $f$, because as $x \to \infty$, the graph comes closer and closer
+to this horizontal line. Similarly, if $\lim_{x \to -\infty} f(x) =
+M$, then the line $y = M$ is a horizontal asymptote for the graph of
+$f$. Thus, a function whose domain extends to infinity in both
+directions could have zero, one, or two horizontal asymptotes.
+
+\includegraphics[width=3in]{twohorizontalasymptotes.png}
+
+\includegraphics[width=3in]{onehorizontalasymptote.png}
+
+We will discuss some of the computational aspects of vertical and
+horizontal asymptotes in the problem sessions. Later in the lecture,
+and in the addendum, we look at some computational tips and guidelines
+over and above what is there in the book.
+
+\subsection{Vertical tangents}
+
+A vertical tangent to the graph of a function $f$ occurs at a point
+$(c,f(c))$ if $f$ is continuous but not differentiable at $c$, and
+$\lim_{x \to c} f'(x) = +\infty$ or $\lim_{x \to c} f'(x) =
+-\infty$. {\em It is important that the sign of infinity in the limit
+is the same from both the left and the right side.} 
+
+An example is the function $f(x) := x^{1/3}$ at the point $c = 0$. The
+function is continuous at $0$. The derivative functions is
+$(1/3)x^{-2/3}$, and the limit of this as $x \to 0$ (from either side)
+is $+\infty$. Graphically, what this means is that the tangent is
+vertical. In this case, the vertical tangent coincides with the
+$y$-axis, because it is attained at the point $0$.
+
+\includegraphics[width=3in]{cuberootfunction.png}
+
+Points of vertical tangent are points of inflection, as we can see
+from the $x^{1/3}$ example. Recall that the horizontal tangent case of
+the point of inflection was typified by $x^3$, and the general slogan
+was that the function slows down for an instant to speed zero. For
+vertical tangents, we can think of it as the function speeding up
+instantaneously to speed infinity before returning to the realm of
+finite speed.
+
+It is important to note that the situation of a vertical tangent
+requires that the function itself be defined and continuous, and hence
+finite-valued, at the point. Thus, for instance, the function $f(x) :=
+1/x$ satisfies $\lim_{x \to 0} f'(x) = -\infty$ but does {\em not}
+have a vertical tangent at zero because the function is undefined at
+zero.
+
+\subsection{Vertical cusps}
+
+A vertical cusp in the graph of $f$ occurs at a point $c$ if $f$ is
+continuous at $c$, and both one-sided limits of $f'$ at $c$ are
+infinities of {\em opposite} sign. There are two possibilities:
+
+\begin{enumerate}
+\item The left-hand limit of the derivative is $+\infty$ and the
+  right-hand limit of the derivative is $-\infty$. Then, $(c,f(c))$ is
+  a point of local maximum. An example is $f(x) := -x^{2/3}$ and $c =
+  0$ What happens in this situation is the the graph has a sharp peak
+  (picking up to speed infinity) at the point $c$, after which it
+  rapidly starts dropping.
+\item The left-hand limit of the derivative is $-\infty$ and the
+  right-hand limit of the derivative is $+\infty$. In this case we get
+  a local minimum. An example is $f(x) := x^{2/3}$ and $c = 0$.
+\end{enumerate}
+
+There is a special curve called the {\em astroid curve} (I had planned
+to put this on the homework, but it went on the chopping block when I
+needed to trim the homeworks to size), given by the equation $x^{2/3}
++ y^{2/3} = a^{2/3}$. This curve is not the graph of a function, since
+every value of $x$ in $(-a,a)$ has two corresponding values of
+$y$. Nonetheless, the curve is a good illustration of the concept of
+cusps: there are two vertical cusps at the points $(0,a)$ and $(0,-a)$
+respectively, and two horizontal cusps at the points $(a,0)$ and
+$(-a,0)$ respectively.
+
+Shown below is the astroid curve for $a = 1$:
+
+\includegraphics[width=3in]{astroidcurve.png}
+
+{\em Note that for the graph of a function, the only kind of cusp that
+can occur is a vertical cusp, because a horizontal or oblique cusp
+would result in the curve intersecting a vertical line at multiple
+points, which would contradict the meaning of a function.}
+
+It is important to note that the situation of a vertical cusp requires
+that the function itself be defined and continuous, and hence
+finite-valued, at the point. Thus, for instance, the function $f(x) :=
+1/x^2$ satisfies $\lim_{x \to 0^-} f'(x) = +\infty$ and $\lim_{x \to
+0^+} f'(x) = -\infty$ but does {\em not} have a vertical tangent at
+zero because the function is undefined at zero.
+
+\section{Computational aspects}
+
+\subsection{Computing limits at infinity: a review}
+
+We review the main results that you have probably seen and add some
+more:
+
+\begin{enumerate}
+\item $(\to \infty)(\to \infty) = \to \infty$. In other words, if
+  $\lim_{x \to c} f(x) = \infty$ and $\lim_{x \to c} g(x) = \infty$,
+  then $\lim_{x \to c} f(x)g(x) = \infty$. $c$ could be finite or $\pm
+  \infty$ here, and we could take one-sided limits instead.
+\item $(\to \infty)(\to -\infty) = \to -\infty$, and $(\to
+  -\infty)(\to -\infty) = \to \infty$.
+\item $(\to a)(\to \infty) = \to \infty$ if $a > 0$ and $(\to a)(\to
+  \infty) = \to -\infty$ if $a < 0$. Similarly, $(\to a)(\to -\infty) =
+  \to -\infty$ if $a > 0$ and $(\to a)(\to -\infty) = \to \infty$ if
+  $a < 0$.
+\item The previous point can be generalized somewhat: $(\to \infty)$,
+  times a function that eventually has a positive lower bound (even if
+  it keeps oscillating), is also $\to \infty$. Analogous results hold
+  for negative upper bounds.
+\item $(\to 0)(\to \infty)$ is an indeterminate form: it is not clear
+  what it tends to without doing more work.
+\item $(\to \infty) + (\to \infty) = \to \infty$.
+\item $(\to \infty) + (\to a) = \to \infty$ where $a$ is finite. More
+  generally, $\to \infty$ plus anything that is bounded from below is
+  also $\to \infty$.
+\item $(\to \infty) - (\to \infty)$ and $(\to \infty) + (\to -\infty)$
+  are indeterminate forms.
+\end{enumerate}
+
+Apart from this, the main facts you need to remember are that if
+$a > 0$, then $\lim_{x \to \infty} x^a = \infty$ and $\lim_{x \to
+\infty} x^{-a} = \lim_{x \to -\infty} x^{-a} = 0$. Note that this
+holds regardless of whether $a$ is an integer.
+
+When $a$ is an odd integer or a rational number with odd numerator and
+odd denominator, $\lim_{x \to -\infty} x^a = -\infty$. When $a$ is an
+even integer or a rational number with even numerator and odd
+denominator, $\lim_{x \to -\infty} x^a = \infty$. 
+
+Also worth noting: $\lim_{x \to 0^+} x^{-a} = \infty$ for $a > 0$ and
+$\lim_{x \to 0^-} x^{-a} = \lim_{x \to -\infty} x^a$, which is
+computed by the rule above.
+
+We can use these facts to explain most of the limits involving
+polynomial and rational functions. Earlier, we had noted that when
+calculating the limit of a polynomial, it is enough to calculate the
+limit of its leading monomial. Let's now see why.
+
+Consider the function $f(x) := x^7 - 5x^5 + 3x + 2$. Then, we can
+write $f(x) = x^7\left[ 1 - 5x^{-2} + 3x^{-6} + 2x^{-7}\right]$. The
+expression on the inside is $1$ plus various negative powers of
+$x$. Each of those negative powers of $x$ goes to $0$ as $x \to
+\infty$. So, we obtain:
+
+$$\lim_{x \to \infty} [1 - 5x^{-2} + 3x^{-6} + 2x^{-7}] = 1$$
+
+We also have $\lim_{x \to \infty} x^7 = \infty$. Thus, the limit of
+the product is $\infty$.
+
+Let's now consider an example of a rational function:
+
+$$\frac{9x^3 - 3x + 2}{103x^2 - 17x - 99}$$
+
+Earlier, we had discussed that when computing such limits at $\pm
+\infty$, we can simply calculate thel imits of the leading terms and
+ignore the rest. We now have a better understanding of the rationale
+behind this. Formally:
+
+\begin{align*}
+  & \lim_{x \to \infty} \frac{9x^3 - 3x + 2}{103x^2 - 17x - 99}\\
+  = & \lim_{x \to \infty} \frac{x^3(9 - 3x^{-2} + 2x^{-3})}{x^2(103 - 17x^{-1} - 99x^{-2})}\\
+  = & \lim{x \to \infty} x \lim_{x \to \infty} \frac{9 - 3x^{-2} + 2x^{-3}}{103 - 17x^{-1} - 99x^{-2}}\\
+  = & \lim_{x \to \infty} x \cdot \frac{9}{103}\\
+  = & +\infty
+\end{align*}
+
+More generally, we see that if the degree of the numerator is greater
+than the degree of the denominator, the fraction approaches $\pm
+\infty$ as $x \to \pm \infty$, with the sign depending on the signs of
+the leading coefficients and the parity (even versus odd) of the
+exponents.
+
+If the numerator and denominator have equal degree, the limit is a
+finite number. For $x \to \pm \infty$, it is the ratio of the leading
+coefficients (notice that it is the same on both sides). This is the
+case where we get horizontal asymptotes. In this case, the horizontal
+asymptotes on both ends coincide.
+
+For instance:
+
+\begin{align*}
+  & \lim_{x \to -\infty} \frac{2x^2 - 3x + 5}{23x^2 - x - 1}\\
+  = & \lim_{x \to -\infty} \frac{x^2(2 - 3x^{-1} + 5x^{-2})}{x^2(23 - x^{-1} - x^{-2})}\\
+  = & \lim_{x \to -\infty} \frac{x^2}{x^2} \lim_{x \to -\infty} \frac{2 - 3x^{-1} + 5x^{-2}}{23 - x^{-1} - x^{-2}}\\
+  = & 1 \cdot \frac{2}{23}\\
+  = & \frac{2}{23}
+\end{align*}
+
+Finally, when the degree of the numerator is less than the degree of
+the denominator, then the fraction tends to $0$ as $x \to \infty$ and
+also tends to $0$ as $x \to -\infty$. Thus, in this case, we get the
+$x$-axis as the horizontal asymptote on both sides.
+\subsection{The $1/x$ substitution trick}
+
+\includegraphics[width=3in]{xsin1byx-3to3.png}
+
+Consider the limit:
+
+$$\lim_{x \to \infty} x \sin(1/x)$$
+
+This limit cannot be computed by plugging in values, because $x \to
+\infty$ and $1/x \to 0$, so $\sin(1/x) \to 0$, and we get the
+indeterminate form $(\to \infty)(\to 0)$. The approach we use here is
+to set $t = 1/x$. As $x \to \infty$, $t \to 0^+$. Since $t = 1/x$, we
+get $x = 1/t$. Plugging in, we get:
+
+$$\lim_{t \to 0^+} \frac{\sin t}{t}$$
+
+This limit is $1$, as we know well.
+
+Note that with this general substitution, limits to infinity
+correspond to right-hand limits at $0$ for the reciprocal and limits
+at $-\infty$ correspond to left-hand limits at $0$ for the
+reciprocal. If there is a two-sided limit at $0$ for the reciprocal,
+the limits at $\pm \infty$ are the same. In fact, in the $x\sin(1/x)$
+example, the limits at $\infty$ and $-\infty$ are both $1$ since
+$\lim_{t \to 0} \sin t/t = 1$.
+
+\subsection{Difference of square roots}
+
+Consider the limit:
+
+$$\lim_{x \to \infty}(\sqrt{x + 1} - \sqrt{x})$$
+
+There are many ways to compute this limit, but the easiest is to use
+the general $1/x$ substitution trick. Let $t = 1/x$. Then the above
+limit becomes:
+
+$$\lim_{t \to 0^+} \frac{\sqrt{t + 1} - 1}{\sqrt{t}}$$
+
+This is an indeterminate form (specifically, a $0/0$ form). However,
+we can do the rationalization trick and rewrite this as:
+
+$$\lim_{t \to 0^+} \frac{t}{\sqrt{t}(\sqrt{t + 1} + 1)}$$
+
+The $t$ and $\sqrt{t}$ cancel to give a $\sqrt{t}$ in the numerator,
+and we can evaluate and find the limit to be $0$.
+
+A similar approach can be used to handle, for instance, a difference
+of cube roots.
+
+\subsection{Combinations of polynomial and trigonometric functions}
+
+We illustrate using some examples:
+
+\begin{enumerate}
+\item Consider the function $f(x) := x + 25 \sin x$. As $x \to
+  \infty$, this is the sum of a function that tends to infinity and a
+  function that oscillates. The oscillating component, however, has a
+  finite lower bound, and hence, $\lim_{x \to \infty} f(x) =
+  \infty$. Similarly, $\lim_{x \to -\infty} f(x) = -\infty$.
+\item Consider the function $f(x) := x\sin x$. As $x \to \infty$, this
+  is the product of a function that goes to $\infty$ and a function
+  that oscillates between $-1$ and $1$. The oscillating part causes
+  the sign of the whole expression to shift, and so as $x \to \infty$,
+  $f(x)$ is oscillating with an ever-increasing magnitude of
+  oscillation. A similar observation holds for $x \to -\infty$.
+\item Consider the function $f(x) := x(3 + \sin x)$ As $x \to \infty$,
+  this is the product of a function that tends to $\infty$ and a
+  function that oscillates between $2$ and $4$. The important point
+  here is that the latter oscillation has a {\em positive lower
+    bound}, so the product still tends to $\infty$.
+\item Consider the function $f(x) := x \sin(1/x)$. As $x \to \infty$,
+  this is the product of a function that tends to $\infty$ and a
+  function that tends to $0$, so it is an indeterminate form. We
+  already discussed above how this particular indeterminate form can
+  be handled.
+\end{enumerate}
+\end{document}

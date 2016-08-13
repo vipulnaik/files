@@ -1,0 +1,64 @@
+\usepackage{amsthm}
+%Theorem styles
+\newtheoremstyle{mystyle}% name
+     {24pt}%      Space above
+     {24pt}%      Space below
+     {\rm}%         Body font
+     {\parindent}%         Indent amount (empty = no indent, \parindent = para indent)
+     {\bf}% Thm head font
+     {.}%        Punctuation after thm head
+     {.5em}%     Space after thm head: " " = normal interword space;
+           %       \newline = linebreak
+     {}%         Thm head spec (can be left empty, meaning `normal')
+
+\newtheoremstyle{smallstyle}% name
+     {6pt}%      Space above
+     {6pt}%      Space below
+     {\small}%         Body font
+     {}%         Indent amount (empty = no indent, \parindent = para indent)
+     {\bf}% Thm head font
+     {.}%        Punctuation after thm head
+     {\newline}%     Space after thm head: " " = normal interword space;
+           %       \newline = linebreak
+     {}%         Thm head spec (can be left empty, meaning `normal')
+
+\newtheoremstyle{itystyle}
+     {3pt}%      Space above
+     {3pt}%      Space below
+     {\em}%         Body font
+     {}%         Indent amount (empty = no indent, \parindent = para indent)
+     {\bf}% Thm head font
+     {}%        Punctuation after thm head
+     {\newline}%     Space after thm head: " " = normal interword space;
+           %       \newline = linebreak
+     {}%         Thm head spec (can be left empty, meaning `normal')
+
+%Theorem list
+\theoremstyle{mystyle}\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{mystyle}\newtheorem{fact}[theorem]{Fact}
+\theoremstyle{mystyle}\newtheorem{keypt}[theorem]{Key Point}
+\theoremstyle{mystyle}\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{mystyle}\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{mystyle}\newtheorem{observation}[theorem]{Observation}
+\theoremstyle{mystyle}\newtheorem{openproblem}[theorem]{Open Problem}
+\theoremstyle{mystyle}\newtheorem{pointsofinvestigation}[theorem]{Points of Investigation}
+\theoremstyle{mystyle}\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{mystyle}\newtheorem{problem}[theorem]{Problem}
+\theoremstyle{mystyle}\newtheorem*{claimer}{Claim}
+\theoremstyle{smallstyle}\newtheorem{aside}[theorem]{Aside}
+\theoremstyle{mystyle}\newtheorem{heuristic}[theorem]{Heuristic}
+\theoremstyle{mystyle}\newtheorem*{definer}{Definition}
+\theoremstyle{mystyle}\newtheorem*{altdefiner}{Alternative Definition}
+\theoremstyle{mystyle}\newtheorem*{upshot}{Upshot}
+\theoremstyle{itystyle}\newtheorem*{mantra}{Mantra}
+
+%Environments
+\newenvironment{pointstoponder}{\begin{center}{\sc Points to Ponder}\end{center}\begin{itemize}}{\end{itemize}}
+\newenvironment{concepttester}{\begin{center}{\sc Concept Testers}\end{center}\begin{enumerate}}{\end{enumerate}}
+\newenvironment{pauseandrecall}{\begin{center}{\sc Pause and Recollect}\end{center}\begin{enumerate}}{\end{enumerate}}
+%\newenvironment{claimer}{\begin{claim}\rm}{\end{claim}}
+%\newenvironment{definer}{\begin{defn}\rm}{\end{defn}}
+%\newenvironment{altdefiner}{\begin{altdefn}\rm}{\end{altdefn}}
+\newenvironment{upshoot}{\begin{upshot}\rm}{\end{upshot}}
+\newenvironment{deftable}{\begin{definer}\begin{tabular}{|l|l|}\hline Term & Definition \\ \hline}{\hline \end{tabular}\end{definer}}
+

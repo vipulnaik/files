@@ -1,0 +1,2575 @@
+\documentclass[a4paper]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul}
+
+%Title details
+\title{Function spaces -- and how they relate}
+\author{Vipul Naik}
+%\thanks{\copyright Vipul Naik, B.Sc. (Hons) Math and C.S., Chennai Mathematical Institute}
+
+%List of new commands
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\schwarz}[1]{\mathcal{S}\left(#1\right)}
+\newcommand{\sgn}{\text{sgn}}
+\newcommand{\poly}[1]{\text{Pol}\left(#1\right)}
+\makeindex
+
+\begin{document}
+\maketitle
+%\tableofcontents
+
+\begin{abstract}
+
+\end{abstract}
+
+\section{Function spaces}
+
+\subsection{Why functions?}
+
+This section is more about the gameplan and general philosophy that
+we'll follow. The basic premise (which many may find disagreeable) is
+the following:
+
+\begin{quote}
+  We are interested in the functions of certain types from certain
+  kinds of spaces, to $\R$ or $\C$.
+\end{quote}
+
+We're not interested in a function here or a function there. We're
+interested in the collection of all functions to $\R$ or to $\C$.
+
+Why are we interested in these? Functions describe lots of things. For
+example, a function on a ``physical body'' could be used to describe
+the temperature at every point on the body.
+
+Functions to $\R$ or $\C$ are {\em scalar-valued}: they have their
+image in a field. We are often interested in vector-valued functions,
+for instance, vector fields on open sets in Euclidean space. However,
+the theory of vector-valued functions, in the finite-dimensional case,
+isn't very different from that of scalar-valued functions, because,
+after all, the vector-valued function can be described by its scalar
+components. This raises a number of interesting points that we shall
+explore as we proceed.
+
+Another important point is that for most practical purposes, theorems
+which work for functions to $\R$ also work for functions to $\C$. The
+main differences are:
+
+\begin{enumerate}
+
+\item For functions to $\R$ we use the absolute value to define the
+  norm, and for functions to $\C$ we use the modulus of a complex
+  number to define the norm.
+
+\item The {\em inner product} we take for real vector spaces is a
+  symmetric bilinear positive-definite form, whereas for complex
+  vector spaces, we use a Hermitian inner product.
+
+\end{enumerate}
+
+Any real function space can be embedded into the corresponding complex
+function space, and the norm (and inner product, if defined) for the
+real case, are simply the restriction to the real case of the norm and
+inner product defined for the complex case.
+
+\subsection{What space?}
+
+What is the ``function space''? Loosely speaking, a
+\definedind{function space} is a subquotient of the vector space of
+all functions from some set $X$ to $\R$ or $\C$. A subquotient here
+means a quotient of a subspace (or equivalently a subspace of a
+quotient space).
+
+Two things are worth mentioning here:
+
+\begin{itemize}
+
+\item We go to the {\em subspace} because we don't want to consider
+  all functions.
+
+\item We take a {\em quotient} because we want to consider functions
+  upto equivalence. For instance, we may be taking equivalence with
+  respect to a measure (this is the most common instance; in fact,
+  when we are dealing with a measure space, it is the only instance of
+  concern to us).
+
+\end{itemize}
+
+So what we are considering {\em are} functions, but they're not all
+functions, and they're not {\em honest specific functions}; they're
+equivalence classes of functions.
+
+\subsection{Function spaces are vector spaces}
+
+A function space is, first and foremost, a vector space:
+
+\begin{itemize}
+
+\item Any scalar times a function in the space is also in the space
+
+\item A sum of two elements in the space is also in the space
+
+\end{itemize}
+
+This means that before we start taking out the hammer of function
+spaces to a particular property of functions, we need to show the
+above two things. Obvious? Not always. Sometimes, showing that a sum
+of two things in the space is also in the space is a pretty hard task.
+
+\subsection{Function spaces are more}
+
+One of our typical recipes for constructing function spaces is as follows:
+
+\begin{enumerate}
+
+\item Start out by defining a translation-invariant and $\R$-linear
+  distance function on the space of {\em all} functions, that takes
+  values in $[0,\infty]$.
+
+\item Prove that this distance function satisfies the triangle
+  inequality.
+
+\item Quotient out by the elements at distance $0$ from $0$, and get a
+  distance function on the quotient space.
+
+\item Take the connected component of the identity. This is a vector
+  subspace, and is the set of those elements at finite distance from
+  $0$.
+
+\end{enumerate}
+
+Sounds familiar? This is the way we obtain the $L^p$-spaces. In other
+words, the $L^p$-spaces come as the connected component of the
+identity in the $p$-distance topology. Different connected components
+are at distance $\infty$ from each other.
+
+This highlights something about function spaces. Many a function space
+can be given a metric, and in fact this can be extended to a
+``metric'' on the whole space; the distance between two points in the
+same coset is finite while the distance between two points in
+different cosets is infinite. The connected component of identity then
+becomes a ``normed vector space''.
+
+This is in some sense a ``natural choice of metric'' on the function
+space. Studying the function space without this metric is like
+studying $\R$ as a topological space without a metric.
+
+\subsection{Algebraic structure on a function space}
+
+We know that the set of {\em all} functions from a set to a field is
+not just a vector space; it's an {\em algebra} over the field. So it's
+natural to ask the question: to what extent are the function spaces we
+are considering subalgebras? Most of them aren't, though a select few
+are. I'll clarify my meaning:
+
+\begin{itemize}
+
+\item A {\em subalgebra} is just understood to be a vector subspace
+  that is also multiplicatively closed. It need not contain the
+  constant function $1$
+
+\item A {\em unital subalgebra} is understood to be a vector subspace
+  containing the constant function $1$
+
+\item Given a subalgebra $A$ and a smaller subalgebra $B$ we say $B$
+  is an ideal in $A$ if multiplying any element of $B$ with any
+  element of $A$ gives an element of $B$.
+
+\end{itemize}
+
+
+\section{Various function spaces}
+
+\subsection{On a topological space}
+
+Suppose $X$ is a topological space. Then, we can consider the
+following function spaces on $X$:
+
+\begin{enumerate}
+
+\item {\bf Continuous functions}: The space $C(X,\R)$ of all continuous
+  real-valued functions (resp. the space $C(X,\C)$ of continuous,
+  complex-valued functions). This is a subspace of the space of all
+  functions. In this case, the vector space nature isn't too hard to
+  prove.
+
+  $C(X,\R)$ (resp. $C(X,\C)$) is actually more than just a vector
+  space: it's a unital subalgebra.
+
+\item {\bf Compactly supported continuous functions}: The space
+  $C_c(X,\R)$ (resp. $C_c(X,\C)$) of all continuous, real-valued
+  functions with compact support. This is a subspace comprising
+  those continuous functions that vanish outside a compact set. It
+  is a vector space because a union of two compact subsets if
+  compact.
+  
+  $C_c(X,\R)$ is a subalgebra but is unital if and only if the space
+  $X$ is compact (in which case it equals $C(X,\R)$). Nonetheless, it
+  is always true that $C_c(X,\R)$ is an ideal in $C(X,\R)$.
+  
+\item {\bf Continuous functions that taper at infinity}: The space
+  $C_0(X,\R)$ (resp. $C_0(X,\C)$) of all continuous, real-valued
+  (resp. complex-valued) functions that go to zero outside of compact
+  subsets. This contains $C_c(X,\R)$, it is a vector subspace, and it
+  is a subalgebra. It is unital iff the space $X$ is compact, in which
+  case it is the whole of $C(X,\R)$. It is also always an ideal.
+
+\item We can take the smallest unital subalgebras generated by
+  $C_0(X,\R)$ and $C_c(X,\R)$ respectively. The former is the algebra
+  of all functions that ``converge at $\infty$'' and the latter is the
+  algebra of all functions that become constant outside a compact subset.
+
+\end{enumerate}
+
+First question: is there a natural ``norm'', such that the elements
+with finite norm, are precisely the continuous functions? Not in
+general. The natural norm that we associate with continuous functions
+when restricting to a {\em compact} subset, is the $L^\infty$-norm
+(the sup-norm). That's because on a compact space, continuous
+functions are bounded.
+
+On the other hand, there are obviously bounded functions that are not
+continuous. So how do we characterize continuity? The idea is to take
+very small open sets around a point, i.e. the formal definition is:
+
+$f$ is continuous at $x$ if for any $\varepsilon$, there exists a
+neighbourhood $U$ of $x$ such that $\norm{f - f(x)}_\infty <
+\varepsilon$ restricted to $U$.
+
+This isn't a single norm, though.
+
+\subsection{On a metric space}
+
+On a metric space, we can do a little better than talk of continuous
+functions. 
+
+We can define the notion of Holder spaces.
+
+\begin{definer}[Holder space]
+  For $\alpha \in [0,1]$, the the $(0,\alpha)$-\definedind{Holder
+    norm} of a function $f$ is defined as:
+
+  $$\sup_{x,y \in X} \frac{\abs{f(x) - f(y)}}{d(x,y)^\alpha}$$
+
+  The elements with finite norm are said to form the Holder space
+  $C^{0,\alpha}$.
+\end{definer}
+
+For $\alpha \in [0,1]$, $C^{0,\alpha}$ is not just a vector space,
+it's also a subalgebra. If we allowed $\alpha > 1$ in the above
+definition, we'd still get a vector space, but it need not be a
+subalgebra.
+
+The metric structure allows us to talk of the following notions:
+
+\begin{enumerate}
+
+\item {\bf Uniformly continuous functions}: We all know what uniformly
+  continuous functions are. The uniformly continuous functions to
+  $\R$, or to $\C$, form a unital subalgebra of the space of all
+  continuous functions.
+
+  On a compact metric space, continuous is the same as uniformly
+  continuous. We can of course talk of locally uniformly continuous,
+  but for locally compact metric spaces, any continuous function is
+  locally uniformly continuous.
+
+\item {\bf Lipschitz functions}: These are functions in $C^{0,1}$. The
+  Lipschitz property is fairly strong. Lipschitz functions form a
+  unital subalgebra.
+
+\item $C^{0,\alpha}$ for $0 < \alpha < 1$: This is somewhere in
+  between uniformly continuous and Lipschitz. In other words, the size
+  of the algebra decreases as $\alpha$ increases. Uniformly continuous
+  functions lie in all the $C^{0,\alpha}$, and all the $C^{0,\alpha}$
+  contain the algebra of Lipschitz functions.
+
+\item {\bf Locally Lipschitz functions}: These are functions that are
+  in $C^{0,1}$ locally. This is an important condition. As we shall
+  see, for example, all $C^1$ functions on a differential manifold are
+  locally Lipschitz.
+
+\end{enumerate}
+
+\subsection{On a differential manifold}
+
+This uses additional structure on $X$: the structure of a differential
+manifold.
+
+\begin{enumerate}
+
+\item For every positive integer $r$, we have the algebra $C^r(X,\R)$
+  or $C^r(X,\C)$: this is the space of $r$ times differentiable
+  functions from $X$ to $\R$ (or to $\C$). This is a unital algebra,
+  and we have a descending chain of algebras:
+
+  $$C = C^0 \supset C^1 \supset C^2 \ldots $$
+
+\item $C^\infty(X,\R)$ (resp. $C^\infty(X,\C)$) is the intersection of
+  all these subalgebras, and is again a unital subalgebra.
+
+\end{enumerate}
+
+In order to put a norm and speak quantitatively, we need to fix a
+metric on the manifold. Differential manifolds do not come with a
+natural choice of metric; however, any differential manifold can be
+embedded inside Euclidean space, hence it can be given a
+metric. Regardless of what metric we give in this way, we can talk of
+notions like:
+
+\begin{itemize}
+
+\item Holder spaces
+
+\item Space of locally Lipschitz functions
+
+\end{itemize}
+
+\subsection{On a measure space}
+
+This uses the structure of a measure space on $X$. The function space
+here is not honest specific functions; rather, it is functions upto
+equivalence with respect to the measure on $X$.
+ 
+\begin{enumerate}
+
+\item The space $M$ is the space of all functions (finite-valued
+  functions) upto almost everywhere equivalence. By finite-valued, we
+  mean that any representative is finite outside a set of measure
+  zero. $M$ is an algebra under pointwise addition and
+  multiplication. All the vector spaces we discuss below, live as
+  subspaces of $M$.
+
+\item For any $p$ with $1 \le p < \infty$: The space $L^p(X,\R)$
+  (resp $L^p(X,\C)$) is defined in the usual way. It is a normed
+  vector space, where the norm is the $p$-norm for $p < \infty$.
+
+  The $L^p$s are {\em not} subalgebras in general (in fact, an $L^p$
+  is a subalgebra for finite $p$ iff there do not exist subsets of
+  arbitrarily small measure). Moreover, the $L^p$s are unital only if
+  $X$ has finite measure.
+
+\item For $p < r$, we have the following: $L^p(X) \cap L^r(X)$
+  contains $L^s(X)$ for all $s \in [p,r]$.  The intersections $L^p(X)
+  \cap L^r(X)$ are important subspaces, as we shall see in the Riesz
+  interpolation theorem.
+
+  We can also consider the intersection of all the $L^p$s for $1 \le p
+  < \infty$. An application of Holder's inequality yields that this
+  intersection is a subalgebra; however, it is not unital unless $X$
+  has finite measure.
+
+\item The space $L^\infty(X)$ is defined as the space of all
+  essentially bounded functions (i.e. equivalence classes of functions
+  with a bounded representative). $L^\infty$ is a unital subalgebra.
+
+  When the measure space is finite, this lives inside each of the
+  $L^p$s, and in particular in the intersection of the $L^p$s; in
+  general, the inclusion doesn't hold either way.
+
+\item We also have notions of weak $L^p$. Weak $L^1$ is the space of
+  those functions that satisfy a Markov-like condition. One can
+  similarly define weak $L^p$ for finite $p$.
+\end{enumerate}
+
+Some points need to be noted. The space $L^\infty$ doesn't require us
+to have a measure space; all we need is the notion of a subset of
+measure zero and a notion of what it means for a function to be
+measurable. Hence $L^\infty$ makes sense, for instance, on any
+differential manifold. But the other $L^p$-spaces require a precise
+notion of measure, particularly in the non-compact case.
+
+\subsection{Visualizing the $L^p$s}\label{venndiagramforlps}
+
+The $L^p$-spaces have myriad relationshisp that can sometimes be
+confusing to remember. There is, however, a physical picture that can
+help one understand the relation between the $L^p$s. The picure
+encodes the full Venn diagram, and is also useful to visualize later
+results like the Riesz- Thorin interpolation.
+
+Prescription for drawing the picture:
+
+\begin{itemize}
+
+\item Make a square in the Euclidean plane with vertices $(0,1),
+  (1,0), (0,-1), (-1,0)$. In other words, the square is the solution
+  to $\abs{x} + \abs{y} = 1$.
+
+\item For any $L^p$, think of the $L^p$-space as the rectangle whose
+  vertices are given by $(\pm 1/p, \pm 1 - 1/p)$.
+
+\end{itemize}
+
+Observe that all the $L^p$-spaces live inside the square, that no
+$L^p$-space is contianed in the other. The space $L^\infty$ is the
+vertical line and the space $L^1$ is the horizontal line. The space
+$L^2$ is a square, which indicates self-duality. The spaces $L^p$ and
+$L^q$ are congruent rectangles: we can get one from the other
+geometrically by reflecting in the line $y = x$, which indicate that
+they are dual. Finally, the intersection of $L^p$ and $L^r$ is
+contained in all the $L^s$ for $p \le s \le r$, a fact again reflected
+in the Venn diagram.
+
+The key idea in this diagram is to scale the interval $[1,\infty]$
+according to the reciprocals.
+
+\subsection{Sometimes these things can be put together}
+
+The spaces on which we are considering functions are usually
+everything: they're topological, they're smooth, and they have
+measures. Thus we can consider all the above function spaces. We want
+to relate these function spaces.
+
+First, note that there's a fundamental way in which the
+continuous/smooth ones differ from the measure theory ones; the former
+are honest specific functions, and the latter are functions upto
+equivalence.
+
+Second, note that it's hard to say {\em anything} without having some
+way in which the measure respects the topology or the differential
+structure. So let's describe the relevant compatibility assumptions:
+
+\begin{itemize}
+
+\item For topological spaces with a measure, we usually require the
+  measure to be a {\em Borel measure}: it should be defined on all the
+  Borel subsets. We also often require the measure to be {\em inner
+    regular}. This means that the measure of any open subset is
+  obtained by taking the supremum of the measures of compact subsets
+  contained inside it.
+
+\item For smooth manifolds with a measure, we require that the measure
+  should be Borel, and that it should be compatible with the smooth
+  structure, i.e. have the same notion of measure zero subsets.
+
+\end{itemize}
+
+\subsection{Domains in Euclidean space}
+
+The standard (and most frequent) example to bear in mind is $\R^n$, or
+a domain $\Omega$ (i.e. a connected open subset) in $\R^n$. Note that
+domains in $\R^n$ have some more function spaces associated to them:
+
+\begin{enumerate}
+
+\item {\bf Polynomial functions}: A polynomial function on a
+  domain is the restriction to the domain of a polynomial function on
+  $\R^n$. Since a domain has infinitely many points, different
+  polynomials on $\R^n$ give different functions on the domain.
+
+\item {\bf Trigonometric polynomial functions}: These are
+  functions that are restrictions of trigonometric polynomials in
+  scalar multiples of the coordinates. Note that under a linear change
+  of variables, a trigonometric polynomial is still a trigonometric
+  polynomial, because of the rules for sine and cosine of a sum.
+
+\item {\bf Schwarz functions}: $\schwarz{X,\R}$
+  (resp. $\schwarz{X,\C}$) is a subspace of $C^\infty$ comprising
+  those functions $f$ that are \adefinedproperty{function}{Schwarz}:
+  for any polynomial $p$, and any iterated partial derivative $g$ of
+  $f$, $gp \in C_0$ (i.e. it goes to zero outside compact subsets).
+
+  In particular, $f$ itself is in $C_0$. Thus $\schwarz{X}$ is a
+  subalgebra but is not unital; in fact, it is an ideal in
+  $C^\infty(X)$.
+
+\end{enumerate}
+
+We can relate the existing function spaces for domains:
+
+\begin{enumerate}
+
+\item {\em No two continuous functions are equivalent}: If $f$ and $g$
+  are two continuous functions on $\Omega$, and $f = g$ almost
+  everywhere, then $f = g$. This is because the value of a continuous
+  function is determined by knowing the values of the function at any
+  sequence of points sufficiently close to it.
+
+  Thus, for any subspace of the space of continuous functions,
+  quotienting out by the equivalence relation of ``upto measure zero''
+  doesn't have any effect.
+
+\item We can introduce some new spaces called $L^p_{loc}$: A function
+  $f$ is in $L^p_{loc}$ if for every open subset $U$ contained in
+  $\Omega$ such that $U$ is relatively compact (i.e. the closure of
+  $U$ is compact), the restriction of $f$ to $U$ is in $L^p(U)$.
+
+  It is easy to see that $L^p_{loc}$ contains $L^s_{loc}$ for $p \le
+  s$. The largest space among these, is the space $L^1_{loc}$, and the
+  smallest is the space $L^\infty_{loc}$ of locally bounded functions.
+
+  Continuous functions are in $L^\infty_{loc}$, and hence in all the
+  $L^p_{loc}$, but are not necessarily in $L^\infty$. In fact, a
+  continuous function need not be in $L^p$ for any $p$.
+
+\item The intersection of the space of continuous functions with
+  $L^\infty$ is the space of {\em bounded continuous functions},
+  denoted $B$ or $BC$. The intersection with $L^1$ is the space of
+  integrable continuous functions.
+
+\item Living somewhere inside the space of bounded continuous
+  functions is the space of continuous functions that converge at
+  infinity. This, as we may recall, is the unitization of the space
+  $C_0$ of functions that approach $0$ at $\infty$.
+
+\item The Schwarz functions live inside the intersection of all the
+  $L^p$s. Moreover, it is also true that if $f$ is a Schwarz function,
+  and $g$ is in $L^p$ for some $p$, then $fg$ is in $L^r$ for all $r
+  \ge p$.
+\end{enumerate}
+
+\subsection{A little more on Holder spaces}
+
+For convenience, we here develop the theory of Holder spaces only on
+domains in $\R^n$. The idea is to combine the notion of
+differentiation, with the notion of a Holder space $C^{0,\alpha}$.
+
+Recall that, a little while ago, we had observed that there's no easy
+choice of norm under which the only elements of finite norm are the
+continuous function. However, the $L^\infty$ norm is a good one
+because, {\em locally} at least, continuous functions are bounded. We
+now try to define some more norms which are to $C^r$, what the
+$L^\infty$-norm is to continuous functions.
+
+On a domain, the idea is to add up the $L^\infty$-norm of the
+function, and all its mixed partials of order up to $r$. If the sum is
+finite, we say we're in the Holder space $C^{r,0}$. We can now add a
+term that plays a role analogous to the role of the supremum in the
+Holder space, to make sense of the spaces $C^{r,\alpha}$.
+
+Some points to note: First, all the spaces here are
+subalgebras. Second, once we've got these spaces, we can {\em
+  de-localize} them to get notions of ``locally'' Holder functions. The de-localization process is necessary, to, for instance...
+
+What happens if we're working with differential manifolds instead of
+domains? The Holder norms don't make sense, but the notion of being
+locally Holder is still robust.
+
+\section{A crash course in normed vector spaces}
+
+\subsection{Normed vector spaces and Banach spaces}
+
+The {\em normed vector space} idea is a way to forget that the
+function spaces we are dealing with actually arise as functions, and
+just treat them as elements of a vector space with a norm that gives
+the correct topology and the appropriate notions of closeness.
+
+Here we give some definitions:
+
+\begin{definer}
+
+\begin{enumerate}
+
+\item A \definedind{topological vector space} is a vector space with a
+  topology such that the addition and scalar multiplication operations
+  are continuous with respect to the relevant product topologies.
+
+\item A \definedind{normed vector space} is a vector space equipped
+  with a norm function, that commutes with scalar multiplication,
+  which is zero only at zero, and which satisfies the triangle
+  inequality. The induced metric associates to a pair of points the
+  norm of their difference vector.
+
+\item A \definedind{Banach space} is a normed vector space that is
+  complete with respect to the induced metric.
+
+\item An \definedind{inner product space} is a vector space along with
+  an inner product. If we're on a real vector space, the inner product
+  needs to be symmetric, bilinear and positive-definite. If we're on a
+  complex vector space, the inner product needs to satisfy the
+  conditions of a Hermitian inner product.
+
+\item A \definedind{Hilbert space} is an inner product space that is
+  complete with respect to the metric induced by the inner product
+  space.
+
+\end{enumerate}
+
+\end{definer}
+There are analogous notions for algebras:
+
+\begin{definer}
+\begin{enumerate}
+
+\item A \definedind{topological algebra} is a $\R$-algebra or
+  $\C$-algebra where the addition, multiplication, and scalar
+  multiplication are all jointly continuous operations.
+
+\item A \definedind{normed algebra} is a topological algebra with a
+  norm that is sub-multiplicative, i.e. in addition to the conditions
+  for a normed vector space, the norm $\norm{\cdot}$ must satisfy:
+
+  $$\norm{xy} \le \norm{x} \norm{y}$$
+
+\item A \definedind{Banach algebra} is a normed algebra that is
+  complete with respect to the induced norm.
+
+\end{enumerate}
+\end{definer}
+The ``algebra'' structure and the ``inner product'' structure are
+similar: an algebra structure is a $\R$-bilinear map from the algebra
+to itself, an inner product is a $\R$-bilinear map to the base
+field. They both give additional leverage to whatever we are studying.
+
+The importance of completeness is that it allows us to say that Cauchy
+sequences are convergent, and we can find a point to which they
+converge {\em within} the space. However, completeness is not as
+powerful as might be suggested at first glance. The key limitation is
+that it doesn't guarantee convergence in all the possible ways we
+could imagine. For instance, if we're looking at $C[0,1]$ in the
+uniform norm, then we can take functions in it that converge {\em
+  pointwise} to the indicator function of a point, but do not converge
+uniformly.
+
+How do the function spaces we've seen so far fit into these models?
+
+\begin{enumerate}
+
+\item All the $L^p$ spaces are Banach spaces. $L^2$ is a Hilbert
+  space, and $L^\infty$ is a Banach algebra.
+
+\item The space $C_0$ of continuous functions that go to $0$ at
+  $\infty$, is a Banach subalgebra of the algebra of all bounded
+  functions. When the space also has a measure, it's a Banach
+  subalgebra of the Banach algebra $L^\infty$.
+
+\item The various $C^r$s are algebras; they aren't normed, but we can
+  find subalgebras inside them that are Banach. How? Take the
+  subalgebra $C^{r,0}$ of things with finite $C^r$-norm. This is a
+  Banach algebra.
+
+\item The Schwarz space forms an algebra, and a very interesting one
+  at that. It can be viewed as a dense subalgebra in practically all
+  the $L^p$s for $p < \infty$, and is also a dense subalgebra of
+  $C_0$.
+\end{enumerate}
+
+\subsection{Some other ideas and conditions}
+
+The \definedind{dual space} to a normed vector space is the space of
+bounded linear functionals on it. For any normed vector space, the
+dual space is a Banach space, and the main thing we're using here is
+that the {\em target space} of a linear functional, which is $\C$, is
+a Banach space.\footnote{The correct generalization is that linear
+  operators from a normed vector space to a Banach space form a Banach
+  space.}
+
+The dual space is only a vector space, it isn't an algebra. However,
+we can construct from it an algebra, by taking the algebra generated
+by this vector space. In other words, we can consider the algebra of
+bounded polynomial functionals on a normed vector space. These are
+functionals that can be expressed as sums of products of bounded
+linear functionals. Any guesses as to why it's a Banach algebra?
+
+Given any normed vector space, there is an injective norm-preserving
+embedding of the normed vector space in its double dual.
+
+\begin{definer}
+
+  \begin{enumerate}
+
+  \item A \sdefinedproperty{space}{reflexive} is a normed vector space
+    such that the natural map into its double dual is an
+    isomorphism. In other words, any bounded linear functional on the dual
+    space comes from the normed vector space itself.
+
+    Since any dual space is complete, a reflexive space must be
+    complete.  The converse is not necessarily true. Thus, reflexivity
+    is completeness in a strong sense.
+
+  \item Given a normed vector space $X$, we can define on it a
+    topology of weak convergence. A sequence of elements $x_n \in X$
+    converge to a point $x \in X$ if for any bounded linear functional
+    $l$ on $X$, $l(x_n)$ approaches the point $l(x)$. In other words,
+    {\em as far as bounded linear functionals can see}, $x_n \to x$.
+
+  \item A normed vector space is termed \adefinedproperty{space}
+    {strictly convex} if any convex linear combination of points on
+    the unit sphere, lies strictly in the interior of the unit ball.
+    A somewhat more complicated version of this is the notion of a
+    \sdefinedproperty{space}{uniformly convex}, where we demand a
+    minimum amount of {\em roundness} i.e. we show that the norm of a
+    convex combination is bounded away from $1$ in a strong
+    sense. Uniform convexity is sufficient to guarantee reflexivity.
+  \item A normed vector space is termed
+    \adefinedproperty{space}{weakly complete} if whenever $x_n$ is a
+    weakly Cauchy sequence, $x_n$ is weakly convergent. We say that
+    $x_n$ is weakly Cauchy if it is true that for any bounded linear
+    functional $l$, the sequence of values $l(x_n)$ is convergent.
+    %fillin what spaces are weakly complete?
+
+  \end{enumerate}
+
+\end{definer}
+
+So how does this throw new light on the spaces we've been considering so far?
+
+\begin{enumerate}
+
+\item For $1 < p < \infty$, the spaces $L^p$ are uniformly convex,
+  hence reflexive. The dual to $L^p$ is $L^q$ where $p$ and $q$ are
+  Holder conjugates.
+
+\item For $p = 1$, $L^p$ is complete, but {\em not} reflexive. It is
+  also not strictly convex. A simple picture of this is $L^1$ of a
+  two-element set, which is the set$\abs{x} + \abs{y} = 1$ in
+  $\R^2$. This ``sphere'' is far from round.
+
+\item For $p = \infty$, $L^p$ is complete, but {\em not} uniformly
+  convex, in fact not even strictly convex. To see this, again take
+  $L^\infty$ of a two-element set. The sphere is the square $\max \{
+  \abs{x}, \abs{y} \} = 1$: far from round.
+
+\item The space $C_0$ is not reflexive (hence it's not uniformly
+  convex). That's because it's dual is $L^1$, and the dual of $L^1$ is
+  $L^\infty$, which is significantly bigger than $C_0$.
+
+\end{enumerate}
+
+\section{Linear operators}
+
+\subsection{What are linear operators?}
+
+We are interested in linear operators from one function space to
+another. There are, broadly speaking, three possibilities:
+
+\begin{itemize}
+
+\item The two function spaces are the same
+
+\item The two function spaces are on the same domain, but are different
+
+\item The two function spaces are on different domains
+
+\end{itemize}
+
+In addition to linear operators from one function space to another, we
+also consider bilinear operators. These are maps from a product of two
+function spaces to a third function space, that are linear in
+each. We'll study operators of the various kinds, as we proceed.
+
+\subsection{Algebra of linear operators}
+
+The linear operators from a function space $F$, to {\em itself}, form
+an algebra. Here addition is pointwise and multiplication is by
+composition.  This algebra is in general noncommutative, and is an
+infinite-dimensional analogue of the algebra of matrices in $n$
+variables.
+
+We'll be studying things in two fundamentally different ways here:
+
+\begin{itemize}
+
+\item An abstract study of what we can say about the algebra of linear
+  operators on a normed vector space, a Banach space, an inner product
+  space, or a Hilbert space
+
+\item A concrete look at the situations where operators arise, when we
+  are working with function spaces.
+
+\end{itemize}
+
+\subsection{The Banach algebra of bounded linear operators}
+
+Suppose $X$ is a Banach space. We can define the following Banach algebra:
+
+\begin{itemize}
+
+\item The elements are {\em bounded} linear operators from $X$ to $X$
+
+\item The addition of elements is pointwise, as is scalar multiplication
+
+\item The norm is the operator norm
+
+\item The multiplication of elements is by composition
+
+\end{itemize}
+
+This is a noncommutative, but unital. Is it complete? (I don't see any
+reason why it shouldn't be).
+
+Since it is a Banach algebra, we can now forget about how it arose (as
+operators from a function space to itself) and study the theory of
+Banach algebras. For what we're going to say in the coming sections,
+it {\em does} make a significant difference whether we're working with
+real or complex base field. We'll stick to the complex situation,
+because the field of complex numbers is algebraically closed.
+
+\subsection{A bit of pause}
+
+We've done three successive levels of generalization:
+
+\begin{itemize}
+
+\item We started out with some space on which we were interested in
+  functions. We decided to look at the function space instead.
+
+\item Then, we took the function space, and decided to {\em forget}
+  that it actually comes as functions. So we think of the function
+  space simply as a normed vector space, or normed algebra, or Banach
+  algebra, or whatever.
+
+\item Then, we studied bounded linear operators from the Banach space
+  to itself. This gave a Banach algebra. Now, we're tempted to forget
+  that the Banach algebra actually arose as an operator algebra, and
+  simply study it as an algebra.
+
+\end{itemize}
+
+\subsection{Notions of spectrum for the Banach algebra}
+
+Suppose $A$ is a {\em unital} Banach algebra over $\C$. We define:
+
+\begin{definer}[Spectrum]
+  The \definedind{spectrum} of an element $a \in A$ is the set of
+  $\lambda \in \C$ such that $a - \lambda$ is not invertible.
+\end{definer}
+
+What can we say about why an element isn't invertible? There could be
+a lot of reasons: perhaps it just {\em happened} not to be
+invertible. However, let's try to look at it positively. What are the
+equations it {\em can} solve, that'd make it non-invertible? In other
+words, how can I exhibit something to convince you that $a - \lambda$
+is not invertible?
+
+The trick is to show that $a - \lambda$ is a zero divisor. In other
+words, we find a $b \ne 0$ such that $b(a - \lambda) = 0$ (making $a -
+\lambda$ a right zero divisor) or we find a $c \ne 0$ such that $(a -
+\lambda)c = 0$ (making $a - \lambda$ a left zero divisor). This isn't
+the entire spectrum, but it's a fair chunk of it.
+
+What does this translate to, if we now think of $A$ as bounded linear
+operators from a function space $F$ to itself?
+
+\begin{itemize}
+
+\item The condition of being a left zero divisor is equivalent to
+  saying that $a - \lambda$ isn't an injective map. That's because $a
+  - \lambda$ is zero on the image of $c$, and $c \ne 0$ tells us that
+  the image of $c$ is nonzero. This is equivalent to saying that
+  $\lambda$ is an eigenvalue for $a$ (for the reverse direction of
+  implication, we use Hahn-Banach). The set of such $\lambda$ is said
+  to form the \definedind{point spectrum} of $a$.
+
+\item The condition of being a right zero divisor is equivalent to
+  saying that the range of $a - \lambda$ is not dense. One direction
+  of implication is tautological, while the other is an application of
+  Hahn-Banach. The set of such $\lambda$, minus those which already
+  lie in the point spectrum ,forms the \definedind{residual spectrum}
+  of $a$.
+
+\end{itemize}
+
+\subsection{Dual spaces and adjoint operators}
+
+Given a Banach space $F$, we have a dual space $F'$. We now have two
+Banach algebras: the bounded linear operators from $F$ to itself, and
+the bounded linear operators from $F'$ to itself. So we have two
+noncommutative rings floating around. What is the relation between
+these rings?
+
+There is a natural injective anti-homomorphism (injectivity follows
+from Hahn-Banach):
+
+$$A_F \to A_{F'}$$
+
+This sends an element of $A_F$ to the {\em adjoint} element in
+$A_{F'}$ (defined in the only way that makes sense). The map is an
+anti-homomorphism because the order of multiplication gets
+reversed. Thus, the left zero divisors in $A_F$ become right zero
+divisors in $A_{F'}$ and the right zero divisors in $A_{F'}$ becomes
+left zero divisors in $A_F$. Simple! Back in the language of normed vector spaces:
+
+\begin{quote}
+  For $a \in A_F$, the point spectrum of $a$ is contained in the union
+  of the point spectrum and residual spectrum of its adjoint, and the
+  residual spectrum of $a$ is contained in the point spectrum of its
+  adjoint.
+\end{quote}
+
+When $F$ is a {\em reflexive} space, the adjoint map is an
+anti-isomorphism, so in that case, the left zero divisors become right
+zero divisors and the right zero divisors become left zero divisors.
+
+\subsection{We'll see more}
+
+A little later, we shall see that there are some theorems about the
+spectrum of an element in a Banach space. We'll see that the spectrum
+may be a single point, or it may have uncountable many points, but
+it's always contained in a disc in the complex plane. We'll also see
+that the radius of this disc can be computed by looking at norms of
+powers of the element.
+
+\section{Some examples of operators}
+
+\subsection{Multiplication operators}
+
+Multiplication operators are operators between function spaces on the
+same domain. To start with, if $F$ denotes the space of {\em all}
+finite-valued functions on a set $X$, we have a bilinear map:
+
+$$F \times F \to F$$
+
+that sends a pair of functions to their pointwise product. Given a
+fixed $f \in F$, we are interested in questions like: what is the
+image of a particular subspace of $F$ under multiplication by $f$?
+
+Let's review some important definitions in terms of the language of
+multiplication operator:
+
+\begin{itemize}
+
+\item A subspace $A$ of $F$ is a subalgebra if the multiplication
+  operator restricts to an operator $A \times A \to A$.
+
+\item A subspace $B$ of a subspace $A$ is termed an ideal in $A$ if
+  the multiplication operator restricts to an operator $B \times A \to
+  B$.
+
+\end{itemize}
+
+Here, now, are some basic facts about multiplication operators:
+
+\begin{enumerate}
+
+\item {\em Holder's inequality} yields that for $a,b \in [0,1]$, the
+  multiplication operator restricts to a map:
+
+  $$L^{1/a} \times L^{1/b} \to L^{1/(a+b)}$$
+
+  In particular, we have a multiplication operator from $L^\infty
+  \times L^p$ to $L^p$, and a multiplication operator from $L^p \times
+  L^q$ to $L^1$ (where $p$ and $q$ are Holder conjugates).
+
+\item Common sense tells us that functions with compact support form
+  an ideal inside the space of all functions (Because $0$ multiplied
+  with anything nonzero is still zero). Thus, continuous functions
+  with compact support form an ideal in the space of all continuous
+  functions.
+
+\end{enumerate}
+
+\subsection{Differential operators}\label{diffopsintro}
+
+Differential operators really make sense, not on any old function
+space, but on an {\em algebra} .So one can make sense of a
+differential operator on $L^\infty$, but not on $L^1$.
+
+Given a $\R$-algebra $A$, and an $A$-module $B$, a map $d:A \to B$
+is termed a \definedind{derivation} if it satisfies the following:
+
+\begin{itemize}
+
+\item $d$ is $\R$-linear:
+
+\item $d$ satisfies the Leibniz rule:
+
+  $$d(ab) = a(db) + (da)b$$
+
+\end{itemize}
+
+This is a fairly abstract definition, but it turns out that for a
+differential manifold $M$, the derivations from $C^\infty(M)$ to
+$C^\infty(M)$ are in precise correspondence with smooth vector fields
+on $M$. Moreover, the derivations from $C^r(M)$ to $C^{r-1}(M)$ are in
+precise correspondence with $C^r$ vector fields on $M$.
+
+We can now define a differential operator:
+
+\begin{definer}[Differential operator]
+  The \definedind{algebra of differential operators} on a $\R$-algebra
+  $A$ is a subalgebra of the algebra of all linear operators from $A$
+  to $A$, generated by left multiplication maps ($g \mapsto fg$) and
+  the derivations. The algebra of differential operators comes with a
+  natural filtration: the $r^{th}$ filtered component is differential
+  operators of order $\le r$. These are differential operators that
+  can be expressed as sums of composites of derivations and
+  multiplications, where each summand has at most $r$ derivations.
+\end{definer}
+
+How nice are differential operators?
+
+What we'd ideally like to say is that differential operators are {\em
+  bounded} in some sense of the word, but this unfortunately isn't
+true unless we choose our topologies carefully. The topology that we
+need to choose is the one that we saw for domains in $\R^n$: add up
+the $L^p$ norms for all the mixed partials.
+
+This is an attractive definition, and with this definition, we can in
+fact see that any differential operator is bounded with respect to
+this norm. Essentially, this is because when we differentiate in a
+direction, we are taking a fixed linear combination of the partials,
+and since the norms of the partials are incorporated in the norm of
+the function, we're doing fine.
+
+However, if we just naively tried to relate the $L^p$-norm of a
+function with its derivatives, we'd end up in a severe mess.
+
+So some points about differential operators:
+
+\begin{itemize}
+
+\item Differential operators make use of the {\em algebra structure}
+  (i.e. the multiplication structure) in the function space.
+
+\item Differential operators make use of the smooth structure on the manifold.
+
+\item For differential operators to be bounded linear operators, we
+  need to put norms on the function spaces that take into account the
+  $L^p$-norms of the partial derivatives.
+
+\end{itemize}
+
+\subsection{Integral operators}
+
+Integral operators make use only of a measure space structure, and do
+not involve any algebra structure on the function space.
+
+\begin{definer}
+  Let $X$ and $Y$ be measure spaces. An \definedind{integral operator}
+  with kernel function $K:X \times Y \to \R$ is defined as the map:
+
+  $$f \mapsto (y \mapsto \int K(x,y)f(x)\, dx)$$
+
+  Here, $f$ is a function from $X$ to $\R$, and the new function we
+  get is from $Y$ to $\R$.
+\end{definer}
+
+The same kernel could be used to define an integral operator from
+functions on $Y$ to functions on $X$.
+
+We need to be a little careful with what we mean by an integral
+operator. In general, integral operators are just formulae; it is then
+upto us to make sense of what they honestly mean. To illustrate
+matters, let $M$ be the space of all measurable functions, and $A$ be
+a subspace of $M$. Let $\tilde{A}$ be the space of honest specific functions
+that becomes $A$ when we go down to measure zero.
+
+For any point $y \in Y$, the value:
+
+$$\int K(x,y) f(x) \, dx$$
+
+if it exists, is independent of the choice of representative in
+$\tilde{A}$, for a function class in $A$. This is the cool thing about
+integration: it forgets measure zero differences.
+
+On the other hand, on the {\em range} side, there is a crucial
+difference. The naive, {\em pointwise} interpretation of an integral
+operator being defined for a function is:
+
+\begin{quote}
+  For {\em every} $y \in Y$, the integral:
+
+  $$\int K(x,y) f(x) \, dx$$
+
+  makes sense and gives a finite value.
+\end{quote}
+
+We could choose to weaken this somewhat, since we're upto measure
+zero:
+
+\begin{quote}
+  For {\em almost every} $y \in Y$, the integral:
+
+  $$\int K(x,y) f(x) \, dx$$
+
+  makes sense and gives a finite value.
+\end{quote}
+
+These are {\em pointwise operators} in an honest pointwise sense. So
+if $A$ and $B$ are subspaces of the space $M$ of all measurable
+functions upto measure zero, and $\tilde{A}$ and $\tilde{B}$ are their
+lifts, then a pointwise operator from $A$ to $B$ almost lifts to a map
+from $A$ to $\tilde{B}$. Thus, given an equivalence class of functions
+(an element of $A$) we obtain a {\em specific} pointwise defined
+element of $\tilde{B}$ (with a few points gone awry, yes, but still
+it's honestly defined almost everywhere).
+
+This means that integral operators, when they make pointwise sense as
+above, transform equivalence classes of functions to honest specific
+functions. Why is this remarkable? Because given an equivalence class
+of functions only, it makes {\em no} sense to evaluate at a point. But
+given an honest specific function (even one that's ill-defined at a
+few points) one can make sense of defining it at most places.
+
+However, it often happens that we can define integral operators from
+function spaces, that do {\em not} make sense at a pointwise level.
+
+\subsection{Antiderivatives as integral operators}
+
+An integral operator can be viewed as the integral with limits. Here
+are some situations:
+
+Given a function $f \in L^1(\R)$, we can consider the
+``antiderivative'' of $f$ as a map from $\R$ to $\R$, that happens to
+be $0$ at $0$. This is obtained by taking:
+
+$$x \mapsto \int_0^x f(y) \, dy$$
+
+This can be viewed as an integral operator, by the following
+method. Consider the function $K(x,y)$ which is $1$ if $0 \le y \le x$,
+$-1$ if $x \le y \le 0$, and $0$ elsewhere. Then, the above function is:
+
+$$x \mapsto \int_\R K(x,y) f(y) \, dy$$
+
+Thus, taking the antiderivative is an integral operator from $L^1(\R)$
+to $C^0(\R)$ (actually to something better: locally absolutely continuous
+functions).
+
+Here are some other ``antiderivative''-like operators that we can
+think of as integral operators. Suppose $f$ is a function defined on
+$\Omega \subset \R^n$. We want to define a new function that sends a
+nonnegative real $R$ to the integral of $f$ in the ball of radius $R$
+about the origin.
+
+This can be viewed as an integral operator from $L^1(\Omega)$ to
+$C(\R_{\ge 0})$. where the kernel function $K(R,x)$ is $1$ if $x$ is
+in the ball of radius $R$, and $0$ otherwise.
+
+In fact, most of the integral operators that we see hide in some sense
+an antiderivative-like operation. The advantage of an integral
+operator is that we can define $K$ in any manner whatsoever; it need
+not just takes values like $0$, $1$ or $-1$.
+
+\subsection{Convolution product}
+
+A convolution can be viewed as a special case of an integral operator,
+but it differs in two ways:
+
+\begin{itemize}
+
+\item It makes sense only for locally compact topological Abelian
+  groups (that come with a compatible measure).
+
+\item It takes two inputs, and is bilinear.
+
+\end{itemize}
+
+If $f,g$ are two functions on a locally compact topological Abelian
+group $G$, their convolution is defined as:
+
+$$(f * g)(x) = \int_G f(y)g(x - y) \, dy$$
+
+In other words, we are ``adding up'', for all ways of writing $x$ as a
+sum of two things, $f$ of the first thing and $g$ of the second thing.
+
+The convolution is commutative and associative, wherever it is defined.
+
+Convolution is an example of a bi-integral operator: if we fix either
+function, we get an integral operator. For instance, if
+we fix $g$, we get an integral operator with kernel $K(x,y) = g(x-y)$,
+whereas if we fix $f$, we get an integral operator with kernel $K(x,y)
+= f(x-y)$ (the roles of $x$ and $y$ are reversed from the previous
+section). Thus, the same concerns that apply to integral operators
+apply here: we have the question of when the convolution makes
+pointwise sense, and when it makes sense even though it doesn't make
+pointwise sense.
+
+\section{A couple of general concerns}
+
+Before proceeding further, let's mention a few general concerns we
+have about operators. As we saw in the above examples, we don't
+usually define an operator by writing some gigantic
+infinite-dimensional matrix. Rather, we write some formula, and then
+argue that the formula makes sense as an operator between the required
+spaces.
+
+As we already saw, there are two kinds of things we could do: have
+operators from a function space to itself, and have operators from one
+function space to another. The former comes with a nice algebra
+structure. The latter is also common.
+
+A central question we shall repeatedly consider is:
+
+\begin{quote}
+  Let $X,Y$ be measure spaces, and $M,N$ be respectively the spaces of
+  all measurable functions on $X$ and on $Y$ (upto
+  equivalence). Suppose, further, that we have a formula that
+  ostensibly takes a function on $X$ and outputs a function on
+  $Y$. How do we find out a function space $F$ on $X$, and a function
+  space $G$ on $Y$, such that the formula defines a bounded linear
+  operator from $F$ to $G$ (the {\em bounded} is with respect to
+  whatever natural norm we are considering).
+\end{quote}
+
+This is a vaguely worded question, but we attempt a partial answer in
+the next subsection.
+
+\subsection{A quick look at the $L^p$s}
+
+We begin with a simple lemma.
+
+\begin{lemma}
+  Suppose $A$ and $B$ are normed vector spaces. Suppose $C$ is a dense
+  subspace of $A$ and $B$ is complete. Then, any bounded linear
+  operator from $C$ to $B$, extends to a bounded linear operator from
+  $A$ to $B$
+\end{lemma}
+
+\begin{proof}
+  Any point in $A$ is the limit of a sequence of points in $B$. The
+  sequence is Cauchy, and since the operator is bounded, its image is
+  a Cauchy sequence. Hence, the image of the sequence is a convergent
+  sequence in $B$ (since $B$ is complete). Moreover, the limit is
+  independent of the particular sequence we chose, so we can set this
+  to be the image of $A$.
+\end{proof}
+
+This suggests the following idea. Consider the space:
+
+$$\bigcap_{1 \le p < \infty} L^p$$
+
+We had observed earlier that this is a subalgebra, often without
+unit. Further, for a domain (in particular for $\R^n$), the Schwarz
+space is contained inside this, and is in fact dense in each of the $L^p$s.
+
+\begin{theorem}[Defining for Schwarz suffices]
+  If $F$ is a linear operator from the Schwarz space to itself, and
+  $\norm{F}_{p,r} < \infty$, then $F$ extends uniquely to a bounded
+  linear operator from $L^p$ to $L^r$, with the same norm. Here
+  $\norm{F}_{p,r}$ denotes the operator norm with the Schwarz space on
+  the left given the $L^p$-norm and the Schwarz space on the right
+  given the $L^r$-norm.
+
+  Moreover, if the original map was an isometry, so is the unique
+  extension.
+\end{theorem}
+
+\subsection{Riesz-Thorin interpolation}
+
+We first state an extremely powerful result, called the Riesz-Thorin
+interpolation theorem. We then look at a special case of this, called
+Schur's lemma, that can also be proved by a direct and clever argument.
+
+Before beginning, recall the following fact:
+
+\begin{quote}
+  If $p \le s \le P$, then $L^s(X) \supset L^p(X) \cap L^P(X)$ and the
+  latter is dense in the former.
+\end{quote}
+
+The fact that the latter is dense in the former is attested to by the
+fact that the Schwarz functions, that are dense in all the $L^p$s for
+finite $p$, live inside the latter.
+
+Now suppose $F$ is an integral operator that we've somehow managed to
+define from $L^p$ to $L^r$ and from $L^P$ to $L^R$, both the norms are
+bounded, and the definition agrees on the intersection. Then for any
+$s \in [p,P]$, and for $u \in [r,R]$ we want to know whether we get a
+map from $L^s$ to $L^u$. In other words, we want to investigate what
+we can say about the boundedness of the map restricted to the intersection:
+
+$$L^p \cap L^P \to L^r \cap L^R$$
+
+If such a map has bounded $(s,u)$-norm, then by the density argument,
+it extends uniquely to a map from $L^s$ to $L^u$.
+
+The Riesz-Thorin interpolation theorem is a wonderful theorem that
+gives us sufficient conditions for this. The idea behind the theorem
+is simple: invert the exponents, and thus go from $[1,\infty]$ to
+$[0,1]$. There, take a convex linear combination of $p$ and $P$, and
+take the {\em same} convex linear combination of $r$ and $R$. Then you're
+guaranteed bounded operator norm.
+
+\begin{theorem}[Riesz-Thorin interpolation theorem]
+  Suppose $F$ defines a bounded linear operator from $L^p$ to $L^r$,
+  and from $L^P$ to $L^R$, such that the operators agree on the
+  interaction. If $1/s = t/p + (1-t)/P$ and $1/u = t/r + (1 -t)/R$,
+  then $F$ has finite $(s,u)$-norm, hence defines a bounded linear
+  operator from $L^s$ to $L^u$. Moreover, the bound on the operator
+  norm $(s,u)$ is given by $\text{operator norm from $p$ to
+    $r$}^t\text{operator norm from $P$ to $R$}^{1-t}$.
+\end{theorem}
+
+We'll not sketch a proof here.
+\section{More on integral operators}
+
+\subsection{Composing integral operators}
+
+Is a composite of integral operators integral? The answer is {\em
+  yes}, if we do a formal computation with Fubini's theorem. Suppose
+$X$, $Y$ and $Z$ are measure spaces. Suppose $K:X \times Y \to \R$ is
+one kernel and $L:Y \times Z \to \R$ is another kernel. Let's try to
+compose the integral operators:
+
+$$z \mapsto \int_Y L(y,z) \int_X K(x,y) f(x) \, dx \, dy$$
+
+A rearrangement by Fubini shows that this is an integral operator
+whose kernel is:
+
+$$(x,z) \mapsto \int_Y K(x,y) L(y,z) \, dy$$
+
+Thus, at least at a formal level, a composite of integral operators is
+an integral operator.
+
+Let's look at this in the special case of the antiderivative.
+Suppose our measure space is $[0,\infty]$ with Lebesgue measure, and we define the operator:
+
+$$x \mapsto \int_0^x f(t) \, dt$$
+
+The kernel of this operator is the map $K(t,x) = 1$ if $0 \le t \le x$ and $0$ otherwise.
+
+So what happens when we compose this operator with itself? A little thought reveals that the new kernel is:
+
+$$K(t,x) = (x-t)^+$$
+
+i.e. the positive part of the difference between $x$ and $t$.
+
+Thus, iterated integration within limits can be viewed as a {\em
+  single} integral operators.
+
+
+This tells us that if $X$ is a measure space and $A$ is a function
+space on $X$, we may be interested in the algebra of all integral
+operators from $A$ to $A$. What can we say about these integral
+operators? Can we determine the pairs $(p,r)$ such that the operator
+norm, viewed from $L^p$ to $L^r$, is finite?
+
+\subsection{Operators that are well-defined pointwise}
+
+An integral operator can be thought of as a composite of two things: a
+multiplication operator, and the integration functional. Let's
+consider a situation where we're looking at an integral operator from
+a function space on $X$ to a function space on $Y$, with kernel
+$K(x,y)$. If $f$ is the input function, we want to ensure that for
+every $y \in Y$, the map:
+
+$$x \mapsto K(x,y) f(x)$$
+
+is in $L^1(X)$. By the preceding discussion, it suffices to say that
+this happens for {\em almost every} $y \in Y$. This brings us back to
+the multiplication operators situation, that we saw a little while
+ago: it's clear that if $f \in L^p$, then for almost every $y$, $x
+\mapsto K(x,y)$ is in $L^q$ where $q$ is the conjugate exponent to
+$p$.
+
+Once we've ensured that the definition is valid pointwise, the next
+step is to ensure that the function we get at the end of it is again
+nice in some sense. Let's work out some examples to illustrate this.
+
+Suppose we want to know when the integral operator by $K$ lives in
+$Op_{1,1}$: in other words, when does it give a well-defined bounded
+linear operator from $L^1$ to $L^1$. The first step of the reasoning
+shows that for almost every $y$, $K(x,y) \in L^\infty(X)$. For the
+next step, we need to ensure that:
+
+$$\int \abs{\int K(x,y) f(x) \, dx } \, dy  <  \infty$$
+
+A simplification and Fubini exchange shows that we need to ensure:
+
+$$\sup_{x\in X} \int_Y K(x,y) \, dy < \infty$$
+
+And that the value on the left side is precisely the norm as an
+operator from $L^1$ to $L^1$.
+
+By a similar procedure, we can try determining the conditions under
+which we get an operator from $L^1$ to $L^\infty$. In the case, the
+answer is simpler: we just get $K \in L^\infty(X \times Y)$. For
+$L^\infty$ to $L^1$, we get, by a Fubini argument, that $K \in L^1(X
+\times Y)$, and for $L^\infty \to L^\infty$, we get the condition:
+
+$$\sup_{y \in Y} \int_X K(x,y) \, dy < \infty$$
+
+with the expression on the left side being the $L^\infty$-norm (this
+is all part of a general phenomenon on adjoint operators that we shall
+see later).
+
+It turns out that Riesz-Thorin interpolation, and the Schwarz route,
+that we mentioned in the last section, allows us to get around the
+problem of pointwise ill-definedness.
+\subsection{Some non-pointwise definitions}
+
+We now use the results of the previous section to give examples of
+situations where certain operators cannot be viewed as pointwise
+operators from $L^p$ to $L^r$, but the Schwarz route allows us to view
+them in this way.
+
+The primary example is the Fourier transform:
+
+\begin{definer}[Fourier transform]
+  The \definedind {Fourier transform} of a function $f$ on $\R^n$
+  is defined as the integral operator with kernel:
+
+  $$K(x,y) = \exp{(-ix\cdot y)}$$
+
+  It is an integral operator from function spaces on $\R^n$ to
+  function spaces on $\R^n$. The image of $f$ under the Fourier
+  transform is denoted by $\hat{f}$.
+\end{definer}
+
+The kernel of the Fourier transform is symmetric.
+
+The kernel is in $L^\infty(\R^n \times \R^n)$ (in fact, it has
+constant norm $1$), which means that this has a good pointwise
+definition for $f \in L^1$. But there's no guarantee of a good
+pointwise definition for $f \in L^2$, or in any other $L^p$ for that
+matter. We thus go the Schwarz route. Let $f \in \schwarz{\R^n}$. We
+show the following:
+
+\begin{itemize}
+
+\item $f$ maps the Schwarz space via a linear isomorphism to the
+  Schwarz space.
+
+\item The map is a $L^2$-isometry, upto a normalization factor of
+  $2\pi$.
+
+\end{itemize}
+
+We can thus extend $f$ uniquely to an isometry from $L^2$ to $L^2$. So
+the Fourier transform is an isometry from $L^2$ to $L^2$, and its
+behaviour on $L^1 \cap L^2$ is exactly the way we expected.
+
+The Fourier transform, however, is dishonest and does not make
+pointwise sense, because for a particular $f \in L^2$, the formula may
+not make pointwise sense for any $x$.
+
+We shall see that something similar happens for the Hilbert transform,
+that we'll encounter a little later in the text.
+
+\subsection{Riesz-Thorin to the Fourier transform}
+
+We've seen that the Fourier transform is an isometry from $L^2$ to
+$L^2$ (We did this by showing that it's an isometry from the Schwarz
+space to itself, and then extending). Let's observe one more basic
+fact: the Fourier transform is a bounded linear operator from $L^1$ to
+$L^\infty$. This follows from a general fact about integral operators:
+if the kernel is in $L^\infty(X \times Y)$, we get a bounded linear
+operator from $L^1(X)$ to $L^\infty(Y)$.
+
+We can now apply the Riesz-Thorin interpolation theorem, interpolating
+on the domain side between $1$ and $2$, and on the range side between
+$\infty$ and $2$. When going to multiplicative inverses, we are trying
+to interpolate on the domain side between $1$ and $1/2$ and on the
+right side between $0$ and $1/2$. A little thought yields that we have
+a bounded linear operator from $L^p$ to $L^q$ where $1 \le p \le 2$
+and $q$ is the conjugate exponent to $p$.
+
+A little word here. The only $p$ for which we have a map that is
+genuine and pointwise is $p = 1$. In all other cases, we have a
+bounded linear operator on the Schwarz space in an honest pointwise
+sense, and we extend it to an operator on the whole of $L^p$.
+
+The precise inequality here is termed \definedind{Plancherel's
+  inequality}, and the formulation of the inequality uses a more
+precise version of Riesz-Thorin which we haven't covered here.
+
+\subsection{Typical application of Riesz-Thorin}
+
+Riesz-Thorin interpolation is extremely useful, and we shall see it
+turn up repeatedly in the coming sections.
+
+The typical strategy will be:
+
+\begin{itemize}
+
+\item Prove boundedness for certain special pairs $(p,r)$. For this,
+  use basic results like Holder's inequality, or facts about $L^1$ and
+  $L^\infty$ or just a quick Fubini argument.
+
+\item Use Riesz-Thorin to fill in the gaps.
+
+\end{itemize}
+
+\subsection{Riesz-Thorin for bilinear operators}
+
+For bilinear operators, Riesz-Thorin can be applied using the {\em
+  fix-one-at-a-time} idea. We shall see this in the next section,
+where we discuss convolutions.
+
+\section{More on convolutions}
+
+\subsection{The basic result}
+
+For $G$ a locally compact topological Abelian group, we had defined
+the convolution of two functions $f,g$ on $G$ as:
+
+$$(f * g)(x) = \int_G f(x - y) g(y) \, dy$$
+
+This is bilinear, and the first, probably surprising observation is
+that it is well-defined from $L^1 \times L^1$ to $L^1$. This is by no
+means obvious, because a product of $L^1$ functions is not necessarily
+$L^1$. However, the map actually makes sense {\em pointwise almost
+  everywhere}, which means that although $fg$ has no reason to be in
+$L^1$, it is true that for almost every $x$, the map:
+
+$$y \mapsto f(x-y)g(y)$$
+
+is in $L^1(G)$. In fact, we're saying something more: we're saying
+that the output function is {\em again} in $L^1(G)$. The only way I
+know of proving this is Fubini's theorem.
+
+A quick note regarding Fubini's theorem may be worthwhile. The Fubini
+idea of interchanging two integrals is very useful, but it can also be
+abused a lot %fillin section on Fubini's?
+
+\subsection{Riesz-Thorin to complete the convolution picture}
+
+Common sense tells us that the convolution is well-defined from $L^1
+\times L^\infty$ to $L^\infty$. So, it's well-defined as a map $L^1
+\times L^1 \to L^1$ and as a map $L^1 \times L^\infty \to L^\infty$.
+
+Now fix $f \in L^1$, and consider map $g \mapsto f * g$. This is
+well-defined $L^1 \to L^1$ and $L^\infty \to L^\infty$, and bounded in
+both cases by $\norm{f}_1$. Riesz-Thorin tells us that it is
+well-defined and bounded by $\norm{f}$ as a map $L^p \to L^p$ for {\em
+  every} $p$. Thus, we get that if $f \in L^1$ and $g \in L^p$, then:
+
+$$\norm{f * g}_p \le \norm{f}_1 \norm{g}_p$$
+
+Now, fix $g \in L^p$. We use the fact that %fillin
+
+\section{Functoriality, products and other concerns}
+
+\subsection{Maps between underlying spaces}
+
+We constructed function spaces by taking some set, or space, with
+additional structure, and looking at functions satisfying a certain
+property with respect to that additional structure. So one question is:
+do maps between the underlying spaces give maps between the function
+spaces? The obvious way of trying to get a map, of course, is {\em
+  composing}, and that would be ``contravariant'' in nature.
+
+Let's quickly review our various function spaces, and how the maps
+work out:
+
+\begin{enumerate}
+
+\item {\bf Topological spaces}: If $X$ and $Y$ are topological spaces,
+  and $f:X \to Y$ is continuous, composing with $f$ defines a map from
+  $C(Y)$ to $C(X)$. Moreover, if $f$ is a proper map (inverse images
+  of compact sets are compact) then $C_c(Y)$ gets mapped to $C_c(X)$,
+  $C_0(Y)$ gets mapped to $C_0(X)$, and so on.
+
+\item {\bf Measure spaces}: Suppose $X$ and $Y$ are measure spaces,
+  and a map $f:X \to Y$ has the property that the inverse image of any
+  measurable subset is measurable, and the inverse image of any
+  measure zero subset has measure zero. Then, we get an induced map
+  from $M(Y)$ to $M(X)$, where these denote the spaces of measurable
+  functions upto measure zero equivalence.
+
+  There are two very special cases of this: an open subset in a
+  topological space, mapping by inclusion, with respect to a regular
+  measure (for instance, domains in $\R^n$), and a product space
+  projecting onto one of the factors.
+
+\item {\bf Differential manifolds}: If $X$ and $Y$ are differential
+  manifolds, and $f:X \to Y$ is a smooth map, then $f$ induces a map
+  from $C^\infty(Y)$ to $C^\infty(X)$ by pre-composition (and in fact
+  it does something similar on every $C^r$). For it to preserve
+  finiteness of norm, $f$ should be a proper map.
+
+\end{enumerate}
+
+\subsection{Product spaces: separate and joint properties}
+
+Category-theoretically, the {\em product} of two objects is defined as
+something terminal with regard to maps {\em to} the object. In most of
+the cases we're interested in, the product of two spaces is just the
+Cartesian product, endowed with additional structure in the correct
+way. We now analyze how a function space corresponding to a product of
+two spaces, is related to the function spaces corresponding to the factors.
+
+The general situation is like this. Given $X$ and $Y$, and function
+spaces $F(X)$ and $F(Y)$, we have natural maps:
+
+$$X \times Y \to X, \qquad X \times Y \to Y$$
+
+This yields, by contravariance, maps of the form:
+
+$$F(X) \to F(X \times Y), \qquad F(Y) \to F(X \times Y)$$
+
+We could do many things with these two maps. For instance, we could
+define a {\em linear} map:
+
+$$F(X) \times F(Y) \to F(X \times Y)$$
+
+which takes a function of $X$, a function of $Y$, and then just adds
+them. We could also define a {\em bilinear} map:
+
+$$F(X) \times F(Y) \to F(X \times Y)$$
+
+which takes a function of $X$, a function of $Y$, and multiplies
+them. Combining both these ideas, we see that given functions on $X$
+and functions on $Y$, we can take sums of products of these. A
+function that's a product of a function of $X$ and a function of $Y$
+is termed \adefinedproperty{function}{multiplicatively separable}, and
+we basically get the vector space spanned by multiplicatively
+separable functions.
+
+Now the things we need to check are that in particular cases, we {\em
+  do} still remain inside $F$ when we multiply. For algebras of
+functions, this is clear, but it is {\em also} true in cases where the functions
+{\em do not} form an algebra; for instance, the function spaces $L^p$.
+
+The second thing we study is the following non-unique and non-natural
+choices of maps. For fixed $y \in Y$, we get a map $X \to X \times Y$
+by $x \mapsto (x,y)$. This should induce a backward map $F(X \times Y)
+\to F(X)$. By doing this for every $y$, we get a bunch of such maps,
+and similarly we can do this for every $x \in X$.
+
+Now, we can ask the question: if a function on $X \times Y$ satisfies
+the property that its restriction to every $X$-fiber is in $F(X)$ and
+its restriction to every $Y$-fiber is in $F(Y)$, is the function in
+$F(X \times Y)$?
+
+Not necessarily, as we shall see. There are functions that are
+fiber-wise continuous, but not continuous on the whole. The problem
+really lies in the ability to relate what is happening on different
+fibers. It's the fact that a network of vertical and horizontal roads
+cannot capture all possible directions of approach.
+
+A function whose restriction to each fiber is in the function space
+for that fiber, is sometimes said to {\em separately} be that sort of
+function.
+
+\subsection{Products in each of the cases}
+
+Let's now review the various kinds of function spaces and see what can
+be said about products in each of these:
+
+\begin{enumerate}
+
+\item {\bf Topological space}: For a product of topological spaces, we
+  do have natural embeddings $C(X) \to C(X\times Y)$ and $C(Y) \to
+  C(X \times Y)$, and this gives a notion of a multiplicatively
+  separable function on $X \times Y$. By certain facts like
+  Weierstrass approximation, we can show that for spaces like
+  $\R^n$, the span of multiplicatively separable functions is the whole
+  space.
+
+  On a converse note, it is {\em not} true that any function that is
+  separately continuous (i.e. continuous in each fiber) is jointly
+  continuous.
+
+  We need to be more careful when dealing with continuous functions of
+  compact support. If $Y$ is not compact, the image of $C_c(X)$ in
+  $C(X \times Y)$ does not land inside $C_c(X \times Y)$. However, a
+  {\em product} of a function in $C_c(X)$ and a function in $C_c(Y)$
+  does land inside $C_c(X \times Y)$. Similar observations hold for
+  $C_0$.
+
+\item {\bf Measure space}: For a product of measure spaces, we do have
+  natural membeddings $L^p(X) \to L^p(X \times Y)$ and $L^p(Y) \to
+  L^p(X \times Y)$. Moreover, a product of images of these, is in
+  $L^p(X \times Y)$. This is a kind of application of Fubini's
+  theorem, if you want: the fact that when integrating a
+  multiplicatively separable function, we can integrate the components
+  against each of the measure spaces. Note that it is {\em not true in
+    general} that a product of functions in $L^p$ is in $L^p$, so we
+  are really using that the two functions that we have are in some
+  sense {\em independent}.\footnote{The probability-theoretic
+    interpretation is that a random variables with finite expectation
+    need not have finite expectation; however, a product of {\em
+      independent} random variables with finite expectation has finite
+    expectation}
+
+  We can use a Weierstrass-approximation type argument again to show
+  that the span of multiplicatively separable functions is dense.
+
+  It's again not true that a function that is fiber-wise in $L^p$,
+  must be in $L^p$.
+
+\item {\bf Domains in Euclidean space}: We can here talk of the
+  Schwarz spaces. As with $C_c$, it is {\em not} true that the image
+  of $\schwarz{X}$ in $C(X \times Y)$ is a Schwarz function. However,
+  the product of an element of $\schwarz{X}$ and $\schwarz{Y}$, {\em
+    does} land inside $\schwarz{X \times Y}$.
+
+  Again, a converse of sorts isn't true: a function could be {\em
+    separately} Schwarz, and yet need not be Schwarz.
+
+\end{enumerate}
+
+\subsection{Integrate to get functions on factor spaces}
+
+The fiber-wise concept can be used to get one, somewhat more, useful
+concept. We observed that it wasn't enough to just put a separate
+condition on each fiber because that didn't guarantee any
+uniformity. However, we can conceivably do this:
+
+\begin{itemize}
+
+\item Assume a certain condition on each fiber, which guarantees that
+  some norm is finite
+
+\item Now consider the function that sends $y \in Y$ to the norm at
+  that fiber. Impose some good conditions on {\em this} function.
+
+\end{itemize}
+
+This is an {\em iterated integration} idea: we impose a condition on
+each fiber so that we get a value by integrating against each fiber
+(this is the {\em inner integration} step). Then we impose a condition
+on the new function that we got. This is the {\em outer integration
+  step}. That this iterated integration procedure has exactly the same
+effect as working directly in the product space, is a {\em
+  Fubini-type} result.
+
+Let's analyze the applicability of this idea to all the function
+spaces we've been considering:
+
+\begin{enumerate}
+
+\item {\bf Measure spaces}: A function is in $L^\infty(X \times Y)$,
+  iff, for almost every $y$, it is in $L^\infty(X)$, and the function
+  that sends $y$ to the $L^\infty$-norm of the corresponding function,
+  is in $L^\infty(Y)$.
+
+  The same holds for $L^p$, for finite $p$. For finite $p$, it is an
+  application of Fubini's theorem.
+
+\item {\bf Schwarz space}: A function in $C^\infty(X \times Y)$ is in
+  $\schwarz{X \times Y}$ if for every fiber, it is Schwarz, and the
+  rate of decline on the fibers is uniform.
+\end{enumerate}
+
+\section{Getting bigger than function spaces}
+
+Is the space $M$ of measurable functions, the biggest possible space?
+Not necessarily. We can conceive of, and work with, {\em bigger}
+spaces. To understand these bigger spaces, first observe that there is
+the famous inner product:
+
+$$\innerproduct{f}{g} = \int f\overline{g} \, dm$$
+
+(For real-valued functions, we do not need complex conjugation). 
+
+Now, this does {\em not} define an inner product on all of $M$. In
+fact, we know that given any function in $L^p$, the functions against
+which its inner product is finite and well-defined, and precisely the
+functions in $L^q$ where $q$ is the conjugat exponent of $L^p$. The
+Riesz representation theorem tells us that for finite $p$, $L^q$ are
+precisely the linear functionals on $L^p$.
+
+\subsection{A Galois correspondence}
+
+A nice way of looking at dual spaces is to consider the Galois
+correspondence picture. Let $X$ be a measure space, and $M$ be the
+space of all measurable functions on $X$, upto measure zero. Define
+the following binary relation on $M$ as:
+
+\begin{quote}
+  $f$ is related to $g$ iff the inner product of $f$ and $g$ is
+  well-defined and finite i.e. iff $f\overline{g}$ is in $L^1(X)$.
+\end{quote}
+
+This is a binary relation on the set $M$; hence we can use it to
+define a Galois correspondence (this is in a similar way as we define
+a Galois correspondence between a ring and its spectrum). The
+correspondence is as follows: it sends a subset $S$ of $M$ to the set
+of all functions $f \in M$ that are related to {\em every} element of
+$S$.
+
+What does this Galois correspondence do? First, observe that we might
+as well assume that $S$ is a vector space, because the elements
+related to $S$ are the same as the elements related to the linear span
+of $S$. The Galois correspondence then sends $S$ to those elements of
+$M$ that give rise to elements of $S^*$ (in a purely linear algebraic
+sense).
+
+Some cautions and observations:
+
+\begin{itemize}
+
+\item The map we have defined (we'll call it the dual inside $M$),
+  takes a vector subspace $S$ of $M$ and sends it to a vector space
+  comprising those functions that induce elements in the algebraic
+  dual space to $S$. However, it does {\em not} include all elements
+  of the algebraic dual of $S$.
+
+\item We haven't yet put a topology on $S$, so we cannot talk of the
+  notion of bounded linear functionals, as yet.
+
+\item The abstract nonsense of Galois correspondences tells us that
+  applying this map {\em thrice} has the same effect as applying it
+  {\em once}.\footnote{The same logic as we use for centralizers in
+    rings, and for the correspondence between a ring and its
+    spectrum.} Thus, there are certain subspaces with the property
+  that they equal their ``double duals'' inside $M$. This is {\em not}
+  the same as saying that the vector space equals its algebraic double
+  dual.
+
+\item It turns out that if we look at $L^p$ just as a vector space
+  (without thinking of the $p$-norm) and take its dual inside $M$,
+  we'll get precisely $L^q$, where $q$ is the conjugate exponent to
+  $p$. We can then go backwards and see that for finite $p$, the
+  ``correct'' topology to put on $L^p$, under which we'd get all
+  bounded linear functionals, would be the $p$-norm topology. For $p =
+  \infty$, we see that putting the $L^\infty$-norm ensures that the
+  dual within $M$ consists only of elements from $L^1$, but
+  there are elements in the dual space that do not come from within
+  $M$.
+
+\item This also indicates that there is something ``natural'' about
+  the topologies on most of the subspaces of $M$ that we are
+  considering. In other words, starting with a subspace $S$, we first
+  find its dual inside $M$, and then topologize it so that its dual
+  inside $M$ are precisely the bounded linear functionals on it inside
+  $M$.
+
+\end{itemize}
+
+\subsection{Going beyond functions}
+
+We've now set up a sufficiently huge language to see one natural way
+of generalizing functions. Namely, instead of trying to take duals
+inside $M$, we try to take the whole dual space, as bounded linear
+functionals under the relevant topology. Unfortunately, there is no
+{\em single} space in which we can study everything.
+
+Some of the examples of this are:
+
+\begin{itemize}
+
+\item {\bf The space of all possible finite real/complex measures}:
+  The elements of this space are finite real/complex measures, and we
+  add the measures in the obvious way. Where does the space of
+  real/complex measures live? For one, any such measure defines a
+  linear functional on the space of bounded functions. We need to be
+  careful here: we're talking of functions that are honestly bounded,
+  rather than equivalence classes of bounded functions (because that'd
+  be with respect to another measure).
+
+  In particular, the space of all possible finite real/complex
+  measures lives inside the dual space to $BC$, the space of bounded
+  continuous functions. %fillin more
+
+\item The Lebesgue-Radon-Nikodym theorem now makes more sense. It says
+  that if $(X,m)$ is a measure space and $\mu$ is any complex measure
+  on $X$, then $\mu$ can be broken up as the sum of a measure that's
+  absolutely continuous with respect to $m$, and a measure that's {\em
+    singular} with respect to $m$: in other words, the two measures
+  are supported on disjoint sets.
+
+  The absolutely continuous part is the part that comes from within
+  $L^1$, and the singular part is the part that comes from outside.
+
+\end{itemize}
+
+The upshot is that there are spaces bigger than function spaces:
+namely, spaces of measures. And some of these are totally orthogonal
+to function spaces, such as the singular measures.
+
+There are certain special kinds of singular measures that come up
+frequently: the {\em discrete} singular measures. Discrete singular
+measures are measures that are concentrated on a discrete set. Note
+that singular measures could be far from discrete: we could, for
+instance, take an uncountable measure zero set, and provide a measure
+on it using a bijection with Euclidean space. That'd be singular but
+would be orthogonal to any discrete singular measure.
+
+Perhaps the most important discrete singular measure, from which the
+others are built, is the delta measure (also called the delta distribution):
+
+\begin{definer}[Delta measure]
+  The delta measure on a set $X$, for a point $x \in X$, is the
+  measure that assigns measure $1$ to the singleton subset $\{ x \}$,
+  and measure zero to any subset not containing $\{ x \}$.
+\end{definer}
+
+Integrating against $\delta_x$ is akin to evaluating at $x$.
+
+\section{Differential equations}
+
+\subsection{A little pause}
+
+Where have we been going? Our basic assumption is that it's
+interesting to study functions from a given set or space, to the reals
+or complex numbers. Starting with these vector spaces of functions,
+we've built a theory that surrounds them: we've gone on to study
+operators between function spaces, spectra of operators, and some
+particular examples. Now it's time to justify our investment.
+
+{\em Why study different function spaces?}
+
+We're looking for a certain, ever-elusive, function that satisfies
+some conditions. If we could make do with a nice and good
+$C^\infty$-function, we shouldn't bother with all the measure theory
+stuff. On the other hand, we may not always be able to get the
+$C^\infty$ functions. We need to calibrate just how good or bad our
+functions can get, and look in increasing levels of generality.
+
+{\em Why not then just look at the largest possible function spaces?}
+
+That's bad, because then we cannot use the specific machinery that is
+applicable to the smaller, nicer, more well-behaved function
+spaces. The Occam's razor cuts backwards: to solve the differential
+equations as simply as possible, we need to have a theory of as many
+different kinds of function spaces, as we can get our hands on.
+
+{\em Why all this structure of norms, operators etc.? Where do they come in?}
+
+That's what we'll see in this section.
+
+One thing we'll see in the coming sections in a return to the
+``real''-valued functions, as opposed to the complex-valued
+functions. Since the reals form a subfield of the complex numbers,
+``real inputs give real outputs'', which means that if everything in
+the differential equation is real, one can expect to come up with real
+solutions.
+
+\subsection{How do differential equations arise?}
+
+Differential equations arise from instantaneous laws. These could be
+physical laws, social laws; all kinds of laws. The idea is: ``the way
+something is changing, depends on the way it is''. For instance, a
+differential equation like:
+
+$$\frac{dx}{dt} = x$$
+
+reflects the law that the rate at which $x$ changes with respect to
+times, equals the value of $x$. The more it is, the faster it changes.
+
+The general setup for a partial differential equation is:
+
+\begin{itemize}
+
+\item There are some {\em independent variables}: These are the
+  spatial or time variables in which the system is embedded. For
+  instance, if a particle is moving through time, the independent
+  variable is time. If we are tracing the temperature in the universe
+  through space and time, the independent variables are space and
+  time. (the variables are assumed to be real-valued).
+
+\item There are some {\em dependent variables}: These are variables
+  that depend, in some sense, on the independent variables. (the
+  variables are again assumed to be real-valued)
+
+\item There is a {\em system of differential equations}: Each equation
+  in this system relates the independent variables, dependent
+  variables, and {\em partial derivatives} of the dependent variables
+  in the independent variables.
+
+\end{itemize}
+
+Formally, there is a ``configuration space'' for the independent
+variables (the set of all possible value combinations), and a
+configuration space for the dependent variables, and there's a map
+from the former to the latter. What the differential equation does is
+pose constraints on how this map must behave.
+
+\subsection{Order, degree and linearity}
+
+Differential equations could look real funny. They could involve
+partial derivatives, mixed partials, they could involve functions like
+$\sin$ and $\cos$ applied to the derivatives, they could involve just
+about anything. Where, then, does all the beautiful theory that we've
+constructed for normed vector spaces, fit in?
+
+It fits in because the differential equations that we'll be
+considering, for the initial part, have a very special structure. Here
+are some definitions:
+
+\begin{definer}
+
+  \begin{enumerate}
+
+  \item A (nonlinear) differential operator of order $\le r$ is a map
+    from the space of $C^r$ functions to the space of $C^0$ functions,
+    that involves a $C^r$ function of the variable, the value of the
+    function at the point, and all its mixed partials of order upto $r$.
+
+  \item A (nonlinear) differential equation of order $\le r$ is an
+    equation of the form $F(f) \equiv 0$ where $F$ is a nonlinear
+    differential operator of order $\le r$, and $f$ is the function for which we need to solve.
+
+  \item A \definedind{polynomial differential operator} of order $\le
+    r$ is a (nonlinear) differential operator that is a polynomial
+    function of the variable, the value of the function at the point,
+    and all the mixed partials. Similarly we have the notion of a
+    \definedind{linear differential operator}: this coincides with the
+    notion of differential operator we saw earlier.
+
+  \item A differential operator is said to have \definedind{degree}
+    $d$ if it is expressed as a degree $d$ homogeneous polynomial of
+    the mixed partials of order exactly $r$, plus a differential
+    operator of order $\le r - 1$. In the situation where there is
+    exactly one dependent variable and exactly one independent
+    variable, this is the same as saying that the $d^{th}$ power of
+    the $r^{th}$ derivative is expressed in terms of all the derivatives of lower order.
+    
+  \end{enumerate}
+\end{definer}
+
+Note that {\em linear} differential operators are always first-degree,
+so in fact studying first-degree differential operators is a bit more
+general than studying linear differential operators. Indeed, a number
+of instantaneous laws are, by nature, first-degree. These laws somehow
+describe the highest derivative, in terms of the lowest
+derivative. For instance:
+
+\begin{itemize}
+
+\item A law may describe the rate at which water flows through a pipe,
+  as a function of a number of {\em degree zero} quantities.
+
+\item A law may describe the rate at which a particle accelerates, in
+  terms of its speed, its position, and other factors. Here, it's a
+  first-degree second-order differential equation, because the second
+  derivative with respect to time is described using the derivatives
+  of lower orders.
+
+\end{itemize}
+
+\subsection{Linear differential operators}
+
+The study of linear differential operators differs fundamentally from
+the study of nonlinear ones. For linear differential operators, we can
+apply the entire theory of Banach algebras between function
+spaces. The kernel and image of linear differential operators are both
+vector subspaces. If $L$ is a linear differential operator, then the
+solution set to $Lf = g$ can be obtained by finding a {\em particular
+  solution} and then finding all solutions to $Lf = 0$ (the {\em
+  kernel} of the differential operator) and adding up.
+
+Thus, if $L$ is a linear differential operator, the question of
+whether $Lf = g$ has a solution breaks down into two parts:
+
+\begin{itemize}
+
+\item Finding the {\em kernel} of the map
+
+\item Finding the {\em image} of the map. More specifically, knowing
+  whether $g$ is the image of something, and if so, what the inverse
+  image looks like
+
+\end{itemize}
+
+\section{More function spaces:Sobolev et al.}
+
+\subsection{Bigger function spaces, more solutions}
+
+This is based on the central theme: {\em can we make sense of
+  differentiation for more functions than we're willing to admit?} The
+idea behind doing this is to provide an alternative definition of
+derivative, with the property that for $C^1$ functions, this coincides
+{\em exactly} with the usual notion of derivative.
+
+One such criterion is measure-theoretic. It goes back to Stokes'
+theorem, which states that if you integrate the gradient of a function
+over a domain, it is equivalent to integrating the function over the
+{\em boundary} of the domain. More generally, one could {\em weight}
+both integrals by a test function. We can combine this with the
+product rule:
+
+Let $\Omega$ be a domain in $\R^n$ and $u \in C_c^2(\Omega)$. Then,
+for any function $f \in C^2(\Omega)$, we have that:
+
+$$\int_\Omega (\nabla f \cdot \nabla u + u\Delta f) \, dm = \int_\Omega \nabla (u \nabla f) \, dm = 0$$
+
+The last follows because we can take the boundary of the support of
+$\Omega$. The integral of $u \nabla f$ on the boundary equals the integral
+of its derivative inside, so we get zero.
+
+In other words, if $\innerproduct{f}{g}$ denotes the integral of the
+product $fg$ over $\Omega$, we get:
+
+\begin{equation}
+  \innerproduct{\nabla f}{\nabla u} = - \innerproduct{u}{\Delta f}
+\end{equation}
+A similar reasoning shows that:
+
+\begin{equation}\label{gradientfortwicediff}
+  \innerproduct{\Delta u}{f} = -\innerproduct{\nabla f}{\nabla u}
+\end{equation}
+
+Combining, we get:
+
+\begin{equation}\label{laplacianfortwicediff}
+  \innerproduct{u}{\Delta f} = \innerproduct{\Delta u}{f}
+\end{equation}
+
+All these equalities hold, at least {\em a priori}, only under the
+assumption that $u$ is continuous with compact support.
+
+Now, this suggests {\em two} alternative definitions of a
+twice-differentiable function:
+
+\begin{enumerate}
+
+\item The definition compatible with equation
+  \ref{gradientfortwicediff}, states that there is a vector-valued
+  function $\alpha$, such that for any $u \in C_c^2(\Omega)$:
+  
+  $$\innerproduct{\Delta u}{f} = -\innerproduct{\alpha}{\nabla u}$$
+
+\item The definition compatible with equation
+  \ref{laplacianfortwicediff}, states there there is a function $g \in
+  L^1_{loc}(\Omega)$, such that for any $u \in C_c^2(\Omega)$:
+
+  $$\innerproduct{u}{g} = \innerproduct{\Delta u}{f}$$
+
+  In other words, we can find a function to play the role of the Laplacian.
+
+\end{enumerate}
+
+We can thus define various {\em new} kinds of function spaces, as
+those function spaces for which such ``derivatives'' exist. Point (1)
+gives functions that are, in a weak sense, once differentiable, and
+point (2) gives functions that are, in a weak sense, twice
+differentiable. The classes of functions here are somewhat bigger than
+all the functions in $C^1$ or $C^2$, yet they are smaller than the
+class of all functions in $L^1_{loc}$.
+
+This leads to the notion of Sobolev spaces. Roughly, a Sobolev space
+is the space of functions which have ``derivatives'' in the sense of
+satisfying the integral equations with respect to any test function.
+
+\subsection{Formal definitions of weak derivatives}
+
+Let $\Omega$ be a domain in Euclidean space.
+
+For convenience, we will say that $u$ is a \definedind{test function}
+if $u \in C_c^\infty(\Omega)$.
+
+\begin{definer}[Weak derivative]
+  Let $\alpha$ be a multi-index. Let $u,v \in
+  L^1_{loc}(\Omega)$. Then, we say that $v$ is the $\alpha^{th}$
+  \definedind{weak derivative} of $u$, or in symbols:
+
+  $$D^\alpha(u) = v$$
+
+  if for any test function $\varphi$, we have:
+
+  $$\int_\Omega uD^\alpha \varphi \, dm = (-1)^{\abs{\alpha}} \int_\Omega v \varphi \, dm $$
+\end{definer}
+
+The condition is designed to satisfy Stokes' theorem. So if the
+function actually {\em does} have an $\alpha^{th}$ partial in the
+strong sense, that must also equal the weak derivative.
+
+Uniqueness follows because there is no function in $L^1_{loc}$ whose
+inner product with {\em every} function in $C_c^\infty$ is $0$.
+
+\subsection{Sobolev space}
+
+\begin{definer}[Space of $k$-times weakly differentiable functions]
+  A function in $L^1_{loc}$ is termed $k$-times weakly differentiable
+  if, for every multi-index $\alpha$ with $\abs{\alpha} \le k$, there
+  exists an $\alpha^{th}$ weak derivative of the function.
+\end{definer}
+
+We now define the Sobolev spaces:
+
+\begin{definer}[Sobolev space $W^{k,p}$]
+  The \definedind{Sobolev space} $W^{k,p}(\Omega)$ is defined as the
+  vector subspace of $L^1_{loc}(\Omega)$ comprising those functions
+  such that for each multi-index $\alpha$ with $\abs{\alpha} \le k$,
+  the $\alpha^{th}$ weak derivative exists, and lives in $L^p(\Omega)$
+  (this includes the empty index, so in particular any function in
+  $W^{k,p}$ is in $L^p$).
+\end{definer}
+
+Here, $k$ is a nonnegative (possibly infinite) integer and $p \in
+[1,\infty]$. Clearly, $W^{k,p}$ becomes smaller as $k$ becomes larger,
+and $W^{0,p} = L^p$.
+
+If we {\em fix} $k$, then the relative inclusion relationships between
+the $W^{k,p}$s for varying $p$, are similar to the relations between
+the $L^p$s. More precisely:
+
+\begin{enumerate}
+
+\item The $W^{k,p}$s are normed vector spaces, where the norm is the
+  $p^{th}$ root of the sum of the integrals of $p^{th}$ powers of all
+  the mixed partials of order at most $k$. In symbols:
+
+  $$\norm{u}_{W^{k,p}(\Omega)} = \left( \sum_{\abs{\alpha} \le k} \int_\Omega \abs{D^\alpha u}^p \, dm \right)^{1/p}$$
+
+  for finite $p$. For $p = \infty$, we take the sum of the essential
+  suprema of all the derivatives.
+
+  Note that we {\em add the powers} before taking the $p^{th}$ root
+  for finite $p$, and for $p = \infty$, we add the essential suprema,
+  rather than taking the essential supremum of the sum.
+
+\item In fact, the $W^{k,p}$s are Banach spaces, i.e. they are
+  complete with the above norm.
+
+\item The space $W^{k,\infty}$ is a Banach algebra, and the space
+  $W^{k,2}$, also denoted $H^k$, is a Hilbert space.
+
+\item For $s \in [p,r]$, the space $W^{k,s}$ contains the intersection
+  $W^{k,p} \cap W^{k,r}$ ({\em is this really true? I'm guessing a
+    Holder's on each of the mixed partials should do it}). Thus, for
+  any fixed $k$, the Venn diagram described in section
+  \ref{venndiagramforlps} transfers to the case of the $W^{k,p}$s.
+
+\item We also have notions of $W^{k,p}_{loc}$. Dowe have notions of
+  weak $W^{k,p}$? No idea.
+
+\end{enumerate}
+
+\subsection{Differential operators between the Sobolev spaces}
+
+Recall that in section \ref{diffopsintro}, we had said that {\em once}
+we have an algebra of functions, we can consider the differential
+operators on that algebra. The only example we had at that time was
+that algebra of $C^\infty$ functions.
+
+Now, with Sobolev spaces, we have a few more choices of algebra.
+Namely, the space $W^{k,\infty}$ is a Banach algebra for any $k$, and
+any of the weak first derivatives gives a differential operator from
+$W^{k,\infty}$ to $W^{k-1,\infty}$. And if we look at the space
+$W^{\infty,\infty}$, then we can define differential operators of any
+order on it.
+
+This suggests another way of looking at Sobolev spaces: they are the
+largest spaces to which the differential operators that we can define
+for $C^k$ (or $C^\infty$) extend with range in the $L^p$s.
+
+So a question arises: under what conditions are the spaces of honestly
+differentiable functions, dense in the Sobolev space? Under what
+conditions is the weak derivative just a linear algebra way of
+extending the notion of derivative we already have for the $C^r$
+spaces? We define:
+
+\begin{definer}[$W_0^{k,p}$: closure of $C_C^\infty$]
+  Let $\Omega$ be a domain in $\R^n$. Then the space
+  $W_0^{k,p}(\Omega)$ is defined as the closure of
+  $C_c^\infty(\Omega)$ in $W^{k,p}$, with respect to the
+  $W^{k,p}$-norm. The space $W_0^{k,2}$ is often written as $H_0^k$.
+\end{definer}
+
+In general, $W_0 \ne W$, which means that we cannot always approximate
+by compactly supported continuous functions. Loosely speaking $W_0$ is
+those elements where all the weak derivatives approach zero on the
+boundary. On the other hand, any element of $W$ {\em can} be
+approximated by $C^\infty$-functions.
+
+\subsection{Approximation by smooth functions}
+
+The first theorem states that if $U$ is a {\em bounded} domain (so it
+is relatively compact), then any smooth functions are dense in
+$W^{k,p}$.
+
+\begin{theorem}[Global approximation by smooth functions]
+  Suppose $U$ is a bounded domain, and $u$ is a function in
+  $W^{k,p}(U)$ for finite $p$. Then, there is a sequence of elements
+  in $C^\infty(U) \cap W^{k,p}(U)$ that approaches $u$ in the
+  $W^{k,p}$-norm.
+\end{theorem}
+
+The sequence of functions that we choose may well have elements that
+blow up on the boundary. the obstacle to doing better is that the
+boundary may be ill-behaved. We have another theorem in this regard:
+
+\begin{theorem}[Global approximation by functions smooth upto the boundary]
+  Suppose $U$ is a bounded connected open subset of $\R^n$, such that
+  $\partial U$ occurs as the image of a smooth manifold under a $C^1$
+  map. Then, any element of $W^{k,p}(U)$ is the limit of a convergent
+  sequence of elements of $C^\infty(\overline{U})$, in the
+  $W^{k,p}$-norm.
+\end{theorem}
+
+By $C^\infty(\overline{U})$, we mean functions that extend smoothly to
+the boundary. Such functions are automatically in $W^{k,p}(U)$.
+
+We'll see a little more of the theory of Sobolev spaces as we move
+on. For now, it is time to return to the world of differential
+equations.
+
+\subsection{How this affects solving equations}
+
+Solving differential equations is, roughly speaking, a {\em reverse}
+process to differentiation. What the above does is to enlarge the
+space is which we look for solutions. Thus, the differential equation:
+
+$$\frac{\partial^2x}{(\partial t)^2} = f(t)$$
+
+can now be made sense of and solved even when the right side isn't a
+$C^0$ function, because we're now looking for the left side is a
+Sobolev space rather than in the constrained space $C^2$.
+
+\section{Heat and flow}
+
+\subsection{Flow equations}
+
+The general idea behind a flow equation is the following:
+
+\begin{itemize}
+
+\item We have a huge (possibly infinite-dimensional) vector space or
+  manifold. This is the {\em function space}, or the space of possible configurations
+
+\item We have a vector field defined on this manifold. This describes the {\em instantanous law}.
+
+\item We need to find the integral curves of this vector field. This describes the {\em evolution with time}.
+
+\end{itemize}
+
+The configuration space here is usually {\em itself a function
+  space}. The vector field is the {\em instantaneous law} by which the
+function changes with time.
+
+Let's give an example: the famous heat equation. Consider a ``body''
+$\Omega$, a connected open subset in $\R^n$. Suppose $u: \Omega \to
+\R$ is a scalar-valued function that describes the temperature on the
+body. $u$ is an element in some (to be determined) function space on
+$\Omega$. What function space depends on how reasonable we expect
+things to be. For instance, if we assume that temperature variation is
+always continuous, we can think of $u$ as living inside
+$C^0(\Omega)$. We may also insist that the temperature should be
+bounded, or that it should be integrable, and so on. In other words,
+the reality of the physical situation constrains us to a particular
+function space, say $F$, of possible temperature functions on $\Omega$.
+
+The temperature naturally evolves with time. In other words, as time
+passes, the temperature function changes. Moreover, the speed with
+which the temperature changes depends {\em only} on the current
+temperature. In other words, we can construct a {\em vector field} on
+the infinite-dimensional space $F$ and the way the temperature evolves
+is the integral curves of the vector field.
+
+Flow equation for a single scalar dependent variable $u$ are thus of the form:
+
+$$\frac{\partial u}{\partial t} = \text{Some function of $u$, $x$, and mixed partials in $x$}$$
+
+The right side is {\em independent} of time (time invariance of
+physical laws, or of vector fields). If we think of it in terms of
+time, we get a first-order, first-degree differential
+equation. However, there are also higher partials in space involved on
+the right side.
+
+For the time being, we'll consider situations where the right side is
+a {\em linear differential operator} in terms of the spatial
+variables. Note that even nonlinear differential operators give vector
+fields, but with linear differential operators, the vector fields
+behave in a particularly nice way: the vector field itself has a
+linear dependence on the point.
+
+\subsection{Solution operators}
+
+\begin{definer}[Solution operator]
+  Suppose $F$ is a function space on a domain $\Omega$, and $L$ is a
+  linear differential operator from $F$ to another function space (say
+  $G$) on $\Omega$. Then, the \definedind{solution operator} for $L$,
+  called $S(L)$ is defined as follows: for any fixed $t \in \R$,
+  $S_t(L)$ sends $u$ to where the integral curve to the associated
+  vector field will be, at time $t$.
+
+  If a solution operator exists for all $0 \le t < \varepsilon$, it
+  exists for all $t \in [0,\infty)$. If a solution operator exitss for
+  all $\abs{t} < \varepsilon$, it exists for all real numbers. The
+  solution operators form a \definedind{local one-parameter semigroup}
+  of maps on the function space, and if they're globally defined, they
+  form a one-parameter group.
+\end{definer}
+
+Do solution operators exist? Are they unique? And most importantly,
+are solution operators {\em nice} in some sense? Do they live inside
+the algebra of integral operators? What is the dependence of a
+solution operator on time? Let's consider this, and related,
+questions.
+
+\subsection{Fundamental solution}
+
+Suppose we have the following differential equation for a function $u:
+\R \times \R^n \to R$ where the first input is thought of as time $t$
+and the second input is thought of as space $x$:
+
+$$\frac{\partial u}{\partial t} = Lu$$
+
+where $L$ is a linear differential operator in the second input. A
+\definedind{fundamental solution} is a solution $\Phi$ to this
+differential equation defined for $t > 0$ such that:
+
+\begin{itemize}
+
+\item {\em Limit at origin}: As $t \to 0$, $\Phi(t, \_)$ approaches the Dirac delta-function for
+  $0$.
+
+\item {\em Smoothness}: $u \in C^\infty(\R \setminus 0 \times \R^n)$
+
+\item {\em Normalization}: For any time $t > 0$, $\int_\R^n \Phi(x,t) \, dx = 1$
+
+\end{itemize}
+
+Such a fundamental solution $\Phi$ enjoys the following properties:
+
+\begin{enumerate}
+
+\item Suppose $u_0:\R^n \to \R$ is the {\em initial value} of an
+  unknown solution $u$ to this equation (in other words, it is the
+  value at time $t = 0$). Then, for any time $t$, define:
+
+  $$u(t,x) = \int_\R^n \Phi(t,x-y)u_0(y) \, dy$$
+
+  This is a solution of the initial value problem, if $u_0$ is a
+  bounded continuous function.
+
+\item Since $\Phi$ is infinitely differentiable, the solution function
+  we obtain this way is $C^\infty$ except possibly at $0$, in {\em
+    both} variables.
+
+\end{enumerate}
+
+\subsection{Some interpretation of this}
+
+The existence of a fundamental solution for a differential equation of
+the form $\partial u/\partial t = Lu$ shows the following:
+
+\begin{enumerate}
+
+\item Given any initial-value problem where the initial value is a
+  bounded continuous function, the solution exists and is unique for
+  positive time. Moreover, it is smooth for positive time.
+
+\item Let's interpret this in terms of the infinite-dimensional spaces
+  involved. We see that the space $BC^\infty$ dense in $BC$, but more
+  than that, we see that there is a kind of ``natural'' choice for a
+  way to approximate an element of $BC$ by elements of $BC^\infty$:
+  use the solution to the differential equation.
+
+\item Physically, it means that if a temperature distribution on a
+  body is bounded and continuous at any given instant of time, then at
+  any {\em later} instant of time, it must become smooth. This is a
+  kind of {\em infinite propagation} idea.
+
+\end{enumerate}
+
+\subsection{Some equations and their fundamental solutions}
+
+\section{Pseudo-differential operators and quantization}
+
+We now introduce some of the leading ideas of pseudo-differential
+operators. We'll begin by looking at a very simple setup, and
+gradually increase the complexity of our ideas.
+
+For simplicity, let's consider the simplest case: functions from $\R$
+to $\R$. We have the algebra $C^\infty(\R; \R)$ of all functions on
+$\R$. An important subalgebra of this is the algebra of {\em
+  polynomial} functions, which can be described as the polynomial ring
+$\R[x]$.
+
+Now, the algebra of derivations of this polynomial ring is the Weyl
+algebra: it is the quotient of the free associative algebra in two
+variables $x$ and $\xi$, by the Weyl relation. Here, $x$ is thought of
+as acting by (left) multiplication, while $\xi$ is thought of as
+acting as differentiation. Explicitly it is:
+
+$$\R \langle x,y\rangle / \langle \langle \xi x - x \xi - 1 \rangle \rangle$$
+
+Every element of this algebra has a unique expression as a
+``polynomial'' in $\xi$, with coefficents (written on the left) coming
+from $\R[x]$. However, the ``coefficients'' do not commute with $\xi$,
+so it matters that we're writing the coefficient on the left.
+
+What happens when we consider the whole ring $C^\infty(\R;\R)$? The
+algebra of derivations is now an algebra that looks like a {\em
+  polynomial} in $\xi$ but could be {\em arbitrary} $C^\infty$
+functions in $x$. In other words, we can get a unique ``polynomial''
+expression in $\xi$ with coefficients (written on the left) in
+$C^\infty(\R;\R)$. In other words, differential operators have
+polynomial dependence on the derivative operation, but
+$C^\infty$-dependence on the variable $x$.\footnote{Another view of
+  this is that the algebra of differential operators for $C^\infty$ is
+  obtained by a noncommutative version of ``tensoring'' the algebra of
+  differential operators for the polynomial ring, with
+  $C^\infty(\R)$.}
+
+This suggests a question: can we somehow generalize the notion of
+differential operators so that the dependence {\em both} on $x$ and on
+$\xi$ is $C^\infty$? In other words, can we take $C^\infty$-functions
+of the operation $d/dx$? This seems a somewhat strange thing to hope
+for, but surprisingly, it {\em can} be achieved, that too in possibly
+more than one way.
+
+\subsection{The setup for pseudo-differential operators}
+
+When we say pseudo-differential operator, we'll mean a
+linear pseudo-differential operator. I don't know if
+there is a suitable generalized nonlinear notion of
+pseudo-differential operator.
+
+\begin{definer}[Theory of pseudo-differential operators]
+  Suppose $\Omega$ is a domain in $\R^n$. Then, there is a natural
+  embedding of $\R$-algebra generated by all the first partials (a
+  polynomial algebra in $n$ variables), into the algebra of
+  differential operators on $\Omega$. A \definedind{theory of
+    pseudo-differential operators} is the following data:
+
+  \begin{enumerate}
+
+  \item A bigger algebra containing the algebra of differential
+    operators (called the algebra of linear pseudo-differential operators)
+
+  \item An extension of the embedding of the polynomial algebra
+    $\poly{U}$ in the algebra of linear differential operators, to an
+    embedding of the algebra $C^\infty(U)$ (or some large subspace
+    thereof) in the algebra of linear pseudo-differential operators
+
+  \end{enumerate}
+\end{definer}
+
+{\em A priori}, it is not clear whether algebras of
+pseudo-differential operators exist.
+
+Let's see what we need to do to construct a theory of
+pseudo-differential operators. We need to somehow invent a machine
+that takes a polynomial and outputs the differential operator obtained
+by thinking of the variables in the polynomial as first
+partials. Moreover, this machine should be sufficiently robust to take
+in things more complicated than polynomials: say things in
+$C^\infty(U)$, or $C_c^\infty(U)$. The machine is already there for
+us: it's the Fourier transform.
+
+\subsection{The ordinary and Weyl transform}
+
+The ordinary transform, which achieve one family of
+pseudo-differential operators, is described as follows. Consider $a
+\in C^\infty(\R^n \times \R^n)$ as the {\em function} that's
+$C^\infty$ in both $x$ and $\xi$, and that we plan to turn into a
+differential operator. Then, the \definedind{ordinary transform} by
+$a$ is the following integral operator applied to the {\em Fourier
+  transform} of the function:
+
+$$(x,\xi) \mapsto \frac{1}{(2\pi)^n} e^{ix \cdot \xi} a(x,\varepsilon \xi)$$
+
+In other words, we start with $f$, take its Fourier transform, then
+apply the above integral operator, and the final outcome that we get
+is what the differential operator corresponding to $a$, does to $f$.
+
+Let's take some special cases, to get a feel for how this works:
+
+\begin{enumerate}
+
+\item Where $a$ depends only on $x$ and not on $\xi$:
+
+\item When $a$ depends only on $\xi$ and not on $x$:
+\item Where $a$ has {\em polynomial dependence} on $\xi$ 
+
+\end{enumerate}
+
+The Weyl transform is defined as follows:
+
+%fillin
+
+Note that both the ordinary and Weyl transform behave in the same
+way for things that are polynomial in $\xi$, and this is the
+prescribed way for any theory of pseudo-differential operators. The
+difference lies in the {\em way} we choose to exercise
+noncommutativity. Roughly, the fact that $x$ and $\xi$ commute in the
+ring of functions but not in the ring of differential operators,
+allows us to give myriad ways of interpreting the function $a(x,\xi) =
+x\xi$ as a differential operator: we could think of it as $x\xi$ as
+$\xi x$ or as the average of the two. The ordinary transform takes the
+first interpretation (differentiate, then multiply) and is thus not
+``symmetric''. It corresponds to doing things in sequence. 
+
+\subsection{Quantizing the transforms}
+
+\subsection{Determining properties of the transforms and quantizations}
+
+\section{The Hilbert transform}
+
+
+
+
+
+
+\printindex
+
+\end{document}

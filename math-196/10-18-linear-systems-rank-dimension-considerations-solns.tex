@@ -1,0 +1,404 @@
+
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Friday October 18: Linear systems: rank and dimension considerations}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+27 people took this 8-question quiz. The score distribution was as
+follows:
+
+\begin{itemize}
+\item Score of 3: 1 person
+\item Score of 4: 4 people
+\item Score of 5: 7 people
+\item Score of 6: 6 people
+\item Score of 7: 8 people
+\item Score of 8: 1 person
+\end{itemize}
+
+The question-wise answers and performance review are as follows:
+
+\begin{enumerate}
+\item Option (E): 24 people
+\item Option (B): 21 people
+\item Option (E): 10 people
+\item Option (E): 24 people
+\item Option (B): 24 people
+\item Option (B): 20 people
+\item Option (A): 17 people
+\item Option (C): 14 people
+\end{enumerate}
+
+\section{Solutions}
+
+The questions here consider a wide range of theoretical and practical
+settings where linear systems appear, and prompt you to think about
+the notion of rank and its relationship with whether we can uniquely
+acquire the information that we want. It relates approximately with
+the material in the {\tt Linear systems and matrix algebra} notes (the
+corresponding section in the book is Section 1.3).
+
+\begin{enumerate}
+\item (*) Let $m$ and $n$ be positive integers. It turns out that {\em
+  almost all} $m \times n$ matrices over the real numbers have a
+  particular rank. What is that rank? (Unfortunately, it is beyond our
+  current scope to define ``almost all'').
+
+  \begin{enumerate}[(A)]
+  \item $m$ (regardless of whether $m$ or $n$ is bigger)
+  \item $n$ (regardless of whether $m$ or $n$ is bigger)
+  \item $(m + n)/2$
+  \item $\max \{ m,n \}$
+  \item $\min \{ m,n \}$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: In some sense, this is the only viable option,
+  because we know that the rank is at {\em most} $\min \{ m,n \}$. The
+  intuitive reason why the theoretical maximum is usually attained is
+  that ``random things are most likely to be unrelated.'' 
+
+  {\em Performance review}: 24 out of 27 got this. 2 chose (A), 1
+  chose (D).
+
+  {\em Historical note (last time)}: $23$ out of $25$ got this. $1$ each chose
+  (C) and (D).
+
+\item (*) A container has a mix of two known gases that do not react
+  with each other. The temperature and pressure of the container are
+  known. Assume that $PV = nRT$. The volume of the container is also
+  known, and so is the total mass of the gases in the container. Under
+  what conditions can we predict the amount (say, in the form of the
+  number of moles) of each gas that is present from this information?
+
+  \begin{enumerate}[(A)]
+  \item It is possible if both gases have the same molecular mass,
+    because in that case, the coefficient matrix of the linear system
+    has full rank $2$.
+  \item It is possible if both gases have different molecular
+    masses, because in that case, the coefficient matrix of the linear
+    system has full rank $2$.
+  \item It is possible if both gases have the same molecular mass,
+    because in that case, the coefficient matrix of the linear system
+    has rank $1$.
+  \item It is possible if both gases have different molecular
+    masses, because in that case, the coefficient matrix of the linear
+    system has rank $1$.
+  \item It is not possible to deduce the amount of each gas from the
+    given information.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Let $n_1$ and $n_2$ be the number of moles of
+  each gas. Let $m_1$ and $m_2$ be their respective molecular
+  masses. Then, we have two equations, where $M$ is the total mass:
+
+  \begin{eqnarray*}
+    n_1 + n_2 & = & PV/(RT)\\
+    n_1m_2 + n_2m_2 & = & M\\
+  \end{eqnarray*}
+
+  The coefficient matrix for this is:
+
+  $$\left[\begin{matrix} 1 & 1 \\ m_1 & m_2 \\\end{matrix}\right]$$
+
+  This has rank one iff $m_1 = m_2$, and rank two otherwise.
+
+  If the coefficient matrix has rank one, then the second equation is
+  redundant (note that it must be consistent since we are getting
+  these numbers from an actual situation). In other words, we get a
+  one-dimensional solution space, with a freely varying parameter. The
+  nonnegativity of the number of moles of each gas does constrain the
+  parameter to a closed bounded interval instead of all reals, but it
+  still has infinitely many candidate values.
+
+  {\em Performance review}: 21 out of 27 got this. 4 chose (A), 2 chose (C).
+
+  {\em Historical note (last time)}: $17$ out of $25$ got this. $4$ chose (C),
+  $3$ chose (E), $1$ chose (A).
+
+\item (*) A container has a mix of three known gases with no reactions
+  between the gases. The temperature and pressure of the container are
+  known. Assume that $PV = nRT$. The volume of the container is also
+  known, and so is the total mass of the gases in the container. Under
+  what conditions can we predict the amount (say, in the form of the
+  number of moles) of each gas that is present from this information?
+
+  \begin{enumerate}[(A)]
+  \item It is possible if all three gases have the same molecular mass,
+    because in that case, the coefficient matrix of the linear system
+    has full rank $3$.
+  \item It is possible if all three gases have different molecular
+    masses, because in that case, the coefficient matrix of the linear
+    system has full rank $3$.
+  \item It is possible if all three gases have the same molecular mass,
+    because in that case, the coefficient matrix of the linear system
+    has rank $2$.
+  \item It is possible if all three gases have different molecular
+    masses, because in that case, the coefficient matrix of the linear
+    system has rank $2$.
+  \item It is not possible to deduce the amount of each gas from the
+    given information.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: We have two equations in three
+  variables. Explicitly, if the total mass is $M$, the number of moles
+  of the three gases are $n_1$, $n_2$, and $n_3$, and the molecular
+  masses are $m_1$, $m_2$, and $m_3$, then we have:
+
+  \begin{eqnarray*}
+    n_1 + n_2 + n_3 & = & PV/(RT)\\
+    n_1m_1 + n_2m_2 + n_3m_3 & = & M \\
+  \end{eqnarray*}
+
+  The coefficient matrix is:
+
+  $$\left[\begin{matrix} 1 & 1 & 1 \\ m_1 & m_2 & m_3 \\\end{matrix}\right]$$
+
+  This matrix can have rank either one or two. The rank is one if all
+  three gases have the same molecular mass. The rank is two
+  otherwise. Note that in either case, the rank is less than three,
+  i.e., the system does not have full column rank. Thus, it will not
+  be possible to solve the system and uniquely determine the values of
+  $n_1$, $n_2$, and $n_3$.
+
+  What if we include the nonnegativity constraints? Even in the
+  presence of these constraints, a unique solution is not possible if
+  there are nonzero amounts of all gases in the actual solution.
+
+  {\em Performance review}: 10 out of 27 got this. 10 chose (B), 4
+  chose (C), 3 chose (A).
+
+  {\em Historical note (last time)}: $10$ out of $25$ got this. $13$ chose (B),
+  $1$ each chose (A) and (C).
+
+The branch of chemistry called quantitative analysis has historically
+used stoichiometric methods to determine the proportions of various
+chemicals present in a given mix. The idea is to use information about
+the amounts needed and produced in various reactions to estimate the
+quantities of chemicals present (the possible chemicals are first
+identified via ``qualitative analysis'' techniques). We generally find
+that these conditions give linear systems, and the coefficient
+matrices of these systems have (or can be written in a manner as to
+have) small integer entries. 
+
+\item (*) Consider a situation where we have a material that is a mix
+  (in fixed proportion) of three known chemicals $X$, $Y$, and
+  $Z$. Our goal is to find the amount of $X$, $Y$, and $Z$
+  present. Suppose we want to set up a collection of experiments so
+  that the coefficient matrix is diagonal, i.e., we are effectively
+  solving a diagonal system of equations and can recover the
+  quantities of each of $X$, $Y$, and $Z$. Which of the following is
+  the best approach?  Assume that we can measure, for each reagent,
+  the amount of the reagent that gets used up for the reaction(s) to
+  proceed to completion, but cannot isolate or separate the outputs
+  from each other.
+
+  \begin{enumerate}[(A)]
+  \item Choose a single reagent that reacts with all of $X$, $Y$, and
+    $Z$.
+  \item Choose a single reagent that reacts with only one of $X$, $Y$,
+    and $Z$.
+  \item Choose three separate reagents, each of which reacts with {\em
+    all} of $X$, $Y$, and $Z$.
+  \item Choose three separate reagents, each of which reacts only with
+    $X$.
+  \item Choose three separate reagents, one of which reacts only with
+    $X$, one of which reacts only with $Y$, and one of which reacts
+    only with $Z$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Consider a matrix with the columns indexed by
+  $X$, $Y$, and $Z$ and with the rows indexed by the reagents. The
+  entry in each cell of the matrix is the amount of the row reagent
+  needed to react with a unit amount of the column substance. It turns
+  out that this is the coefficient matrix of the system of
+  simultaneous linear equations that we construct.
+
+  In order to get a diagonal matrix, we need to have three reagents
+  (so the number of rows equals the number of columns) and further, we
+  need to choose them so that the off-diagonal entries are zero, i.e.,
+  our first reagent should react only with $X$, our second reagent
+  should react only with $Y$, and our third reagent should react only
+  with $Z$.
+
+  {\em Performance review}: 24 out of 27 got this. 2 chose (C), 1 chose (A).
+
+  {\em Historical note (last time)}: $22$ out of $25$ got this. $1$ each chose
+  (A), (B), and (D).
+
+\item (*) Suppose we are given an aqueous solution with two known
+  dissolved substances. There are two different types of
+  reactions. One is an acid-base reaction and the other is a redox
+  reaction. For both reactions, we can use titrations (separately) to
+  deduce the quantity of reagent needed. What type of system should we
+  expect to get if only one of the solutes participates in the redox
+  reaction but both participate in the acid-base reaction?
+
+  \begin{enumerate}[(A)]
+  \item A diagonal system, i.e., the coefficient matrix is a diagonal matrix.
+  \item A triangular system, i.e., the coefficient matrix is a
+    triangular matrix (whether it is upper or lower triangular depends
+    on the order in which we write the rows).
+  \item A system of rank one, i.e., the coefficient matrix has rank one.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The coefficient matrix has columns corresponding
+  to the solutes, and rows corresponding to the reagents, with the
+  matrix entries describing the amount of the row reagent consumed per
+  unit of the solute. The row for the redox reagent has one entry
+  zero. If we write that solute on the left, and that row as the
+  second row, we get a matrix of the form:
+
+  $$\left[\begin{matrix} * & * \\ 0 & * \\\end{matrix}\right]$$
+
+  This is upper triangular.
+
+  {\em Performance review}: 24 out of 27 got this. 2 chose (C), 1 chose (A).
+
+  {\em Historical note (last time)}: $20$ out of $25$ got this. $4$ chose (A),
+  $1$ chose (C).
+
+\item (*) Suppose we are given an aqueous solution with two known
+  dissolved substances. There are two different types of
+  reactions. One is an acid-base reaction and the other is a redox
+  reaction. For both reactions, we can use titrations (separately) to
+  deduce the quantity of reagent needed.Suppose we are given an
+  aqueous solution with two known dissolved substances. Suppose both
+  solutes participate in both reactions. What should we desire if we
+  want to use the data from the two titrations to determine the
+  amounts of each of the substances?
+
+  \begin{enumerate}[(A)]
+  \item The proportions in which the two substances react should be
+    the same for the two reactions.
+  \item The proportions in which the two substances react should
+    differ for the two reactions.
+  \item It does not matter; we will be able to determine the amounts
+    of each of the substances in both cases.
+  \item It does not matter; we will not be able to determine the
+    amounts of each of the substances in either case.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: If they react in the same proportions, then the
+  coefficient matrix will have rank one, i.e., the equations we get
+  from the two reactions will convey the same algebraic information.
+
+  {\em Performance review}: 20 out of 27 got this. 4 chose (A), 2
+  chose (D), 1 left the question blank.
+ 
+  {\em Historical note (last time)}: $12$ out of $25$ got this. $7$ chose (C),
+  $4$ chose (D), $2$ chose (A).
+
+\item {\em Do not discuss this!}: A consumer price index is obtained
+  from a ``goods basket'' by multiplying the price of each good in the
+  basket by a fixed weight, and then adding up all the price X weight
+  products. The weights are kept fixed, but the prices vary from year
+  to year. Thus, the consumer price index value itself fluctuates from
+  year to year.
+  
+  What is a good way of modeling this?
+
+  \begin{enumerate}[(A)]
+  \item The prices of the various goods in various years are stored
+    in a matrix, the weights used in the index are stored in a
+    vector, and the consumer price index values arise as the output vector
+    of the matrix-vector product.
+  \item The weights used in the index are stored in a matrix, the
+    prices of the various goods in various years are stored in a
+    vector, and the consumer price index values arise as the output
+    vector of the matrix-vector product.
+  \item The prices of the various goods in various years are stored in
+    a matrix, the consumer price index values are stored as a vector,
+    and the weights used in the index arise as the output vector
+    of the matrix-vector product.
+  \item The weights used in the index are stored in a matrix, the
+    consumer price index values are stored in a vector, and the prices
+    of the various goods in various years arise as the output vector
+    of the matrix-vector product.
+  \item The consumer price index values are stored in a matrix, the
+    prices of the various goods in various years are stored in a
+    vector, and the weights used in the index arise as the output
+    vector of the matrix-vector product.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: The weight vector is fixed. There are many price
+  vectors, one for each year. It makes sense to store these as
+  different rows of a matrix, that is then multiplied with the weight
+  vector to give the vector of consumer price index values. The
+  intuition is that the fixed vector is chosen as the vector and the
+  many different vectors that need to be dotted (in the sense of
+  ``taking the dot product'') with the fixed vector are taken as rows
+  of a matrix.
+
+  {\em Performance review}: 17 out of 27 got this. 10 chose (B).
+
+  {\em Historical note (last time)}: $4$ out of $25$ got this. $20$ chose (B),
+  $1$ chose (E).
+
+\item Amelia wants to choose a healthy balanced diet. She has access
+  to $30$ different types of foods. There are $400$ different
+  nutrients that she wants a good amount of. Each of the foods that
+  Amelia consumes offers a positive amount of each nutrient per unit
+  foodstuff. Amelia is interested in meeting the daily value
+  requirements for all nutrients. For some nutrients, her daily value
+  requirements specify only a minimum. For some nutrients, both a
+  minimum and a maximum are specified. Assume that the total amount of
+  any nutrient can be obtained by adding up the amounts obtained from
+  each of the foodstuffs Amelia consumes. Amelia wants to determine
+  how much of each foodstuff she should consume. How should she model
+  the situation?
+
+  \begin{enumerate}[(A)]
+  \item The matrix with information on the nutritional contents of the
+    foodstuffs is a $400 \times 400$ matrix, and the vector of amounts
+    of each foodstuff consumed is a $400 \times 1$ column vector.
+  \item The matrix with information on the nutritional contents of the
+    foodstuffs is a $30 \times 30$ matrix, and the vector of amounts
+    of each foodstuff consumed is a $30 \times 1$ column vector.
+  \item The matrix with information on the nutritional contents of the
+    foodstuffs is a $400 \times 30$ matrix, and the vector of amounts
+    of each foodstuff consumed is a $30 \times 1$ column vector.
+  \item The matrix with information on the nutritional contents of the
+    foodstuffs is a $30 \times 400$ matrix, and the vector of amounts
+    of each foodstuff consumed is a $400 \times 1$ column vector.
+  \item The matrix with information on the nutritional contents of the
+    foodstuffs is a $400 \times 400$ matrix, and the vector of amounts
+    of each foodstuff consumed is a $30 \times 1$ column vector.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The input food vector is $30 \times 1$, the
+  output nutrient vector is $400 \times 1$, so the matrix must be $400
+  \times 30$.
+
+  {\em Performance review}: 14 out of 27 got this. 12 chose (D), 1
+  left the question blank.
+
+  {\em Historical note (last time)}: $20$ out of $25$ got this. $2$
+  each chose (A) and (B), $1$ chose (E).
+\end{enumerate}
+\end{document}

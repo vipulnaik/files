@@ -1,0 +1,1000 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Theorems on limits and continuity}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Difficulty level}: Moderate to hard. There are a couple of proofs
+here that are hard to understand; however, you are not responsible for
+the proofs of these theorems this quarter. The statements of the
+theorems will be easy if you have seen them before, and somewhat hard
+if you have not.
+
+{\bf Corresponding material in the book}: Sections 2.3, 2.4, 2.5, 2.6.
+
+{\bf Things that students should definitely get}: The uniqueness
+theorem for limits. The statements of the theorems for limits and
+continuity in relation to the pointwise combinations of functions and
+composition. The fact that all the results for pointwise combination
+hold for one-sided limits and one-sided continuity. The statement and
+simple applications of the pinching theorem, intermediate-value
+theorem, and extreme-value theorem.
+
+{\bf Things that students should hopefully get}: The fact that the
+limit theorems have both a conditional existence component and a
+formula component. The way that the triangle inequality is used
+critically to prove the uniqueness theorem and the theorem on limits
+of sums. The importance of the continuity assumption for the
+intermediate-value theorem and of that as well as the closed interval
+assumption for the extreme-value theorem. How to think about
+counterexamples and weird functions in a way that builds intuition
+about the significance of the hypotheses to the theorems.
+
+\section*{Executive summary}
+
+\subsection*{Limit theorems + quick/intuitive calculation of limits}
+
+Words...
+
+\begin{enumerate}
+\item If the limits for two functions exist at a particular point, the
+  limit of the sum exists and equals the sum of the limits. Similarly
+  for product and difference.
+\item For quotient, we need to add the caveat that the limit of the
+  denominator is nonzero.
+\item If $\lim_{x \to c} f(x) = L \ne 0$ and $\lim_{x \to c} g(x) =
+  0$, then $\lim_{x \to c} (f(x)/g(x))$ is undefined.
+\item If $\lim_{x \to c} f(x) = \lim_{x \to c} g(x) = 0$, then we
+  cannot say anything offhand about $\lim_{x \to c} (f(x)/g(x))$.
+\item Everything we said (or implied) can be reformulated for
+  one-sided limits.
+\end{enumerate}
+
+\subsection*{Continuity theorems}
+
+Words ...
+
+\begin{enumerate}
+\item If $f$ and $g$ are functions that are both continuous at a point
+  $c$, then the function $f + g$ is also continuous at $c$. Similarly,
+  $f - g$ and $f \cdot g$ are continuous at $c$. Also, if $g(c) \ne
+  0$, then $f/g$ is continuous at $c$.
+\item If $f$ and $g$ are both continuous in an interval, then $f + g$,
+  $f - g$ and $f \cdot g$ are also continuous on the
+  interval. Similarly for $f/g$ provided $g$ is not zero anywhere on
+  the interval.
+\item The composition theorem for continuous functions states that if
+  $g$ is continuous at $c$ and $f$ is continuous at $g(c)$, then $f
+  \circ g$ is continuous at $c$. The corresponding composition theorem
+  for limits is {\em not true but almost true}: if $\lim_{x \to c}
+  g(x) = L$ and $\lim_{x \to L} f(x) = M$, then $\lim_{x \to c}
+  f(g(x)) = M$.
+\item The one-sided analogues of the theorems for sum, difference,
+  product, quotient work, but the one-sided analogue of the theorem
+  for composition is not in general true.
+\item Each of these theorems at points has a suitable
+  analogue/corollary for continuity (and, with the exception of
+  composition, for one-sided conitnuity) on intervals.
+\end{enumerate}
+
+\subsection*{Three important theorems}
+
+Words ...
+
+\begin{enumerate}
+\item The pinching theorem states that if $f(x) \le g(x) \le h(x)$,
+  and $\lim_{x \to c} f(x) = \lim_{x \to c} h(x) = L$, then $\lim_{x
+  \to c} g(x) = L$. A one-sided version of the pinching theorem also
+  holds.
+\item The intermediate-value theorem states that if $f$ is a
+  continuous function, and $a < b$, and $p$ is between $f(a)$ and
+  $f(b)$, there exists $c \in [a,b]$ such that $f(c) = p$. Note that
+  we need $f$ to be defined and continuous on the entire closed
+  interval $[a,b]$.
+\item The extreme-value theorem states that on a closed bounded
+  interval $[a,b]$, a continuous function attains its maximum and
+  minimum.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item When trying to calculate a limit that's tricky, you might want
+  to bound it from both sides by things whose limits you know and are
+  equal. For instance, the function $x \sin (1/x)$ taking the limit at
+  $0$, or the function that's $x$ on rationals and $0$ on irrationals,
+  again taking the limit at $0$.
+\item We can use the intermediate-value theorem to show that a given
+  equation has a solution in an interval by calculating the values of
+  the expression at endpoints of the interval and showing that they
+  have opposite signs.
+\end{enumerate}
+
+
+\section{Limit theorems}
+
+This section discusses some important limit theorems.
+
+\subsection*{Recall the definition}
+
+We say that $\lim_{x \to c} f(x) = L$ (as a two-sided limit) if, for
+every $\epsilon > 0$, there exists $\delta > 0$ such that, for every
+$x$ such that $0 < |x - c| < \delta$, we have $|f(x) - L| < \epsilon$.
+
+Now, that's quite a mouthful. Let's interpret it graphically. What it
+is saying is that: ``for every $\epsilon$''so we consider this region
+$(L - \epsilon, L + \epsilon)$, so there are these two horizontal bars
+at heights $L - \epsilon$ and $L + \epsilon$. Next it says, there
+exists a $\delta$, so there exist these vertical bars at $c + \delta$
+and $c - \delta$. And what we're saying is that if the $x$-value is
+trapped between the vertical bars $c - \delta$ and $c + \delta$ (but
+is not equal to $c$), the $f(x)$-value is trapped between $L -
+\epsilon$ and $L + \epsilon$.
+
+\includegraphics[width=4.5in]{epsilondeltapicture.png}
+
+The important thing to note here is that the value of $\delta$ depends
+on the value of $\epsilon$. As I said last time, we can think of this
+as a game, where I am trying to prove to you that the limit $\lim_{x
+\to c} f(x) = L$ and you are a skeptic who is trying to catch me
+out. So you throw $\epsilon$s at me, and challenge me to show that I
+have a $\delta$ to trap that $\epsilon$. And if I have a winning
+strategy, that enables me to find a $\delta$ for every $\epsilon$ that
+you throw at me, then yes, the limit is equal to $L$.
+
+\subsection{What are limit theorems?}
+
+And why do we need them?
+
+In the absence of limit theorems, we have two alternatives:
+
+\begin{itemize}
+\item Use our ``intuition'' -- this is problematic, because while
+  intuition works great for nice functions such as polynomials, it
+  tsarts failing us as soon as we get to weirder functions.
+\item Use ``first principles,'', i.e., the $\epsilon-\delta$
+  definition of limits every time -- this is very tedious even for
+  experienced mathematicians.
+\end{itemize}
+
+Limit theorems provide a sort of middle ground that avoids the
+pitfalls at either end. Basically, what these theorems do is, show,
+using the $\epsilon-\delta$ definition of limits, that certain
+``intuitive'' facts about limits are always true. Then, we can use
+these theorems guilt-free without having to wade through a mess of
+$\epsilon$s and $\delta$s.
+
+So think of proving a theorem as an investment. It's like putting
+money in a savings account. You put money once, and you keep getting
+the interest from it. But the first thing you need to do is put in the
+hard work of earning and saving the money. And proving the theorems is
+like doing that hardwork. 
+
+\subsection{Review of some inequalities involving the absolute value}
+
+So, before we plunge into the proofs, I want to review some facts
+about the absolute value function that are very important. I'll stick
+to two facts. The first is what is called the {\em triangle
+inequality}, and it goes like this:
+
+\begin{equation*}
+  |a + b| \le |a| + |b| \ \forall \ a,b \in \R
+\end{equation*}
+
+Now, equality holds if either $a$ or $b$ is zero, or if they both have
+the same sign. Equality does {\em not} hold if $a$ and $b$ are of
+opposite signs. So, you may wonder, why the name {\em triangle
+inequality}? And to understand this, we need to think about triangles
+on the real line.
+
+But before we get into that, first, let's recall what the triangle
+inequality in geometry states. It says that the sum of two sides of a
+triangle is greater than the third side. That's basically a
+manifestation of the fact that {\em straightest is shortest} -- the
+straight line path between two points is shorter than a path that
+involves two straight lines.
+
+Now, the inequality sign is strict, because in geometry, we don't use
+the word {\em triangle} if all the three vertices are collinear. By
+the way, if all the three vertices are collinear, we call the triangle
+a {\em degenerate} triangle. Let's say we included degenerate
+triangles. Then, the equality case could occur. In fact, it'll occur
+in precisely the case where the single side is between the two more
+extreme points.
+
+So, here's how this relates to the statement involving absolute
+values. Consider the degenerate triangle with vertices the points $0$,
+$a$, and $a + b$ on the number line. What are the side lengths? Well,
+the length of the side from $0$ to $a$ is $|a|$, the length of the
+side from $a$ to $a + b$ is $|b|$, and the length of the side from $0$
+to $a + b$ is $|a + b|$. And so the result we have is:
+
+$$|a + b| \le |a| + |b|$$
+
+which is our triangle inequality.
+
+Verbally, what this is saying is that if you travel a distance of $a$
+and then travel a distance of $b$ along the real line, you cannot be
+more than $a + b$ away from where you started. The farthest you can
+get is if both your two pieces of travel were in the same direction.
+
+The other result, which we've already used a few times, is that the
+absolute value of the product of two real numbers equals the product
+of their absolute values.
+
+\begin{equation*}
+  |ab| = |a||b| \ \forall \ a,b \in \R
+\end{equation*}
+
+\subsection{Uniqueness theorem}
+
+[{\bf Note}: We will probably not go over this proof in class in full
+detail, and you are not expected to know this proof for any of your
+tests. However, I strongly suggest that you at least try to understand
+this proof temporarily. The ideas involved here are extremely useful
+for understanding some of the more advanced limits stuff that we will
+see in 153.]
+
+The first result that we establish is a theorem on the {\em
+uniqueness} of limits. And the intuition behind this goes back to our
+original discussion where I gave you a wrong definition of limit and
+found that the problem with that definition was that it gave rise to
+multiple limits. And we tweaked it and got the correct definition.
+
+So the first thing we need to establish is that if the limit exists,
+then it is unique.
+
+Okay, can you give an intuitive reason why that should be true?
+
+Well, think back to our discussion on traps. And think back to the
+wrong definition of limit, and why $\sin(1/x)$ was problematic. The
+reason was that it was jumping a lot, and our right definition of
+limits, by creating traps, avoided that.  
+
+\includegraphics[width=3in]{topologistssinecurveepsilondeltarectangle.png}
+
+\includegraphics[width=3in]{topologistssinecurveepsilondeltarectanglezoomin.png}
+
+So you can think of what we are doing here as a proof by
+contradiction. We will show that if there are two real numbers $L \ne
+M$, it cannot be the case that {\em both} $L$ and $M$ satisfy the
+$\epsilon-\delta$ definition for $\lim_{x \to c} f(x)$.
+
+Now, this is an example where we want to show that the limit {\em
+cannot} be something. So this is an example of a situation where you
+are trying to prove the opposite of a statement. We already wrote down
+what it means to say that as $x \to c$, $f(x)$ does not approach
+$L$. Let's recall it: there exists $\epsilon > 0$ such that for every
+$\delta > 0$, there exists $x$ satisfying $0 < |x - c| < \delta$ and
+$|f(x) - L| \ge \epsilon$.
+
+Okay, now let's take a step back and see what we're really trying to
+achieve. Simply put, think about it as two games. There's the
+$L$-game, which is the game where I'm trying to prove the limit is
+$L$. And there's the $M$-game, which is where I'm trying to prove the
+limit is $M$. And what is true is that no matter what, you, the
+skeptic, have a winning strategy for at least one of the games.
+
+So what you do is to try to trap me with my own trap, literally
+speaking. Because what I'm claiming is that for $x$ sufficiently close
+to $c$, the function is trapped really close to $L$, but it's also
+trapped really close to $M$. So what you need to do is call the bluff
+on me, by forcing me to get too close to both $L$ and $M$ for
+comfort. Basically, what you want to call me out on is the assertion
+that a function can be trapped in two places at the same time. And, to
+cut a long story short, the $\epsilon$ that you stump me with is:
+
+$$\epsilon = \frac{|L-M|}{2}$$
+
+So, you stump me with this $\epsilon$ in the $L$-game and in the
+$M$-game. And suppose I throw back $\delta_1$ at you in the $L$-game
+and $\delta_2$ at you in the $M$-game. So I'm claiming that when the
+$x$-value comes within $\delta_1$ of $c$, the function value is
+trapped with $\epsilon$ of $L$, and when the $x$-value comes within
+$\delta_2$ of $c$, the function value is trapped within $\epsilon$ of
+$M$.
+
+So let $\delta = \min\{\delta_1,\delta_2 \}$. Then, what we have is that:
+
+if $0 < |x - c| < \delta$, then $|f(x) - L| < \epsilon$, and $|f(x) -
+M| < \epsilon$.
+
+\includegraphics[width=4.5in]{uniquenessoflimit.png}
+
+So for $x$ in this small region around $c$, $f(x)$ is within
+$\epsilon$ of $L$ and within $\epsilon$ of $M$. But the picture makes
+clear that this is not possible, because the $\epsilon$-disks around
+$L$ and $M$ don't meet. The formalism behind this is the triangle inequality:
+
+$$|L - M| = |(L - f(x)) + (f(x) - M)| \le |L - f(x)| + |f(x) - M| < 2\epsilon = |L - M|$$
+
+So, we get $|L - M| < |L - M|$, a contradiction.
+
+\subsection{Limits for sum, difference, product, ratio}
+
+Okay, now we'll state the results for the limits of sums, differences,
+scalar multiples, products, and ratios. None of the proofs are in the
+syllabus, but I've sketched the proof for sums. The book has proofs
+for all the limits.
+
+Suppose $f$ and $g$ are two functions defined in a neighborhood of the
+point $c$. Then, if $\lim_{x \to c}f(x)$ and $\lim_{x \to c}g(x)$ are
+well-defined, we have the following:
+
+\begin{enumerate}
+
+\item $\lim_{x \to c} (f(x) + g(x))$ is defined, and equals the sum of
+  the values $\lim_{x \to c}f(x)$ and $\lim_{x \to c}g(x)$.
+
+\item $\lim_{x \to c} (f(x) - g(x))$ is defined, and equals $\lim_{x
+  \to c} f(x) - \lim_{x \to c} g(x)$.
+
+\item $\lim_{x \to c} f(x)g(x)$ is defined, and equals the
+  product $\lim_{x \to c} f(x) \lim_{x \to c} g(x)$.
+
+\end{enumerate}
+
+The scalar multiples result basically states that if $\lim_{x \to c}
+f(x)$ exists, and $\alpha \in \R$, $\lim_{x \to c} \alpha f(x) =
+\alpha \lim_{x \to c} f(x)$.
+
+By the way, a week ago, we defined the notions of sum, difference, and
+product, of functions. So with that notation, we can rewrite the
+results as:
+
+\begin{eqnarray*}
+  \lim_{x \to c} (f + g)(x) & = & \lim_{x \to c} f(x) + \lim_{x \to c} g(x) \\
+  \lim_{x \to c} (f - g)(x) & = & \lim_{x \to c} f(x) - \lim_{x \to c} g(x) \\
+  \lim_{x \to c} (f \cdot g)(x) & = & \lim_{x \to c} f(x) \lim_{x \to c} g(x)
+\end{eqnarray*}
+
+A couple of important additional points. The first is that the
+results I mentioned state a little more than what is captured in the
+formulas. The subtlety arises because every limit that we write need not
+exist.
+
+What the sum result says is that {\em if} the two limits $\lim_{x \to
+c} f(x)$ and $\lim_{x \to c} g(x)$ {\em both exist}, the the limit for
+$f + g$ exists {\em and} is given by the formula. So, the result is a
+{\em conditional existence result plus a formula}. Note that it may
+very well be the case that the limit for $f + g$ exists but the
+individual limits -- those for $f$ and $g$, do not exist. For
+instance, if $f(x) = 1/x$ and $g(x) = -1/x$, then $f$ and $g$ do not
+have limits at $0$, but $f + g$ does have a limit at $0$.
+
+Similarly for the results about difference, product, and scalar
+multiples.
+
+\subsection{Result for the ratio}
+
+For the ratio (also called the quotient), we have the result that if
+$\lim_{x \to c} f(x)$ and $\lim_{x \to c} g(x)$ exist, {\em and} if
+$\lim_{x \to c}g(x) \ne 0$, then we have:
+
+\begin{equation*}
+  \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim_{x \to c} f(x)}{\lim_{x \to c} g(x)}
+\end{equation*}
+
+\subsection{Indeterminate form $\to 0/\to 0$ limits}
+
+In addition to the previous limit theorems, there are some important
+facts that should feel familiar if you have done limit computations.
+
+Suppose $\lim_{x \to c} f(x) = \lim_{x \to c} g(x) = 0$. Then the
+quotient limit $\lim_{x \to c} f(x)/g(x)$ has what is called a $0/0$
+form -- more precisely, it is of the form $(\to 0)/(\to 0)$. This is
+an example of an {\em indeterminate form}. An indeterminate form is a
+form of a limit that does not allow us to conclude anything specific
+about the value of the limit. A limit of the form $(\to 0)/(\to 0)$
+may or may not exist. Further, it could ``not exist'' in practically
+all the possible values that limits happen to ``not exist'' (infinite
+limits, oscillatory limits, etc.). $(\to 0)/(\to 0)$ may be finite and
+nonzero, it may be zero, it may be going to $+\infty$, to $-\infty$,
+different infinities from different sides, oscillatory between finite
+bounds, oscillatory between infinite bounds, etc.
+
+An indeterminate form does {\em not} mean that we can throw up our
+hands. To the contrary, indeterminate form means that the limit {\em
+needs more work}. This extra work typically involves understanding
+more about the nature of the {\em specific functions} $f$ and $g$ near
+the point of approach. For rational functions, we try to cancel common
+factors between the numerator and denominator. There are more general
+approaches such as trigonometric limits, l'Hopital's rule and power
+series, which we will see later in the course.
+
+Intuitively, what matters is: does the numerator go to $0$ more
+quickly, does the denominator go to $0$ more quickly, or do they both
+go to $0$ at roughly the same rate. We will explore this theme in
+mind-numbing theme later in 152 and even more in 153.
+
+\subsection{Lonely denominator blow-ups: undefined limit}
+
+If $\lim_{x \to c} f(x) = L \ne 0$ and $\lim_{x \to c} g(x) = 0$, then
+$\lim_{x \to c} f(x)/g(x)$ is not defined. In other words, the limit
+{\em does not exist}. When we later study infinity as a limit, we will
+consider in more detail whether the (one-sided) limit exists as an
+infinity. Note that if a limit is infinite, we still say that the
+limit ``does not exist.''
+
+\subsection{One-sided and two-sided limits}
+
+So far, in all the situations where we have been saying that {\em the
+limit exists}, we mean that the {\em two-sided} limit exists. Recall
+that we have that $\lim_{x \to c} f(x) = L$ if $f$ is defined in an
+open interval about $c$ (except possibly at $c$) and if, for every
+$\epsilon > 0$, there exists $\delta > 0$ such that for every $x$ such
+that $0 < |x - c| < \delta$, we have $|f(x) - L| < \epsilon$.
+
+Let's also recall what it means to say that the {\em left-hand limit
+exists}. We say that $\lim_{x \to c^-} f(x) = b$ if $f$ is defined to
+the immediate left of $c$, and if, for every $\epsilon > 0$, there
+exists $\delta > 0$ such that for every $x$ such that $0 < c - x <
+\delta$, we have $|f(x) - b| < \epsilon$.
+
+Basically, what's happening is that now, we need only a one-sided trap
+for $\delta$, i.e., a trap of the form $(c - \delta, c)$ rather than a
+trap of the form $c - \delta, c + \delta)$.
+
+Similarly, we say that $\lim_{x \to c^+} = b$ if, for every $\epsilon
+> 0$, there exists $\delta > 0$ such that for every $x$ such that $0 <
+x - c < \delta$, we have $|f(x) - b| < \epsilon$.
+
+Now, it turns out that all the results we proved {\em so far} about
+limits also hold for one-sided limits from either side. So, for
+instance, we have the following for left-hand limits.
+
+\begin{enumerate}
+
+\item If the left-hand limit $\lim_{x \to c^-} f(x)$ exists, it is
+  unique.
+\item If $\lim_{x \to c^-} f(x)$ and $\lim_{x \to c^-} g(x)$ exist,
+  then $\lim_{x \to c^-} (f(x) + g(x))$ exists and equals the sum of
+  the individual limits.
+\item If $\lim_{x \to c^-} f(x)$ and $\lim_{x \to c^-} g(x)$ exist,
+  then $\lim_{x \to c^-} (f(x) + g(x))$ exists and equals the
+  difference of the individual limits.
+\item If $\lim_{x \to c^-} f(x)$ and $\lim_{x \to c^-} g(x)$ exist,
+  then $\lim_{x \to c^-} (f(x)g(x))$ exists and equals the product of
+  the individual limits.
+\item If $\lim_{x \to c^-} f(x)$ exists and $\alpha$ is a real number,
+  then $\lim_{x \to c^-} \alpha f(x) = \alpha \lim_{x \to c^-} f(x)$.
+
+\end{enumerate}
+
+Analogous results hold for right-hand limits.
+
+\subsection{Infinity as a limit}
+
+In the discussion so far, when we said that the limit {\em exists}, we
+meant that it {\em exists} and is {\em finite}. And that's the way
+it'll continue to be. Nonetheless, since the book makes some mentions
+of infinity, and since you may have seen these concepts when going
+through intuitive introductions to limits, let me briefly describe the
+role of infinity. We will master these definitions formally a little
+later in the course. For now, the coverage is (relatively) informal.
+
+When we're thinking in terms of limits, then we say that the limit is
+$\infty$, or $+\infty$, when the number is getting larger and larger
+and not bouncing back to very small values. This doesn't mean it can't
+oscillate -- it can. But rather, for every number $N$ you pick, there
+exists a $\delta > 0$ such that, if $0 < |x - c| < \delta$, then $f(x)
+> N$. In other words, it eventually gets above any barrier {\em and
+stays above}. And if that's the case, we say that the limit is
+$+\infty$.
+
+For instance, the picture below is of a function that approaches
+$+\infty$ as $x \to 0$ -- because of page-fitting considerations, the
+function has been plotted only till $x = 0.1$ -- but the function
+oscillates. However, each oscillation is higher than the preceding
+one.
+
+\includegraphics[width=3in]{oscillatoryapproachtoinfinity.png}
+
+Similarly, there is the notion of the limit being $-\infty$.
+
+Now, what happens with functions, and the classic example is the
+function $1/x$, but you'll see this for other functions, is that the
+left-hand limit approaches infinity from one direction and the
+right-hand limit approaches infinity from the other direction. So in
+this case, for the function $f(x) := 1/x$, the left-hand limit is
+$-\infty$ and the right-hand limit is $+\infty$. By the way, neither
+limit {\em exists} in the sense that we will use the word, because
+neither limit is finite. But a two-sided limit doesn't even exist as
+an infinity, because the two sides are approaching two different
+infinities.
+
+On the other hand, for the function $g(x) := 1/x^2$, both the
+left-hand limit and the right-hand limit are $+\infty$.
+
+And generalizing from these examples, we can see some general rules
+emerging:
+
+\begin{enumerate}
+\item If $\lim_{x \to c} f(x)$ is a positive number and $\lim_{x \to
+  c} g(x) = 0$, but the approach is {\em from the positive direction},
+  then $f(x)/g(x) \to \infty$ as $x \to c$. Analogous observations
+  apply to negative numbers.
+\item If $\lim_{x \to c} f(x)$ is a positive number and $\lim_{x \to
+  c} g(x) = 0$, but the approach is {\em from the positive direction},
+  then $f(x)/g(x) \to \infty$ as $x \to c$. Analogous observations
+  apply to negative numbers.
+\end{enumerate}
+
+We'll talk more about infinities as limits, and consider more
+complicated cases, a little later in the course.
+
+\subsection{Proof that limit of sums is sum of limits}
+
+[{\bf Note}: We will probably not go over this proof in class in full
+detail, and you are not expected to know this proof for any of your
+tests. However, I strongly suggest that you at least try to understand
+this proof temporarily. The ideas involved here are extremely useful
+for understanding some of the more advanced limits stuff that we will
+see in 153.]
+
+We'll now discuss how to prove the statement that, as an English
+phrase, would read: ``the sum of the limits is the limit of the
+sums''. In other words, we are trying to prove that if $\lim_{x \to c}
+f(x) = L$ and if $\lim_{x \to c} g(x) = M$, then $\lim_{x \to c} f(x)
++ g(x) = L + M$.
+
+So the way to think about it is that $f$ comes close to $L$ and $g$
+comes close to $M$, so doesn't $f + g$ comes close to $L + M$? Yes, it
+does. But to make that precise, what we need to do is to loosen the
+definition of what it means to come close.
+
+You've probably heard of {\em rounding errors}. For instance, you may
+say that $1.4$ rounds off to $1$ and $2.3$ rounds off to $2$. But when
+you add the two numbers, you get $3.7$, and $3.7$ rounds off to $4$,
+rather than $1 + 2 = 3$.
+
+So, the upshot is that just because $a$ is close to $a'$ and $b$ is
+close to $b'$, doesn't necessarily mean that $a + b$ is just as close
+to $a' + b'$. However, even if it isn't {\em as close}, it is still
+close. The point is that when you add things, the {\em margins of
+error add}.
+
+So the way we use this idea is to make sure that our margins of error
+for the functions $f$ and $g$ are both so small that when you add them
+up, you still get a small margin of error.
+
+Let's now flesh out the proof details. We need to show that if
+$\lim_{x \to c} f(x)$ exists and $\lim_{x \to c} g(x)$ exists, then
+$\lim_{x \to c} (f(x) + g(x))$ exists. Let's call $L = \lim_{x \to c}
+f(x)$ and $M = \lim_{x \to c} g(x)$.
+
+Let's discuss this. What we need to do is to show that, for every
+$\epsilon > 0$, we need to find a $\delta > 0$ such that if $0 < |x -
+c| < \delta$, then $|(f(x) + g(x)) - (L + M)| < \epsilon$. Here's how
+we do this.
+
+Since $f$ is continuous, consider the value $\epsilon/2$. There exists
+a value $\delta_1 > 0$ such that, if $0 < |x - c| < \delta_1$, we have
+$|f(x) - L| < \epsilon/2$. What we're doing here is using $\epsilon/2$
+as the value of $\epsilon$ for $f$.
+
+Similarly, for $g$, we use $\epsilon/2$ again. So, there exists a
+value $\delta_2> 0$ such that, if $0 < |x - c| < \delta_2$, we have
+$|g(x) - M| < \epsilon/2$.
+
+Now consider $\delta = \min \{ \delta_1, \delta_2 \}$. Then, if $0 <
+|x - c| < \delta$, we have $0 < |x - c| < \delta_1$ and $0 < |x - c| <
+\delta_2$, so:
+
+\begin{align*}
+  |f(x) - L| & < \epsilon/2 \tag{*}\\
+  |g(x) - M| & < \epsilon/2 \tag{**}
+\end{align*}
+
+We thus get, using the triangle inequality and (*) and (**):
+
+$$|(f(x) + g(x)) - (L + M)| \le |f(x) - L| + |g(x) - M| < \epsilon/2 + \epsilon/2 = \epsilon$$
+
+\section{Continuity theorems}
+
+We now proceed to a discussion of theorems on continuity. Most of
+these are analogous to corresponding theorems about limits.
+
+\subsection{Recall the definition}
+
+It may be worthwhile recalling the definitions of limit and continuity
+side by side. Let's do that.
+
+We say that $\lim_{x \to c} f(x) = L$ if $f$ is defined in an open
+interval about $c$ (except possibly at $c$ itself) and, for every
+$\epsilon > 0$, there exists $\delta > 0$ such that, for every $x$
+satisfying $0 < |x - c| < \delta$, we have $|f(x) - L| < \epsilon$.
+
+We say that $f$ is continuous at $c$ if $f$ is defined in an open
+interval about $c$ (including at the point $c$) and, for every
+$\epsilon > 0$, there exists $\delta > 0$ such that, for every $x$
+satisfying $|x - c| < \delta$, we have $|f(x) - f(c)| < \epsilon$.
+
+Some differences: for the definition of limit, we do not require the
+function to be defined {\em at} the point $c$, but for the definition
+of continuity, we do. The $L$ that we use for the definition of
+continuity is the value $f(c)$. Also, we can drop the $0 <$ part in
+the definition of continuity.
+
+\subsection{Theorems about continuity}
+
+The definition we gave above was for a function being continuous {\em
+at a point}, and we can use that definition, along with the limit
+theorems, to prove that continuity at a point is preserved by sums,
+scalar multiplies, differences, products, and, if the denominator
+function is not zero, ratios. Explicitly (Theorem 2.4.2, Page 84):
+
+If $f$ and $g$ are functions that are both continuous at a point $c
+\in \R$, then:
+
+\begin{enumerate}
+\item $f + g$ is continuous at $c$.
+\item $f - g$ is continuous at $c$.
+\item $f \cdot g$ is continuous at $c$.
+\item If $g(c) \ne 0$, then $f/g$ is continuous at $c$.
+\end{enumerate}
+
+Further, if $f$ is continuous at $c$, then $\alpha f$ is continuous at
+$c$ for any real number $\alpha$.
+
+Why are these statements true? Essentially, they are all immediate
+corollaries of the corresponding statements for limits. For instance, if
+you take for granted the theorem that $\lim_{x \to c} (f + g)(x) =
+\lim_{x \to c} f(x) + \lim_{x \to c} g(x)$, then given that $f$ and
+$g$ are both continuous at $c$, you can substitute the values and get
+$\lim_{x \to c} (f + g)(x) = f(c) + g(c) = (f + g)(c)$. The same proof
+idea works for differences and scalar multiples.
+
+\subsection{Composition of continuous functions}
+
+We'll next state a result, which is Theorem 2.4.4 of the book, about
+the composition of continuous functions. You don't need to know the
+proof of this statement.
+
+The results is that if $f$ and $g$ are functions such that $g$ is
+continuous at $c$ and $f$ is continuous at $g(c)$, then the composite
+function $f \circ g$ is continuous at $c$. And remember the way the
+composition works -- the function written on the right is the one that
+is applied first. So here's this element $c$, and we first apply $g$,
+and we get to $g(c)$. Then we apply $f$, and we get to $f(g(c)) = (f
+\circ g)(c)$.
+
+So I hope you see why it is important to require that $f$ is
+continuous at $g(c)$ and $g$ is continuous at $c$. In particular, it
+does not matter whether $f$ is continuous at $c$, because the input
+that is fed into $f$ is not $c$ but $g(c)$.
+
+\subsection{One-sided continuity}
+
+In a previous lecture, we defined one-sided
+continuity. Left-continuity means that the left-hand limit exists and
+equals the value of the function at the point. Right-continuity means
+that the right-hand limit exists and equals the value of the function
+at the point.
+
+And, as you might have guessed, the results we stated about sum,
+difference, scalar multiples, product, and quotient of functions being
+continuous extends to one-sided continuity. It turns out,
+interestingly, that the results about composition do {\em not}
+necessarily hold in the one-sided sense. In fact, one of your quiz
+questions on Friday of the first week was exactly about this
+issue. The main reason is that, for $f \circ g$ to have the required
+one-sided continuity at $c$, we need that $g(x)$ approach $g(c)$ from
+the correct direction.
+
+Some weaker versions can be salvaged: for instance, if $f$ and $g$ are
+both left-continuous functions, and $g$ is an increasing function,
+then $f \circ g$ is also left-continuous. There are other weaker
+versions too, which we will not get into here.
+
+\subsection{Continuity theorems also hold on intervals}
+
+So far, we have stated the continuity theorems at individual
+points. From these, we can deduce continuity theorems on
+intervals. Specifically, if $I$ is an interval (of whatever sort), and
+$f$ and $g$ are continuous functions on $I$, then:
+
+\begin{enumerate}
+\item $f + g$ is continuous on $I$.
+\item $f - g$ is continuous on $I$.
+\item $f \cdot g$ is continuous on $I$.
+\item $f/g$ is continuous at those points of $I$ where it is defined,
+  i.e., where $g$ takes nonzero values.
+\end{enumerate}
+
+The interval version of the result for composition is a little
+trickier, because to deduce the continuity of $f \circ g$, we need $f$
+to be continuous, not on the original domain of $g$, but on the range
+of $g$ which feeds into the domain of $f$. Here is one formulation.
+
+Suppose $I$ and $J$ are intervals in $\R$, $f$ is a continuous
+function on $J$, and $g$ is a continuous function on $I$ such that the
+range of $g$ is contained in $J$. Then $f \circ g$ is a continuous
+function on $I$.
+\subsection{Most functions you've seen are continuous}
+
+So this is the time to pause and review and think: ``which of the
+functions that we have seen are continuous, and do we have the tools
+to make sure?''
+
+Well, with the tedious $\epsilon-\delta$ definition of limits, we
+actually proved that the constant functions are continuous, and that
+the function $f(x) = x$ is continuous. And we did this basically by
+showing that the limit at any point equals the value at the point. And
+now, we know that we can multiply things together, multiply by
+scalars, and add. And if you think for a moment, you'll see that that
+shows that polynomial functions are continuous.
+
+For instance, the polynomial $2x^3 - 3x^2 + x + 1$ is the sum of the
+functions that send $x$ to $2x^3$, $-3x^2$, $x$, and $1$
+respectively. Each of these functions itself is a product of multiple
+copies of the function sending $x$ to itself, multiplied by some
+scalar. And each step of the construction/deconstruction of a
+polynomial preserves continuity. So we see why/how polynomial
+functions are continuous.
+
+Rational functions, which are functions obtained as the ratio of two
+polynomials, are not necessarily globally defined, because the
+denominator may blow up at some point. However, the ratio results that
+we have established show that, at all the places where the denominator
+does not blow up, the rational function is continuous. Hence, with
+rational functions, we are in the position that {\em wherever the function
+is defined, it is continuous}.
+
+Another thing you should know is that the trigonometric functions
+$\sin$ and $\cos$ are continuous. And, since the trigonometric
+function $\tan$ is defined as the ratio of these, $\tan$ is again
+continuous at all the points where it is defined -- the points where
+it is not continuous are the points where it is not defined, which are
+the points where $\cos$ takes the value $0$.
+
+\subsection{Partying wild with freaky functions}
+
+There are two directions of approach on the real line: left and
+right. And hence we can talk of the left-hand limit and the right-hand
+limit. And it is important that the real line has two directions.
+
+So you're happy, because there are only two directions of approach,
+and the function comes in nicely form both sides -- but that's not
+really the case. We saw the example of $\sin(1/x)$, frolicking back
+and forth cheerfully and indifferent to the coming crash at $0$. And
+then in the homework you've been plagued by things like the Dirichlet
+function that is defined separately on the rationals and
+irrationals. And what these things show is that even the functions
+defined on what appears to be a straight line can show incredible
+diversity and jumping up and down.
+
+So let's think a bit about what can happen when a function is defined
+around a point but a one-sided limit is not defined. Here are some
+possibilities:
+
+\begin{enumerate}
+\item As $x$ approaches $c$, the function {\em oscillates} or jumps
+  around, so it doesn't settle down, but it is still bounded. Some
+  examples of this are the $\sin(1/x)$ function and the Dirichlet
+  function.
+\item As $x$ approaches $c$, the function heads for $+\infty$. This
+  means that whatever height you set, the function eventually crosses
+  that height and stays above. For instance, $1/x^2$, for $c = 0$,
+  from either side. Or $1/x$ from the right side.
+\item As $x$ approaches $c$, the function heads for $-\infty$. For
+  instance, $-1/x^2$, for $c = 0$. Or $1/x$ from the left side.
+\item As $x$ approaches $c$, the function oscillates between $+\infty$
+  and some finite lower bound. For instance, $\sin^2(1/x)/x^2$, for $c
+  = 0$.
+  \includegraphics[width=3in]{oscillatorylimitbetweenzeroandinfinity-1.png}
+  \includegraphics[width=3in]{oscillatorylimitbetweenzeroandinfinity-1.png}
+\item As $x$ approaches $c$, the function oscillates between $+\infty$
+  and $-\infty$. For instance, $\sin(1/x)/x^2$, for $c = 0$. For instance:
+
+  \includegraphics[width=3in]{oscillatorylimitbetweenplusminusinfinity-1.png}
+  \includegraphics[width=3in]{oscillatorylimitbetweenplusminusinfinity-2.png}
+\end{enumerate}
+
+This is just scratching the surface. And to complicate matters
+further, we could have different behavior from the left and from the
+right. So you see that there's realy a wild party going on here.
+
+\section{Three important theorems}
+
+\subsection{The pinching theorem}
+
+This theorem is also called the {\em squeeze theorem} or the {\em
+sandwich theorem}. Here's what it says:
+
+If $f,g,h$ are functions defined in a neighborhood of $c$, with the
+property that close to $c$, we have $f(x) \le g(x) \le h(x)$ for all
+$x$, and if $\lim_{x \to c} f(x) = \lim_{x \to c} h(x) = L$ for all
+$x$, then we also have $\lim_{x \to c} g(x) = L$.
+
+Analogous results hold for the left-hand limits and right-hand limits.
+
+Basically, what this says is that if a function is trapped between two
+functions, both of which are approaching a particular value, then the
+function trapped in between also approaches that same value.
+
+Here are some applications of this theorem.
+
+\begin{enumerate}
+
+\item Recall the function in Homework 2: a funcion $g$ defined as
+  $g(x) = x$ for rational values of $x$ and $g(x) = 0$ for irrational
+  values of $x$. We want to show that $\lim_{x \to 0} g(x) = 0$. We
+  first argue this for the right-hand limit. On the right, if we
+  define $f(x) := 0$ and $h(x) := x$, then $f(x) \le g(x) \le h(x)$,
+  and both $f$ and $h$ approach $0$ at $0$. Hence, $g$ also approaches
+  $0$ at $0$. On the left, we have $h(x) \le g(x) \le f(x)$, and
+  again, since both $f$ and $h$ approach $0$, so does $g$.
+ 
+\item Another example is the function $g(x) := x \sin (1/x)$. This is
+  different from the $\sin(1/x)$ example that we saw earlier, because
+  with this new function, the coefficient $x$ causes a {\em damping}
+  in the amplitude of the oscillations. To show that $\lim_{x \to 0}
+  g(x) = 0$, we can use the pinching theorem, by squeezing $g$ between
+  the functions $f(x) = x$ and $h(x) = -x$ (again, the pinching will
+  occur in different ways on the left and on the right).
+
+  \includegraphics[width=3in]{xsin1byxpinched.png}
+\end{enumerate}
+
+\subsection*{Intermediate-value theorem}
+
+The intermediate-value theorem says that if $f$ is a continuous
+function on a closed interval $[a,b]$, with $f(a) = c$ and $f(b) = d$,
+$f$ takes every possible value between $c$ and $d$. If $c < d$, this
+would mean that the range of $f$ contains $[c,d]$. If $c > d$, this
+would mean that the range of $f$ contains $[d,c]$.
+
+Note that $f$ may take other values as well -- for instance, it could
+go really high somewhere in between and then come back down, but what
+this theorem tells us is that it takes {\em at least} all the values
+between $c$ and $d$.
+
+The important thing here is that the function needs to be {\em
+continuous}. And the significance of continuity is that the function
+cannot suddenly {\em jump} from one place to the other -- it has to go
+through all the intermediate steps. The graph below, for instance,
+plots the function $f(x) := (x + 1)\operatorname{sgn}(x)$ on the
+interval $[-1,3]$, where we define sgn as the signum functions, which
+is $-1$ on negative numbers, $0$ at $0$, and $1$ on positive
+numbers. Note that $f(-1) = 0$ and $f(3) = 4$, but $f$ does not take
+the value $1/2$ (which is between $f(-1)$ and $f(3)$) anywhere on its
+domain.
+
+\includegraphics[width=3in]{intermediatevaluetheoremfailsfordiscontinuousfunction.png}
+
+Here's an important caveat. If the function isn't continuous, we may
+get wrong conclusions by applying the intermediate-value theorem.
+
+For instance, consider the function $f(x) = 1/x$. Then, $f(-1) = -1$
+and $f(1) = 1$. Hence, a naive application of the intermediate-value
+theorem would suggest that there exists $x \in [-1,1]$ such that $f(x)
+= 0$. But this is nonsense -- $1/x$ can never be equal to $0$. So,
+something went wrong in our application of the intermediate-value
+theorem. What went wrong? Just the fact that $1/x$ is not continuous
+on $[-1,1]$ -- in fact, it isn't even defined at $0$.
+
+\includegraphics[width=3in]{1byxviolatesintermediatevaluetheorem.png}
+
+Another wrong application would be to say that since $f(-1) = -1$ and
+$f(1) = 1$, there exists $x \in [-1,1]$ such that $f(x) = 1/2$. This
+is wrong, because the only $x$ for which $f(x) = 1/2$ is $x = 2$,
+which is not in the interval $[-1,1]$. Again, the reason we went
+astray is that the function $f(x) = 1/x$ is not continuous on
+$[-1,1]$.
+
+\subsection{Justifying the existence of the square root function}
+
+One way in which the intermediate-value theorem gets used, and that is
+to justify the existence of inverse functions. We'll discuss this in
+greater generality probably toward the end of the course.
+
+Suppose we needed to justify the existence of $\sqrt{3}$. In other
+words, we needed to show the existence of a positive number $x$ such
+that $x^2 = 3$. Here's how the intermediate-value theorem can be
+used. Consider the function $f(x) := x^2$. This function is everywhere
+continuous. Now, $f(1) = 1$ and $f(2) = 4$. Hence, by the
+intermediate-value theorem there exists some $x \in [1,2]$ such that
+$f(x) = 3$.
+
+\subsection{``Solving'' equations using the intermediate-value theorem}
+
+When you looked at an equation, your first urge was
+probably to solve it. And you solved it by manipulating stuff,
+applying the formula for the root of a quadratic, etc., etc. You had a
+toolkit of methods to solve equations, and you tried to faithfully
+apply this toolkit.
+
+But there are times when you cannot find precise expressions for the
+solutions of equations. For instance, if I write a polynomial equation
+of degree $5$, and ask you to solve it, may be you try a few values
+and then give up, but there's no general formula you can plug in to
+find the solutions (in fact, mathematicians have actually {\em proved}
+that general formulas do not exist -- a proof you will probably not
+see unless you choose to major in mathematics). So, that's bad
+news. And similarly, if I write $\cos x = x$ and ask you to solve
+that, you have no mathematical way of finding a solution.
+
+However, even if we cannot find exact solutions, we may be able to
+determine whether solutions exist, and even narrow down the interval in
+which they exist. And one tool in doing this is the intermediate-value
+theorem.
+
+So consider the equation $\cos x = x$. The first thing you do is to
+take the difference, which in this case is $\cos x - x$. This is
+continuous, so the intermediate-value theorem applies, so to show that
+this difference is zero somewhere, it is enough to show that there's
+some place where it's positive and some place where it's
+negative. Well, let's draw the graphs of the functions $x$ and $\cos
+x$ to get a bit if the intuition.
+
+So looking at the graphs, you see that it's likely that a solution
+exists somewhere between $0$ and $\pi/2$, because that's where the
+function $x$ overtakes the function $\cos x$. Let's try to see this
+using the intermediate-value theorem. At $0$, we have $\cos x - x =
+1$, and at $\pi/2$, we have $\cos x - x = -\pi/2$. So, the function
+$\cos x - x$ goes from a positive value $1$ to a negative value
+$-\pi/2$, which means that at some point in between, the function must
+be zero, and that's the point where $\cos x = x$.
+
+Now, we can actually narrow down the value where $\cos x = x$ a little
+further, by trying to evaluate $f(x)$ for other values of $x$. For
+instance, we see, by evaluation, that $f(\pi/3) = 1/2 - \pi/3 < 0$, so
+the intermediate-value theorem tells us that $f(x) = 0$ for some $x
+\in [0,\pi/3]$. Next, we try $f(\pi/4) = 1/\sqrt{2} - \pi/4 < 0$, so,
+in fact, $f(x) = 0$ for some $x \in [0,\pi/4]$. And we can narrow
+things down still further by checking that $f(\pi/6) > 0$, so in fact,
+there is a solution to $f(x) = 0$ for $x \in [\pi/6,\pi/4]$.
+
+So, we see that we can use the intermediate-value theorem, along with
+evaluating the function at mutliple points, to narrow down pretty well
+where a function is zero. If you're more interested in these
+techniques, you should read more about the {\em bisection method} --
+it is discussed on Page 102 under the header {\em Project 2.6}.
+
+\subsection{Extreme-value theorem}
+
+Another theorem, that you should know, though you will not have the
+opportunity to apply it much right now, is the extreme-value
+theorem. This states that if $f$ is a continuous real-valued function
+on a closed interval $[a,b]$, then $f$ attains its maximum and its
+minimum, and of course, by the intermediate-value theorem, all the
+values in betweem. So if $M$ is the maximum and $m$ is the minimum of
+$f$, then the range of $f$ is an interval of the form $[m,M]$.
+
+Okay, there are many parts to this theorem, so let's understand it
+part-by-part. What does it mean to say that the function {\em attains
+its maximum}? Basically, we mean that there is some value $M$ in the
+range of $f$ that is the largest value in the range of $f$. And
+similarly, {\em attains its minimum} happens when there is some value
+in the range of $f$ that is the smallest value in the range of $f$.
+
+So, may be you're thinking that every function shoul attain its
+maximum and minimum. That's not true. In fact, a function on an
+interval stretching to infinity, or a function defined on an open
+interval, need not attain a maximum or minimum. For instance, the
+function $1/x$ on the interval $(0,\infty)$ doesn't attain either a
+maximum or minimum -- it tends to (but doesn't reach) $\infty$ on one
+side and tends to (but doesn't reach) $0$ on the other side.
+
+Also, a discontinuous function defined on a closed interval need not
+attain a maximum and minimum. For instance, the function $(x +
+1)\operatorname{sgn}(x)$ on $[-1,3]$, which we discussed a little
+while ago, does not attain a minimum value because of the open circle
+at the low point:
+
+\includegraphics[width=3in]{intermediatevaluetheoremfailsfordiscontinuousfunction.png}
+
+So okay, we are somehow using something about continuity -- may be it
+isn't clear what, but something, and we're also using something about
+closed intervals, to say that there is a maximum and minimum. What
+about the next part of the statement, which says that the range is
+precisely the stuff that's in between? Well, everything in the range
+has to be between the maximum and minimum -- that's the definition of
+maximum and minimum. But why does everything between the maximum and
+minimum have to be in the range? Well, you can think of that as the
+intermediate-value theorem in action again.
+
+\end{document}

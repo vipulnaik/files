@@ -1,0 +1,318 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Tangent planes and linear approximations}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 14.4. {\em Note: We
+are, for now, omitting the topic of differentials, which is the second
+half of this section (Pages 931--934). We may return to it later in
+the course, if we get time after completing the rest of Chapters 14
+and 15.}
+
+{\bf What students should definitely get}: Finding the tangent plane
+at a point, the concept of best linear approximation.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item For a $d$-dimensional subset of $\R^n$, it (occasionally) makes
+  sense to talk of the tangent space and the normal space at a
+  point. The tangent space is a linear/affine $d$-dimensional space
+  and the normal space is a linear/affine $(n - d)$-dimensional
+  space. Both pass through the point and are mutually orthogonal.
+\item For a function $z = f(x,y)$, the tangent plane to the graph of
+  this function (a surface in $\R^3$) at the point
+  $(x_0,y_0,f(x_0,y_0))$ {\em such that $f$ is differentiable at the
+    point $(x_0,y_0)$} is the plane:
+
+  $$z - f(x_0,y_0) = f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0)$$
+
+  The corresponding linear function we get is:
+
+  $$L(x,y) = f(x_0,y_0) + f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0)$$
+
+  This provides a linear approximation to the function near the point
+  where we are computing the tangent plane.
+\item It may be the case that a function $f$ of two variables is not
+  differentiable at a point in its domain but the partial derivatives
+  exist. In this case, although the {\em above formula makes sense as
+    a formula}, the plane it gives {\em is not the tangent plane} --
+  in fact, {\em no tangent plane exists}. Similarly, {\em no
+    linearization exists}, and the linear function given by the above
+  formula {\em is not a close approximation to the function near the
+    point}.
+\end{enumerate}
+\section{Approximation theory: recall of one variable}
+
+\subsection{Taylor polynomials}
+
+For a function $f$ of one variable, we can define some Taylor
+polynomials of $f$. If $f$ is $n$ times differentiable around a point
+$x = c$, we can define the $n^{th}$ Taylor polynomial of $f$ about $c$
+as the polynomial:
+
+$$P_n(f,c)(x) := \sum_{k=0}^n \frac{f^{(k)}(c)}{k!}(x - c)^k$$
+
+If $f$ is $(n + 1)$ times differentiable, it turns out that $f -
+P_n(f,c)$ is a function with a zero of order at least $n + 1$ at
+$c$. This means that we can approximate $f$ by a {\em polynomial
+function} of degree at most $n$ such that the error term is very
+zeroey (order at least $n + 1$). Note that the Taylor polynomial has
+degree at most $n$, but the degree may be less than $n$ if the
+$n^{th}$ derivative takes the value $0$ at $c$.
+
+\subsection{Special cases: degrees zero and one}
+
+The zeroth degree Taylor polynomial is a constant function with the
+same value as $f(c)$. This is a very crude description of the function
+around the point and ignores any change in the value.
+
+The first degree Taylor polynomial is the function whose graph gives
+the tangent line, i.e., the line:
+
+$$y = f(c) + f'(c)(x - c)$$
+
+Note that this is the tangent line in point-slope form.
+
+The first degree Taylor polynomial, or the tangent line, captures the
+rate of change of the function {\em at} the point. However, it fails
+to capture second derivative and higher derivative behavior, i.e., how
+this rate of change itself is changing.
+
+{\em Geometrically}, the tangent line to a point on a curve is the
+``best linear approximation'' to the curve locally around the point,
+i.e., the line that comes closest to describing the curve near the
+point. Note that it is {\em not} true that the tangent line intersects
+the curve at a unique point, or that no other line has this property.
+
+\section{The multivariable situation}
+
+\subsection{Geometric notion of tangent space and normal space}
+
+Given a subset of dimension $d$ in $n$-dimensional space, we can try
+talking of a tangent space at a point on the subset to the
+subset. This attempt at talk succeeds only when that subset has some
+particularly nice properties. Anyway, the point is that this tangent
+space looks like a {\em flat} $d$-dimensional space, i.e., a line, or
+a plane, or a higher-dimensional analogue thereof.
+
+For instance, the ``tangent'' to a curve (which is a one-dimensional
+construct) is a line (the linear one-dimensional
+construct). Similarly, the tangent to a surface in $\R^3$ is a plane
+(a linear two-dimensional construct). To take the example of a sphere,
+think of a sphere resting on a floor. The floor is the tangent plane
+to the sphere through the point of contact.
+
+The ``normal space'' at a point to a $d$-dimensional subset in
+$n$-dimensional space is a $(n - d)$-dimensional linear space through
+the same point, such that the two spaces intersect orthogonally, i.e.,
+every direction in one space is orthogonal to every direction in the
+other space. Thus, for instance:
+
+\begin{itemize}
+\item For a curve in $\R^2$, the tangent space and normal space are
+  both one-dimensional.
+\item For a curve in $\R^3$, the tangent space is one-dimensional and
+  the normal space is two-dimensional.
+\item For a surface in $\R^3$, the tangent space is two-dimensional
+  and the normal space is one-dimensional.
+\end{itemize}
+
+Note that for geometric subsets, we can only make sense of tangent and
+normal spaces, rather than specific tangent and normal
+vectors. However, given a {\em parametric} description of a curve, we
+can make sense of the tangent {\em vector}, with the length and
+direction of the vector determined by the speed and direction of
+motion along the curve as per the parameterization.
+
+\subsection{Non-existent tangent planes}
+
+There are many possible reasons why the tangent plane to a surface at
+a point on the surface may not exist. First, the surface may be broken
+at that point, i.e., it may not locally look like a plane in a small
+neighborhood of the point. In such a case, it might be an abuse of
+language to call it a surface.
+
+Second, the surface may have a lot of variation around the point --
+too many hills and valleys to make sense of a meaningful tangent
+plane. This is a surface analogue of the function $x\sin(1/x)$ which,
+if extended to the value $0$ at $0$, becomes continuous but not
+differentiable at $0$.
+
+Third, the surface may be sharp and pointy at the point. Think, for
+instance, of the curved surface of a right circular cone. At most
+points on this curved surface, the tangent plane exists. However, at
+the vertex of the point, the tangent plane does not exist. This is a
+surface analogue of a function that has one-sided derivatives that are
+not equal, i.e., it takes a sharp turn.
+
+\subsection{How should the tangent plane relate geometrically to the surface?}
+
+In the one-dimensional situation, we recall that {\em generally
+speaking}, the tangent line {\em locally} lies entirely to one side of
+the curve, i.e., the curve rests against the tangent line. In fact, it
+is the only line that does not {\em cut through} the curve.
+
+But this is not always true. Two notable kinds of exceptions are:
+
+\begin{itemize}
+\item {\em Points of inflection}: Here, the tangent line {\em cuts
+  through} the curve, i.e., the curve and the tangent line cross each
+  other. An example is $y = x^3$ at $(0,0)$. The tangent line is the
+  $x$-axis, and it crosses the curve.
+\item Points where the curve keeps crossing above and below the
+  tangent line arbitrarily close to the point of tangency: For this to
+  occur, the second derivative must change sign infinitely often close
+  to the point. Examples include functions such as $x^2\sin(1/x)$
+  (with the value $0$ at $0$) about the origin $(0,0)$. The tangent
+  line is the $x$-axis, and it intersects the curve at points
+  arbitrarily close to $(0,0)$, hence fails to be {\em on one side} of
+  the curve.
+\end{itemize}
+
+Does something similar happen for planes? Yes. {\em Generically}, we
+expect that {\em locally}, the tangent plane lies to one side of the
+surface, and this can be a reasonable characterization of the tangent
+plane. That's the reason why for a sphere ``resting'' on a floor, the
+floor is the tangent plane to the sphere at the point of contact.
+
+However, there is an analogue of point of inflection, where the
+tangent plane {\em cuts through} the surface at the point. This type
+of two-dimensional analogue of point of inflection is termed a {\em
+  saddle point}. We will deal with saddle points when we cover the
+topic of maxima and minima for functions of many variables later in
+the course.
+\subsection{Relation between tangents for curve on surface}
+
+If a curve is in/on a surface in $\R^3$, then the tangent {\em line}
+to the curve at a point on the curve lies in the tangent {\em plane}
+to the surface at the point. Similarly, the normal plane to the curve
+at a point contains the normal line to the surface at that point.
+
+In particular, if we have two different curves on a surface
+intersecting at a point, and the tangent lines to these curves at the
+point do not coincide, then these lines together determine the tangent
+plane to the surface, if it exists: it is the unique plane containing
+both the tangent lines.
+
+If, on the other hand, we find a situation where there are three
+curves intersecting at a point, all in a surface, and the tangent
+lines at the point to these three curves do not lie in the same plane,
+then the tangent plane at the point does not exist.
+
+\subsection{Partial derivatives of functions of many variables}
+
+Consider a function $z = f(x,y)$, a function of two variables. The
+graph of this function is a surface in $\R^3$. Recall that the partial
+derivatives can be interpreted as slopes of tangent lines as follows:
+
+\begin{itemize}
+\item $f_x(x_0,y_0)$: Consider the plane $y = y_0$. This is a plane
+  parallel to the $xz$-plane, and the intersection of the surface with
+  this plane can be thought of as the graph of the function $z =
+  f(x,y_0)$ of one variable. The partial derivative is the slope of
+  the tangent line in this plane to the graph at the point
+  $(x_0,y_0,f(x_0,y_0))$. A free vector along this tangent line,
+  viewed in $\R^3$, is $\langle 1,0,f_x(x_0,y_0) \rangle$.
+\item $f_y(x_0,y_0)$: Here, we fix the plane $x = x_0$, parallel to
+  the $yz$-plane, and a similar interpretation follows. A free vector
+  along this tangent line, viewed in $\R^3$, is $\langle
+  0,1,f_y(x_0,y_0)\rangle$.
+\end{itemize}
+
+Thus, computing the partial derivatives allows us to compute tangent
+vectors to two curves in the surface that's the graph of this
+function. Since we know the basepoint, we can also compute parametric
+descriptions of the corresponding tangent lines.
+
+If both the partial derivative $f_x$ and $f_y$ are continuous, then we
+can make sense of the notion of tangent plane, to which we now turn.
+
+These two vectors are both parallel to the tangent plane, so we can
+take their cross product and find a normal vector. A quick computation
+of the cross product shows that $\langle f_x(x_0,y_0), f_y(x_0,y_0),
+-1 \rangle$ is a normal vector. Thus, the tangent plane passes through
+the point $(x_0,y_0,f(x_0,y_0))$ and has normal vector $\langle
+f_x(x_0,y_0),f_y(x_0,y_0),-1 \rangle$. Working out the scalar equation
+from the vector equation, we get:
+
+$$(x - x_0)f_x(x_0,y_0) + (y - y_0)f_y(x_0,y_0) + (z - f(x_0,y_0))(-1) = 0$$
+
+Rearranging, we get:
+
+$$z - f(x_0,y_0) = f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0)$$
+
+We can rewrite this as:
+
+$$z = f(x_0,y_0) + f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0)$$
+
+This is the equation of the tangent plane, and is the most convenient
+form for applications.
+
+\subsection{Tangent plane as good linear approximation}
+
+Just as the tangent line is a good linear approximation to the graph
+of a function in one variable, the tangent plane is a good linear
+approximation to the graph of a function in two variables. Roughly, it
+can be thought of as a first-order approximation, so that any ``error
+term'' will be zeroey of order two or higher. In particular, for
+points close to the point at which we are computing the tangent plane,
+the function value arising from the linear approximation is pretty
+close to the actual function value.
+
+More concretely, with the above setup, we have the plane:
+
+$$z = f(x_0,y_0) + f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0)$$
+
+The corresponding linear function is the right side of this equation:
+
+$$L(x,y) =  f(x_0,y_0) + f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0)$$
+
+\subsection{Continuity of partial derivatives necessary}
+
+Recall the earlier example we studied of a function that is separately
+continuous in each variable but is not jointly continuous. The
+function is $f(x,y) = (xy)/(x^2 + y^2)$ except at the origin, and
+$f(0,0) = 0$. This can also be described as $(1/2)\sin(2\theta)$ with
+respect to polar coordinates. At the origin, the function is
+separately continuous in each variable, but not jointly continuous.
+
+We can further note that in fact, since the function is a constant
+zero function along both the axes, all its partial derivatives exist
+and equal zero at the origin. However, the function is not jointly
+continuous, and hence, we should not expect it to have anything like a
+tangent plane. In fact, it does not. Although we can blindly apply the
+above formula to obtain the equation of a plane, this is not a
+``tangent plane'' to the surface that is the graph of the
+function. (See Page 930 of the book).
+
+\subsection{Tangent plane and total derivative}
+
+Recall an earlier conundrum:
+
+Separate continuity:Joint continuity::Partial derivatives:?
+
+In other words, what is the ``joint'' equivalent of partial
+derivatives? Unfortunately, the proper way of thinking of this joint
+equivalent requires the use of linear algebra, and we will therefore
+not be able to cover it. I will simply state the following result:
+
+\begin{quote}
+  If all the first-order partial derivatives of a function exist
+  around a point, and each first-order partial derivative is jointly
+  continuous at the point, then the function is differentiable at the
+  point. However, the converse is not true.
+\end{quote}
+
+In other words:
+
+Partials exist around the point, are continuous $\implies$ Function is
+differentiable (total derivative exists) $\implies$ Partials exist
+{\em at} the point
+
+\end{document}

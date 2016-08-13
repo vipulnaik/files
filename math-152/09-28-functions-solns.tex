@@ -1,0 +1,318 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: September 28; Topic: Functions}
+\author{Vipul Naik}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$12$ students submitted solutions. Here is the score distribution:
+
+\begin{enumerate}
+\item Score of $0$: Nobody.
+\item Score of $1$: Nobody.
+\item Score of $2$: $2$ persons.
+\item Score of $3$: $2$ persons.
+\item Score of $4$: $5$ persons.
+\item Score of $5$: $3$ persons.
+\end{enumerate}
+
+The mean score was $3.75$ and the median was $4$.
+
+If you scored poorly on this quiz, there is no need to get
+discouraged, since these question types are probably new for you even
+if you're familiar with the material. Please take the time to go
+through the solutions so that you are able to get similar questions
+correct if you see them in the future.
+
+{\em Note}: You are allowed and encouraged to discuss/collaborate with
+others on some questions (the star-marked ones) but you should
+ultimately put the solution that {\em best fits your conscience} and
+not simply go with the crowd against what you believe to be the
+correct answer.
+
+Here is the summary of problem wise scores:
+
+\begin{enumerate}
+\item Option (E): $9/12$ correct.
+\item (*) Option (C): $11/12$ correct. {\em Magic of collaboration?}
+\item Option (D): $12/12$ correct.
+\item (*) Option (A): $8/12$ correct.
+\item (*) Option (E): $5/12$ correct. {\em Needs review!}
+\end{enumerate}
+
+More details in the next section.
+
+\section{Solutions}
+\begin{enumerate}
+
+\item Suppose $f$ and $g$ are functions from $\R$ to $\R$. Suppose
+  both $f$ and $g$ are even, i.e., $f(x) = f(-x)$ for all $x \in \R$
+  and $g(x) = g(-x)$ for all $x \in \R$. Which of the following is
+  {\em not} guaranteed to be an even function from the given information?
+
+  {\em Note: For this question, it is possible to solve the question
+  by taking a few simple examples. You're free to do this, but the
+  recommended method for tackling the question is to handle it {\bf
+  abstractly}, i.e., try to prove or disprove in general for each
+  function whether it is even.}
+
+  \begin{enumerate}[(A)]
+  \item $f + g$, i.e., the function $x \mapsto f(x) + g(x)$
+  \item $f - g$, i.e., the function $x \mapsto f(x) - g(x)$
+  \item $f \cdot g$, i.e., the function $x \mapsto f(x)g(x)$
+  \item $f \circ g$, i.e., the function $x \mapsto f(g(x))$
+  \item None of the above, i.e., they are all guaranteed to be even
+    functions.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: We show that $f + g$, $f - g$, $f \cdot g$, and
+  $f \circ g$ are all even. Below are given short versions of
+  ``proofs'' of these facts.
+
+  $f + g$ is even because 
+  
+  $$(f + g)(-x) = f(-x) + g(-x) = f(x) + g(x) = (f + g)(x)$$
+
+  Hence $(f + g)(-x) = (f + g)(x)$ for all $x$.
+
+  $f - g$ is even because
+
+  $$(f - g)(-x) = f(-x) - g(-x) = f(x) - g(x) = (f - g)(x)$$
+
+  $f \cdot g$ is even because
+
+  $$(f \cdot g)(-x) = f(-x)g(-x) = f(x)g(x) = (f \cdot g)(x)$$
+
+  $f \circ g$ is even because:
+
+  $$(f \circ g)(-x) = f(g(-x)) = f(g(x)) = (f \circ g)(x)$$
+
+  Note that $f \circ g$ is somewhat special, because for this case, we
+  only use that $g$ is even -- we do not use or require $f$ to be even.
+
+  {\em Performance review}: $9$ out of $12$ people got this
+  correct. $3$ chose (D).
+
+  {\em Historical note (last year)}: $11$ out of $15$ people got this
+  correct. $3$ people chose (D) and $1$ person chose (B).
+
+\item (*) Suppose $f$ and $g$ are functions from $\R$ to $\R$. Suppose
+  both $f$ and $g$ are odd, i.e., $f(-x) = -f(x)$ for all $x \in \R$
+  and $g(-x) = -g(x)$ for all $x \in \R$. Which of the following is
+  {\em not} guaranteed to be an odd function from the given information?
+
+  {\em Note: For this question, it is possible to solve the question
+  by taking a few simple examples. You're free to do this, but the
+  recommended method for tackling the question is to handle it {\bf
+  abstractly}, i.e., try to prove or disprove in general for each
+  function whether it is odd.}
+
+  \begin{enumerate}[(A)]
+  \item $f + g$, i.e., the function $x \mapsto f(x) + g(x)$
+  \item $f - g$, i.e., the function $x \mapsto f(x) - g(x)$
+  \item $f \cdot g$, i.e., the function $x \mapsto f(x)g(x)$
+  \item $f \circ g$, i.e., the function $x \mapsto f(g(x))$
+  \item None of the above, i.e., they are all guaranteed to be odd functions.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: An example is when $f(x) := x$ and $g(x) :=
+  x$. Both $f$ and $g$ are odd functions. But the product $f \cdot g$
+  the function $x \mapsto x^2$, which is an even function.
+  
+  {\em The other choices}:
+
+  Option (A): If $f$ and $g$ are both odd, then $f + g$ has to be
+  odd. Here's why:
+
+  $$(f + g)(-x) = f(-x) + g(-x) = -f(x) + (-g(x)) = -[f(x) + g(x)] = -(f + g)(x)$$
+
+  Option (B): If $f$ and $g$ are both odd, then $f - g$ has to be
+  odd. Here's why:
+
+  $$(f - g)(-x) = f(-x) - g(-x) = -f(x) - (-g(x)) = -[f(x) - g(x)] = -(f - g)(x)$$
+
+  Option (D): If $f$ and $g$ are both odd, then $f \circ g$ has to be
+  odd. Here's why:
+
+  $$(f \circ g)(-x) = f(g(-x)) = f(-g(x)) = -f(g(x)) = -(f \circ g)(x)$$
+
+  Option (E) is ruled out because option (C) works.
+
+  {\em Performance review}: $11$ out of $12$ got this correct. $1$
+  chose (D). {\em Performance this year was much better than last
+  year, possibly due to the benefits of collaboration?}
+
+  {\em Historical note (last year)}: $7$ out of $15$ people got this
+  correct. $5$ people chose (E) and $3$ people chose (D).
+
+\item For which of the following pairs of polynomial functions $f$ and
+  $g$ is it true that $f \circ g \ne g \circ f$?
+
+  \begin{enumerate}[(A)]
+  \item $f(x) := x^2$ and $g(x) := x^3$
+  \item $f(x) := x + 1$ and $g(x) := x + 2$
+  \item $f(x) := x^2 + 1$ and $g(x) := x^2 + 1$
+  \item $f(x) := -x$ and $g(x) := x^2$
+  \item $f(x) := -x$ and $g(x) := x^3$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: For option (D), $f(g(x)) = -x^2$ and $g(f(x)) =
+  (-x)^2 = x^2$. The two polynomials take distinct values for all
+  nonzero $x$, hence they are not equal as functions.
+
+  {\em The other choices}:
+
+  Option (A): $f(g(x)) = (x^3)^2 = x^{3 \cdot 2} = x^6$. Similarly
+  $g(f(x)) = (x^2)^3 = x^{2 \cdot 3} = x^6$. So in this case $f \circ
+  g = g \circ f$.
+
+  Option (B): $f(g(x)) = (x + 2) + 1 = x + 3$ and $g(f(x)) = (x + 1) +
+  2 = x + 3$. So in this case $f \circ g = g \circ g$.
+
+  Option (C): Here, $f = g$ so both $f \circ g$ and $g \circ f$ are
+  equal to $f \circ f$. Note that we do not need to explicitly compute
+  $f \circ g$ in this case.
+
+  Option (E): Here, $f(g(x)) = -x^3$ and $g(f(x)) = (-x)^3 = (-1)^3x^3
+  = -x^3$.
+
+  {\em Additional remark}: If $f \circ g = g \circ f$, we say that the
+  functions $f$ and $g$ {\em commute}. You may have heard about the
+  commutativity law for addition and multiplication. In the case of
+  function composition, commutativity is {\em not} a law. It holds for
+  some pairs of functions (such as options (A), (B), (D), (E) here)
+  and not for others (such as option (C)).
+
+  Note that for the function $f(x) := -x$, a function $h$ commutes
+  with $f$ if and only if $h$ is an odd function. Thus, in option (E),
+  the cube map is an odd function. And option (D) fails because the
+  square map is {\em not} an odd function.
+
+  {\em Performance review}: Everybody($12$ out of $12$) got this
+  correct.
+
+  {\em Historical note (last year)}: $14$ out of $15$ people got this
+  correct. $1$ person chose (B).
+
+  {\em Action point}: Even if you got this correct, it may be helpful
+  to try to understand how to more quickly see that for all the other
+  pairs, $f \circ g = g \circ f$.
+
+\item (*) Which of the following functions is {\em not} periodic?
+
+  \begin{enumerate}[(A)]
+  \item $\sin(x^2)$
+  \item $\sin^2x$
+  \item $\sin(\sin x)$
+  \item $\sin(x + 13)$
+  \item $(\sin x) + 13$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: It's somewhat hard to show that $\sin(x^2)$ is
+  not a periodic function. (This will be an advanced problem in a
+  subsequent homework).
+
+  On the other hand, it is easy to solve this problem by elimination,
+  since the other four options are periodic, as explained below.
+
+  {\em The other choices}:
+
+  Option (B): $\sin^2$ is periodic and has period $\pi$. This follows
+  from the fact that $\sin(\pi + x) = -\sin x$. Even if you don't
+  notice that the period is $\pi$, you can still deduce
+  $2\pi$-periodicity from the fact that $\sin$ is $2\pi$-periodic.
+
+  Option (C): $\sin \circ \sin$ is $2\pi$-periodic. 
+
+  Note that options (B) and (C) both from a more general fact: if $f,g :\R
+  \to \R$ are functions, and $g$ is periodic, so is $f \circ g$, and
+  any choice of $h > 0$ that works for $g$ also works for $f \circ g$
+  (though the period for $f \circ g$ may be smaller than that for $g$)
+
+  Option (D): This is $2\pi$-periodic. In graphical terms, it is
+  obtained by shifting the graph of the $\sin$ function $13$ units to
+  the left, and the periodicity pattern is unaffected.
+
+  Option (E): This is $2\pi$-periodic. Adding a constant function (in
+  this case, $13$) to a periodic function (in this case, $\sin$) gives
+  a periodic function with the same period.
+
+  {\em Performance review}: $8$ out of $12$ got this correct. $2$ each
+  chose (B) and (C).
+
+  {\em Historical note (last year)}: $8$ out of $15$ people got this
+  correct. $3$ people chose (B), $3$ people chose (C), and $1$ person
+  chose (D).
+
+  {\em Action point}: Please make sure you understand the reasoning
+  for why the other functions are periodic. You may also experiment
+  with plotting the graphs of these functions using Mathematica or a
+  graphing calculator.
+\item (*) What is the domain of the function $\sqrt{1 - x} + \sqrt{x -
+  2}$? Here, domain refers to the {\em largest set} on which the
+  function can be defined.
+
+  \begin{enumerate}[(A)]
+  \item $(1,2)$
+  \item $[1,2]$
+  \item $(-\infty,1) \cup (2,\infty)$
+  \item $(-\infty,1] \cup [2,\infty)$
+  \item None of the above
+  \end{enumerate}
+
+  {\em Hint: Think clearly, first about what the domain of each of the
+    two functions being added is, and then about whether you need to
+    take the union or the intersection of the domains of the
+    individual functions.}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: For $\sqrt{1 - x}$ to be defined, we need $1 - x
+  \ge 0$, so $x \le 1$. For $\sqrt{x - 2}$ to be defined, we need $2 -
+  x \ge 0$, so $x \ge 2$. Thus, we require that $x \le 1$ and $x \ge
+  2$ hold {\em simultaneously}. In set theory terms, we need to take
+  the {\em intersection} of the solution sets to $x \le 1$ (which is
+  $(-\infty,1]$) and to $x \ge 2$ (which is $[2,\infty)$).
+
+  The two conditions cannot hold together, i.e., the intersection of
+  the solutions for the two constraints is empty. Hence, the domain of
+  the function is in fact empty, i.e., the function is defined {\em
+  nowhere}.
+
+  {\em The other choices}: Options (C) and (D) are the most
+  sophisticated distractors. Option (D) is the union of the domains of
+  $\sqrt{1 - x}$ and $\sqrt{x - 2}$. However, what we need here is the
+  {\em intersection} of the domains, not the union.
+
+  {\em Performance review}: $5$ out of $12$ got this correct. $7$
+  chose (D), which is the {\em union} rather than the {\em
+  intersection}. So, people fell for the sophisticated distractors,
+  not the silly ones.
+
+  {\em Historical note (last year)}: $8$ out of $15$ people got this
+  correct. $5$ people chose (D), $1$ person chose (B), and $1$ person
+  chose (C).
+
+  {\em Action point}: Please make sure you understand why we need to
+  {\em intersect} the domains of $f$ and $g$ rather than take the
+  union. This goes back to the fact discussed in class that the domain
+  of $f + g$ is the intersection of the domains of $f$ and $g$.
+
+\end{enumerate}
+\end{document}

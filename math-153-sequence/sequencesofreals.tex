@@ -1,0 +1,590 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Sequences of real numbers}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 11.2.
+
+{\bf What students should definitely get}: The two definitions of
+sequence, the three ways of describing sequences, switching back and
+forth between different ways, the key types/properties of sequences.
+
+{\bf What students should hopefully get}: Discrete calculus and its
+relationship with continuous calculus.
+
+
+\section*{Executive summary}
+
+\subsection{The basics}
+
+Words ...
+
+\begin{enumerate}
+\item A sequence in a set is a function from $\N$ to that set.
+\item A sequence of reals can be described in three ways: as an
+  ordered list of real numbers (where we write only the first few
+  members due to space and time considerations), as a closed form
+  expression for the general term of the sequence (i.e., thinking of
+  it as a function), and in terms of a recurrence relation.
+\item The {\em range} of a sequence is the set of values that it
+  takes. The range of a sequence differs from the sequence in the
+  following two senses: (i) it ignores repetition (ii) it ignores the
+  ordering or sequencing of the elements.
+\item There are many properties that we can talk of in the context of
+  sequences: increasing, decreasing, non-increasing, non-decreasing,
+  monotonic, constant, periodic, bounded from below, bounded from
+  above, and bounded. Note that the boundedness-related properties
+  depend {\em only} on the range of the sequence, whereas the other
+  properties depend on the sequence as a whole.
+\item For any property $p$ that can be evaluated on each sequence, we
+  can talk of the property {\em eventually} $p$, which means that some
+  left shift of the sequence has the property $p$. For instance, we
+  can talk of eventually increasing, eventually decreasing, eventually
+  constant, eventually monotonic, and eventually periodic.
+\item Eventually bounded is the same as bounded.
+\item There are various operations we can do on sequences similar to
+  the corresponding operations on functions: add, subtract, multiply,
+  divide, multiply by a scalar, and compose with a function defined on
+  the range of the sequence.
+\item We can do left shifts, right shifts (though this requires us to
+  throw in more new terms), splicing, and other fancy operations.
+\item If a sequence is defined recursively, i.e., using a recurrence
+  relation, then we need to separately specify initial values. The
+  number of initial values that we need to specify depends on how far
+  back the recurrence relation reaches. This is related both to the
+  principle of mathematical induction and the idea of free parameters
+  and initial value specifications for differential equations.
+\item We can define a discrete derivative, called the {\em forward
+  difference operator}, defined as follows: for a sequence $f:\N \to
+  \R$, the forward difference operator is $(\Delta f)(n) = f(n + 1) -
+  f(n)$. This is analogous to the derivative of a continuous function.
+\item The {\em integration equivalent} for the forward difference
+  operator is the summation operator. (Try to find the formula for
+  this in the notes/class discussion).
+\item The forward difference operator behaves analogously to
+  differentiation (though the formulas differ) for constants,
+  polynomial sequences, and periodic sequences. (Please see the notes
+  for a list of points).
+\item Periodic sequences can be defined using a case-wise definition
+  based on the remainder modulo the period. They can alternatively be
+  defined as combinations of trigonometric functions. In the special
+  case of a period $2$, we can also express in terms of $(-1)^n$.
+\item A sequence with periodic derivative can be expressed as the sum
+  (pointwise) of a linear sequence and a periodic sequence.
+\end{enumerate}
+
+\section{Sequences of real numbers}
+
+\subsection{Definition of a sequence}
+
+Suppose $S$ is a set. A {\em sequence} in $S$ is a function $f: \N \to
+S$, i.e., a function from the set of natural numbers to the set
+$S$. Alternatively, we can think of a sequence as an infinite list
+$a_1, a_2, \dots, a_n, \dots$ indexed by $n \in \N$. Here's how we go
+back and forth between the two notions:
+
+\begin{itemize}
+\item {\em From function to list}: Given a function $f: \N \to S$, the
+  corresponding list is $f(1), f(2), \dots$.
+\item {\em From list to function}: Given a list $a_1, a_2, \dots, a_n,
+  \dots$, the corresponding function is the function $n \mapsto a_n$.
+\end{itemize}
+
+The value $f(n)$ or $a_n$ is termed the $n^{th}$ {\em term} of the
+sequence. We often describe the sequence with the shorthand $(a_n)_{n
+\in \N}$, or just $(a_n)$. The position in the sequence, which is
+given by the {\em subscript}, is sometimes termed the {\em index}.
+
+For the purpose of this course, we deal with sequences in $\R$, i.e.,
+{\em sequences of real numbers}.
+
+Examples are:
+
+\begin{enumerate}
+\item The sequence $1,2,3,\dots$ corresponds to the function $f(n) = n$.
+\item The sequence $1,4,9,16,25,36,49,\dots$ corresponds to the
+  function $f(n) = n^2$.
+\item The sequence $1,-1,1,-1,1,-1,\dots$ corresponds to the function
+  $f(n) = (-1)^{n+1}$.
+\end{enumerate}
+
+We will talk later about rules for pattern recognition in sequences.
+
+\subsection{The range of a sequence}
+
+The range of a sequence is defined as the set of values that it
+takes. Equivalently, it is the range of the sequence viewed as a
+function. Thus, the range of the sequence $(a_n)$ is the set:
+
+$$\{ a_n : n \in \N \}$$
+
+The range of a sequence is {\em not} the same thing as the sequence,
+because the range is {\em just} a set, and does not capture the order
+in which the elements appear. Moreover, the sequence itself can have
+repetitions whereas the underlying set does not have repetitions.
+\subsection{Types of sequences}
+
+\begin{enumerate}
+\item A sequence is said to be {\em free of repetition} if the
+  corresponding function is one-to-one.
+\item A sequence $(a_n)$ is termed {\em constant} if it is constant as a
+  function, so the list just lists the same element again and again.
+\item A sequence is termed {\em eventually constant} if there exists a
+  natural number $n_0$ such that $a_n = C$ for some fixed number $C$
+  for all $n \ge n_0$.
+\item A sequence $(a_n)$ is termed {\em periodic} if there exists a natural
+  number $k$ such that $a_{n+k} = a_n$ for all natural numbers $n$.
+\item A sequence $(a_n)$ is termed {\em eventually periodic} if there
+  exist natural numbers $n_0$, $k$, such that $a_{n+k} = a_n$ for all $n
+  \ge n_0$.
+\item A sequence $(a_n)$ is termed {\em increasing} or {\em strictly
+  increasing} if $a_{n+1} > a_n$ for all $n$. Note that unlike the
+  previous notions, increasing makes sense only for sequences in a set
+  which has an ordering. Since we're dealing with sequences of real
+  numbers, this is not an issue. An increasing sequence is
+  free of repetition.
+\item A sequence $(a_n)$ is termed {\em non-decreasing} or {\em weakly
+  increasing} if $a_{n+1} \ge a_n$ for all $n$. Note that any
+  increasing sequence is non-decreasing. A constant sequence is also
+  non-decreasing.
+\item A sequence $(a_n)$ is termed {\em decreasing} or {\em strictly
+  decreasing} if $a_{n+1} < a_n$ for all $n$. A decreasing sequence is
+  free of repetition.
+\item A sequence $(a_n)$ is termed {\em non-increasing} or {\em weakly
+  decreasing} if $a_{n+1} \le a_n$ for all $n$. Note that any
+  decreasing sequence is non-increasing. A constant sequence is also
+  non-increasing.
+\item A sequence $(a_n)$ is termed {\em monotonic} if it is either
+  non-increasing or non-decreasing.
+\item There are ``eventually'' versions of all these notions:
+  increasing, decreasing, non-increasing, and non-decreasing.
+\item A sequence $(a_n)$ is termed {\em bounded} if its range is
+  bounded. Note that a monotonic sequence is automatically bounded
+  from one side, and we therefore only need to check whether it is
+  bounded from the other side.
+\end{enumerate}
+
+\subsection{Operations on sequences}
+
+Recall that there are plenty of operations that we can perform on
+functions. These give rise to operations on sequences, because
+sequences are functions on the natural numbers. Specifically, the {\em
+pointwise combinations} all give rise to analogous operations on
+sequences.
+
+\begin{enumerate}
+\item For a sequence $(a_n)$ and a real number $\lambda$, we can
+  define the sequence $(\lambda(a_n))$, whose $n^{th}$ term is
+  $\lambda$ times the $n^{th}$ term of the original sequence.
+\item For two sequences $(a_n)$ and $(b_n)$, we can define sequences
+  $(a_n + b_n)$, $(a_n - b_n)$, $(a_nb_n)$, and $(a_n/b_n)$ (this last
+  one makes sense only if $b_n \ne 0$ for all $n$). If the sequences are
+  interpreted as functions, these correspond to the pointwise
+  addition, subtraction, multiplication, and division respectively.
+\item For a function $g:\R \to \R$ and a sequence $(a_n)$, we can
+  define a sequence $(g(a_n))$, whose $n^{th}$ term is the image under
+  $g$ of the original $n^{th}$ term of the sequence. In fact, $g$
+  itself need not be defined for all real numbers -- it only needs to
+  be defined on the range of the sequence.
+\end{enumerate}
+
+Here are some other operations:
+
+\begin{enumerate}
+\item Left and right shifts: Given a sequence $(a_n)$ and a natural
+  number $k$, we can define a sequence $(b_n)$ by $b_n = a_{n +
+  k}$. What we have done is basically moved all terms of the sequence
+  $k$ units to the left. This is similar to what we've noticed for
+  functions: the graph of $f(x + h)$ is obtained from the graph of $f$
+  by shifting to the left by $h$. We can also do a {\em right shift},
+  where we define $c_n = a_{n-k}$, but we have the problem that we
+  need to provide a new definition for the first $k$ terms of the
+  new sequence.
+\item Splicing two sequences: Suppose $a_n$ and $b_n$ are two
+  sequences. We can define a new sequence by splicing the terms
+  together. The new sequence, as a list, goes like $a_1, b_1, a_2,
+  b_2, a_3, b_3,\dots$. We will come back to this later.
+\end{enumerate}
+\section{Describing and identifying sequences}
+
+\subsection{Three descriptions}
+
+\begin{enumerate}
+\item The {\em general term description} or {\em closed form
+  description} is an explicit description of the function underlying a
+  sequence. It is a rule that directly allows us to, given $n$,
+  compute the $n^{th}$ term of the sequence. Closed form expressions
+  are useful because they {\em directly} allow us to compute the
+  $n^{th}$ term without going through the rigmarole of computing
+  previous terms.
+\item {\em Description by example}, which is what people use before
+  they learn algebra, just lists the first few terms of the sequence
+  and lets people guess the pattern. The advantage of this is that for
+  sequences that are very easy to describe, description by example is
+  compact and also can be understood by people with no formal exposure
+  to algebra. The drawback is that as soon as the sequence becomes
+  more complicated, description by example fails. Also, the first few
+  terms in a sequence may fit many different patterns so there is
+  always some ambiguity. 
+\item {\em Description by a recurrence relation}: Here, the $n^{th}$
+  term of the sequence is described in terms of the $(n-1)^{th}$ term
+  and perhaps the $(n-2)^{th}$ term and some earlier terms. In other
+  words, each term is defined in temrs of its predecessors. This is
+  also termed a {\em recursive definition} or an {\em inductive
+  definition}. Recursive definitions are useful in many cases because
+  closed form expressions are hard to construct. They also allow us to
+  quickly compute the {\em next term} if we have already computed a
+  given term.
+\end{enumerate}
+
+\subsection{Pattern recognition: from example to concrete description}
+
+When a sequence is described by listing the first few terms, we need
+to infer a general pattern that allows us to compute future terms. In
+some cases, we may infer the general pattern in terms of a closed form
+expression (general term description) while in other cases, we might
+infer the general pattern in terms of a recursive definition. Either
+way, we are then able to predict successive terms.
+
+Consider, for instance, the sequence:
+
+$$1,2,3,4,5,\dots$$
+
+We easily predict that the general term is $a_n = n$. For a kid who is
+just learning to count and add, it might also be more helpful to
+describe the sequence recursively, by:
+
+$$a_n = a_{n-1} + 1$$
+
+Consider now the sequence:
+
+$$1,3,5,7,9,11,\dots$$
+
+If you give this to a smart and arithmetically enriched but
+algebraically deprived child, the child will notice that each term is
+obtained by adding $2$ to the preceding term. On the basis of this,
+the child can predict that the next term is $13$, the term after that
+is $15$, and so on. In other words, what the student notes is that:
+
+$$a_n = a_{n-1} + 2$$
+
+This inductive definition allows the student to predict the $n^{th}$
+term given the $(n-1)^{th}$ term. But to compute, say, the $1000^{th}$
+term requires computing the first $999$ terms. A closed form
+expression would be much nicer.
+
+Using the profound fact that multiplication is repeated addition, we
+can notice that, in fact:
+
+$$a_n = 2n - 1$$
+
+we can {\em prove} using induction that the inductive definition is
+equivalent to this closed form expression.
+
+Now, we can compute $a_{1000}$ without computing the first $999$
+terms. Multiplication rocks! And so does the idea of a closed form
+expression.
+
+Here is another example:
+
+$$2,5,10,17,26,\dots$$
+
+There are two different ways of determining the underlying rule behind
+the problem. One of these requires a thorough memory of {\em
+multiplication tables}, while the other can be gleaned merely by a
+knowledge of {\em addition and subtraction}. Seeing why these two
+rules are equivalent, on the other hand, requires the use of {\em
+algebraic manipulation}, and the rigor is provided by the {\em
+principle of mathematical induction}.
+
+Let's first consider the multiplication table approach. We note that
+$2 = 1^2 + 1$, $5 = 2^2 + 1$, $10 = 3^2 + 1$, and so on. We thus note
+that the $n^{th}$ term os given by:
+
+$$a_n = n^2 + 1$$
+
+This means that the $15^{th}$ term is $15^2 + 1 = 226$, while the
+$29^{th}$ term is $29^2 + 1 = 842$. And so on.
+
+What if you don't know your multiplication tables? Then, you look for
+increments. You note that $a_2 - a_1 = 3$, $a_3 - a_2 = 5$, $a_4 - a_3
+= 7$, and $a_5 - a_4 = 9$. Thus, it seems that the increments
+themselves are getting incremented by $2$. We thus get:
+
+$$a_n - a_{n-1} = a_{n-1} - a_{n-2} + 2$$
+
+or:
+
+$$a_n = 2a_{n-1} -a_{n-2} + 2$$
+
+We can go somewhere midway, and notice that:
+
+$$a_n = a_{n-1} + (2n - 1)$$
+
+\subsection{A recursive definition requires a specification of initial values}
+
+There's a little point that needs to be clarified. This goes back to
+how we formulate the principle of mathematical induction. It is that
+if a sequence is defined recursively, it is essential to specify
+initial values. More specifically:
+
+\begin{enumerate}
+\item If a sequence is defined by a recurrence relation that expresses
+  the $n^{th}$ term in terms of the $(n-1)^{th}$ term, then we need to
+  specify the first term. Otherwise, we don't know how to start.
+\item If a sequence is defined by a recurrence relation that expresses
+  the $n^{th}$ term in terms of the $(n-1)^{th}$ term and $(n-2)^{th}$
+  term, then we need to specify the first two terms. Otherwise, we
+  again don't know how to start.
+\item If a sequence is defined by a recurrence relation that expresses
+  the $n^{th}$ term in terms of the previous $m$ terms, then we need
+  to specify the first $m$ terms, because the recurrence relation can
+  be successfully applied only from the $(m+1)^{th}$ term onward.
+\end{enumerate}
+
+\subsection{Applying induction}
+
+To prove that a given recursive definition of a sequence is equivalent
+to a given closed form definition, we often use the {\em principle of
+mathematical induction}. Essentially:
+
+\begin{enumerate}
+\item Case where the first term is given and the $n^{th}$ term is
+  defined in terms of the $(n-1)^{th}$ term: In this case, we check
+  the base case of $n = 1$ satisfies the closed form expression and
+  then use the recurrence relation to show that if the $(n-1)^{th}$
+  term satisfies the closed form expression, so does the $n^{th}$ term.
+\item Case where the first $m$ terms are given and the $n^{th}$ term
+  is defined in terms of the $m$ preceding terms: In this case, our
+  base cases are the first $m$ terms and the recurrence relation
+  allows us to do the induction step on the $n^{th}$ term.
+\end{enumerate}
+
+We have done this in the past. For instance, we proved by the
+principle of mathematical induction that:
+
+$$1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2}$$
+
+What we are essentially doing is showing that the sequence $(a_n)$ defined by:
+
+$$a_n = a_{n-1} + 1, \qquad a_1 = 1$$
+
+is the same as the sequence:
+
+$$a_n = \frac{n(n+1)}{2}$$
+
+All this reminds us of ... differential equations.
+
+\section{Discrete calculus}
+
+We now tie together a lot of ideas from the continuous and discrete
+realms. While the ideas are being developed here {\em only at a
+conceptual level}, and you are not expected to master any of the
+details, {\em these are very very important ideas}. Understanding the
+analogy as well as the concrete give-and-take between continuous and
+discrete calculus is very important for a careful quantitative
+analysis in any discipline.
+
+\subsection{The derivative}
+
+In old-fashioned calculus, we define the derivative of $f$ at $x$ as:
+
+$$\lim_{h \to 0} \frac{f(x + h) - f(x)}{h}$$
+
+There are two one-sided notions of derivative. The {\em right hand
+derivative} is the right hand limit:
+
+$$\lim_{h \to 0^+} \frac{f(x + h) - f(x)}{h}$$
+
+On the other hand (literally), the left hand derivative is the left hand limit:
+
+$$\lim_{h \to 0^-} \frac{f(x + h) - f(x)}{h}$$
+
+The quotient whose limit we are trying to compute is a {\em difference
+quotient}, and it is the slope of the secant line joining two points
+on the graph of $f$ (namely, $(x,f(x))$ and $(x + h, f(x+ h))$. The
+limiting quantities are the one-sided derivatives, and they are the
+slopes of one-sided tangent lines to the graph at $(x,f(x))$. If these
+two one-sided derivatives are equal, then the function has a tangent
+line at the point.
+
+The crucial property of the reals that we are using in defining the
+derivative is that we can keep taking real numbers closer and closer
+to a given number on either side. Thus, the derivative really {\em is}
+a limit and cannot be computed simply as a difference quotient.
+
+Contrast this with the natural numbers or integers. The natural
+numbers (as also the integers) are discrete. For any integer, there
+is a unique {\em next} integer and a unique {\em preceding}
+integer. This suggests the following definitions for left hand
+derivative and right hand derivative: the right hand derivative of a
+function $f:\N \to \R$ at $n \in \N$ is $f(n + 1) - f(n)$, while the
+left hand derivative is $f(n) - f(n - 1)$. If we graph $f$ and then
+connect successive points by straight lines, the slopes of these
+straight lines give the values of the derivatives.
+
+Note that the left hand derivative at $n$ is not defined for $n = 1$,
+and equals the right hand derivative at $n - 1$ for $n > 1$. Thus, we
+can, for most practical purposes, consider the right hand derivative
+only. We denote this by $\Delta f$, so:
+
+$$(\Delta f)(n) := f(n + 1) - f(n)$$
+
+The operator $\Delta$ is often called the {\em forward difference
+operator}. In sequence terms:
+
+$$(\Delta a)_n = a_{n+1} - a_n$$
+
+This {\em discrete derivative} behaves in a manner remarkably similar
+to differentiation of functions on the reals. Note, however, that
+unlike the real numbers, {\em every} function is differentiable.
+
+\subsection{Repeated derivatives, polynomials, and ``integration''}
+
+We can apply the forward difference operator multiple times to a
+function, with the $k^{th}$ application denoted $\Delta^k$. What
+happens under such application? Some obvious things:
+
+\begin{enumerate}
+\item Applying the forward difference operator to a constant sequence
+gives the zero sequence.
+\item Applying the forward difference operator to a polynomial
+  function (i.e., a polynomial sequence) of degree $d > 0$ gives a
+  polynomial of degree $d - 1$.
+\item In particular, repeated application of the forward difference
+  operator to any polynomial sequence gives the zero sequence.
+\item Applying the forward difference operator to a periodic sequence
+  gives a periodic sequence.
+\end{enumerate}
+
+Can we define a notion of integration? In other words, given $\Delta
+f$, can we recover $f$? Yes, up to a constant:
+
+\begin{enumerate}
+\item Knowing $\Delta f$ allows us to construct a recursive definition
+  of $f$, given by $f(n) = f(n - 1) + (\Delta f)(n - 1)$. Thus, the
+  only free parameter we have to choose is $f(1)$. This is analogous
+  to the $+C$ in indefinite integration.
+\item More explicitly, if $\Delta f = g$, then:
+
+  $$f(n) = f(1) + g(1) + g(2) + \dots + g(n - 1) = f(1) + \sum_{i=1}^{n-1} g(i)$$
+
+  where the $f(1)$ is the freely varying parameter, that we could
+  christen $C$ in analogy with indefinite integration.
+\item If $\Delta f$ is a polynomial sequence of degree $d$, $f$ is a
+  polynomial sequence of degree $d + 1$.
+\item More generally, if we know $\Delta^m (f)$, we know $f$ modulo
+  the values of $f$ at the first $m$ natural numbers. This is because
+  knowing $\Delta^m(f)$ allows us to write down an explicit recurrence
+  relation for $f(n)$ in terms of the values of $f$ on the preceding
+  $m$ values. This is analogous to the fact that knowing the $m^{th}$
+  derivative of a function determines the function uniquely up to
+  additive polynomials of degree less than $m$ (a total of $m$ free
+  parameters or $m$ degrees of freedom).
+\end{enumerate}
+
+\subsection{Discrete differential equations}
+
+Here is the analogy:
+
+\begin{enumerate}
+\item A recursive definition of a sequence (i.e., of a function on
+  $\N$) is analogous to a {\em differential equation}. The number of
+  previous terms that are needed to define the $n^{th}$ term is the
+  {\em order} of the differential equation.
+\item A closed form definition of a sequence is thus analogous to a
+  solution of the differential equation.
+\item The {\em general solution} to a recursive definition that harks
+  back $m$ terms allows us to pick in a largely unconstrained manner
+  the first $m$ terms. This is analogous to the fact that a
+  differential equation of order $m$ has a general solution with $m$
+  degrees of freedom.
+\end{enumerate}
+
+For the simplest kind of discrete differential equations, there is a
+complete solution strategy, that we will not go into here, but that
+you can pick up if the need arises. We turn instead to a somewhat
+trickier story: periodic sequences and exponential sequences.
+
+\subsection*{Aside: the analogue to autonomous differential equation}
+
+Recall that an autonomous differential equation is one where the
+independent variable does not explicitly appear. In our discrete
+analogue, the independent variable (the time-line variable) is $n$,
+i.e., the index of location in the sequence. The corresponding notion
+to autonomous differential equation is that of a recurrence relation
+that does not explicitly reference $n$ except as the
+subscript/index. Any left shift of a solution to such a recurrence
+relation is also a solution to the recurrence relation. What this also
+means is that each term can be predicted by looking at the preceding
+terms without caring about how far out in the sequence we are.
+
+\subsection{Periodic sequences}
+
+What goes around comes around, and periodic sequences are an
+example. Periodic sequences are often easy to spot, but how to express
+them in closed form is not completely obvious. First, an example:
+
+$$1,2,3,1,2,3,1,2,3,1,2,3,\dots$$
+
+The pattern is clear. But how do we describe it mathematically? Here
+are two attempts:
+
+\begin{enumerate}
+\item {\em An attempt at a closed form expression}: We note that $a_n$
+  is equal to $1$ if $n - 1$ is a multiple of $3$, $2$ if $n - 2$ is a
+  multiple of $3$, and $3$ is $n$ is a multiple of $3$. we can also
+  put it this way: $a_n$ is the remainder on dividing $n$ by $3$,
+  except when the remainder is $0$, in which case it is $3$.
+\item {\em An attempt at a recursive definition}: $a_1 = 1$, and $a_n
+  = a_{n-1} + 1$ if $a_{n-1}$ is not $3$, and $a_n = 1$ and $a_{n-1} =
+  3$.
+\end{enumerate}
+
+Let us try to understand the closed form expression more closely. What
+we are doing is noting that the sequence has period $3$. If a sequence
+$(a_n)$ has period $p$, then the value $a_n$ depends {\em only} on the
+value of the remainder on dividing $n$ by $p$. There are only finitely
+many possible remainders: $0$, $1$, and so on up to $p - 1$. By
+specifying what happens for each remainder, we have completely
+specified the function.
+
+In the {\em special case} that the period is $2$, there is another way
+of creating a closed form expression. In other words, if our sequence looks like:
+
+$$\alpha,\beta,\alpha,\beta,\alpha,\beta,\dots$$
+
+Then the $n^{th}$ term is given by:
+
+$$\frac{\alpha + \beta}{2} + \frac{(-1)^n(\beta - \alpha)}{2}$$
+
+We are using the special fact that the sequence $(-1)^n$ itself has
+period $2$. This trick does not work for larger
+$n$.\footnote{Actually, it does, but we need to use complex numbers or
+trigonometry to make it work.}
+
+\subsection{Sequences with periodic derivative}
+
+Consider this:
+
+$$10,9,8,9,8,7,8,7,6,7,6,5,\dots$$
+
+We notice here that the derivative sequence is given by:
+
+$$-1,-1,1,-1,-1,1,-1,-1,1,\dots$$
+
+Thus, even though the original sequence is not periodic, the
+derivative sequence is periodic. This is the discrete analogue of
+functions such as $x - \sin x$, where the function is not periodic but
+the derivative is. Many of the comments made in the context of the $x
+- \sin x$ apply in this context as well. In particular, any such
+sequence can be expressed as a sum of a linear sequence and a periodic
+sequence. The linear sequence describes the secular trend, and the
+periodic sequence describes the ``seasonal'' fluctation. We will not
+pursue this further right now as it would take us too far afield.
+
+\end{document}
+

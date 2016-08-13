@@ -1,0 +1,1469 @@
+\section*{Background and notation}
+
+\subsection{Background assumed}
+
+This document assumes that the reader is comfortable with group theory
+at an advanced undergraduate or beginning graduate student level. At
+minimum, the reader's knowledge should be approximately equivalent to
+the first six chapters of \cite{DummitFoote}. A knowledge of the
+material in \cite{RotmanGT} would make the document easy
+reading. There will be particular emphasis on knowledge of the
+structure of $p$-groups and nilpotent groups, including knowledge of
+the interplay between the upper central series and lower central
+series. A review of the most important definitions and basic results
+is available in the Appendix, Section \ref{appsec:group-basic}.
+
+Rudimentary familiarity with the ideas of universal algebra and
+category theory will be helpful in understanding the motivating
+ideas. A review of the most important ideas is available in the
+Appendix, Sections \ref{appsec:category} and \ref{appsec:univalg-basic}.
+
+It is assumed that the reader is familiar with the idea of Lie rings,
+which can be viewed as Lie algebras over $\mathbb{Z}$, the ring of
+integers. However, familiarity with Lie {\em algebras}
+over the real numbers or complex numbers will also be sufficient. A
+review of some basic definitions from the theory of Lie rings can be
+found in the Appendix, Section \ref{appsec:Lie}.
+
+\subsection{Group and subgroup notation}\label{sec:group-notation}
+
+Let $G$ be a group. We will use the following notation throughout this
+document.
+
+\begin{itemize}
+\item We will use $1$ to denote the trivial subgroup of $G$. Note that
+  the same letter $1$ will be used to denote both the trivial group as
+  an abstract group and the trivial subgroup in all groups.
+\item We will also use $1$ to denote the identity element of $G$.
+\item When working with groups that are known to be abelian groups, we
+  will use additive notation: $0$ to denote the trivial group and $+$
+  to denote the group operation. However, we will use multiplicative
+  notation when dealing with abelian subgroups inside a (possibly)
+  non-abelian group.
+\item $H \le G$ will be understood to mean that $H$ is a sub{\em
+  group} of $G$.
+\item $Z(G)$ will refer to the center of $G$.
+\item $G'$ and $[G,G]$ both refer to the derived subgroup of $G$.
+\item $\gamma_c(G)$ refers to the $c^{th}$ member of the lower central
+  series of $G$, given as follows: $\gamma_1(G) = G$, $\gamma_2(G) = G'$,
+  and $\gamma_{i+1}(G) = [G,\gamma_i(G)]$.
+\item $Z^c(G)$ refers to the $c^{th}$ member of the upper central
+  series of $G$, given as follows: $Z^0(G)$ is the trivial subgroup,
+  $Z^1(G) = Z(G)$, and $Z^{i+1}(G)/Z^i(G) = Z(G/Z^i(G))$ for
+  $i \ge 1$.
+\item $G^{(i)}$ denotes the $i^{th}$ member of the derived series of
+  $G$, given by $G^{(0)} = G$, $G^{(1)} = G'$, and $G^{(i+1)} =
+  [G^{(i)},G^{(i)}]$.
+\item $\operatorname{Inn}(G)$ is the inner automorphism group of
+  $G$. It is canonically isomorphic to the quotient group $G/Z(G)$,
+  and we will often abuse notation by treating $\operatorname{Inn}(G)$
+  as set-theoretically identical with $G/Z(G)$.
+\item $\operatorname{Aut}(G)$ is the automorphism group of $G$. We
+  treat $\operatorname{Inn}(G)$ naturally as a subgroup of
+  $\operatorname{Aut}(G)$. In fact, $\operatorname{Inn}(G)$ is a
+  normal subgroup of $\operatorname{Aut}(G)$.
+\item $\operatorname{End}(G)$ is the endomorphism {\em monoid} of $G$,
+  i.e., the set of endomorphisms of $G$ with the monoid structure
+  given by composition.
+\end{itemize}
+
+\subsection{Lie ring and subring notation}\label{sec:lie-ring-notation}
+
+Let $L$ be a Lie ring, i.e., a Lie algebra over $\Z$, the ring of
+integers. We will use the following notation throughout this document.
+
+\begin{itemize}
+\item We will use $0$ to denote the zero subring of $L$. Note that $0$
+  is used to describe both the abstract zero Lie ring and the zero
+  subring in every Lie ring.
+\item We will also use $0$ to denote the zero element of $L$.
+\item $M \le L$ will be understood to mean that $M$ is a Lie subring
+  of $L$. This means that it is an additive subgroup of $L$ and is
+  closed under the Lie bracket.
+\item $Z(L)$ denotes the center of $L$, i.e., the subring of $L$
+  comprising those elements whose Lie bracket with any element of $L$
+  is zero.
+\item $L'$ and $[L,L]$ both refer to the derived subring of $L$.
+\item $\gamma_c(L)$ refers to the $c^{th}$ member of the lower central
+  series of $L$, given as follows: $\gamma_1(L) = L$, $\gamma_2(L) =
+  L'$, and $\gamma_{i+1}(L) = [L,\gamma_i(L)]$.
+\item $Z^c(L)$ refers to the $c^{th}$ member of the upper central
+  series of $L$, given as follows: $Z^0(L)$ is the trivial subring,
+  $Z^1(L) = Z(L)$, and $Z^{i+1}(L)/Z^i(L) = Z(L/Z^i(L))$ for
+  $i \ge 1$.
+\item $L^{(i)}$ denotes the $i^{th}$ member of the derived series of
+  $L$, given by $L^{(0)} = L$, $L^{(1)} = L'$, and $L^{(i+1)} =
+  [L^{(i)},L^{(i)}]$.
+\item $\operatorname{Inn}(L)$ is the Lie ring of inner derivations of
+  $L$. It is canonically isomorphic to the quotient Lie ring $L/Z(L)$,
+  and we will often abuse notation by treating $\operatorname{Inn}(L)$
+  as set-theoretically identical with $L/Z(L)$.
+\item $\operatorname{Der}(L)$ is the Lie ring of all derivations of
+  $L$. We treat $\operatorname{Inn}(L)$ naturally as a Lie subring of
+  $\operatorname{Der}(L)$. In fact, $\operatorname{Inn}(L)$ is an
+  ideal in $\operatorname{Der}(L)$.
+\item $\operatorname{Aut}(L)$ is the automorphism group of $L$.
+\item $\operatorname{End}(L)$ is the endomorphism {\em monoid} of $L$
+  considered as a Lie ring. Note that this is not necessarily closed
+  under addition.
+\item $\operatorname{End}_{\mathbb{Z}}(L)$ is the endomorphism ring of
+  the underlying additive group of $L$. To avoid confusion, we will
+  explicitly specify that we are looking at all additive group
+  endomorphisms whenever we use this notation.
+
+\end{itemize}
+
+\subsection{Other conventions}
+
+We will adopt these conventions:
+
+\begin{itemize}
+\item As a {\em general} rule, when dealing with homomorphisms and
+  other similar functions, we will apply functions on the left, in
+  keeping with the convention used in most mathematics texts. Thus, $f
+  \circ g$ is to be interpreted as saying that the function $g$ is
+  applied first and the function $f$ is applied later.
+\item For the action of a group on itself, we denote by ${}^gx$ the
+  action of $g$ by conjugation on $x$ as a left action, i.e.,
+  $gxg^{-1}$. We denote by $x^g$ the action of $g$ by conjugation on
+  $x$ as a right action, i.e., $g^{-1}xg$. When stating results whose
+  formulation is sensitive to whether we use the left-action
+  convention or the right-action convention, we will explicitly state
+  the result using both conventions.
+\item If using the left-action convention, the group commutator
+  $[x,y]$ is defined as $xyx^{-1}y^{-1}$. If using the right-action
+  convention, the group commutator $[x,y]$ is defined as
+  $x^{-1}y^{-1}xy$.
+\end{itemize}
+
+%\chapter{Introduction, outline, and preliminaries}
+
+%\newpage
+
+\section{Introduction}\label{sec:intro}
+
+\subsection{The difference in tractability between groups and abelian groups}
+
+The {\em structure theorem for finitely generated abelian groups},
+which in turn leads to a classification of all finite abelian groups,
+shows that the structure of {\em abelian} groups is fairly easy to
+understand and control. On the other hand, the structure of groups in
+general is wild.  Even classifying finite groups is extremely
+difficult.
+
+The difficulty is two-fold. On the one hand, the finite simple groups
+(which can be thought of as the building blocks of finite groups) have
+required a lot of effort to classify. While the original
+classification was believed to have been completed around 1980, some
+holes in parts of the proof were discovered later and it is believed
+that these holes were fixed only around 2004. The only finite simple
+abelian groups are the cyclic groups of order $p$. However, there are
+$17$ infinite families and $26$ sporadic groups among the finite
+simple non-abelian groups. For a quick background on the
+classification, see \cite{Asch2004}.
+
+At the other extreme from finite simple groups are the finite
+$p$-groups. It is well known that any finite group of order $p^n$ (for
+a prime $p$ and natural number $n$) must be a nilpotent group and
+therefore it has $n$ composition factors that are all cyclic groups of
+order $p$. In other words, there is no mystery about the building
+blocks of these groups. Despite this, the multiplicity of ways of
+putting the building blocks together makes it very difficult to obtain
+a concise description of all the groups of order $p^n$. The general
+consensus among people who have studied $p$-groups is that it is
+futile to even attempt to obtain a concise description of all the
+isomorphism types of groups of order $p^n$, and that it is likely that
+no such description exists. Rather, the goal of the study of
+$p$-groups is to identify methods that enable us to better understand
+the totality of $p$-groups, including aspects that are common to all
+of them and aspects that differentiate some $p$-groups from
+others. For a description of the state of knowledge regarding
+$p$-groups, see \cite{Mann99}.\footnote{Although the article was
+  published in 1999, progress has been modest since then.}
+
+This thesis is focused on one small part of the study of finite
+$p$-groups.
+
+\subsection{Nilpotent groups and their relation with abelian groups}
+
+A group is termed {\em nilpotent} if it has a central series of finite
+length. Nilpotent groups are considerably more diverse in nature than
+abelian groups, and as alluded to in the preceding section, even the
+finite nilpotent groups are difficult to classify.
+
+A group is termed {\em solvable} if it has a normal series where all
+the quotient groups are abelian groups. Solvable groups are
+considerably more diverse than nilpotent groups.
+
+Generally, statements that are true for abelian groups fall into one
+of these four classes:
+
+\begin{enumerate}
+\item The statement does not generalize much further from abelian
+  groups
+\item The statement generalizes all the way to nilpotent groups but
+  not much further
+\item The statement generalizes all the way to solvable groups but not
+  much further
+\item The statement generalizes to all groups, or to a fairly large
+  class of groups
+\end{enumerate}
+
+It might be worthwhile to attempt to understand why the properties of
+being nilpotent and being solvable differ qualitatively, and why the
+former is far closer to being abelian than the latter. In an abelian
+group, the commutativity relation holds precisely: $ab = ba$ for all
+$a$ and $b$ in the group. In general, $ab$ and $ba$ ``differ'' by a
+commutator, i.e., $ab = [a,b]ba$ if we use the left action convention
+for commutators.
+
+When we consider expressions in a group and try to rearrange the terms
+of the expression, the process of rearrangement introduces
+commutators. These commutators themselves need to be moved past
+existing terms, which introduces commutators between the commutators
+and existing terms. In a nilpotent group, we eventually reach a stage
+where the iterated commutators that we obtain are central, and
+therefore can be freely moved past existing terms. In a solvable
+group, such a stage may never arise.
+
+An alternative perspective is that of {\em iterative algorithms}, a
+common class of algorithms found in numerical analysis and other parts
+of mathematics. An iterative algorithm attempts to find a solution to
+a problem by guessing an initial solution and iteratively refining
+the guess by identifying and correcting the error in the initial
+solution. There are many iterative algorithms that are guaranteed to
+terminate only for nilpotent groups, and where the number of steps in
+which the algorithm is guaranteed to terminate is bounded by the
+nilpotency class of the group. These algorithms work in a single step
+for abelian groups, because commutativity allows for the necessary
+manipulations to happen immediately. For non-abelian nilpotent groups,
+the algorithms work by gradually refining guesses modulo members of a
+suitable central series (such as the upper central series or lower
+central series).
+
+\subsection{The Lie correspondence: general remarks}\label{sec:lie-correspondence-intro}
+
+The {\em non-abelianness} of groups makes it comparatively difficult
+to keep track of group elements and to study the groups. It would be
+very helpful to come up with an alternate description of the structure
+of a group that replaces the (noncommutative) group multiplication
+with a commutative group multiplication, and stores the
+noncommutativity in the form of a separate operation. A {\em Lie ring}
+(defined in the Appendix, Section \ref{appsec:Lie}) is an example of
+such a structure.
+
+For readers familiar with the concept of {\em Lie algebras} over $\R$
+or $\mathbb{C}$, note that the definition of Lie ring is similar,
+except that the underlying additive group is just an abelian group
+(rather than being a $\R$-vector space or $\C$-vector space) and the
+Lie bracket is just $\Z$-bilinear rather than being $\R$-bilinear or
+$\C$-bilinear. In particular, any Lie algebra over $\R$ or $\C$ is a
+Lie ring, but not every Lie ring is a Lie algebra over $\R$ or $\C$,
+and even if it is, there may be multiple ways of giving it such a Lie
+algebra structure.
+
+The {\em Lie correspondence} is an important correspondence in the
+theory of real Lie groups. For an elementary exposition of this
+correspondence, see \cite{vsv}. We recall here some of the key
+features of the correspondence.
+
+To any finite-dimensional real Lie group, we can functorially
+associate a $\R$-Lie algebra called the {\em Lie algebra of the Lie
+  group}. The underlying vector space of the Lie algebra is the
+tangent space at the identity to the Lie group, or equivalently, the
+space of left-invariant vector fields, and the Lie bracket is defined
+using the Lie bracket of vector fields. Note that the Lie algebra of a
+Lie group depends only on the connected component of the identity.
+
+Additionally, there exists a map, called the {\em exponential map},
+from the Lie algebra to the Lie group. This map need not be bijective
+globally, but it must be bijective in a small neighborhood of the
+identity. The inverse of the map, again defined in a small
+neighborhood of the identity, is the {\em logarithm} map. Note that
+the exponential map is globally defined, but the logarithm map is
+defined only locally.
+
+The association is not quite a correspondence. The problem is that
+different Lie groups could give rise to isomorphic Lie
+algebras. However, if we restrict attention to {\em connected simply
+  connected Lie groups}, then the association becomes a
+correspondence, and we can construct a functor in the reverse
+direction. Explicitly, the Lie correspondence is the following
+correspondence, functorial in both directions:
+
+\begin{center}
+  Connected simply connected finite-dimensional real Lie groups
+  $\leftrightarrow$ Finite-dimensional real Lie algebras
+\end{center}
+
+\subsection{The Lie algebra for the general linear group}\label{sec:lie-correspondence-gln}
+
+Denote by $GL(n,\R)$ the general linear group of degree $n$ over the
+field of real numbers, i.e., the group of all invertible $n \times n$
+matrices with real entries. Denote by $\mathfrak{g}\mathfrak{l}(n,\R)$ the ``general linear
+Lie algebra'' of degree $n$ over $\R$. Explicitly, $\mathfrak{g}\mathfrak{l}(n,\R)$ is the
+vector space of all $n \times n$ matrices over $\R$, and the Lie
+bracket is defined as $[x,y] := xy - yx$.
+
+$\mathfrak{g}\mathfrak{l}(n,\R)$ is the Lie algebra of $GL(n,\R)$. The
+exponential and logarithm maps in this case are the usual matrix
+exponential and matrix logarithm maps. The exponential map:
+
+$$\exp: \mathfrak{g}\mathfrak{l}(n,\R) \to GL(n,\R)$$
+
+is defined as:
+
+$$x \mapsto \sum_{i=0}^\infty \frac{x^i}{i!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots$$
+
+The matrix exponential is defined for all matrices. However, the
+exponential map is neither injective nor surjective:
+
+\begin{itemize}
+\item The exponential map is not surjective for any $n$. For $n = 1$,
+  this is because the exponential of any real number is a {\em
+    positive} real number. A similar observation holds for larger $n$,
+  once we observe that the image of the exponential map is inside
+  $GL^+(n,\R)$, the subgroup of $GL(n,\R)$ comprising the matrices of
+  positive determinant. However, for $n > 1$, the exponential map is
+  not surjective even to $GL^+(n,\R)$. For instance, the following
+  matrix is not the exponential of any matrix with real entries:
+
+  $$\begin{pmatrix} -1 & 1 \\ 0 & -1 \\\end{pmatrix}$$
+
+\item The exponential map is not injective for $n > 1$. For instance,
+  for any positive integer $m$, the following matrix has exponential
+  equal to the identity matrix:
+
+  $$\begin{pmatrix} 0 & 1 \\ -4m^2\pi^2 & 0 \\\end{pmatrix}$$
+\end{itemize}
+
+Nonetheless, we can find an open neighborhood $U$ of the zero matrix
+in $\mathfrak{g}\mathfrak{l}(n,\R)$ and an open neighborhood $V$ of
+the identity matrix in $GL(n,\R)$ such that the exponential map is
+bijective (and in fact, is a homeomorphism) from $U$ to $V$.
+
+Note that $GL(n,\R)$ is not a connected simply connected Lie group, so
+the above is not an instance of the Lie {\em correspondence}.
+\subsection{The nilpotent case of the Lie correspondence}
+
+The example of $\mathfrak{g}\mathfrak{l}(n,\R)$ and $GL(n,\R)$
+illustrates that the exponential map does not always behave
+nicely. However, it turns out that the exponential map behaves much
+better when we apply the Lie correspondence in the {\em nilpotent}
+case. Explicitly, the nilpotent case of the Lie correspondence is a
+correspondence:
+
+\begin{center}
+  Connected simply connected finite-dimensional nilpotent real Lie
+  groups $\leftrightarrow$ Finite-dimensional nilpotent real Lie
+  algebras
+\end{center}
+
+In the nilpotent case, it will turn out that the exponential map is
+{\em bijective}, and in fact, it defines a homeomorphism from the Lie
+algebra to the Lie group. Thus, we can define its inverse, the
+logarithm map, {\em globally}.
+
+We now turn to an example.
+
+\subsection{The example of the unitriangular matrix group}\label{sec:unitriangular-lie-correspondence}
+
+A special case of interest for us is the correspondence between the
+Lie ring $NT(n,\R)$ of $n \times n$ strictly upper triangular matrices
+over $\R$ and the group $UT(n,\R)$ of $n \times n$ upper triangular
+matrices over $\R$ with all the diagonal entries equal to $1$. This
+correspondence gives a bijection between the underlying sets of
+$NT(n,\R)$ and $UT(n,\R)$ via the exponential map. Explicitly, the
+matrix exponential defines a bijective set map:
+
+$$\exp: NT(n,\R) \to UT(n,\R)$$
+
+given explicitly as:
+
+$$\exp(x) = e^x = 1 + x + \frac{x^2}{2!} + \dots + \frac{x^{n-1}}{(n - 1)!}$$
+
+Note that this coincides with the usual matrix exponential because
+$x^n = 0$ and all higher powers of $x$ are therefore also zero. In
+other words, this exponential map is the restriction to $NT(n,\R)$ of
+the exponential map described in the preceding section:
+
+$$\exp: \mathfrak{g}\mathfrak{l}(n,\R) \to GL(n,\R)$$
+
+However, {\em unlike} the case of $GL(n,\R)$, the exponential map from
+$NT(n,\R)$ to $UT(n,\R)$ is bijective, and in fact, is a
+homeomorphism. Topologically, both $NT(n,\R)$ and $UT(n,\R)$ are
+homemorphic (i.e., isomorphic in the category of topological spaces) to
+the vector space $\R^{\binom{n}{2}}$.
+
+The inverse set map is the matrix logarithm, now defined {\em
+  globally}:
+
+$$\log: UT(n,\R) \to NT(n,\R)$$
+
+given explicitly as:
+
+$$\log x := (x - 1) - \frac{(x - 1)^2}{2} + \frac{(x - 1)^3}{3} - \dots + \frac{(-1)^n (x - 1)^{n-1}}{n - 1}$$
+
+\subsection{The Malcev correspondence and Lazard correspondence}\label{sec:intro-malcev-and-lazard}
+
+The {\em Malcev correspondence} is a generalization of the nilpotent
+case of the Lie correspondence that applies to algebras over the field
+of rational numbers. Explicitly, the correspondence is:
+
+\begin{center}
+  Rationally powered nilpotent groups $\leftrightarrow$ Nilpotent $\Q$-Lie algebras
+\end{center}
+
+We will define ``rationally powered'' in Section
+\ref{sec:group-powering}, but a quick definition for our purpose is
+that every element has a unique $n^{th}$ root for every positive
+integer $n$. The Malcev correspondence is a purely algebraic
+correspondence that does not deal with topological structure. Note
+that any $\R$-Lie algebra is a $\Q$-Lie algebra as well. It turns out
+that for any nilpotent $\R$-Lie algebra, the Lie correspondence
+coincides with the Malcev correspondence. Thus, for instance, under
+the Malcev correspondence, the group associated with $NT(n,\R)$ is
+$UT(n,\R)$.
+
+The Malcev correspondence has a slight further generalization called
+the {\em Lazard correspondence}, introduced by Lazard in
+\cite{Lazardsoriginal}. The Lazard correspondence relaxes the
+  assumption of being ``rationally powered'' and replaces it with the
+  assumption that unique division by specific primes (namely, primes
+  that are less than or equal to the nilpotency class) is possible.
+
+If we use the Lazard correspondence in the direction from groups to
+Lie rings, then it allows us to convert (a suitable type of) abstract
+nilpotent group to a nilpotent Lie ring. The addition operation of the
+Lie ring captures the abelian part of the group multiplication,
+whereas the Lie bracket captures the non-abelian part of the group
+multiplication.
+
+Unfortunately, the Lazard correspondence applies only to {\em some}
+nilpotent groups and some nilpotent Lie rings. Specifically, for
+finite $p$-groups, it only works for finite $p$-groups where any
+subset of size three generates a subgroup of nilpotency class at most
+$p - 1$. For the bulk of this document, we will restrict our attention
+to the case of small {\em global class}, i.e., the subcorrespondence
+that applies to finite $p$-groups of nilpotency class at most $p - 1$.
+
+This means that groups that have higher nilpotency class (a
+way of saying that the groups are relatively more non-abelian) cannot
+be studied directly using the Lazard correspondence.
+
+We will describe the Malcev correspondence and the Lazard
+correspondence in detail in Sections \ref{sec:malcev-correspondence},
+\ref{sec:global-lazard-correspondence}, and
+\ref{sec:lazard-correspondence}. For a textbook-style presentation of
+the correspondence, see Khukhro's book \cite{Khukhro}, Chapters 9 and
+10.
+
+\subsection{Our generalization of the Lazard correspondence}
+
+The goal of this document is to describe a generalization of the
+Lazard correspondence that works for all $p$-groups of nilpotency
+class at most $p$. In other words, it allows us to generalize the
+Lazard correspondence to a slightly bigger collection of groups. The
+limitation of this generalization is that the correspondence only
+works between {\em equivalence classes of groups} and {\em equivalence
+  classes of Lie rings}, with each equivalence class containing
+multiple isomorphism types. The equivalence relation of interest here
+is the equivalence relation of {\em isoclinism}. Informally, two
+groups are isoclinic if their commutator maps are equivalent, and two
+Lie rings are isoclinic if their Lie bracket maps are equivalent.
+
+\subsection{Similarities and differences between groups and Lie rings}
+
+The theories of groups and Lie rings are {\em structurally
+  similar}. For many concepts related to groups, there are analogously
+defined concepts for Lie rings. In most cases, the analogous
+definition suggests itself naturally. Often, even the proofs are
+similar. In some cases, proofs are easier for Lie rings than for
+groups, primarily because the Lie bracket is bilinear.
+
+There are {\em some} concepts that make sense only on the group side,
+and some concepts that make sense only on the Lie ring
+side. Similarly, there are some facts that are true only on the group
+side, and some facts that are true only on the Lie ring side.
+
+The closer we are to abelianness, the more structurally similar the
+theory for groups is to the theory for Lie rings. In many cases, a
+fact is true for nilpotent Lie rings if and only if the ``analogous''
+fact is true for nilpotent groups. There are many facts that are true
+in {\em general} for Lie rings and are not true in general for groups,
+but they are true for nilpotent groups.
+
+In addition to {\em structural similarity}, we will also see some
+instances of {\em bijective correspondences} between certain types of
+groups and certain types of Lie rings (including the Lie
+correspondence and the Lazard correspondence). It will turn out that
+{\em analogous concepts} become {\em bijectively correspondent} under
+these correspondences. For instance, normal subgroups of groups are
+analogous to ideals in Lie rings. The Lazard correspondence between
+groups and Lie rings establishes a bijective correspondence between
+(certain kinds of) normal subgroups of the group and (certain kinds
+of) ideals of the Lie ring.
+
+\subsection{Our central tool: Schur multipliers}
+
+Our goal is to extend the domain of the Lazard correspondence by
+relaxing its strictness (from a correspondence up to isomorphism to a
+correspondence up to isoclinism). In particular, we are interested in
+extending the Lazard correspondence to {\em nilpotency class one
+  higher} than where it applies. Thus, the groups
+(respectively, Lie rings) of interest to us arise as {\em central
+  extensions} where the quotient group (respectively, quotient Lie
+ring) is in the domain of the Lazard correspondence.
+
+Rather than directly trying to study the groups and Lie rings, we
+study the theory of central extensions for groups and Lie rings. We
+first develop the {\em general} theory of such central
+extensions. Then, we apply that general theory to the case where the
+quotient group (respectively quotient Lie ring) of the central
+extension lies in the domain of the Lazard correspondence. In the edge
+case of interest where the group is in the domain of the Lazard
+correspondence but its central extensions are ``just outside'' the
+domain, we can obtain new insights. For instance, if $G$ is a
+$p$-group of nilpotency class exactly $p - 1$, it is a Lazard Lie
+group. The central extensions with quotient group $G$ are $p$-groups
+of nilpotency class either $p - 1$ or $p$. The latter may lie outside
+the domain of the Lazard correspondence.
+
+On both the group side and the Lie ring side, the theory of central
+extensions is governed by an abelian group called the {\em Schur
+  multiplier}. There is a rich theory behind the Schur multiplier, and
+it connects with important ideas from algebraic topology and
+homological algebra. We will explore the necessary facets of this
+theory. Eventually, we will prove (in Theorem
+\ref{thm:global-lazard-correspondence-preserves-schur-multipliers})
+that if a Lie ring and a group are in Lazard correspondence, then
+their Schur multipliers are isomorphic. A version of the statement for
+finite $p$-groups appeared as a conjecture in the paper
+\cite{SchurmultiplierandLazard} by Eick, Horn, and Zandi in September
+2012, stated informally after Theorem 2 of the paper.\footnote{The
+  authors write: ``Based on various example computations, see also
+  [7], we believe that Theorems 1 and 2 also hold for finite
+  $p$-groups of class $p - 1$. However, our proofs do not extend to
+  this case.''  The reference [7] alluded to by the authors has not
+  yet been published or made available online. For a more detailed
+  discussion, see Section
+  \ref{sec:global-lazard-correspondence-preserves-schur-multipliers}}
+Once the Schur multipliers are established to be isomorphic, it is
+easy to establish the Lazard correspondence up to isoclinism.
+
+\subsection{Globally and locally nilpotent}\label{sec:globally-and-locally-nilpotent}
+
+The numbers $2$ and $3$ are particularly significant in the context of
+the axiomatization of groups and Lie rings, and they also play an
+important role in the Lazard correspondence. $2$ is the maximum of the
+arities\footnote{The arity of an operation is the number of inputs it
+  takes. For instance, group multiplication has arity $2$. Arity is
+  discussed in more detail in the Appendix, Section
+  \ref{appsec:univalg-basic}.} of the operations used in the definition
+of groups. In particular, this means that if a function between groups
+restricts to a homomorphism on every subgroup generated by at most $2$
+elements, then the function is globally a homomorphism.
+
+$3$ is the maximum of the number of variables that appear in the
+identities that define a group. In particular, this means that if an
+algebra has the same signature as a group (i.e., a $0$-ary operation
+for the identity, a unary operation for the inverse map, and a binary
+operation for the group multiplication), and every subalgebra of the
+algebra generated by at most $3$ elements is a {\em group}, then the
+algebra is globally a group.
+
+The same is true for Lie rings: the maximum of the arities of the
+operations is $2$, and the maximum of the number of terms that appear
+in the defining identities is $3$. Thus, any function between Lie
+rings that restricts to a homomorphism on subrings generated by sets
+of size at most $2$ is globally a homomorphism. Further, given an
+algebra with the same signature as a Lie ring, such that every
+subalgebra generated by at most $3$ elements becomes a Lie ring with
+the induced operations, the algebra as a whole is a Lie ring.
+
+The formulas used in the Lazard correspondence describe the group
+operations in terms of the Lie ring operations, and conversely
+describe the Lie ring operations in terms of the group operations. The
+{\em formulas} themselves refer to a maximum of two elements at a
+time. However, the {\em verification} that these formulas work (i.e.,
+that starting from a Lie ring, we end up with a group, or that
+starting from a group, we end up with a Lie ring) relies on looking at
+three elements at a time. For instance, to verify that a formula
+describing group operations in terms of Lie ring operations does
+indeed define a group structure, we need to verify the associativity
+identity for three arbitrary elements. Similarly, to verify that a
+formula describing Lie ring operations in terms of group operations
+does indeed define a Lie ring structure, we need to verify the
+associativity of addition, bilinearity, and Jacobi identity for the
+Lie ring operations. Each of these identities requires considering
+three arbitrary elements at a time.
+
+Thus, the conditions that we work out on groups (respectively, Lie
+rings) pertaining to the Lazard correspondence are $3$-local
+conditions: they are conditions on what subgroups (respectively, Lie
+subrings) generated by subsets of size at most three look like.
+
+\subsection{The structure of this document}
+
+The document is quite long despite the fact that the eventual proofs
+are relatively short and simple. The reason is that the existing
+literature we draw upon is fragmented. We draw on literature with
+these five broad themes:
+
+\begin{itemize}
+\item Isoclinism and homoclinism.
+\item Schur multiplier and the relation with group extension theory.
+\item Exterior square and its generalizations.
+\item The Lazard correspondence.
+\item The behavior of groups and Lie rings where we can divide by
+  specific primes.
+\end{itemize}
+
+Each of these themes has a well-developed body of literature. However,
+the connections between these ideas are not emphasized in the
+literature, and it often requires a careful reading to glean
+them. Thus, it would not be sufficient to simply cite the relevant
+literature. We use the next few sections to develop all the necessary
+background material in preparation for our results.
+
+Our presentation will follow these features:
+
+\begin{itemize}
+\item For the foundational sections, we will systematically alternate
+  sections between groups and Lie rings. A section about groups will
+  develop a concept or construct in the context of groups. The next
+  section about Lie rings will develop the analogous concept or
+  construct in the context of Lie rings. To the extent possible, we
+  will follow parallel modes of presentation in the two
+  sections. Differences between the sections will be noted at the
+  beginnings of the relevant sections.
+\item For the foundational sections, we will often begin by discussing
+  a concept in the context of groups or Lie rings in the abstract, and
+  then discuss an analogous concept in the context of extensions of
+  groups or Lie rings. This will be done somewhat in reverse in the
+  later sections, where we sometimes prove a result in the context of
+  extensions (of groups or Lie rings) and {\em then} apply that to
+  prove the result in the context of groups or Lie rings. This will be
+  our {\em modus operandi} for the crucial proofs.
+\item Our key results involve generalizing certain correspondences
+  (the Baer correspondence and Lazard correspondence) to a larger
+  domain, but with a coarser equivalence relation (of isoclinism). For
+  each correspondence that we generalize, we first explicitly
+  describe the known correspondence and its key attributes (in one
+  or more sections), and then describe our generalization.
+\end{itemize}
+
+\subsection{For a quick reading}
+
+For readers who wish to understand the main results without delving
+into background concepts in unnecessary depth, the following reading
+sequence will work:
+
+\begin{enumerate}
+\item Chapter 1 (Introduction, outline, and preliminaries):
+  \begin{itemize}
+  \item Section \ref{sec:outline} contains the outline of our main
+    proof techniques. It is worth reading in its entirety.
+  \item Section \ref{sec:abelian-lie-correspondence} (The abelian Lie
+    correspondence): The contents of this section are straightforward,
+    but it is worth reading because the methods used in this section
+    form a template for later, more complicated, correspondences.
+    \end{itemize}
+\item Chapter 2 (Isoclinism and homoclinism: basic theory):
+  \begin{itemize}
+  \item Section \ref{sec:isoclinism-and-homoclinism} (Isoclinism and
+    homoclinism of groups): It suffices to read Sections
+    \ref{sec:isoclinism-definition} -- \ref{sec:homoclinism-category}, and
+    the statements of the theorems in Section
+    \ref{sec:homoclinism-misc-results}. Readers already familiar with
+    the definitions can skip this section and return if needed.
+  \item Section \ref{sec:isoclinism-and-homoclinism-lie} (Isoclinism
+    and homoclinism of Lie rings): It suffices to read Section
+    \ref{sec:isoclinism-definition-lie}. Readers already familiar with
+    the definitions can skip this section and return if
+    needed. Readers who thoroughly understand the general analogy
+    between groups and Lie rings can extrapolate the definitions and
+    results of this section from the preceding one, and hence may skip
+    this section.
+  \end{itemize}
+\item Chapter 3 (Extension theory):
+  \begin{itemize}
+  \item Section \ref{sec:ses-group} (Short exact sequences of groups):
+    Readers already familiar with the basics of short exact sequences
+    and central extensions can read Sections
+    \ref{sec:second-cohomology-group-classify-extensions} and
+    \ref{sec:homomorphism-central-extensions}.
+  \item Section \ref{sec:ses-lie} (Short exact sequences and central
+    extensions of Lie rings): Readers who understood the preceding
+    section (Section \ref{sec:ses-group}), and understand how the
+    analogy between groups and Lie rings works, can skip this section.
+  \item Section \ref{sec:cohomology-explicit} (Explicit description of
+    second cohomology group): This section can be skipped without loss
+    of continuity. The material in this section helps with understanding
+    Section \ref{sec:baer-correspondence-cocycle-level}. However, the
+    latter can also be skipped without loss of continuity.
+  \item Section \ref{sec:exteriorsquare-and-homoclinism} (Exterior
+    square, Schur multiplier, and homoclinism): This section is
+    important to understand because it lays the foundation for later
+    material, and the presentation is non-standard. Readers may skip
+    proofs, many of which are tedious, and focus on the statements of
+    the results.
+  \item Section \ref{sec:exteriorsquare-and-homoclinism-lie} (Exterior
+    square, Schur multiplier, and homoclinism for Lie rings): Apart from
+    Section \ref{sec:free-lie-ring-on-abelian-group}, this section is
+    mostly analogous to the preceding section. Hence, the rest of the
+    section can be skipped.
+  \item Section \ref{sec:schur-multiplier-and-second-cohomology}: This
+    section is important to understand because it lays the foundation
+    for later material, and the presentation is non-standard. Readers
+    may skip proofs, many of which are tedious, and focus on the
+    statements of the results.
+  \item Section \ref{sec:schur-multiplier-and-second-cohomology-lie}:
+    This section may be skipped by readers who have a thorough
+    understanding of the preceding section and understand how the
+    analogy between groups and Lie rings works.
+  \item Sections \ref{sec:exterior-and-tensor-product} and
+    \ref{sec:exterior-and-tensor-product-lie} (Exterior and tensor
+    products for groups and Lie rings respectively): These sections can
+    be skipped without loss of continuity, and interested readers can
+    refer back to the explicit descriptions as needed later.
+  \item Sections \ref{sec:free-nilpotent-groups-homology} and
+    \ref{sec:free-nilpotent-lie-homology}: These are worth skimming for
+    their main results.
+  \end{itemize}
+\item Chapter 4 (Powering over sets of primes):
+  \begin{itemize}
+  \item Section \ref{sec:group-powering} (Groups powered over sets of
+    primes): Readers would benefit by reading the part of Section
+    \ref{sec:group-powering} up to and including Section
+    \ref{sec:divisible-and-torsion-free} in order to familiarize
+    themselves with the definitions. Some of the results presented in
+    the rest of the section are useful, but they can be revisited as
+    necessary.
+  \item Section \ref{sec:lie-ring-powering} (Lie rings powered over sets
+    of primes): It suffices to read Section
+    \ref{sec:lie-ring-powering-def}.
+  \item Section \ref{sec:free-powered-groups-and-powering-functors}
+    (Free powered groups and powering functors): The results in Sections
+    \ref{sec:root-set} and \ref{sec:pi-powered-isoclinism-results} are
+    the most important. The rest of the section may be skimmed.
+  \item Section \ref{sec:free-powered-lie-rings-and-powering-functors}
+    (Free powered Lie rings and powering functors): The results here are
+    analogous to the preceding section, though the proofs are more
+    straightforward. The section can be skipped and returned to as
+    needed.
+  \end{itemize}
+\item Chapter 5 (Baer correspondence):
+  \begin{itemize}
+  \item Sections \ref{sec:baer-correspondence-basics} and
+    \ref{sec:baer-correspondence-more} (Baer correspondence): It suffices
+    to read Sections
+    \ref{sec:baer-lie-definitions}-\ref{sec:baer-lie-ring-to-group} and
+    Section \ref{sec:baer-p-group-case}. However, readers may benefit
+    from skimming both sections in their entirety in order to get a
+    better sense.
+  \item Section \ref{sec:baer-correspondence-definition-relaxation} may
+    be skipped without loss of continuity.
+  \item Section \ref{sec:bcuti} (Baer correspondence up to isoclinism):
+    Reading the whole section is strongly recommended, but readers may
+    skip Section \ref{sec:baer-correspondence-cocycle-level} without
+    loss of continuity.
+  \item Section \ref{sec:bcuti-ex} contains interesting examples worth
+  reading but may be skipped without loss of continuity.
+  \end{itemize}
+\item Chapter 6 (The Malcev and Lazard correspondences):
+  \begin{itemize}
+  \item Sections \ref{sec:adjoint-exp-log} and
+    \ref{sec:free-nilpotent-exp-log} (adjoint groups, exponential and
+    logarithm maps, and free nilpotent groups): These sections may be
+    skimmed without reading the proofs. They provide technical
+    background for Section \ref{sec:bch}.
+  \item Section \ref{sec:bch} (Baker-Campbell-Hausdorff formula): This
+    section should be read in its entirety. Readers may benefit from
+    concentrating on the statements of the theorems and skimming the
+    proofs.
+  \item Section \ref{sec:inverse-bch}: This section is partly analogous
+    to Section \ref{sec:bch}, so aside from the introduction, it may be
+    skimmed.
+  \item Sections \ref{sec:malcev-correspondence},
+    \ref{sec:global-lazard-correspondence}, and
+  \ref{sec:lazard-correspondence} (Malcev correspondence, global
+  Lazard correspondence, and Lazard correspondence): These sections
+  are worth reading, though people familiar with the correspondences
+  may skim them.
+  \end{itemize}
+\item Chapter 7 (Generalizing the Lazard correspondence to a
+  correspondence up to isoclinism):
+  \begin{itemize}
+  \item Section
+    \ref{sec:group-commutator-and-lie-bracket-ito-each-other} (Group
+    commutator and Lie bracket in terms of each other) is important.
+  \item Section
+    \ref{sec:lazard-correspondence-commutativity-relation-central-series}
+    may be skimmed.
+  \item The theorems in Section \ref{sec:malcev-lazard-free} are
+    important as stepping stones for the main results. However, the
+    proofs are unilluminative and may be skipped.
+  \item The results in Sections
+    \ref{sec:homology-of-powered-nilpotent-groups} and
+    \ref{sec:homology-of-powered-nilpotent-lie-rings} are important, but
+    the proofs may again be skipped.
+  \item Sections \ref{sec:commutator-and-lie-bracket-like-maps} and
+    \ref{sec:lcuti} are extremely important and should be read
+    carefully, though the proofs may be skimmed.
+  \end{itemize}
+\item Chapter 8 (Applications and possible extensions): Sections
+  \ref{sec:applications} and \ref{sec:possible-extensions} may be of
+  interest to readers who want to understand potential applications.
+\item Readers may refer to the sections in the Appendix based on their
+  level of interest. Sections \ref{appsec:background-grouptheory},
+  \ref{appsec:abstract-nonsense}, and \ref{appsec:nilpotent} cover
+  technical background at the advanced undergraduate or beginning
+  graduate level that is useful for understanding the main results of
+  the thesis. Section \ref{appsec:homologism-theory} covers a general
+  theory that is helpful for understanding potential generalizations
+  of the results presented here.
+\end{enumerate}
+
+%\newpage
+
+\section{Outline of our main results}\label{sec:outline}
+
+This section provides an overview of our main results and the strategy
+we will use to prove these results. Some of the technical details in
+this section may be accessible only to people with a strong background
+in group theory and some prior familiarity with the Lazard
+correspondence. However, all readers should be able to understand the
+ideas at a broad level.
+
+\subsection{The Lazard correspondence: a rapid review}
+
+The Lazard correspondence is a correspondence between certain kinds of
+groups and certain kinds of Lie rings. The groups, called {\em Lazard
+  Lie groups}, satisfy a condition relating the set of primes over
+which they are powered and the nilpotency class of subgroups generated
+by subsets of size at most three. The Lie rings, called {\em Lazard
+  Lie rings}, satisfy a similar condition relating the set of primes
+over which they are powered and the nilpotency class of Lie subrings
+generated by subsets of size at most three. The precise definition of
+the Lazard correspondence is in Section
+\ref{sec:lazard-correspondence}. A somewhat easier case of the
+correspondence, called the {\em global} Lazard correspondence, is
+described in Section \ref{sec:global-lazard-correspondence}. The
+global Lazard correspondence imposes a restriction on the nilpotency
+class of the whole group and of the whole Lie ring. It is more narrow
+than the Lazard correspondence but easier to deal with.
+
+For a Lie ring $L$, the corresponding group, $\exp(L)$, has the {\em
+  same underlying set} as $L$, and the group operations are defined in
+terms of the Lie ring operations based on fixed formulas. Explicitly,
+the group multiplication is defined in terms of the Lie ring
+operations using the {\em Baker-Campbell-Hausdorff formula}. The
+Baker-Campbell-Hausdorff formula is described in detail in Section
+\ref{sec:bch}. Technically, the formula is different for different
+values of the ($3$-local) nilpotency class, but we can use a single
+infinite series whose truncations give all the formulas.
+
+For a group $G$, the corresponding Lie ring, denoted $\log(G)$, has
+the {\em same underlying set} as $G$, and the Lie ring operations are
+defined in terms of the group operations based on fixed formulas
+called the {\em inverse Baker-Campbell-Hausdorff formulas} (one
+formula describing the Lie ring addition and another formula
+describing the Lie bracket in terms of the group operations). The
+inverse Baker-Campbell-Hausdorff formulas are described in Section
+\ref{sec:inverse-bch}.
+
+$\exp$ and $\log$ define functors between appropriately defined
+subcategories of the category of groups and the category of Lie rings,
+and the functors are two-sided inverses of each other. Thus, they
+establish an isomorphism of categories over the category of
+sets\footnote{This means an isomorphism of categories that preserves
+  the underlying set} between the relevant subcategories of the
+category of groups and the category of Lie rings.
+
+\subsection{Isoclinism: a rapid review}
+
+An {\em isoclinism of groups} is a pair of group isomorphisms, one
+between their inner automorphism groups and the other between their
+derived subgroups, that are compatible with the commutator
+map. Intuitively, we can think of an isoclinism of groups as an
+equivalence between the commutator structures of the two groups. We
+will define and discuss isoclinisms in Section
+\ref{sec:isoclinism-and-homoclinism}. 
+
+There is a similar notion of {\em isoclinism of Lie rings} (that uses
+the inner derivation Lie ring, the derived subring, and the Lie
+bracket) that we will define and discuss in Section
+\ref{sec:isoclinism-and-homoclinism-lie}. Intuitively, we can think of
+an isoclinism of Lie rings as an equivalence between the Lie bracket
+structures of the Lie rings.
+
+We can use isoclinism of groups to define an {\em equivalence
+  relation} on the collection of groups. Analogously, we can use
+isoclinism of Lie rings to define an equivalence relation on the
+collection of Lie rings.
+
+\subsection{The Lazard correspondence up to isoclinism}
+
+The Lazard correspondence up to isoclinism combines the idea of the
+Lazard correspondence and the idea of isoclinism. For a Lie ring $L$
+and a group $G$, a Lazard correspondence up to isoclinism includes two
+pieces of data satisfying a compatibility condition:
+
+\begin{itemize}
+\item A Lazard correspondence up to isomorphism between
+  $\operatorname{Inn}(L)$ and $\operatorname{Inn}(G)$. This can be
+  viewed as an isomorphism of groups between
+  $\exp(\operatorname{Inn}(L))$ and $\operatorname{Inn}(G)$ or as an
+  isomorphism of Lie rings between $\operatorname{Inn}(L)$ and
+  $\log(\operatorname{Inn}(G))$.
+\item A Lazard correspondence up to isomorphism between $L'$ and
+  $G'$. This can be viewed as an isomorphism of groups between
+  $\exp(L')$ and $G'$ or as an isomorphism of Lie rings between $L'$
+  and $\log(G')$.
+\end{itemize}
+
+The compatibility condition is tricky to specify. Naively, we might
+expect that the compatibility condition would say that the isomorphism
+converts the Lie bracket map $\operatorname{Inn}(L) \times
+\operatorname{Inn}(L) \to L'$ to the commutator map
+$\operatorname{Inn}(G) \times \operatorname{Inn}(G) \to G'$. The
+problem with this naive specification is that even with the ordinary
+Lazard correspondence, the Lie bracket of the Lie ring does not
+coincide with the commutator of the group. They {\em do} coincide when
+the class is at most two, and we discuss this special case, the {\em
+  Baer correspondence up to isoclinism}, in Section \ref{sec:bcuti}.
+
+%% For the Lazard correspondence in higher class, the Lie bracket and
+%% commutator map are intimately related, but not equal. The relationship
+%% between them has a flavor similar to composition with a unipotent
+%% transformation. Explicitly, if the commutator of two elements in the
+%% group is trivial, there Lie bracket in the Lie ring is zero, and vice
+%% versa.
+
+To handle higher class, we need to first derive a formula valid for
+the usual Lazard correspondence that expresses the Lie bracket in
+terms of the commutator, and in the reverse direction, we need to
+derive a formula valid for the usual Lazard correspondence that
+expresses the commutator in terms of the Lie bracket. The
+compatibility condition we impose will make use of these formulas. The
+formulas themselves are described in Section
+\ref{sec:group-commutator-and-lie-bracket-ito-each-other}. The
+compatibility condition based on these formulas is described in detail
+in Section \ref{sec:lcuti}.
+
+
+\subsection{The existence question}\label{sec:existence-question}
+
+Defining the Lazard correspondence up to isoclinism is relatively
+easy. The harder part is establishing sufficient conditions for the
+existence of objects on the other side, i.e., establishing sufficient
+conditions for the existence of groups that are in Lazard
+correspondence up to isoclinism with a given Lie ring, and
+establishing sufficient conditions for the existence of Lie rings that
+are in Lazard correspondence up to isoclinism with a given group.
+
+The results that we would like to aim for are:
+
+\begin{itemize}
+
+\item For a Lie ring $L$, if both $\operatorname{Inn}(L)$ and $L'$ are
+  Lazard Lie rings, then we can find a group $G$ such that $L$ is in
+  Lazard correspondence up to isoclinism with $G$.
+\item For a group $G$, if both $\operatorname{Inn}(G)$ and $G'$ are
+  Lazard Lie groups, then we can find a Lie ring $L$ such that $L$ is
+  in Lazard correspondence up to isoclinism with $G$.
+\end{itemize}
+
+Unfortunately, the proofs of these statements at a general level
+require more machinery than we can manage in this thesis. We
+therefore restrict our proofs here to the case of the global Lazard
+correspondence. The precise statements of the results we will prove
+are in Section \ref{sec:lcuti}. Essentially, we restrict attention to
+groups that satisfy global assumptions on the set of primes over which
+they powered, and for which the inner automorphism group and derived
+subgroup are both in the domain of the global Lazard correspondence.
+
+The strategy that we use to demonstrate these facts is somewhat
+roundabout. Instead of trying to answer the question directly, we try
+to answer the question in the more general context of central
+extensions of groups and Lie rings. We will then apply the results
+that we obtain to the central extensions with short exact sequences:
+
+$$0 \to Z(G) \to G \to G/Z(G) \to 1$$
+
+and
+
+$$0 \to Z(L) \to L \to L/Z(L) \to 0$$
+
+We outline below the argument in the direction from Lie rings to groups.
+
+We begin by viewing $L$ as an extension with central subring $Z(L)$
+and quotient ring $L/Z(L) \cong \operatorname{Inn}(L)$. We obtain the
+corresponding Lie bracket map $\operatorname{Inn}(L) \times
+\operatorname{Inn}(L) \to L'$. We then obtain a desired commutator map
+$\exp(\operatorname{Inn}(L)) \times \exp(\operatorname{Inn}(L)) \to
+\exp(L')$ by using the formula describing the commutator map in terms
+of the Lie bracket map. Finally, we demonstrate the existence of a
+group $G$ that realizes this commutator map.
+
+\subsection{The realization of isoclinism types}
+
+We will show that equivalence classes of groups up to isoclinism can
+be described by storing the commutator structure in an abstract
+fashion, without reference to an actual group in that equivalence
+class.
+
+This will be useful to the final step of our proof of existence
+established above: instead of directly trying to construct the groups
+in the equivalence class up to isoclinism, we construct the commutator
+structure. In the notation above, we construct the desired commutator
+map $\exp(\operatorname{Inn}(L)) \times \exp(\operatorname{Inn}(L))
+\to \exp(L')$.
+
+Below, we provide a few more details about how we store the commutator
+structure abstractly. This discussion may be accessible only to people
+familiar either with group cohomology or with some other type of
+cohomology theory that is structurally similar. Note also that the
+group $G$ that we use here is not the same as the group $G$ used in
+Section \ref{sec:existence-question}. In fact, to apply what we
+discuss below to Section \ref{sec:existence-question}, we would need
+to set the group $A$ below to $\exp(Z(L))$ and set the group $G$ below
+to $\exp(L/Z(L))$.
+
+{\em Technical details}: In Sections
+\ref{sec:exteriorsquare-and-homoclinism} and
+\ref{sec:schur-multiplier-and-second-cohomology}, we will show that we
+can classify central extensions up to isoclinism using a homomorphism
+from the Schur multiplier. Explicitly, when considering central
+extensions with central subgroup $A$ and quotient group $G$, we can
+determine the type of the extension up to isoclinism by considering
+the induced map $M(G) \to A$ where $M(G)$ is the Schur multiplier of
+$G$. We will relate this to the universal coefficient theorem short
+exact sequence described in Section \ref{sec:ses-uct}.
+
+\begin{equation*}
+  0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},A) \to H^2(G;A) \to \operatorname{Hom}(M(G),A) \to 0
+\end{equation*}
+
+The key aspect of the above short exact sequence that is relevant for
+the existence question is the {\em surjectivity} of the map:
+
+$$H^2(G;A) \to \operatorname{Hom}(M(G),A)$$
+
+Thus, the homomorphism from $M(G)$ to $A$ describes the equivalence
+class of extensions up to isoclinism, and every homomorphism from
+$M(G)$ to $A$ describes some eqiuvalence class of extensions.
+
+For results in the opposite direction, we develop a similar theory for
+Lie rings.
+\subsection{Powering assumptions}
+
+One complication that arises in the discussion of the Lazard
+correspondence and its generalizations is that the formulas involved
+require taking $p^{th}$ roots for some primes $p$. Thus, in order to
+make sense of these expressions, we need to develop a basic theory of
+groups and Lie rings where these operations make sense. We develop
+that basic theory in Sections \ref{sec:group-powering} and
+\ref{sec:free-powered-groups-and-powering-functors} (for groups) and
+in Sections \ref{sec:lie-ring-powering} and
+\ref{sec:free-powered-lie-rings-and-powering-functors} (for Lie
+rings).
+
+\subsection{Global Lazard correspondence preserves Schur multipliers}
+
+To complete the proof, we need to demonstrate that the global Lazard
+correspondence behaves well with respect to the structures that we use
+to classify extensions up to isoclinism. Explicitly, we need to show
+that if $L = \log(G)$ and $G = \exp(L)$, then the Schur multipliers
+$M(L)$ and $M(G)$ are canonically isomorphic, and also that the
+exterior squares $L \wedge L$ and $G \wedge G$ are in Lazard
+correspondence.  We will demonstrate these facts in Sections
+\ref{sec:homology-of-powered-nilpotent-groups} and \ref{sec:lcuti}
+(specifically, in Theorem
+\ref{thm:global-lazard-correspondence-preserves-schur-multipliers}). A
+version of the statement for finite $p$-groups appeared as a
+conjecture in the paper \cite{SchurmultiplierandLazard} by Eick, Horn,
+and Zandi in September 2012, stated informally after Theorem 2 of the
+paper. Some technical details of our proof idea follow.
+
+{\em Technical details}: The key idea behind our proof is to express
+our group as a quotient group of a free powered nilpotent group of
+class one more. Using a nilpotency class of one more allows us to use
+a variant of the Hopf formula to calculate the Schur multiplier, as
+described in \ref{sec:hopf-formula-class-one-more} and
+\ref{sec:hopf-formula-pi-powered-class-one-more}. We can perform a
+similar construction on the Lie ring side. We now show that the groups
+used to compute the Schur multiplier of the group are in Lazard
+correspondence with the Lie rings used to compute the Schur multiplier
+of the Lie ring. The reason this is nontrivial is that the free
+nilpotent group and free nilpotent Lie ring of class one more need not
+themselves be in Lazard correspondence. We need to show that despite
+this, the groups that we eventually use in the formula for computing
+the Schur multiplier are in Lazard correspondence.
+
+
+%\newpage
+
+\section{The abelian Lie correspondence}\label{sec:abelian-lie-correspondence}
+
+This section describes an obvious and straightforward correspondence:
+the correspondence between abelian groups and abelian Lie rings. An
+abelian Lie ring is a Lie ring that has trivial Lie bracket. Basic
+definitions related to Lie rings can be found in the Appendix, Section
+\ref{appsec:Lie}.
+
+All assertions made here are trivial to prove. The purpose of this
+section is to set up a basic prototype for the Lazard correspondence.
+
+\subsection{Abelian groups correspond to abelian Lie rings}\label{sec:abelian-lie-correspondence-def}
+
+We establish the abelian Lie correspondence:
+
+\begin{center}
+  Abelian groups $\leftrightarrow$ Abelian Lie rings
+\end{center}
+
+The correspondence works as follows.
+
+\begin{itemize}
+\item From groups to Lie rings: Given an abelian group $G$, the
+  corresponding abelian Lie ring $\log G$ is defined as the Lie ring whose
+  underlying additive group coincides with $G$, and where the Lie
+  bracket is trivial.
+\item From Lie rings to groups: Given an abelian Lie ring $L$, the
+  corresponding abelian group $\exp L$ is defined as the underlying
+  additive group of $L$.
+\end{itemize}
+
+Note that the symbols $\exp$ and $\log$ here are being used as
+abstract symbols. They do not describe exponential and logarithm
+maps in the conventional sense of the term. The relationship with the
+usual notions of exponential and logarithm will become clearer in
+subsequent sections leading up to the definition of the Lazard
+correspondence.
+
+\subsection{Preservation of homomorphisms: viewing $\exp$ and $\log$ as functors}\label{sec:abelian-lie-correspondence-homomorphism-preservation}
+
+The following observations follow immediately from the definitions:
+
+\begin{itemize}
+\item $\log$ defines a functor from abelian groups to abelian Lie
+  rings: Suppose $G_1$ and $G_2$ are abelian groups and $\varphi:G_1
+  \to G_2$ is a group homomorphism. Then, there exists a unique Lie
+  ring homomorphism $\log(\varphi): \log(G_1) \to \log(G_2)$ that has
+  the same underlying set map as $\varphi$.
+\item $\exp$ defines a functor from abelian Lie rings to abelian
+  groups: Suppose $L_1$ and $L_2$ are abelian Lie rings and $\varphi:L_1
+  \to L_2$ is a Lie ring homomorphism. Then, there exists a unique
+  group homomorphism $\exp(\varphi): \exp(L_1) \to \exp(L_2)$ that has
+  the same underlying set map as $\varphi$.
+\item The $\log$ and $\exp$ functors are two-sided inverses of each
+  other: This assertion has four parts:
+  \begin{itemize}
+    \item For every abelian group $G$, $G = \exp(\log(G))$. 
+    \item For every abelian Lie ring $L$, $L = \log(\exp(L))$.
+    \item For every group homomorphism $\varphi:G_1 \to G_2$ of
+      abelian groups, $\exp(\log(\varphi)) = \varphi$.
+    \item For every Lie ring homomorphism $\varphi:L_1 \to L_2$ of
+      abelian Lie rings, $\log(\exp(\varphi)) = \varphi$.
+  \end{itemize}
+\end{itemize}
+
+The upshot of these is that the category of abelian groups and the
+category of abelian Lie rings are isomorphic categories, with the
+$\log$ and $\exp$ functors providing the isomorphisms.
+\subsection{Isomorphism over Set}
+
+Consider the following two categories:
+
+\begin{itemize}
+\item The category of abelian groups, with the forgetful functor to
+  the category of sets that sends each abelian group to its underlying
+  set.
+\item The category of abelian Lie rings, with the forgetful functor to
+  the category of sets that sends each abelian Lie ring to its
+  underlying set.
+\end{itemize}
+
+The correspondence we established above (in Sections
+\ref{sec:abelian-lie-correspondence-def} and
+\ref{sec:abelian-lie-correspondence-homomorphism-preservation})
+establishes an {\em isomorphism of categories over Set} between the
+two categories. There are two parts to this statement:
+
+\begin{itemize}
+\item The correspondence establishes an isomorphism between the
+  category of abelian groups and the category of abelian Lie rings:
+  The functor in the direction from groups to Lie rings is the $\log$
+  functor. The functor in the direction from Lie rings to groups is
+  the $\exp$ functor. The details are in the preceding section
+  (Section
+  \ref{sec:abelian-lie-correspondence-homomorphism-preservation}).
+\item This isomorphism has the property that applying it and then
+  applying the forgetful functor to the category of sets gives the
+  same result as directly applying the forgetful functor to the
+  category of sets. This is a category-theoretic way of saying that
+  the abelian group and abelian Lie ring have the same underlying set,
+  and that the set maps that are group homomorphisms are precisely the
+  same as the set maps that are Lie ring homomorphisms.
+\end{itemize}
+
+\subsection{Equality of endomorphism monoids and of automorphism groups}\label{sec:abelian-lie-correspondence-aut-end}
+
+Suppose $L$ is an abelian Lie ring and $G = \exp(L)$, so that $L =
+\log(G)$. The functors $\exp$ and $\log$ are isomorphisms of
+categories, hence they induce isomorphisms between the endomorphism
+monoids. Further, since these isomorphisms of categories preserve the
+underlying set, the isomorphism between the endomorphism monoids sends
+each Lie ring endomorphism to a corresponding group endomorphism that
+is {\em the same as a set map}. Explicitly, the map
+$\exp:\operatorname{End}(L) \to \operatorname{End}(G)$ is an
+isomorphism. Further, for $\varphi \in \operatorname{End}(L)$, the
+corresponding map $\exp(\varphi) \in \operatorname{End}(G)$ coincides
+with $\varphi$ as a set map. The isomorphism induced by $\exp$ between
+the endomorphism monoids $\operatorname{End}(L)$ and
+$\operatorname{End}(G)$ restricts to an isomorphism between the
+automorphism groups $\operatorname{Aut}(L)$ and
+$\operatorname{Aut}(G)$.
+
+\subsection{The correspondence up to isomorphism}\label{sec:abelian-lie-correspondence-up-to-isomorphism}
+
+We have so far considered the correspondence at the level of
+individual groups and Lie rings:
+
+\begin{center}
+  Abelian groups $\leftrightarrow$ Abelian Lie rings
+\end{center}
+
+The correspondence defines an isomorphism of categories, and thus it
+descends to a correspondence between equivalence classes up to
+isomorphism on both sides, giving a correspondence:
+
+\begin{center}
+  Isomorphism classes of abelian groups $\leftrightarrow$ Isomorphism classes of abelian Lie rings
+\end{center}
+
+Suppose $L$ is an abelian Lie ring and $G$ is an abelian
+group. Specifying an abelian Lie correspondence {\em up to
+  isomorphism} between $L$ and $G$ amounts to specifying one of the
+following two equivalent pieces of data:
+
+\begin{itemize}
+\item An isomorphism of groups from $\exp L$ to $G$.
+\item An isomorphism of Lie rings from $\log G$ to $L$.
+\end{itemize}
+
+A common convention used to provide this data is to provide one of these:
+
+\begin{itemize}
+\item A {\em set} map $\exp:L \to G$ that, viewed as a set map from
+  $\exp(L)$ to $G$, becomes a group isomorphism.
+\item A {\em set} map $\log:G \to L$ that, viewed as a set map from
+  $\log(G)$ to $L$, becomes a Lie ring isomorphism.
+\end{itemize}
+
+In other words, we can specify the data in the form of one of these set maps:
+
+$$\exp: L \to G, \log: G \to L$$
+
+The set maps $\log$ and $\exp$ are two-sided inverses of each other.
+
+It will turn out, later, that actual exponential and logarithm maps,
+with the usual power series expansions, occurring inside an
+associative ring, provide examples of an abelian Lie correspondence up
+to isomorphism.
+
+In cases where we want to emphasize that we are talking of the abelian
+Lie correspondence and not the abelian Lie correspondence up to
+isomorphism, we will talk of the {\em strict} abelian Lie
+correspondence. In this section, our focus will be on the strict
+abelian Lie correspondence because that provides for an easier way to
+formulate our statements.
+
+\subsection{Isomorphism of categories versus equivalence of categories}
+
+When discussing what it means for two categories to be essentially the
+same, category theorists typically rely on a weaker notion than
+isomorphism of categories. An {\em equivalence of categories}
+$\mathcal{C}$ and $\mathcal{D}$ and a pair of functors $\mathcal{F}:\mathcal{C}
+\to \mathcal{D}$ and $\mathcal{G}:\mathcal{D} \to \mathcal{C}$ along with
+natural isomorphism $\varepsilon:\mathcal{F} \circ \mathcal{G} \to
+\operatorname{Id}_{\mathcal{D}}$ and $\eta:\mathcal{G} \circ \mathcal{F} \to
+\operatorname{Id}_{\mathcal{C}}$. Two categories $\mathcal{C}$ and
+$\mathcal{D}$ are said to be equivalent if there exists an equivalence
+of categories between them. An alternative characterization is that
+two categories $\mathcal{C}$ and $\mathcal{D}$ are equivalent if there
+exists a functor $\mathcal{F}: \mathcal{C} \to \mathcal{D}$ such that $\mathcal{F}$ is
+full, faithful, and essentially surjective. Here, {\em essentially
+  surjective} means that for every object $B \in \mathcal{D}$, there
+exists $A \in \mathcal{C}$ such that $\mathcal{F}(A)$ is isomorphic to $B$.
+
+The difference between the definitions of isomorphism of categories
+and equivalence of categories arises from the distinction between a
+functor being bijective (in the sense that {\em every} object is in
+the image of the functor and has a unique pre-image under the functor)
+and the functor being essentially surjective (in the sense that every
+object is {\em isomorphic} to an object in the image of the
+functor). Equivalence of categories is a more robust and useful notion
+because it is less sensitive to how strictly we define equality of
+objects. Thus, even though the correspondences we define are
+isomorphisms of categories over the category of sets, it will often be
+more helpful to think of them as equivalences of categories.
+
+Note that any equivalence of categories establishes a bijective
+correspondence between isomorphism classes of objects in the two
+categories (in this case, the two categories are respectively the
+category of abelian groups and the category of abelian Lie
+rings). However, the equivalence of categories also includes
+additional data that allows us to identify homomorphism sets on both
+sides (in this case, identify abelian group homomorphisms with abelian
+Lie ring homomorphisms).
+
+\subsection{Subgroups, quotients, and direct products}\label{sec:abelian-lie-correspondence-sub-quot-dp}
+
+The collection of abelian groups is a subvariety of the variety of
+groups (see the Appendix, Section \ref{appsec:univalg-basic} for the
+definition of variety). There are three parts to this assertion:
+
+\begin{itemize}
+\item Every subgroup of an abelian group is abelian.
+\item Every quotient group of an abelian group is abelian.
+\item A direct product of (finitely or infinitely many) abelian groups
+  is abelian.
+\end{itemize}
+
+Similarly, the collection of abelian Lie rings is a subvariety of the
+variety of Lie rings. There are three parts to this assertion:
+
+\begin{itemize}
+\item Every subring of an abelian Lie ring is abelian.
+\item Every quotient ring of an abelian Lie ring is abelian.
+\item A direct product of (finitely or infinitely many) abelian Lie
+  rings is abelian.
+\end{itemize}
+
+A natural question is whether the abelian Lie correspondence behaves
+nicely with respect to taking subalgebras (subgroups and subrings
+respectively), quotient algebras (quotient groups and quotient rings
+respectively), and direct products. The answer is {\em
+  yes}. Specifically, the following are true:
+
+\begin{itemize}
+\item {\em Subgroups correspond to subrings}: Suppose an abelian Lie
+  ring $L$ is in abelian Lie correspondence with an abelian group $G$,
+  i.e., $L = \log(G)$ and $G = \exp(L)$. Then, for every subgroup $H$
+  of $G$, $\log(H)$ is a subring of $L$, and the inclusion map of
+  $\log(H)$ in $L$ is obtained by applying the $\log$ functor to the
+  inclusion map of $H$ in $G$. In the opposite direction, for every
+  subring $M$ of $L$, $\exp(M)$ is a subgroup of $G$, and the
+  inclusion map of $\exp(M)$ in $G$ is obtained by applying the $\exp$
+  functor to the inclusion map of $M$ in $L$. The abelian Lie
+  correspondence thus gives rise to a correspondence:
+
+  \begin{center}
+    Subgroups of $G$ $\leftrightarrow$ Subrings of $L$
+  \end{center}
+
+\item {\em Quotient groups correspond to quotient rings}: Suppose an
+  abelian Lie ring $L$ is in abelian Lie correspondence with an
+  abelian group $G$. Then, for every normal subgroup $H$ of
+  $G$,\footnote{Note that since $G$ is abelian, every subgroup is
+    normal. However, we deliberately state the result in this fashion
+    so that parallels with later generalizations are clearer.}
+  $\log(G/H)$ is a quotient Lie ring of $L$, and the quotient map $L
+  \to \log(G/H)$ is obtained by applying the $\log$ functor to the
+  quotient map $G \to G/H$. In the opposite direction, for every ideal
+  $I$ of $L$, $\exp(L/I)$ is a quotient group of $G$, and the quotient
+  map $G \to \exp(L/I)$ is obtained by applying the $\exp$ functor to
+  the quotient map $L \to L/I$. The abelian Lie correspondence thus
+  gives rise to correspondences:
+
+  \begin{center}
+    Normal subgroups of $G$ $\leftrightarrow$ Ideals of $L$
+  \end{center}
+  
+  \begin{center}
+    Quotient groups of $G$ $\leftrightarrow$ Quotient rings of $L$
+  \end{center}
+
+\item {\em Direct products correspond to direct products}: Suppose $I$
+  is an indexing set, and $G_i, i \in I$ is a collection of abelian
+  groups. For each $i \in I$, let $L_i = \log(G_i)$. Then, the
+  external direct product $\prod_{i \in I} L_i$ is in abelian Lie
+  correspondence with the external direct product $\prod_{i \in I}
+  G_i$. Moreover, the projection maps from the direct product to the
+  individual factors are in abelian Lie correspondence. Also, the
+  inclusion maps of each direct factor in the direct product are in
+  abelian Lie correspondence.
+\end{itemize}
+
+\subsection{Characteristic and fully invariant}
+
+Suppose an abelian group $G$ is in abelian Lie correspondence with an
+abelian Lie ring $L$. In Section
+\ref{sec:abelian-lie-correspondence-aut-end}, we saw that $G$ and $L$
+have the same automorphism group as each other and the same
+endomorphism monoid as each other (where ``same'' here means that the
+actions agree on the underlying set). In Section
+\ref{sec:abelian-lie-correspondence-sub-quot-dp}, we saw that the
+abelian Lie correspondence induces a bijective correspondence between
+subgroups of $G$ and subrings of $L$. Combining these ideas, we obtain
+two additional bijective correspondences:
+
+\begin{center}
+  Characteristic subgroups of $G$ $\leftrightarrow$ Characteristic
+  subrings of $L$
+\end{center}
+
+\begin{center}
+  Fully invariant subgroups of $G$ $\leftrightarrow$ Fully invariant
+  subrings of $L$
+\end{center}
+
+Here, {\em characteristic} means invariant under all automorphisms and
+{\em fully invariant} means invariant under all endomorphisms.
+
+\subsection{How the template will be reused}\label{sec:isocat-template}
+
+The steps that we have outlined above will be used to construct and
+study a number of similar correspondences. The steps will be as
+follows:
+
+\begin{itemize}
+\item We will describe a way of writing group operations in terms of
+  Lie ring operations and a way of describing Lie ring operations in
+  terms of group operations, such that the formulas used satisfy the
+  axioms for groups and Lie rings by definition, and such that the
+  formulas are inverses of each other.
+\item We will then use this to construct a correspondence that defines
+  an isomorphism over the category of sets between a full subcategory
+  of the category of groups and a full subcategory of the category of
+  Lie rings. We will use $\log$ to denote the functor from the group
+  side to the Lie ring side, and $\exp$ to denote the functor from the
+  Lie ring side to the group side.
+\item We will deduce that if a group and Lie ring are in
+  correspondence, then their endomorphism monoids are naturally
+  isomorphic, and their automorphism groups are naturally isomorphic.
+\item The correspondence can be weakened to a correspondence between
+  isomorphism classes in the full subcategories.
+\item An instance of the correspondence up to isomorphism between a
+  group $G$ and a Lie ring $L$ can be described by specifying the
+  isomorphism from $\log(G)$ to $L$ or by specifying the isomorphism
+  from $\exp(L)$ to $G$. We will describe the correspondence in terms
+  of the set map $\log:G \to L$ or, equivalently, the set map $\exp:L
+  \to G$.
+\item Of the results in Section
+  \ref{sec:abelian-lie-correspondence-sub-quot-dp}, the results for
+  the direct product generalizes for each correspondence (note that
+  this does not follow category-theoretically, but rather, it follows
+  from the nature of the correspondence). The results for the
+  correspondence between subgroups and subrings and the correspondence
+  between quotient groups and quoitent rings generalize but only after
+  we impose restrictions on the types of subgroups, subrings, quotient
+  groups, and quotient rings under consideration.
+\end{itemize}
+
+For brevity, we will not repeat these steps in every instance. Rather,
+our focus will be on the first step: establishing that the formulas
+used make sense, satisfy the axioms, and are inverses of each other.

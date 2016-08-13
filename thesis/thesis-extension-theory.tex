@@ -1,0 +1,3664 @@
+%\chapter{Extension theory}
+
+%\newpage
+
+\section{Short exact sequences and central group extensions}\label{sec:ses-group}
+
+Central extensions are fundamental to how we think about nilpotent
+groups: nilpotent groups can be thought of as groups that can be
+obtained by iteratively taking central extensions, starting with an
+abelian group. The notion of central extension is also closely related
+to the notion of isoclinism, although we will defer the explicit
+connection for later. Central extensions are instrumental to
+formulating and proving the generalizations that we develop in
+Sections \ref{sec:bcuti} and \ref{sec:lcuti}.
+
+In this section, we develop the rudimentary vocabulary of central
+extensions.
+
+\subsection{Definition of short exact sequence and group extension}
+
+A {\em short exact sequence of groups} is an exact sequence of groups
+with homomorphisms as follows:
+
+$$1 \to A \to E \to G \to 1$$
+
+In words, the homomorphism from $A$ to $E$ is injective, the
+homomorphism from $E$ to $G$ is surjective, and the image of $A$ in
+$E$ equals the kernel of the homomorphism from $E$ to $G$. The
+standard abuse of notation identifies $A$ with its image in $E$ (so
+$A$ is viewed as a normal subgroup of $E$) and $G$ with the quotient
+group $E/A$.
+
+We may also frame this as follows: $E$ is a {\em group extension} with
+normal subgroup $A$ and quotient group $G$.
+
+A {\em morphism of short exact sequences} from a short exact sequence:
+
+$$1 \to A_1 \to E_1 \to G_1 \to 1$$
+
+to another short exact sequence:
+
+$$1 \to A_2 \to E_2 \to G_2 \to 1$$
+
+is defined as a triple of homomorphisms $A_1 \to A_2$, $E_1 \to E_2$,
+$G_1 \to G_2$, such that the following diagram commutes:
+
+$$\begin{array}{rrrrr}
+  1 & \to A_1 & \to E_1 & \to G_1 & \to 1 \\
+  \downarrow & \downarrow & \downarrow & \downarrow & \downarrow\\
+  1 & \to A_2 & \to E_2 & \to G_2 & \to 1 \\
+\end{array}$$
+
+Note that the arrows at the extremes do not convey useful information,
+so the above is equivalent to asserting that the following diagram
+commutes:
+
+$$\begin{array}{rrrrr}
+  1 & \to A_1 & \to E_1 & \to G_1 & \to 1 \\
+  & \downarrow & \downarrow & \downarrow &\\
+  1 & \to A_2 & \to E_2 & \to G_2 & \to 1 \\
+\end{array}$$
+
+We can compose two morphisms of short exact sequences in the obvious
+way. In the diagram below, this corresponds to composing the vertical
+morphisms:
+
+$$\begin{array}{rrrrr}
+  1 & \to A_1 & \to E_1 & \to G_1 & \to 1 \\
+  & \downarrow & \downarrow & \downarrow & \\
+  1 & \to A_2 & \to E_2 & \to G_2 & \to 1 \\
+  & \downarrow & \downarrow & \downarrow & \\
+  1 & \to A_3 & \to E_3 & \to G_3 & \to 1 \\
+\end{array}$$
+
+We can thus define a {\em category of short exact sequences}. An
+{\em isomorphism of short exact sequences} is defined as an
+isomorphism in this category. Explicitly, it is defined as a morphism
+of short exact sequences where all the component homomorphisms are
+isomorphisms.
+
+\subsection{Group extensions with fixed base and quotient; congruence and pseudo-congruence}
+
+We often study group extensions of the form:
+
+$$1 \to A \to E \to G \to 1$$
+
+where $A$ and $G$ are both fixed in advance and different
+possibilities for $E$ are considered. Two group extensions:
+
+$$1 \to A \to E_1 \to G \to 1$$
+
+and
+
+$$1 \to A \to E_2 \to G \to 1$$
+
+are said to be {\em congruent} if there is an isomorphism $\varphi:
+E_1 \to E_2$ such that the triple comprising the identity map $A \to
+A$, the map $\varphi:E_1 \to E_2$, and the identity map $G \to G$ give
+an isomorphism of short exact sequences. In other words, we can get an
+isomorphism from $E_1$ to $E_2$ that induces the identity maps both on
+the subgroup $A$ and the quotient group $G$.
+
+Congruence defines an equivalence relation on the set of all
+group extensions with normal subgroup $A$ and quotient group $G$. The
+equivalence classes for this equivalence relation are termed {\em
+  congruence classes}. 
+
+Two group extensions:
+
+$$1 \to A \to E_1 \to G \to 1$$
+
+and
+
+$$1 \to A \to E_2 \to G \to 1$$
+
+are said to be {\em pseudo-congruent} if there is an isomorphism
+between the short exact sequences. The isomorphism need not induce the
+identity map on $A$ and need not induce the identity map on $G$.
+
+Pseudo-congruence defines an equivalence relation on the set of all
+group extensions with normal subgroup $A$ and quotient group $G$. The
+equivalence classes for this equivalence relation are termed {\em
+  pseudo-congruence classes}.
+
+Pseudo-congruence is a coarser equivalence relation than congruence
+because it allows for ``re-labeling'' on both the subgroup side and
+the quotient group side.
+
+\subsection{Abelian normal subgroups}
+
+In the case that $A$ is an abelian group, the short exact sequence:
+
+$$1 \to A \to E \to G \to 1$$
+
+may also be written as
+
+$$0 \to A \to E \to G \to 1$$
+
+This is because when working with abelian groups, we denote the
+trivial group by $0$ instead of $1$.
+
+\subsection{Central extensions and stem extensions}\label{sec:central-and-stem-extension}
+
+In this document, we use the term {\em central subgroup} for a
+subgroup that is contained inside the center.
+
+A {\em central extension} refers to a group extension where the
+subgroup is central. Explicitly, consider a short exact sequence of
+the following form, where $A$ is abelian:
+
+$$0 \to A \to E \to G \to 1$$
+
+We say that $E$ is a {\em central extension} with central subgroup $A$
+and quotient group $G$ if the image of $A$ in $E$ is a central
+subgroup of $E$. If we engage in the usual abuse of notation that
+conflates $A$ with its image in $E$, we could shorten this to saying
+that $A$ is a central subgroup of $E$.
+
+We will often say ``$E$ is a central extension of $G$'' as shorthand
+for ``there exists an abelian group $A$ such that $E$ is a central
+extension with central subgroup $A$ and quotient group $G$.''
+
+A {\em stem extension} is a central extension where the central
+subgroup is also contained in the derived subgroup of the extension
+group. Explicitly, consider a short exact sequence of the following
+form, where $A$ is abelian:
+
+$$0 \to A \to E \to G \to 1$$
+
+We say that $E$ is a {\em stem extension} with central subgroup $A$
+and quotient group $G$ if the image of $A$ in $E$ is contained in $E'
+\cap Z(E)$.
+
+\subsection{The use of cohomology groups to classify central extensions}\label{sec:second-cohomology-group-classify-extensions}
+
+Suppose $A$ is an abelian group and $G$ is a group. The group
+$H^2(G;A)$ (also denoted $H^2(G,A)$), called the {\em second
+  cohomology group for trivial group action} of $G$ on $A$, is a group
+whose elements correspond to the congruence classes of central
+extensions with central subgroup $A$ and quotient group $G$. Here, by
+``congruence class'' we mean equivalence class under the equivalence
+relation of being congruent group extensions. The group structure on
+$H^2(G;A)$ is not {\em prima facie} obvious. We will describe it in
+detail in Section \ref{sec:cohomology-explicit}.
+
+Further, there is a natural action of $\operatorname{Aut}(G) \times
+\operatorname{Aut}(A)$ on $H^2(G;A)$ and the orbits of $H^2(G;A)$
+under this natural action correspond precisely to the
+pseudo-congruence classes of central extensions with central subgroup
+$A$ and quotient group $G$.
+
+Note that there is a more general definition of the second cohomology
+group that works for non-central extensions where the action of the
+quotient group $G$ on the abelian normal subgroup $A$ is
+specified. Throughout this document, however, when referring to the
+second cohomology group, we mean the second cohomology group for
+trivial group action.
+
+Basic background about the second cohomology group can be found in
+\cite{Baer38}, \cite{Karpilovsky}, \cite{DummitFoote}, or in any
+standard reference on group cohomology.
+
+\subsection{Homomorphism of central extensions}\label{sec:homomorphism-central-extensions}
+
+In the discussion so far, we have fixed both the normal subgroup $A$
+and the quotient group $G$ and considered possibilities for the group
+extension. We now consider the case where the quotient group $G$ is
+fixed. We are interested in all central extensions with quotient group
+$G$. The theory undergirding these should be hidden within the group
+structure of $G$. Our goal is to make that theory more
+explicit. Unfortunately, this is a long task, and we therefore only
+include a first step here. We will pick up from where we leave here in
+Section \ref{sec:exteriorsquare}.
+
+We begin by defining the concept of {\em homomorphism of central
+  extensions}. Consider two central extensions, both of which have $G$
+as the quotient group:
+
+$$0 \to A_1 \to E_1 \to G \to 1$$
+
+and
+
+$$0 \to A_2 \to E_2 \to G \to 1$$
+
+A homomorphism of central extensions from the first central extension
+to the second is a pair of homomorphisms $A_1 \to A_2$, $E_1 \to E_2$,
+that, together with the identity map $G \to G$, give a homomorphism of
+short exact sequences.
+
+We can consider the {\em category of central extensions} of $G$:
+
+\begin{itemize}
+\item The {\em objects} of this category are the central extensions
+  with quotient group $G$.
+\item The {\em morphisms} of this category are homomorphisms of
+  central extensions of $G$, as defined above.
+\item Composition of morphisms is defined as the usual composition of
+  homomorphisms of short exact sequences.
+\end{itemize}
+
+An object in the category of central extensions can be completely
+described up to isomorphism in this category simply by specifying its
+right map. Explicitly, consider two central extensions:
+
+$$0 \to A_1 \to E \stackrel{\nu}{\to} G \to 1$$
+
+and
+
+$$0 \to A_2 \to E \stackrel{\nu}{\to} G \to 1$$
+
+where the map $\nu$ is the same in both cases. In that case, the
+central extensions are isomorphic in the category. Explicitly, this is
+because if we consider the partial commutative diagram:
+
+$$\begin{array}{rrrrr}
+  0 & \to A_1 & \to E & \stackrel{\nu}{\to} G & \to 1 \\
+  &  & \downarrow^{\text{id}} & \downarrow^{\text{id}} &\\
+  0 & \to A_2 & \to E & \stackrel{\nu}{\to} G & \to 1 \\
+\end{array}$$
+
+there is a unique choice of isomorphism $A_1 \to A_2$ so that the
+diagram as a whole commutes:
+
+$$\begin{array}{rrrrr}
+  0 & \to A_1 & \to E & \stackrel{\nu}{\to} G & \to 1 \\
+  & \downarrow & \downarrow^{\text{id}} & \downarrow^{\text{id}} &\\
+  0 & \to A_2 & \to E & \stackrel{\nu}{\to} G & \to 1 \\
+\end{array}$$
+
+Further, specifying a homomorphism from one object:
+
+$$0 \to A_1 \to E_1 \stackrel{\nu_1}{\to} G \to 1$$
+
+to another:
+
+$$0 \to A_2 \to E_2 \stackrel{\nu_2}{\to} G \to 1$$
+
+is equivalent to simply specifying the homomorphism $E_1 \to E_2$,
+because the homomorphism $A_1 \to A_2$ is uniquely determined by
+it. Explicitly, this is because in the commutative diagram:
+
+$$\begin{array}{rrrrr}
+  0 & \to A_1 & \to E_1 & \stackrel{\nu_1}{\to} G & \to 1 \\
+  &  & \downarrow^{\theta} & \downarrow^{\text{id}} &\\
+  0 & \to A_2 & \to E_2 & \stackrel{\nu_2}{\to} G & \to 1 \\
+\end{array}$$
+
+there is a unique morphism $A_1 \to A_2$ that completes the
+commutative diagram.
+
+Further, the set of permissible homomorphisms
+$E_1 \to E_2$ is precisely the set of homomorphisms $\theta: E_1 \to
+E_2$ such that $\nu_2 \circ \theta = \nu_1$.
+
+The {\em category of central extensions} of $G$ thus has the following
+alternative description. Note that strictly speaking, this is a
+different category, but the preceding remarks establish that there is
+a canonical {\em equivalence of categories} between the categories.
+
+\begin{itemize}
+\item The {\em objects} of the category are ``central extensions'' of
+  $G$ in the sense of being pairs $(E,\nu)$ where $\nu:E \to G$ is a
+  surjective group homomorphism and the kernel of $\nu$ is central in $G$.
+\item Given two objects $(E_1,\nu_1)$ and $(E_2,\nu_2)$ in the
+  category, a {\em morphism} between them is a homomorphism $\theta:
+  E_1 \to E_2$ such that $\nu_2 \circ \theta = \nu_1$.
+\end{itemize}
+
+The equivalence of categories is given by the obvious forgetful
+functor from the short exact sequence category to this new category,
+that sends a short exact sequence $0 \to A \to E \stackrel{\nu}{\to} G
+\to 1$ to the quotient map $E \stackrel{\nu}{\to} G$. The functor is
+clearly essentially surjective (in fact, it is surjective on
+objects). The preceding remarks establish that the functor is full and
+faithful, and therefore an equivalence of categories. From this point
+onward, we we talk of the ``category of central extensions of $G$'' we
+will refer to the latter category.
+
+We might hope that this category has an initial object, which could
+then serve as the ``source'' classifying central extensions of
+$G$. However, such an initial object does not always exist. We will
+show in Section \ref{sec:freeinitialobject} that there {\em do} exist
+objects in this category that admit homomorphisms to every other
+object in the category. These are not in general initial objects
+because the homomorphisms admitted are not unique.
+
+%\newpage
+
+\section{Short exact sequences and central extensions of Lie rings}\label{sec:ses-lie}
+
+In this section, we develop the theory of short exact sequences of Lie
+rings parallel to the development in the preceding section (Section
+\ref{sec:ses-group}) of the theory for groups. The sections are
+almost completely analogous and readers who have thoroughly understood
+the preceding section can safely skip this section. The reasons behind
+developing the theory are also analogous to those offered for groups.
+
+The underlying theory for the cohomology group is different in
+substantive ways for groups and Lie rings. However, these differences
+do not show up at the level of abstraction at which we are dealing
+with groups and Lie rings in this and the preceding section.
+
+\subsection{Definition of short exact sequence and Lie ring extension}
+
+A {\em short exact sequence of Lie rings} is an exact sequence of Lie
+rings with homomorphisms as follows:
+
+$$0 \to A \to N \to L \to 0$$
+
+In words, the homomorphism from $A$ to $N$ is injective, the
+homomorphism from $N$ to $L$ is surjective, and the image of $A$ in
+$N$ equals the kernel of the homomorphism from $N$ to $L$. The
+standard abuse of notation identifies $A$ with its image in $N$ (so
+$A$ is viewed as an ideal of $N$) and $L$ with the quotient
+Lie ring $N/A$.
+
+We may also frame this as follows: $N$ is a {\em Lie ring extension}
+with (base) ideal $A$ and quotient Lie ring $L$.
+
+A {\em morphism of short exact sequences} from a short exact sequence:
+
+$$0 \to A_1 \to N_1 \to L_1 \to 0$$
+
+to another short exact sequence:
+
+$$0 \to A_2 \to N_2 \to L_2 \to 0$$
+
+is defined as a triple of homomorphisms $A_1 \to A_2$, $N_1 \to N_2$,
+$L_1 \to L_2$, such that the following diagram commutes:
+
+$$\begin{array}{rrrrr}
+  0 & \to A_1 & \to N_1 & \to L_1 & \to 0 \\
+  \downarrow & \downarrow & \downarrow & \downarrow & \\
+  0 & \to A_2 & \to N_2 & \to L_2 & \to 0 \\
+\end{array}$$
+
+Note that the arrows at the extremes do not convey useful information,
+so this is equivalent to saying that the following diagram commutes:
+
+$$\begin{array}{rrrrr}
+  0 & \to A_1 & \to N_1 & \to L_1 & \to 0 \\
+  & \downarrow & \downarrow & \downarrow &\\
+  0 & \to A_2 & \to N_2 & \to L_2 & \to 0 \\
+\end{array}$$
+
+We can compose two morphisms of short exact sequences in the obvious
+way. In the diagram below, this corresponds to composing the vertical
+morphisms:
+
+$$\begin{array}{rrrrr}
+  0 & \to A_1 & \to N_1 & \to L_1 & \to 0 \\
+  & \downarrow & \downarrow & \downarrow & \\
+  0 & \to A_2 & \to N_2 & \to L_2 & \to 0 \\
+  & \downarrow & \downarrow & \downarrow & \\
+  0 & \to A_3 & \to N_3 & \to L_3 & \to 0 \\
+\end{array}$$
+
+We can thus define a {\em category of short exact sequences}. An
+{\em isomorphism of short exact sequences} is defined as an
+isomorphism in this category. Explicitly, it is defined as a morphism
+of short exact sequences where all the component homomorphisms are
+isomorphisms.
+
+\subsection{Lie ring extensions with fixed base and quotient; congruence and pseudo-congruence}
+
+We often study Lie ring extensions of the form:
+
+$$0 \to A \to N \to L \to 0$$
+
+where $A$ and $L$ are both fixed in advance and different
+possibilities for $N$ are considered. Two Lie ring extensions:
+
+$$0 \to A \to N_1 \to L \to 0$$
+
+and
+
+$$0 \to A \to N_2 \to L \to 0$$
+
+are said to be {\em congruent} if there is an isomorphism $\varphi:
+N_1 \to N_2$ such that the triple comprising the identity map $A \to
+A$, the map $\varphi:E_1 \to E_2$, and the identity map $L \to L$ give
+an isomorphism of short exact sequences. In other words, we can get an
+isomorphism from $N_1$ to $N_2$ that induces the identity maps both on
+the ideal $A$ and the quotient Lie ring $L$.
+
+Congruence defines an equivalence relation on the set of all Lie ring
+extensions with ideal $A$ and quotient Lie ring $L$. The
+equivalence classes for this equivalence relation are termed {\em
+  congruence classes}.
+
+Two Lie ring extensions:
+
+$$0 \to A \to N_1 \to L \to 0$$
+
+and
+
+$$0 \to A \to N_2 \to L \to 0$$
+
+are said to be {\em pseudo-congruent} if there is an isomorphism
+between the short exact sequences. The isomorphism need not induce the
+identity map on $A$ and need not induce the identity map on $L$.
+
+Pseudo-congruence defines an equivalence relation on the set of all
+Lie ring extensions with ideal $A$ and quotient Lie ring $L$. The
+equivalence classes for this equivalence relation are termed {\em
+  pseudo-congruence classes}.
+
+Pseudo-congruence is a coarser equivalence relation than congruence
+because it allows for ``re-labeling'' on both the ideal side and the
+quotient Lie ring side.
+
+\subsection{Central extensions and stem extensions}\label{sec:central-and-stem-extension-lie}
+
+A {\em central extension} refers to a Lie ring extension where the
+ideal is central. Explicitly, consider a short exact sequence of
+the following form, where $A$ is an abelian Lie ring:
+
+$$0 \to A \to N \to L \to 0$$
+
+We say that $N$ is a {\em central extension} with central subring $A$
+and quotient Lie ring $L$ if the image of $A$ in $N$ is a central
+subring of $N$. If we engage in the usual abuse of notation that
+conflates $A$ with its image in $N$, we could shorten this to saying
+that $A$ is a central subring (or equivalently, central ideal) of $N$.
+
+We will often say ``$N$ is a central extension of $L$'' as shorthand
+for ``there exists an abelian Lie ring $A$ such that $N$ is a central
+extension with central subring $A$ and quotient Lie ring $L$.''
+
+A {\em stem extension} is a central extension where the central
+subring is also contained in the derived subring of the extension
+Lie ring. Explicitly, consider a short exact sequence of the following
+form, where $A$ is abelian:
+
+$$0 \to A \to N \to L \to 0$$
+
+We say that $N$ is a {\em stem extension} with central subring $A$
+and quotient Lie ring $L$ if the image of $A$ in $N$ is contained in $N'
+\cap Z(N)$.
+
+\subsection{The use of cohomology groups to classify central extensions}\label{sec:second-cohomology-lie-ring-classify-extensions}
+
+Suppose $A$ is an abelian Lie ring and $L$ is a Lie ring. The group
+$H^2_{\text{Lie}}(L;A)$, called the {\em second cohomology group for
+  trivial Lie ring action} of $L$ on $A$, is a group whose elements
+correspond to the congruence classes of central extensions with
+central subring $A$ and quotient Lie ring $L$. Here, by ``congruence
+class'' we mean equivalence class under the equivalence relation of
+being congruent Lie ring extensions. The group structure on
+$H^2_{\text{Lie}}(L;A)$ is not {\em prima facie} obvious. For a detailed discussion of the group structure, please refer to Weibel's book \cite{Weibel}.
+$H^2_{\text{Lie}}(L;A)$ is simply denoted $H^2(L;A)$ in cases where
+there is no potential for ambiguity with the cohomology group
+describing group extensions.
+
+Further, there is a natural action of $\operatorname{Aut}(L) \times
+\operatorname{Aut}(A)$ on $H^2(L;A)$ and the orbits of
+$H^2_{\text{Lie}}(L;A)$ under this natural action correspond precisely
+to the pseudo-congruence classes of central extensions with central
+subring $A$ and quotient Lie ring $L$.
+
+Note that there is some potential for abuse of notation here, namely,
+we often view $A$ both as an abelian {\em group} and as an abelian
+{\em Lie ring}. From a pedantic perspective, it would be preferable to
+use the $\exp$ and $\log$ functors to transition between the abelian
+group and abelian Lie ring via the abelian Lie correspondence, as
+described in Section \ref{sec:abelian-lie-correspondence}. However,
+doing so would complicate our notation considerably, so we avoid it in
+this section. Later, when applying the results here to the Baer
+correspondence up to isoclinism as described in Section
+\ref{sec:bcuti}, we will be more careful.
+
+\subsection{Homomorphism of central extensions}\label{sec:homomorphism-central-extensions-lie}
+
+In the discussion so far, we have fixed both the central subring $A$
+and the quotient Lie ring $L$ and considered possibilities for the
+extension Lie ring. We now consider the case where the quotient Lie
+ring $L$ is fixed. We are interested in all central extensions with
+quotient Lie ring $L$. The theory undergirding these should be hidden
+within the internal structure of $L$ as a Lie ring. Our goal is to
+make that theory more explicit.
+
+We begin by defining the concept of {\em homomorphism of central
+  extensions}. Consider two central extensions, both of which have $L$
+as the quotient Lie ring:
+
+$$0 \to A_1 \to N_1 \to L \to 0$$
+
+and
+
+$$0 \to A_2 \to N_2 \to L \to 0$$
+
+A homomorphism of central extensions from the first central extension
+to the second is a pair of homomorphisms $A_1 \to A_2$, $N_1 \to N_2$,
+that, together with the identity map $L \to L$, give a homomorphism of
+short exact sequences.
+
+We can consider the {\em category of central extensions} of $L$:
+
+\begin{itemize}
+\item The {\em objects} of this category are the central extensions
+  with quotient Lie ring $L$.
+\item The {\em morphisms} of this category are homomorphisms of
+  central extensions of $L$, as defined above.
+\item Composition of morphisms is defined as the usual composition of
+  homomorphisms of short exact sequences.
+\end{itemize}
+
+An object in the category of central extensions can be completely
+described up to isomorphism in this category simply by specifying its
+right map. Explicitly, consider two central extensions:
+
+$$0 \to A_1 \to N \stackrel{\nu}{\to} L \to 0$$
+
+and
+
+$$0 \to A_2 \to N \stackrel{\nu}{\to} L \to 0$$
+
+where the map $\nu$ is the same in both cases. In that case, the
+central extensions are isomorphic in the category. Explicitly, this is
+because if we consider the partial commutative diagram:
+
+$$\begin{array}{rrrrr}
+  0 & \to A_1 & \to N & \stackrel{\nu}{\to} L & \to 0 \\
+  &  & \downarrow^{\text{id}} & \downarrow^{\text{id}} &\\
+  0 & \to A_2 & \to N & \stackrel{\nu}{\to} L & \to 0 \\
+\end{array}$$
+
+there is a unique choice of isomorphism $A_1 \to A_2$ so that the
+diagram as a whole commutes:
+
+$$\begin{array}{rrrrr}
+  0 & \to A_1 & \to N & \stackrel{\nu}{\to} L & \to 0 \\
+  & \downarrow & \downarrow^{\text{id}} & \downarrow^{\text{id}} &\\
+  0 & \to A_2 & \to N & \stackrel{\nu}{\to} L & \to 0 \\
+\end{array}$$
+
+Further, specifying a homomorphism from one object:
+
+$$0 \to A_1 \to N_1 \stackrel{\nu_1}{\to} L \to 0$$
+
+to another:
+
+$$0 \to A_2 \to N_2 \stackrel{\nu_2}{\to} L \to 0$$
+
+is equivalent to simply specifying the homomorphism $N_1 \to N_2$,
+because the homomorphism $A_1 \to A_2$ is uniquely determined by
+it. Explicitly, this is because in the commutative diagram:
+
+$$\begin{array}{rrrrr}
+  0 & \to A_1 & \to N_1 & \stackrel{\nu_1}{\to} L & \to 0 \\
+  &  & \downarrow^{\theta} & \downarrow^{\text{id}} &\\
+  0 & \to A_2 & \to N_2 & \stackrel{\nu_2}{\to} L & \to 0 \\
+\end{array}$$
+
+there is a unique morphism $A_1 \to A_2$ that completes the
+commutative diagram.
+
+Further, the set of permissible homomorphisms
+$N_1 \to N_2$ is precisely the set of homomorphisms $\theta: N_1 \to
+N_2$ such that $\nu_2 \circ \theta = \nu_1$.
+
+The {\em category of central extensions} of $L$ thus has the following
+alternative description. Note that strictly speaking, this is a
+different category, but the preceding remarks establish that there is
+a canonical {\em equivalence of categories} between the categories:
+
+\begin{itemize}
+\item The {\em objects} of the category are ``central extensions'' of
+  $L$ in the sense of being pairs $(N,\nu)$ where $\nu:N \to L$ is a
+  surjective Lie ring homomorphism and the kernel of $\nu$ is central
+  in $L$.
+\item Given two objects $(N_1,\nu_1)$ and $(N_2,\nu_2)$ in the
+  category, a {\em morphism} between them is a homomorphism $\theta:
+  N_1 \to N_2$ such that $\nu_2 \circ \theta = \nu_1$.
+\end{itemize}
+
+The equivalence of categories is given by the obvious forgetful
+functor from the short exact sequence category to this new category,
+that sends a short exact sequence $0 \to A \to N \stackrel{\nu}{\to} L
+\to 0$ to the quotient map $N \stackrel{\nu}{\to} L$. The functor is
+clearly essentially surjective (in fact, it is surjective on
+objects). The preceding remarks establish that the functor is full and
+faithful, and therefore an equivalence of categories. From this point
+onward, we we talk of the ``category of central extensions of $L$'' we
+will refer to the latter category.
+
+We might hope that this category has an initial object, which could
+then serve as the ``source'' classifying central extensions of
+$L$. However, such an initial object does not always exist. We will
+show in Section \ref{sec:freeinitialobject-lie}, there {\em do} exist
+objects in this category that admit homomorphisms to every other
+object in the category. These are not in general initial objects
+because the homomorphisms admitted are not unique.
+
+%\newpage
+
+\section{Explicit description of second cohomology group using the bar resolution}\label{sec:cohomology-explicit}
+
+In Section \ref{sec:second-cohomology-group-classify-extensions}, we
+stated that the second cohomology group for trivial group action
+$H^2(G;A)$ is a group whose elements correspond with congruence
+classes of central extensions with central subgroup $A$ and quotient
+group $G$. However, we did not specify the group structure at the
+time. In this section, we explicitly construct $H^2(G;A)$ as a group.
+
+Interested readers can learn more from \cite{Baer38},
+\cite{Karpilovsky}, \cite{DummitFoote}, or any standard reference on
+group cohomology.
+
+
+%% In the Appendix, we provide a general description of all homology and
+%% cohomology groups. We also discuss the corresponding description for
+%% Lie rings, which is somewhat more complicated. None of this material
+%% is critical to our main proofs.
+
+\subsection{Explicit description of second cohomology group using cocycles and coboundaries}
+
+Suppose $G$ is a group and $A$ is an abelian group. A {\em 2-cochain
+  for trivial group action} of $G$ on $A$ is defined as a set map $f:
+G \times G \to A$. With pointwise addition of functions, the set of
+$2$-cochains acquires an abelian group structure. We denote this group
+as $C^2(G;A)$.
+
+A 2-cochain $f:G \times G \to A$ is termed a {\em 2-cocycle for
+  trivial group action} if it satisfies the following condition:
+
+$$f(g_1,g_2) + f(g_1g_2,g_3) = f(g_1,g_2g_3) + f(g_2g_3) \ \forall \ g_1,g_2,g_3 \in G$$
+
+The 2-cocycles form a subgroup of $C^2(G;A)$. This subgroup is denoted
+$Z^2(G;A)$.
+
+A 2-cochain $f:G \times G \to A$ is termed a {\em 2-coboundary for
+  trivial group action} if there exists a set map $\varphi:G \to A$
+such that:
+
+$$f(g_1,g_2) = \varphi(g_1) + \varphi(g_2) - \varphi(g_1g_2)\ \forall \ g_1,g_2 \in G$$
+
+Every 2-coboundary is a 2-cocycle, and the 2-coboundaries form a
+subgroup of the group of 2-cocycles. We denote this subgroup as
+$B^2(G;A)$. The group $H^2(G;A)$, called the {\em second cohomology
+  group for trivial group action} of $G$ on $A$, is defined as the
+quotient group $Z^2(G;A)/B^2(G;A)$ (note that both are subgroups of
+the abelian group $C^2(G;A)$, hence $B^2(G;A)$ is normal in
+$Z^2(G;A)$). The elements of $H^2(G;A)$, i.e., the {\em cosets} of
+$B^2(G;A)$ in $Z^2(G;A)$, are termed {\em cohomology classes}. Given
+two elements of $Z^2(G;A)$ that are in the same cohomology class, we
+will say that they are {\em cohomologous} to each other.
+
+We will reconcile this definition
+with the earlier definition from Section \ref{sec:second-cohomology-group-classify-extensions} in Section \ref{sec:explicit-cocycle-description-of-extension}.
+
+\subsection{Functoriality and automorphism group action}
+
+Each of $C^2$, $Z^2$, $B^2$, and $H^2$, viewed in terms of $G$ and
+$A$, is {\em contravariant} in the first argument $G$ and {\em
+  covariant} in the second argument $A$. Explicitly:
+
+\begin{itemize}
+\item If $\theta:G_1 \to G_2$ is a homomorphism, then $\theta$ induces
+  a homomorphism $C^2(G_2;A) \to C^2(G_1;A)$ by composition: given a
+  map $f:G_2 \times G_2 \to A$ that is an element of $C^2(G_2;A)$, its
+  image in $C^2(G_1;A)$ is the map $(x,y) \mapsto
+  f(\theta(x),\theta(y))$. This homomorphism restricts to
+  homomorphisms $Z^2(G_2;A) \to Z^2(G_1;A)$ and $B^2(G_2;A) \to
+  B^2(G_1;A)$. Thus, it also induces a homomorphism $H^2(G_2;A) \to
+  H^2(G_1;A)$. All these induced homomorphisms define contravariant
+  functors.
+\item If $\alpha:A_1 \to A_2$ is a homomorphism, then $\alpha$ induces
+  a homomorphism $C^2(G;A_1) \to C^2(G;A_2)$ by composition: $f
+  \mapsto \alpha \circ f$. This homomorphism restricts to
+  homomorphisms $Z^2(G;A_1) \to Z^2(G;A_2)$ and $B^2(G;A_1) \to
+  B^2(G;A_2)$. Thus, it also induces a homomorphism $H^2(G;A_1) \to
+  H^2(G;A_2)$. All these induced homomorphisms define covariant
+  functors.
+\end{itemize}
+
+Based on this functoriality, we obtain a natural action of
+$\operatorname{Aut}(G) \times \operatorname{Aut}(A)$ on each of the
+groups $C^2(G;A)$, $Z^2(G;A)$, $B^2(G;A)$, and $H^2(G;A)$. We compose
+on both sides. Note that, due to {\em contravariance} in the
+$G$-argument, we need to use the inverse of the element on the
+$\operatorname{Aut}(G)$ side to keep the action a left
+action. Explicitly, $(\varphi,\alpha) \circ f$ is defined as:
+
+$$(x,y) \mapsto \alpha(f(\varphi^{-1}(x),\varphi^{-1}(y)))$$
+
+\subsection{Identifying cohomology classes with congruence classes of central extensions}\label{sec:explicit-cocycle-description-of-extension}
+
+We will now describe a bijection:
+
+Elements of the second cohomology group $H^2(G;A)$ $\leftrightarrow$
+Congruence classes of central extensions with central subgroup $A$ and
+quotient group $G$
+
+We will describe the bijection in the reverse direction. Explicitly,
+given a central extension group $E$, we will describe how to use $E$
+to obtain a cohomology class.
+
+We have the short exact sequence:
+
+$$0 \to A \stackrel{\iota}{\to} E \stackrel{\nu}{\to} G \to 1$$
+
+Pick any set map $s:G \to E$ that is a one-sided inverse to the
+surjective homomorphism $\nu: E \to G$ (such a set map is called a
+{\em section} of the extension). We can think of $s$ as specifying the
+coset representatives in $E$ for each element of $G$.
+
+Now, define the following 2-cochain $f: G \times G \to A$: for
+$g_1,g_2 \in G$, consider the element of $E$ given by
+$s(g_1g_2)(s(g_1)s(g_2))^{-1}$. This element of $E$ maps to the
+identity element of $G$, hence is in the image of $A$. Define
+$f(g_1,g_2)$ to be its inverse image under $\iota$ in $A$.
+
+Explicitly:
+
+$$s(g_1g_2) = \iota(f(g_1,g_2))s(g_1)s(g_2) \ \forall \ g_1,g_2 \in G$$
+
+We can think of $f$ as measuring the extent to which $s$ fails to be a
+homomorphism. Since $\nu \circ s$ is the identity map, $s$ is a
+homomorphism {\em modulo} $A$. The ``error term'' for $s$ therefore
+lies in $A$, and this is how we get a 2-cochain $f: G \times G \to A$.
+
+We can now verify the following:
+
+\begin{itemize}
+\item The function $f$ constructed for any section $s:G \to E$ is a
+  2-cocycle, i.e., an element of $Z^2(G;A)$. This follows from
+  associativity of group multiplication. Explicitly, if we expand
+  $s(g_1g_2g_3)$ using the two different ways of associating the
+  expression, and compare, we get the result. Note that we need to use
+  the centrality of $\iota(A)$ in $E$ to commute elements.
+\item The set of all possible functions $f$ that we can get by
+  choosing different sections $s :G \to E$ for a {\em single}
+  extension $E$ correspond to a single cohomology class, i.e., a
+  single coset of $B^2(G;A)$ in $Z^2(G;A)$, and therefore, a single
+  element of $H^2(G;A)$.  
+\item Two central extensions with central subgroup $A$ and quotient
+  group $G$ are congruent if and only if they give the same element of
+  $H^2(G;A)$.
+\end{itemize}
+
+We have now completely described one direction of the
+correspondence. The construction in the other direction is similar: we
+need to explicitly construct a group extension based on a cohomology
+class. We will omit the details, but they can be found in
+\cite{DummitFoote} or in any of the standard references on cohomology.
+
+It also follows from the above that the orbits of $H^2(G;A)$ under the
+$\operatorname{Aut}(G) \times \operatorname{Aut}(A)$ action correspond
+with the pseudo-congruence classes of extensions.
+
+\subsection{Short exact sequence of coboundaries, cocycles, and cohomology classes}\label{sec:ses-coboundary-cocycle-cohomology}
+
+We have a natural short exact sequence:
+
+$$0 \to B^2(G;A) \to Z^2(G;A) \to H^2(G;A) \to 0$$
+
+This short exact sequence does not always split. For instance,
+consider the case where $G = \mathbb{Z}/2\mathbb{Z}$ and $A =
+\mathbb{Z}$. In this case, $C^2(G;A)$ is, as an abelian group,
+isomorphic to $A^{|G| \times |G|}$, which is $\mathbb{Z}^4$. In
+particular, it is a finitely generated free abelian group. Thus, both
+$B^2(G;A)$ and $Z^2(G;A)$, which are subgroups of $C^2(G;A)$, are also
+free abelian groups. However, $H^2(G;A) \cong \mathbb{Z}/2\mathbb{Z}$, %%TONOTDO: Insert a reference
+which is not a free abelian group. If the short exact sequence {\em
+  did} split, then $H^2(G;A)$ would have been free abelian. Therefore,
+the short exact sequence does not split.
+
+In Section \ref{sec:baer-correspondence-cocycle-level}, we will see
+that in the special case that $G$ and $A$ are both $2$-powered abelian
+groups, this short exact sequence splits {\em canonically}.
+
+%\newpage
+
+\section{Exterior square, Schur multiplier, and homoclinism}\label{sec:exteriorsquare-and-homoclinism}
+
+In Sections \ref{sec:ses-group} and \ref{sec:ses-lie}, we introduced,
+for groups and for Lie rings, the notion of central extension. In this
+section, our goal is to understand, for a group $G$, the category of
+central extensions of $G$ (introduced in Section
+\ref{sec:homomorphism-central-extensions-lie}) in terms of the
+isomorphism type of $G$.
+
+We will attack this question by looking at one key attribute of the
+extension: how the commutator map behaves. Roughly speaking, the
+behavior of the commutator map classifies the central extension {\em
+  up to isoclinism}, and if we want to study the collection of central
+extensions focusing {\em only} on this attribute, we consider the {\em
+  category of central extensions with homoclinisms}, a variant of the
+category of central extensions with homomorphisms. We will establish
+key features of this category, including the fact that there is at
+most one morphism between any two objects, and the existence of
+initial objects. There are two structures in particular that store a
+lot of the information related to the central extensions of $G$. These
+are the exterior square $G \wedge G$ (which serves as a source object
+for the derived subgroups in all central extensions) and the Schur
+multiplier $M(G)$ (which is the kernel of the canonical map $G \wedge
+G \to [G,G]$).
+
+We tangentially mention in this section the well-known fact that the
+Schur multiplier $M(G)$ has an alternative description as the second
+homology group $H_2(G;\mathbb{Z})$. We do not provide a proof here,
+since developing the underlying machinery of homology would take us
+too far afield. However, the techniques used to establish this are
+closely related to the explicit description of the second cohomology
+group in Section \ref{sec:cohomology-explicit}. For reference, see the
+exact sequence appearing as (2.8) in Loday and Brown's 1987 paper
+\cite{BrownLoday}.
+
+\subsection{Exterior square}\label{sec:exteriorsquare}
+
+The exterior square of a group was originally considered (though not
+with that name) in the paper \cite{Miller52} by Clair Miller in
+1952. It was later defined as a special case of a more general concept
+called the {\em exterior product of groups} in \cite{BrownLoday}. More
+information about the exterior square and related constructions can be
+found in \cite{McDermottThesis} and \cite{Ellis87}.
+
+The definition that we provide here for the exterior square is the
+``abstract'' definition. We will provide a concrete definition (based
+on generators and relations) in Section
+\ref{sec:exteriorsquare-explicit}. The equivalence of the two
+approaches is discussed in Miller's original paper, and we include
+some further discussion of the equivalence in Section
+\ref{sec:exteriorsquare-reconciliation}. As we demonstrate in this
+section, however, the initial theory is best established using the
+abstract definition.
+
+Suppose $G$ is a group. The {\em exterior square} of $G$, denoted by
+$G \wedge G$, is defined as follows. Let $\mathcal{F}$ be the free
+group on the set $G \times G$. 
+
+For any central extension:
+
+$$0 \to A \to E \to G \to 1$$
+
+there is a set map:
+
+$$\omega_{E,G}: G \times G \to [E,E]$$
+
+given by:
+
+$$\omega_{E,G}(x,y) = [\tilde{x},\tilde{y}]$$
+
+where $\tilde{x}$ denotes any element of $E$ that maps to $x$ and
+$\tilde{y}$ denotes any element of $E$ that maps to $y$. Note that the
+map is well defined (i.e., it does not depend on the choice of the
+lifts $\tilde{x}$ and $\tilde{y}$) because the extension is a central
+extension.
+
+Note that the set map $\omega_{E,G}$ described here differs from
+$\omega_E$ in the following important respect: $\omega_{E,G}$ is a map
+from $G \times G$, whereas $\omega_E$ is a map from $E/Z(E) \times
+E/Z(E)$. However, it is obvious that $\omega_{E,G}$ {\em factors
+  through} $\omega_E$.
+
+$\mathcal{F}$ is the free group on $G \times G$, so $\omega_{E,G}$ gives rise to a group homomorphism:
+
+$$\hat{\omega}_{E,G}:\mathcal{F} \to [E,E]$$
+
+Note also that this homomorphism is {\em surjective}, because by
+definition, $[E,E]$ is the subgroup of $E$ generated by the image of the
+set map $\omega_{E,G}$.
+
+Define $\mathcal{R}$ as the intersection of the kernels of all such
+homomorphisms $\hat{\omega}_{E,G}$ where $E$ varies over all central
+extension groups with quotient group $G$. Note that even though the
+collection of all such homomorphisms is too large to be a set, the
+collection of possible kernels is a set, so the intersection is well
+defined. In other words, $\mathcal{R}$ is the set of all products of
+formal pairs of elements and their inverses such that the
+corresponding commutator words become trivial in every central
+extension of $G$. We define the exterior square $G \wedge G$ as the
+quotient group $\mathcal{F}/\mathcal{R}$. The image of $(x,y)$ in the
+group is denoted $x \wedge y$.
+
+It is clear from the definition that, for any central
+extension $E$ with short exact sequence:
+
+$$0 \to A \to E \to G \to 1$$
+
+there exists a unique natural homomorphism $\Omega_{E,G}$ from $G \wedge G$ to
+$[E,E]$ satisfying the condition that for any $x,y \in G$ we have:
+
+$$\Omega_{E,G}(x \wedge y) = [\tilde{x},\tilde{y}]$$
+
+where $\tilde{x}$ and $\tilde{y}$ are elements of $E$ that map to $x$
+and $y$ respectively. Note also that $\Omega_{E,G}$ is {\em
+  surjective}.
+
+As a special case of the above, there is a natural homomorphism:
+
+$$G \wedge G \to [G,G]$$
+
+given on a generating set by:
+
+$$x \wedge y \mapsto [x,y]$$
+
+The kernel of this homomorphism is called the {\em Schur multiplier}
+of $G$ and is denoted $M(G)$. We can easily deduce that $M(G)$ is a
+central subgroup of $G \wedge G$. We thus have a short exact sequence:
+
+$$0 \to M(G) \to G \wedge G \to [G,G] \to 1$$
+
+There are numerous other definitions of the Schur multiplier. The most
+common textbook definition is that $M(G) = H_2(G;\mathbb{Z})$, i.e.,
+it is the second homology group for trivial group action with
+coefficients in the integers. \cite{Karpilovsky} has a detailed
+description of techniques to compute the Schur multiplier for finite
+groups. \cite{BrownLoday} and \cite{McDermottThesis} provide
+background on why the two definitions of Schur multiplier agree. In
+particular, see the exact sequence appearing as (2.8) in Loday and
+Brown's 1987 paper \cite{BrownLoday}.
+
+\subsection{The existence of a single central extension that realizes the exterior square}\label{sec:grandcentralproduct}
+
+Consider a group $G$. A natural question is whether there exists a
+central extension group $E$ with quotient group $G$ with the property
+that the natural homomorphism:
+
+$$\Omega_{E,G}: G \wedge G \to [E,E]$$
+
+is an isomorphism.
+
+The answer to this question is {\em yes}. We provide one construction
+below. We will provide another construction in
+Section \ref{sec:freeinitialobject}.
+
+Recall the earlier description of $G \wedge G$ as a quotient
+$\mathcal{F}/\mathcal{R}$. The normal subgroup $\mathcal{R}$ was
+defined as the intersection of all possible normal subgroups arising
+as kernels of the natural homomorphisms $\mathcal{F} \to [E,E]$ for a
+central extension group $E$. For each possible normal subgroup $N_i, i
+\in I$ of $\mathcal{F}$ that arises this way, let $E_i$ denote a
+corresponding central extension of $G$.
+
+Define $E_0$ to be the pullback (also called the {\em fiber product}
+or the {\em subdirect product}) corresponding to all the quotient maps
+$E_i \to G$. We can verify that the natural mapping:
+
+$$\mathcal{F} \to [E_0,E_0]$$
+
+has kernel precisely $\mathcal{R}$, and hence, the mapping:
+
+$$G \wedge G \to [E_0,E_0]$$
+
+is an isomorphism.
+
+\subsection{Homoclinism of central extensions}\label{sec:homoclinism-central-extensions}
+
+Suppose $G$ is a group. We define a certain category for which we are
+interested in computing the initial object. We will call this category
+the {\em category of central extensions of $G$ with homoclinisms}. Explicitly,
+the objects of the category are short exact sequences of the form:
+
+$$0 \to A \to E \to G \to 1$$
+
+where the image of $A$ is central in $E$.
+
+The morphisms in the category, which we call {\em homoclinisms of
+  central extensions}, are defined as follows. For two objects:
+
+$$0 \to A_1 \to E_1 \to G \to 1$$
+
+and
+
+$$0 \to A_2 \to E_2 \to G \to 1$$
+
+a morphism from the first to the second is a group homomorphism
+$\varphi: E_1' \to E_2'$ between the derived subgroups $E_1' =
+[E_1,E_1]$ and $E_2' = [E_2,E_2]$ such that the following holds. Let
+$\omega_1: G \times G \to E_1'$ denote the map arising from the
+commutator map in $E_1$ and let $\omega_2: G \times G \to E_2'$ denote
+the corresponding map in $E_2$. We require that $\varphi \circ
+\omega_1 = \omega_2$ as set maps.
+
+The above condition can be reframed in terms of group homomorphisms if
+we use the exterior square: let $\Omega_1: G \wedge G \to E_1'$,
+$\Omega_2: G \wedge G \to E_2'$ denote the natural homomorphisms
+described in Section \ref{sec:exteriorsquare}. The condition we need
+is that $\varphi \circ \Omega_1 = \Omega_2$.
+
+\subsection{Relation between the category of central extensions and the category of central extensions with homoclinisms}
+
+Any {\em homomorphism} of central extensions induces a {\em
+  homoclinism} of central extensions. Explicitly, consider two central
+extensions:
+
+$$0 \to A_1 \to E_1 \stackrel{\nu_1}{\to} G \to 1$$
+
+and
+
+$$0 \to A_2 \to E_2 \stackrel{\nu_2}{\to} G \to 1$$
+
+As discussed in Section \ref{sec:homomorphism-central-extensions}, the
+central extensions are completely described by the pairs $(E_1,\nu_1)$
+and $(E_2,\nu_2)$ respectively. A homomorphism of central extensions
+can be specified as a homomorphism $\theta:E_1 \to E_2$ satisfying the
+condition that $\nu_2 \circ \theta = \nu_1$.
+
+Any such homomorphism of central extensions induces a {\em
+  homoclinism} of central extensions. Explicitly, for a homomorphism
+$\theta: E_1 \to E_2$ satisfying $\nu_2 \circ \theta = \nu_1$, define
+$\varphi$ as the homomorphism $E_1' \to E_2'$ obtained by restricting
+$\theta$ to $E_1'$. We claim that $\varphi$ defines a homoclinism of
+the central extensions. We now prove that this construction works.
+
+\begin{lemma}\label{lemma:homomorphism-restriction-homoclinism}
+  Suppose $(E_1,\nu_1)$ and $(E_2,\nu_2)$ are central extensions of a
+  group $G$, and $\theta:E_1 \to E_2$ is a homomorphism of central
+  extensions, i.e., $\nu_2 \circ \theta = \nu_1$. Denote by $\omega_1:
+  G \times G \to E_1'$ and $\omega_2: G \times G \to E_2'$ the maps
+  induced by the commutator maps in $E_1$ and $E_2$ respectively. Let
+  $\varphi:E_1' \to E_2'$ be the homomorphism obtained by restricting
+  $\theta$ to the derived subgroup $E_1'$. Then, $\varphi$ is a
+  homoclinism of central extensions, i.e., $\varphi \circ \omega_1 =
+  \omega_2$.
+\end{lemma}
+
+\begin{proof}
+  Let $u$, $v$ be arbitrary elements of $G$ (possibly equal, possibly
+  distinct). Our goal is to show that:
+
+  $$\varphi(\omega_1(u,v)) = \omega_2(u,v)$$
+
+  Let $x, y \in E_1$ be elements such that $\nu_1(x) = u$ and
+  $\nu_1(y) = v$. Then, by definition, $\omega_1(u,v) =
+  [x,y]$. Simplify the left side:
+
+  $$\varphi(\omega_1(u,v)) = \varphi([x,y]) = \theta([x,y]) = [\theta(x),\theta(y)] = \omega_2(\nu_2(\theta(x)),\nu_2(\theta(y)))$$
+
+  Now, use that $\nu_2 \circ \theta = \nu_1$ and simplify further to:
+
+  $$\omega_2(\nu_1(x),\nu_1(y)) = \omega_2(u,v)$$
+
+  which is the right side.
+\end{proof}
+
+\subsection{Uniqueness of homoclinism if it exists}
+
+We will show that if a homoclinism exists between two central
+extensions, it must be unique.
+
+\begin{lemma}\label{lemma:uniqueness-of-homoclinism}
+  Consider two short exact sequences that give central extensions of a group $G$:
+
+  $$0 \to A_1 \to E_1 \to G \to 1$$
+
+  $$0 \to A_2 \to E_2 \to G \to 1$$
+
+  Denote by $\omega_1:G \times G \to E_1'$ and $\omega_2:G \times G
+  \to E_2'$ the commutator maps.
+
+  Suppose there exists homoclinisms $\varphi,\theta$ from the first
+  central extension to the second. Explicitly, $\varphi:E_1' \to E_2'$
+  and $\theta:E_1' \to E_2'$ are homomorphisms such that $\varphi
+  \circ \omega_1 = \omega_2$ and $\theta \circ \omega_1 =
+  \omega_2$. Then, $\varphi = \theta$.
+\end{lemma}
+
+\begin{proof}
+  Denote by $\nu_1$ the quotient map $E_1 \to G$ and by $\nu_2$ the
+  quotient map $E_2 \to G$.
+
+  It will suffice to show that $\varphi$ and $\theta$ agree with each
+  other on the set of all commutators, which is a generating set for
+  $E_1'$. Consider a commutator $[x,y]$ with $x,y \in E_1$. Let $u =
+  \nu_1(x)$ and $v = \nu_1(y)$. 
+
+  By definition, $[x,y] = \omega_1(u,v)$. Thus, $\varphi([x,y]) =
+  \varphi(\omega_1(u,v)) = \omega_2(u,v)$. Similarly, $\theta([x,y]) =
+  \theta(\omega_1(u,v)) = \omega_2(u,v)$. We thus obtain that
+  $\varphi([x,y]) = \theta([x,y])$, completing the proof.
+\end{proof}
+
+Thus, if a homoclinism exists, it is unique. However, a homoclinism
+need not exist. The obstruction occurs if there are relations within
+the derived subgroup $E_1'$ such that the corresponding relations are
+not valid in the derived subgroup $E_2'$.
+
+\subsection{Existence and description of initial objects in the category of central extensions up to homoclinisms}
+
+In category theory, an object $X$ in a category $\mathcal{C}$ is
+termed an initial object if for every object $Y \in \mathcal{C}$,
+there is a unique morphism from $X$ to $Y$, sometimes called the {\em
+  initial morphism}. It can easily be seen using ``abstract
+nonsense''\footnote{``Abstract nonsense'' is a non-derogatory term
+  used to refer to proof methods that rely on formalistic ideas,
+  typically from category theory, rather than on the specifics of the
+  structures being studied. Statements proved using abstrcat nonsense
+  are often very general.} that if $X_1$ and $X_2$ are both initial
+  objects in a category $\mathcal{C}$, then there exists a unique
+  isomorphism between $X_1$ and $X_2$. In other words, the initial
+  object in a category is uniquely determined up to (unique)
+  isomorphism.
+
+We are interested in identifying the initial objects in the category
+of extensions of $G$ with homoclinisms discussed in Section
+\ref{sec:homoclinism-central-extensions}.
+
+\begin{lemma}[Existence and description of initial objects]\label{lemma:initobj}
+  For a group $G$, consider the category of central extensions of $G$
+  with homoclinisms. The following are true for this category.
+  \begin{enumerate}
+  \item There exists a central extension $E_0$ of $G$ for which the
+    natural homomorphism $\Omega_0: G \wedge G \to E_0'$ is an isomorphism.
+  \item Any central extension $E_0$ of $G$ for which the natural
+    homomorphism $\Omega_0:G \wedge G \to E_0'$ is an isomorphism is
+    an initial object of the category.
+  \item If a central extension $E_1$ of $G$ is an initial object of
+    the category, the corresponding homomorphism $\Omega_1:G \wedge G
+    \to E_1'$ is an isomorphism.
+  \item Combining all the above: the category of central extensions of
+    $G$ with homoclinisms admits initial objects, and a central
+    extension $E \to G$ is an initial object for the category if and
+    only if the commutator map homomorphism $\Omega_{E,G}: G \wedge G
+    \to [E,E]$ is an isomorphism.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  \begin{itemize}
+  \item Proof of (1): In Section \ref{sec:grandcentralproduct}, we
+    constructed a central extension group $E_0$ for which the natural
+    map $\Omega_0: G \wedge G \to E_0'$ is an isomorphism.
+
+  \item Proof of (2): Suppose $E_0$ is a central extension for which
+    the commutator map $\Omega_0:G \wedge G \to E_0'$ is an
+    isomorphism. For any central extension $E_2$, there is a natural
+    homomorphism $\Omega_2: G \wedge G \to E_2'$. Composing this with
+    the inverse of $\Omega_0$, we obtain a homomorphism
+    $\varphi:E_0' \to E_2'$ that defines a homoclinism of the
+    extensions. Moreover, by Lemma
+    \ref{lemma:uniqueness-of-homoclinism}, this is the {\em unique}
+    homoclinism of the extensions.
+
+  \item Proof of (3): We already know of the existence of a central
+    extension $E_0$ for which $\Omega_0:G \wedge G \to E_0'$ is
+    an isomorphism by (1). We also know that it is an initial object
+    by (2). By the uniqueness of initial objects up to isomorphism,
+    $E_0$ and $E_1$ are isomorphic in the category of central
+    extensions of $G$ with homoclinisms. Thus, there exists an
+    isomorphism $\varphi_1:E_0' \to E_1'$ such that $\varphi_1 \circ
+    \Omega_0 = \Omega_1$. Since both $\varphi_1$ and $\Omega_0$ are
+    isomorphisms, $\Omega_1$ is also an isomorphism.
+
+  \item Proof of (4): This follows by combining (1), (2), and (3).
+  \end{itemize}
+\end{proof}
+
+\subsection{An alternate construction of the initial object}\label{sec:freeinitialobject}
+
+Here is an alternative way of constructing a central extension $E_1$ for which the natural map:
+
+$$\Omega_1:G \wedge G \to E_1$$
+
+is an isomorphism.
+
+Write $G$ as the quotient of a free group $F$ by a normal subgroup $R$
+of $F$. Let $\nu:F \to G$ denote the quotient map. The kernel of $\nu$
+is $R$.
+
+The group $E_1$ that we are interested in is $F/[F,R]$. This group
+$E_1$ is a central extension of $G$ in a natural fashion. Denote by
+$\overline{\nu}$ the corresponding quotient map $E_1 \to G$. Consider
+the commutator map $\omega_1:G \times G \to E_1$ and denote by
+$\Omega_1$ the corresponding group homomorphism:
+
+$$\Omega_1: G \wedge G \to [E_1,E_1]$$
+
+Consider any extension:
+
+$$0 \to A \to E_2 \stackrel{\mu}{\to} G \to 1$$
+
+with the natural commutator map $\omega_2:G \times G \to E_2$ and the
+corresponding commutator map homomorphism:
+
+$$\Omega_2:G \wedge G \to [E_2,E_2]$$
+
+Our goal is to show that there there exists a unique homomorphism
+$\varphi:[E_1,E_1] \to [E_2,E_2]$ such that $\varphi \circ
+\omega_1 = \omega_2$, or equivalently, $\varphi \circ \Omega_1 =
+\Omega_2$.
+
+The map $\nu:F \to G$ lifts to a map $\psi:F \to E_2$ because
+$F$ is a free group (note that the lift is not necessarily
+unique). Explicitly, this means that $\mu \circ \psi = \nu$.
+
+We know that $\nu(R)$ is trivial, so $\mu(\psi(R))$ is trivial. Thus,
+$\psi(R)$ lands inside the kernel of $\mu$, which is the image of $A$
+in $E_2$. Thus, $\psi(R)$ is a central subgroup of $E_2$. Therefore,
+$\psi([F,R]) = [\psi(F),\psi(R)]$ is trivial.
+
+Thus, $\psi$ descends to a homomorphism $\theta:E_1 \to E_2$, where
+$E_1 = F/[F,R]$ as defined above, with the property that $\mu \circ
+\theta = \overline{\nu}$. The condition $\mu \circ \theta =
+\overline{\nu}$ can be interpreted as saying that $\theta$ is a
+homomorphism from the central extensions $(E_1,\overline{\nu})$ to the
+central extension $(E_2,\mu)$. Denote by $\varphi:E_1' \to E_2'$ the
+restriction of $\theta$ to $E_1'$. Thus, by Lemma
+\ref{lemma:homomorphism-restriction-homoclinism}, $\varphi$ defines a
+homoclinism of the central extensions. Lemma
+\ref{lemma:uniqueness-of-homoclinism} now establishes that the
+homoclinism is unique. Finally, Lemma \ref{lemma:initobj} establishes
+from this that $(E_1,\overline{\nu})$ defines an initial object in the
+category of central extensions of $G$ with homoclinisms.
+
+{\em Clarification regarding uniqueness}: In the discussion above, the
+lift $\psi: F \to E_2$ of $\nu:F \to G$ is not unique, because it
+involves picking {\em arbitrary} coset representatives of $G$ in $E_2$
+for the freely generating set of $F$. The homomorphism $\theta:E_1 \to
+E_2$ also need not be unique. However, the map $\varphi:E_1' \to
+E_2'$, obtained by restricting $\theta$ to $E_1'$, {\em is} unique.
+
+\subsubsection{Canonical choice of $E_1$}
+
+The description of $E_1$ above is unique once we fix the description
+of $G$ of the form $F/R$ where $F$ is a free group. Specifying a
+description of this form is equivalent to specifying a generating set
+for $G$, and thus, the description relies on a choice of generating
+set for $G$.
+
+It is possible to make a {\em canonical} choice of $E_1$ by making a
+canonical choice of generating set for $G$, namely, the entire
+underlying set of $G$. In this case, the free group $F$ is the free
+group on the underlying set of $G$, and the normal subgroup $R$ is
+generated by the multiplication table of $G$, viewed as relations
+within $F$ (explicitly, for any product relation of the form $gh = k$
+in $G$, we introduce the relation $ghk^{-1}$ in $F$).
+
+There is an alternative description of the group $E_1$ that
+demonstrates its canonical nature: $E_1$ is the freest possible group
+admitting $G$ as a quotient by a central subgroup.\footnote{This might
+  tempt one to think that $(E_1,\overline{\nu})$ is an initial object
+  in the category of central extensions of $G$ with {\em
+    homomorphisms}, but the non-uniqueness of homomorphisms involved,
+  along with some other considerations, makes this false.}
+
+\subsection{Functoriality of exterior square and Schur multiplier}\label{sec:functoriality}
+
+The exterior square and Schur multiplier are both {\em
+  functorial}. Explicitly, for any homomorphism $\varphi:G \to H$ of
+groups, there are homomorphisms $\varphi \wedge \varphi: G \wedge G
+\to H \wedge H$ and $M(\varphi): M(G) \to M(H)$ and the associations
+are functorial. This means that for homomorphisms $\varphi:G \to H$
+and $\theta: H \to K$, $(\theta \circ \varphi) \wedge (\theta \circ
+\varphi) = (\theta \wedge \theta) \circ (\varphi \wedge \varphi)$ and
+also $M(\theta \circ \varphi) = M(\theta) \circ M(\varphi)$.
+
+The proofs of both assertions are straightforward, but we are not
+including them here because we do not use the functoriality of the
+Schur multiplier. See a more detailed discussion of functoriality in
+the Appendix, Section \ref{appsec:functor}.
+
+\subsection{Homoclinisms and words for central extensions}\label{sec:homoclinisms-words-central-extensions}
+
+We state and prove some results that are similar in spirit to the
+results in Section \ref{sec:homoclinism-misc-results}.
+
+\begin{lemma}\label{lemma:iterated-commutator-descends-extension-version}
+  Suppose $G$ is a group and $w(g_1,g_2,\dots,g_n)$ is a word in $n$
+  letters with the property that $w$ evaluates to the identity element
+  in every abelian group. The following are true.
+
+  \begin{enumerate}
+  \item For every central extension $E$ of $G$, $w$ can be used to
+    define a set map $\chi_{w,E}: G^n \to [E,E]$.
+  \item For any homoclinism between central extensions $E_1$ and
+    $E_2$, with the central extension specified via a homomorphism
+    $\varphi:[E_1,E_1] \to [E_2,E_2]$, we have that:
+
+    $$\varphi \circ \chi_{w,E_1} = \chi_{w,E_2}$$
+  \end{enumerate}
+\end{lemma}
+
+%%TONOTDO: Possibly insert more detail here
+
+\begin{proof}
+  {\em Proof of (1)}: This is similar to the proof of Theorem
+  \ref{thm:iterated-commutator-descends-to-inn}. Alternatively, we can
+  deduce it from the {\em result} of Theorem
+  \ref{thm:iterated-commutator-descends-to-inn} by noting that the
+  map factors as follows:
+
+  $$G^n \to (E/Z(E))^n \to [E,E]$$
+
+  {\em Proof of (2)}: This is similar to the proof of Theorem
+  \ref{thm:iterated-commutator-commutes-homoclinisms}. Alternatively,
+  we can deduce it from the {\em result} of Theorem
+  \ref{thm:iterated-commutator-commutes-homoclinisms} by factoring
+  through $E/Z(E)$.
+\end{proof}
+
+We can now prove the theorem.
+
+\begin{theorem}\label{thm:iterated-commutator-map-to-exteriorsquare}
+  Suppose $G$ is a group and $w(g_1,g_2,\dots,g_n)$ is a word in $n$
+  letters with the property that $w$ evaluates to the identity element
+  in every abelian group. Then, there exists a set map $X_w:G^n \to G
+  \wedge G$ with the property that for any central extension $E$ of
+  $G$, $\Omega_{E,G} \circ X_w = \chi_{w,E}$.
+\end{theorem}
+
+\begin{proof}
+  Apply Part (1) of Lemma
+  \ref{lemma:iterated-commutator-descends-extension-version} to the
+  case where the extension $E_0$ is an initial object in the category
+  of central extensions of $G$, so that the map $\Omega_{E_0,G}: G
+  \wedge G \to [E_0,E_0]$ is an isomorphism. Define $X_w =
+  \Omega_{E_0,G}^{-1} \circ \chi_{w,E_0}$. For any central extension
+  $E$ of $G$, there is a homoclinism from the extension $E_0$ to the
+  extension $E$ defined via the homomorphism $\varphi: [E_0,E_0] \to
+  [E,E]$. By Part (2) of Lemma
+  \ref{lemma:iterated-commutator-descends-extension-version}, we have:
+
+  $$\varphi \circ \chi_{w,E_0} = \chi_{w,E}$$
+
+  We can rewrite $\chi_{w,E_0}$ as $\Omega_{E,G} \circ X_w$, and obtain:
+
+  $$\varphi \circ (\Omega_{E,G} \circ X_w) = \chi_{w,E}$$
+
+  Using associativity of composition, we obtain:
+
+  $$(\varphi \circ \Omega_{E,G}) \circ X_w = \chi_{w,E}$$
+
+  $\Omega$ itself commutes with homoclinisms, so we obtain:
+
+  $$\Omega_{E_0,G} \circ X_w = \chi_{w,E}$$
+\end{proof}
+%\newpage
+
+\section{Exterior square, Schur multiplier, and homoclinism for Lie rings}\label{sec:exteriorsquare-and-homoclinism-lie}
+
+A large part of this section repeats for Lie rings what the previous
+section did for groups. The main exception is the content in Sections
+\ref{sec:free-lie-ring-on-abelian-group} and Section
+\ref{sec:exteriorsquare-abelian-lie}. The material presented in
+Section \ref{sec:free-lie-ring-on-abelian-group} has no natural group
+analogue, while the results Section
+\ref{sec:exteriorsquare-abelian-lie} have group analogues that are
+harder to prove, and are deferred to Sections
+\ref{sec:exteriorsquare-abelian-group-intro} and
+\ref{sec:exteriorsquare-abelian-group-proofs}.
+
+For background on the homology and cohomology theory of Lie rings, see
+Weibel's homological algebra textbook \cite{Weibel}.
+
+\subsection{Exterior square}\label{sec:exteriorsquare-lie}
+
+The concept of exterior square of a Lie ring appears to have first
+been explicitly discussed in the literature in the paper
+\cite{EllisLie} by Graham Ellis.
+
+The definition that we provide here for the exterior square is the
+``abstract'' definition. We will provide a concrete definition (based
+on generators and relations) in Section
+\ref{sec:exteriorsquare-explicit-lie}. The equivalence of the two
+approaches follows from the work in \cite{EllisLie}. Background theory
+on the homology of Lie rings is discussed in
+\cite{SchurmultiplierandLazard} and the references therein.
+
+Suppose $L$ is a Lie ring. The {\em exterior square} of $L$, denoted by
+$L \wedge L$, is defined as follows. Let $\mathcal{F}$ be the free
+Lie ring on the set $L \times L$. 
+
+For any central extension:
+
+$$0 \to A \to N \to L \to 0$$
+
+there is a set map (in fact, a $\mathbb{Z}$-bilinear map):
+
+$$\omega_{N,L}: L \times L \to [N,N]$$
+
+given by:
+
+$$\omega_{N,L}(x,y) = [\tilde{x},\tilde{y}]$$
+
+where $\tilde{x}$ denotes any element of $N$ that maps to $x$ and
+$\tilde{y}$ denotes any element of $N$ that maps to $y$. Note that the
+map is well defined (i.e., it does not depend on the choice of the
+lifts $\tilde{x}$ and $\tilde{y}$) because the extension is a central
+extension.
+
+$\mathcal{F}$ is the free Lie ring on $L \times L$, so $\omega_{N,L}$
+gives rise to a Lie ring homomorphism:
+
+$$\hat{\omega}_{N,L}:\mathcal{F} \to [N,N]$$
+
+Note also that this homomorphism is {\em surjective}, because by
+definition, $[N,N]$ is the subring of $N$ generated by the image of the
+set map $\omega_{N,L}$.
+
+Define $\mathcal{R}$ as the intersection of the kernels of all such
+homomorphisms $\hat{\omega}_{N,L}$ where $N$ varies over all central
+extension Lie rings with quotient ring $L$. Note that even though the
+collection of all such homomorphisms is too large to be a set, the
+collection of possible kernels is a set, so the intersection is well
+defined. In other words, $\mathcal{R}$ is the set of all
+$\mathbb{Z}$-linear combinations of formal pairs such that the
+corresponding sums of Lie brackets would become trivial in every
+central extension of $L$. We define the exterior square $L \wedge L$
+as the quotient Lie ring $\mathcal{F}/\mathcal{R}$. The image of $(x,y)$
+in the Lie ring is denoted $x \wedge y$.
+
+It is clear from the definition that, for any central
+extension $N$ with short exact sequence:
+
+$$0 \to A \to N \to L \to 0$$
+
+there exists a unique natural homomorphism $\Omega_N$ from $L \wedge L$ to
+$[N,N]$ satisfying the condition that for any $x,y \in L$ we have:
+
+$$\Omega_N(x \wedge y) = [\tilde{x},\tilde{y}]$$
+
+where $\tilde{x}$ and $\tilde{y}$ are elements of $N$ that map to $x$
+and $y$ respectively. Note also that $\Omega_N$ is {\em surjective}.
+
+As a special case of the above, there is a natural homomorphism:
+
+$$L \wedge L \to [L,L]$$
+
+given on a generating set by:
+
+$$x \wedge y \mapsto [x,y]$$
+
+The kernel of this homomorphism is called the {\em Schur multiplier}
+of $L$ and is denoted $M(L)$. We can easily deduce that $M(L)$ is a
+central subring of $L \wedge L$. We thus have a short exact sequence:
+
+$$0 \to M(L) \to L \wedge L \to [L,L] \to 0$$
+
+\subsection{Free Lie ring on an abelian group}\label{sec:free-lie-ring-on-abelian-group}
+
+Suppose $G$ is an abelian group. The {\em free Lie ring} on $G$ is
+defined as the initial object in the category of Lie rings $L$ with
+group homomorphisms from $G$ to them.
+
+\begin{lemma}
+  The free Lie ring on $G$ exists and is a $\N$-graded Lie ring where
+  the degree $1$ homogeneous component is isomorphic to $G$.
+\end{lemma}
+
+\begin{proof}
+  The free Lie ring on $G$ is the quotient of the free ring on $G$ by
+  the ideal generated by all the Lie identities. The free ring on $G$
+  is given as the infinite direct sum:
+
+  $$\bigoplus_{i=1}^\infty \bigotimes^iG$$
+
+  The ideal that we need to factor out by is a homogeneous ideal
+  because all the Lie identities are homogeneous identities. Thus, the
+  free Lie ring is naturally a $\N$-graded Lie ring.
+\end{proof}
+
+Denote by $\mathcal{L}$ the free Lie ring on $G$. Then, for any
+positive integer $c$, we can define the free class $c$ Lie ring on $G$
+as the quotient ring $\mathcal{L}/\gamma_{c+1}(\mathcal{L})$. Note that this is
+also a $\N$-graded Lie ring, but it is zero except in the first $c$
+homogeneous components. In particular, this is a quotient of:
+
+$$\bigoplus_{i=1}^c \bigotimes^i G$$
+
+\begin{lemma}
+  Suppose $G$ is an abelian group. The degree $2$ homogeneous
+  component of the free Lie ring on $G$ is isomorphic to the ring $G
+  \wedge_\Z G$. Equivalently, the free class two Lie ring on $G$ has
+  additive group $G \oplus (G \wedge_\Z G)$ with Lie bracket:
+
+  $$[(x,u),(y,v)] = [0,x \wedge_\Z y]$$
+\end{lemma}
+
+\begin{proof}
+  Note that of the Lie ring identities, the Jacobi identity becomes
+  redundant because of the class two condition. The only condition on
+  the Lie bracket is that it is alternating. Taking the quotient of $G
+  \oplus (G \otimes G)$ by this relation gives $G \oplus (G \wedge_\Z
+  G)$.
+\end{proof}
+
+\subsection{Relation between exterior square of a Lie ring and exterior square in the abelian group sense}\label{sec:exteriorsquare-abelian-lie}
+
+Recall that the additive group of $L$ has an exterior square {\em as
+  an abelian group}. Denote this as $L \wedge_\Z L$.
+
+We have a canonical abelian group homomorphism:
+
+$$L \wedge_\Z L \to L \wedge L$$
+
+The homomorphism is constructed as follows. For every central
+extension $N$ of $L$, the map $\Omega_N:L \times L \to [N,N]$ is
+$\mathbb{Z}$-bilinear because the Lie bracket map itself is
+$\mathbb{Z}$-bilinear.
+
+Thus, the natural map $L \times L \to L \wedge L$ given by $(x,y)
+\mapsto x \wedge y$ is $\mathbb{Z}$-bilinear. Hence, it induces an
+abelian group homomorphism $L \wedge_\Z L \to L \wedge L$. This is the
+homomorphism we seek.
+
+The canonical homomorphism $L \wedge_\Z L \to L \wedge L$ is
+surjective: It is obvious that $L \wedge L$ is generated as a Lie ring
+by the image of $L \wedge_\Z L$. The main thing to verify is that, in
+fact, the image of $L \wedge_\Z L$ is closed under the Lie
+bracket. The following identity demonstrates this:
+
+$$[(m_1 \wedge n_1),(m_2 \wedge n_2)] = -[n_1,m_1] \wedge [m_2,n_2]$$
+
+We now turn to a proof of an important result. Note that this is
+subsumed by the explicit presentation of the exterior square in
+Section \ref{sec:exteriorsquare-explicit-lie}, but we give an explicit
+proof here for convenience.
+
+\begin{lemma}\label{lemma:exteriorsquare-of-abelian-group}
+  Suppose $L$ is an abelian Lie ring. Then, the canonical surjective
+  homomorphism $L \wedge_\Z L \to L \wedge L$ is an isomorphism. This
+\end{lemma}
+
+\begin{proof}
+  We have already established surjectivity, so to demonstrate
+  injectivity, it suffices to construct a central extension $N$ of $L$
+  for which the composite map $L \wedge_\Z L \to [N,N]$ is an
+  isomorphism. Taking $N$ to be the free class two Lie ring on the
+  additive group of $L$ works, based on the discussion in Section
+  \ref{sec:free-lie-ring-on-abelian-group}.
+\end{proof}
+
+\subsection{The existence of a single central extension that realizes the exterior square}\label{sec:grandcentralproduct-lie}
+
+Consider a Lie ring $L$. A natural question is whether there exists a
+central extension Lie ring $N$ with quotient Lie ring $L$ with the
+property that the natural homomorphism:
+
+$$\Omega_N: L \wedge L \to [N,N]$$
+
+is an isomorphism.
+
+The answer to this question is {\em yes}. We provide one construction
+below. We will provide another construction in
+Section \ref{sec:freeinitialobject-lie}.
+
+Recall the earlier description of $L \wedge L$ as a quotient
+$\mathcal{F}/\mathcal{R}$. The ideal $\mathcal{R}$ was
+defined as the intersection of all possible ideals arising
+as kernels of the natural homomorphisms $\mathcal{F} \to [N,N]$ for a
+central extension Lie ring $N$. For each possible ideal $J_i, i
+\in I$ of $\mathcal{F}$ that arises this way, let $N_i$ denote a
+corresponding central extension of $L$.
+
+Define $N_0$ to be the pullback (also called the {\em fiber product}
+or the {\em subdirect product}) corresponding to all the quotient maps
+$N_i \to L$. We can verify that the natural mapping:
+
+$$\mathcal{F} \to [N_0,N_0]$$
+
+has kernel precisely $\mathcal{R}$, and hence, the mapping:
+
+$$L \wedge L \to [N_0,N_0]$$
+
+is an isomorphism.
+
+\subsection{Homoclinism of central extensions}\label{sec:homoclinism-central-extensions-lie}
+
+Suppose $L$ is a Lie ring. We define a certain category for which we are
+interested in computing the initial object. We will call this category
+the {\em category of central extensions of $L$ with homoclinisms}. Explicitly,
+the objects of the category are short exact sequences of the form:
+
+$$0 \to A \to N \to L \to 0$$
+
+where the image of $A$ is central in $N$.
+
+The morphisms in the category, which we call {\em homoclinisms of
+  central extensions}, are defined as follows. For two objects:
+
+$$0 \to A_1 \to N_1 \to L \to 0$$
+
+and
+
+$$0 \to A_2 \to N_2 \to L \to 0$$
+
+a morphism from the first to the second is a Lie ring homomorphism
+$\varphi: N_1' \to N_2'$ such that the following holds. Let $\omega_1:
+L \times L \to N_1'$ denote the map arising from the Lie bracket map in
+$N_1$ and let $\omega_2: L \times L \to N_2'$ denote the corresponding
+map in $N_2$. We require that $\varphi \circ \omega_1 = \omega_2$ as set maps.
+
+The above condition can be reframed in terms of Lie ring homomorphisms if
+we use the exterior square: let $\Omega_1: L \wedge L \to N_1'$,
+$\Omega_2: L \wedge L \to N_2'$ denote the natural homomorphisms
+described in Section \ref{sec:exteriorsquare-lie}. The condition we need
+is that $\varphi \circ \Omega_1 = \Omega_2$.
+
+\subsection{Relation between the category of central extensions and the category of central extensions with homoclinisms}
+
+Any {\em homomorphism} of central extensions induces a {\em
+  homoclinism} of central extensions. Explicitly, consider two central
+extensions:
+
+$$0 \to A_1 \to N_1 \stackrel{\nu_1}{\to} L \to 0$$
+
+and
+
+$$0 \to A_2 \to N_2 \stackrel{\nu_2}{\to} L \to 0$$
+
+As discussed in Section \ref{sec:homomorphism-central-extensions-lie}, the
+central extensions are completely described by the pairs $(N_1,\nu_1)$
+and $(N_2,\nu_2)$ respectively. A homomorphism of central extensions
+can be specified as a homomorphism $\theta:N_1 \to N_2$ satisfying the
+condition that $\nu_2 \circ \theta = \nu_1$.
+
+Any such homomorphism of central extensions induces a {\em
+  homoclinism} of central extensions. Explicitly, for a homomorphism
+$\theta: N_1 \to N_2$ satisfying $\nu_2 \circ \theta = \nu_1$, define
+$\varphi$ as the homomorphism $N_1' \to N_2'$ obtained by restricting
+$\theta$ to $N_1'$. We claim that $\varphi$ defines a homoclinism of
+the central extensions. We now prove that this construction works.
+
+\begin{lemma}\label{lemma:homomorphism-restriction-homoclinism-lie}
+  Suppose $(N_1,\nu_1)$ and $(N_2,\nu_2)$ are central extensions of a
+  Lie ring $L$, and $\theta:N_1 \to N_2$ is a homomorphism of central
+  extensions, i.e., $\nu_2 \circ \theta = \nu_1$. Denote by $\omega_1:
+  L \times L \to N_1'$ and $\omega_2: L \times L \to N_2'$ the maps
+  induced by the commutator maps in $N_1$ and $N_2$ respectively. Let
+  $\varphi:N_1' \to N_2'$ be the homomorphism obtained by restricting
+  $\theta$ to the derived subring $N_1'$. Then, $\varphi$ is a
+  homoclinism of central extensions, i.e., $\varphi \circ \omega_1 =
+  \omega_2$.
+\end{lemma}
+
+\begin{proof}
+  Let $u$, $v$ be arbitrary elements of $L$ (possibly equal, possibly
+  distinct). Our goal is to show that:
+
+  $$\varphi(\omega_1(u,v)) = \omega_2(u,v)$$
+
+  Let $x, y \in N_1$ be elements such that $\nu_1(x) = u$ and
+  $\nu_2(y) = v$. Then, by definition, $\omega_1(u,v) =
+  [x,y]$. Simplify the left side:
+
+  $$\varphi(\omega_1(u,v)) = \varphi([x,y]) = \theta([x,y]) = [\theta(x),\theta(y)] = \omega_2(\nu_2(\theta(x)),\nu_2(\theta(y)))$$
+
+  Now, use that $\nu_2 \circ \theta = \nu_1$ and simplify further to:
+
+  $$\omega_2(\nu_1(x),\nu_1(y)) = \omega_2(u,v)$$
+
+  which is the right side.
+\end{proof}
+
+\subsection{Uniqueness of homoclinism if it exists}
+
+We will show that if a homoclinism exists between two central
+extensions, it must be unique.
+
+\begin{lemma}\label{lemma:uniqueness-of-homoclinism-lie}
+  Consider two short exact sequences that give central extensions of a Lie ring $L$:
+
+  $$0 \to A_1 \to N_1 \to L \to 0$$
+
+  $$0 \to A_2 \to N_2 \to L \to 0$$
+
+  Denote by $\omega_1:L \times L \to N_1'$ and $\omega_2:L \times L
+  \to N_2'$ the Lie bracket maps.
+
+  Suppose there exists homoclinisms $\varphi,\theta$ from the first
+  central extension to the second. Explicitly, $\varphi:N_1' \to N_2'$
+  and $\theta:N_1' \to N_2'$ are homomorphisms such that $\varphi
+  \circ \omega_1 = \omega_2$ and $\theta \circ \omega_1 =
+  \omega_2$. Then, $\varphi = \theta$.
+\end{lemma}
+
+\begin{proof}
+  Denote by $\nu_1$ the quotient map $N_1 \to L$ and by $\nu_2$ the
+  quotient map $N_2 \to L$.
+
+  It will suffice to show that $\varphi$ and $\theta$ agree with each
+  other on the set of all Lie brackets, which is a generating set for
+  $N_1'$. Consider a Lie bracket $[x,y]$ with $x,y \in N_1$. Let $u =
+  \nu_1(x)$ and $v = \nu_1(y)$. 
+
+  By definition, $[x,y] = \omega_1(u,v)$. Thus, $\varphi([x,y]) =
+  \varphi(\omega_1(u,v)) = \omega_2(u,v)$. Similarly, $\theta([x,y]) =
+  \theta(\omega_1(u,v)) = \omega_2(u,v)$. We thus obtain that
+  $\varphi([x,y]) = \theta([x,y])$, completing the proof.
+\end{proof}
+
+Thus, if a homoclinism exists, it is unique. However, a homoclinism
+need not exist. The obstruction occurs if there are relations within
+the derived subring $N_1'$ such that the corresponding relations are
+not valid in the derived subring $N_2'$.
+
+\subsection{Existence and description of initial objects in the category of central extensions up to homoclinisms}
+
+We are interested in identifying the initial objects in the category
+of extensions of $L$ with homoclinisms discussed in Section
+\ref{sec:homoclinism-central-extensions-lie}.
+
+\begin{lemma}[Existence and description of initial objects]\label{lemma:initobj-lie}
+  For a Lie ring $L$, consider the category of central extensions of $L$
+  with homoclinisms. The following are true for this category.
+  \begin{enumerate}
+  \item There exists a central extension $N_0$ of $L$ for which the
+    natural homomorphism $\Omega_0: L \wedge L \to N_0'$ is an isomorphism.
+  \item Any central extension $N_0$ of $L$ for which the natural
+    homomorphism $\Omega_0:L \wedge L \to N_0'$ is an isomorphism is
+    an initial object of the category.
+  \item If a central extension $N_1$ of $L$ is an initial object of
+    the category, the corresponding homomorphism $\Omega_1:L \wedge L
+    \to N_1'$ is an isomorphism.
+  \item Combining all the above: the category of central extensions of
+    $L$ with homoclinisms admits initial objects, and a central
+    extension $N \to L$ is an initial object for the category if and
+    only if the Lie bracket map homomorphism $\Omega_N: L \wedge L \to
+    [N,N]$ is an isomorphism.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  \begin{itemize}
+  \item Proof of (1): In Section \ref{sec:grandcentralproduct-lie}, we
+    constructed a central extension Lie ring $N_0$ for which the natural
+    map $\Omega_0: L \wedge L \to N_0'$ is an isomorphism.
+
+  \item Proof of (2): Suppose $N_0$ is a central extension for which
+    the Lie bracket map $\Omega_0:L \wedge L \to N_0'$ is an
+    isomorphism. For any central extension $N_2$, there is a natural
+    homomorphism $\Omega_2: L \wedge L \to N_2'$. Composing this with
+    the inverse of $\Omega_0$, we obtain a homomorphism
+    $\varphi:N_0' \to N_2'$ that defines a homoclinism of the
+    extensions. Moreover, by Lemma
+    \ref{lemma:uniqueness-of-homoclinism-lie}, this is the {\em unique}
+    homoclinism of the extensions.
+
+  \item Proof of (3): We already know of the existence of a central
+    extension $N_0$ for which $\Omega_0:L \wedge L \to N_0'$ is
+    an isomorphism by (1). We also know that it is an initial object
+    by (2). By the uniqueness of initial objects up to isomorphism,
+    $N_0$ and $N_1$ are isomorphic in the category of central
+    extensions of $L$ with homoclinisms. Thus, there exists an
+    isomorphism $\varphi_1:N_0' \to N_1'$ such that $\varphi_1 \circ
+    \Omega_0 = \Omega_1$. Since both $\varphi_1$ and $\Omega_0$ are
+    isomorphisms, $\Omega_1$ is also an isomorphism.
+
+  \item Proof of (4): This follows by combining (1), (2), and (3).
+  \end{itemize}
+\end{proof}
+
+\subsection{An alternate construction of the initial object}\label{sec:freeinitialobject-lie}
+
+Here is an alternative way of constructing a central extension $N_1$ for which the natural map:
+
+$$\Omega_1:L \wedge L \to N_1$$
+
+is an isomorphism.
+
+Write $L$ as the quotient of a free Lie ring $F$ by an ideal $R$ of
+$F$. Let $\nu:F \to L$ denote the quotient map. The kernel of $\nu$ is
+$R$.
+
+The Lie ring $N_1$ that we are interested in is $F/[F,R]$. This Lie ring
+$N_1$ is a central extension of $L$ in a natural fashion. Denote by
+$\overline{\nu}$ the corresponding quotient map $N_1 \to L$. Consider
+the Lie bracket map $\omega_1:L \times L \to N_1$ and denote by
+$\Omega_1$ the corresponding Lie ring homomorphism:
+
+$$\Omega_1: L \wedge L \to [N_1,N_1]$$
+
+Consider any extension:
+
+$$0 \to A \to N_2 \stackrel{\mu}{\to} L \to 0$$
+
+with the natural Lie bracket map $\omega_2:L \times L \to N_2$ and the
+corresponding Lie bracket map homomorphism:
+
+$$\Omega_2:L \wedge L \to [N_2,N_2]$$
+
+Our goal is to show that there there exists a unique homomorphism
+$\varphi:[N_1,N_1] \to [N_2,N_2]$ such that $\varphi \circ
+\omega_1 = \omega_2$, or equivalently, $\varphi \circ \Omega_1 =
+\Omega_2$.
+
+The map $\nu:F \to L$ lifts to a map $\psi:F \to N_2$ because $F$
+is a free Lie ring (note that the lift is not necessarily
+unique). Explicitly, this means that $\mu \circ \psi = \nu$.
+
+We know that $\nu(R)$ is trivial, so $\mu(\psi(R))$ is trivial. Thus,
+$\psi(R)$ lands inside the kernel of $\mu$, which is the image of $A$
+in $N_2$. Thus, $\psi(R)$ is a central subring of $N_2$. Therefore,
+$\psi([F,R]) = [\psi(F),\psi(R)]$ is trivial.
+
+Thus, $\psi$ descends to a homomorphism $\theta:N_1 \to N_2$, where
+$N_1 = F/[F,R]$ as defined above, with the property that $\mu \circ
+\theta = \overline{\nu}$. The condition $\mu \circ \theta =
+\overline{\nu}$ can be interpreted as saying that $\theta$ is a
+homomorphism from the central extensions $(N_1,\overline{\nu})$ to the
+central extension $(N_2,\mu)$. Denote by $\varphi:N_1' \to N_2'$ the
+restriction of $\theta$ to $N_1'$. Thus, by Lemma
+\ref{lemma:homomorphism-restriction-homoclinism-lie}, $\varphi$
+defines a homoclinism of the central extensions. Lemma
+\ref{lemma:uniqueness-of-homoclinism-lie} now establishes that the
+homoclinism is unique. Finally, Lemma \ref{lemma:initobj-lie}
+establishes that ($N_1,\nu_1)$ defines an initial object in the
+category of central extensions of $L$ with homoclinisms.
+
+{\em Clarification regarding uniqueness}: In the discussion above, the
+lift $\psi: F \to N_2$ of $\nu:F \to L$ is not unique, because it
+involves picking {\em arbitrary} coset representatives of $L$ in $N_2$
+for the freely generating set of $F$. The homomorphism $\theta:N_1 \to
+N_2$ also need not be unique. However, the map $\varphi:N_1' \to
+N_2'$, obtained by restricting $\theta$ to $N_1'$, {\em is} unique.
+
+\subsection{Functoriality of exterior square and Schur multiplier}\label{sec:functoriality-lie}
+
+The exterior square and Schur multiplier are both {\em
+  functorial}. Explicitly, for any homomorphism $\varphi:L \to H$ of
+Lie rings, there are homomorphisms $\varphi \wedge \varphi: L \wedge L
+\to H \wedge H$ and $M(\varphi): M(L) \to M(H)$ and the associations
+are functorial. This means that for homomorphisms $\varphi:L \to H$
+and $\theta: H \to K$, $(\theta \circ \varphi) \wedge (\theta \circ
+\varphi) = (\theta \wedge \theta) \circ (\varphi \wedge \varphi)$ and
+also $M(\theta \circ \varphi) = M(\theta) \circ M(\varphi)$.
+
+The proofs of both assertions are straightforward, but we are not
+including them here because we do not use the functoriality of the
+Schur multiplier. See a more detailed discussion of functoriality in
+the Appendix, Section \ref{appsec:functor}.
+
+\subsection{Homoclinisms and words for central extensions}\label{sec:homoclinisms-words-central-extensions-lie}
+
+We state and prove some results that are similar in spirit to the
+results in Section \ref{sec:homoclinism-misc-results-lie}.
+
+\begin{lemma}\label{lemma:iterated-bracket-descends-extension-version}
+  Suppose $L$ is a Lie ring and $w(g_1,g_2,\dots,g_n)$ is a Lie ring
+  word in $n$ letters with the property that $w$ evaluates to the zero
+  element in every abelian Lie ring. The following are true.
+
+  \begin{enumerate}
+  \item For every central extension $N$ of $L$, $w$ can be used to
+    define a set map $\chi_{w,N}: L^n \to [N,N]$.
+  \item For any homoclinism between central extensions $N_1$ and
+    $N_2$, with the central extension specified via a homomorphism
+    $\varphi:[N_1,N_1] \to [N_2,N_2]$, we have that:
+
+    $$\varphi \circ \chi_{w,N_1} = \chi_{w,N_2}$$
+  \end{enumerate}
+\end{lemma}
+
+%%TONOTDO: Possibly insert more detail here
+
+\begin{proof}
+  {\em Proof of (1)}: This is similar to the proof of Theorem
+  \ref{thm:iterated-bracket-descends-to-inn}. Alternatively, we can
+  deduce it from the {\em result} of Theorem
+  \ref{thm:iterated-bracket-descends-to-inn} by noting that the
+  map factors as follows:
+
+  $$L^n \to (N/Z(N))^n \to [N,N]$$
+
+  {\em Proof of (2)}: This is similar to the proof of Theorem
+  \ref{thm:iterated-bracket-commutes-homoclinisms}. Alternatively,
+  we can deduce it from the {\em result} of Theorem
+  \ref{thm:iterated-bracket-commutes-homoclinisms} by factoring
+  through $N/Z(N)$.
+\end{proof}
+
+We can now prove the theorem.
+
+\begin{theorem}\label{thm:iterated-bracket-map-to-exteriorsquare}
+  Suppose $L$ is a Lie ring and $w(g_1,g_2,\dots,g_n)$ is a word in $n$
+  letters with the property that $w$ evaluates to the identity element
+  in every abelian Lie ring. Then, there exists a set map $X_w:L^n \to
+  L \wedge L$ with the property that for any central extension $N$ of
+  $L$, $\Omega_{N,L} \circ X_w = \chi_{w,N}$.
+\end{theorem}
+
+\begin{proof}
+  Apply Part (1) of Lemma
+  \ref{lemma:iterated-bracket-descends-extension-version} to the
+  case where the extension $N_0$ is an initial object in the category
+  of central extensions of $L$, so that the map $\Omega_{N_0,L}: L
+  \wedge L \to [N_0,N_0]$ is an isomorphism. Define $X_w =
+  \Omega_{N_0,L}^{-1} \circ \chi_{w,E_0}$. For any central extension
+  $N$ of $L$, there is a homoclinism from the extension $N_0$ to the
+  extension $N$ defined via the homomorphism $\varphi: [N_0,N_0] \to
+  [N,N]$. By Part (2) of Lemma
+  \ref{lemma:iterated-bracket-descends-extension-version}, we have:
+
+  $$\varphi \circ \chi_{w,N_0} = \chi_{w,N}$$
+
+  We can rewrite $\chi_{w,N_0}$ as $\Omega_{N,L} \circ X_w$, and obtain:
+
+  $$\varphi \circ (\Omega_{N,L} \circ X_w) = \chi_{w,N}$$
+
+  Using associativity of composition, we obtain:
+
+  $$(\varphi \circ \Omega_{N,L}) \circ X_w = \chi_{w,N}$$
+
+  $\Omega$ itself commutes with homoclinisms, so we obtain:
+
+  $$\Omega_{N_0,L} \circ X_w = \chi_{w,N}$$
+\end{proof}
+
+%\newpage
+
+\section{Exterior square, Schur multiplier, and the second cohomology group}\label{sec:schur-multiplier-and-second-cohomology}
+
+In Section \ref{sec:exteriorsquare-and-homoclinism}, we studied the
+category of central extensions of a group $G$ using the groups $G
+\wedge G$ (the exterior square of $G$) and $M(G)$ (the Schur
+multiplier of $G$). Instead of studying the original category, we
+considered the category of central extensions with {\em homoclinisms}
+as the morphisms.
+
+Our goal now is to consider, for any group $G$ and abelian group $A$,
+the relation between the group $H^2(G;A)$ (described in Section
+\ref{sec:second-cohomology-group-classify-extensions}) and the
+isomorphism types of $G$ and $A$. More specifically, we will consider
+the equivalence relation of being isoclinic on $H^2(G;A)$. The
+equivalence classes turn out to be the fibers of a surjective map from
+$H^2(G;A)$ that is the right map of an important short exact
+sequence. We will construct the maps explicitly.
+
+One crucial and nontrivial fact stated in this section will not be
+proved here, namely, that the sequence is right exact, and more
+specifically, that the short exact sequence under consideration is the
+same as the universal coefficient theorem short exact sequence. For a
+detailed description as well as proofs of these facts, see
+\cite{BeylIsoclinisms}, Theorem 1.8, and in
+\cite{EckmannHiltonStammbach}, Theorem 2.2.
+
+\subsection{Homomorphism from the Schur multiplier to the kernel of the extension}\label{sec:homschurkernel}
+
+We will now describe a very important homomorphism. For any central extension of the form:
+
+$$0 \to A \to E \to G \to 1$$
+
+there is a natural homomorphism from the Schur multiplier of $G$ to $A$, i.e., a homomorphism:
+
+$$\beta: M(G) \to A$$
+
+We now proceed to describe this homomorphism.
+
+As discussed in Section \ref{sec:exteriorsquare}, there is a natural
+homomorphism:
+
+$$\Omega: G \wedge G \to [E,E]$$
+
+Compose this with the inclusion of $[E,E]$ in $E$ to get a map $G
+\wedge G \to E$. We obtain:
+
+$$\begin{array}{ccccccccc}
+0 & \to & M(G) & \to & G \wedge G & \to & [G,G] & \to & 1\\
+ &&               && \downarrow     &&\downarrow&& \\
+0 & \to & A & \to & E & \to & G & \to & 1\\
+\end{array}$$
+
+It is immediate that this diagram commutes.
+
+By general diagram-chasing, we can construct a unique map $M(G) \to A$
+such that the diagram continues to be commutative, and that is the
+homomorphism $\beta$ that we want:
+
+$$\begin{array}{ccccccccc}
+0 & \to & M(G) & \to & G \wedge G & \to & [G,G] & \to & 1\\
+ &&   \downarrow^{\beta}  &&  \downarrow     && \downarrow&& \\
+0 & \to & A &\to & E & \to & G & \to & 1\\
+\end{array}$$
+
+\subsection{Classification of extensions up to isoclinism}\label{sec:extensionsuptoisoclinism}
+
+Given a group $G$ and an abelian group $A$, we say that the central
+extensions $E_1$ and $E_2$ with short exact sequences:
+
+$$0 \to A \to E_1 \to G \to 1$$
+
+and
+
+$$0 \to A \to E_2 \to G \to 1$$
+
+are {\em isoclinic (fixing both $G$ and $A$)} if there exists an
+isomorphism of groups $\varphi:E_1' \to E_2'$ satisfying {\em both}
+the following conditions:
+
+\begin{itemize}
+\item Isoclinic as extensions of $G$: If $\Omega_1:G \wedge G \to
+  E_1'$ and $\Omega_2:G \wedge G \to E_2'$ are the commutator map
+  homomorphisms, then $\varphi \circ \Omega_1 = \Omega_2$.
+\item Suppose $B$ is the inverse image in $A$ of $[E_1,E_1]$. Then,
+  $B$ is also the inverse image in $A$ of $[E_2,E_2]$. Moreover,
+  composing $\varphi$ with the inclusion of $B$ in $[E_1,E_1]$ gives
+  the inclusion of $B$ in $[E_2,E_2]$.
+\end{itemize}
+
+\subsection{Relating the classification of extensions up to isoclinism with the homomorphism from the Schur multiplier}\label{sec:beta-map}
+
+In Section \ref{sec:homschurkernel}, we noted that for any central extension:
+
+$$0 \to A \to E \to G \to 1$$
+
+we have a natural homomorphism $\beta: M(G) \to A$.
+
+The homomorphism is uniquely determined by the choice of extension up
+to congruence, so we get a {\em set} map:
+
+$$H^2(G;A) \to \operatorname{Hom}(M(G),A)$$
+
+In Section \ref{sec:ses-uct}, we will see that this set map is a {\em
+  group homomorphism}. We alluded to the group structure on $H^2(G;A)$
+in Section \ref{sec:second-cohomology-group-classify-extensions} and
+described it in detail in Section \ref{sec:cohomology-explicit}.
+
+As we will see in Section \ref{sec:ses-uct}, this group homomorphism
+is surjective and is the right map in an important short exact
+sequence. For now, however, we note that {\em this group homomorphism
+  classifies extensions up to isoclinism}. Explicitly, two extensions
+$E_1,E_2$ are isoclinic in the sense of Section
+\ref{sec:extensionsuptoisoclinism} if and only if they induce the same
+homomorphism $M(G) \to A$. We now proceed to explain why. Note that
+one direction, namely the direction that isoclinic extensions define
+the same homomorphism from $M(G)$ to $A$, is obvious from the
+definition. The other direction requires some work.
+
+Consider the two short exact sequences below:
+
+$$\begin{array}{ccccccccc}
+0 & \to & M(G) & \to & G \wedge G & \to & [G,G] & \to & 1\\
+ &&   \downarrow^{\beta}  &&  \downarrow     && \downarrow^{\text{id}} && \\
+0 & \to & A &\to & E & \to & G & \to & 1\\
+\end{array}$$
+
+Suppose $B$ is the subgroup of $A$ that arises as the image of the
+homomorphism $\beta: M(G) \to A$ and $\beta':M(G) \to B$ is the map
+obtained by restricting the co-domain. We then have the following two
+short exact sequences, where all the downward maps are surjective:
+
+$$\begin{array}{ccccccccc}
+0 & \to & M(G) & \to & G \wedge G & \to & [G,G] & \to & 1\\
+ &&   \downarrow^{\beta'}  &&  \downarrow^{\Omega_{E,G}}     && \downarrow^{\text{id}} && \\
+0 & \to & B &\to & [E,E] & \to & [G,G] & \to & 1\\
+\end{array}$$
+
+Note that the second row sequence is exact because all the downward
+maps are surjective.\footnote{Some proof details involving diagram
+  chasing are being omitted for brevity.}
+
+It is easy to see that if $E_1$ and $E_2$ are two central extensions
+of $G$ that give the same map $\beta$, then we can obtain an
+isomorphism $[E_1,E_1] \to [E_2,E_2]$ such that in the diagram below,
+the composite of the downward maps in the middle column is
+$\Omega_{E_2,G}$, and the lower downward arrow in the middle column is
+an isomorphism.
+
+$$\begin{array}{ccccccccc}
+0 & \to & M(G) & \to & G \wedge G & \to & [G,G] & \to & 1\\
+ &&   \downarrow^{\beta'}  &&  \downarrow^{\Omega_{E,G}}     && \downarrow^{\text{id}} && \\
+0 & \to & B &\to & [E_1,E_1] & \to & [G,G] & \to & 1\\
+ &&   \downarrow^{\operatorname{id}}  && \downarrow && \downarrow^{\text{id}} && \\
+0 & \to & B &\to & [E_2,E_2] & \to & [G,G] & \to & 1\\
+\end{array}$$
+
+\subsection{The universal coefficient theorem short exact sequence}\label{sec:ses-uct}
+
+As before, let $G$ be a group and let $A$ be an abelian group. Our
+goal is to understand all central extension groups $E$, i.e., short
+exact sequences of the following form where the image of $A$ in $E$ is
+in the center of $E$:
+
+$$0 \to A \to E \to G \to 1$$
+
+As discussed earlier, the set of all congruence classes of extensions
+is classified by the group $H^2(G;A)$ (the second cohomology group for
+trivial group action). We now proceed to describe a related short exact
+sequence. The short exact sequence is discussed in
+\cite{BeylIsoclinisms}, Theorem 1.8, and in
+\cite{EckmannHiltonStammbach}, Theorem 2.2. The short exact sequence
+is as follows:
+
+\begin{equation}\label{eq:ses-uct}
+  0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},A) \to H^2(G;A) \to \operatorname{Hom}(M(G),A) \to 0
+\end{equation}
+
+\subsubsection{Interpretation of the left map of the sequence}\label{sec:ses-uct-left-map}
+
+The map:
+
+$$\operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},A) \to H^2(G;A)$$
+
+takes an abelian group extension with normal subgroup $A$ and quotient
+group $G^{\operatorname{ab}}$, and gives an extension with $G$ on top
+of $A$ that can loosely be described as follows: the restriction to
+the derived subgroup $[G,G]$ splits and the quotient sits as per the
+element of
+$\operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},A)$. Explicitly,
+it can be thought of as a composite of two maps:
+
+$$\operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},A) \to H^2(G^{\operatorname{ab}};A) \to H^2(G;A)$$
+
+where the first map treats an abelian group extension simply as a
+group extension, and the second map uses the contravariance of $H^2$
+in its first argument.
+
+\subsubsection{Interpretation of the right map of the sequence}\label{sec:ses-uct-right-map}
+
+The right map of the sequence:
+
+$$H^2(G;A) \to \operatorname{Hom}(M(G),A)$$
+
+sends an extension group to the corresponding map $\beta$ described in
+Section \ref{sec:homschurkernel}. In Section \ref{sec:beta-map}, we
+showed that the map $H^2(G;A) \to \operatorname{Hom}(M(G),A)$
+classifies extensions up to isoclinism.
+
+\subsubsection{What the existence of the short exact sequence tells us}
+
+Consider again the short exact sequence:
+
+\begin{equation*}
+  0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},A) \to H^2(G;A) \to \operatorname{Hom}(M(G),A) \to 0
+\end{equation*}
+
+We now consider the three aspects of {\em exactness}:
+
+\begin{itemize}
+\item Left exactness, i.e., the injectivity of the map
+  $\operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},A) \to
+  H^2(G;A)$. This is the assertion that the only abelian group
+  extension for $G^{\operatorname{ab}}$ on top of $A$ that maps to $G
+  \times A$ is the trivial extension. This is immediate from the
+  definition.
+\item Middle exactness, i.e., the image of the map
+  $\operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},A) \to
+  H^2(G;A)$ is precisely the same as the kernel of the map $ H^2(G;A)
+  \to \operatorname{Hom}(M(G),A)$. This is easy to see from the
+  definition.
+\item Right exactness, i.e., the surjectivity of the map $H^2(G;A) \to
+  \operatorname{Hom}(M(G),A)$. This says that {\em every homomorphism}
+  from $M(G)$ to $A$ arises from an extension with central subgroup
+  $A$ and quotient group $G$. In other words, the set of extension
+  types up to isoclinism can be identified with the group
+  $\operatorname{Hom}(M(G),A)$. {\em This is the most important and
+    least obvious of the three exactness statements}. Many of our
+  later constructive results will rely crucially on right exactness.
+\end{itemize}
+
+\subsubsection{How it is a special case of the dual universal coefficient theorem}
+
+The general version of the dual universal coefficient theorem for
+group cohomology is as follows:
+
+$$0 \to \operatorname{Ext}^1_{\mathbb{Z}}(H_{k-1}(G;\mathbb{Z}),A) \to H^k(G;A) \to \operatorname{Hom}(H_k(G;\mathbb{Z}),A) \to 0$$
+
+If we set $k = 2$ and use the fact that $M(G)$ is canonically
+isomorphic to $H_2(G;\mathbb{Z})$, and also that
+$G^{\operatorname{ab}}$ is canonically isomorphic to
+$H_1(G;\mathbb{Z})$, we get the short exact sequence we have been
+discussing.
+
+\subsubsection{The splitting of the short exact sequence}\label{sec:ses-uct-non-canonical-splitting}
+
+The dual universal coefficient theorem for group cohomology, in addition
+to providing the short exact sequence above, also states that the
+short exact sequence always splits, but the splitting is not in
+general canonical. Explicitly, the universal coefficient theorem
+states that:
+
+$$H^k(G;A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(H_{k-1}(G;\mathbb{Z}),A) \oplus \operatorname{Hom}(H_k(G;\mathbb{Z}),A)$$
+
+In the special case of interest to us, we obtain:
+
+$$H^2(G;A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},A) \oplus \operatorname{Hom}(M(G),A)$$
+
+The direct sum decomposition is {\em not} in general canonical. %% In
+%% fact, there are examples where there is {\em no}
+%% $\operatorname{Aut}(G) \times \operatorname{Aut}(A)$-invariant
+%% splitting. {\em TONOTDO: Insert link to Appendix section}
+
+In Section \ref{sec:ses-uct-lie-abelian-canonical-splitting}, we will
+identify some special circumstances where the short exact sequence
+splits canonically.
+
+\subsection{An alternate characterization of initial objects, and the existence of Schur covering groups}
+
+Recall that, by Lemma \ref{lemma:initobj}, a central extension:
+
+$$0 \to A \to E \to G \to 1$$
+
+is an initial object in the category of central extensions of $G$ with
+homoclinisms if the natural homomorphism:
+
+$$\Omega_{E,G}: G \wedge G \to [E,E]$$
+
+is an isomorphism. We now provide an alternative characterization.
+
+\begin{lemma}\label{lemma:initial-beta-injective}
+  Consider a group $G$ and a central extension:
+
+  $$0 \to A \to E \to G \to 1$$
+
+  The central extension is an initial object in the category of
+  central extensions of $G$ with homoclinisms if and only if the
+  corresponding homomorphism $\beta:M(G) \to A$ (described in Section
+  \ref{sec:homschurkernel}) is injective.
+\end{lemma}
+
+\begin{proof}
+  Let $B$ be the image in $A$ of $\beta$ and let $\beta'$ be the
+  restriction of $\beta$ to co-domain $B$, so $\beta'$ is a surjective
+  homomorphism from $M(G)$ to $B$. Note also that $\beta$ is injective
+  if and only if $\beta'$ is an isomorphism.
+
+  As discussed in Section \ref{sec:beta-map}, we have the following
+  morphism of short exact sequences, where all the downward maps are
+  surjective:
+
+  $$\begin{array}{ccccccccc}
+    0 & \to & M(G) & \to & G \wedge G & \to & [G,G] & \to & 1\\
+    &&   \downarrow^{\beta'}  &&  \downarrow^{\Omega_{E,G}}     && \downarrow^{\text{id}} && \\
+    0 & \to & B &\to & [E,E] & \to & [G,G] & \to & 1\\
+  \end{array}$$
+  
+  Since the right-most downward map is the identity map, we see (from
+  some elementary diagram chasing) that $\beta'$ is an isomorphism if
+  and only if $\Omega_{E,G}$ is an isomorphism. 
+\end{proof}
+
+Recall the definition of stem extension from Section
+\ref{sec:central-and-stem-extension}. We provide an alternative
+characterization of such extensions:
+
+\begin{lemma}\label{lemma:stem-beta-surjective}
+  A central extension $0 \to A \to E \to G \to 1$ is a stem extension
+  if and only if the corresponding map $\beta: M(G) \to A$ is
+  surjective.
+\end{lemma}
+
+\begin{proof}
+  Let $B$ be the image in $A$ of $\beta$ and let $\beta'$ be the
+  restriction of $\beta$ to co-domain $B$, so $\beta'$ is a surjective
+  homomorphism from $M(G)$ to $B$. Note also that $\beta$ is
+  surjective if and only if $B = A$. Note also that $A \le Z(E)$ by
+  the assumption that the extension is central, so the challenge is to
+  show that $A \le [E,E]$ if and only if $B = A$.
+
+  As described in Section \ref{sec:beta-map}, we have the following
+  morphism of two short exact sequences, with all the downward maps
+  surjective:
+
+  $$\begin{array}{ccccccccc}
+    0 & \to & M(G) & \to & G \wedge G & \to & [G,G] & \to & 1\\
+    &&   \downarrow^{\beta'}  &&  \downarrow^{\Omega_{E,G}}     && \downarrow^{\text{id}} && \\
+    0 & \to & B &\to & [E,E] & \to & [G,G] & \to & 1\\
+  \end{array}$$
+
+  Explicitly, $B$ is the kernel of the homomorphism from $[E,E]$ to
+  $[G,G]$. The homomorphism from $[E,E]$ to $[G,G]$ is obtained by
+  restricting to $[E,E]$ the homomorphism from $E$ to $G$. 
+
+  Thus, $B = A \cap [E,E]$. It follows that $A \le [E,E]$ if and only
+  if $B = A$, completing the proof.
+\end{proof}
+
+We are now prepared for a definition.
+
+\begin{definer}[Schur covering group]
+  We define a {\em Schur covering group} of $G$ as a group
+  extension $E$ of $G$ with short exact sequence:
+
+  $$0 \to A \to E \to G \to 1$$
+  
+  satisfying the condition that it is a central extension and the
+  corresponding map $\beta: M(G) \to A$ (defined in Section
+  \ref{sec:homschurkernel}) is an isomorphism. Equivalently, the
+  extension must satisfy {\em both} these conditions:
+  
+  \begin{itemize}
+  \item The extension is a stem extension, i.e., the image of $A$ in $E$
+    is contained in $Z(E) \cap [E,E]$.
+  \item The natural homomorphism $\Omega_{E,G}: G \wedge G \to [E,E]$ is an
+    isomorphism.
+  \end{itemize}
+\end{definer}
+  
+The equivalence of the two versions of the definition follows from the
+two preceding lemmas (Lemmas \ref{lemma:initial-beta-injective} and
+\ref{lemma:stem-beta-surjective}).
+
+The existence of Schur covering groups is not {\em a priori} clear,
+but can be deduced from the short exact sequence of the preceding
+section. 
+
+\begin{theorem}\label{thm:schur-covering-groups-exist}
+  For any group $G$, Schur covering groups of $G$ exist.
+\end{theorem}
+
+\begin{proof}
+  For any abelian group $A$, we have the short exact sequence
+  described in Section \ref{sec:ses-uct}:
+
+  \begin{equation*}
+    0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},A) \to H^2(G;A) \to \operatorname{Hom}(M(G),A) \to 0
+  \end{equation*}
+  
+  Now, set $A = M(G)$:
+
+  \begin{equation*}
+    0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},M(G)) \to H^2(G;M(G)) \to \operatorname{Hom}(M(G),M(G)) \to 0
+  \end{equation*}
+  
+  Consider the element $\operatorname{Id}_{M(G)} \in
+  \operatorname{Hom}(M(G),M(G))$. By surjectivity (i.e., right
+  exactness), there exists at least one element of $H^2(G;M(G))$ that
+  maps to this. Note that the inverse image is in fact a coset in
+  $H^2(G;M(G))$ of the image of
+  $\operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},M(G))$. Each
+  element in this inverse image corresponds to a Schur covering
+  group. If
+  $\operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},M(G))$ is
+  nontrivial, the Schur covering group need not be unique.
+\end{proof}
+
+\subsection{Realizability of surjective homomorphisms from the exterior square}
+
+Suppose $G$ and $D$ are groups and $\alpha:G \wedge G \to D$ and
+$\delta:D \to [G,G]$ are surjective homomorphisms such that $\delta
+\circ \alpha:G \wedge G \to [G,G]$ is the canonical map sending $x
+\wedge y$ to $[x,y]$. We would like to know whether there is a central
+extension:
+
+$$0 \to A \to E \to G \to 1$$
+
+with the property that there is an isomorphism $\theta:E' \to D$ such
+that if we consider the homomorphism:
+
+$$\Omega_{E,G}: G \wedge G \to E'$$
+
+then $\theta \circ \Omega_{E,G} = \alpha$. The answer to this question is
+{\em yes}. In fact, we can even choose $E$ to be a {\em stem}
+extension of $G$. We outline the construction below.
+
+Recall that we have the following short exact sequence, describing $G
+\wedge G$ as a central extension of $[G,G]$:
+
+$$0 \to M(G) \to G \wedge G \to [G,G] \to 1$$
+
+Denote by $A$ the image of $M(G)$ under the set map $\alpha:G \wedge G
+\to D$ and by $\beta:M(G) \to A$ the restricted map. We therefore
+have the following commutative diagram:
+
+$$\begin{array}{ccccccccc}
+  0 & \to & M(G) & \to & G \wedge G & \to & [G,G] & \to & 1\\
+  &&   \downarrow^{\beta}  &&  \downarrow^{\alpha}     && \downarrow^{\text{id}} && \\
+  0 & \to & A &\to & D & \stackrel{\delta}{\to} & [G,G] & \to & 1\\
+\end{array}$$
+
+Now, consider the short exact sequence described in Section
+\ref{sec:ses-uct}:
+
+$$0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},A) \to H^2(G;A) \to \operatorname{Hom}(M(G),A) \to 0$$
+
+The right map is surjective, so there exists an extension group $E$
+(corresponding to an element of $H^2(G,A)$) such that the map $\beta$
+corresponding to $E$ (as described in Sections
+\ref{sec:homschurkernel} and \ref{sec:beta-map}) is the map $\beta$
+that we specified. Also, for reasons discussed in Section
+\ref{sec:beta-map}, we can find an isomorphism $\theta:[E,E] \to D$
+such that $\theta \circ \Omega_{E,G} = \alpha$.
+
+\subsection{The existence of stem groups}\label{sec:stem-group-existence}
+
+In Section \ref{sec:stem-group}, we defined a group $G$ as a {\em stem
+  group} if $Z(G) \le G'$. Now that we have defined the concept of
+stem extension, we can provide an alternate definition of stem group:
+$G$ is a stem group if the short exact sequence:
+
+$$0 \to Z(G) \to G \to G/Z(G) \to 1$$
+
+makes $G$ a stem extension.
+
+We now turn to the proof of a statement made in Section
+\ref{sec:stem-group} without proof.
+
+\begin{theorem}\label{thm:stem-group-existence}
+  Suppose $G$ is a group. Then, the following are true:
+
+  \begin{enumerate}
+  \item There exists a stem group $K$ that is isoclinic to $G$.
+  \item In case $G$ is finite, all stem groups isoclinic to $G$ are
+    finite and have the same order as each other.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  {\em Proof of (1)}: Consider the short exact sequence:
+
+  $$0 \to Z(G) \to G \to G/Z(G) \to 1$$
+
+  This short exact sequence allows us to think of $G$ as a central
+  extension with central subgroup $Z(G)$ and quotient group
+  $G/Z(G)$. We apply the construction in Section
+  \ref{sec:homschurkernel} (further discussed in Section
+  \ref{sec:beta-map}) to obtain the natural map $\beta:M(G/Z(G)) \to
+  Z(G)$. Let $B$ be the image of $\beta$. By the explicit
+  construction, note that the image of $\beta$ is actually inside
+  $Z(G) \cap G'$. Let $\beta':M(G/Z(G)) \to B$ be the map obtained by
+  restricting the co-domain of $\beta$ to the image of $\beta$.
+
+  Consider now the short exact sequence of Section \ref{sec:ses-uct}
+  for central subgroup $B$ and quotient group $G/Z(G)$. The short exact sequence is:
+
+  $$0 \to \operatorname{Ext}^1_{\mathbb{Z}}((G/Z(G))^{\operatorname{ab}},B) \to H^2(G/Z(G);B) \to \operatorname{Hom}(M(G/Z(G)),B) \to 0$$
+
+  In particular, the map:
+
+  $$H^2(G/Z(G);B) \to \operatorname{Hom}(M(G/Z(G)),B)$$
+
+  is surjective. This means that we can find a (possibly non-unique
+  and non-canonical) central extension $K$ with short exact sequence:
+
+  $$0 \to B \to K \to G/Z(G) \to 1$$
+
+  such that the map $\beta_K$ corresponding to this extension (per
+  Section \ref{sec:homschurkernel}) is the same as $\beta'$. The following
+  are now easy to verify: %{\em TONOTDO: Fill in details}
+
+  \begin{itemize}
+  \item The image of $B$ in $K$ is the center of $K$.
+  \item The image of $B$ in $K$ is contained in the derived subgroup $K'$.
+  \item $G$ and $K$ are isoclinic.
+  \end{itemize}
+
+  {\em Proof of (2)}: It is easy to verify that any stem group
+  isoclinic to $G$ can be constructed in the above fashion, i.e., it
+  is a central extension group $K$ with quotient group $G/Z(G)$ and
+  central subgroup $B$ such that the map $\beta_K: M(G/Z(G)) \to B$ is
+  equal to $\beta'$. In particular, if $G$ is finite, then both
+  $G/Z(G)$ and $B$ are finite, so that $K$ is finite. Further, the
+  order of $K$ is $|B||G/Z(G)|$, so all stem groups isoclinic to $G$
+  have the same order.
+
+  Finally, we wish to show that the order of all stem groups is less
+  than or equal to the order of $G$. For this, note that $B$ is a
+  subgroup of $Z(G) \cap G'$, so that $|B| \le |Z(G)|$. Thus, $|K| =
+  |B||G/Z(G)| \le |Z(G)||G/Z(G)| = |G|$.
+\end{proof}
+  
+Note that although stem groups exist, there may be no canonical choice
+of stem group. The problem is the absence of a canonical splitting of
+the short exact sequence, described in Section
+\ref{sec:ses-uct-non-canonical-splitting}. If a canonical splitting
+did exist, we could use that splitting to obtain a canonical choice of
+extension.
+
+\subsection{The Stallings exact sequence}
+
+The {\em Stallings exact sequence} was defined by Stallings in
+\cite{Stallings} and explored further by Eckmann, Hilton, and
+Stammbach in \cite{EckmannHiltonStammbach} for arbitrary group
+extensions.
+
+Start with a short exact sequence of groups (note that $A$ is not
+necessarily abelian, but we use this notation to stay consistent with
+the other sections):
+
+$$1 \to A \to E \to G \to 1$$
+
+Then, the Stallings exact sequence is as follows:
+
+$$M(E) \stackrel{\alpha}{\to} M(G) \stackrel{\beta}{\to} A/[E,A] \stackrel{\sigma}{\to} E^{\operatorname{ab}} \stackrel{\tau}{\to} G^{\operatorname{ab}}$$
+
+The maps are described as follows:
+
+\begin{itemize}
+\item The homomorphism $\alpha:M(E) \to M(G)$ arises from the
+  functoriality of the Schur multiplier, discussed in Section
+  \ref{sec:functoriality}.
+\item The homomorphism $\beta:M(G) \to A/[E,A]$ arises from the
+  corresponding map in the central extension case (discussed below)
+  once we replace the original short exact sequence by the short exact
+  sequence $1 \to A/[E,A] \to E/[E,A] \to G \to 1$.
+\item The homomorphism $\sigma:A/[E,A] \to E^{\operatorname{ab}} =
+  E/[E,E]$ arises directly from the natural inclusion $A \to E$ under
+  which $[E,A]$ is mapped inside $[E,E]$.
+\item The homomorphism $\tau:E^{\operatorname{ab}} \to
+  G^{\operatorname{ab}}$ arises from the quotient map $E \to G$ under
+  which $[E,E]$ gets mapped inside $[G,G]$.
+\end{itemize}
+
+In the central extension case, the Stallings exact sequence simplifies to:
+
+$$M(E) \stackrel{\alpha}{\to} M(G) \stackrel{\beta}{\to} A \stackrel{\sigma}{\to} E^{\operatorname{ab}} \stackrel{\tau}{\to} G^{\operatorname{ab}}$$
+
+The maps are described as follows:
+
+\begin{itemize}
+\item The homomorphism $\alpha:M(E) \to M(G)$ arises from the
+  functoriality of the Schur multiplier.
+\item The homomorphism $\beta:M(G) \to A$ is the same as that
+  described in Section \ref{sec:homschurkernel}.
+\item The homomorphism $\sigma:A \to E^{\operatorname{ab}} = E/[E,E]$
+  arises directly from the natural inclusion $A \to E$ under which
+  $[E,A]$ is mapped inside $[E,E]$.
+\item The homomorphism $\tau:E^{\operatorname{ab}} \to
+  G^{\operatorname{ab}}$ arises from the quotient map $E \to G$ under
+  which $[E,E]$ gets mapped inside $[G,G]$.
+\end{itemize}
+
+\subsection{Hopf's formula: two proofs}\label{sec:hopf-formula-proofs}
+
+Hopf's formula states that if a group $G$ can be expressed in the form
+$F/R$ where $F$ is a free group and $R$ is a normal subgroup of $F$, then:
+
+\begin{equation}\label{eq:hopf-formula}
+  M(G) \cong (R \cap [F,F])/([F,R])
+\end{equation}
+
+We provide two related proofs. The first proof relies on the
+observation in Section \ref{sec:freeinitialobject}
+that if we consider $E_1 = F/[F,R]$ as a central extension of $G$ in a
+natural fashion, then this central extension is an initial object in
+the category of group extensions of $G$ with homoclinisms. The
+exterior square $G \wedge G$ is therefore isomorphic to $E_1' =
+[F,F]/[F,R]$:
+
+\begin{equation}\label{eq:exteriorsquare-hopf-formula}
+  G \wedge G \cong [F,F]/[F,R]
+\end{equation}
+
+The Schur multiplier $M(G)$ is isomorphic to the kernel of the natural
+homomorphism $E_1' \to G'$, which is the subgroup $(R \cap
+[F,F])/[F,R]$ inside $[F,F]/[F,R]$.
+
+Alternately, Hopf's formula can be deduced from the Stallings exact
+sequence applied to the short exact sequence:
+
+$$1 \to R \to F \to G \to 1$$
+
+combined with the information that $M(F)$ is trivial. Explicitly,
+the Stallings exact sequence is:
+
+$$M(F) \stackrel{\alpha}{\to} M(G) \stackrel{\beta}{\to} R/[F,R] \stackrel{\sigma}{\to} F/[F,F] \stackrel{\tau}{\to} G/[G,G]$$
+
+Since $M(F)$ is trivial, we obtain from exactness that $M(G)$ is
+isomorphic to the kernel of the map $\sigma$. From this, we obtain
+Hopf's formula.
+
+\subsection{Hopf's formula: class one more version}\label{sec:hopf-formula-class-one-more}
+
+The following is a slight variant of Hopf's formula for nilpotent
+groups. Its equivalence with the version of the preceding section
+(Section \ref{sec:hopf-formula-proofs}) is clear. It is
+computationally somewhat more useful.
+
+Suppose $G$ is a nilpotent group of nilpotency class $c$. Suppose $G$
+can be expressed in the form $F/R$ where $F$ is a free nilpotent group
+of class $c + 1$ and $R$ is a normal subgroup of $F$. Then:
+
+\begin{equation}\label{eq:hopf-formula-class-one-more}
+  M(G) \cong (R \cap [F,F])/([F,R])
+\end{equation}
+
+Also:
+
+\begin{equation}\label{eq:exteriorsquare-hopf-formula-class-one-more}
+  G \wedge G \cong [F,F]/[F,R]
+\end{equation}
+
+Free nilpotent groups are described later in more detail in Section
+\ref{sec:free-nilpotent-groups-homology}.
+
+\subsection{Exterior square of an abelian group}\label{sec:exteriorsquare-abelian-group-intro}
+
+Suppose $G$ is an abelian group. Denote by $G \wedge_\Z G$ the
+exterior square of $G$ as an abelian group. We will show here that $G
+\wedge_\Z G$ is canonically isomorphic to $G \wedge G$.
+
+For any central extension:
+
+$$0 \to A \to E \to G \to 1$$
+
+we know that $E$ is a group of nilpotency class at most two. Further,
+the commutator map:
+
+$$\omega_{E,G}: G \times G \to [E,E]$$
+
+is $\mathbb{Z}$-bilinear. This observation is specific to $G$ being
+abelian (see Lemma \ref{lemma:iterated-commutator-is-multilinear} in
+the Appendix).
+
+Based on this, we obtain that the map below is $\Z$-bilinear:
+
+$$G \times G \to G \wedge G$$
+
+Thus, it induces a map:
+
+$$G \wedge_\Z G \to G \wedge G$$
+
+Moreover, since $G \wedge G$ is generated by the elements $x \wedge
+y$, $x,y \in G$, the map above is surjective.
+
+The part that is {\em not} immediately obvious is that the map above
+is injective. In other words, it is {\em prima facie} plausible that
+there are additional relations, beyond bilinearity, that are always
+satisfied in central extensions of $G$. The explicit description of
+the exterior square based on generators and relations in Section
+\ref{sec:exteriorsquare-explicit} will settle this point in a
+straightforward manner: for an abelian group $G$, it will turn out
+that the above map is an isomorphism (see Section
+\ref{sec:exterior-tensor-abelian-reconciliation} for a summary of the
+conclusions).
+
+\subsection{Relationship with K-theory}
+
+For any associative unital ring $A$, we can define a short exact
+sequence:
+
+$$0 \to K_2(A) \to \operatorname{St}(A) \to E(A) \to 1$$
+
+Here, $\operatorname{St}(A)$ denotes the Steinberg group of $A$ and
+$E(A)$ denotes the group of elementary matrices over $A$ (note that
+all these groups are the direct limits of the corresponding groups for
+$n \times n$ matrices under the obvious inclusion mappings). It is
+known that $K_2(A) = M(E(A))$ is the Schur multiplier of $E(A)$. It
+follows by unwinding the definitions that $\operatorname{St}(A)$ is
+the exterior square of $E(A)$. However, we have not been able to
+locate the statement (namely, that $\operatorname{St}(A)$ is the
+exterior square of $E(A)$) anywhere explicitly in the K-theory
+literature. This may well be because people who work in that area are
+unaware of the terminology related to the exterior square.
+
+For more information about the Steinberg group and $K_2(A)$, see
+\cite{MilnorKTheory}.
+%\newpage
+
+\section{Exterior square, Schur multiplier, and the second cohomology group: Lie ring version}\label{sec:schur-multiplier-and-second-cohomology-lie}
+
+This section covers the Lie ring analogue of the material in Section
+\ref{sec:schur-multiplier-and-second-cohomology-lie}. The motivation
+is largely the same. The analogous material to Section
+\ref{sec:exteriorsquare-abelian-group-intro} was already covered in
+Section \ref{sec:exteriorsquare-abelian-lie}, and is therefore not
+repeated here.
+
+\subsection{Homomorphism from the Schur multiplier to the kernel of the extension}\label{sec:homschurkernel-lie}
+
+We will now describe a very important homomorphism. For any central extension of the form:
+
+$$0 \to A \to N \to L \to 0$$
+
+there is a natural homomorphism from the Schur multiplier of $L$ to $A$, i.e., a homomorphism:
+
+$$\beta: M(L) \to A$$
+
+We now proceed to describe this homomorphism.
+
+As discussed in Section \ref{sec:exteriorsquare-lie}, there is a natural
+homomorphism:
+
+$$\Omega: L \wedge L \to [N,N]$$
+
+Compose this with the inclusion of $[N,N]$ in $N$ to get a map $L
+\wedge L \to N$. We obtain:
+
+$$\begin{array}{ccccccccc}
+0 & \to & M(L) & \to & L \wedge L & \to & [L,L] & \to & 0\\
+&&               && \downarrow     &&\downarrow&&\\
+0 & \to & A & \to & N & \to & L & \to & 0\\
+\end{array}$$
+
+It is immediate that this diagram commutes.
+
+By a special case of the snake lemma, we can construct a unique map
+$M(L) \to A$ such that the diagram continues to be commutative, and
+that is the homomorphism $\beta$ that we want:
+
+$$\begin{array}{ccccccccc}
+0 & \to & M(L) & \to & L \wedge L & \to & [L,L] & \to & 0\\
+&&   \downarrow^{\beta}  &&  \downarrow     && \downarrow&& \\
+0 & \to & A &\to & N & \to & L & \to & 0\\
+\end{array}$$
+
+\subsection{Classification of extensions up to isoclinism}\label{sec:extensionsuptoisoclinism-lie}
+
+Given a Lie ring $L$ and an abelian Lie ring $A$, we say that the central
+extensions $N_1$ and $N_2$ with short exact sequences:
+
+$$0 \to A \to N_1 \to L \to 0$$
+
+and
+
+$$0 \to A \to N_2 \to L \to 0$$
+
+are {\em isoclinic (fixing both $L$ and $A$)} if there exists an
+isomorphism of Lie rings $\varphi:N_1' \to N_2'$ satisfying {\em both}
+the following conditions:
+
+\begin{itemize}
+\item Isoclinic as extensions of $L$: If $\Omega_1:L \wedge L \to
+  N_1'$ and $\Omega_2:L \wedge L \to N_2'$ are the Lie bracket map
+  homomorphisms, then $\varphi \circ \Omega_1 = \Omega_2$.
+\item Suppose $B$ is the inverse image in $A$ of $[N_1,N_1]$. Then,
+  $B$ is also the inverse image in $A$ of $[N_2,N_2]$. Moreover,
+  composing $\varphi$ with the inclusion of $B$ in $[N_1,N_1]$ gives
+  the inclusion of $B$ in $[N_2,N_2]$.
+\end{itemize}
+
+\subsection{Relating the classification of extensions up to isoclinism with the homomorphism from the Schur multiplier}\label{sec:beta-map-lie}
+
+In Section \ref{sec:homschurkernel-lie}, we noted that for any central extension:
+
+$$0 \to A \to N \to L \to 0$$
+
+we have a natural homomorphism $\beta: M(L) \to A$.
+
+The homomorphism is uniquely determined by the choice of extension up
+to congruence, so we get a {\em set} map:
+
+$$H^2(L;A) \to \operatorname{Hom}(M(L),A)$$
+
+In Section \ref{sec:ses-uct-lie}, we will see that this set map is a {\em
+  Lie ring homomorphism}. We alluded to the Lie ring structure on
+$H^2_{\text{Lie}}(L;A)$ in Section
+\ref{sec:second-cohomology-lie-ring-classify-extensions} and a
+detailed description is in the Appendix.
+
+As we will see in Section \ref{sec:ses-uct-lie}, this Lie ring homomorphism
+is surjective and is the right map in an important short exact
+sequence. For now, however, we note that this Lie ring homomorphism
+classifies extensions up to isoclinism. Explicitly, two extensions
+$N_1,N_2$ are isoclinic in the sense of the preceding section if and
+only if they induce the same homomorphism $M(L) \to A$. We now proceed
+to explain why.
+
+Consider the two short exact sequences below:
+
+$$\begin{array}{ccccccccc}
+0 & \to & M(L) & \to & L \wedge L & \to & [L,L] & \to & 0\\
+ &&   \downarrow^{\beta}  &&  \downarrow     && \downarrow&&\\
+0 & \to & A &\to & N & \to & L & \to & 0\\
+\end{array}$$
+
+Suppose $B$ is the subring of $A$ that arises as the image of the
+homomorphism $\beta: M(L) \to A$ and $\beta':M(L) \to B$ is the map
+obtained by restricting the co-domain. We then have the following two
+short exact sequences, where all the downward maps are surjective:
+
+$$\begin{array}{ccccccccc}
+0 & \to & M(L) & \to & L \wedge L & \to & [L,L] & \to & 0\\
+ &&   \downarrow^{\beta'}  &&  \downarrow^{\Omega_{N,L}}     && \downarrow^{\text{id}}&& \\
+0 & \to & B &\to & [N,N] & \to & [L,L] & \to & 0\\
+\end{array}$$
+
+Note that the second row sequence is exact because all the downward
+maps are surjective.\footnote{Some proof details involving diagram
+  chasing are being omitted for brevity.}
+
+It is easy to see that if $N_1$ and $N_2$ are two central Lie ring
+extensions of $L$ that give the same map $\beta$, then we can obtain
+an isomorphism $[N_1,N_1] \to [N_2,N_2]$ such that in the diagram
+below, the composite of the downward maps in the middle column is
+$\Omega_{N_2,L}$, and the lower downward arrow in the middle column is
+an isomorphism.
+
+$$\begin{array}{ccccccccc}
+0 & \to & M(L) & \to & L \wedge L & \to & [L,L] & \to & 0\\
+ &&   \downarrow^{\beta'}  &&  \downarrow^{\Omega_{N,L}}     && \downarrow^{\text{id}}&& \\
+0 & \to & B &\to & [N_1,N_1] & \to & [L,L] & \to & 0\\
+ &&   \downarrow^{\operatorname{id}}  && \downarrow && \downarrow^{\text{id}} && \\
+0 & \to & B &\to & [N_2,N_2] & \to & [L,L] & \to & 0\\
+\end{array}$$
+
+\subsection{The universal coefficient theorem short exact sequence}\label{sec:ses-uct-lie}
+
+As before, let $L$ be a Lie ring and let $A$ be an abelian Lie ring. Our
+goal is to understand all central extension Lie rings $N$, i.e., short
+exact sequences of the following form where the image of $A$ in $N$ is
+in the center of $N$:
+
+$$0 \to A \to N \to L \to 0$$
+
+As discussed earlier, the set of all congruence classes of extensions
+is classified by the group $H^2_{\text{Lie}}(L;A)$ (the second
+cohomology group for trivial Lie ring action). We now proceed to
+describe a related short exact sequence, analogous to the short exact
+sequence discussed in Section \ref{sec:ses-uct} for groups. The short exact
+sequence is as follows:
+
+\begin{equation}\label{eq:ses-uct-lie}
+  0 \to \operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}},A) \to H^2(L;A) \to \operatorname{Hom}(M(L),A) \to 0
+\end{equation}
+
+Note that 
+\subsubsection{Interpretation of the left map of the sequence}\label{sec:ses-uct-lie-left-map}
+
+The map:
+
+$$\operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}},A) \to H^2(L;A)$$
+
+takes an abelian Lie ring extension with ideal $A$ and quotient Lie
+ring $L^{\operatorname{ab}}$, and gives an extension with $L$ on top
+of $A$ that can loosely be described as follows: the restriction to
+the derived subring $[L,L]$ splits and the quotient sits as per the
+element of
+$\operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}},A)$. Explicitly,
+it can be thought of as a composite of two maps:
+
+$$\operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}},A) \to H^2(L^{\operatorname{ab}};A) \to H^2(L;A)$$
+
+where the first map treats an abelian Lie ring extension simply as a
+Lie ring extension, and the second map uses the contravariance of $H^2$
+in its first argument.
+
+\subsubsection{Interpretation of the right map of the sequence}\label{sec:ses-uct-lie-right-map}
+
+The right map of the sequence:
+
+$$H^2(L;A) \to \operatorname{Hom}(M(L),A)$$
+
+sends an extension Lie ring to the corresponding map $\beta$ described in
+Section \ref{sec:homschurkernel-lie}. In Section \ref{sec:beta-map-lie}, we
+showed that the map $H^2(L;A) \to \operatorname{Hom}(M(L),A)$
+classifies extensions up to isoclinism.
+
+\subsubsection{What the existence of the short exact sequence tells us}
+
+Consider again the short exact sequence:
+
+\begin{equation*}
+  0 \to \operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}},A) \to H^2(L;A) \to \operatorname{Hom}(M(L),A) \to 0
+\end{equation*}
+
+We now consider the three aspects of {\em exactness}:
+
+\begin{itemize}
+\item Left exactness, i.e., the injectivity of the map
+  $\operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}},A) \to
+  H^2(L;A)$. This is the assertion that the only abelian Lie ring
+  extension for $L^{\operatorname{ab}}$ on top of $A$ that maps to $L
+  \times A$ is the trivial extension. This is immediate from the
+  definition.
+\item Middle exactness, i.e., the image of the map
+  $\operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}},A) \to
+  H^2(L;A)$ is precisely the same as the kernel of the map $ H^2(L;A)
+  \to \operatorname{Hom}(M(L),A)$. This is easy to see from the
+  definition.
+\item Right exactness, i.e., the surjectivity of the map $H^2(L;A) \to
+  \operatorname{Hom}(M(L),A)$. This says that {\em every homomorphism}
+  from $M(L)$ to $A$ arises from an extension with central subring
+  $A$ and quotient Lie ring $L$. In other words, the set of extension
+  types up to isoclinism can be identified with the group
+  $\operatorname{Hom}(M(L),A)$. {\em This is the most important and
+    least obvious of the three exactness statements}. Many of our
+  later constructive results will rely crucially on right exactness.
+\end{itemize}
+
+\subsubsection{How it is a special case of the dual universal coefficient theorem}
+
+The general version of the dual universal coefficient theorem for
+Lie ring cohomology is as follows:
+
+$$0 \to \operatorname{Ext}^1_{\mathbb{Z}}(H_{k-1}(L;\mathbb{Z}),A) \to H^k(L;A) \to \operatorname{Hom}(H_k(L;\mathbb{Z}),A) \to 0$$
+
+If we set $p = 2$ and use the fact that $M(L)$ is canonically
+isomorphic to $H_2(L;\mathbb{Z})$, and also that
+$L^{\operatorname{ab}}$ is canonically isomorphic to
+$H_1(L;\mathbb{Z})$, we get the short exact sequence we have been
+discussing.
+
+\subsubsection{The splitting of the short exact sequence}
+
+The dual universal coefficient theorem for Lie ring cohomology, in addition
+to providing the short exact sequence above, also states that the
+short exact sequence always splits, but the splitting is not in
+general canonical. Explicitly, the universal coefficient theorem
+states that:
+
+$$H^k(L;A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(H_{k-1}(L;\mathbb{Z}),A) \oplus \operatorname{Hom}(H_k(L;\mathbb{Z}),A)$$
+
+In the special case of interest to us, we obtain:
+
+$$H^2(L;A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}},A) \oplus \operatorname{Hom}(M(L),A)$$
+
+The direct sum decomposition is {\em not} in general canonical. %% In
+%% fact, there are examples where there is {\em no}
+%% $\operatorname{Aut}(L) \times \operatorname{Aut}(A)$-invariant
+%% splitting. {\em TONOTDO: Insert link to Appendix section}
+
+In Section \ref{sec:ses-uct-lie-abelian-canonical-splitting}, we will note that the
+short exact sequence splits canonically in the case that $L$ itself is
+an abelian Lie ring.
+
+\subsection{An alternate characterization of initial objects, and the existence of Schur covering Lie rings}
+
+Recall that, by Lemma \ref{lemma:initobj-lie}, a central extension:
+
+$$0 \to A \to N \to L \to 0$$
+
+is an initial object in the category of central extensions of $L$ with
+homoclinisms if the natural homomorphism:
+
+$$\Omega_{N,L}: L \wedge L \to [N,N]$$
+
+is an isomorphism. We now provide an alternative characterization.
+
+\begin{lemma}\label{lemma:initial-beta-injective-lie}
+  Consider a Lie ring $L$ and a central extension:
+
+  $$0 \to A \to N \to L \to 0$$
+
+  The central extension is an initial object in the category of
+  central extensions of $L$ with homoclinisms if and only if the
+  corresponding homomorphism $\beta:M(L) \to A$ (described in Section
+  \ref{sec:homschurkernel}) is injective.
+\end{lemma}
+
+\begin{proof}
+  Let $B$ be the image in $A$ of $\beta$ and let $\beta'$ be the
+  restriction of $\beta$ to co-domain $B$, so $\beta'$ is a surjective
+  homomorphism from $M(L)$ to $B$. Note also that $\beta$ is injective
+  if and only if $\beta'$ is an isomorphism.
+
+  As discussed in Section \ref{sec:beta-map}, we have the following
+  morphism of short exact sequences, where all the downward maps are
+  surjective:
+
+  $$\begin{array}{ccccccccc}
+    0 & \to & M(L) & \to & L \wedge L & \to & [L,L] & \to & 0\\
+    &&   \downarrow^{\beta'}  &&  \downarrow^{\Omega_{N,L}}     && \downarrow^{\text{id}} && \\
+    0 & \to & B &\to & [N,N] & \to & [L,L] & \to & 0\\
+  \end{array}$$
+  
+  Since the right-most downward map is the identity map, we see (from
+  some elementary diagram chasing) that $\beta'$ is an isomorphism if
+  and only if $\Omega_{N,L}$ is an isomorphism. 
+\end{proof}
+
+Recall the definition of stem extension from Section
+\ref{sec:central-and-stem-extension-lie}. We provide an alternative
+characterization of such extensions:
+
+\begin{lemma}\label{lemma:stem-beta-surjective-lie}
+  A central extension $0 \to A \to N \to L \to 0$ is a stem extension
+  if and only if the corresponding map $\beta: M(L) \to A$ is
+  surjective.
+\end{lemma}
+
+\begin{proof}
+  Let $B$ be the image in $A$ of $\beta$ and let $\beta'$ be the
+  restriction of $\beta$ to co-domain $B$, so $\beta'$ is a surjective
+  homomorphism from $M(L)$ to $B$. Note also that $\beta$ is
+  surjective if and only if $B = A$. Note also that $A \le Z(N)$ by
+  the assumption that the extension is central, so the challenge is to
+  show that $A \le [N,N]$ if and only if $B = A$.
+
+  As described in Section \ref{sec:beta-map-lie}, we have the following
+  morphism of two short exact sequences, with all the downward maps
+  surjective:
+
+  $$\begin{array}{ccccccccc}
+    0 & \to & M(L) & \to & L \wedge L & \to & [L,L] & \to & 0\\
+    &&   \downarrow^{\beta'}  &&  \downarrow^{\Omega_{N,L}}     && \downarrow^{\text{id}} && \\
+    0 & \to & B &\to & [N,N] & \to & [L,L] & \to & 0\\
+  \end{array}$$
+
+  Explicitly, $B$ is the kernel of the homomorphism from $[N,N]$ to
+  $[L,L]$. The homomorphism from $[N,N]$ to $[L,L]$ is obtained by
+  restricting to $[N,N]$ the homomorphism from $N$ to $L$. 
+
+  Thus, $B = A \cap [N,N]$. It follows that $A \le [N,N]$ if and only
+  if $B = A$, completing the proof.
+\end{proof}
+
+We are now prepared for a definition.
+
+\begin{definer}[Schur covering Lie ring]
+  We define a {\em Schur covering Lie ring} of $L$ as a Lie ring
+  extension $N$ of $L$ with short exact sequence:
+
+  $$0 \to A \to N \to L \to 0$$
+  
+  satisfying the condition that it is a central extension and the
+  corresponding map $\beta: M(L) \to A$ (defined in Section
+  \ref{sec:homschurkernel-lie}) is an isomorphism. Equivalently, the
+  extension must satisfy {\em both} these conditions:
+  
+  \begin{itemize}
+  \item The extension is a stem extension, i.e., the image of $A$ in $N$
+    is contained in $Z(N) \cap [N,N]$.
+  \item The natural homomorphism $\Omega_{N,L}: L \wedge L \to [N,N]$ is an
+    isomorphism.
+  \end{itemize}
+\end{definer}
+  
+The equivalence of the two versions of the definition follows from the
+two preceding lemmas (Lemmas \ref{lemma:initial-beta-injective-lie} and
+\ref{lemma:stem-beta-surjective-lie}).
+
+The existence of Schur covering Lie rings is not {\em a priori} clear,
+but can be deduced from the short exact sequence of the preceding
+section. 
+
+\begin{theorem}\label{thm:schur-covering-lie-rings-exist}
+  For any Lie ring $L$, Schur covering Lie rings of $L$ exist.
+\end{theorem}
+
+\begin{proof}
+  For any abelian Lie ring $A$, we have the short exact sequence
+  described in Section \ref{sec:ses-uct}:
+
+  \begin{equation*}
+    0 \to \operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}},A) \to H^2(L;A) \to \operatorname{Hom}(M(L),A) \to 0
+  \end{equation*}
+  
+  Now, set $A = M(L)$:
+
+  \begin{equation*}
+    0 \to \operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}},M(L)) \to H^2(L;M(L)) \to \operatorname{Hom}(M(L),M(L)) \to 0
+  \end{equation*}
+  
+  Consider the element $\operatorname{Id}_{M(L)} \in
+  \operatorname{Hom}(M(L),M(L))$. By surjectivity (i.e., right
+  exactness), there exists at least one element of $H^2(L;M(L))$ that
+  maps to this. Note that the inverse image is in fact a coset in
+  $H^2(L;M(L))$ of the image of
+  $\operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}},M(L))$. Each
+  element in this inverse image corresponds to a Schur covering
+  Lie ring. If
+  $\operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}},M(L))$ is
+  nontrivial, the Schur covering Lie ring need not be unique.
+\end{proof}
+
+\subsection{Realizability of surjective homomorphisms from the exterior square}
+
+Suppose $L$ and $D$ are Lie rings and $\alpha:L \wedge L \to D$ and
+$\delta:D \to [L,L]$ are surjective homomorphisms such that $\delta
+\circ \alpha:L \wedge L \to [L,L]$ is the canonical map sending $x
+\wedge y$ to $[x,y]$. We would like to know whether there is a central
+extension:
+
+$$0 \to A \to N \to L \to 0$$
+
+with the property that there is an isomorphism $\theta:N' \to D$ such
+that if we consider the homomorphism:
+
+$$\Omega_{N,L}: L \wedge L \to N'$$
+
+then $\theta \circ \Omega_{N,L} = \alpha$. The answer to this question is
+{\em yes}. In fact, we can even choose $N$ to be a {\em stem}
+extension of $L$. We outline the construction below.
+
+Recall that we have the following short exact sequence, describing $L
+\wedge L$ as a central extension of $[L,L]$:
+
+$$0 \to M(L) \to L \wedge L \to [L,L] \to 0$$
+
+Denote by $A$ the image of $M(L)$ under the set map $\alpha:L \wedge L
+\to D$ and by $\beta:M(L) \to A$ the restricted map. We therefore
+have the following commutative diagram:
+
+$$\begin{array}{ccccccccc}
+  0 & \to & M(L) & \to & L \wedge L & \to & [L,L] & \to & 0\\
+  &&   \downarrow^{\beta}  &&  \downarrow^{\alpha}     && \downarrow^{\text{id}} && \\
+  0 & \to & A &\to & D & \stackrel{\delta}{\to} & [L,L] & \to & 0\\
+\end{array}$$
+
+Now, consider the short exact sequence described in Section
+\ref{sec:ses-uct-lie}:
+
+$$0 \to \operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}},A) \to H^2(L;A) \to \operatorname{Hom}(M(L),A) \to 0$$
+
+The right map is surjective, so there exists an extension Lie ring $N$
+(corresponding to an element of $H^2(L,A)$) such that the map $\beta$
+corresponding to $N$ (as described in Sections
+\ref{sec:homschurkernel-lie} and \ref{sec:beta-map-lie}) is the map $\beta$
+that we specified. Also, for reasons discussed in Section
+\ref{sec:beta-map-lie}, we can find an isomorphism $\theta:[N,N] \to D$
+such that $\theta \circ \Omega_{N,L} = \alpha$.
+
+\subsection{The existence of stem Lie rings}\label{sec:stem-lie-ring-existence}
+
+Define a Lie ring $L$ as a {\em stem Lie ring} if $Z(L) \le L'$. Now
+that we have defined the concept of stem extension, we can provide an
+alternate definition of stem Lie ring: $L$ is a stem Lie ring if the
+short exact sequence:
+
+$$0 \to Z(L) \to L \to L/Z(L) \to 0$$
+
+makes $L$ a stem extension.
+
+\begin{theorem}\label{thm:stem-lie-ring-existence}
+  Suppose $L$ is a Lie ring. There exists a stem Lie ring $K$ that is
+  isoclinic to $L$.
+\end{theorem}
+
+\begin{proof}
+  Consider the short exact sequence:
+
+  $$0 \to Z(L) \to L \to L/Z(L) \to 0$$
+
+  This short exact sequence allows us to think of $L$ as a central
+  extension with central subring $Z(L)$ and quotient Lie ring
+  $L/Z(L)$. We apply the construction in Section \ref{sec:beta-map-lie} to
+  obtain the natural map $\beta:M(L/Z(L)) \to Z(L)$. Let $B$ be the
+  image of $\beta$. By the explicit construction, note that the image of
+  $\beta$ is actually inside $Z(L) \cap L'$. Let $\beta':M(L/Z(L)) \to
+  B$ be the map obtained by restricting the co-domain of $\beta$ to
+  the image of $\beta$.
+
+  Consider now the short exact sequence of Section \ref{sec:ses-uct-lie}
+  for central subring $B$ and quotient Lie ring $L/Z(L)$. The short exact sequence is:
+
+  $$0 \to \operatorname{Ext}^1_{\mathbb{Z}}((L/Z(L))^{\operatorname{ab}},B) \to H^2(L/Z(L);B) \to \operatorname{Hom}(M(L/Z(L)),B) \to 0$$
+
+  In particular, the map:
+
+  $$H^2(L/Z(L);B) \to \operatorname{Hom}(M(L/Z(L)),B)$$
+
+  is surjective. This means that we can find a (possibly non-unique
+  and non-canonical) central extension $K$ with short exact sequence:
+
+  $$0 \to B \to K \to L/Z(L) \to 0$$
+
+  such that the map $\beta_K$ corresponding to this extension (per
+  Section \ref{sec:beta-map}) is the same as $\beta'$. The following
+  are now easy to verify: %{\em TONOTDO: Fill in details}
+
+  \begin{itemize}
+  \item The image of $B$ in $K$ is the center of $K$.
+  \item The image of $B$ in $K$ is contained in the derived subring $K'$.
+  \item $L$ and $K$ are isoclinic.
+  \end{itemize}
+\end{proof}
+  
+Note that although stem Lie rings exist, there may be no canonical choice
+of stem Lie ring. The problem is the absence of a canonical splitting of
+the short exact sequence. If a canonical splitting did exist, we could
+use that splitting to obtain a canonical choice of extension.
+
+\subsection{The Stallings exact sequence}
+
+The {\em Stallings exact sequence} was defined by Stallings in
+\cite{Stallings} and explored further by Eckmann, Hilton, and
+Stammbach in \cite{EckmannHiltonStammbach} for arbitrary Lie ring
+extensions.
+
+Start with a short exact sequence of Lie rings (note that $A$ is not
+necessarily abelian, but we use this notation to stay consistent with
+the other sections):
+
+$$1 \to A \to N \to L \to 0$$
+
+Then, the Stallings exact sequence is as follows:
+
+$$M(N) \stackrel{\alpha}{\to} M(L) \stackrel{\beta}{\to} A/[N,A] \stackrel{\sigma}{\to} N^{\operatorname{ab}} \stackrel{\tau}{\to} L^{\operatorname{ab}}$$
+
+The maps are described as follows:
+
+\begin{itemize}
+\item The homomorphism $\alpha:M(N) \to M(L)$ arises from the
+  functoriality of the Schur multiplier, discussed in Section
+  \ref{sec:functoriality}.
+\item The homomorphism $\beta:M(L) \to A/[N,A]$ arises from the
+  corresponding map in the central extension case (discussed below)
+  once we replace the original short exact sequence by the short exact
+  sequence $1 \to A/[N,A] \to N/[N,A] \to L \to 0$.
+\item The homomorphism $\sigma:A/[N,A] \to N^{\operatorname{ab}} =
+  N/[N,N]$ arises directly from the natural inclusion $A \to N$ under
+  which $[N,A]$ is mapped inside $[N,N]$.
+\item The homomorphism $\tau:N^{\operatorname{ab}} \to
+  L^{\operatorname{ab}}$ arises from the quotient map $N \to L$ under
+  which $[N,N]$ gets mapped inside $[L,L]$.
+\end{itemize}
+
+In the central extension case, the Stallings exact sequence simplifies to:
+
+$$M(N) \stackrel{\alpha}{\to} M(L) \stackrel{\beta}{\to} A \stackrel{\sigma}{\to} N^{\operatorname{ab}} \stackrel{\tau}{\to} L^{\operatorname{ab}}$$
+
+The maps are described as follows:
+
+\begin{itemize}
+\item The homomorphism $\alpha:M(N) \to M(L)$ arises from the
+  functoriality of the Schur multiplier.
+\item The homomorphism $\beta:M(L) \to A$ is the same as that
+  described in Section \ref{sec:homschurkernel}.
+\item The homomorphism $\sigma:A \to N^{\operatorname{ab}} = N/[N,N]$
+  arises directly from the natural inclusion $A \to N$ under which
+  $[N,A]$ is mapped inside $[N,N]$.
+\item The homomorphism $\tau:N^{\operatorname{ab}} \to
+  L^{\operatorname{ab}}$ arises from the quotient map $N \to L$ under
+  which $[N,N]$ gets mapped inside $[L,L]$.
+\end{itemize}
+
+\subsection{Hopf's formula for Lie rings: two proofs}\label{sec:hopf-formula-proofs-lie}
+
+Hopf's formula for Lie rings states that if a Lie ring $L$ can be
+expressed in the form $F/R$ where $F$ is a free Lie ring and $R$ is an
+ideal of $F$, then:
+
+\begin{equation}\label{eq:hopf-formula-lie}
+  M(L) \cong (R \cap [F,F])/([F,R])
+\end{equation}
+
+We provide two related proofs. The first proof relies on the
+observation in Section \ref{sec:freeinitialobject-lie}
+that if we consider $N_1 = F/[F,R]$ as a central extension of $L$ in a
+natural fashion, then this central extension is an initial object in
+the category of Lie ring extensions of $L$ with homoclinisms. The
+exterior square $L \wedge L$ is therefore isomorphic to $N_1' =
+[F,F]/[F,R]$. The Schur multiplier $M(L)$ is isomorphic to the kernel
+of the natural homomorphism $N_1' \to L'$, which is the subring $(R
+\cap [F,F])/[F,R]$ inside $[F,F]/[F,R]$.
+
+Alternately, Hopf's formula can be deduced from the Stallings exact
+sequence applied to the short exact sequence:
+
+$$1 \to R \to F \to L \to 0$$
+
+combined with the information that $M(F)$ is trivial. Explicitly,
+the Stallings exact sequence is:
+
+$$M(F) \stackrel{\alpha}{\to} M(L) \stackrel{\beta}{\to} R/[F,R] \stackrel{\sigma}{\to} F/[F,F] \stackrel{\tau}{\to} L/[L,L]$$
+
+Since $M(F)$ is trivial, we obtain from exactness that $M(L)$ is
+isomorphic to the kernel of the map $\sigma$. From this, we obtain
+Hopf's formula.
+
+%\newpage
+
+\section{Exterior and tensor product for groups: explicit descriptions}\label{sec:exterior-and-tensor-product}
+
+The treatment of tensor products and exterior products found here is
+similar to that found in \cite{BrownLoday}, \cite{McDermottThesis},
+and \cite{Ellis87}.
+
+In keeping with the literature on the topic, we use the convention of
+groups acting on the left. In particular, when talking of a
+conjugation action, we refer to the action $(g,x) \mapsto {}^gx = gxg^{-1}$.
+
+The material included in this section can be skipped. Its relevance is
+primarily that it shows, as a special case, that the exterior square
+of an abelian group {\em as a group} is the same as its exterior
+square {\em as an abelian group}. We alluded to this, without proof,
+in Section \ref{sec:exteriorsquare-abelian-group-intro}. However, we
+also provide an alternative proof in Section
+\ref{sec:exteriorsquare-abelian-group-proofs}.\footnote{The proofs are
+  not really different once we write down all the details.}
+
+\subsection{Compatible pair of actions}
+
+Suppose $G$ and $H$ are groups and $\alpha: G \to
+\operatorname{Aut}(H)$ and $\beta: H \to \operatorname{Aut}(G)$ are
+group homomorphisms. We say that $(\alpha,\beta)$ form a {\em
+  compatible pair of actions} if {\em both} the following conditions
+hold:
+
+\begin{eqnarray*}
+  \beta(\alpha(g_1)(h))(g_2) & = & {}^{g_1}(\beta(h)({}^{g_1^{-1}}(g_2)))) \ \forall \ g_1,g_2 \in G, h \in H\\
+  \alpha(\beta(h_1)(g))(h_2) & = & {}^{h_1}(\alpha(g)({}^{h_1^{-1}}(h_2))) \ \forall \ h_1,h_2 \in H, g \in G\\
+\end{eqnarray*}
+
+If we use $\cdot$ to denote the action of each group on itself by
+conjugation {\em and} both the actions $\alpha$ and $\beta$, the above
+can be written as:
+
+\begin{eqnarray*}
+  (g_1 \cdot h) \cdot g_2 & = & g_1 \cdot (h \cdot (g_1^{-1} \cdot g_2)) \ \forall \ g_1,g_2 \in G, h \in H\\
+  (h_1 \cdot g) \cdot h_2 & = & h_1 \cdot (g \cdot (h_1^{-1} \cdot h_2)) \ \forall \ h_1,h_2 \in H, g \in G\\
+\end{eqnarray*}
+
+The following is an alternate description of the axioms that is
+sometimes easier to work with:
+
+\begin{eqnarray*}
+  {}^{g_1}(\beta(h)g_2) & = & \beta(\alpha(g_1)h)({}^{g_1}(g_2)) \ \forall \ g_1,g_2 \in G, h \in H\\ 
+  {}^{h_1}(\alpha(g)h_2) & = & \alpha(\beta(h_1)g)({}^{h_1}(h_2)) \ \forall \ g \in G, h_1, h_2 \in H\\
+\end{eqnarray*}
+
+With the $\cdot$ notation, this becomes:
+
+\begin{eqnarray*}
+  g_1 \cdot (h \cdot g_2) & = & (g_1 \cdot h) \cdot (g_1 \cdot g_2) \ \forall \ g_1,g_2 \in G, h \in H\\
+  h_1 \cdot (g \cdot h_2) & = & (h_1 \cdot g) \cdot (h_1 \cdot h_2) \ \forall g \in G, h_1,h_2 \in H\\
+\end{eqnarray*}
+
+The $g_2$ of the first identity here equals the element $g_1^{-1}
+\cdot g_2$ of the preceding formulation. The $h_2$ of the second
+identity equals the element $h_1^{-1} \cdot h_2$ of the
+preceding formulation.
+
+The following are examples of compatible pairs of actions:
+
+\begin{itemize}
+\item The trivial pair of actions is compatible. By ``trivial pair of
+  actions'' we mean that both the homomorphisms $\alpha:G \to
+  \operatorname{Aut}(H)$ and $\beta:H \to \operatorname{Aut}(G)$ are
+  trivial homomorphisms.
+\item For a group $G$, setting $G = H$ and taking both actions to be
+  the action of a group on itself by conjugation gives a compatible
+  pair of actions.
+\item This generalizes both the preceding examples: if $G$ and $H$ can
+  be embedded as subgroups inside a group $Q$ such that $G$ and $H$
+  normalize each other in $Q$, then the actions of $G$ and $H$ on each
+  other by conjugation are compatible. Note that this generalizes the
+  trivial pair of actions because we can set $Q = G \times H$. It
+  generalizes the action of a group on itself by conjugation because,
+  if $G = H$, we can set $Q = G = H$.
+\end{itemize}
+
+\subsection{Tensor product for a compatible pair of actions}\label{sec:tensorproduct-explicit}
+
+Suppose $G$ and $H$ are groups and $\alpha:G \to
+\operatorname{Aut}(H)$, $\beta:H \to \operatorname{Aut}(G)$ form a
+compatible pair of actions. For simplicity of notation, we will use
+$\cdot$ to denote the action of each group on itself by conjugation
+{\em and} both the actions $\alpha$ and $\beta$.
+
+The {\em tensor product} of $G$ and $H$ for this compatible pair of
+actions, denoted $G \otimes H$, is the quotient of the free group on
+the set $\{ g \otimes h \mid g \in G, h \in H \}$ by the following
+relations:
+
+\begin{eqnarray*}
+  (g_1g_2) \otimes h = ((g_1 \cdot g_2) \otimes (g_1 \cdot h))(g_1 \otimes h) \ \forall \ g_1,g_2 \in G, h \in H\\
+  g \otimes (h_1h_2) = (g \otimes h_1)((h_1 \cdot g) \otimes (h_1 \cdot h_2)) \ \forall \ g \in G, h_1,h_2 \in H\\
+\end{eqnarray*}
+
+\subsection{Exterior product of normal subgroups of a group}
+
+Suppose $G$ and $H$ are subgroups of a group $Q$ such that $G$ and $H$
+both normalize each other. Then, the actions of $G$ and $H$ on each
+other by conjugation form a compatible pair of actions. Note that we
+can assume without loss of generality that $G$ and $H$ are both normal
+in $Q$, because if not, then $Q$ can be replaced by the subgroup $GH$
+of $Q$ and the rest of the construction is unaffected.
+
+We define the {\em exterior product} $G \wedge H$ as the quotient of
+the tensor product $G \otimes H$ by the normal subgroup generated by
+the set $\{ x \otimes x \mid x \in G \cap H \}$. The image of $g
+\otimes h$ is denoted $g \wedge h$.
+
+\subsection{Tensor square and exterior square of a group}\label{sec:exteriorsquare-explicit}
+
+Let $G$ be a group. The {\em tensor square} of $G$, denoted $G \otimes
+G$ or $\bigotimes^2G$, is defined as the tensor product of $G$ with
+itself for the compatible pair of actions where both actions equal the
+action of $G$ on itself by conjugation.
+
+The {\em exterior square} of $G$, denoted $G \wedge G$ or
+$\bigwedge^2G$, is defined as the exterior product of $G$ and $G$
+where both copies of $G$ are viewed as normal subgroups inside
+$G$. Explicitly, $G = H = Q$ in the notation used in the preceding
+subsection.
+
+Alternately the exterior square of $G$ can be defined as the quotient
+of the tensor square of $G$ by the normal subgroup generated by the
+subset $\{ g \otimes g \mid g \in G \}$.
+
+\subsection{Reconciling the definitions of exterior square}\label{sec:exteriorsquare-reconciliation}
+
+Clair Miller, in her 1952 paper \cite{Miller52} introducing the
+concept of the exterior square, proved the equivalence of the two
+descriptions of exterior square.\footnote{This is a somewhat
+  hard-to-verify statement, since Miller's paper uses different
+  terminology and language from what we use.} A later paper
+\cite{Ellis93} by Graham J. Ellis, published in 1993, discussed the
+matter and related questions in considerably greater detail.
+
+\subsection{The special case of abelian groups}\label{sec:exterior-tensor-abelian-reconciliation}
+
+There are pre-existing concepts of tensor product, tensor square, and
+exterior square for abelian groups. These coincide with our general
+definitions above when both definitions make sense. Explicitly, the
+following are true and can be readily verified from the definitions
+above. We will $\otimes_\Z$ and $\wedge_\Z$ to denote tensor and
+exterior product operations {\em as abelian groups}.
+
+\begin{itemize}
+\item The tensor product $G \otimes H$ for the trivial pair of actions
+  of $G$ and $H$ on each other is an abelian group that is canonically
+  isomorphic to the tensor product of abelian groups
+  $G^{\operatorname{ab}} \otimes_\Z H^{\operatorname{ab}}$.
+\item In particular, the tensor square $G \otimes G$ for an abelian
+  group $G$ agrees with its tensor square {\em as an abelian group},
+  i.e., $G \otimes_\Z G \cong G \otimes G$.
+\item The exterior square $G \wedge G$ for an abelian group agrees
+  with its exterior square {\em as an abelian group}, i.e., $G
+  \wedge_\Z G \cong G \wedge G$.
+\end{itemize}
+
+%\newpage
+
+\section{Exterior and tensor product for Lie rings: explicit descriptions}\label{sec:exterior-and-tensor-product-lie}
+
+This section does for Lie rings what the preceding section (Section
+\ref{sec:exterior-and-tensor-product}) did for groups.
+
+Our treatment here closely follows the 1989 paper \cite{EllisLie} by
+Graham Ellis. Proofs of unproved assertions here can be found in the
+paper.
+
+The section can be skipped without any loss of continuity.
+
+\subsection{Compatible pair of actions of Lie rings}
+
+Suppose $M$ and $N$ are Lie rings. Suppose $\alpha:M \to
+\operatorname{Der}(N)$ and $\beta:N \to \operatorname{Der}(M)$ are
+homomorphism of Lie rings, where
+$\operatorname{Der}(M)$ and $\operatorname{Der}(N)$ denote the Lie
+ring of derivations of $M$ and of $N$ respectively. We say that
+$\alpha,\beta$ form a {\em compatible pair of actions} if the
+following two conditions hold:
+
+\begin{eqnarray*}
+  \alpha(\beta(n_1)m)(n_2) & = & [n_2,\alpha(m)n_1] \ \forall \ m \in M, n_1,n_2 \in N\\
+  \beta(\alpha(m_1)n)(m_2) & = & [m_2,\beta(n)m_1] \ \forall \ m_1,m_2 \in M, n \in N\\
+\end{eqnarray*}
+
+The above expressions are easier to write down if we use $\cdot$ to denote the actions. In this case, the above become:
+
+\begin{eqnarray*}
+  (n_1 \cdot m) \cdot n_2 & = & [n_2,m \cdot n_1] \ \forall \ m \in M, n_1,n_2 \in N\\
+  (m_1 \cdot n) \cdot m_2 & = & [m_2, n \cdot m_1] \ \forall \ m_1,m_2 \in M, n \in N \\
+\end{eqnarray*}
+
+The following are true:
+
+\begin{itemize}
+\item For any Lie ring $L$, the adjoint action of $L$ on itself forms
+  a compatible pair of actions with itself.
+\item For any Lie rings $M$ and $N$, the trivial Lie ring actions of
+  $M$ and $N$ on each other form a compatible pair of actions.
+\item The following generalizes the preceding two examples: if $M$ and
+  $N$ can be embedded as ideals inside a Lie ring $Q$, then the
+  adjoint actions of $M$ and $N$ on each other form a compatible pair
+  of actions. Note that it suffices to assume that $M$ and $N$ are Lie
+  subrings that idealize each other, but there is no loss of generality
+  since we can replace $Q$ by the subring $M + N$.
+\end{itemize}
+
+\subsection{Tensor product of Lie rings}
+
+Suppose $M$ and $N$ are Lie rings and $\alpha:M \to
+\operatorname{Der}(N)$ and $\beta:N \to \operatorname{Der}(M)$ is a
+compatible pair of actions of Lie rings. We define the {\em tensor
+  product} $M \otimes N$ for this pair of actions as follows. It is
+the quotient of the free Lie ring on formal symbols of the form $m
+\otimes n$ ($m \in M, n \in N$) by the following relations:
+
+\begin{enumerate}
+\item Additive in $M$: $(m_1 + m_2) \otimes n = (m_1 \otimes n) + (m_2
+  \otimes n) \ \forall \ m_1,m_2 \in M, n \in N$. Note that if we are
+  dealing with Lie algebras instead of Lie rings, we will replace
+  additivity by ''linearity'' in $M$ with respect to the ground ring.
+\item Additive in $N$: $m \otimes (n_1 + n_2) = (m \otimes n_1) + (m \otimes n_2) \ \forall \ m \in M, n_1,n_2 \in N$. Note that if we are dealing with Lie algebras instead of Lie rings, we will replace additivity by ''linearity'' in $N$ with respect to the ground ring.
+\item Expanding a tensor product involving one Lie bracket: 
+  \begin{itemize}
+  \item $[m_1,m_2] \otimes n = m_1 \otimes \alpha(m_2)(n) - m_2 \otimes
+    \alpha(m_1)(n) \ \forall \ m_1,m_2 \in M, n \in N$
+  \item $m \otimes [n_1,n_2] = \beta(n_2)m \otimes n_1 - \beta(n_1)(m)
+    \otimes n_2 \ \forall m \in M, n_1,n_2 \in N$
+  \end{itemize}
+  If both the actions are rewritten using $\cdot$, this simplifies to:
+  
+  \begin{itemize}
+  \item $[m_1,m_2] \otimes n = m_1 \otimes (m_2 \cdot n) - m_2 \otimes (m_1 \cdot n) \ \forall \ m_1,m_2 \in M, n \in N$
+  \item $m \otimes [n_1,n_2] = (n_2 \cdot m) \otimes n_1 - (n_1 \cdot m) \otimes n_2 \ \forall m \in M, n_1,n_2 \in N$
+  \end{itemize}
+\item Expanding a Lie bracket of two pure tensors:
+
+  $$[(m_1 \otimes n_1),(m_2 \otimes n_2)] = -(\beta(n_1)(m_1)) \otimes (\alpha(m_2)(n_2))$$
+\item If both the actions are rewritten using $\cdot$, this becomes:
+
+  $$[(m_1 \otimes n_1),(m_2 \otimes n_2)] = -(n_1 \cdot m_1) \otimes (m_2 \cdot n_2)$$
+\end{enumerate}
+
+\subsection{Exterior product of Lie rings}\label{sec:exteriorsquare-explicit-lie}
+
+Suppose $M,N$ are (possibly equal, possibly distinct) ideals in a Lie
+ring $Q$. Note that in fact it suffices to assume that they idealize
+each other, but there is no loss of generality in assuming that they
+are both ideals because we could replace $Q$ by $M + N$. 
+
+Define a compatible pair of actions of Lie rings of $M$ and $N$ on
+each other via the adjoint action on each other, i.e., the action that
+each induces on the other by restricting the inner derivation given by
+the adjoint action in the whole Lie ring. The exterior product of $M$ and
+$N$ is then defined as the quotient of the tensor product of Lie rings
+$M \otimes N$ for this compatible pair of actions by the ideal
+generated by elements of the form $x \otimes x, x \in M \cap N$.
+
+\subsection{Tensor square and exterior square of a Lie ring}
+
+Let $L$ be a Lie ring. The {\em tensor square} of $L$, denoted $L \otimes
+L$ or $\bigotimes^2L$, is defined as the tensor product of $L$ with
+itself for the compatible pair of actions where both actions equal the
+adjoint action of $L$ on itself.
+
+The {\em exterior square} of $L$, denoted $L \wedge L$ or
+$\bigwedge^2L$, is defined as the exterior product of $L$ and $L$
+where both copies of $L$ are viewed as ideals inside $L$. Explicitly,
+$M = N = Q = L$ in the notation used in the preceding subsection.
+
+Alternately the exterior square of $L$ can be defined as the quotient
+of the tensor square of $L$ by the ideal generated by the
+subset $\{ x \otimes x \mid x \in L \}$.
+
+%\newpage
+
+\section{Free nilpotent groups: basic facts about their homology groups}\label{sec:free-nilpotent-groups-homology}
+
+\subsection{Free nilpotent group: definition}
+
+The free nilpotent group of class $c$ on a set $S$ can be defined as
+the free algebra on $S$ in the variety of groups of nilpotency class
+at most $c$. Below is an explicit definition in terms of the free
+group.
+
+\begin{definer}[Free nilpotent group]
+  Suppose $S$ is a set and $c$ is a positive integer. The {\em free
+    nilpotent group} of class $c$ on the set $S$ is defined as the
+  quotient group $F(S)/\gamma_{c+1}(F(S))$ where $F(S)$ is the free
+  group on $S$. Equivalently, this group, along with the set map to it
+  from $S$, is the initial object in the category of groups of
+  nilpotency class at most $c$ with set maps to them from $S$.
+
+  The functor sending a set to the free nilpotent group of class $c$
+  is left adjoint to the forgetful functor from nilpotent groups of
+  class $c$ to sets.\footnote{This means that given a set $S$ and a
+    group $G$ of nilpotency class at most $c$, there is a canonical
+    bijection between the set of {\em set maps} from $S$ to $G$ and
+    the set of {\em group homomorphisms} from $F(S)$ to $G$. For more
+    on adjoint functors, see the Appendix, Section
+    \ref{appsec:adjoint}.}
+\end{definer}
+
+\subsection{Homology of free nilpotent groups}
+
+Suppose $G$ is the free nilpotent group of class $c$ on a generating
+set $S$. $G$ can be naturally identified with $F/\gamma_{c+1}(F)$
+where $F$ is the {\em free group} of class $c$ (i.e., $F$ is a free
+algebra in the variety of groups). We wish to compute the homology of
+$G$.
+
+Setting $R = \gamma_{c+1}(F)$ and working out the details as discussed
+in Section \ref{sec:hopf-formula-proofs}, we obtain:
+
+\begin{itemize}
+\item The group $[F,R]$ equals $[F,\gamma_{c+1}(F)] = \gamma_{c+2}(F)$.
+\item The group $E = F/[F,R]$, with the natural quotient map $E \to
+  G$, is an initial object in the category of central extensions of
+  $G$ with homoclinisms. Note that $E$ is a free nilpotent group of
+  class $c + 1$ on the same generating set $S$.
+\item The exterior square $G \wedge G$ is canonically isomorphic to
+  $[E,E]$, or equivalently, to $[F,F]/[F,R] =
+  \gamma_2(F)/\gamma_{c+2}(F)$.
+\item The Schur multiplier $M(G)$ is canonically isomorphic to the
+  quotient group $(R \cap [F,F])/[F,R] =
+  \gamma_{c+1}(F)/\gamma_{c+2}(F)$.
+\item The canonical short exact sequence:
+
+  $$0 \to M(G) \to G \wedge G \to [G,G] \to 1$$
+
+  is isomorphic to the short exact sequence:
+  
+  $$0 \to \gamma_{c+1}(F)/\gamma_{c+2}(F) \to \gamma_2(F)/\gamma_{c+2}(F) \to \gamma_2(F)/\gamma_{c+1}(F) \to 1$$
+\end{itemize}
+
+%\newpage
+
+\section{Free nilpotent Lie rings: basic facts about their homology groups}\label{sec:free-nilpotent-lie-homology}
+
+\subsection{Free nilpotent Lie ring: definition}
+
+The free nilpotent Lie ring of class $c$ on a set $S$ can be defined
+as the free algebra on $S$ in the variety of Lie rings of nilpotency
+Lie rings at most $c$. Below is an explicit definition in terms of the
+free group.
+
+\begin{definer}[Free nilpotent Lie ring]
+  Suppose $S$ is a set and $c$ is a positive integer. The {\em free
+    nilpotent } of class $c$ on the set $S$ is defined as the
+  quotient Lie ring $F(S)/\gamma_{c+1}(F(S))$ where $F(S)$ is the free
+  Lie ring on $S$. Equivalently, this Lie ring, along with the set map to it
+  from $S$, is the initial object in the category of Lie rings of
+  nilpotency class at most $c$ with set maps to them from $S$.
+
+  The functor sending a set to the free nilpotent Lie ring of class $c$
+  is left adjoint to the forgetful functor from nilpotent Lie rings of
+  class $c$ to sets.\footnote{This means that given a set $S$ and a
+    Lie ring $L$ of nilpotency class at most $c$, there is a canonical
+    bijection between the set of {\em set maps} from $S$ to $L$ and
+    the set of {\em Lie ring homomorphisms} from $F(S)$ to $L$.}
+\end{definer}
+
+\subsection{Homology of free nilpotent Lie rings}
+
+Suppose $L$ is the free nilpotent Lie ring of class $c$ on a generating
+set $S$. $L$ can be naturally identified with $F/\gamma_{c+1}(F)$
+where $F$ is the {\em free Lie ring} of class $c$ (i.e., $F$ is a free
+algebra in the variety of Lie rings). We wish to compute the homology of
+$L$.
+
+Setting $R = \gamma_{c+1}(F)$ and working out the details as discussed
+in Section \ref{sec:hopf-formula-proofs-lie}, we obtain:
+
+\begin{itemize}
+\item The Lie ring $[F,R]$ equals $[F,\gamma_{c+1}(F)] = \gamma_{c+2}(F)$.
+\item The Lie ring $N = F/[F,R]$, with the natural quotient map $N \to
+  L$, is an initial object in the category of central extensions of
+  $L$ with homoclinisms. Note that $N$ is a free nilpotent Lie ring of
+  class $c + 1$ on the same generating set $S$.
+\item The exterior square $L \wedge L$ is canonically isomorphic to
+  $[N,N]$, or equivalently, to $[F,F]/[F,R] =
+  \gamma_2(F)/\gamma_{c+2}(F)$.
+\item The Schur multiplier $M(L)$ is canonically isomorphic to the
+  quotient Lie ring $(R \cap [F,F])/[F,R] =
+  \gamma_{c+1}(F)/\gamma_{c+2}(F)$.
+\item The canonical short exact sequence:
+
+  $$0 \to M(L) \to L \wedge L \to [L,L] \to 0$$
+
+  is isomorphic to the short exact sequence:
+  
+  $$0 \to \gamma_{c+1}(F)/\gamma_{c+2}(F) \to \gamma_2(F)/\gamma_{c+2}(F) \to \gamma_2(F)/\gamma_{c+1}(F) \to 0$$
+
+\end{itemize}

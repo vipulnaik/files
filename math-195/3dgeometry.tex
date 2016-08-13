@@ -1,0 +1,233 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Three-dimensional geometry}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 12.1
+
+{\bf What students should definitely get}: The use of three
+coordinates to describe points in space. Right-hand rule and
+orientation issues. Octants and coordinate planes. Distance
+formula. Equation of sphere.
+
+{\bf What students should hopefully get}:
+Three-dimensionality. Relation between describing equations and
+dimensionality (dimensionality of surfaces, curves). The special case
+of the linear situation.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item Three-dimensional space is coordinatized using a Cartesian
+  coordinate system by selecting three mutually perpendicular axes
+  passing through a point called the origin: the $x$-axis, $y$-axis,
+  and $z$-axis. These satisfy the right-hand rule. The coordinates of
+  a point are written as a $3$-tuple $(x,y,z)$.
+\item There are $2^3 = 8$ octants based on the signs of each of the
+  coordinates. There are three coordinate planes, each corresponding
+  to the remaining coordinate being zero (the $xy$-plane corresponds
+  to $z = 0$, etc.). There are three axes, each corresponding to the
+  other two coordinates being zero (e.g., the $x$-axis corresponds to
+  $y = z = 0$).
+\item The distance formula between points with coordinates
+  $(x_1,y_1,z_1)$ and $(x_2,y_2,z_2)$ is: $$\sqrt{(x_2 - x_1)^2 + (y_2
+  - y_1)^2 + (z_2 - z_1)^2}$$ This is similar to the formula in two
+  dimensions and the squares and square root arises from the
+  Pythagorean theorem.
+\item The equation of a sphere with center having coordinates
+  $(h,k,l)$ and radius $r$ is $(x - h)^2 + (y - k)^2 + (z - l)^2 =
+  r^2$. Given an equation, we can try completing the square to see if
+  it fits the model for the equation of a sphere.
+\end{enumerate}
+
+\section{Quick introduction}
+
+\subsection{What's up with the number three?}
+
+Why is three-dimensional space considered {\em three}-dimensional?
+Because, in order to describe a point in this space, it requires three
+coordinates, or three independent pieces of information. Remember,
+dimensionality is the {\em number of degrees of freedom}, or the
+{\em number of freely varying parameters}.
+
+For now, the focus is on describing the behavior of a {\em Cartesian}
+three-dimensional coordinate system. However, it is important to note
+that {\em any} successful coordinate system to describe
+three-dimensional space must use three freely varying
+parameters. There does exist (though we will not be talking about it
+right now) a {\em polar} coordinate system in three dimensions.
+
+\subsection{Three coordinates: $x$, $y$, and $z$}
+
+The three-dimensional Cartesian coordinate system involves the
+following: choice of a point called the {\em origin}, and three
+mutually perpendicular directed lines called the $x$-axis, $y$-axis,
+and $z$-axis respectively. To specify a point with three coordinates,
+we move parallel to the $x$-axis by the value of the $x$-coordinate,
+then parallel to the $y$-axis by the value of the $y$-coordinate, then
+parallel to the $z$-axis by the value of the $z$-coordinate.
+
+The way to denote/describe a point with $x$-coordate $x_0$,
+$y$-coordinate $y_0$, and $z$-coordinate $z_0$ is as
+$(x_0,y_0,z_0)$. Or, more generally, we just write $(x,y,z)$.
+\subsection{Orientation issues}
+
+Recall that, for the two-dimensional plane, we adopt an orientation
+convention, namely, the convention that the shorter angle from the
+positive $x$-axis to the positive $y$-axis (measured $\pi/2$) be
+counter-clockwise. In a three-dimesional system, we must adopt a
+similar orientation convention. This convention is somewhat artificial
+and in fact if you were doing mathematics properly then such a
+convention would be meaningless. But since we're trying to do
+mathematics the shortcut way, we will need to introduce this
+convention.
+
+The convention is called the {\em right-hand rule}. This says that if
+you grip the $z$-axis with your right hand and curl the fingers of
+your right hand so as to move from the $x$-axis to the $y$-axis, and
+make your thumb point along the $z$-axis away from the fingers, then
+it points along the positive $z$-axis. The book has a nice picture of
+this, which I will not reproduce here.
+
+We will thus deal with {\em right-handed coordinate systems}. The
+mirror reflection of a right-hand coordinate system is a left-handed
+coordinate system. There isn't really any difference between
+left-handed and right-handed coordinate systems as far as their
+geometry is concerned. However, they are different in the sense that
+no amount of rotation can turn a right-handed coordinate system into a
+left-handed coordinate system.
+
+\subsection{Octants, axes, planes}
+
+Since there are three coordinates, there are a total of $2^3 = 8$
+possible sign combinations for the coordinates. These eight sign
+combination give rise to eight chambers of three-dimensional space,
+and these chambers are called {\em octants}. They are the
+three-dimensional analogues of the {\em quadrants} in two-dimensional
+space, of which there are $2^2 = 4$.
+
+The eight octants are:
+
+\begin{itemize}
+\item Positive $x$, positive $y$, positive $z$
+\item Positive $x$, positive $y$, negative $z$
+\item Positive $x$, negative $y$, positive $z$
+\item Positive $x$, negative $y$, negative $z$
+\item Negative $x$, positive $y$, positive $z$
+\item Negative $x$, positive $y$, negative $z$
+\item Negative $x$, negative $y$, positive $z$
+\item Negative $x$, negative $y$, negative $z$
+\end{itemize}
+
+There are also cases where one or more of the coordinates takes the
+value $0$. These are discussed below:
+
+\begin{itemize}
+\item The $x$-coordinate takes the value $0$: The $yz$-plane.
+\item The $y$-coordinate takes the value $0$: The $xz$-plane.
+\item The $z$-coordinate takes the value $0$: The $xy$-plane.
+\item Both the $y$ and $z$ coordinates take the value $0$: The
+  $x$-axis.
+\item Both the $x$ and $z$ coordinates take the value $0$: The
+  $y$-axis.
+\item Both the $y$ and $z$ coordinates take the value $0$: The
+  $z$-axis.
+\item All three coordinates are zero: We get the origin.
+\end{itemize} 
+
+\subsection{The distance formula}
+
+The distance between the points $(x_1,y_1,z_1)$ and $(x_2,y_2,z_2)$ is
+given by the formula:
+
+$$\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$$
+
+Note that this is very similar to the two-dimensional distance
+formula, and has a similar justification. Please note that the {\em
+appearance of squares and square roots is independent of
+dimensionality}. It has to do with the Pythagorean theorem. So when we
+are working in three dimensions, we still deal with squares and square
+roots, not with cubes and cube roots.
+
+\section{Curves and surfaces}
+
+\subsection{The arithmetic of dimensionality of curves and surfaces}
+
+A surface is something two-dimensional, a curve is something
+one-dimensional, and a point is something zero-dimensional.
+
+Every condition, relation, or equation creates a constraint and
+reduces the dimensionality of the set of possibilities by one. In
+particular:
+
+\begin{itemize}
+\item A single equation reduces the dimensionality of the solution
+  space by one. Since $3 - 1 = 2$, the solution set to a single
+  equation in three dimensions is something two-dimensional, such as a
+  plane or surface, or a union of finitely many planes and surfaces.
+\item A pair of two equations reduces the dimensionality of the
+  solution space by two. Since $3 - 2 = 1$, the solution set to a pair
+  of such equations is something one-dimensional, such as a line or
+  curve, or a union of finitely many lines and curves.
+\item A triple of equations reduces the dimensionality of the solution
+  space by three. Since $3 - 3 = 0$, the solution set to a tripe of
+  such equations is something zero-dimensional, such as a point or a
+  finite collection of points.
+\end{itemize}
+
+\subsection{Linear equations and systems}
+
+We will talk about these in considerably more detail later on, but
+here we simply note how linear equations fit into the model above.
+
+\begin{itemize}
+\item The solution set to a {\em linear equation} in $x$, $y$, and $z$
+  is a plane, which is a flat example of a surface.
+
+  In particular, the solution set to an equation of the form $x = x_0$
+  is a plane parallel to the $yz$-plane. Similarly, $y = y_0$ gives a
+  plane parallel to the $xz$-plane, and $z = z_0$ gives a plane
+  parallel to the $xy$-plane.
+\item The solution set to a {\em consistent but inequivalent pair of
+  linear equations} in $x$, $y$, and $z$ is a line which is a flat
+  example of a curve.
+
+  In particular, the solution set to a pair of equations of the form
+  $x = x_0$, $y = y_0$ is a line parallel to the $z$-axis. Similarly
+  with the coordinate roles interchanged.
+\item The solution set to a system of three consistent but independent
+  linear equations in $x$, $y$ and $z$ is a single point.
+\end{itemize}
+
+\subsection{Ignoring one coordinate}
+
+Suppose we have a relation $R(x,y) = 0$. The solution space to this in
+{\em three} dimensions is the surface obtained by taking the solution
+set in the $xy$-plane and then translating it along the $z$-direction
+to cover every possible $z$-coordinate. We can think of it as
+something cylinder-like.
+
+For instance, the relation $x^2 + y^2 = 25$ gives a circle of radius
+$5$ centered at the origin when viewed purely in the $xy$-plane. The
+solution set overall is a cylinder stretching infinitely in both
+directions, whose axis is the $z$-axis and whose cross sections are
+these circles.
+
+Similar remarks hold for a relation purely in terms of $y$ and $z$ or
+a relation purely in terms of $x$ and $z$.
+
+\subsection{Equation of a sphere}
+
+The equation of a sphere whose center has coordinates $(h,k,l)$ and
+whose radius is $r$ is given by:
+
+$$(x - h)^2 + (y - k)^2 + (z - l)^2 = r^2$$
+
+Given an equation, we can try doing things like completing the square
+and see if, after we do that, we get the equation of a sphere.
+\end{document}

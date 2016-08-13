@@ -1,0 +1,252 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Diagnostic in-class quiz solutions: due Friday October 25: Matrix multiplication (basic)}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+26 people took this 5-quesion quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of 0: 4 people
+\item Score of 1: 1 person
+\item Score of 2: 4 people
+\item Score of 3: 9 people
+\item Score of 4: 3 people
+\item Score of 5: 5 people
+\end{itemize}
+
+The mean score was 2.8.
+
+The question-wise answers and performance review were as follows:
+
+\begin{enumerate}
+\item Option (D): 17 people
+\item Option (B): 8 people
+\item Option (A): 14 people
+\item Option (D): 14 people
+\item Option (B): 20 people
+\end{enumerate}
+
+\section{Solutions}
+
+{\bf PLEASE DO {\em NOT} DISCUSS ANY QUESTIONS}
+
+This quiz tests for basic comprehension of the setup for matrix
+multiplication. It corresponds to the material from Sections 1-6
+(excluding Section 4) of the {\tt Matrix multiplication and inversion}
+notes, and also to Section 2.3 of the book.
+
+\begin{enumerate}
+\item {\em Do not discuss this!}: Suppose $A$ and $B$ are (not
+  necessarily square) matrices. Then, which of the following describes
+  correctly the relationship between the existence and value of the
+  (alleged) matrix product $AB$ and the existence and value of the
+  (alleged) matrix product $BA$?
+
+  \begin{enumerate}[(A)]
+  \item $AB$ is defined if and only if $BA$ is defined, and if so,
+    they are equal.
+  \item $AB$ is defined if and only if $BA$ is defined, but they need
+    not be equal.
+  \item If $AB$ and $BA$ are both defined, then $AB = BA$. However, it
+    is possible for one of $AB$ and $BA$ to be defined and the other
+    to not be defined.
+  \item It is possible for only one of $AB$ and $BA$ to be defined. It
+    is also possible for both $AB$ and $BA$ to be defined, but to not
+    be equal to each other.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Suppose $A$ is a $m \times n$ matrix (i.e., it
+  has $m$ rows and $n$ columns) and $B$ is a $p \times q$ matrix
+  (i.e., it has $p$ rows and $q$ columns), where $m$, $n$, $p$, and
+  $q$ are positive integers. $AB$ is defined if and only if $n = p$,
+  i.e., the number of columns of $A$ equals the number of rows of
+  $B$. $BA$ is defined if and only if $m = q$, i.e., the number of
+  columns of $B$ equals the number of rows of $A$. The conditions are
+  independent of one another, so it is possible for only one of $AB$
+  and $BA$ to be defined.
+
+  Suppose now that $AB$ and $BA$ are both defined. Then, $n = p$ and
+  $m = q$, so $B$ is a $n \times m$ matrix. Thus, $AB$ is a $m \times
+  m$ matrix and $BA$ is a $n \times n$ matrix, with $m$ and $n$
+  possibly different. Therefore, $AB$ and $BA$ do not even necessarily
+  have the same dimensions, and therefore they definitely are not
+  required to be equal.
+
+  {\em Not clear to you?}: Try picking actual numerical values of $m$,
+  $n$, $p$, and $q$, write down actual example matrices, and see how
+  the multiplication works.
+
+  {\em Performance review}: 17 out of 26 got this. 4 chose (B), 3
+  chose (C), 2 chose (A).
+
+\item {\em Do not discuss this!}: Suppose $A$ and $B$ are matrices
+  such that both $AB$ and $BA$ are defined. Which of the following
+  correctly describes what we know about $AB$ and $BA$?
+
+  \begin{enumerate}[(A)]
+  \item Both $AB$ and $BA$ are square matrices and have the same
+    dimensions, i.e., in both $AB$ and $BA$, the number of rows equals
+    the number of columns, and further, the number of rows of $AB$
+    equals the number of rows of $BA$.
+  \item Both $AB$ and $BA$ are square matrices (the number of rows
+    equals the number of columns) but they may not have the same
+    dimensions: the number of rows in $AB$ need not equal the number of
+    rows in $BA$.
+  \item $AB$ and $BA$ need not be square matrices but both must have
+    the same dimensions: the number of rows in $AB$ equals the number
+    of rows in $BA$, and the number of columns in $AB$ equals the
+    number of columns in $BA$.
+  \item $AB$ and $BA$ need not be square matrices and they need not
+    have the same row count or the same column count, i.e., the number
+    of rows in $AB$ need not equal the number of rows in $BA$, and the
+    number of columns in $AB$ need not equal the number of columns in
+    $BA$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: See the second paragraph of the explanation for
+  the preceding question. The conclusion there was that if $AB$ and
+  $BA$ are both defined, then for $A$ a $m \times n$ matrix, $B$ is a
+  $n \times m$ matrix, and thus $AB$ is $m \times m$ and $BA$ is $n
+  \times n$. $m$ need not be equal to $n$.
+
+  {\em Not clear to you?}: Just try picking positive integer values of
+  $m$ and $n$ that are not equal, and try constructing a $m \times n$
+  matrix $A$ and a $n \times m$ matrix $B$. Then, compute $AB$ and
+  $BA$ and verify that they are square matrices of different
+  dimensions.
+
+  {\em Performance review}: 8 out of 26 got this. 8 chose (D), 7 chose
+  (A), 3 chose (C).
+
+\item {\em Do not discuss this!}: Suppose $A$ and $B$ are matrices
+  such that both $AB$ and $A + B$ are defined. Which of the following
+  correctly describes what we know about $A$ and $B$?
+
+  \begin{enumerate}[(A)]
+  \item Both $A$ and $B$ are square matrices and have the same
+    dimensions, i.e., in both $A$ and $B$, the number of rows equals
+    the number of columns, and further, the number of rows of $A$
+    equals the number of rows of $B$.
+  \item Both $A$ and $B$ are square matrices (the number of rows
+    equals the number of columns) but they may not have the same
+    dimensions: the number of rows in $A$ need not equal the number of
+    rows in $B$.
+  \item $A$ and $B$ need not be square matrices but both must have
+    the same dimensions: the number of rows in $A$ equals the number
+    of rows in $B$, and the number of columns in $A$ equals the
+    number of columns in $B$.
+  \item $A$ and $B$ need not be square matrices and they need not have
+    the same row count or the same column count, i.e., the number of
+    rows in $A$ need not equal the number of rows in $B$, and the
+    number of columns in $A$ need not equal the number of columns in
+    $B$.
+  \end{enumerate}
+  
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Suppose $A$ is a $m \times n$ matrix (i.e., it
+  has $m$ rows and $n$ columns) and $B$ is a $p \times q$ matrix
+  (i.e., it has $p$ rows and $q$ columns). The condition that $A + B$
+  is defined tells us that $m = p$ (i.e., $A$ and $B$ have the same
+  number of rows as each other) and that $n = q$ (i.e., $A$ and $B$
+  have the same number of columns as each other). Thus, both $A$ and
+  $B$ are $m \times n$ matrices. In order for $AB$ to make sense, we
+  need $n$ (the number of columns of $A$) to equal $m$ (the number of
+  rows of $B$). Thus, $m = n$, so that both $A$ and $B$ are $m \times
+  m$ matrices.
+
+  {\em Not clear to you?}: Try writing an example that violates the
+  conditions of Option (A) and see for yourself that you'll run into
+  trouble either with computing $A + B$ or with computing $AB$.
+
+  {\em Performance review}: 14 out of 26 got this. 12 chose (C).
+
+\item {\em Do not discuss this!}: Suppose $A$ is a $p \times q$ matrix
+  and $B$ is a $q \times r$ matrix. The product matrix $AB$ is a $p
+  \times r$ matrix. Using the convention of matrices as linear
+  transformations via their action by multiplication on column vectors,
+  what is the appropriate interpretation of the matrix product in
+  terms of composing linear transformations?
+
+  \begin{enumerate}[(A)]
+  \item $A$ corresponds to a linear transformation $T_A$ from $\R^p$
+    to $\R^q$, and $B$ corresponds to a linear transformation $T_B$
+    from $\R^q$ to $\R^r$. The product $AB$ therefore corresponds to a
+    linear transformation from $\R^p$ to $\R^r$ that is the composite
+    of the two linear transformations, with $T_A$ applied first (to
+    the domain) and then $T_B$ ($T_B$ being applied to the
+    intermediate space obtained after applying $T_A$).
+  \item $A$ corresponds to a linear transformation $T_A$ from $\R^p$
+    to $\R^q$, and $B$ corresponds to a linear transformation $T_B$
+    from $\R^q$ to $\R^r$. The product $AB$ therefore corresponds to a
+    linear transformation from $\R^p$ to $\R^r$ that is the composite
+    of the two linear transformations, with $T_B$ applied first (to
+    the domain) and then $T_A$ ($T_A$ being applied to the
+    intermediate space obtained after applying $T_B$).
+  \item $A$ corresponds to a linear transformation $T_A$ from $\R^q$
+    to $\R^p$, and $B$ corresponds to a linear transformation $T_B$
+    from $\R^r$ to $\R^q$. The product $AB$ therefore corresponds to a
+    linear transformation from $\R^r$ to $\R^p$ that is the composite
+    of the two linear transformations, with $T_A$ applied first (to
+    the domain) and then $T_B$ ($T_B$ being applied to the
+    intermediate space obtained after applying $T_A$).
+  \item $A$ corresponds to a linear transformation $T_A$ from $\R^q$
+    to $\R^p$, and $B$ corresponds to a linear transformation $T_B$
+    from $\R^r$ to $\R^q$. The product $AB$ therefore corresponds to a
+    linear transformation from $\R^r$ to $\R^p$ that is the composite
+    of the two linear transformations, with $T_B$ applied first (to
+    the domain) and then $T_A$ ($T_A$ being applied to the
+    intermediate space obtained after applying $T_B$).
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Review the lecture notes regarding the
+  interpretation of matrix multiplication as composition.
+
+  {\em Performance review}: 14 out of 26 got this. 9 chose (C), 2
+  chose (B), 1 chose (A).
+\item {\em Do not discuss this!}: Suppose $A$, $B$, and $C$ are
+  matrices. Which of the following is true?
+
+  \begin{enumerate}[(A)]
+  \item If $ABC$ is defined, then so are $BCA$ and $CAB$.
+  \item If $ABC$ and $BCA$ are both defined, then so is
+    $CAB$. However, it is possible to have a situation where $ABC$ is
+    defined but $BCA$ and $CAB$ are not defined.
+  \item It is possible to have a situation where $ABC$ and $BCA$ are
+    both defined but $CAB$ is not defined.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Suppose $A$ is a $m \times n$ matrix (i.e., it
+  has $m$ rows and $n$ columns), $B$ is a $p \times q$ matrix (i.e.,
+  it has $p$ rows and $q$ columns), and $C$ is a $r \times s$ matrix
+  (i.e., it has $r$ rows and $s$ columns). In order for $ABC$ to be
+  defined, we need $n = p$ (for $AB$ to be defined) and $q = r$ (for
+  $BC$ to be defined). However, we do not need $s = m$, the condition
+  that would allow us to multiply $C$ with $A$. Therefore, we have no
+  guarantee that the products $BCA$ and $CAB$ are defined.
+
+  If both $ABC$ and $BCA$ are defined, then we get the additional
+  condition that $s = m$, and this allows us to define $CAB$.
+
+  {\em Performance review}: 20 out of 26 got this. 4 chose (A), 2
+  chose (C).
+\end{enumerate}
+\end{document}

@@ -1,0 +1,1554 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Differential equations}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Sections 9.1, 9.2 (though
+covered in a different ordering within these notes).
+
+{\bf What students should already know}: The prime and Leibniz
+notation for derivatives, the meaning of differentiation, implicit
+differentiation, and integration.
+
+{\bf What students should definitely get}: What a differential
+equation means, what a solution to a differential equation means, how
+to solve a multiplicatively separable first-order differential
+equation, how to solve an initial value problem. The specific choice
+of integrating factor used to solve a linear differential equation,
+and how to execute the solution.
+
+{\bf What students should hopefully get}: The notion of parameters as
+degrees of freedom, the notion of constraints as pinning these down,
+the basic concerns in differential equation manipulation. How
+first-order and higher order differential equations can be used to
+understand real world phenomena.
+
+\section*{Executive summary}
+
+\subsection{Solving differential equations at large}
+
+Words ...
+
+\begin{enumerate}
+\item A differential equation with dependent variable $y$ and
+  independent variable $x$ is something of the form
+  $F(x,y,y',y'',\dots) = 0$.
+\item The {\em order} of a differential equation is the {\em largest}
+  $k$ for which the $k^{th}$ derivative appears in the differential
+  equation. In particular, a {\em first-order differential equation}
+  only involves $x$, $y$, and $y'$, and does not involve $y''$ or
+  higher derivatives. A {\em second-order differential equation} only
+  involves $x$, $y$, $y'$, and $y''$.
+\item A {\em polynomial differential equation} is one where $F$ looks
+  like a polynomial in $y$ and its derivatives. A {\em linear
+  differential equation} is a differential equation of the form:
+
+  $$f_k(x)y^{(k)} + \dots + f_1(x)y' + f_0(x)y = g(x)$$
+
+  We can clear out the coefficient of $y^{(k)}$ by dividing throughout
+  by $f_k(x)$. The {\em homogeneous} case is where the right side is
+  zero.
+\item A {\em particular solution} is a relation $R(x,y) = 0$ that,
+  when plugged into the differential equation, satisfies it. (Here,
+  higher derivatives are computed using {\em implicit
+  differentiation}). A particular solution in {\em functional form} is
+  one where we explicitly find a function $f$ with $y = f(x)$ that
+  satisfies the differential equation.
+\item A {\em solution family} is a family with one or more parameters
+  such that for every permissible value of the parameter, we obtain a
+  particular solution.
+\item The {\em general solution} is a solution family that contains
+  all particular solutions.
+\item A general principle is that the number of freely varying
+  parameters in the general solution, also described as the number of
+  {\em degrees of freedom}, equals the order of the original
+  differential equation. The reason for this is roughly that the
+  number of integrations we do that introduce new degrees of freedom
+  equals the order of the differential equation.
+\item An {\em autonomous} differential equation is a differential
+  equation where the independent variable does not appear explicitly
+  (except as the thing in terms of which differentiation is carried
+  out). The independent variable can be thought of as {\em
+  time}. Autonomous differential equations have the property that any
+  time translate of a solution is also a solution. This property is
+  found in most physical laws, and essentially states that the
+  formulation of the physical law does not depend on when we started
+  measuring time, i.e., there is no natural time origin.
+\item To solve a second-order differential equation we usually do a
+  substitution to break it up into solving two first-order
+  differential equations.
+\item Of first-order differential equations, there are two broad
+  classes that we know how to solve: {\em separable} differential
+  equations and {\em linear} differential equations. For the latter
+  case, the solution method isolates $y$ as a function of $x$. In the
+  former case, we can get a mixed bag situation.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+
+\item The separable case is where we have $y' = f(x)g(y)$. In this
+  case, we rearrange to obtain $\int dy/g(y) = \int f(x) \, dx$, and
+  integrate both sides. We need to put the $+C$ on only one side,
+  because additive constants emanating from both integrals can be
+  combined into one additive constant.
+\item In the autonomous separable case, we have $dy/dt = g(y)$, and we
+  integrate to obtain $\int dy/g(y) = \int dt$. This is the case that
+  arises when we look at the logistic equation and its many variants.
+\item In the linear case, we have $y' + p(x)y = q(x)$ (after dividing
+  out by any coefficient of $y'$). Let $H(x) = \int p(x) \, dx$. The
+  integrating factor that we choose is $e^{H(x)}$. When we multiply by
+  this integrating factor the left side becomes the derivative of
+  $ye^{H(x)}$. Thus, we obtain:
+
+  $$y = e^{-H(x)} \int q(x)e^{H(x)} \, dx$$
+
+  Note that the $+C$ arises in the {\em inner} integral, so the
+  general solution is a particular solution plus $Ce^{-H(x)}$.
+\item When solving differential equations (particularly the separable
+  case) we often get a solution involving logarithms. In some cases,
+  it may be useful to {\em exponentiate} both sides. When we do so,
+  the original additive constant $C$ arising from indefinite
+  integration becomes a multiplicative constant $e^C$. We can also
+  absorb {\em sign uncertainty} into it and define a new constant $k =
+  e^C\operatorname{sgn}(y)$ to get the answer in terms of a sign
+  expression.
+\item In a similar vein to the above, if our answer involves an
+  inverse trigonometric function, we can apply the trigonometric
+  function to both sides. In this case, the additive constant {\em
+  sticks inside}. For instance, if we get $\arctan y = x + C$, then
+  applying $\tan$ to both sides yields $y = \tan(x + C)$. To simplify
+  this further (if we so desire), we need to use the angle sum
+  formula. The other major caveat that we need to bear in mind is that
+  there is a {\em loss of information} when we apply the trigonometric
+  substituion to both sides, because an inverse trigonometric function
+  value is constrained to a particular range. This constraint needs to
+  be kept track of separately.
+\item In some cases, before exponentiating or applying the inverse
+  trigonometric function, it might help to use the initial value
+  condition to pin down the freely varying parameters (see the next
+  subsection).
+\end{enumerate}
+
+\subsection{Graphical interpretation and initial value problems}
+
+Words ...
+
+\begin{enumerate}
+\item Any {\em particular solution} (whether expressed with $y$ as an
+  explicit function of $x$ or in terms of a relation between $x$ and
+  $y$) can be plotted as a curve in the $xy$-plane. When it is an
+  explicit function, this is the {\em graph of a function} --
+  otherwise, it's just the set of points satisfying the relation. This
+  picture in the plane is called an {\em integral curve} or a {\em
+  solution curve} for the differential equation.
+\item The {\em general solution} is thus a picture which has all the
+  particular solutions marked.
+\item Since solving a $k^{th}$ order differential equation introduces
+  $k$ degrees of freedom, we expect that to pin down a unique
+  solution, we need $k$ pieces of information. In particular, to
+  choose one particular solution for a first-order differential
+  equation, we need (by and large) one piece of information. In an
+  {\em initial value problem}, this is provided by specifying an
+  initial value, which is one point $(x_0,y_0)$ on the particular
+  solution curve.
+\item Geometrically, we expect that the solution family to a
+  first-order differential equation has one real parameter and that,
+  except in some degenerate cases, knowing one point on the curve
+  determines the curve. In other words we expect that by and large,
+  the solution curves do not intersect.
+\item For higher-order differential equations, on the other hand, we
+  expect that even after knowing one point on the curve, we have
+  pinned down only one of many degrees of freedom, and we still have
+  solution families to deal with rather than isolated solutions. More
+  information, such as information about higher derivatives, or
+  information about the curve passing through other points, is
+  desirable.
+\end{enumerate}
+
+Actions ... Nothing really, except that we plug in the initial value
+condition to pin down the constants.
+
+\section{Understanding differential equations and solutions}
+
+\subsection{Differentiation: the two interpretations}
+
+We have dealt with two interpretations of differentiation that it
+would be useful to recall at this stage. One interpretation is in
+terms of functions. Here, we think of a function $f$ as a black box
+that takes as input a variable $x$ and outputs a variable $f(x)$, that
+we may choose to call $y$. $f'$ is a new function, i.e., a new black
+box, that takes as input $x$ and gives an output called $f'(x)$, that
+we may also call $y'$.
+
+In this interpretation, it is the function, rather than the inputs and
+outputs to it, that takes on primal importance. The disadvantage of
+this approach is that it does not allow us to go beyond functions.
+
+The second interpretation is to view a function as a {\em relation}
+between two {\em quantities} -- the {\em input quantity} and the {\em
+output quantity}. The function describes the nature of the dependence
+of the output quantity upon the input quantity. Under this approach,
+we denote the derivative as $dy/dx$, the Leibniz notation.
+
+The Leibniz notation $dy/dx$ arises from the fact that the derivative
+is the {\em limit} of the {\em difference quotient}:
+
+$$\frac{dy}{dx} = \lim \frac{\Delta y}{\Delta x}$$
+
+The focus here is {\em not} on the function that relates $x$ to $y$,
+but on the variables $x$ and $y$. The advantage of this approach is
+that we can apply this approach even when neither of the variables is
+a function of the other. For instance, we could do something called
+{\em implicit differentiation}, which allows us to find $dy/dx$ when
+$x$ and $y$ are entangled. For instance, given:
+
+$$y^2 + \sin(xy) = x^3\cos(x + y)$$
+
+We differentiate and get:
+
+$$2y \frac{dy}{dx} + \cos(xy)\left[x\frac{dy}{dx} + y \right] = 3x^2\cos(x + y) - x^3 \sin(x + y)\left[1 + \frac{dy}{dx}\right]$$
+
+We can collect terms and obtain an expression for $dy/dx$ in terms of
+$x$ and $y$.
+
+\subsection{A differential equation}
+
+Consider two variables $x$ (the so-called independent variable) and
+$y$ (the so-called dependent variable). A {\em differential equation}
+is an equation involving the variables $x$, $y$, and first and higher
+derivatives of $y$ with respect to $x$. For instance, here's a
+differential equation.
+
+$$x + yy' + xy\sin(y') = 0$$
+
+Here, $y'$ is shorthand for $dy/dx$. Thus, this differential equation
+can also be written as:
+
+$$x + y\frac{dy}{dx} + xy \sin\left(\frac{dy}{dx}\right) = 0$$
+
+If we want to get $y = f(x)$, the above can be rewritten as:
+
+$$x + f(x)f'(x) + xf(x)\sin(f'(x)) = 0$$
+
+Another way of putting this is that a differential equation is
+something of the form $F(x,y,y',y'', \dots) = 0$ where $F$ is some
+expression in many variables.
+
+Before proceeding further, however, we must understand what a
+differential equation {\em means}, and how it differs from an ordinary
+equation.
+
+\begin{enumerate}
+\item A {\em functional solution} or {\em function solution} is a
+  function $y = f(x)$ such that, taking derivatives the usual way, we
+  find that the differential equation is satisfied for {\em all} $x$.
+  More specifically, a {\em function} $y = f(x)$ solves the
+  differential equation if $F(x,f(x),f'(x),f''(x),\dots) = 0$ for all
+  $x$.
+
+\item A {\em solution} to a differential equation is a relation
+  $R(x,y)$ between $x$ and $y$ such that if we consider the set
+  $R(x,y) = 0$, and use implicit differentiation to find the higher
+  derivatives, these satisfy the condition $F \equiv 0$. A solution
+  may differ from a functional solution in the sense that $y$ may not
+  be written {\em explicitly} as a function of $x$, and, in fact,
+  globally, may not give a unique function of $x$.
+\item More pictorially, a solution to a differential equation is a
+  curve in the plane $\R^2$ with the property that the differential
+  equation holds at all points on the curve. What this means is that
+  at any point on the curve, if we calculate the higher derivatives
+  based on their geometric interpretations, we obtain a bunch of stuff
+  that satisfies the differential equation.
+\end{enumerate}
+
+What does this mean and how does this differ from an ordinary
+equation? Some important differences:
+
+\begin{enumerate}
+\item Each solution to an ordinary equation (such as a polynomial
+  equation) is a {\em number}. In contrast, each solution to a
+  differential equation is a {\em function} or {\em relation} between
+  two variables.
+\item When we are looking at an ordinary equation, such as $x^2 + x +
+  2 = 0$, we are looking at points where this equation holds. When we
+  are looking at a differential equation, we are looking at curves
+  such that the equation holds at all points on the curve.
+\item To check that an ordinary equation holds at a point, we evaluate
+  at the point. However, to check whether a differential equation
+  holds, we need to understand behavior locally, on a neighborhood. In
+  other words, {\em it makes no sense to ask whether a differential
+  equation holds for a given point $(x_0,y_0)$; it only makes sense to
+  ask whether it holds on a given curve}.
+\end{enumerate}
+
+Basically, a differential equation seeks to {\em find a function} that
+exhibits certain {\em local behavior} (in contrast with {\em pointwise
+behavior}) as described by an {\em expression involving the function
+and its derivatives}.
+
+\subsection*{Aside: Differential equations as functional equations}
+
+A {\em functional equation} is an equation that asks for a function
+satisfying certain conditions. Specifically, a functional equation is
+an equation in terms of a function that we require to be true for {\em
+every} choice of value for all the letters in the equation, i.e., we
+require it to be an identity in all letter variables.\footnote{In mathematical
+jargon, the letter variables for numbers are typically quantified over
+all reals.}
+
+For instance, the equation:
+
+$$f(x) = f(-x) \ \forall \ x \in \R$$
+
+has solution set precisely the set of all {\em even}
+functions. Similarly, the equation:
+
+$$f(ax) = af(x) \ \forall a,x \in \R$$
+
+has solution set precisely the set of all functions $f$ of the form
+$f(x) = \lambda x$, where $\lambda$ is a constant.
+
+The desired solutions to functional equations are {\em functions}, and
+is does not make sense to ask whether a particular input-output pair
+satisfies a functional equation.
+
+Differential equations are a {\em particular kind} of functional
+equation. Specifically, differential equations are functional
+equations involving derivative behavior all considered {\em at a
+single point}. \footnote{There are more complicated functional
+equations involving derivatives that are {\em not} differential
+equations in the sense that we have talked about. Examples include
+{\em delay differential equations}, which relate the values of the
+function and its derivative at far-off points.}
+
+\subsection{Some examples of differential equations and solutions}
+
+We begin with a simple differential equation:
+
+$$\frac{dy}{dx} = 1$$
+
+We claim that $y = x + 13$ is a solution to this differential
+equation. In the various jargon that we have introduced:
+
+\begin{enumerate}
+\item The function $f(x) = x + 13$ satisfies the condition that $f'(x)
+  = 1$.
+\item The curve $y = x + 13$ satisfies the condition $y' = 1$.
+\end{enumerate}
+
+Both these statements are clearly true. Graphically, the curve $y = x
++ 13$ is a straight line with slope $1$ and intercept $13$. Since its
+slope is $1$, $dy/dx = 1$ everywhere on the line.
+
+However, this is not the only solution. Astute observers would have
+noted that there was nothing particularly auspicious about the number
+$13$. In fact, for any constant $C$, $y = x + C$, or the function
+$f(x) = x + C$, solves this differential equation.
+
+Thus, any line with slope $1$ is a {\em solution curve} to this
+differential equation.
+
+Note that every value of $C$ gives one solution, called a {\em
+particular solution}. Each such solution corresponds to a line with
+slope $1$. Pictorially, we get a bunch of parallel lines that cover
+the entire plane.
+
+Are these the only ones? Indeed, which brings us to the next topic.
+
+\subsection{De ja vu}
+
+When we first learn algebra in middle or high school, we are given
+examples such as:
+
+\begin{quote}
+  How many more apples need to be added to $3$ apples to obtain $5$
+  apples? Algebra version: Solve $3 + t = 5$.
+\end{quote}
+
+At first, these seem like silly examples, because anybody who has
+grasped the concept of {\em subtraction} (the inverse operation to
+addition) can probably solve the problem without any knowledge of
+algebra. It is only after seeing harder examples of equations that
+people begin to appreciate the power of algebraic manipulation in
+solving problems that are too hard to manipulate with basic
+arithmetic.
+
+In the same way, our first example of a differential equation is in
+fact an integration problem. Specifically, solving:
+
+$$\frac{dy}{dx} = 1$$
+
+is equivalent to performing the indefinite integration:
+
+$$y = \int 1 \, dx$$
+
+which gives the answer $y = x + C$ where $C$ is an arbitrary
+constant. Each value of $C$ gives a particular solution.
+
+Let us elaborate the process a little further:
+
+$$\frac{dy}{dx} = 1$$
+
+Moving the $dx$ to the numerator on the other side, we obtain:
+
+$$dy = dx$$
+
+{\em Note that this is just formal manipulation, akin to the way you
+learned formal algebra when you got started}. Don't ponder about the
+intrinsic meaning of $dy$ and $dx$.
+
+Integrating both sides, we get:
+
+$$\int dy = \int dx$$
+
+Which gives:
+
+$$y = x + C$$
+
+(Note that we can actually get positive constants with {\em both}
+indefinite integrals, but we can absorb the two constants into one).
+
+This drawn-out process seems pointless for this specific example, {\em
+just like} algebra seemed pointless when you were solving $3 + t =
+5$. Unlike middle school, however, where we waded through a lot of
+these silly examples before getting to more substantive examples of
+the use of algebra, we can now jump straight to harder situations
+where we see the machinery of differential equations and how it gets
+used.
+
+\subsection*{Aside: Yesterday's problem is today's solution}
+
+In the elementary grades, addition, subtraction, multiplication and
+division were the problems, and numbers were the answers. In the
+middle grades, simple algebraic equations were the problems, and
+reducing them to a clearly stated arithmetic computation was the crux of
+the solution (the rest was trivial). When we learned differentiation,
+differentiating functions was the problem, but when we studied
+graphing and integration, differentiation was one of the many tools
+that was used in coming up with solutions.
+
+This is the fundamental nature of mathematics: {\em yesterday's focus
+problems become the taken-for-granted tools of solution to today's
+focus problems}. Reducing the solution to today's focus problem to
+solving a bunch of yesterday's focus problems is almost as good at
+solving yesterday's problem.\footnote{Assuming you remember how to
+solve yesterday's problems. Mathematical knowledge is cumulative, but
+an individual's mathematical knowledge is cumulative only if that
+individual actually accumulates knowledge.}
+
+Incidentally, this is also related to the continually shifting
+boundaries between concrete and abstract. For five-year olds, a bunch
+of three apples is concrete, and the number three is abstract. For
+middle-schoolers first learning algebra, numbers are concrete and
+variables and algebraic expressions are abstract. For people just
+learning precalculus and calculus, functions given by explicit
+expressions are concrete but the definition of a function, limit, or
+derivative, is abstract. Needless to say, if you continue studying
+mathematics, you'll later view everything you learned in calculus as
+``concrete'' as opposed to the abstract things you may learn later.
+
+Until very recently in this course, integration was the {\em
+problem}. Now, integration is part of the {\em solution}. Once a
+differential equation is reduced to calculating a bunch of integrals,
+we're home. {\em Our goal in finding solution functions to
+differential equations is to reduce differential equations to (one or
+more) integration problems.}
+
+\section{Understanding and solving separable equations}
+
+\subsection{Separable equations: a crash course}
+
+A differential equation of the form:
+
+$$\frac{dy}{dx} = f(x)$$
+
+has as solution:
+
+$$y = \int f(x) \, dx$$
+
+where the right side can be computed by finding one antiderivative and
+then tacking on a $+C$.
+
+This is a form of differential equation that {\em directly reduces to
+a single integration problem} -- the calculus analogue to $3 + t = 5$. 
+
+Let's look at a slightly more complicated example:
+
+$$\frac{dy}{dx} = f(x)g(y)$$
+
+also written as:
+
+$$y' = f(x)g(y)$$
+
+In words, we say that $y'$ is a {\em multiplicatively separable
+function} of $x$ and $y$ -- it is the product of a function that
+depends {\em only} on $x$ and a function that depends {\em only} on
+$y$.
+
+We do some algebra-like manipulations whose aim is to {\em bring
+together on one side} all terms involving $y$ and {\em bring together
+on the other side} all terms involving $x$:
+
+$$\frac{dy}{g(y)} = f(x) \, dx$$
+
+We now put integral signs and carry out indefinite integration:
+
+$$\int \frac{dy}{g(y)} = \int f(x) \, dx$$
+
+Once we find antiderivatives, we put the $+C$ on just one side
+(because two additive constants can be absorbed into one).
+
+For instance, consider:
+
+$$\frac{dy}{dx} = (x^2 + 1)(y^2 + 4)$$
+
+We proceed to get:
+
+$$\int \frac{dy}{y^2 + 4} = \int (x^2 + 1) \, dx$$
+
+This becomes:
+
+$$\frac{1}{2} \arctan\left(\frac{y}{2}\right) = \frac{x^3}{3} + x + C$$
+
+What the $+C$ means is that every {\em particular value} of $C$ gives
+a {\em particular solution}. For instance, when $C = 0$, we get the
+solution:
+
+$$\frac{1}{2} \arctan\left(\frac{y}{2}\right) = \frac{x^3}{3} + x$$
+
+The curve in the plane given by this solution (that we don't need to
+imagine) satisfies this differential equation.
+
+Note that although the expression is not in the form of $y$ as a
+function of $x$, we can bring it in that form with some algebraic
+manipulation, to get:
+
+$$y = 2 \tan\left[\frac{2x^3}{3} + 2x \right]$$
+
+However, this kind of separation and writing things as functions is
+not always possible (I am glossing over {\em many} details here).
+
+\subsection{Separable equations from the other side}
+
+Suppose we start with a family of curves of the form:
+
+$$F(x) + G(y) = C$$
+
+where $C$ varies over $\R$. We want to find a differential equation
+that is satisfied by all curves in the family. We use implicit
+differentiation to get:
+
+$$F'(x) + G'(y) y' = 0$$
+
+which can also be written as:
+
+$$y' = \frac{-F'(x)}{G'(y)}$$
+
+Which is a (slightly differently written) version of the original
+thing we stated out with.
+
+Basically, an expression where the derivative $y'$ is {\em
+multiplicatively separable} in $x$ and $y$ solves to get a situation
+where an {\em additively separable function} of $x$ and $y$ takes
+constant values, where each possible constant value gives a particular
+solution.
+
+\subsection{Of circles}
+
+\includegraphics[width=3in]{concentriccircles.png}
+
+Consider, for instance, the family of circles centered at the origin
+(a {\em concentric family}):
+
+$$x^2 + y^2 = a^2$$
+
+Differentiating and rearranging terms, we obtain the differential equation:
+
+$$ydy = -xdx$$
+
+In fractions, this becomes:
+
+$$\frac{dy}{dx} = \frac{-x}{y}$$
+
+Conversely, solving this differential equation yields:
+
+$$x^2 + y^2 = C$$
+
+Note, however, something peculiar here. The claim in general is that
+each value of $C$ gives a particular solution. However, from the way
+sums of squares behave, we know that:
+
+\begin{enumerate}
+\item For $C > 0$, we do get particular solutions -- the circles we
+  began with.
+\item For $C = 0$, we get a single point circle, which cannot be
+  called much of a solution to the differential equation, because
+  there isn't room to move around within the point.
+\item For $C < 0$, we get the empty set, which again cannot be called
+  much of a solution.
+\end{enumerate}
+
+In other words, many of the values of $C$ give empty sets as their
+curves, which could not be called solutions. Thus, in general, it is
+{\em not} correct to say that each value of $C$ gives a legitimate and
+nontrivial solution. On the other hand, the general theory we have
+developed so far is not strong enough to predict precisely which
+values of $C$ give legitimate solutions and which ones give degenerate
+(as in the case of the single point circle) or empty solution curves.
+
+\section{Initial value problem}
+
+\subsection{Terminology recall and improvement}
+
+Every function or relation that {\em solves} a particular differential
+equation is called a {\em particular solution} and the corresponding
+curve in $\R^2$ is termed an {\em integral curve} or {\em solution
+curve}. We have seen that, in general, there could be more than one
+solution curve -- in fact, there could be entire families of solution
+curves parametrized by constants $C \in \R$. A general expression that
+describes the entire family of solutions is termed a/the {\em general
+solution} to the differential equation.
+
+Some other terminology: We say that the {\em order} of a differential
+equation is the largest $n$ such that the $n^{th}$ derivative of the
+dependent variable appears in the differential equation. A {\em
+polynomial differential equation} is a differential equation of the
+form $F(x,y,y',\dots)$ where $F$ looks like a polynomial in $y$ and in
+each of the derivatives. A {\em linear differential equation} is a
+differential equation of the form $F(x,y,y',\dots)$ where $F$ is a
+{\em linear} function of the variables $y$, $y'$, $\dots$. The {\em
+degree} of a (usually polynomial) differential equation is the power
+to which the highest order derivative is raised.
+
+\subsection{The constants as parameters}
+
+Remember that when we integrate a function once, we get a $+C$ in the
+solution. The $+C$ indicates that the integral is not a single unique
+function but rather a family of functions, all of which can be
+obtained by taking a {\em particular} antiderivative and adding any
+constant function to it. We can think of the set of possible
+antiderivatives as being parametrized by the real numbers.
+
+When we integrate a function $k$ times, the general solution is of the
+form of (particular solution) plus (an arbitrary polynomial of degree
+less than $k$, i.e., degree at most $k - 1$). The {\em coefficients}
+of this polynomial are the $k$ constants, one arising from each
+integration. The set of solutions is thus parametrized by the set of
+possible $k$-tuples of real numbers.
+
+In physics and chemistry (for instance, in statistical mechanics and
+thermodynamics), each {\em freely varying real parameter} is termed a
+{\em degree of freedom}.
+
+When solving a {\em first-order differential equation} (i.e., a
+differential equation where second or higher derivatives do not
+appear) what we hope to do is {\em separate} $x$ and $y$ (something
+that can be done in the case $y'$ is multiplicatively separable) and
+then integrate both pieces. We get constants at both places, but these
+constants can be merged into one constant. {\em The general idea is
+that when solving a first-order differential equation, we expect to
+have one free real parameter, or one degree of freedom, in the
+solution}. Similarly, when solving a differential equation of order
+$k$, we expect to have $k$ free parameters, or $k$ degrees of freedom,
+in the solution.
+
+\subsection{Initial value specification for first-order differential equations}
+
+As noted above, the general solution to a first-order differential
+equation contains a degree of freedom, typically described by a freely
+varying real parameter $C$. Geometrically, there is a family of
+solution curves, and this family is parametrized by a real number.
+
+To find a {\em particular solution}, we need some piece of information
+that helps us narrow down to a particular choice of curve. 
+
+Information that tells us the location of {\em one point} on the
+desired solution curve is termed an {\em initial value condition} or
+an {\em initial value specification}. A problem that consists of a
+differential equation along with an initial value condition is termed
+an {\em initial value problem}.
+
+Typically, an initial value specification helps us determine a
+specific value of $C$, i.e., it helps us pin down and destroy the one
+degree of freedom.
+
+For instance, consider:
+
+$$\frac{dy}{dx} = xy$$
+
+Rearranging, we have:
+
+$$\int \frac{dy}{y} = \int x \, dx$$
+
+We obtain:
+
+$$\ln|y| = \frac{x^2}{2} + C$$
+
+Exponentiating both sides, we obtain:
+
+$$|y| = e^{x^2/2}e^C$$
+
+Note that we can pick a new constant $k = e^C \operatorname{sgn}(y)$
+and obtain:
+
+$$y = ke^{x^2/2}$$
+
+This is the {\em general solution}. If, however, we are given that
+$y(1) = 1$ (in other words, the solution curve passes through
+$(1,1)$), we get:
+
+$$1 = ke^{1/2}$$
+
+Thus, we obtain $k = 1/\sqrt{e}$. Plugging this back in, we get the
+particular solution that we are interested in:
+
+$$y = \frac{1}{\sqrt{e}}e^{x^2/2}$$
+
+or equivalently:
+
+$$y = e^{(x^2 - 1)/2}$$
+
+\subsection{Brief note on initial value specifications for higher orders}
+
+As noted above, when solving a general differential equation of order
+$k$, we expect to obtain a general solution with $k$ degrees of
+freedom. To constrain these, we need $k$ pieces of information (in a
+rough sense). An {\em initial value condition} would provide these $k$
+pieces of information by providing the information of a point and the
+first $k - 1$ derivative values at the point.
+
+\subsection{An example of a second-order differential equation and a geometric interpretation}
+
+Consider the second-order differential equation:
+
+$$y'' = 0$$
+
+In the Leibniz notation, this is:
+
+$$\frac{d^2y}{dx^2} = 0$$
+
+This basically involves {\em integrating twice}. We let $z = y'$, and get:
+
+$$z' = 0$$
+
+Solving, we obtain:
+
+$$z = C_0$$
+
+where $C_0$ is an arbitrary real constant. We now need to solve:
+
+$$y' = C_0$$
+
+which becomes:
+
+$$\frac{dy}{dx} = C_0$$
+
+Solving this yields:
+
+$$y = C_0x + C_1$$
+
+Thus, the {\em general solution} involves two arbitrary real
+constants. Looking at the {\em solution curves} in the plane, we see
+that these are precisely all the non-vertical lines.
+
+With first order differential equations, the integral curves typically
+do not intersect each other. In other words, in the case of first
+order differential equations, every point is on a unique integral
+curve (there are sometimes exceptions, such as some special points
+that lie on lots of curves, and there are sometimes situations where
+every point lies on two curves). On the other hand, for this second
+order differential equation, each point lies on an entire infinite
+family of curves.
+
+Thus, simply specifying {\em one point} is not enough to determine an
+integral curve. On the other hand, if we specify one point on the
+curve {\em and} the value of the derivative at that point, that
+information together is enough to determine the integral curve. Thus,
+{\em higher order derivative information} is necessary to obtain a
+strong enough initial value condition to uniquely solve the problem.
+
+The fact that we need {\em two} pieces of information to pinpoint a
+curve in this family is not surprising considering that there are two
+degrees of freedom, or two parameters.
+
+\subsection{Other ways of pinning down degrees of freedom}
+
+An initial value specification constrains degrees of freedom by
+providing a point and derivative information at that point. There are
+other ways of specifying a unique integral curve among the set of all
+possible integral curves, and one of these is to specify the value of
+the function at {\em multiple} points. For instance, in the case of
+the family of all non-vertical straight lines given by the
+second-order differential equation $y'' = 0$, specifying {\em two}
+points is enough to specify a line -- a fact which we already learned
+in high school geometry.
+
+\section{Linear differential equations}
+
+\subsection{What is a linear differential equation?}
+
+A linear differential equation of order $k$ with independent variable
+$x$ and dependent variable $y$ is a differential equation of the form:
+
+$$f_k(x)y^{(k)} + f_{k-1}(x)y^{(k-1)} + \dots + f_1(x)y' + f_0(x)y = g(x)$$
+
+where the $f_i$ are all functions given to us explicitly. In case $g
+\equiv 0$, we say that we have a {\em homogeneous linear differential
+equation} of order $k$.
+
+We are interested in solving linear differential equations of order
+$1$. These look like:
+
+$$f_1(x)y' + f_0(x)y  = g(x)$$
+
+Dividing throughout by $f_1(x)$, we obtain:
+
+$$y' + p(x)y = q(x)$$
+
+where $p(x) := f_0(x)/f_1(x)$ and $q(x) = g(x)/f_1(x)$.
+
+This is the prototype of the first-order linear differential equation
+that we describe here how to solve.
+
+\subsection{Flashback}
+
+We first consider the special case where $p(x) \equiv 1$, and we get:
+
+$$y' + y = q(x)$$
+
+Recall that $f(x) + f'(x) = q(x)$ if and only if the derivative of
+$e^xf(x)$ is $e^xq(x)$. In other words, solving this problem is
+equivalent to integration the function $e^xq(x)$, and then dividing
+the answer we obtain by $e^x$.
+
+In the past, we used this approach to {\em convert the integration
+problem} to a problem of finding a function $f$ such that $f + f' =
+q$. We were able to do this in cases where $q$ was a polynomial
+function and we could make a reasonable starting guess as to what $f$
+must be.
+
+Now, we employ the procedure in reverse, i.e., we start with the
+differential equation, and convert it to an integration problem. Let's
+write out what's happening in this particular case.
+
+We start with:
+
+$$y' + y = q(x)$$
+
+We multiply both sides by $e^x$ and obtain:
+
+$$e^x(y' + y) = e^xq(x)$$
+
+The left side is the derivative of $ye^x$, so we obtain:
+
+$$\frac{d}{dx}(ye^x) = e^xq(x)$$
+
+Integrating, we obtain:
+
+$$ye^x = \int e^xq(x) \, dx$$
+
+or:
+
+$$y = e^{-x}\left[\int e^x q(x) \, dx\right]$$
+
+Note that the $+C$ comes {\em inside} the parentheses, so the general
+solution is some particular solution plus $Ce^{-x}$.
+
+Here now is the more general case:
+
+$$y' + p(x)y = q(x)$$
+
+Define:
+
+$$H(x) = \int p(x) \, dx$$
+
+In other words, $H$ is an antiderivative of $p$. In particular, $H'(x)
+= p(x)$.
+
+Multiply both sides by $e^{H(x)}$. We obtain;
+
+$$e^{H(x)}[y' + p(x)y] = e^{H(x)}q(x)$$
+
+We can rewrite this as:
+
+$$e^{H(x)}[y' + H'(x)y] = e^{H(x)}q(x)$$
+
+The left side is now the derivative of $e^{H(x)}y$, so we obtain:
+
+$$e^{H(x)}y = \int e^{H(x)}q(x) \, dx$$
+
+This simplifies to:
+
+$$y = e^{-H(x)} \left[ \int e^{H(x)}q(x) \, dx\right]$$
+
+Note that the $+C$ emerging from integration arises inside the
+parentheses, so the general solution is a particular solution plus
+$Ce^{-H(x)}$.
+
+The function $e^{H(x)}$ is termed an {\em integrating factor}, because
+multiplication by it converts the differential equation to a form where we
+can {\em integrate both sides}.
+
+Here is one example:
+
+$$y' - xy = 1$$
+
+Here, $p(x) = -x$ and $q(x) = 1$. We obtain $H(x) = -x^2/2$ and the
+integrating factor is thus $e^{-x^2/2}$. We thus get:
+
+$$y = e^{x^2/2} \int e^{-x^2/2} \, dx$$
+
+Please see more examples from the book.
+
+\section{A little more in-depth understanding}
+
+\subsection{A ``solvable'' differential equation}
+
+Let us return to the philosophical question of what it means to {\em
+solve} a differential equation. We arrange the different notions of
+solution in increasing order of preference:
+
+\begin{enumerate}
+\item We reduce the problem to a bunch of integration problems. We
+  have seen two methods of doing this: the {\em separable} case, where
+  we simply collect the $dx$ and $dy$ terms and integrate, and the
+  {\em linear} case, where we multiply by an integrating factor.
+\item We are able to obtain a relation $R(x,y) = 0$ that is free of
+  derivatives, but may have one or more free parameters, such that
+  {\em all} solutions to the differential equation arise by setting
+  particular values of these parameters. This is typically achieved
+  after we successfully carry out the integrations in step (1).
+\item We are able to write $y$ as a function of $x$, {\em
+  explicitly}. This is sometimes possible with some algebraic
+  manipulation of the results obtained in step (2). Note that in the
+  linear case, we get directly from step (1) to step (3) because $y$
+  is already isolated on one side in the general expression for the
+  solution.
+\end{enumerate}
+
+We see that there are thus three steps that we would like to
+execute. People who work in differential equations {\em typically
+concentrate on the first step}, treating the second and third step as
+trivial, or as mere curiosities or afterthoughts. This may come as a
+surprise to those of you who have been struggling with indefinite
+integration for the past few months. However, it is still desirable to
+reduce differential equations (which could be really unshapely) to
+integration problems. Even if the integration cannot be carried out
+formally, we can still use other methods, such as numerical
+approximation, to understand the solutions qualitatively.\footnote{To
+borrow a colloquialism: the devil you know (indefinite integration) is
+better than the angel you don't (differential equations).}
+
+The sad news is that there is no general procedure to take an {\em
+arbitrary} differential equation -- even a first-order differential
+equation -- and reduce it to an integration problem. There are a lot
+of special techniques that we could learn if we wanted to. However,
+these other techniques are not very important for our current goals,
+so we skip over them.
+
+\section{Autonomous differential equations and the Verhulst process}
+
+\subsection{What's autonomous?}
+
+In the context of the real world, a particularly important kind of
+differential equation is an {\em autonomous} differential
+equation. This is a differential equation where we are studying a
+quantity varying with time, and the differential equation does not
+involve the time variable {\em explicitly} except as the variable with
+respect to which we differentiate. An autonomous first-order
+differential equation is of the form:
+
+$$\frac{dy}{dt} = g(y)$$
+
+Note that an autonomous first-order first-degree differential equation is
+separable, and specifically, it can be integrated as:
+
+$$\int \frac{dy}{g(y)} = t + C$$
+
+\subsection{Physical significance of autonomous equations}
+
+Most physical processes and physical laws satisfy the condition of
+{\em time translation invariance}. In other words, if we change the
+origin of time measurement, the physical law remains
+invariant. Another way of saying this is that if $f_1(t)$ is one
+solution function, the function $f_2(t) := f_1(t + C)$ is also a
+solution function. Thus, taking any solution function and translating
+the time coordinate would give another solution
+function. Geometrically, this means that the graph of a solution
+function can be translated horizontally to give the graph of another
+solution function.
+
+Autonomous differential equations capture this property. Thus,
+differential equations describing physical or chemical processes in
+the day-to-day world are autonomous.
+
+\subsection{Population growth}
+
+Earlier in the course, we studied a process known as exponential
+growth. Exponential growth arises as the solution function to the
+autonomous differential equation:
+
+$$\frac{dy}{dt} = ky$$
+
+At the time we introduced this idea, I conjured up the solution out of
+thin air. We can now see exactly how we got the solution:
+
+$$\frac{dy}{y} = k \, dt$$
+
+Integrating, we obtain:
+
+$$\ln|y| = kt + C$$
+
+We thus get:
+
+$$y = C_1e^{kt}$$
+
+where $C_1 = e^C \operatorname{sgn}(y)$.
+
+The autonomous differential equation describing exponential growth was
+based on the idea that the rate of growth at any given instant is in
+direct proportion to the quantity that is already around at that
+instant. We also know that in the case $k > 0$, this exponential
+growth goes on indefinitely at an ever increasing pace.
+
+We now consider a variant of this that makes more sense in a {\em
+resource-constrained} world. The general variant is:
+
+$$\frac{dy}{dt} = ay^m(b - y)^n$$
+
+where $a$, $b$, $m$ and $n$ are all positive.
+
+Note that $a$ plays the role of the {\em growth rate parameter} as $k$
+did earlier. $m$ and $n$, however, now modify the nature of
+growth. $b$ can be thought of as a {\em ceiling} on $y$. Specifically,
+if the $y$ value reaches $b$, the rate of growth becomes
+zero. Moreover, we see that, for $0 < y < b$, the growth rate (given
+by the right side) is low for very small $y$ (because the $y^m$ term
+is very small) but it is also small for $y$ very close to $b$ (because
+the $b - y$ terms is very small). In physical terms, the low growth
+rate for small $y$ can be understood by the fact that a very small
+population cannot create new thins quickly, and the low growth rate as
+$y$ gets close to $b$ can be explained by {\em overcrowding} leading
+to a {\em struggle for resources} which thus slows down the growth
+rate.
+
+Now, a little note of caution is in order here. We have given above a
+plausible mathematical model describing resource-constrained growth,
+with some parameters $m$ and $n$. This does not mean that every
+example of resource-constrained growth fits into this model. Nor does
+it mean that any quantitative or qualitative conclusions we draw from
+this model necessarily hold for all examples of resource-constrained
+growth. If a particular real-world instance of resource-constrained
+growth is to be considered as an example of the model, some empirical
+or theoretical evidence needs to be provided.
+
+In this model, we can predict the following -- depending on the values
+of $m$ and $n$:
+
+\begin{enumerate}
+\item For any initial value of $y$ strictly between $0$ and $b$, we
+  have $y(t) \to b$ as $t \to \infty$, but it does not reach
+  there in finite time, i.e., the approach is asymptotic.
+\item For any initial value of $y$ strictly between $0$ and $b$, we
+  have that $y(t)$ reaches $b$ in finite time and stays there forever.
+\end{enumerate}
+
+It is instructive to try to work out values of $m$ and $n$ for which
+these two cases arise. We shall consider the particular case $m = n =
+1$, which is the standard {\em Verhulst process} or {\em logistic equation}.
+
+\subsection{Verhulst process: working out}
+
+The equation is:
+
+$$\frac{dy}{dt} = ay(b - y)$$
+
+In this simple model, the rate of growth of $y$ is proportional to the
+product of $y$ (the current value) and $b - y$ (the amount of
+unoccupied space). 
+
+Solving, we obtain:
+
+$$\frac{1}{b} \ln\left|\frac{y}{b - y} \right| = at + C$$
+
+This simplifies to:
+
+$$\frac{y}{b - y} = ke^{abt}$$
+
+for some constant $k$.
+
+We can now simplify to obtain an explicit expression for $y$ in terms
+of $t$. Note that time translating the $t$ simpliy affects the
+corresponding value of $k$, as we might predict given that we're
+dealing wit han autonomous differential equation.
+
+The explicit solution is:
+
+$$y = b \frac{ke^{abt}}{1 + ke^{abt}} = b \frac{k}{e^{-abt} + k}$$
+
+We see that in this case, for any starting value strictly between $0$
+and $b$, the limiting value of $b$ is approached as $t \to \infty$,
+and the limiting value of $0$ is approached as $t \to -\infty$. Some further observations:
+
+\begin{itemize}
+\item The value of $y$ increases for all $t$, because $y'$ is strictly
+  positive.
+\item The growth rate is maximum when $y = b/2$.
+\item In fact, the graph has a half-turn symmetry about the pair
+  $(t_0,b/2)$ where $t_0$ is the time it reaches $b/2$. The graph is
+  concave up prior to reaching this point, and concave down beyond
+  that.
+\end{itemize}
+
+Here is an example of a graph, where $a = b = k = 1$, and so the
+mid-value of $b/2$ is attained at time $t = 0$.
+
+\includegraphics[width=3in]{logisticgrowth.png}
+
+This can also be described in terms of the hyperbolic tangent
+function, which, alas, we did not discuss.
+
+Note that the particular value of $k$ can be determined from the
+initial value condition.
+
+The book looks at the Verhulst process from a somewhat different
+perspective. It is recommended that you read this and try to work out
+how the constants in the book match up with what we have discussed
+here.
+
+\subsection{Square roots, arc sine, and more}
+
+Let's now consider the case $m = n = 1/2$:
+
+$$y' = a\sqrt{y(b - y)}$$
+
+Rearranging, we get:
+
+$$\frac{dy}{a\sqrt{y(b - y)}} = \, dt$$
+
+As usual, it is the left side that is a mess to integrate. The
+expression under the square root symbol has negative coefficient for
+$y^2$, so the correct way of thinking of it is as a square of a
+constant minus a square of a translate of $y$. Recalling quadratics,
+we see that the right choice is $(b/2)^2 - (y - b/2)^2$. We thus get
+an arc sine integration:
+
+$$\frac{1}{a}\arcsin\left(\frac{y - (b/2)}{b/2}\right) = t + C$$
+
+Let $\varphi = aC$, so we get:
+
+$$\arcsin\left(\frac{y - (b/2)}{b/2}\right) = at + \varphi$$
+
+Taking $\sin$ both sides, we get:
+
+$$\frac{y - (b/2)}{b/2} = \sin(at + \varphi)$$
+
+Rearranging, we get:
+
+$$y = \frac{b}{2}\left(1 + \sin(at + \varphi)\right)$$
+
+Further, since we are using the $\arcsin$ substitution, we know that
+$at + \varphi$ is between $-\pi/2$ and $\pi/2$. In particular, we get
+that:
+
+$$\frac{-\pi}{2} \le at + \varphi \le \frac{\pi}{2}$$
+
+Thus, we get that:
+
+$$\frac{-\pi - 2\varphi}{2a} - \varphi \le t \le \frac{\pi - 2\varphi}{2a}$$
+
+What does this mean? It means that the above differential equation is
+valid only in the interval indicated $\left[\frac{-\pi -
+2\varphi}{2a},\frac{\pi - 2\varphi}{2a}\right]$. For times {\em
+beyond} the right endpoint of the interval, the value of $y$ is stable
+at $b$. For times {\em before} the left endpoint of the interval, the
+value of $y$ is stable at $0$.
+
+\includegraphics[width=3in]{sinegrowth.png}
+
+Something is fishy here! The graph looks like $0$ up to some point in
+time, then it suddenly springs to life, behaves like a $\sin$ curve
+for a while, then goes up to $b$ (in finite time), and then becomes
+stable at $b$. There are also two other extreme solutions: that $y =
+0$ {\em throughout}, and that $y = b$ {\em throughout}.
+
+\section{Vector spaces, linear algebra, and linear differential equations}
+
+Linear differential equations are a good pretext to introduce some
+extremely important ideas -- namely, the ideas of vector space and
+linear algebra. We will not be concerned with these ideas in a
+computational sense, but they provide a good conceptual footing for
+much of what we're talking about here.
+
+\subsection{Vector space basics}
+
+A (real) vector space is a set of things where we can perform addition
+(the usual way) and scalar multiplication (where the scalars are real
+numbers), such that the usual roles of commutativity and associativity
+of addition, as well as the usual nice properties of scalar
+multiplication, hold.
+
+A subspace of a real vector space is a subset that is closed under
+both the addition and the scalar multiplication operations.
+
+The standard example of a vector space that we will be concerned about
+is the space of all real-valued functions on an interval $I$ (usually,
+an open or closed interval, but we could also take $I$ as all real
+numbers) of the reals. Addition and scalar multiplication are both
+done pointwise. Here are some things that are certainly true:
+
+\begin{itemize}
+\item The {\em continuous} functions on $I$ form a subspace of the
+  vector space of all functions. This subspace is denoted $C(I)$ or
+  $C^0(I)$.
+\item Suppose $I$ is an open interval. Denote by $C^k(I)$ the set of
+  all real-valued functions on $I$ that are $k$ times continuously
+  differentiable. Then, $C^k(I)$ is a subspace of the vector space of
+  all functions. Further, $C^k(I)$ contains $C^{k+1}(I)$. The
+  intersection of all these is the subspace of infinitely
+  differentiable functions, denoted $C^\infty(I)$.
+\end{itemize}
+
+We define a mapping $T:V \to W$ of vector spaces to be {\em linear} if
+$T(f + g) = Tf + Tg$ and $T(\lambda f) = \lambda Tf$, i.e., $T$
+respects both the addition and scalar multiplication operation. The
+{\em kernel} of the mapping $T$ is defined as the set of all $f$ such
+that $Tf = 0$. The kernel of a linear mapping is always a subspace.
+
+We note that:
+
+\begin{itemize}
+\item For an open interval $I$, {\em Differentiation} defines a linear
+  mapping from $C^1(I)$ (the continuously differentiable functions) to
+  $C^0(I)$ (the continuous functions).
+\item The range (image) of the mapping is the full $C^0(I)$ -- every
+  continuous function is the derivative of some continuously
+  differentiable function.
+\item The kernel of the mapping is the set of {\em constant} functions
+  on $I$, with each constant funcion described by its value (a real
+  number). This is a (one-dimensional) subspace of the space of all
+  functions. 
+\item This differentiation mapping has the property that it sends each
+  $C^k(I)$ to $C^{k-1}(I)$ and sends $C^\infty(I)$ to $C^\infty(I)$.
+\end{itemize}
+
+The significance of this as as follows. If $T$ is a linear mapping,
+then $Tf = Tg$ if and only if $f - g$ is in the kernel of $T$. We
+already saw this with the differentiation mapping: two functions on an
+open interval have the same derivative iff their difference is a
+constant function.
+
+What this means is that if $T$ is a linear mapping, and we want to
+solve $Tf = q$ for known $h$ and unknown $f$, it suffices to find (i)
+the kernel of $T$, and (ii) just one function $g$ such that $Tg = q$
+(a particular solution). The general solution is then functions of the
+form $g + \varphi$ where $\varphi$ is a function in the kernel. Again, this is how
+we do indefinite integration. We first try to find a particular
+antiderivative, and then the general solution for the indefinite
+integral is that particular antiderivative plus an arbitrary constant
+function.
+
+\subsection{Finite-dimensional vector spaces and span}
+
+For a finite collection of functions $f_1, f_2, f_3, \dots, f_n$, the
+vector space spanned by these functions is the space of all possible
+functions of the form $a_1f_1 + a_2f_2 + \dots + a_nf_n$, where the
+$a_i$ are all real numbers. Typically, we call these {\em real linear
+combinations} of the $f_i$s.
+
+A vector space has dimension $n$ if we can find a collection of $n$
+functions such that it is spanned by them, but we cannot span it using
+fewer than $n$ functions. A one-dimensional vector space is a space
+spanned by a single function. For instance, the space of constant
+functions is a one-dimensional space, and it is spanned by the
+constant function $1$.
+
+\subsection{Application to differential equations}
+
+Here's the relevance to linear differential equations: a linear
+differential equation can be thought of as trying to find a function
+$f$ such that $Tf = q$ for a specified linear operator $T$ and a
+specified function $q$. For instance, recall the first-order linear
+differential equation:
+
+$$y' + p(x)y = q(x)$$
+
+Here, the operator $Tf := f' + p\cdot f$ is a linear operator, and we
+want to find all functions $f$ such that $Tf = 0$. We use the
+integrating factor method to do this: first we find an antiderivative
+$H$ for $f$. The kernel of $T$ is the one-dimensional vector space
+spanned by $e^{-H(x)}$. The general solution is a particular solution
+plus $Ce^{-H(x)}$.
+
+\section{A chemistry problem}
+
+Here is the homework problem that you need to solve:
+
+It is known that $m$ parts of chemical $A$ combine with $n$ parts of
+chemical $B$ to produce a compound $C$. Suppose that the rate at which
+$C$ is produced varies directly with the products of the amounts of
+$A$ and $B$ present at that instant. Find the amount of $C$ produced
+in $t$ minutes from an initial mixing of $A_0$ pounds of $A$ with
+$B_0$ pounds of $B$, given that:
+
+\begin{enumerate}
+\item $n = m$, $A_0 = B_0$, and $A_0$ pounds of $C$ are produced in
+  the first minute.
+\item $n = m$, $A_0 = \frac{1}{2} B_0$, and $A_0$ pounds of $C$ are
+  produced in the first minute.
+\item $n \ne m$, $A_0 = B_0$, and $A_0$ pounds of $C$ are produced in
+  the first minute.
+\end{enumerate}
+
+If you just want to solve the problem, you can directly follow the
+hint in the book. However, it might be more helpful to understand the
+background, which is what we explore in this short note.
+
+\subsection{Conservation of mass and constant proportions}
+
+For now, let us forget how the reaction proceeds with time, and
+understand what exactly is happening in the reaction.
+
+The reaction is of the form:
+
+$$A + B \to C$$
+
+We are also given that $m$ parts of $A$ combine with $n$ parts of $B$
+to yield $C$. Although the question does not state this explicitly,
+the {\em parts} here are by mass. This means, for instance, that $m$
+pounds of $A$ combine with $n$ pounds of $B$. By the {\em law of
+conservation of mass}, the output of $C$ is $m + n$ pounds.
+
+For instance, consider the reaction:
+
+$$2H_2 + O_2 \to 2H_2O$$
+
+Here, the total weight of $2H_2$ is $4$ units (atomic mass of $1$, two
+atoms, giving molecular mass of $2$, then multiplied by $2$ to get
+$4$) and the total weight of $O_2$ is $32$ units (atomic mass of $16$
+with $8$ neutrons and $8$ protons, multiplied by $2$ to get $32$), so
+$4$ units (By mass) of hydrogen combine with $32$ units (by mass) of
+oxygen to yield $36$ units (by mass) of water. The proportions are
+thus $m:n = 4:32$, which can also be written as $1:8$. Thus, $1$ part
+of hydrogen combines with $8$ parts of oxygen to yield $9$ parts of
+water. Note that it is the ratio of $m$ to $n$ that matters, not the
+values of $m$ and $n$ per se.
+
+The fact that specific chemical reactions occur in specific
+proportions was once considered so important as to actually be given a
+name. This name is the {\em law of constant proportions} or the {\em
+law of definite proportions}. In fact, empirical observation of this
+law preceded acceptance of the atomic theory of matter and was one of
+the pieces of evidence that led to support for the atomic theory of
+matter. Some archaic chemistry textbooks and courses still begin with
+the statement of this law.
+
+\subsection{Stoichiometric constraints}
+
+Since a given chemical reaction occurs with constant proportions, this
+indicates that the {\em change in mass} of each of the reactants and
+products through the course of the reaction is in the same
+proportion. For instance, in the hydrogen-oxygen reaction to produce
+water, we know that $1$ pound of hydrogen would combine with $8$
+pounds of oxygen to produce $9$ pounds of water. This means that if
+$x$ pound of hydrogen are lost, then $8x$ pounds of oxygen are lost,
+and $9x$ pounds of water are gained. Thus, if we know the initial
+amounts of hydrogen, oxygen, and water, and we know the final amount
+of hydrogen, we can measure the hydrogen lost, and use that to deduce
+the oxygen lost (and hence the final amount of oxygen) and the amount
+of water gained (and hence the final amount of water).
+
+This can be viewed in terms of a three-dimensional configuration
+space. Consider a three-dimensional space with the three axes marked
+respectively by the current mass of hydrogen, the current mass of
+oxygen, and the current mass of water.
+
+What the stoichiometric constraint (or the law of constant
+proportions) says is that, as the reaction proceeds, the configuration
+moves along a straight line whose direction is determined by the
+nature of the reaction. The straight line has the property that the
+oxygen axis coordinate changes at eight times the rate of change of
+the hydrogen axis coordinate, and the water axis coordinate changes in
+the opposite direction at nine times the rate.
+
+In the more general case, with:
+
+$$A + B \to C$$
+
+the coordinate change ratios are $m:n:-(m + n)$, and the path of the
+reaction is along a straight line.
+
+\subsection{Initial condition}
+
+The path of the reaction is along a straight line whose direction is
+determined by the nature of the reaction (i.e., by the ratio
+$m:n$). However, there are many different straight lines with the same
+direction. The {\em particular} straight line that the reaction is
+confined to depends on the initial configuration.
+
+Typically, we start out without any of the product (i.e., we only have
+the reactants $A$ and $B$. In terms of the three-dimensional picture
+with coordinates $A$, $B$, and $C$, the initial configuration is in
+the $AB$-plane. {\em Where} it is in the $AB$-plane determines {\em
+which} line the reaction moves against. (This can be thought of as a
+three-dimensional analogue of the point-slope form).
+
+\subsection{Keeping track of just one coordinate}
+
+Suppose we want to know each coordinate at every point in time. We
+claim that it is enough to know:
+
+\begin{enumerate}
+\item The initial value of each coordinate.
+\item The value, at any given time $t$, of just one coordinate.
+\end{enumerate}
+
+In particular, if we know the initial amounts of $A$, $B$ and $C$
+(which we assume to be zero), then knowing the quantity of $C$ at time
+$t$ allows us to determine the quantities of $A$ and $B$ at time
+$t$.
+
+Here's how we can deduce what these quantities are. Let $C(t)$ denote
+the quantity of $C$ at time $t$. We're assuming $C(0) = 0$, so $C(t)$
+amount of $C$ was gained. By constant proportions, we note that the
+amount of $A$ lost is $mC(t)/(m + n)$ and the amount of $B$ lost is
+$nC(t)/(m + n)$. Thus, the amount of $A$ at time $t$ is:
+
+$$A(t) = A(0) - \frac{m}{m + n}C(t)$$
+
+Similarly, the amount of $B$ at time $t$ is:
+
+$$B(t) = B(0) - \frac{n}{m + n}C(t)$$
+
+In the problem setup, we are given that $A(0) = A_0$ and $B(0) =
+B_0$.
+
+\subsection{Bringing time and rates into the equation}
+
+So far, we have largely focused on the path that the reaction
+takes. The next relevant question is the {\em rate} at which the
+reaction occurs. In the three-dimensional graphical representation,
+this is basically determining how fast we're moving along the line.
+
+When trying to measure the rate of a reaction, there is a little
+ambiguity. Should we measure the rate at which $A$ is being lost, the
+rate at which $B$ is being lost, or the rate at which $C$ is being
+gained? By the law of constant proportions, these rates are all related:
+
+$$\frac{-1}{m} \frac{dA}{dt} = \frac{-1}{n} \frac{dB}{dt} = \frac{1}{m + n} \frac{dC}{dt}$$
+
+We can keep track of just {\em one} of the three, and the one we
+choose to keep track of is $C$. Note that the proportionality in the
+rates of change is the {\em differential version} of the expressions
+$A(t) = A(0) - mC(t)/(m + n)$ and $B(t) = B(0) - nC(t)/(m + n)$.
+
+Thus, when we say that the {\em rate of reaction} is proportional to
+some quantity, that statement would apply to all the three rates of
+change $dA/dt$ $dB/dt$, and $dC/dt$, with the constants of
+proportionality themselves in the ratio $m:n:-(m + n)$.
+
+\subsection{Formulating the differential equation}
+
+For convenience, we take pounds (the mass measure) as our unit of
+measurement. Let $A_0$ and $B_0$ be the initial number of pounds of
+$A$ and $B$ respectively.
+
+If the number of pounds of $C$ at time $t$ is $C(t)$, then $A(t) = A_0
+- mC(t)/(m + n)$ and $B(t) = B_0 - nC(t)/(m + n)$.
+
+We know that the rate $dC/dt$ equals $kAB$, where $k$ is some unknown
+constant. We thus have:
+
+$$\frac{dC}{dt} = k\left[A_0 - \frac{m}{m + n}C(t) \right]\left[B_0 - \frac{n}{m + n}C(t) \right]$$
+
+Note that this is an {\em autonomous} differential equation, which is
+to be expected since it arises from a physical law that is time
+translation invariant. Note: The {\em law} is time translation
+invariant, not the actual configuration.
+
+Notice another feature of this problem. In general, when we solve a
+differential equation, we introduce one free parameter. For this
+differential equation, we {\em already} have a bunch of parameters,
+and we will introduce {\em one more} parameter when we solve the
+differential equation. However, the added parameter can easily be
+determined from the initial condition $C(0) = 0$.
+
+\subsection{Solving the differential equation}
+
+The equation is autonomous and separable, and we can rearrange terms to get:
+
+$$\int \frac{dC}{\left[A_0 - \frac{m}{m + n}C \right]\left[B_0 - \frac{n}{m + n}C \right]} = \int k \, dt$$
+
+The right side integrates to $kt + c_1$, and the left side can be
+integrated in one of the standard ways. Once we integrate the left
+side, we can choose $c_1$ in such a way that $C(0) = 0$.
+
+There are two natural cases for the left side:
+
+\begin{enumerate}
+\item The two linear factors in the denominator are equal, or
+  proportional: In this case, the integrand is the reciprocal of the
+  square of a linear function of $C$, and that is directly
+  integrated. Note that this case occurs if $A_0/B_0 = m/n$, i.e., if
+  the initial proportion of masses is the {\em stoichiometric
+  proportion}. In the homework problem, part (a) is of this type.
+\item The two linear factors in the denominator are not proportional:
+  In this case, we need to use the partial fractions approach to
+  integrate. In the homework problem, parts (b) and (c) are of this type.
+\end{enumerate}
+
+\subsection{Predicting answers: limiting reagent}
+
+Looking at the answers, could we have predicted them to begin with?
+Qualitatively, yes:
+
+\begin{enumerate}
+\item In the case of stoichiometric proportions, the equilibrium state
+  of the reaction is where all of both $A$ and $B$ are used up so
+  everything is converted to $C$. Note: This is assuming (as we're
+  doing in this question) that the reverse reaction does not occur,
+  otherwise an equilibrium will be attained before that.
+\item In the case of non-stoichiometric proportions, one of the
+  reactants is what is called a {\em limiting reagent}. While the
+  quantity of the limiting reagent approaches zero, the asymptotic
+  quantity of the other reagent is strictly positive.
+\end{enumerate}
+
+\subsection{An additional piece of information}
+
+Suppose we are given $m/n$ as well as $A_0$, $B_0$. Then, the only
+unknown in the original differential equation is $k$. Integration
+yields another unknown parameter (arising as the additive constant
+from integration) which can be determined using $C(0) = 0$. We thus
+get a general expression for $C(t)$ that features $k$. However, since
+$k$ is not given, we would like to determine it.
+
+To determine $k$, we need some other piece of information. In the
+question here, the additional piece of information is in the form of
+the value $C(1)$. Specifically, we {\em plug in} the value $C(1)$ in
+the general expression for $C(t)$ and {\em solve the corresponding
+equation} to determine the value of $k$. Having obtained this value of
+$k$, we {\em plug back} in the general expression for $C(t)$.
+
+The use of a point-in-time measurement to determine $k$ is analogous
+to many experimental approaches in physics and chemistry. In most of
+these, a general physical or chemical law tells us that the expression
+for a quantity is of some type, with one or more parameters
+appearing. These parameters are physical constants but we do not have
+the theoretical tools to determine them. So, we do an experiment that
+measures certain things, from which we deduce the value of the parameter.
+
+For instance, in physics, there are some laws of friction between dry
+bodies, which explain how the magnitude of the friction force between
+two bodies depends on a certain dimensionless constant called the
+coefficient of friction, that depends on the surfaces in
+contact. However, the coefficient of friction cannot be determined
+theoretically. So, we do an experimental study that measures certain
+quantities, from which we can deduce the coefficient of friction.
+
+\end{document}

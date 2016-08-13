@@ -1,0 +1,430 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Wednesday January 23: Vectors, 3D, and parametric stuff -- miscellanea}
+\author{Math 195, Section 59 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$23$ people took this $12$-question quiz. The score distribution was
+as follows:
+
+\begin{itemize}
+\item Score of $7$: $2$ people.
+\item Score of $8$: $4$ people.
+\item Score of $9$: $5$ people.
+\item Score of $10$: $9$ people.
+\item Score of $11$: $3$ people.
+\end{itemize}
+
+The question-wise answers and performance review were as follows:
+
+\begin{enumerate}
+\item Option (E): $20$ people.
+\item Option (B): $23$ people.
+\item Option (E): $22$ people.
+\item Option (E): $20$ people.
+\item Option (D): $21$ people.
+\item Option (C): $23$ people.
+\item Option (E): $12$ people.
+\item Option (E): $20$ people.
+\item Option (A): $10$ people.
+\item Option (D): $22$ people.
+\item Option (D): $7$ people.
+\item Option (A): $14$ people.
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+
+\item Suppose we are given three subsets $\Gamma_1$, $\Gamma_2$, and
+  $\Gamma_3$ of $\R^3$ where $\Gamma_1$ is the set of solutions to
+  $F_1(x,y,z) = 0$, $\Gamma_2$ is the set of solutions to $F_2(x,y,z)
+  = 0$, and $\Gamma_3$ is the set of solutions to $F_3(x,y,z) =
+  0$. Which of the following equations gives precisely the set of
+  points that lie in {\em at least two} of the subsets $\Gamma_1$,
+  $\Gamma_2$, and $\Gamma_3$?
+
+  \begin{enumerate}[(A)]
+  \item $F_1(x,y,z)F_2(x,y,z)F_3(x,y,z) = 0$
+  \item $(F_1(x,y,z))^2 + (F_2(x,y,z))^2 + (F_3(x,y,z))^2 = 0$
+  \item $(F_1(x,y,z) + F_2(x,y,z) + F_3(x,y,z))^2 = 0$
+  \item $(F_1(x,y,z)F_2(x,y,z)) + (F_2(x,y,z)F_3(x,y,z)) +
+    (F_3(x,y,z)F_1(x,y,z)) = 0$
+  \item $(F_1(x,y,z)F_2(x,y,z))^2 + (F_2(x,y,z)F_3(x,y,z))^2 +
+    (F_3(x,y,z)F_1(x,y,z))^2 = 0$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Option (E) means that all the statements
+  $F_1(x,y,z)F_2(x,y,z) = 0$, $F_2(x,y,z)F_3(x,y,z) = 0$, and
+  $F_3(x,y,z)F_1(x,y,z) = 0$ must simultaneously be true. This forces
+  at least two of the values $F_1(x,y,z)$, $F_2(x,y,z)$, and
+  $F_3(x,y,z)$ to equal zero. Conversely, if two or more of these are
+  zero, so are all the pair products. Thus, a point satisfies this
+  equation if and only if it lies in at least two of the three subsets
+  $\Gamma_1$, $\Gamma_2$, $\Gamma_3$.
+
+  {\em Performance review}: $20$ out of $23$ got this. $2$ chose (B),
+  $1$ chose (D).
+
+\item Suppose we are given three subsets $\Gamma_1$, $\Gamma_2$, and
+  $\Gamma_3$ of $\R^3$ where $\Gamma_1$ is the set of solutions to
+  $F_1(x,y,z) = 0$, $\Gamma_2$ is the set of solutions to $F_2(x,y,z)
+  = 0$, and $\Gamma_3$ is the set of solutions to $F_3(x,y,z) =
+  0$. Which of the following equations gives precisely the set
+  $\Gamma_1 \cap (\Gamma_2 \cup \Gamma_3)$?
+
+  \begin{enumerate}[(A)]
+  \item $F_1(x,y,z) + F_2(x,y,z)F_3(x,y,z) = 0$
+  \item $(F_1(x,y,z))^2 + (F_2(x,y,z)F_3(x,y,z))^2 = 0$
+  \item $(F_1(x,y,z) + F_2(x,y,z)F_3(x,y,z))^2 = 0$
+  \item $F_1(x,y,z)(F_2(x,y,z) + F_3(x,y,z))^2 = 0$
+  \item $F_1(x,y,z)((F_2(x,y,z))^2 + (F_3(x,y,z))^2) = 0$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Option (B) involves a sum of two squares being
+  zero, so both the things being squared must equal zero. Thus,
+  $F_1(x,y,z) = 0$ and $F_2(x,y,z)F_3(x,y,z) = 0$. The solution set to
+  the latter is the union of the solution sets for $F_2$ and $F_3$, so
+  is $\Gamma_2 \cup \Gamma_3$. So the overall solution set is
+  $\Gamma_1 \cap (\Gamma_2 \cup \Gamma_3)$.
+
+  {\em Performance review}: All $23$ got this correct.
+
+\item Suppose we are given three subsets $\Gamma_1$, $\Gamma_2$, and
+  $\Gamma_3$ of $\R^3$ where $\Gamma_1$ is the set of solutions to
+  $F_1(x,y,z) = 0$, $\Gamma_2$ is the set of solutions to $F_2(x,y,z)
+  = 0$, and $\Gamma_3$ is the set of solutions to $F_3(x,y,z) =
+  0$. Which of the following equations gives precisely the set
+  $\Gamma_1 \cup (\Gamma_2 \cap \Gamma_3)$?
+
+  \begin{enumerate}[(A)]
+  \item $F_1(x,y,z) + F_2(x,y,z)F_3(x,y,z) = 0$
+  \item $(F_1(x,y,z))^2 + (F_2(x,y,z)F_3(x,y,z))^2 = 0$
+  \item $(F_1(x,y,z) + F_2(x,y,z)F_3(x,y,z))^2 = 0$
+  \item $F_1(x,y,z)(F_2(x,y,z) + F_3(x,y,z))^2 = 0$
+  \item $F_1(x,y,z)((F_2(x,y,z))^2 + (F_3(x,y,z))^2) = 0$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: The solution set to Option (E) is the union of
+  the solution sets for $F_1$ and for $F_2^2 + F_3^2$. The latter is
+  precisely the set of points for which $F_2 = F_3 = 0$, so is
+  $\Gamma_2 \cap \Gamma_3$. The overall solution is thus $\Gamma_1
+  \cup (\Gamma_2 \cap \Gamma_3)$.
+
+  {\em Performance review}: $22$ out of $23$ got this. $1$ chose (D).
+
+\item Start with two vectors $a$ and $b$ in $\R^3$ such that $a \times
+  b \ne 0$. Consider a sequence of vectors $c_1, c_2, \dots, c_n,
+  \dots$ in $\R^3$ (note: each $c_n$ is a three-dimensional vector)
+  defined as follows: $c_1 = a \times b$ and $c_{n+1} = a \times c_n$
+  for $n \ge 1$. Which {\em one} of the following statements is {\bf
+  false} about the $c_n$s? (5 points)
+
+  \begin{enumerate}[(A)]
+  \item All the vectors $c_n$ are nonzero vectors.
+  \item $c_n$ and $c_{n+1}$ are orthogonal for every $n$.
+  \item $c_n$ and $c_{n+2}$ are parallel for every $n$.
+  \item $c_n$ and $a$ are orthogonal for every $n$.
+  \item $c_n$ and $b$ are orthogonal for every $n$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Note first that since $a \times b \ne 0$, both
+  $a$ and $b$ are nonzero vectors.
+
+  In fact, although $c_1$ is orthogonal to both $a$
+  and $b$, $c_2$, being orthogonal to $c_1$ and $a$, is in the plane
+  of $a$ and $b$ and is orthogonal to $a$. Since $a$ and $b$ are not
+  parallel, $c_2$ is not orthogonal to $b$.
+
+  For the other options:
+
+  Options (A) and (D): $c_1$ is orthogonal to $a$ because it is a
+  cross product involving $a$ and a nonzero vector. At each stage, we
+  are taking a cross product of a nonzero vector orthogonal to $a$
+  with the nonzero vector $a$, so we get a nonzero vector orthogonal
+  to $a$.
+
+  Option (B): $c_{n+1}$ is a cross product of $a$ and $c_n$, and $a$
+  and $c_n$ are both nonzero, so $c_{n+1}$ is orthogonal to $c_n$.
+
+  Option (C): All the $c_n$s are orthogonal to $a$, so they are all in
+  the plane orthogonal to $a$. Within this plane, each is
+  perpendicular to its predecessor. Thus, $c_n$ and $c_{n+2}$ must be
+  collinear. In fact, they points in opposite directions to each
+  other, but are in the same line.
+
+  {\em Performance review}: $20$ out of $23$ got this. $2$ chose (B),
+  $1$ chose (D).
+
+  {\em Historical note (last time)}: $9$ out of $23$ people got this
+  correct. $5$ chose (C), $4$ chose (D), $3$ chose (A), $2$ chose (B).
+
+\item As a general rule, what would you expect should be the
+  dimensionality of the set of solutions to $m$ independent and
+  consistent equations in $n$ variables? By solution, we mean here
+  that the solution should be the $n$-tuples with coordinates in $\R$
+  (or elements of $\R^n$) that satisfy all the $m$ equations. Assume
+  $n \ge m \ge 1$.
+
+  \begin{enumerate}[(A)]
+  \item $n$
+  \item $m$
+  \item $n - 1$
+  \item $n - m$
+  \item $1$
+  \end{enumerate} 
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: As a general rule, we start out with the whole
+  space, and each new constraint, if independent of prior constraints,
+  whittles down the dimension by $1$. Thus, introducing $m$
+  constraints in $n$-dimensional space gives a dimension of $n - m$.
+
+  Note that this is not a hard-and-fast rule, because we can use
+  tricks like the {\em sum of squares} trick to combine multiple
+  equations into a single equation. However, it is a good rule of
+  thumb for generic equations.
+
+  {\em Performance review}: $21$ out of $23$ got this. $2$ chose (B).
+
+\item As a general rule, what would you expect should be the
+  dimensionality of the set of points in $\R^n$ that satisfy at least
+  one of $m$ independent and consistent equations in $n$ variables?
+  Assume $n \ge m \ge 1$.
+
+  \begin{enumerate}[(A)]
+  \item $n$
+  \item $m$
+  \item $n - 1$
+  \item $n - m$
+  \item $1$ 
+  \end{enumerate} 
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: We get a union of solution sets for equations,
+  and each of these solution sets is of dimension $n - 1$ (since it is
+  obtained by imposing a single constraint on $n$-dimensional
+  space). The union should thus also have dimension $n - 1$.
+
+  {\em Performance review}: All $23$ got this correct.
+
+\item Measuring time $t$ in seconds since the beginning of the year
+  2013, and stock prices on a $24 \times 7$ stock exchange in
+  predetermined units, the stock prices of companies $A$, $B$, and $C$
+  were found to be given by $30 + t/5000000 - \sin(t/10000)$, $16 +
+  7t/3000000$, and $40 + t/1000000 - 5\sin(t/10000)$. To what extent
+  can we deduce the stock prices of the companies from each other at a
+  given point in time, without knowing what the time is?
+
+  \begin{enumerate}[(A)]
+  \item The stock price of any of the three companies can be used to
+    deduce the other stock prices.
+  \item The stock price of company $A$ can be used to deduce the stock
+    prices of companies $B$ and $C$, but no other deductions are possible.
+  \item The stock price of company $A$ can be used to deduce the stock
+    prices of companies $B$ and $C$, and the stock price of company
+    $C$ can be used to deduce the stock prices of companies $A$ and
+    $B$.
+  \item The stock price of company $B$ can be used to determine the
+    stock prices of companies $A$ and $C$, and no other deductions are
+    possible.
+  \item The stock price of company $B$ can be used to determine the
+    stock prices of companies $A$ and $C$, and the stock prices of
+    companies $A$ and $C$ can be used to deduce each other but cannot
+    be used to uniquely deduce the stock price of company $B$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Since the stock price of company $B$ is linear in
+  $t$, we can determine $t$ from it, and use this to determine the
+  stock prices of $A$ and $C$. This means that the only options we
+  need to consider are (D) and (E).
+
+  The stock prices of $A$ and $C$ are related by a linear relation
+  $5(A - 30) = C - 40$, or equivalently, $5A = C + 110$. Thus, either
+  is expressible in terms of the other.
+
+  {\em Performance review}: $12$ out of $23$ got this correct. $10$
+  chose (D), $1$ chose (C).
+
+\item Lushanna is coaching $30$ young athletes for a 100 meter
+  sprint. Every day, at the beginning of the day, she asks the athlete
+  to run 100 meters as fast as they can and notes the time taken. She
+  thus gets a vector with $30$ coordinates (measuring the time taken
+  by all the athletes) everyday. Lushanna then plots a graph in
+  thirty-dimensional space that includes all the points for her daily
+  measurements. Each of the following is a sign that Lushanna's young
+  athletes are improving. Which of these signs is {\bf strongest}, in
+  the sense that it would imply all the others?
+
+  \begin{enumerate}[(A)]
+  \item The norm (length) of the vector every day (after the first) is
+    less than the norm of the vector the previous day.
+  \item The sum of the coordinates of the vector every day (after the
+    first) is less than the sum of the coordinates of the vector the
+    previous day.
+  \item The minimum of the coordinates of the vector every day (after
+    the first) is less than the minimum of the coordinates of the
+    vector the previous day.
+  \item The maximum of the coordinates of the vector every day (after
+    the first) is less than the maximum of the coordinates of the
+    vector the previous day.
+  \item Each of the coordinates of the vector every day (after the
+    first) is less than the corresponding coordinate of the vector the
+    previous day.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: If each of the coordinates goes down, then all
+  the measures (the maximum, minimum and various average measures) go
+  down. However, it is possible for any one of these measures to go
+  down while the others don't.
+
+  {\em Performance review}: $20$ out of $23$ got this. $3$ chose (B).
+
+\item In a closed system (no mass exchanged with the surroundings) a
+  reversible chemical reaction $A + B \to C + D$, and its reverse, are
+  proceeding. There are no other chemicals in the system, and no other
+  reactions are proceeding in the system. A chemist studying the
+  reaction decides to track the masses of $A$, $B$, $C$, and $D$ in
+  the system as a function of time, and plots a parametric curve in
+  four-dimensional space. What can we say about the nature of the
+  curve, ignoring the parametrization (i.e., just looking at the set
+  of points covered)?
+
+
+  \begin{enumerate}[(A)]
+  \item It is a part of a straight line.
+  \item It is a part of a circle.
+  \item It is a part of a parabola.
+  \item It is a part of an astroid.
+  \item It is a part of a cissoid.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: This follows from the law of constant proportions
+  in chemistry! Basically, the amounts of gain/loss in each coordinate
+  are fixed in proportion based on the stoichiometry of the reaction.
+
+  {\em Performance review}: $10$ out of $23$ got this correct. $10$
+ chose (B), $2$ chose (D), $1$ chose (C).
+
+  {\em Lobbying special}: Casa is a lobbyist for a special interest
+  group. There are three politicians $P_1,P_2,P_3$ competing for a
+  general election. Casa has computed that the probabilities of the
+  politicians winning are $p_1$ for $P_1$, $p_2$ for $P_2$, and $p_3$
+  for $P_3$, with $p_1,p_2,p_3 \in [0,1]$ and $p_1 + p_2 + p_3 =
+  1$. Casa estimates a payoff of $m_1$ money units to her special
+  interest group if $P_1$ wins, $m_2$ money units if $P_2$ wins, and
+  $m_3$ money units if $P_3$ wins. (These payoffs may be in terms of
+  passage of favorable laws, repeal of unfavorable laws, or
+  enforcement of laws unfavorable to competitors).
+
+\item What is the expected payoff to the special interest group that
+  Casa represents?
+
+  \begin{enumerate}[(A)]
+  \item $m_1 + m_2 + m_3$
+  \item $(m_1 + m_2 + m_3)/3$
+  \item $(p_1 + p_2 + p_3)(m_1 + m_2 + m_3)$
+  \item $p_1m_1 + p_2m_2 + p_3m_3$
+  \item $\sqrt{m_1^2 + m_2^2 + m_3^2}$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: The expected payoff contributions for each
+  victory are $p_1m_1$, $p_2m_2$, and $p_3m_3$ respectively.
+
+  {\em Performance review}: $22$ out of $23$ got this. $1$ chose (C).
+
+\item Casa has discovered that the bribe multipliers of the
+  politicians are the positive reals $b_1$, $b_2$, and $b_3$
+  respectively. In other words, if Casa donates $u_i$ money units to
+  $P_i$, then the expected payoff from politician $P_i$ winning is now
+  $m_i + b_iu_i$. Consider the vectors $p = \langle p_1,p_2,p_3
+  \rangle$, $m = \langle m_1,m_2,m_3 \rangle$, $c = \langle p_1b_1,
+  p_2b_2, p_3b_3 \rangle$, and $f = \langle p_1/b_1, p_2/b_2, p_3/b_3
+  \rangle$ and let $u = \langle u_1,u_2,u_3\rangle$ be the vector of
+  the bribe quantities Casa gives to the politicians
+  respectively. Assume that bribing politicians does not affect the
+  relative probabilities of winning the election. Which of the
+  following describes Casa's expected payoff from the election, once
+  the bribe is made (if you want to include the cost of bribes, you'd
+  need to subtract $u_1 + u_2 + u_3$ from this answer, but we're not
+  doing that. {\em Note: Some of the answer options may not make sense
+  from a dimensions/units viewpoint, but the correct answer does make
+  sense}.
+
+  \begin{enumerate}[(A)]
+  \item $p \cdot (m + u)$
+  \item $p \cdot (m + (b \cdot u))$
+  \item $p \cdot (m + (f \cdot u))$
+  \item $(p \cdot m) + (c \cdot u)$
+  \item $p \cdot (f \cdot m + u)$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: The expected payoff for each politician is $m_i +
+  b_iu_i$, so the expected payoff accounting for probability is
+  $p_im_i + p_ib_iu_i = p_im_i + c_iu_i$. The sum thus becomes $(p
+  \cdot m) + (c \cdot u)$.
+
+  {\em Performance review}: $7$ out of $23$ got this. $14$ chose (B),
+  $1$ chose (E), $1$ left the question blank.
+
+\item Continuing with the full setup of the preceing question, what is
+  Casa's optimal bribing strategy on a fixed budget of money to be
+  used for bribes?
+
+  \begin{enumerate}[(A)]
+  \item Donate all the money to the politician with the maximum value
+    of $p_ib_i$, i.e., to the politician corresponding to the largest
+    coordinate of the vector $c$.
+  \item Donate all the money to the politician with the minimum value
+    of $p_ib_i$, i.e., to the politician corresponding to the smallest
+    coordinate of the vector $c$.
+  \item Donate all the money to the politician with the maximum value
+    of $p_i/b_i$, i.e., to the politician corresponding to the largest
+    coordinate of the vector $f$.
+  \item Donate all the money to the politician with the minimum value
+    of $p_i/b_i$, i.e., to the politician corresponding to the smallest
+    coordinate of the vector $f$.
+  \item Split the bribery budget between the politicians in the ratio
+    $p_1b_1:p_2b_2:p_3b_3$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: $p_ib_i$ is the overall return on investment
+  multiplier for bribing any politician. It makes sense to spend
+  scarce bribery resources on the politician with the highest return
+  on investment.
+
+  {\em Performance review}: $14$ out of $23$ got this. $6$ chose (E),
+  $3$ chose (C).
+\end{enumerate}
+\end{document}

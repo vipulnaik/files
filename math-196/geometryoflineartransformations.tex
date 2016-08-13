@@ -1,0 +1,897 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Geometry of linear transformations}
+\author{Math 196, Section 57 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 2.2.
+
+\section*{Executive summary}
+
+\begin{enumerate}
+\item There is a concept of {\em isomorphism} as something that
+  preserves essential structure or feature, where the concept of
+  isomorphism depends on what feature is being preserved.
+\item There is a concept of {\em automorphism} as an isomorphism from
+  a structure to itself. We can think of automrohpisms of a structure
+  as {\em symmetries} of that structure.
+\item Linear transformations have already been defined. An {\em affine
+  linear transformation} is something that preserves lines and ratios
+  of lengths within lines. Any affine linear transformation is of the
+  form $\vec{x} \mapsto A\vec{x} + \vec{b}$. For the transformation to
+  be linear, we need $\vec{b}$ to be the zero vector, i.e., the
+  transformation must send the origin to the origin. If $A$ is the
+  identity matrix, then the affine linear transformation is termed a
+  {\em translation}.
+\item A linear {\em isomorphism} is an invertible linear
+  transformation. For a linear isomorphism to exist from $\R^m$ to
+  $\R^n$, we must have $m = n$. An affine linear isomorphism is an
+  invertible affine linear transformation.
+\item A linear automorphism is a linear isomorphism from $\R^n$ to
+  itself. An affine linear automorphism is an affine linear
+  isomorphism from $\R^n$ to itself.
+\item A self-isometry of $\R^n$ is an invertible function from $\R^n$
+  to itself that preserves Euclidean distance. Any self-isometry of
+  $\R^n$ must be an affine linear automorphism of $\R^n$.
+\item A self-homothety of $\R^n$ is an invertible function from $\R^n$
+  to itself that scales all Euclidean distances by a factor of
+  $\lambda$, where $\lambda$ is the factor of homothety. We can think
+  of self-isometries precisely as the self-homotheties by a factor of
+  $1$. Any self-homothety of $\R^n$ must be an affine linear
+  automorphism of $\R^n$.
+\item Each of these forms a group: the affine linear automorphisms of
+  $\R^n$, the linear automorphisms of $\R^n$, the self-isometries of
+  $\R^n$, the self-homotheties of $\R^n$.
+\item For a linear transformation, we can consider something called
+  the {\em determinant}. For a $2 \times 2$ linear transformation with
+  matrix
+
+  $$\left[\begin{matrix} a & b \\ c & d \\\end{matrix}\right]$$
+
+  the determinant is $ad - bc$.
+
+  We can also consider the {\em trace}, defined as $a + d$ (the sum of
+  the diagonal entries).
+\item The trace generalizes to $n \times n$ matrices: it is the sum of
+  the diagonal entries. The determinant also generalizes, but the
+  formula becomes more complicated.
+\item The determinant for an affine linear automorphism can be defined
+  as the determinant for its linear part (the matrix).
+\item The sign of the determinant being positive means the
+  transformation is orientation-preserving. The sign of the
+  determinant being negative means the transformation is
+  orientation-reversing.
+\item The magnitude of the determinant gives the factor by which
+  volumes are scaled. In the case $n = 2$, it is the factor by which
+  areas are scaled.
+\item The determinant of a self-homothety with factor of homothety
+  $\lambda$ is $\pm \lambda^n$, with the sign depending on whether it
+  is orientation-preserving or orientation-reversing.
+\item Any self-isometry is volume-preserving, so it has determinant
+  $\pm 1$, with the sign depending on whether it is
+  orientation-preserving or orientation-reversing.
+\item For $n = 2$, the orientation-preserving self-isometries are
+  precisely the translations and rotations. The ones fixing the origin
+  are precisely rotations centered at the origin. These form groups.
+\item For $n = 2$, the orientation-reversing self-isometries are
+  precisely the reflections and glide reflections. The ones fixing the
+  origin are precisely reflections about lines passing through the
+  origin.
+\item For $n = 3$, the orientation-preserving self-isometries fixing
+  the origin are precisely the rotations about axes through the
+  origin. The overall classification is more complicated.
+\end{enumerate}
+
+\section{Geometry of linear transformations}
+
+\subsection{Geometry is secondary, but helps build institutions}
+
+Our focus on linear transformations so far has been {\em
+  information-centric}: they help reframe existing pieces of
+information in new ways, allowing us to extract things that are
+valuable to us. This information-centric approach undergirds the
+applicability of linear algebra in the social sciences.
+
+We will now turn to a geometric perspective on linear transformations,
+restricting largely to the case $n = 2$ for many aspects of our
+discussion. A lot of this geometry is more parochial than the
+information-centric approach, and is not too important for the
+application of linear algebra to the social sciences. The main reason
+the geometry is valuable to us is that it can help build intuition
+regarding what is going on with the algebraic operations and hence
+offer another way of ``sanity checking'' our algebraic intuitions. As
+a general rule, always try to come up with reasons that are algebraic
+and information-centric, but in cases where we can perform sanity
+checks using geometric intuitions, use them.
+
+\subsection{Composition of transformations}
+
+If $f:A \to B$ is a function and $g:B \to C$ is a function, we can
+make sense of the composite $g \circ f$. The key feature needed to
+make sense of the composite is that the co-domain (the target space)
+of the function applied first (which we write on the right) must equal
+the domain (the starting space) of the function applied next (which we
+write later).
+
+This means that if we have a collection of maps all from a space to
+{\em itself}, it makes sense to compose any two maps in the
+collection. We can even compose more than two maps if necessary.
+
+The geometry of linear transformations that we discuss here is in the
+context of transformations from $\R^n$ to $\R^n$. Here, we can
+compose, and if the transformations are bijective, also invert.
+
+A small note is important here. We often see maps from $\R^n$ to
+$\R^n$ where, even though both the domain and co-domain space have the
+same dimension, they do not represent the ``same space''
+conceptually. For instance, one side may be measuring masses, while
+the other side may be measuring prices. In this case, composing
+multiple such maps does not make sense because even though the domain
+and co-domain are mathematically $\R^n$, they are conceptually
+different.
+
+\section{Particular kinds of transformations in linear algebra}
+
+\subsection{The concept of isomorphism and automorphism}
+
+We will briefly describe two central mathematical concepts called {\em
+  isomorphism} and {\em automorphism}. You are not expected to
+understand these concepts, but they help demystify some of the
+following discussion.
+
+Understanding the concept of {\em isomorphism} is central to
+abstraction and to human intelligence, even though the word is not too
+well-known outside of mathematics and philosophy. When looking at
+different structures, we may be interested in whether they have {\em a
+  certain feature in common}. For instance, when looking at sets, we
+may be interested in judging them by the number of elements in
+them. If we care only about size, then in our tunnel vision, all other
+aspects of the set are irrelevant. For our purposes, then, a set of
+three rabbits is effectively the same as a set of three lions, or a
+set of three stars. As another related example, suppose the only thing
+you care about potential mates in the dating market is their bank
+balance. In that case, two potential mates with the same bank balance
+are effectively the same, i.e., they are isomorphic.
+
+This kind of abstraction is crucial to humans being able to understand
+numbers in the first place. If you crossed that hurdle back at the age
+of $3$, $4$, $5$, or $6$ (or whenever you understood the idea of
+counting), it's high time you went a step further.
+
+One way of capturing the idea that two sets have the same size is as
+follows. We say that two sets have the same size if it is possible to
+construct a bijective function from one set to the other. In fact,
+roughly speaking, this is the {\em only} way to define the concept of
+``same size''. In other words, we can {\em define} the size (technical
+term: cardinality) of a set as that attribute that is preserved by
+bijections and is different for sets if there is no bijection between
+them.
+
+Another way of framing this is to christen bijective functions as {\em
+  isomorphisms of sets}. In other words, a function from a set to a
+(possibly same, possibly different) set is termed an isomorphism of
+sets if it is a bijective function of sets. ``Iso+morph'' stands for
+``same shape'' and signifies that the bijective function preserves the
+shape.
+
+Why is this important? Instead of caring only about size, we can
+ratchet up our caring levels to care about more structural aspects of
+the sets we are dealing with. If we do so, our definition of
+``isomorphism'' will become correspondingly more stringent, since it
+will require preserving more of the structure.
+
+A related notion to isomorphism is that of {\em automorphism}. An
+automorphism is an isomorphism (in whatever sense the term is being
+used) from a set to itself.
+
+Whatever our definition of isomorphism and automorphism, the identity
+map from a set to itself is always an automorphism.
+
+Non-identity automorphisms from a set to itself signify {\em
+  symmetries} of the set. This will become clearer as we proceed.
+
+\subsection{Linear isomorphisms and automorphisms}
+
+A {\em linear isomorphism} is defined as a bijective linear
+transformation. We can think of a linear isomorphism as a map that
+preserves precisely all the ``linear structure'' of the set.
+
+Note that for a linear transformation to be bijective, the dimensions
+of the start and end space are the same. Explicitly, if $T:\R^m \to
+\R^n$ is a bijective linear transformation, then $m = n$. Also, the
+matrix for $T$ has full rank. It is also a square matrix, since $m =
+n$.
+
+In other words, the dimension of a vector space is invariant under
+linear isomorphisms. In fact, the relationship between linear
+isomorphisms and dimension is similar to the relationship between set
+isomorphisms and cardinality (set size).
+
+A {\em linear automorphism} is defined as a linear isomorphism from a
+vector space $\R^n$ to itself. Based on the above discussion, you
+might believe that every linear isomorphism must be a linear
+automorphism. This is not quite true. The main caveat at the moment
+(there will be more later) is that $\R^n$ and $\R^n$ could refer to
+different spaces depending on what kinds of things we are storing
+using the real numbers (for instance, one $\R^n$ might be masses, the
+other $\R^n$ might be prices, and so on). A linear isomorphism between
+a $\R^n$ of one sort and a $\R^n$ of another sort should not rightly
+be considered a linear automorphism.
+
+\subsection{Affine isomorphisms}
+
+An {\em affine linear transformation} is a function that preserves
+collinearity and ratios within lines, $T:\R^m \to \R^n$ is affine if
+the image of any line (not necessarily through the origin) in $\R^m$
+is a line (not necessarily through the origin) in $\R^n$, and
+moreover, it preserves the ratios of lengths within each line. So in
+particular, if $\vec{x},\vec{y} \in \R^m$, then $T(a\vec{x} + (1 -
+a)\vec{y}) = aT(\vec{x}) + (1 - a)T(\vec{y})$. In particular, it
+preserves midpoints.
+
+Note that any linear transformation is affine linear. The main thing
+we get by allowing ``affine'' is that the origin need not go to the
+origin. An important class of affine linear transformations that are
+not linear is the class of {\em translations}. Explicitly, for a
+nonzero vector $\vec{v} \in \R^n$, the function $T:\R^n \to \R^n$
+given by $\vec{x} \mapsto \vec{x} + \vec{v}$ is affine linear but not
+linear. In fact, all affine linear transformations can be obtained by
+composing translations with linear transformations.
+
+An {\em affine linear isomorphism} (or {\em affine isomorphism} for
+short) is a bijective affine linear transformation.
+
+An {\em affine linear automorphism} is an affine linear isomorphism
+from a vector space to itself.
+
+Every linear automorphism is an affine linear automorphism. Nonzero
+translations give examples of affine linear automorphisms that are not
+linear. In an important sense, these cover all the affine linear
+automorphisms: every affine linear automorphism can be expressed as a
+composite of a translation and a linear automorphism.
+
+\subsection{Linear and affine linear: the special case of one dimension}
+
+In the case of one dimension, a linear isomorphism is a function of
+the form $x \mapsto mx, m \ne 0$. The matrix of this, viewed as a
+linear transformation, is $[m]$. In other words, it is a linear
+function with zero intercept.
+
+An affine linear isomorphism is a function of the form $x \mapsto mx +
+c$, $m \ne 0$. In other words, it is a linear function with the
+intercept allowed to be nonzero.
+
+\subsection{The general description of affine linear transformations}
+
+A linear transformation $T:\R^m \to \R^n$ can be written in the form:
+
+$$\vec{x} \mapsto A\vec{x} + \vec{b}$$
+
+where $A$ is a $n \times m$ matrix and $\vec{v}$ is a vector in
+$\R^n$. Explicitly, the matrix $A$ describes the linear transformation
+part and the vector $\vec{b}$ describes the translation part. Notice
+how this general description parallels and generalizes the description
+in one dimension.
+
+\subsection{Understanding how transformations and automorphisms behave intuitively}
+
+In order to understand transformations and automorphisms using our
+geometric intuitions, it helps to start off with some geometric
+picture in the plane or Euclidean space that we are transforming, then
+apply the transformation to it, and see what we get. It is preferable
+to not take something {\em too} symmetric, because the less the
+symmetry, the more easily we can discern what features the
+transformation preserves and what features it destroys. Human stick
+features with asymmetric faces may be a good starting point for
+intuitive understanding, though more mundane figures like triangles
+might also be reasonable.
+
+\section{Euclidean geometry}
+
+\subsection{Euclidean distance and self-isometries}
+
+The geometry of $\R^n$ is largely determined by how we define distance
+between points. The standard definition of distance is {\em Euclidean
+  distance}. Explicitly, if $\vec{x}$ and $\vec{y}$ are in $\R^n$,
+then the Euclidean distance between $\vec{x}$ and $\vec{y}$ is:
+
+$$\sqrt{\sum_{i=1}^n (x_i - y_i)^2}$$
+
+If a transformation preserves Euclidean distance, then it preserves
+all the geometry that we care about. In particular, it preserves
+shapes, sizes, angles, and other geometric features.
+
+A bijective function from $\R^n$ to itself that preserves Euclidean
+distance is termed a {\em self-isometry} of $\R^n$.
+
+We now proceed to an explanation of why self-isometries of $\R^n$ must
+necessarily be affine linear automorphisms of $\R^n$. The claim is
+that if something preserves distance, it must preserve linearity.
+
+One way of characterizing the fact that three points $A,B,C \in \R^n$
+are collinear, with $B$ {\em between} $A$ and $C$, is that we get the
+equality case for the triangle inequality. Explicitly:
+
+$$\text{(the distance between $A$ and $B$)} + \text{(the distance between $B$ and $C$)} = \text{(the distance between $A$ and $C$)}$$
+
+Suppose $T$ is a self-isometry of $\R^n$. Then, we have:
+
+\begin{eqnarray*}
+  \text{The distance between $T(A)$ and $T(B)$} & = & \text{The distance between $A$ and $B$}\\
+  \text{The distance between $T(B)$ and $T(C)$} & = & \text{The distance between $B$ and $C$}\\
+  \text{The distance between $T(A)$ and $T(C)$} & = & \text{The distance between $A$ and $C$}\\
+\end{eqnarray*}
+
+Combining all these, we get that:
+
+$$\text{(the distance between $T(A)$ and $T(B)$)} + \text{(the distance between $T(B)$ and $T(C)$)} = \text{(the distance between $T(A)$ and $T(C)$)}$$
+
+The conclusion is that $T(A)$, $T(B)$, and $T(C)$ are collinear with
+$T(B)$ between $T(A)$ and $T(C)$. In other words, collinear triples of
+points get mapped to collinear triples of points, so $T$ preserves
+collinearity. Further, it obviously preserves ratios of lengths within
+lines. Thus, $T$ is an affine linear automorphism of $\R^n$. The
+upshot: every self-isometry is an affine linear automorphism.
+
+Self-isometries preserve not just collinearity, but {\em all} the
+geometric structure. What they are allowed to change is the location,
+angling, and orientation. They do not affect the shape and size of
+figures. In particular, they send triangles to congruent triangles.
+
+\subsection{Self-homotheties}
+
+A {\em self-homothety} or {\em similarity transformation} or {\em
+  similitude transformation} is a bijective map $T:\R^n \to \R^n$ that
+scales all distances by a fixed nonzero factor called the {\em ratio
+  of similitude} or {\em factor of similitude} of $T$. For instance, a
+self-homothety by a factor of $1/2$ will have the property that the
+distance between $T(A)$ and $T(B)$ is half the distance between $A$
+and $B$.
+
+Self-isometries can be described as self-homotheties by a factor of
+$1$.
+
+Self-homotheties are affine linear automorphisms for roughly the same
+reason that self-isometries are.
+
+A special kind of self-homothety is a {\em dilation} about a point. A
+dilation about the origin, for instance, would simply mean multiplying
+all the position vectors of points by a fixed nonzero scalar. The
+absolute value of that scalar will turn out to be the factor of
+similitude. The matrix for such a dilation is a scalar matrix. For
+instance, the matrix:
+
+$$\left[\begin{matrix} 5 & 0 \\ 0 & 5 \\\end{matrix}\right]$$
+
+represents a dilation by a factor of $5$ about the origin.
+
+Self-homotheties send triangles to similar triangles.
+
+\subsection{Other types of transformations}
+
+One important type of linear transformation that is not a
+self-homothety is a transformation with diagonal matrix where the
+diagonal entries are not all the same. For instance, consider the
+linear transformation with matrix the following diagonal matrix:
+
+$$\left[\begin{matrix} 1 & 0 \\ 0 & 2 \\\end{matrix}\right]$$
+
+This sends $\vec{e_1}$ to itself and sends $\vec{e_2}$ to
+$2\vec{e_2}$. Pictorially, it keeps the $x$-axis as is and stretches
+the $y$-axis by a factor of $2$. It distorts shapes, but preserves
+linearity. It is not a self-homothety because of the different scaling
+factors used for the axes.
+\subsection{Group structure}
+
+A collection of bijective functions from $\R^n$ to $\R^n$ is said to
+form a {\em group} if it satisfies these three conditions:
+
+\begin{itemize}
+\item The composite of two functions in the collection is in the collection.
+\item The identity function is in the collection.
+\item The inverse to any function in the collection is in the collection.
+\end{itemize}
+
+The set of all automorphisms of any structure forms a group. Here is
+the stylized argument:
+
+\begin{itemize}
+\item Automorphisms preserve some particular structural
+  feature. Composing two automorphisms will therefore also preserve
+  the structural feature.
+\item The identity map preserves {\em everything}. Therefore, it must
+  be an automorphism.
+\item Since an automorphism preserves a specific structural feature,
+  doing it backwards must also preserve the structural feature.
+\end{itemize}
+
+All the examples we have seen above give groups of linear
+transformations. Explicitly:
+
+\begin{itemize}
+\item The set of all affine linear automorphisms of $\R^n$ is a group,
+  because these are precisely the invertible functions that preserve
+  the collinearity and ratios-within-lines structure.
+\item The set of all linear automorphisms of $\R^n$ is a group,
+  because these are precisely the invertible functions that preserve
+  the linear structure.
+\item The set of all self-isometries of $\R^n$ is a group, because
+  these are precisely the invertible functions that preserve the
+  Euclidean distance.
+\item The set of all self-homotheties of $\R^n$ of a group, because
+  these are precisely the invertible functions that preserve the
+  ``ratios of Euclidean distances'' structure.
+\end{itemize}
+
+Further, these groups have containment relations:
+
+Group of all self-isometries of $\R^n$ $\subseteq$ Group of all self-homotheties of $\R^n$ $\subseteq$ Group of all affine linear automorphisms of $\R^n$
+
+And also, separately:
+
+Group of all linear automorphisms of $\R^n$ $\subseteq$ Group of all affine linear automorphisms of $\R^n$
+
+\section{The case of two dimensions}
+
+If $n = 2$, we can obtain a relatively thorough understanding of the
+various types of linear transformations. These are discussed in more
+detail below.
+
+\subsection{Trace and determinant}
+
+There are two interesting invariants of $2 \times 2$ matrices, called
+respectively the {\em trace} and {\em determinant}. The trace of a $2
+\times 2$ matrix:
+
+$$\left[\begin{matrix} a & b \\ c & d \\\end{matrix}\right]$$
+
+is defined as the quantity $a + d$. It is the sum of the diagonal
+entries. The significance of the trace is not clear right now, but
+will become so later.
+
+The other important invariant for $2 \times 2$ matrices is the {\em
+  determinant}. The determinant of a $2 \times 2$ matrix:
+
+$$\left[\begin{matrix} a & b \\ c & d \\\end{matrix}\right]$$
+
+is defined as the quantity $ad - bc$. As we noted in a homework
+exercise, the determinant is nonzero if and only if the matrix is
+invertible.
+
+Both the trace and the determinant generalize to $n \times n$
+matrices. The trace of a $n \times n$ matrix is defined as the sum of
+all the diagonal entries of the matrix. The determinant is defined in
+a more complicated fashion.
+
+The trace and determinant of a linear transformation are defined
+respectively as the trace and determinant of the matrix for the linear
+transformation.
+
+For an affine linear transformation, the trace and determinant are
+defines respectively as the trace and determinant of the linear part
+of the transformation.
+
+The role of the determinant is somewhat hard to describe, but it can
+be split into two aspects:
+
+\begin{itemize}
+\item The absolute value of the determinant is the factor by which
+  volumes multiply. In the case $n = 2$, it is the factor by which
+  areas multiply. In particular, the determinant of a $2 \times 2$
+  matrix is $\pm 1$ if and only if the corresponding linear
+  transformation is area-preserving.
+\item The sign of the determinant describes whether the linear
+  transformation is orientation-preserving or orientation-reversing. A
+  positive sign means orientation-preserving, whereas a negative sign
+  means orientation-reversing. Here, {\em orientation-preserving}
+  means that left-handed remains left-handed while right-handed
+  remains right-handed. In contrast, {\em orientation-reversing} means
+  that left-handed becomes right-handed while right-handed becomes
+  left-handed. Note that any transformation that can be accomplished
+  through rigid motions, i.e., through a continuous deformation of the
+  identity transformation, must be orientation-preserving. The reason
+  is that continuous change cannot suddenly change the orientation
+  status.
+\end{itemize}
+
+\subsection{Justifying statements about the determinant using diagonal matrices}
+
+Consider a linear transformation with diagonal matrix:
+
+$$\left[\begin{matrix} a & 0 \\ 0 & d \\\end{matrix}\right]$$
+
+The trace of this matrix is $a + d$ and the determinant is $ad$. Here
+is the justification for both observations made above:
+
+\begin{itemize}
+\item The absolute value of the determinant is the factor by which
+  volumes multiply: Think of a rectangle with sides parallel to the
+  axes. The $x$-dimension gets multiplied by a factor of $|a|$ and the
+  $y$-dimension gets multiplied by a factor of $|d|$. The area
+  therefore gets multiplied by a factor of $|a||d|$ which is $|ad|$,
+  the absolute value of the determinant.
+\item The sign of the determinant describes whether the linear
+  transformation is orientation-preserving or
+  orientation-reversing. The sign of $a$ determines whether the
+  $x$-direction gets flipped. The sign of $d$ determines whether the
+  $y$-direction gets flipped. The sign of the product determines
+  whether the overall orientation stays the same or gets reversed.
+\end{itemize}
+
+\subsection{Abstract considerations: determinants of self-homotheties}
+
+Consider a linear transformation that is a self-homothety with factor
+of similitude $\lambda$. This linear transformation scales all lengths
+by a factor of $\lambda$. If $n = 2$ (i.e., we are in two dimensions)
+then it scales all areas by a factor of $\lambda^2$. In particular:
+
+\begin{itemize}
+\item If it is orientation-preserving, then the determinant is $\lambda^2$.
+\item If it is orientation-reversing, then the determinant is $-\lambda^2$.
+\end{itemize}
+
+In particular, for a self-{\em isometry}:
+
+\begin{itemize}
+\item If it is orientation-preserving, then the determinant is $1$.
+\item If it is orientation-reversing, then the determinant is $-1$.
+\end{itemize}
+
+\subsection{Rotations}
+
+A particular kind of transformation of interest in the two-dimensional
+case is a {\em rotation}. A rotation is specified by two pieces of
+information: a point (called the {\em center of rotation}) and an
+angle (called the {\em angle of rotation}). The angle is defined only
+up to additive multiples of $2\pi$, i.e., if two rotations have the
+same center and their angles differ by a multiple of $2\pi$, then they
+are actually the same rotation.
+
+Note that we set a convention in advance that we will interpret
+rotations in the counter-clockwise sense.
+
+For a rotation whose angle of rotation is not zero (or more precisely,
+is not a multiple of $2\pi$), the center of rotation is uniquely
+determined by the rotation and is the only fixed point of the
+rotation.
+
+The rotation by an angle of $\pi$ about a point is termed a {\em half
+  turn} about the point and can alternatively by thought of as {\em
+  reflecting} relative to the {\em point}. This is not to be confused
+with reflections about lines in $\R^2$.
+
+All rotations are self-isometries of $\R^2$. Thus, they are affine
+linear automorphisms. They are also area-preserving. They are also
+orientation-preserving, since they can be obtained through continuous
+rigid motions. However, unless the center of rotation is the origin,
+the rotation is not a linear automorphism. Rotations centered at the
+origin {\em are} linear transformations. We will now proceed to
+describe rotations centered at the origin in matrix terms.
+
+To describe a rotation centered at the origin, we need to describe the
+images of the two standard basis vectors $\vec{e_1}$ and
+$\vec{e_2}$. These images form the first and second column
+respectively of the matrix describing the rotation as a linear
+transformation.
+
+Suppose the rotation is by an angle $\theta$. Then $\vec{e_1}$ goes to
+the vector with coordinates $(\cos \theta,\sin \theta)$. $\vec{e_2}$
+goes to the vector with coordinates $(-\sin \theta,\cos \theta)$. The matrix for the rotation is thus:
+
+$$\left[\begin{matrix} \cos \theta & - \sin \theta \\ \sin \theta & \cos \theta \\\end{matrix}\right]$$
+
+Note that the inverse to rotation about the origin by $\theta$ is
+rotation by $-\theta$. Using the fact that $\cos$ is an even function
+and $\sin$ is an odd function ,the matrix for the inverse operation
+is:
+
+$$\left[\begin{matrix} \cos \theta & \sin \theta \\ -\sin \theta & \cos \theta \\\end{matrix}\right]$$
+
+Some specific rotations of interest are listed below:
+
+\begin{tabular}{|l|l|}
+  \hline
+  Angle & Matrix of rotation\\\hline
+  $0$ (no change) & $\left[\begin{matrix} 1 & 0 \\ 0 & 1 \\\end{matrix}\right]$\\\hline
+  $\pi/4$ & $\left[\begin{matrix} 1/\sqrt{2} & -1/\sqrt{2} \\ 1/\sqrt{2} & 1/\sqrt{2} \\\end{matrix}\right]$\\\hline
+  $\pi/2$ (right angle)& $\left[\begin{matrix} 0 & -1 \\ 1 & 0 \\\end{matrix}\right]$\\\hline
+  $\pi$ (half turn) & $\left[\begin{matrix} -1 & 0 \\ 0 & -1 \\\end{matrix}\right]$\\\hline
+  $3\pi/2$ (right angle clockwise) & $\left[\begin{matrix} 0 & 1 \\ -1 & 0 \\\end{matrix}\right]$ \\\hline
+\end{tabular}
+
+Let us try predicting the determinant of a rotation matrix
+theoretically, then proceed to verify it computationally.
+
+Theoretically, we know that rotations are both area-preserving (on
+account of being self-isometries) and orientation-preserving (on
+account of being realized through rigid motions). The area-preserving
+nature tells us that the magnitude of the determinant is $1$, i.e.,
+the determinant is $\pm 1$. The orientation-preserving nature tells us
+that the determinant is positive. Combining these, we get that the
+determinant must be $1$. Let's check this. The determinant of
+
+$$\left[\begin{matrix} \cos \theta & - \sin \theta \\ \sin \theta & \cos \theta \\\end{matrix}\right]$$
+
+is $\cos^2\theta + \sin^2\theta$, which is $1$.
+
+\subsection{Reflections and orientation-reversal}
+
+A reflection about a line does exactly what it is supposed to do: it
+sends each point to another point such that the line of reflection is
+the perpendicular bisector of the line segment joining them.
+
+Every reflection is an affine linear automorphism. A reflection is a
+linear automorphism if and only if the line of reflection passes
+through the origin. If that is the case, we can write the matrix of
+the linear transformation. Let's consider the case of a reflection
+about the $x$-axis.
+
+This reflection fixes all points on the $x$-axis, and sends all points
+on the $y$-axis to their mirror images about the origin. In
+particular, it sends $\vec{e_1}$ to $\vec{e_1}$ and sends $\vec{e_2}$
+to $-\vec{e_2}$. 
+
+The matrix of the linear transformation is:
+
+$$\left[\begin{matrix} 1 & 0 \\ 0 & -1 \\\end{matrix}\right]$$
+
+More generally, consider a reflection about a line through the origin
+that makes an angle of $\theta/2$ counter-clockwise from the
+$x$-axis. The reflection sends $\vec{e_1}$ to a vector making an angle
+$\theta$ counter-clockwise from the horizontal, and sends $\vec{e_2}$
+to the vector making an angle of $\theta - (\pi/2)$ counter-clockwise
+from the horizontal. The matrix is thus:
+
+$$\left[\begin{matrix} \cos \theta & \sin \theta \\ \sin \theta & - \cos \theta \\\end{matrix}\right]$$
+
+This reflection matrix has trace zero. For the determinant, let us
+first predict it theoretically, then verify it
+computationally. Theoretically, we know that reflections are
+self-isometries, hence they are area-preserving. So, the absolute
+value of the determinant is $1$, and the determinant is $\pm
+1$. Reflections are also orientation-reversing, so the determinant is
+negative. Thus, the determinant must be $-1$. Let's check this. The
+determinant of:
+
+$$\left[\begin{matrix} \cos \theta & \sin \theta \\ \sin \theta & - \cos \theta \\\end{matrix}\right]$$
+
+is $-\cos^2\theta - \sin^2\theta = -1$.
+\subsection{Shear operations}
+
+A shear operation is an operation where one axis is kept fixed, and
+the other axis is ``sheared'' by having stuff from the fixed axis
+added to it. 
+
+For instance, suppose the $x$-axis is the fixed axis and
+we add the standard basis vector for the $x$-axis to the
+$y$-axis. Explicitly, $\vec{e_1}$ stays where it is, but $\vec{e_2}$
+gets sent to $\vec{e_1} + \vec{e_2}$. The matrix of this looks like:
+
+$$\left[\begin{matrix} 1 & 1 \\ 0 & 1 \\\end{matrix}\right]$$
+
+Note that unlike translations, rotations, and reflections, shear
+operations are not self-isometries.
+
+More generally, we can have a shear of the form:
+
+$$\left[\begin{matrix} 1 & \lambda \\ 0 & 1 \\\end{matrix}\right]$$
+
+This sends $\vec{e_1}$ to $\vec{e_1}$ and sends $\vec{e_2}$ to
+$\lambda\vec{e_1} + \vec{e_2}$.
+
+We could also shear in the other direction:
+
+$$\left[\begin{matrix} 1 & 0 \\ \lambda & 1 \\\end{matrix}\right]$$
+
+Here, $\vec{e_2}$ is fixed, and $\vec{e_1}$ gets sends to $\vec{e_1} +
+\lambda\vec{e_2}$.
+
+The trace of a shear operation is $2$, and the determinant is
+$1$. Thus, shear operations are both area-preserving and
+orientation-preserving. This can be verified pictorially.
+
+\subsection{Composites of various types, including glide reflections}
+
+We have considered translations, rotations, and reflections. All of
+these are self-isometries. Self-isometries form a group, so composing
+things of these types should also give a self-isometry. Two
+interesting questions:
+
+\begin{itemize}
+\item Is every self-isometry a translation, rotation, or reflection?
+\item Can every self-isometry be obtained by composing translations,
+  rotations, and reflections?
+\end{itemize}
+
+It turns out that the answers are respectively {\em no} and {\em
+  yes}. Let's look at various sorts of composites:
+
+\begin{enumerate}
+\item {\em Composite of translations}: Translations form a subgroup of
+  the group of all self-isometries of $\R^2$. In other words, the
+  composite of two translations is a translation, the identity map is
+  a translation (namely, by the zero vector) and the inverse of a
+  translation is a translation.
+\item {\em Composite of rotations centered at the same point}: The
+  rotations centered at a particular point form a subgroup of the
+  group of all self-isometries of $\R^2$. In other words, the
+  composite of two rotations centered at the same point is a rotation,
+  the identity map is a rotation with any point as center (namely,
+  with zero angle of rotation), and the inverse of a rotation is a
+  rotation with the same center of rotation. However, the set of {\em
+    all} rotations is not a subgroup, as is clear from the next point.
+\item {\em Composite of rotations centered at different points}: If
+  two rotations centered at different points are composed, the
+  composite is typically a rotation about yet a third point, with the
+  angle of rotation the sum of the angles. The exception is when the
+  angles add up to a multiple of $2\pi$. In that case, the composite
+  is a translation. It is easy to convince yourself by using human
+  stick figures that the angles of rotation add up.
+\item {\em Composite of rotation and translation}: The composite is
+  again a rotation with the same angle of rotation, but about a
+  different center of rotation.
+\item {\em Composite of two reflections}: If the lines of reflection
+  are parallel, the composite is a translation by a vector
+  perpendicular to both. If the lines of reflection intersect, then
+  the composite is a rotation by twice the angle of intersection
+  between the lines.
+\item {\em Composite of reflection and translation}: This gives rise
+  to what is called a {\bf glide reflection}, which is a new type of
+  self-isometry of $\R^2$.
+\item {\em Composite of reflection and rotation}: This is trickier. It
+  could be a reflection or a glide reflection, depending on whether
+  the center of rotation lies on the line of reflection.
+\end{enumerate}
+
+The upshot is that:
+
+\begin{itemize}
+\item The orientation-{\em preserving} self-isometries of $\R^2$ are
+  precisely the translations and rotations. Note that these form a
+  group.
+\item The orientation-{\em reversing} self-isometries of $\R^2$ are
+  precisely the reflections and glide reflections. Note that these do
+  not form a group, but {\em together} with translations and
+  rotations, they form the group of all self-isometries.
+\end{itemize}
+
+\subsection{Self-isometries that are linear}
+
+Let's consider self-isometries that are linear, i.e., they fix the
+origin. These are subgroups of the group of all
+self-isometries. Explicitly:
+
+\begin{itemize}
+\item The orientation-{\em preserving} linear self-isometries of
+  $\R^2$ are precisely the rotations about the origin, specified by
+  the angle of rotation (determined up to additive multiples of
+  $2\pi$). Composing two such rotations involves adding the
+  corresponding angles. These form a group. This group is denoted
+  $SO(2,\R)$ (you don't need to know this!) and is called the {\em
+    special orthogonal group} of degree two over the reals.
+\item The orientation-{\em reversing} linear self-isometries of $\R^2$
+  are precisely the reflections about lines through the origin. These
+  do not form a group, but {\em together} with rotations about the
+  origin, they form a group. The whole group is denoted $O(2,\R)$ (you
+  don't need to know this!) and is called the {\em orthogonal group}
+  of degree two over the reals.
+\end{itemize}
+
+In general, an affine linear automorphism is a self-isometry if and
+only if its linear automorphism part is a self-isometry. In other words:
+
+$$\vec{x} \mapsto A\vec{x} + \vec{b}$$
+
+is a self-isometry if and only if $\vec{x} \mapsto A\vec{x}$ is a
+self-isometry.
+
+\section{The case of three dimensions}
+
+The case of three dimensions is somewhat trickier than two dimensions,
+but we can still come somewhat close to a classification.
+
+\subsection{Rotations about axes}
+
+The simplest type of orientation-preserving self-isometry is a
+rotation about an axis of rotation. Euler proved a theorem (called
+{\em Euler's rotation theorem}) that every orientation-preserving
+self-isometry that fixes a point must be a rotation about an axis
+through that point. In particular, all the orientation-preserving
+self-isometries of $\R^3$ that are {\em linear} (in the sense of
+fixing the origin) are rotations about axes through the origin.
+
+\subsection{Rotations composed with translations}
+
+We know that translations are orientation-preserving self-isometries
+of $\R^n$ for any $n$. So are rotations. We also know that the
+self-isometries form a group. Thus, composing a rotation about an axis
+with a translation should yield a self-isometry. For $n = 2$, any such
+self-isometry would already be a rotation. For $n = 3$, this is no
+longer the case. It is possible to have orientation-preserving
+self-isometries that are expressible as composites of translations and
+rotations but are not translations or rotations themselves. For
+instance, a rotation about the $z$-axis followed by a translation
+parallel to the $z$-axis works.
+
+\subsection{Reflections about planes and their composites}
+
+A reflection about a plane in $\R^3$ is an orientation-reversing
+self-isometry of $\R^3$. For instance, the isometry:
+
+$$(x,y,z) \mapsto (-x,y,z)$$
+
+is a reflection about the $yz$-plane. It is orientation-reversing, and
+its matrix is:
+
+$$\left[\begin{matrix} -1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \\\end{matrix}\right]$$
+
+We have not yet seen how to compute the determinant of a general $3
+\times 3$ matrix. However, the determinant of a diagonal matrix is
+simply the product of the diagonal entries. In this case, the
+determinant is $-1$, as it should be, since the reflection is
+orientation-reversing but, on account of being a self-isometry, is
+{\em volume}-preserving.
+
+A composite of two reflections about different planes is an
+orientation-preserving self-isometry. If the planes are not parallel,
+this is a rotation about the axis of intersection by twice the angle
+of intersection between the planes. For instance, the transformation:
+
+$$(x,y,z) \mapsto (-x,-y,z)$$
+
+corresponds to the diagonal matrix:
+
+$$\left[\begin{matrix} -1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 1 \\\end{matrix}\right]$$
+
+This has determinant $1$. It is both orientation-preserving and
+area-preserving. We can also think of it as a rotation by an angle of
+$\pi$ about the $z$-axis, i.e., a half-turn about the $z$-axis. The
+angle is $\pi$ because the individual planes of reflection are
+mutually perpendicular (angle $\pi/2$).
+
+Finally, consider a composite of {\em three} reflections. Consider the
+simple case where the reflections are about three mutually
+perpendicular planes. An example is:
+
+$$(x,y,z) \mapsto (-x,-y,-z)$$
+
+This corresponds to the diagonal matrix:
+
+$$\left[\begin{matrix} -1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & -1 \\\end{matrix}\right]$$
+
+The linear transformation here is orientation-reversing on account of
+being a composite of an odd number of reflections. It is a
+self-isometry, so the determinant should be $-1$, and indeed, the
+determinant is $-1$.
+
+More generally, we could have a map of the form:
+
+$$\left[\begin{matrix} -1 & 0 & 0 \\ 0 & \cos \theta & -\sin \theta \\ 0 & \sin \theta & \cos \theta \\\end{matrix}\right]$$
+
+This map reflects the $x$-coordinate and performs a rotation by
+$\theta$ on the $yz$-plane.
+
+\section{Where we're hoping to go with this}
+
+In the future, we will build on what we have learned so far in the
+following ways:
+
+\begin{itemize}
+\item We will understand the procedure for composing linear
+  transformations (or more generally affine linear transformations)
+  purely algebraically, i.e., in terms of their description using
+  matrices and vectors.
+\item We will understand criteria for looking at a linear
+  transformation algebraically to determine whether it is a
+  self-isometry, self-homothety, orientation-preserving, and/or
+  area-preserving.
+\item We will understand more about the group structure of various
+  kinds of groups of linear transformations and affine linear
+  transformations.
+\end{itemize}
+
+
+\end{document}
+

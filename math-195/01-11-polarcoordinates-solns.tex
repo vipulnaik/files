@@ -1,0 +1,132 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: Friday January 11: Polar coordinates}
+\author{Math 195, Section 59 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$27$ people took this $3$-question quiz. The score distribution was as
+follows:
+
+\begin{itemize}
+\item Score of $1$: $1$ person
+\item Score of $2$: $8$ people
+\item Score of $3$: $18$ people
+\end{itemize}
+
+The answers and performance review for individual questions are:
+
+\begin{enumerate}
+\item Option (B): $26$ people.
+\item Option (D): $22$ people.
+\item Option (A): $23$ people.
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+
+\item Consider a straight line that does not pass through the pole in
+  a polar coordinate system. The equation of such a line in the polar
+  coordinate system can be expressed as $r = F(\theta)$. What kind of
+  function is $F$?
+
+  \begin{enumerate}[(A)]
+
+  \item $F(\theta)$ is a linear combination of $\sin \theta$ and $\cos \theta$
+  \item $F(\theta)$ is the reciprocal of a linear combination of $\sin
+    \theta$ and $\cos \theta$.
+  \item $F(\theta)$ is a linear combination of $\tan \theta$ and $\cot
+    \theta$.
+  \item $F(\theta)$ is the reciprocal of a linear combination of $\tan
+    \theta$ and $\cot \theta$.
+  \item $F(\theta)$ is a linear combination of $\sec \theta$ and $\csc
+    \theta$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+  
+  {\em Explanation}: Consider the corresponding Cartesian coordinate
+  system. The Cartesian equation of a straight line is of the form $ax
+  + by = c$. Since the line does not pass through the origin/pole, $c
+  \ne 0$. Set $x = r \cos \theta$ and $y = r \sin \theta$, and we get
+  $r(a \cos \theta + b \sin \theta) = c$. Rearranging, we obtain that
+  $r = c/(a \cos \theta + b \sin \theta)$. We could rewrite as $r =
+  1/((a/c)\cos \theta + (b/c)\sin \theta)$.
+
+  {\em Performance review}: $26$ out of $27$ got this. $1$ chose (C).
+
+  {\em Historical note (last time)}: $8$ out of $21$ people got this
+  correct. $6$ chose (C), $5$ chose (A), $1$ each chose (D) and (E).
+\item Consider the curve $r = \sin^2\theta$. Which of the following
+  symmetries does the curve enjoy? Please see Options (D) and (E)
+  before answering.
+
+  \begin{enumerate}[(A)]
+  \item Mirror symmetry about the polar axis
+  \item Mirror symmetry about an axis perpendicular to the polar axis
+    (what would be the $y$-axis if the polar axis is the $x$-axis)
+  \item Half turn symmetry about the pole
+  \item All of the above
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We use the fact that $\sin^2\theta =
+  \sin^2(-\theta)$ to deduce mirror symmetry about the polar axis. We
+  use that $\sin^2\theta = \sin^2(\pi - \theta)$ to deduce mirror
+  symmetry about the $y$-axis. Finally, we use that $\sin^2\theta =
+  \sin^2(\pi + \theta)$ to deduce half turn symmetry about the pole.
+
+  {\em Performance review}: $22$ out of $27$ got this. $5$ chose (B).
+
+  {\em Historical note (last time)}: $10$ out of $21$ people got this
+  correct. $6$ chose (B), $5$ chose (A).
+\item Which of the following is the correct expression for the length
+  of the part of the curve $r = F(\theta)$ from $\theta = \alpha$ to
+  $\theta = \beta$, with $\alpha < \beta$?
+
+  \begin{enumerate}[(A)]
+  \item $\int_\alpha^\beta \sqrt{(F(\theta))^2 + (F'(\theta))^2} \, d\theta$
+  \item $\int_\alpha^\beta |F(\theta) + F'(\theta)| \, d\theta$
+  \item $\int_\alpha^\beta |F(\theta) - F'(\theta)| \, d\theta$
+  \item $\int_\alpha^\beta \sqrt{(F(\theta))^2 + (F'(\theta))^2 + 4F(\theta)F'(\theta)} \, d\theta$
+  \item $\int_\alpha^\beta \sqrt{(F(\theta))^2 + (F'(\theta))^2 - 4F(\theta)F'(\theta)} \, d\theta$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: There are many ways of seeing this, including a
+  direct justification in polar coordinates, but we provide an easy
+  explanation using the Cartesian coordinates. We know that:
+
+  $$x = F(\theta) \cos \theta, \qquad y= F(\theta)\sin \theta$$
+
+  We get:
+
+  $$\frac{dx}{d\theta} = F'(\theta)\cos \theta - F(\theta)\sin \theta, \qquad \frac{dy}{d\theta} = F'(\theta)\sin \theta + F(\theta)\cos \theta$$
+
+  Squaring and adding, we know that the $2F(\theta)F'(\theta)\cos
+  \theta \sin \theta$ term cancels between the two expressions, and we
+  are left with:
+
+  $$\left(\frac{dx}{d\theta}\right)^2 + \left(\frac{dy}{d\theta}\right)^2 = (F'(\theta))^2 \cos^2\theta + (F(\theta))^2\sin^2\theta + (F'(\theta))^2\sin^2\theta + (F(\theta))^2\cos^2\theta = [(F'(\theta))^2 + (F(\theta))^2](\cos^2\theta + \sin^2\theta)$$
+
+  Using $\cos^2 \theta + \sin^2\theta = 1$, we get the desired result.
+
+  {\em Performance review}: $23$ out of $27$ got this. $2$ chose (D),
+  $1$ each chose (B) and (E).
+
+  {\em Historical note (last time)}: $14$ out of $21$ people got this
+  correct. $4$ chose (D), $3$ chose (E).
+\end{enumerate}
+\end{document}

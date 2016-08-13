@@ -1,0 +1,337 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: October 7: Limit theorems}
+\author{Math 152, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$12$ students took this quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $2$: $3$ people
+\item Score of $3$: $5$ people
+\item Score of $4$: $4$ people
+\end{itemize}
+
+The mean score was $3.08$. Here are the problem-wise answers and
+scores:
+
+\begin{enumerate}
+\item Option (A): $6$ people
+\item Option (C): $4$ people
+\item Option (D): $10$ people
+\item Option (D): $9$ people
+\item Option (B): $8$ people
+\end{enumerate}
+
+More details below.
+
+\section{Solutions}
+
+\begin{enumerate}
+
+\item (**) Which of the following statements is {\bf always true}?
+
+  \begin{enumerate}[(A)]
+
+  \item The range of a continuous nonconstant function on a closed
+    bounded interval (i.e., an interval of the form $[a,b]$) is a
+    closed bounded interval (i.e., an interval of the form $[m,M]$).
+  \item The range of a continuous nonconstant function on an open
+    bounded interval (i.e., an interval of the form $(a,b)$) is an
+    open bounded interval (i.e., an interval of the form $(m,M)$).
+  \item The range of a continuous nonconstant function on a closed
+    interval that may be bounded or unbounded (i.e., an interval of
+    the form $[a,b]$, $[a,\infty)$, $(-\infty,a]$, or
+    $(-\infty,\infty)$) is also a closed interval that may be bounded
+    or unbounded.
+  \item The range of a continuous nonconstant function on an open
+    interval that may be bounded or unbounded (i.e., an interval of
+    the form $(a,b)$,$(a,\infty)$, $(-\infty,a)$, or
+    $(-\infty,\infty)$), is also an open interval that may be bounded
+    or unbounded.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: This is a combination of the extreme-value
+  theorem and the intermediate-value theorem. By the extreme-value
+  theorem, the continuous function attains a minimum value $m$ and a
+  maximum value $M$. By the intermediate-value theorem, it attains
+  every value between $m$ and $M$. Further, it can attain no other
+  values because $m$ is after all the minimum and $M$ the maximum.
+
+  {\em The other choices}:
+
+  Option (B): Think of a function that increases first and then
+  decreases. For instance, the function $f(x) := \sqrt{1 - x^2}$ on
+  $(-1,1)$ has range $(0,1]$, which is not open. Or, the function
+  $\sin x$ on the interval $(0,2\pi)$ has range $[-1,1]$.
+
+  Option (C): We can get counterexamples for unbounded intervals. For
+  instance, consider the function $f(x) := 1/x$ on $[1,\infty)$. The
+  range of this function is $(0,1]$, which is not closed. The idea is
+  that we make the function approach but not reach a finite value as
+  $x \to \infty$ (we'll talk more about this when we deal with
+  asymptotes).
+
+  Option (D): The same counterexample as for option (B) works.
+
+  {\em Performance review}: $6$ out of $12$ got this correct. $3$
+  chose (C), $2$ chose (D), $1$ chose (E).
+
+  {\em Historical note (last year)}: $2$ out of $11$ people got this
+  correct. (C) was the most frequently chosen incorrect answer.
+
+  {\em Action point}: Please review the statement of the extreme value
+  theorem, as well as understand why all the other examples are
+  incorrect.
+
+\item (**) Suppose $g:\R \to \R$ is a continuous function such that
+  $\lim_{x \to 0} g(x)/x = A$ for some constant $A \ne 0$. What is
+  $\lim_{x \to 0} g(g(x))/x$?
+
+  \begin{enumerate}[(A)]
+  \item $0$
+  \item $A$
+  \item $A^2$
+  \item $g(A)$
+  \item $g(A)/A$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: We have $\lim_{x \to 0} g(x) = \lim_{x \to 0}
+  (g(x)/x) \lim_{x \to 0} x = A \cdot 0 = 0$.
+
+  Also, we have:
+
+  $$\lim_{x \to 0} \frac{g(g(x))}{x} = \lim_{x \to 0} \frac{g(g(x))}{g(x)} \lim_{x \to 0} \frac{g(x)}{x}$$
+
+  The second limit is $A$. For the first limit, note that as $x \to
+  0$, we also have $g(x) \to 0$, so the first limit can be rewritten
+  as $\lim_{y \to 0} g(y)/y$, which is also equal to $A$. Hence, the
+  overall limit is the product $A^2$.
+
+  {\em Performance review}: $4$ out of $12$ go this correct. $3$ each
+  chose (A) and (E), $2$ chose (D).
+
+  {\em Historical note (last year)}: $1$ out of $12$ people got this
+  correct. $5$ people chose (D), $2$ people each chose (B) and (E),
+  $1$ person chose (A), and $1$ person left the question blank.
+
+
+\item Suppose $I = (a,b)$ is an open interval. A function $f:I \to \R$
+  is termed {\em piecewise continuous} if there eixst points $a_0 <
+  a_1 < a_2 < \dots < a_n$ (dependent on $f$) with $a = a_0$ and $a_n
+  = b$, such that $f$ is continuous on each interval $(a_i,
+  a_{i+1})$. In other words, $f$ is continuous at every point in
+  $(a,b)$ except possibly the $a_i$s.
+
+  Suppose $f$ and $g$ are piecewise continuous functions on the same
+  interval $I$ (with possibly different sets of $a_i$s). Which of the
+  following is/are guaranteed to be piecewise continuous on $I$?
+
+  \begin{enumerate}[(A)]
+  \item $f + g$, i.e., the function $x \mapsto f(x) + g(x)$
+  \item $f - g$, i.e., the function $x \mapsto f(x) - g(x)$
+  \item $f \cdot g$, i.e., the function $x \mapsto f(x)g(x)$
+  \item All of the above
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We take the points where $f$ is possibly
+  discontinuous and the points where $g$ is possible discontinuous,
+  and we take the union of these sets of points. We get a new finite
+  set of points. Note that everywhere except these points, both $f$
+  and $g$ are continuous, hence $f + g$, $f - g$, and $f \cdot g$ are
+  all continuous.
+
+  A numerical illustration might help here. (Note, however, that there
+  is nothing special about the numbers). Suppose $a = 1$ and $b =
+  2$. Let's say that $f$ is continuous on $(1,1.5)$ and $(1.5,2)$, so
+  it is possibly discontinuous at $1.5$. Suppose $g$ is continuous on
+  $(1,\sqrt{2})$, $(\sqrt{2},\sqrt{3})$ and $(\sqrt{3},2)$, so the
+  points where it may be discontinuous are $\sqrt{2}$ and $\sqrt{3}$.
+
+  We now take the union of the points of discontinuity of $f$ and
+  $g$. We get the points $1.5$, $\sqrt{2}$, and $\sqrt{3}$. Recall
+  that $\sqrt{2} \approx 1.414 < 1.5$ while $\sqrt{3} \approx 1.732 >
+  1.5$, so rearranging in increasing order, we get $1 < \sqrt{2} < 1.5
+  < \sqrt{3} < 2$. We can now see that $f + g$, $f - g$ and $f \cdot
+  g$ are all continuous on the intervals $(1,\sqrt{2})$,
+  $(\sqrt{2},1.5)$, $(1.5,\sqrt{3})$ and $(\sqrt{3},2)$.
+
+  {\em Memory lane}: This is the idea of {\em breaking up the domains
+  for two piecewise definned functions in the same manner} so as to be
+  able to add, subtract, and multiply them. You have seen a problem
+  with this theme in Homework 1, Problem 8 (Exercise 1.7.14 of the
+  book, Page 46). There, goal was to compute $f + g$, $f - g$, and $f
+  \cdot g$ with $f$ and $g$ given piecewise with different domain
+  breakdowns. Here, our goal is to pontificate about continuity, but
+  the idea is the same.
+
+  {\em Future teaser}: This idea of partitioning an interval into
+  sub-intervals by choosing some points keeps coming up. Further, the
+  idea of combining two partitions of the same interval into a finer
+  partition that refines both of them will also come up. Specifically,
+  both these ideas turn up when we try to define the integral of a
+  continuous (or piecewise continuous) function on an interval.
+
+  {\em Performance review}: $10$ out of $12$ got this correct. $2$
+  chose (E).
+
+  {\em Historical note (last year)}: $9$ out of $11$ people got this
+  correct. $1$ person chose (C) and $1$ person chose (E).
+
+  {\em Action point}: Whether or not you got this correct, make sure
+  that you {\em now} understand the logic behind it. This idea is
+  extremely important in the future.
+
+\item Suppose $f$ and $g$ are everywhere defined and $\lim_{x \to 0}
+  f(x) = 0$. Which of these pieces of information is {\bf not
+  sufficient} to conclude that $\lim_{x \to 0} f(x)g(x) = 0$?
+
+  \begin{enumerate}[(A)]
+  \item $\lim_{x \to 0} g(x) = 0$.
+  \item $\lim_{x \to 0} g(x)$ is a constant not equal to zero.
+  \item There exists $\delta > 0$ and $B > 0$ such that for $0 < |x| <
+    \delta$, $|g(x)| < B$.
+  \item $\lim_{x \to 0} g(x) = \infty$, i.e., for every $N > 0$ there
+    exists $\delta > 0$ such that if $0 < |x| < \delta$, then $g(x) >
+    N$.
+  \item None of the above, i.e., they are all sufficient to conclude
+    that $\lim_{x \to 0} f(x)g(x) = 0$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: If $f(x) \to 0$ and $g(x) \to \infty$, then the
+  limit of $f(x)g(x)$ is indeterminate. It may be $0$, finite,
+  infinite, or oscillatory. For instance, if $f(x) = x^2$ and $g(x) =
+  1/x^2$, then the limit of $f(x)g(x)$ is $1$. Thus, we cannot conclude
+  that the limit of the product is $0$.
+
+  {\em Memory lane}: Routine Problem 5 on Homework 2 (Exercise 2.3.3
+  of the book, Page 79) explores a similar theme. The new ingredient
+  here is that, in cases where $f(x)$ goes to zero and $g(x)$ does not
+  have a limit but is still bounded, we {\em can} say that the product
+  goes to zero.
+
+  {\em The other choices}:
+
+  Option (A) is sufficient because the limit of the sums is the sum of
+  the limits.
+
+  Option (B) is sufficient for the same reason.
+
+  Option (C) is a little trickier to justify. Here, what we are saying
+  is that $\lim_{x \to 0} f(x) = 0$ and, for $x$ close enough to $0$,
+  $g$ is bounded, though it need not have a limit. The bound here is
+  $B$. In particular, what this is saying is that if $0 < |x| <
+  \delta$, then $g(x)$ is between $-B$ and $B$.
+
+  Thus, we can see that:
+
+  $$-Bf(x) \le f(x)g(x) \le Bf(x) \ \forall \ 0 < |x| < \delta$$
+
+  We now note that both $-Bf(x)$ and $Bf(x)$ tend to $0$ as $x \to
+  0$. Hence, by the pinching theorem, $f(x)g(x) \to 0$.
+
+  {\em Examples for $g$}: One example of such a function $g$ is the
+  Dirichlet function, i.e., $g(x)$ is $1$ if $x$ is rational and $0$
+  if $x$ is irrational. Clearly, the Dirichlet function is bounded
+  near $0$ (in fact, it is universally bounded). If we set $f(x) : =
+  x$, then $f(x)g(x) = \lbrace\begin{array}{rl} x,& x \text{
+  rational}\\0, & x \text{ irrational}\\\end{array}$, and the limit of
+  this function at $0$ is $0$. Incidentally, Advanced Problem 3 of
+  Homework 2 (Exercise 2.2.54 of the book, Page 72) asked you to give
+  an explicit $\epsilon-\delta$ proof of this fact.
+
+  Another example for $g$ is the $\sin(1/x)$ function. This function
+  oscillates between $-1$ and $1$, hence does not converge to a limit
+  as $x \to 0$. However, it is bounded. Thus, if we have $f(x) :=
+  x$, the function $x\sin(1/x)$ must converge to $0$ as $x$ goes to
+  $0$. This function appears in Advanced Problem 4 of Homework 3
+  (Exercise 3.6.67 of the book, Page 146).
+
+  {\em Performance review}: $10$ out of $12$ got this correct. $1$
+  each chose (A), (C), and (E).
+
+  {\em Historical note (last year)}: $8$ out of $11$ people got this
+  correct. $1$ person each chose (A), (B), and (C).
+
+  {\em Action point}: You should understand this, but don't have to
+  worry too much about it for now. We will cover these issues in more
+  detail later.
+\item $f$ and $g$ are functions defined for all real values. $c$ is a
+  real number. Which of these statements is {\bf {\em not} necessarily
+  true}? 
+
+  \begin{enumerate}[(A)]
+  \item If $\lim_{x \to c^-} f(x) = L$ and $\lim_{x \to c^-} g(x) =
+    M$, then $\lim_{x \to c^-} (f(x) + g(x))$ exists and is equal to
+    $L + M$.
+  \item If $\lim_{x \to c^-} g(x) = L$ and $\lim_{x \to L^-} f(x) =
+    M$, then $\lim_{x \to c^-} f(g(x)) = M$.
+  \item If there exists an open interval containing $c$ on which $f$
+    is continuous and there exists an open interval containing $c$
+    on which $g$ is continuous, then there exists an open interval
+    containing $c$ on which $f + g$ is continuous.
+  \item If there exists an open interval containing $c$ on which $f$
+    is continuous and there exists an open interval containing $c$ on
+    which $g$ is continuous, then there exists an open interval
+    containing $c$ on which the product $f \cdot g$ (i.e., the
+    function $x \mapsto f(x)g(x)$) is continuous.
+  \item None of the above, i.e., they are all necessarily true.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: This is the cliched fact that composition results
+  do not hold for one-sided limits. The main reason is that when we
+  compose, we need the inner function of the composition to approach
+  the limit {\em from the correct side} in order for the result to go
+  through. Thus, in this case, for instance, the result would be true
+  if the function $g$ were strictly increasing on the immediate left
+  of $c$.
+
+  {\em Memory lane}: We already saw this fact in the October 1 quiz on
+  limits, Problem 2. Please review the solution to that (where we've
+  also given an explicit example).
+
+  {\em The other choices}:
+
+  Option (A) is the sum theorem for one-sided limits: the limit of the
+  sum is the sum of the limits.
+
+  For options (C) and (D), note that if $f$ is continuous on one open
+  interval containing $c$ and $g$ is continuous on another open
+  interval containing $c$, then {\em both} $f$ and $g$ are continuous
+  on the {\em intersection} of the two open intervals containing $c$
+  (which is also an open interval containing $c$). Thus, $f + g$ is
+  also continuous on this intersection. This is analogous to the trick
+  we often use of picking $\delta = \min \{ \delta_1, \delta_2 \}$ in
+  $\epsilon-\delta$ proofs for piecewise functions.
+
+  {\em Performance review}: $8$ out of $12$ got this correct. $2$
+  chose (C) and $2$ chose (E).
+
+  {\em Historical note (last year)}: $9$ out of $11$ people got this
+  correct. $1$ person each chose (A) and (E).
+
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,708 @@
+\section{Applications and related results}\label{sec:applications}
+
+The Lazard correspondence up to isoclinism can be used as an
+analytical framework for the study of previous extensions of the
+Lazard correspondence. Some of these are discussed in this
+section. For simplicity, we restrict our statements to the global
+Lazard correspondence up to isoclinism.
+
+\subsection{Relation with past work of Glauberman}\label{sec:rel-gg08}
+
+A special case of the Lie bracket-like map for groups, described in
+Section \ref{sec:lie-bracket-like-map}, was described by Glauberman in
+Section 5 of his 2008 paper \cite{GG08}. Theorem 5.1 of the paper
+demonstrated that the map is alternating and bilinear when viewed as a
+map from the Lazard Lie ring of the inner automorphsim
+group. Explicitly, the statement of Theorem 5.1 was as follows:
+
+\begin{theorem}[Theorem 5.1 of \cite{GG08}]
+  Suppose $S$ has nilpotence class at most $p$ and $Z=Z(S)$. Then the following assertions hold.
+  \begin{enumerate}
+    \item Both $S/Z$ and $S'$ have nilpotence class at most $p-1$.
+    \item Define addition (and bracket multiplication) on $S/Z$ and
+      $S'$ as in Theorem 2.1 (of \cite{GG08}). Then there exists an
+      alternating bi-additive function $f$ from $(S/Z)\times(S/Z)$
+      into $S'$ such that, for all $u, v$ in $S$,
+      $$f(uZ,vZ)=0\text{ if and only if }uv=vu.$$
+      Moreover, the image of $f$ generates $S'$ as an additive group.
+  \end{enumerate}
+\end{theorem}
+
+Part (1) of the theorem is straightforward, and is a special case of
+Lemma \ref{lemma:global-class-one-more}. Part (2) of the Theorem
+describes the map $\omega_S^{\text{Lie}}$ described in Section
+\ref{sec:lie-bracket-like-map}. The statement of part (2) follows
+indirectly from the discussion in Section \ref{sec:lcuti} as
+follows. The commutator map defines a map $(S/Z) \wedge (S/Z) \to S'$
+from the exterior square of $S/Z$ as a group. The Lie bracket map
+$\omega_S^{\text{Lie}}$ correspondingly defines a Lie ring map
+$\log(S/Z) \wedge \log (S/Z) \to \log(S')$. Here, $\log(S/Z) \wedge
+\log(S/Z)$ denotes the exterior square of $\log(S/Z)$ {\em as a Lie
+  ring}. Essentially, this follows from Theorem
+\ref{thm:global-lazard-correspondence-preserves-schur-multipliers}
+where $L = \log(S/Z)$ and $G = S/Z$ and part of the work done in the
+proof of Theorem \ref{thm:glcuti-extensions-implies-glcuti}.
+
+The main way that our results are more general than Glauberman's is
+that our results establish the existence of a Lie ring that is a
+counterpart to the {\em whole} group ($S$ in Glauberman's theorem)
+whose Lie bracket map realizes the map $\log(S/Z) \wedge \log (S/Z)
+\to \log(S')$. The crucial additional ingredient in our proof is the
+use of the surjectivity of the universal coefficient theorem short
+exact sequence (described in Section \ref{sec:ses-uct-lie}, and
+applied in Theorem \ref{thm:glcuti-extensions-implies-glcuti}) to
+demonstrate the existence of an appropriate Lie ring extension.
+
+\subsection{Correspondences between subgroups and subrings}\label{sec:lcuti-sub}
+
+The Lazard correspondence up to isoclinism is a correspondence between
+some equivalence classes {\em up to isoclinism} of groups and some
+equivalence classes {\em up to isoclinism} of Lie rings. This fact
+immediately constrains the utility of the correspondence to the study
+of attributes that are invariant under isoclinism. Explicitly, any
+attribute of a group that we wish to study using the Lazard
+correspondence up to isoclinism should be an attribute that is
+invariant under isoclinisms of groups. Keeping this in mind, we apply
+the Lazard correspondence up to isoclinism to relate subgroups of the
+group and subrings of the Lie ring.
+
+In Section \ref{sec:isoclinism-correspondence-some-subgroups}, we
+described some aspects of the subgroup structure that are invariant
+under isoclinism. In particular, we noted there that we have a
+correspondence between subgroups containing the center for the two
+groups. We discussed the similar situation for Lie rings in Section
+\ref{sec:isoclinism-correspondence-some-subrings}.
+
+In Section \ref{sec:global-lazard-correspondence-subgroups}, we
+described how the global Lazard correspondence gives a correspondence
+between some subgroups of the group and some subrings of the Lie
+ring. Explicitly, the correspondence is between the global Lazard Lie
+subgroups of the group and the global Lazard Lie subrings of the Lie
+ring.
+
+The global Lazard correspondence up to isoclinism combines the above
+ideas to give a correspondence between some subgroups of the group and
+some subrings of the Lie ring. We now describe this correspondence.
+
+Suppose $c$ is a positive integer. Denote by $\pi_c$ the set of primes
+that are less than or equal to $c$. Suppose $G$ is a $\pi_c$-powered
+group of class $(c + 1)$ and $L$ is a $\pi_c$-powered Lie ring of
+class $(c + 1)$, and suppose $G$ and $L$ are in global class $(c + 1)$
+Lazard correspondence. We have a correspondence:
+
+\begin{center}
+  $\pi_c$-powered subgroups of $G$ containing $Z(G)$ $\leftrightarrow$
+  $\pi_c$-powered Lie subrings of $L$ containing $Z(L)$
+\end{center}
+
+Further, if a subgroup $H$ of $G$ and a subring $M$ of $L$ correspond
+to each other by the correspondence above, then $H$ and $M$ are in
+global class $c$ Lazard correspondence {\em up to isoclinism}. Even in
+the case that $H$ is a global Lazard Lie group or $M$ is a global
+Lazard Lie ring, $H$ and $M$ are not necessarily in global Lazard
+correspondence up to isomorphism.
+
+The correspondence restricts to a correspondence between normal
+subgroups and ideals:
+
+\begin{center}
+  $\pi_c$-powered normal subgroups of $G$ containing $Z(G)$
+  $\leftrightarrow$ $\pi_c$-powered ideals of $L$ containing $Z(L)$
+\end{center}
+
+We can generalize the correspondence somewhat. For any $d \le c$,
+denote by $\pi_d$ the set of all primes less than or equal to $d$. We
+have a correspondence:
+
+\begin{center}
+  $\pi_d$-powered subgroups of $G$ of class at most $(d + 1)$
+  containing $Z(G)$ $\leftrightarrow$ $\pi_d$-powered Lie subrings of
+  $L$ of class at most $(d + 1)$ containing $Z(L)$
+\end{center}
+
+This also restricts to a correspondence between normal subgroups and ideals:
+
+\begin{center}
+  $\pi_d$-powered normal subgroups of $G$ of class at most $(d + 1)$
+  containing $Z(G)$ $\leftrightarrow$ $\pi_d$-powered ideals of $L$
+  of class at most $(d + 1)$ containing $Z(L)$
+\end{center}
+
+\subsection{Correspondence between abelian subgroups and abelian subrings}
+
+In Section \ref{sec:isoclinism-abelian-subgroups} (respectively,
+Section \ref{sec:isoclinism-abelian-subrings}), we noted that for two
+groups (respectively, two Lie rings) that are isoclinic, the abelian
+subgroups (respectively, abelian subrings) that contain the center are
+in correspondence. We now state similar results describing a
+correspondence between a group and a Lie ring that are in Lazard
+correspondence up to isoclinism. Suppose $c$ is a positive
+integer. Denote by $\pi_c$ the set of primes that are less than or
+equal to $c$. Suppose a group $G$ is in global class $(c + 1)$ Lazard
+correspondence up to isoclinism with a Lie ring $L$. Then, the
+following hold:
+
+\begin{itemize}
+\item The Lazard correspondence up to isoclinism establishes a
+  correspondence between abelian subgroups of $G$ containing $Z(G)$
+  and abelian subrings of $L$ containing $Z(L)$.
+\item The Lazard correspondence up to isoclinism establishes a
+  correspondence between the abelian subgroups of $G$ that are
+  self-centralizing and the abelian subrings of $L$ that are
+  self-centralizing.
+\item In the case that $G$ and $L$ are both finite, the Lazard
+  correspondence up to isoclinism establishes a correspondence between
+  abelian subgroups of maximum order in $G$ and abelian subrings of
+  maximum order in $L$.
+\item For each of the correspondences above, normal subgroups
+  correspond with ideals.
+\item If $G$ and $L$ are both finite, then each of the correspondences
+  above preserves index.
+\end{itemize}
+
+\subsection{Normal subgroups that are global Lazard Lie groups}
+
+We begin with a lemma. We omit the proof because the lemma is
+straightforward.
+
+\begin{lemma}
+  The following are equivalent for a group $G$.
+
+  \begin{enumerate}
+  \item Any two elements of $G$ that are conjugate to each other
+    commute.
+  \item Every element of $G$ is contained in an abelian normal
+    subgroup of $G$.
+  \item The normal closure of every element of $G$ is abelian.
+  \item $G$ is a union of abelian normal subgroups.
+  \item For all $x,y \in G$, $[[x,y],y] = 1$, i.e., $G$ satisfies a
+    2-Engel condition.
+  \end{enumerate}
+\end{lemma}
+
+Groups that satisfy the equivalent conditions of the lemma are termed
+{\em Levi groups} or {\em 2-Engel groups}. We can now state the next
+lemma.
+
+\begin{lemma}
+  Suppose $G$ is a nilpotent group of nilpotency class two. Then, $G$
+  is a Levi group.
+\end{lemma}
+
+We can now state an important result relating the nilpotency class of
+a group and the nilpotency class of normal closures of elements. The
+result follows from the above lemma and induction on the nilpotency
+class.
+
+\begin{lemma}\label{lemma:union-of-normal}
+  Suppose $G$ is a nilpotent group of nilpotency class $c + 1$ where
+  $c \ge 1$. Then, the normal closure of any element of $G$ is a
+  nilpotent group of nilpotency class at most $c$. In other words, $G$
+  is a union of normal subgroups each of which has nilpotency class at
+  most $c$.
+\end{lemma}
+
+\begin{proof}
+  We prove the claim by induction on $c$. The base case $c = 1$
+  follows from the preceding lemma. We proceed to demonstrate the
+  inductive step, assuming $c \ge 2$.
+
+  Let $x \in G$ and let $H$ be the normal closure of $x$ in
+  $G$.
+
+  Denote by $\overline{x}$ the image of $x$ in $G/Z(G)$. It is easy to
+  verify that the normal closure of $\overline{x}$ in $G/Z(G)$ is the
+  image of $H$ in $G/Z(G)$. Denote this by $\overline{H}$. By
+  assumption, $G/Z(G)$ has class $c$. Thus, by the inductive
+  hypothesis, $\overline{H}$ has class at most $c - 1$. Therefore, $H$
+  has class at most $c$.
+\end{proof}
+
+The relevance of this result to the global Lazard correspondence is as
+follows.
+
+\begin{lemma}\label{lemma:union-of-lazard}
+  Suppose $c$ is a positive integer, $\pi_c$ is the set of all primes
+  less than or equal to $c$, and $G$ is a $\pi_c$-powered group of
+  nilpotency class at most $(c + 1)$. Then, the following hold:
+
+  \begin{enumerate}
+  \item Every element of $G$ is contained in a normal subgroup of $G$
+    that is a global class $c$ Lazard Lie group. Equivalently, $G$ is
+    a union of normal subgroups that are global class $c$ Lazard Lie
+    groups.
+  \item $G$ is a union of normal subgroups that are global class $c$
+    Lazard Lie groups such that all the subgroups contain the center
+    of $G$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  {\em Proof of (1)}: We will show that for every element $g \in G$,
+  $g$ is contained in global class $c$ Lazard Lie subgroup of $G$. By
+  the preceding lemma (Lemma \ref{lemma:union-of-normal}), the normal
+  closure of $g$ in $G$ is a group of nilpotency class $c$. Denote
+  this normal closure as $H$. Then, by Theorem
+  \ref{thm:pi-powered-envelope}, the subgroup $\sqrt[\pi_c]{H}$ is a
+  $\pi_c$-powered normal subgroup of $G$. Thus, $\sqrt[\pi_c]{H}$ is a
+  global class $c$ Lazard Lie group that is a normal subgroup of $G$.
+
+  {\em Proof of (2)}: We can replace each of the normal subgroups
+  obtained for part (1) by its product with the center of $G$.
+\end{proof} 
+
+In Section \ref{sec:lcuti}, we showed that for a group $G$ satisfying
+the hypotheses of the lemma above, we can find a Lie ring $L$ such
+that $G$ is in global class $(c + 1)$ Lazard correspondence up to
+isoclinism with $L$. In Section \ref{sec:lcuti-sub}, we showed that
+the $\pi_c$-powered normal subgroups of $G$ that contain the center
+$Z(G)$ are in Lazard correspondence up to isoclinism with the
+$\pi_c$-powered ideals of $L$ that contain the center $Z(L)$. In
+particular, this means that there is a correspondence:
+
+\begin{center}
+  Normal subgroups of $G$ containing the center that are global class
+  $c$ Lazard Lie groups $\leftrightarrow$ Ideals of $L$ containing the
+  center that are global class $c$ Lazard Lie rings
+\end{center}
+
+Note, however, that even though the objects on both sides of the
+correspondence are in the domain of the global Lazard correspondence,
+the correspondence itself is only a global Lazard correspondence {\em
+  up to isoclinism}.
+
+This raises the following question:
+
+\begin{quote}
+  Given a $\pi_c$ powered group $G$ of nilpotency class $(c + 1)$, is
+  it possible to choose a $\pi_c$-powered Lie ring $L$ such that,
+  under the above correspondence, each of the corresponding objects
+  are in global Lazard correspondence (not just up to isoclinism)?
+\end{quote}
+
+In general, the answer to this question is {\em no}. We can see
+examples even for $2$-groups of class two, such as the case where $c =
+2$ and $G = D_8$. Our conclusion can be deduced from the discussion in
+Section \ref{sec:bcuti-ex}.
+
+\subsection{Adjoint action}\label{sec:lcuti-adjoint}
+
+Many aspects of the relationship between inner automorphisms and inner
+derivations described in Section \ref{sec:lazard-adjoint} continue to
+be valid, with suitable modification, for the global Lazard
+correspondence up to isoclinism (and also for the $3$-local Lazard
+correspondence up to isoclinism). We will state our results for the
+global Lazard correspondence up to isoclinism, and mention at the end
+why the results generalize to the $3$-local Lazard correspondence up
+to isoclinism.
+
+Suppose $c$ is a positive integer and $\pi_c$ is the set of all primes
+less than or equal to $c$. Suppose $G$ is a $\pi_c$-powered group of
+class at most $c + 1$ and $L$ is a $\pi_c$-powered Lie ring of class
+at most $c + 1$ such that $G$ and $L$ are in global class $(c + 1)$
+Lazard correspondence up to isoclinism.
+
+The adjoint action of $G$ on $L$ is defined as follows:
+
+$$\operatorname{Ad}: G \to \operatorname{Aut}(L)$$
+
+For any $u \in G$, define $\operatorname{Ad}_u$ as follows. Denote by
+$\overline{u}$ the image of $u$ in $G/Z(G)$. Denote by $x$ an element
+of $L$ such that the image of $x$ in $L/Z(L)$ corresponds to the
+element $\overline{u}$ under the global class $c$ Lazard
+correspondence between $L/Z(L)$ and $G/Z(G)$. We define
+$\operatorname{Ad}_u$ as the following automorphism of $L$:
+
+$$\operatorname{Ad}_u = \exp(\operatorname{ad}_x)$$
+
+where $\exp$ is understood to mean the actual power series of $\exp$,
+with the addition and multiplication happening inside
+$\operatorname{End}_\Z(L)$, the ring of endomorphisms of the
+underlying additive group of $L$. Explicitly:
+
+$$\operatorname{Ad}_u = 1 + \operatorname{ad}_x + \frac{\operatorname{ad}_x^2}{2!} + \dots \frac{\operatorname{ad}_x^c}{c!}$$
+
+Or even more explicitly:
+
+$$\operatorname{Ad}_u(g) = g + [x,g] + \frac{1}{2!}[x,[x,g]] + \dots + \frac{1}{c!}[x,[x,\dots[x,g]\dots]]$$
+
+where the $x$ appears $c$ times in the last iterated Lie bracket.
+
+It can easily be verified that $\operatorname{Ad}_u$ is an
+automorphism of $L$ (this follows, for instance, by noting that
+$\operatorname{ad}_x$ is a derivation of $L$ satisfying the conditions
+of Proposition 2.5 in Alperin and Glauberman's paper \cite{AG98}). It
+can also be verified that $\operatorname{Ad}_{uv} =
+\operatorname{Ad}_u\operatorname{Ad}_v$, making $\operatorname{Ad}$ a
+homomorphism. Note that both these verifications use only three
+elements at a time:
+
+\begin{itemize}
+\item The verification that $\operatorname{Ad}_u$ is an automorphism
+  requires us to consider the effect of $\operatorname{Ad}_u$ on an
+  arbitrary Lie product $[g,h]$, and therefore involves three
+  elements: $x$, $g$, and $h$.
+\item The verification that $\operatorname{Ad}_{uv} =
+  \operatorname{Ad}_u\operatorname{Ad}_v$ requires us to consider an
+  arbitrary element $g \in L$ and elements (say $x$ and $y$) that
+  correspond to $u$ and $v$ when considered modulo the
+  center. Therefore, this involves three elements.
+\end{itemize}
+
+Thus, the proofs generalize to the $3$-local case.
+
+\subsection{Adjoint group and unitriangular matrix group}
+
+In Section \ref{sec:adjoint-lazard}, we noted that for a nilpotent
+associative ring $N$ of class $c$, its associated Lie ring and adjoint
+group $1 + N$ are both nilpotent. We further noted that if the
+additive group of $N$ is $\pi_c$-powered where $\pi_c$ is the set of
+primes less than or equal to $c$, then $N$ (as a Lie ring) is in
+global class $c$ Lazard correspondence with the adjoint group $1 + N$.
+
+The result has an analogue for the global class $(c + 1)$ Lazard
+correspondence up to isoclinism, as follows. Suppose $N$ is a
+nilpotent associative ring of nilpotency class $c + 1$ (i.e., all
+products of length $c + 2$ or more are zero). Suppose further that the
+additive group of $N$ is $\pi_c$-powered. Then, the Lie ring $N$ and
+the adjoint group $1 + N$ are in global class $(c + 1)$ Lazard
+correspondence up to isoclinism.
+
+We can therefore also obtain an analogue of the result described in
+Section \ref{sec:unitriangular-lazard}. Explicitly, this says the
+following: if the additive group of a commutative associative unital
+ring $R$ is $\pi_c$-powered, then $NT(c + 2,R)$, viewed as a Lie ring,
+is in global class $(c + 1)$ Lazard correspondence up to isoclinism
+with the group $UT(c + 2,R)$.
+
+%\newpage
+
+\section{Possible extensions}\label{sec:possible-extensions}
+
+\subsection{Relaxing the $\pi_c$-powered assumption on the whole group}
+
+It is possible to reframe the existence result of the global class $(c
++ 1)$ Lazard correspondence in a manner that replaces the assumption
+that the group itself is $\pi_c$-powered by the assumption that the
+inner automorphism group and derived subgroup are
+$\pi_c$-powered. Similarly, we can replace the assumption that the Lie
+ring itself is $\pi_c$-powered by the assumption that the inner
+derivation Lie ring and derived subring are both $\pi_c$-powered. We
+can ahow both results either by making modifications to the proofs or
+by first passing from the group to an isoclinic group that is
+$\pi_c$-powered.
+
+Note that we {\em do} need to make the assumption of $\pi_c$-powering
+for {\em both} the inner automorphism group {\em and} the derived
+subgroup. If we assume only that the inner automorphism group is
+$\pi_c$-powered, it does follow from that that the derived subgroup is
+$\pi_c$-divisible, but the derived subgroup need not be
+$\pi_c$-torsion-free and therefore need not be $\pi_c$-powered. For
+instance, for $c \ge 2$, consider the group $G = UT(c + 2,\Q)/\Z$,
+where the subgroup $\Z$ being factored out is inside the central
+subgroup $\Q$. $G$ is a global class $(c + 1)$ group and
+$\operatorname{Inn}(G)$ is $\pi_c$-powered (in fact, it is rationally
+powered), but $G'$ is not $\pi_c$-powered (in fact, it is not powered
+over any prime, because it contains $\Q/\Z$ as a subgroup).
+
+\subsection{$3$-local Lazard correspondence up to isoclinism: proof of existence}
+
+In Section \ref{sec:lcuti}, we {\em defined} the Lazard correspondence
+up to isoclinism in the $3$-local setting, but we {\em proved
+  existence} only in the global setting. We expect the results to hold
+in the $3$-local setting. Explicitly, we expect the following results
+described in the outline to hold:
+
+\begin{itemize}
+
+\item For a Lie ring $L$, if both $\operatorname{Inn}(L)$ and $L'$ are
+  ($3$-local) Lazard Lie rings, then we can find a group $G$ such that
+  $L$ is in ($3$-local) Lazard correspondence up to isoclinism with
+  $G$.
+\item For a group $G$, if both $\operatorname{Inn}(G)$ and $G'$ are
+  ($3$-local) Lazard Lie groups, then we can find a Lie ring $L$ such
+  that $L$ is in Lazard correspondence up to isoclinism with $G$.
+\end{itemize}
+
+We believe that proofs analogous to those presented in Section
+\ref{sec:lcuti} of this thesis can be used to show the above. However,
+executing these proofs would require us to define a number of
+intermediate objects more generally, making the exercise of
+generalizing the proofs more difficult.
+
+\subsection{More results about primes appearing in denominators}\label{sec:prime-denominator-more}
+
+The literature on the Baker-Campbell-Hausdorff formula and the Lazard
+correspondence includes a number of bounds on primes that appear in
+denominators in these formulas. Some of the relevant literature is
+discussed below.
+
+\begin{itemize}
+\item Theorem C of Easterfield's paper \cite{Easterfield} provides
+  bounds on the exponents of primes appearing in formulas for
+  commutators between powers of elements. The paper does not
+  explicitly discuss the Lazard correspondence or the
+  Baker-Campbell-Hausdorff formula, but the results are closely
+  related, and the relationship is elucidated further by Glauberman in
+  his paper \cite{Partialextensions} on partial extensions of the
+  Lazard correspondence.
+\item The paper \cite{Lazardeffective}, a paper describing a
+  computationally effective version of the Lazard correspondence,
+  provides bounds on the exponents of primes in denominators for the
+  formula. The bounds for the inverse Baker-Campbell-Hausdorff formula
+  are in Section 6 of the paper.
+\item Thomas Weigel's doctoral dissertation \cite{Weigel} contains
+  strong bounds on the primes that appear in the denominators for
+  formulas for $M_d$ and $h_{2,d}$ where $d \le 2c - 2$. These results
+  are related to the results we describe in the Appendix, Section
+  \ref{appsec:bch-prime-power-divisor-bound}.
+\end{itemize}
+
+\subsection{Potential extension to a Lazard correspondence up to $n$-isoclinism}\label{sec:potential-extension-n-isoclinism}
+
+In the Appendix, Section \ref{appsec:homologism-theory}, we describe
+the notions of {\em isologism} and {\em homologism} for
+groups. Similar concepts can be defined for Lie rings (and in fact,
+for more general varieties of algebras).  The corresponding
+generalization of the Schur multiplier is an abelian group termed the
+{\em Baer invariant}. The paper \cite{Baerinvariantsandisolosigms} by
+Leedham-Green and McKay is an important source of results about
+isologisms.
+
+A particular form of isologism of interest to us is $n$-isoclinism for
+a positive integer $n$. The concepts of $n$-isoclinism and
+$n$-homoclinism are described in the Appendix, Section
+\ref{appsec:n-homoclinism} and also in \cite{Hekster} (for groups) and
+\cite{Moghaddametal} (for Lie rings). Recall that an isoclinism
+between groups is an equivalence between their commutator
+structures. The commutator structure is precisely the structure that
+becomes trivial in all abelian groups. Thus, we can think of
+isoclinism as ``equivalence modulo the subvariety of abelian groups.''
+In a similar vein, $n$-isoclinism is an equivalence between the
+$(n+1)$-fold commutator structures, and we can think of it as
+``equivalence modulo the subvariety of groups of nilpotency class
+$n$.'' The corresponding generalization of the Schur multiplier is an
+abelian group termed the $n$-nilpotent multiplier. The $n$-nilpotent
+multiplier of a group $G$ is denoted $M^{(n)}(G)$, and we use similar
+notation for Lie rings. Note that the Schur multiplier is the
+$n$-nilpotent multiplier for the case $n = 1$.
+
+It may be possible to generalize the ``global class $(c + 1)$ Lazard
+correspondence up to isoclinism'' to a ``global class $(c + n)$ Lazard
+correspondence up to $n$-isoclinism'' for some values of $n >
+1$. Weigel's results, alluded to in Section
+\ref{sec:prime-denominator-more}, suggest that it may be possible to
+    {\em define} the notion for some values of $n > 1$ (dependent on
+    $c$). 
+
+However, there are important parts of the theory developed in Sections
+\ref{sec:schur-multiplier-and-second-cohomology} and
+\ref{sec:schur-multiplier-and-second-cohomology-lie} that do not
+generalize in the expected manner. For instance, the paper
+\cite{Baerinvariantsandisolosigms} by Leedham-Green and McKay suggests
+that the approach that we have used in this thesis cannot be used to
+show existence. In particular, instead of the universal coefficient
+theorem short exact sequence described in Section \ref{sec:ses-uct},
+we obtain a long exact sequence. Specifically, the analogue of right
+exactness (the surjectivity of the right map) fails. For a more
+detailed discussion of the failure of surjectivity, see Section 2 of
+the paper by Leedham-Green and McKay.
+
+\subsection{Glauberman's partial extension}
+
+In his 2007 paper \cite{Partialextensions}, George Glauberman described
+a generalization of the Lazard correspondence. His Theorem A and
+Theorem B are restated below.
+
+\begin{theorem}[Theorem A of \cite{Partialextensions}]
+  Suppose $p$ is a prime and $S$ is a finite $p$-group. Then $[x,y]$
+  (in the Lie bracket sense) is well defined whenever $x$ and $y$ are
+  elements of (possibly different) normal subgroups of $S$ of
+  nilpotence class at most $p - 1$.
+
+  In addition, suppose $A$ and $B$ are normal subgroups of $S$ of
+  nilpotence class at most $p - 1$. Define $+$ and $[ \ , \ ]$ on $A$
+  and $B$ as in the Lazard correspondence. Then:
+
+  \begin{enumerate}[(i)]
+  \item for each $u$ in $A$ and $v$ in $B$, the elements $[u,v]$ and
+    $[v,u]$ lie in $A \cap B$, and $[v,u] = [u,v]^{-1}$.
+  \item for each $u,u'$ in $A$ and $v$ in $B$,
+
+    $$[u + u',v] = [u,v] + [u',v] \qquad \text{and} \qquad [[u,u'],v] = [[u,v],u'] + [u,[u',v]]$$
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Theorem B of \cite{Partialextensions}]
+  Suppose $S$ is a finite $p$-group generated by a set $\mathcal{S}$
+  of normal subgroups $N$ of $S$ having nilpotence class at most $p -
+  1$. Let $\mathfrak{U}$ be the set-theoretic union of the elements of
+  $\mathcal{S}$. For each $N$ in $\mathcal{S}$, define $+$ on $N$ by
+  Lazard's definition. For each $u,v \in \mathfrak{U}$, define $[u,v]$
+  as in Theorem A.
+
+  Let $E = \operatorname{End}(\mathcal{S})$ be the set of all mappings
+  $\phi$ from $\mathcal{U}$ to $\mathcal{U}$ such that, for each $N$
+  in $\mathcal{S}$,
+
+  $\phi$ maps $N$ into $N$ and induces an endomorphism of $N$ under
+  $+$.
+
+  Define addition and multiplication on $E$ by
+
+  $$(\phi + \phi')(x) = \phi(x) + \phi'(x) \qquad \text{and} \qquad (\phi \phi')(x) = \phi(\phi'(x))$$
+
+  For each $v \in \mathfrak{U}$, define a mapping $\operatorname{ad}
+  v$ on $\mathfrak{U}$ by
+
+  $$(\operatorname{ad} v)(u) = [u,v]$$
+
+  Then:
+
+  \begin{enumerate}[(i)]
+  \item $\operatorname{ad} v$ lies in $E$ for each $v$ in
+    $\mathfrak{U}$.
+  \item for each $N$ in $\mathcal{S}$ and each $v,w \in N$,
+    $\operatorname{ad}(v + w) = \operatorname{ad} v +
+    \operatorname{ad} w$.
+  \item for $v,w \in \mathfrak{U}$:
+
+    $$[\operatorname{ad} v, \operatorname{ad} w] = \operatorname{ad}[w,v] = -\operatorname{ad}[v,w]$$
+    
+    $$\operatorname{ad} v = \operatorname{ad} w \iff v \equiv w \pmod{Z(S)}$$
+  \item The additive subgroup $L(\mathcal{S})$ of $E$ spanned by
+    mappings $\operatorname{ad} v$ for $v$ in $\mathfrak{U}$ is a Lie
+    subring of $E$, and
+  \item for $L(\mathcal{S})$ as in part (iv), each element $\phi$ of
+    $L(\mathcal{S})$ satisfies
+
+    $$\phi([u,v]) = [\phi(u),v] + [u,\phi(v)] \ \forall u,v \in \mathfrak{U}$$
+  \end{enumerate}
+\end{theorem}
+
+In the special case that $S$ is a finite $p$-group of nilpotency class
+$p$, the existence of a collection $\mathcal{S}$ satisfying the
+hypotheses of the theorems is guaranteed by Lemma
+\ref{lemma:union-of-lazard}. We can also deduce that $L(\mathcal{S})$
+is isomorphic to the Lazard Lie ring $\log(\operatorname{Inn}(S))$,
+regardless of the choice of $\mathcal{S}$. We also know that in this
+case there exists a Lie ring $N$ that is in global class $p$ Lazard
+correspondence up to isoclinism with $S$, and therefore, that
+$\operatorname{Inn}(N) \cong L(\mathcal{S})$.
+
+Thus, in the case that $S$ is a finite $p$-group of nilpotency class
+greater than $p$ but admitting such a collection of normal subgroups
+$\mathcal{S}$, the Lie ring $L(\mathcal{S})$ can be thought of as our
+attempt to define $\log(\operatorname{Inn}(S))$, even though the
+latter does not exist.\footnote{In private correspondence, George
+  Glauberman shared an example of a finite $p$-group $S$ of class
+  greater than $p$ for which the isomorphism type of $L(\mathcal{S})$
+  is dependent on the choice of $\mathcal{S}$, i.e., different choices
+  of $\mathcal{S}$ may yield different isomorphism types for
+  $L(\mathcal{S})$. The example has not yet been published.} This
+raises the question of whether we can define a generalization of the
+Lazard correspondence up to isoclinism that would guarantee the
+existence of a Lie ring $N$ such that we can think of $S$ and $N$ as
+being related via that appropriate generalization, and such that
+$\operatorname{Inn}(N) \cong L(\mathcal{S})$.
+
+\subsection{Possible generalization of the Kirillov orbit method}\label{sec:kirillov-orbit-method}
+
+The Kirillov orbit method is a method used to compute the degrees of
+the irreducible representations of a finite Lazard Lie group. The
+following is the procedure for computing the degrees of irreducible
+representations of a finite group $G$:
+
+\begin{itemize}
+\item Denote by $L$ the Lazard Lie ring corresponding to $G$.
+\item Denote by $\hat{L}$ the Pontryagin dual to $L$, viewed only as
+  an additive group. Note that $\hat{L}$ is isomorphic to $L$, but
+  there is no natural isomorphism.
+\item The natural action of $G$ on $L$ (called the {\em adjoint
+  representation}, and described in Section \ref{sec:lazard-adjoint})
+  induces a natural action of $G$ on $\hat{L}$ (called the {\em
+    coadjoint representation}). The orbits under this action correspond
+  to the irreducible representations. Moreover, the size of any orbit
+  is the {\em square} of the degree of the irreducible representation
+  to which it corresponds. Note that this is combinatorially
+  consistent with the fact that the sum of squares of the degrees of
+  irreducible representations of $G$ equals the order of $G$ (because
+  the order of $G$ equals the order of $L$, and this in turns equals
+  the order of $\hat{L}$).
+\end{itemize}
+
+For a detailed discussion of the method, see the papers
+\cite{GonzalezSanchez}, \cite{BoyarchenkoSabitova}, and
+\cite{enumeratingcharacters}.
+
+In the Appendix, Section \ref{appsec:isoclinism-extra-proofs}, we show
+that if two finite groups are isoclinic, they have the same
+proportions of degrees of irreducible representations, and in
+particular, if they have the same order, then they have the same
+multiset of degrees of irreducible representations, and therefore they
+have isomorphic group algebras over the field of complex numbers.
+
+In particular, suppose $G_1$ and $G_2$ are isoclinic and both are
+finite $p$-groups of the same order that are Lazard Lie groups. Denote
+by $L_1$ the Lazard Lie ring of $G_1$ and denote by $\hat{L_1}$ the
+Pontryagin dual to $L_1$. In order to find the degrees of irreducible
+representations of $G_1$, we consider its coadjoint representation
+(action on $\hat{L_1}$). Note that this action factors through the
+group $G_1/Z(G_1) \cong \operatorname{Inn}(G_1)$. In particular, since
+$G_2$ is isoclinic to $G_1$, we can also view the coadjoint action as
+an action of $G_2$ on $\hat{L_1}$. Moreover, the sizes of the orbits
+here are the squares of the degrees of irreducible representations of
+$G_1$, and hence also of $G_2$.
+
+This has an important implication, namely, that if our goal behind
+using the Kirillov orbit method is solely to find the degrees of the
+irreducible representations rather than determine the actual
+irreducible representations, then we can use the Lazard Lie ring of
+any isoclinic group. This suggests that we might be able to generalize
+the method to the situation of the Lazard correspondence up to
+isoclinism.
+
+In Section \ref{sec:lcuti-adjoint}, we noted that if $G$ and $L$ are
+in global class $(c + 1)$ Lazard correspondence up to isoclinism, then
+we can define an adjoint action of $G$ on $L$. We can use this to
+obtain a {\em coadjoint action} of $G$ on the Pontryagin dual
+$\hat{L}$.
+
+This leads to the following conjecture.
+
+\begin{conjecture}[Kirillov orbit method for correspondence up to isoclinism]
+  Suppose $p$ is a prime number, $G$ is a finite $p$-group of
+  nilpotency class $p$, and $L$ is a finite $p$-Lie ring of nilpotency
+  class $p$ such that $G$ and $L$ are in global class $p$ Lazard
+  correspondence up to isoclinism, and such that $G$ and $L$ {\em have
+    the same order}. Consider the coadjoint action of $G$ on the
+  Pontryagin dual $\hat{L}$ described above. The sizes of the orbits
+  for this coadjoint action are the squares of the degrees of
+  irreducible representations.
+\end{conjecture}
+
+Note that, even if the conjecture were true, the method would be
+weaker than the actual Kirillov orbit method, because the actual
+Kirillov orbit method can be used to {\em find explicitly the
+  characters of the irreducible representations}. However, this method
+can only provide the degrees of the irreducible representations. It
+cannot reveal the characters themselves because the characters are not
+invariant under isoclinism. In fact, this method can {\em only} reveal
+isoclinism-invariant information.
+\subsection{Other possibilities: the use of multiplicative Lie rings}
+
+In \cite{Ellis93}, Graham Ellis defined {\em multiplicative Lie
+  rings}, which have been further considered in
+\cite{homologyofmultiplicativeLierings}. The theory of multiplicative
+Lie rings is powerful enough to encapsulate both the theory of groups
+and the theory of Lie rings. This theory is, however, relatively
+non-standard and not sufficiently well-developed in the literature, so
+we do not use this framework in the document. It would be a
+potentially interesting exercise to reformulate the results and proofs
+presented here in the language of multiplicative Lie rings.
+
+%% Some information about
+%% multiplicative Lie rings and how they can be used to obtain an
+%% alternative perspective on the results here can be found in the
+%% Appendix, Section \ref{appsec:multiplicative-lie-rings}.
+

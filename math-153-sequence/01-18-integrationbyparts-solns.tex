@@ -1,0 +1,418 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: Integration by parts: due Wednesday January 18}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$11$ people took this $9$-question quiz. The score distribution is as
+follows:
+
+\begin{itemize}
+\item Score of $4$: $2$ people.
+\item Score of $5$: $2$ people.
+\item Score of $6$: $2$ people.
+\item Score of $7$: $2$ people.
+\item Score of $8$: $3$ people.
+\end{itemize}
+
+The mean score was $6.18$ and the mean and modal score were $6$.
+
+Here is the question-wise performance:
+
+\begin{enumerate}
+\item Option (E): $6$ people
+\item Option (B): Everybody
+\item Option (C): $8$ people
+\item Option (C): $10$ people
+\item Option (D): $7$ people
+\item Option (B): $8$ people
+\item Option (E): $7$ people
+\item Option (A): $7$ people
+\item Option (A): $4$ people
+\end{enumerate}
+
+\section{Solutions}
+
+In the questions below, we say that a function is {\em expressible in
+terms of elementary functions} or {\em elementarily expressible} if it
+can be expressed in terms of polynomial functions, rational functions,
+radicals, exponents, logarithms, trigonometric functions and inverse
+trigonometric functions using pointwise combinations, compositions,
+and piecewise definitions. We say that a function is {\em elementarily
+integrable} if it has an elementarily expressible antiderivative.
+
+Note that if a function is elementarily expressible, so is its
+derivative on the domain of definition.
+
+We say that a function $f$ is $k$ times elementarily integrable if
+there is an elementarily expressible function $g$ such that $f$ is the
+$k^{th}$ derivative of $g$.
+
+We say that the integrals of two functions are {\em equivalent up to
+elementary functions} if an antiderivative for one function can be
+expressed using an antiderivative for the other function and
+elementary function, again piecing them together using pointwise
+combination, composition, and piecewise definitions.
+
+\begin{enumerate}
+\item Consider the statements $P$ and $Q$, where $P$ states that every
+  rational function is elementarily integrable, and $Q$ states that
+  any rational function is $k$ times elementarily integrable for all
+  positive integers $k$.
+
+  Which of the following additional observations is {\bf correct} and
+  {\bf allows us to deduce} $Q$ given $P$?
+
+  \begin{enumerate}[(A)]
+  \item There is no way of deducing $Q$ from $P$ because $P$ is true
+    and $Q$ is false.
+  \item The antiderivative of a rational function can always be chosen
+    to be a rational function, hence $Q$ follows from a repeated
+    application of $P$.
+  \item Using integration by parts, we see that repeated integration
+    of a function $f$ is equivalent to integrating $f$, $f^2$, $f^3$,
+    and higher powers of $f$ (the powers here are pointwise products,
+    not compositions). If $f$ is a rational function, each of these is
+    also a rational function. Applying $P$, each of these is
+    elementarily integrable, hence $f$ is $k$ times elementarily
+    integrable for all $k$.
+  \item Using integration by parts, we see that repeated integration
+    of a function $f$ is equivalent to integrating $f$, $f'$, $f''$,
+    and higher derivatives of $f$. If $f$ is a rational function, each
+    of these is also a rational function. Applying $P$, each of these
+    is elementarily integrable, hence $f$ is $k$ times elementarily
+    integrable for all $k$.
+  \item Using integration by parts, we see that repeated integration
+    of a function $f$ is equivalent to integrating each of the
+    functions $f(x)$, $xf(x)$, $\dots$. If $f$ is a rational function,
+    each of these is also a rational function. Applying $P$, each of
+    these is elementarily integrable, hence $f$ is $k$ times
+    elementarily integrable for all $k$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Fill in yourself, it's been said often enough.
+
+  {\em Performance review}: $6$ out of $11$ got this. $5$ chose (B).
+
+  {\em Historical note (last year)}: $18$ out of $27$ people got this
+  correct. $4$ people chose (D), $2$ people chose (C), $2$ people
+  chose (B), and $1$ person chose (A).
+
+\item Suppose $f$ is a continuous function on all of $\R$ and is the
+  third derivative of an elementarily expressible function, but is not
+  the fourth derivative of any elementarily expressible function. In
+  other words, $f$ can be integrated three times but not four times
+  within the collection of elementarily expressible functions. What is
+  the {\bf largest positive integer} $k$ such that $x \mapsto x^kf(x)$
+  is {\em guaranteed to be} {\bf elementarily integrable}?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $5$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Via integration by parts, integrating $f$ $m$ times is
+  equivalent to finding antiderivatives for $f(x)$, $xf(x)$, and so on
+  till $x^{m-1}f(x)$. In our case, $f$ can be integrated $3$ times, so
+  the largest $k$ is $3 - 1 = 2$.
+
+  {\em Note}: It is true that $x^2f(x)$ can be integrated and
+  $x^3f(x)$ cannot. {\em A priori}, we cannot say whether $x^4f(x)$
+  and $x^5f(x)$ can or cannot be integrated. They cannot be integrated
+  {\em using the integration by parts approach}, but it may happen to
+  be the case that they could be integrated by other methods, though
+  this is rare in practical cases (and when that does happen, it is
+  obvious).
+
+  {\em Performance review}: Everybody got this.
+
+  {\em Historical note}: $23$ out of $27$ people got this
+  correct. $2$ people each chose (C) and (D).
+
+\item Suppose $f$ is a continuous function on $(0,\infty)$ and is the
+  third derivative of an elementarily expressible function, but is not
+  the fourth derivative of any elementarily expressible function. In
+  other words, $f$ can be integrated three times but not four times
+  within the collection of elementarily expressible functions. What is
+  the {\bf largest positive integer} $k$ such that the function $x
+  \mapsto f(x^{1/k})$ with domain $(0,\infty)$ is [ADDED: {\em
+  guaranteed to be}] {\bf elementarily integrable}?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $5$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Via the $u$-substitution $u = x^{1/k}$, we get
+  $\int ku^{k-1}f(u) \, du$. Now using the previous question, the
+  maximum value of $k - 1$ possible is $2$, so the maximum possible
+  value is $3$.
+
+  We can also do a direct integration by parts taking $1$ as the
+  second part.
+
+  {\em Note}: It is true that $f(x^{1/3})$ can be integrated and
+  $f(x^{1/4})$ cannot. {\em A priori}, we cannot say whether
+  $f(x^{1/5})$ can or cannot be integrated. It cannot be integrated
+  {\em using the integration by parts approach}, but it may happen to
+  be the case that they could be integrated by other methods, though
+  this is rare in practical cases (and when that does happen, it is
+  obvious).
+
+  {\em Performance review}: $8$ out of $11$ got this. $2$ chose (D)
+  and $1$ chose (B).
+
+  {\em Historical note}: $14$ out of $27$ people got this correct. $4$
+  people chose (D), $4$ people chose (B), $3$ people chose (A), $1$
+  person chose (E), and $1$ person left the question blank.
+
+
+\item Of these five functions, four of the functions are elementarily
+  integrable and can be integrated using integration by parts. The
+  other one function is  {\bf not
+  elementarily integrable}. Identify this function.
+
+  \begin{enumerate}[(A)]
+  \item $x \mapsto x \sin x$
+  \item $x \mapsto x \cos x$
+  \item $x \mapsto x \tan x$
+  \item $x \mapsto x \sin^2x$
+  \item $x \mapsto x \tan^2x$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: If $f$ is elementarily integrable, then $xf(x)$
+  is elementarily integrable iff $f$ is twice elementarily integrable;
+  this is easily seen using integration by parts. Of the function
+  options given here, $\tan$ is the only function that is not twice
+  elementarily integrable, because the first integration gives
+  $-\ln|\cos x|$ which cannot be integrated. Of the others, note that
+  $\sin$, $\cos$, and $\sin^2$ can be integrated using elementary
+  functions infinitely many times. $\tan^2$ is twice elementarily
+  integrable but no further: integrates the first time to $\tan x -
+  x$, which integrates one more time to $-\ln|cos x| - x^2/2$, which
+  cannot be integrated further.
+
+  {\em Performance review}: $10$ out of $11$ got this. $1$ chos e(D).
+
+  {\em Historical note}: $22$ out of $27$ people got this
+  correct. $4$ people chose (E), and $1$ person chose (D).
+
+
+\item Consider the four functions $f_1(x) = \sqrt{\sin x}$, $f_2(x) =
+  \sin \sqrt{x}$, $f_3(x) = \sin^2 x$ and $f_4(x) = \sin(x^2)$, all
+  viewed as functions on the interval $[0,1]$ (so they are all well
+  defined). Two of these functions are elementarily integrable; the
+  other two are not. Which are the {\bf two elementarily integrable
+  functions}?
+
+  \begin{enumerate}[(A)]
+  \item $f_3$ and $f_4$.
+  \item $f_1$ and $f_3$.
+  \item $f_1$ and $f_4$. 
+  \item $f_2$ and $f_3$.
+  \item $f_2$ and $f_4$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Integration of $f_3$ is a standard procedure, so
+  we say nothing about that. As for $f_2$, recall that integrating
+  $f(x^{1/k})$ is equivalent to integrating $u^{k-1}f(u)$ where $u =
+  x^{1/k}$, which in turn is equivalent to integrating $f$ $k$
+  times. Since $\sin$ can be integrated as many times as we wish,
+  $f_2$ can be integrated.
+
+  The reason why $f_1$ and $f_4$ are not elementarily integrable is
+  subtler but it's clear that none of the obvious methods work.
+
+  {\em Performance review}: $7$ out of $11$ got this. $1$ chose (E),
+  $1$ each chose (A) and (B).
+
+  {\em Historical note}: $17$ out of $27$ people got this
+  correct. $5$ people chose (B), $3$ people chose (A), and $2$ people
+  chose (C).
+\item Suppose $f$ is an elementarily expressible and infinitely
+  differentiable function on the positive reals (so all derivatives of
+  $f$ are also elementarily expressible). An antiderivative for
+  $f''(x)/x$ is {\bf not equivalent} up to elementary functions to
+  {\bf which one} of the following?
+
+  \begin{enumerate}[(A)]
+  \item An antiderivative for $x \mapsto f''(e^x)$, domain all of $\R$.
+  \item An antiderivative for $x \mapsto f'(e^x/x)$, domain positive reals.
+  \item An antiderivative for $x \mapsto f'''(x)(\ln x)$, domain positive
+    reals.
+  \item An antiderivative for $x \mapsto f'(1/x)$, domain positive
+    reals.
+  \item An antiderivative for $x \mapsto f(1/\sqrt{x})$, domain positive reals.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: We will show how an antiderivative for $f''(x)/x$
+  is equivalent to all the antiderivatives in options (A), (C), (D),
+  and (E).
+
+  Option (A): Starting with $\int \frac{f''(x)}{x} \, dx$. Put $u =
+  \ln x$. We get $\int f''(e^u) \, du$. Note that the domain now
+  becomes all of $\R$. Replace the dummy variable $u$ by the dummy
+  variable $x$, and we get $\int f''(e^x) \, dx$.
+
+  Option (C): Let's start with $f'''(x)(\ln x)$. Integrate by parts
+  taking $f'''(x)$ as the part to integrate. We get $\int f'''(x)(\ln
+  x) \, dx = (\ln x)(f''(x)) - \int \frac{1}{x}f''(x) \, dx$. Thus, we
+  see that the antiderivatives of $f'''(x)(\ln x)$ and $f''(x)/x$ add
+  up to $f''(x)(\ln x)$, which is an elementarily expressible
+  function, hence the antiderivatives are elementarily equivalent.
+
+  Option (D): Start with $\int f'(1/x) \, dx$. Put $u = 1/x$ to get
+  $\int \frac{-1}{u^2} f'(u)\,du$. Now integrate by parts taking
+  $-1/u^2$ as the part to integrate, and we obtain a relationship with
+  the integral of $f''(u)/u$.
+
+  Option (E): Here, put $u = 1/\sqrt{x}$, so $x = 1/u^2$, giving $\int
+  f(u)/u^3 \, du$. Integrate by parts twice taking the rational
+  function as the part to integrate each time. We get $f''(u)/u$ (up
+  to constants).
+
+  {\em Performance review}: $8$ out of $11$ got this, $1$ each chose
+  (A), (C), and (E).
+
+  {\em Historical note}: $10$ out of $27$ people got this
+  correct. $8$ people chose (C), $6$ people chose (E), and $3$ people
+  chose (A).
+
+\item Of the five functions below, four of them have antiderivatives
+  that are equivalent up to elementary functions, i.e., an
+  antiderivative for any one of them can be used to provide an
+  antiderivative for the other three. The fifth function hais {\bf not
+  equivalent} to any of these. Identify the fifth function.
+
+  \begin{enumerate}[(A)]
+  \item $x \mapsto e^{e^x}$, domain all reals
+  \item $x \mapsto \ln(\ln x)$, domain $(1,\infty)$
+  \item $x \mapsto e^x/x$, domain $(0,\infty)$
+  \item $x \mapsto 1/(\ln x)$, domain $(1,\infty)$
+  \item $x \mapsto 1/(\ln(\ln x))$, domain $(e,\infty)$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: We show the equivalence of all the others:
+
+  (A) and (C): Starting with $\int e^{e^x} \, dx$, put $u = e^x$, to
+  get $\int e^u/u \, du$. Note that the domain of definition transforms
+  correctly.
+
+  (C) and (D): Starting with $\int e^x/x \, dx$, put $u = e^x$, to get
+  $du/(\ln u)$. Note that the domain of definition transforms
+  correctly.
+
+  (B) and (D): Start with $\int \ln(\ln x) \, dx$. Use integration by
+  parts taking $1$ as the part to integrate. We get $x\ln(\ln x) -
+  \int \frac{1}{\ln x} \, dx$, establishing the equivalence.
+
+  {\em Performance review}: $7$ out of $11$ got this, $4$ chose (B).
+
+  {\em Historical note}: $7$ out of $27$ people got this
+  correct. $14$ people chose (C), $3$ people chose (B), $2$ people
+  chose (D), $1$ person chose (A).
+
+\item Which of the following functions has an antiderivative that is
+  {\bf not equivalent} up to elementary functions to the
+  antiderivative of $x \mapsto e^{-x^2}$?
+
+  \begin{enumerate}[(A)]
+  \item $x \mapsto e^{-x^4}$
+  \item $x \mapsto e^{-x^{2/3}}$
+  \item $x \mapsto e^{-x^{2/5}}$
+  \item $x \mapsto x^2e^{-x^2}$
+  \item $x \mapsto x^4e^{-x^2}$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: We show the equivalence with the others.
+
+  Option (D): We use integration by parts, writing
+  $x^2e^{-x^2}$ as $x \cdot (xe^{-x^2})$ and taking $xe^{-x^2}$ as the
+  part to integrate, so that $x$ is the part to differentiate. An
+  antiderivative for $xe^{-x^2}$ is $(-1/2)e^{-x^2}$, so we get:
+
+  $$\frac{-x}{2}e^{-x^2} - \int \frac{-1}{2}e^{-x^2} \, dx$$
+
+  We thus see that it reduces to $\int e^{-x^2} \, dx$.
+
+  Option (E), via reduction to option (D): We use integration by
+  parts, taking $x^3$ as the part to differentiate and $xe^{-x^2}$ as
+  the part to integrate. One application of integration by parts
+  reduces this to $\int x^2e^{-x^2}$, which is option (D).
+
+  Option (B), via reduction to option (D): Start with $\int
+  e^{-x^{2/3}} \, dx$. Put $u = x^{1/3}$. The substitution gives (up to
+  scalars) $\int u^2e^{-u^2} \, du$, which is option (D).
+
+  Option (C), via reduction to option (D): Start with $\int
+  e^{-x^{2/5}} \, dx$. Put $u = x^{1/5}$. The substitution gives (up to
+  scalars) $\int u^4e^{-u^2} \, du$, which is option (E).
+
+  {\em Performance review}: $7$ out of $11$ got this, $3$ chose (E),
+  $1$ chose (D).
+
+  {\em Historical note}: $10$ out of $27$ people got this
+  correct. $7$ people chose (D), $4$ people chose (C), $4$ people
+  chose (E), and $2$ people chose (B).
+
+\item Which of the following has an antiderivative that is not
+  equivalent up to elementary functions to the antiderivative of the
+  function $f(x) := e^x/x, x > 0$?
+
+  \begin{enumerate}[(A)]
+  \item $x \mapsto e^x/\sqrt{x}, x > 0$
+  \item $x \mapsto e^x/x^2, x > 0$
+  \item $x \mapsto e^x(\ln x), x > 0$
+  \item $x \mapsto e^{1/\sqrt{x}}, x > 0$
+  \item $x \mapsto e^{1/x}, x > 0$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Option (B) is equivalent via one application of
+  integration by parts. Option (C) is also equivalent via one
+  application of integration by parts. Option (E) reduces to option
+  (B) when we put $u = 1/\sqrt{x}$. Option (D) reduces to $e^x/x^3$,
+  which is equivalent to option (B) via one application of integration
+  by parts.
+
+  {\em Performance review}: $4$ out of $11$ got this, $6$ chose (D),
+  $1$ chose (C).
+
+  {\em Historical note}: $5$ out of $27$ people got this
+  correct. $9$ people chose (C), $10$ people chose (D), and $3$ people
+  chose (E).
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,299 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, amssymb}
+
+%Title details
+\title{Lazard correspondence: key proof}
+\author{Vipul Naik}
+
+%List of new commands
+\newcommand{\Skew}{\operatorname{Skew}}
+\newcommand{\ad}{\operatorname{ad}}
+\begin{document}
+\maketitle
+
+Suppose $G$ is a group of (global) nilpotency class $c$ such that $G$
+is powered over all primes less than or equal to $c$. Then, $G$ has a
+Lazard Lie ring. Let's call the Lazard Lie ring $L$. Further, we will
+denote by $e^x$ the element of $G$ corresponding to an element $x \in
+L$, and by $\log g$ the element of $L$ corresponding to an element $g
+\in G$ under this correspondence. To avoid the proliferation of
+unnecessary letters, we will denote the Lazard Lie ring of $G$ as
+$\log G$.
+
+Our ultimate goal is to show that the Lazard correspondence between
+$\log G$ and $G$ induces a canonical Lazard correspondence between the
+exterior square $\log G \wedge \log G$ and the exterior square $G
+\wedge G$, in such a manner that the following diagram commutes:
+
+\begin{eqnarray*}
+  \log G \wedge \log G & \rightarrow & \log G\\
+  \downarrow & & \downarrow\\
+  G \wedge G & \rightarrow & G \\
+\end{eqnarray*}
+
+where the map $L \wedge L \to L$ is the Lie bracket homomorphism, the
+map $G \wedge G \to G$ is the commutator map homomorphism, and the
+downward maps are the respective Lazard correspondences.
+
+\subsection{Preliminary lemmas}
+
+We begin with some lemmas.
+
+\begin{lemma}
+  Let $\pi$ be a set of primes and $G$ be a nilpotent group. Then, $G$
+  is $\pi$-divisible if and only if its abelianization is $\pi$-divisible.
+\end{lemma}
+
+\begin{proof}
+  The full proof will be included in the main document, but here's a
+  quick and complete sketch.
+\end{proof}
+
+We can refine this result a bit:
+
+\begin{lemma}
+  Suppose $\pi$ is a set of primes and $K$ is a nilpotent group. If
+  $H$ is a normal subgroup of $K$ that is contained inside $K'$, then
+  $K$ is $\pi$-divisible if and only if $K/H$ is $\pi$-divisible.
+\end{lemma}
+
+\begin{proof}
+  Both $K$ and $K/H$ have the same abelianization, so this follows from
+  the preceding lemma.
+
+  The conclusion that $H$ is also $\pi$-powered follows directly from
+  both $K$ and $K/H$ being $\pi$-powered.
+\end{proof}
+
+\begin{lemma}
+  Suppose $G$ is a nilpotent group and $K$ is a stem extension of $G$
+  with quotient map $\varphi:K \to G$ having kernel a central subgroup
+  $H$ of $K$. Then, $K$ is also nilpotent of class either equal to or
+  one more than the nilpotency class of $G$. Further, if $\pi$ is a
+  set of primes, $G$ is $\pi$-powered if and only if $K$ is
+  $\pi$-powered.
+\end{lemma}
+
+\begin{proof}
+  Recall that the definition of stem extension requires that the
+  kernel $H$ of $\varphi$ should be contained in $K' \cap Z(K)$. Also,
+  if $G$ is nilpotent, so is $K$ (with class either equal to or more
+  than the class of $G$). Thus, the preceding lemma applies, and we get
+  the result.
+\end{proof}
+
+We thus get the result:
+
+\begin{lemma}\label{schurcoverpipower}
+  Suppose $G$ is a $\pi$-powered nilpotent group of class $c$. Suppose
+  $K$ is a Schur covering group for $G$ with $\varphi:K \to G$ the
+  quotient map. Let $M$ be the kernel of $\varphi$. The following are
+  true.
+
+  \begin{enumerate}
+  \item $K$ is a $\pi$-powered nilpotent group of class either $c$ or
+    $c + 1$.
+  \item The Schur multiplier of $G$, which can be identified
+    with the kernel $M$ of $\varphi$, is also $\pi$-powered.
+  \item The non-abelian exterior square $G \wedge G$ of $G$, which is
+    isomorphic to $[K,K]$, is $\pi$-powered.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Parts (1) and (2) follows from the preceding lemma, and the observation that
+  any Schur covering group is by definition a stem extension.
+
+  Part (3) follows from Part (1) and Lemma 7 of Section 2.5 in the
+  original document. Specifically, the group $G \wedge G \cong [K,K]$,
+  is the derived subgroup of the $\pi$-powered nilpotent group.
+\end{proof}
+
+Note that although the Schur covering group need not be unique up to
+isomorphism, the exterior square and the Schur multiplier are uniquely
+determined.
+
+\subsection{Similar results on the Lie ring side}
+
+A set of results exactly analogous to those in the preceding section
+can also be obtained for Lie rings.
+
+\subsection{The rationally powered case}
+
+For this section, we restrict attention to the case where $G$ is a
+rationally powered nilpotent group. The advantage of this is that all
+groups involved will be Malcev Lie groups and hence Lazard Lie
+groups. The complications arising in other situations will be
+discussed in the next section.
+
+Suppose $G$ is a rationally powered nilpotent group and $L$ is its
+Lazard Lie ring. $L$ is a nilpotent $\Q$-Lie algebra. Notationally, $L
+= \log G$ and $G = \exp L$.
+
+Suppose $K$ is a Schur covering group of $G$ with covering map
+$\varphi:K \to G$. By lemma \ref{schurcoverpipower}, $K$ is also a
+rationally powered nilpotent group. Hence, it has its own Lazard Lie
+ring $\log K$, which is a $\Q$-Lie algebra, and we get a $\Q$-Lie
+algebra homomorphism $\log \varphi: \log K \to \log G = L$.
+
+On the other hand, suppose $N$ is a Schur covering Lie ring of $L$
+with covering map $\psi:N \to L$. By the Lie ring analogue of lemma
+\ref{schurcoverpipower}, $N$ is also a nilpotent $\Q$-Lie algebra, so
+it has its own Lazard Lie group $\exp(N)$, and we get a mapping $\exp
+\psi: \exp(N) \to \exp(L) = G$.
+
+What we would have ideally hoped for is that $N = \log K$. Alas, this
+is not guaranteed, even in the rationally powered case, because there
+could be multiple Schur covering groups and multiple Schur covering
+Lie rings, and we may not have picked the correspondent
+ones. Nonetheless, we would still like to show that the $[N,N]$ is
+isomorphic to $\log[K,K] = [\log K,\log K]$, or equivalently, that $[K,K]$ is isomorphic to $\exp[N,N] = [\exp N,\exp N]$.
+
+Let's first state what we already have:
+
+\begin{itemize}
+\item $[N,N]$ is isomorphic to $L \wedge L$ under a canonical
+  isomorphism of Lie rings where the Lie bracket homomorphism $L
+  \wedge L \to L$ corresponds to $\psi|_{[N,N]}: [N,N] \to L$.
+\item $[K,K]$ is isomorphic to $G \wedge G$ under a canonical
+  isomorphism of groups where the group homomorphism $G \wedge G \to
+  G$ corresponds to $\varphi_{[K,K]}: [K,K] \to G$.
+\end{itemize}
+
+\begin{lemma}
+  We have a canonical isomorphism between $L \wedge L \cong [N,N]$ and
+  $[\log K,\log K] = \log [K,K]$ as Lie rings. Equivalently, we have a
+  canonical isomorphism between $\exp [N,N] = [\exp N, \exp N]$ and
+  $[K,K]$. These canonical isomorphisms give us that $L \wedge L$ and
+  $G \wedge G$ are Lazard correspondent, with the following
+  commutative diagram:
+
+  \begin{eqnarray*}
+    \log G \wedge \log G & \rightarrow & \log G\\
+    \downarrow & & \downarrow\\
+    G \wedge G & \rightarrow & G \\
+  \end{eqnarray*}
+
+\end{lemma}
+
+\begin{proof}
+  The proof idea is very similar to the idea generally used for
+  universal properties.
+
+  First, note that $\log K$ is a central extension for quotient $L =
+  \log G$ via the map $\log \varphi$. Thus, we get a Lie ring
+  homomorphism corresponding to the Lie bracket:
+
+  $$L \wedge L \to [\log K,\log K] = \log[K,K] = \log(G \wedge G)$$
+
+  Second, note that $\exp N$ is a central extension for quotient $G =
+  \exp L$ via the map $\exp \psi$. Thus, we get a group homomorphism
+  corresponding to the group commutator map:
+
+  $$G \wedge G \to [\exp N,\exp N] = \exp[N,N] = \exp(L \wedge L)$$
+
+  Taking logs on everything, we get:
+
+  $$\log(G \wedge G) \to [N,N] = L \wedge L$$
+
+  We would like to assert that these maps compose both ways to the
+  identity, hence are inverses. That would be enough. {\em TODO: Do
+  diagram chasing to show that the composite is the identity}.
+\end{proof}
+
+\subsection{Extending from the rationally powered to the general case}
+
+We have established the result in the rationally powered group
+case. We now wish to extend it. The main problem arises in situations
+where $G$ has class $p - 1$ for some prime $p$, and is not $p$-powered
+but is powered over all smaller primes. In these situations, we cannot
+directly mimic the above argument of using the Lazard correspondence
+for the Schur covering group and Lie ring, because the Schur covering
+group or Lie ring have class $p$, and we cannot do the Lazard
+correspondence on the Schur covering group.
+
+What we would like to argue is that even though we cannot do the
+Lazard correspondence directly on the Schur covering groups, we can
+get around this problem. The idea is simple.
+
+\begin{lemma}
+  Suppose $c$ is a natural number and $\pi$ is the set of all primes
+  less than or equal to $c$. Suppose $L$ is a free $\pi$-powered class
+  $c$ Lie ring (on any number of generators) and $G$ is its
+  corresponding Lazard Lie group. Then:
+
+  \begin{enumerate}
+  \item $G$ is also a free $\pi$-powered class $c$ group with a
+    freely generating set given by the elements corresponding to a
+    freely generating set of $L$.
+  \item We have that $\exp(\Q L)$ is canonically identified with
+    $\sqrt{G}$, the minimal rationally powered nilpotent group
+    containing $G$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  The results and notation are all borrowed from Khukhro's treatment
+  of the malcev and Lazard correspondences.
+\end{proof}
+
+We can now turn to the key idea of the proof. Here's an omnibus
+lemma.
+
+\begin{lemma}
+  \begin{enumerate}
+  \item $\mathbb(Q)(L \wedge L)$ is naturally identified with
+    $\mathbb{Q}L \wedge \mathbb{Q}L$.
+  \item $\sqrt{G \wedge G}$ is naturally identified with $\sqrt{G}
+    \wedge \sqrt{G}$.
+  \item $\mathbb{Q}(L \wedge L) $ and $\sqrt{G \wedge G}$ are Lazard
+    correspondent.
+  \item The Lazard correspondence of the previous step maps $L \wedge
+    L$ to $G \wedge G$. Hence, $L \wedge L$ and $G \wedge G$ are
+    Lazard correspondent.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Parts (1) and (2) are direct from the definitions. Part (3) follows
+  from Parts (1) and (2), plus the result of the preceding section. 
+
+  Part (4) is the tricky result. What this is saying, essentially, is
+  that if we start off with terms that do not have any ``bad''
+  denominators, then the things that we arrive at after doing the
+  correspondence will also not have any bad denominators. The main
+  reason this works is because the correspondence uses the formula for
+  the group commutator in terms of the Lie bracket for class $c + 1$
+  (see section 3.4 of the old document), as well as the
+  Baker-Campbell-Hausdorff formula for class $c$. Neither of these is
+  problematic. {\em TODO: Add more detail here}.
+\end{proof}
+
+The above establishes the result in the free $\pi$-powered case. For
+the non-free case, we use the following.
+
+\begin{lemma}
+  \begin{enumerate}
+  \item If $L$ is a Lie ring and $I$ is an ideal in $L$, then $L/I
+    \wedge L/I$ can be identified with $(L \wedge L)/(I \wedge L)$.
+  \item If $G$ is a group and $H$ is a normal subgroup in $G$, then
+    $G/H \wedge G/H$ can be identified with $(G \wedge G)/(H \wedge G)$.
+  \item Suppose $L$ is a free $\pi$-powered class $c$ nilpotent Lie
+    ring and $G$ is its Lazard Lie group. Suppose $I$ is an ideal in
+    $L$ and $H = \exp(I)$ is the corresponding normal subgroup of
+    $G$. Then, under the Lazard correspondence used above between $L
+    \wedge L$ and $G \wedge G$, $I \wedge L$ is correspondent with $H
+    \wedge G$.
+  \item Continuing with the setup of Part (3), we get that $L/I \wedge
+    L/I$ is Lazard correspondent with $G/H \wedge G/H$.
+  \end{enumerate}
+\end{lemma}
+
+This lemma essentially does the trick, because any $\pi$-powered class
+$c$ group can be expressed as a quotient of a free $\pi$-powered class
+$c$ group, and we can thus use the above lemma to get the Lazard
+correspondence.
+
+\end{document}

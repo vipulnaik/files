@@ -1,0 +1,543 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: March 7: Taylor series and power series}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$11$ people took this quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $3$: $1$ person
+\item Score of $4$: $3$ people
+\item Score of $5$: $2$ people
+\item Score of $6$: $3$ people
+\item Score of $7$: $2$ people
+\end{itemize}
+
+The mean score was $5.18$.
+
+\begin{enumerate}
+\item Option (C): $3$ people 
+\item Option (C): $2$ people
+\item Option (C): $1$ person
+\item Option (A): Nobody
+\item Option (D): $9$ people
+\item Option (A): $3$ people
+\item Option (D): $10$ people
+\item Option (C): $5$ people
+\item Option (D): $5$ people
+\item Option (E): $1$ person
+\item Option (E): $3$ people
+\item Option (C): $9$ people
+\item Option (D): $1$ person
+\item Option (B): $5$ people
+\end{enumerate}
+
+I think the performance was not too good largely because of inadequate
+training on my part. {\em I will give you this quiz for a closed book
+re-attempt (not counting toward the grade) in one of the subsequent
+review sessions.}
+
+\section{Solutions}
+For these questions, we denote by $C^\infty(\R)$ the space of
+functions from $\R$ to $\R$ that are {\em infinitely} differentiable
+{\em everywhere} in $\R$.
+
+We denote by $C^k(\R)$ the space of functions from $\R$ to $\R$ that
+are at least $k$ times continuously differentiable on all of
+$\R$. Note that for $k \ge l$, $C^k(\R)$ is a subspace of
+$C^l(\R)$. Further, $C^\infty(\R)$ is the intersection of $C^k(\R)$
+for all $k$.
+
+We say that a function $f$ is analytic about $c$ if the Taylor series
+of $f$ about $c$ converges to $f$ on some open interval about $c$. We
+say that $f$ is {\em globally analytic} if the Taylor series of $f$
+about $0$ converges to $f$ everywhere on $\R$.
+
+It turns out that if a function is globally analytic, then it is
+analytic not only about $0$ but about any other point. In particular,
+globally analytic functions are in $C^\infty(\R)$.
+
+\begin{enumerate}
+\item Recall that if $f$ is a function defined and continuous around
+  $c$ with the property that $f(c) = 0$, the order of the zero of $f$
+  at $c$ is defined as the least upper bound of the set of real $\beta$ for
+  which $\lim_{x \to c} |f(x)|/|x - c|^\beta = 0$. If $f$ is in
+  $C^{\infty}(\R)$, what can we conclude about the orders of zeros of
+  $f$?
+
+  \begin{enumerate}[(A)]
+  \item The order of any zero of $f$ must be between $0$ and $1$.
+  \item The order of any zero of $f$ must be between $1$ and $2$.
+  \item The order of any zero of $f$, if finite, must be a positive
+  integer.
+  \item The order of any zero of $f$ must be exactly $1$.
+  \item The order of any zero of $f$ must be $\infty$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: We consider two cases. First, that for every
+  positive integer $k$, we have $f^{(k)}(c) = 0$. In that case, we can
+  verify using the LH rule that $f(x)/(x - c)^k \to 0$ for every
+  positive integer $k$, and hence, there is no finite least upper
+  bound and hence no finite order.
+
+  Next, suppose there is a smallest $k$ such that $f^{(k)}(c) \ne
+  0$. Suppose $f^{(k)}(c) = \lambda$. This $k$ must be greater than
+  $0$, because we are given that $f^{(0)}(c) = f(c) = 0$. We can show
+  by a $k$-fold application of the LH rule that $\lim_{x \to c}
+  f(x)/(x - c)^k = \lambda/k!$ which is a finite nonzero number. By
+  suitable chaining, we can therefore show that $\lim_{x \to c}
+  |f(x)|/|x - c|^\beta = 0$ for all $\beta \in (0,k)$. Thus, the order
+  of the zero at $f$ is precisely $k$, whuch is a positive integer.
+
+  {\em Performance review}: $3$ out of $11$ people got this. $3$ chose
+  (B), $4$ chose (E), and $1$ left the question blank.
+
+  {\em Historical note (last year)}: $11$ out of $26$ people
+  got this correct. $7$ chose (A), $3$ each chose (B) and (E), $1$
+  chose (D), and $1$ left the question blank.
+\item For the function $f(x) := x^2 + x^{4/3} + x + 1$ defined on
+  $\R$, what can we say about the Taylor polynomial about $0$?
+
+  \begin{enumerate}[(A)]
+  \item No Taylor polynomial is defined for $f$.
+  \item $P_0(f)(x) = 1$, $P_n(f)$ is not defined for $n > 0$.
+  \item $P_0(f)(x) = 1$, $P_1(f)(x) = 1 + x$, $P_n(f)$ is not defined
+    for $n > 1$.
+  \item $P_0(f)(x) = 1$, $P_1(f)(x) = 1 + x$, $P_2(f) = f$, and
+    $P_n(f)$ is not defined for $n > 2$.
+  \item $P_0(f)(x) = 1$, $P_1(f)(x) = 1 + x$, $P_2(f) = f$, and
+    $P_n(f) = f$ for all $n > 2$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The fraction power $x^{4/3}$ can be
+  differentiated once but not twice about $0$. The rest of the
+  expression for $f$ is polynomial. Thus, $f$ is once differentiable
+  but not twice differentiable at $0$. Hence, we cannot define
+  $P_2(f)$. $P_0(f)$ is just $f(0)$, which is $1$, and $P_1(f)(x) =
+  f(0) + f'(0)x = 1 + x$. Alternatively, $P_1(f)(x)$ is simply the
+  truncation of $f$ to the parts of degree at most $1$.
+
+  {\em Performance review}: $2$ out of $11$ got this correct. $7$
+  chose (E), $1$ each chose (B) and (D).
+
+  {\em Historical note (last year)}: $8$ out of $26$ people got this
+  correct. $5$ each chose (A) and (B), $4$ each chose (D) and (E).
+  
+\item (*) Which of the following functions is in $C^\infty(\R)$ but is
+  {\em not} analytic about $0$?
+
+  \begin{enumerate}[(A)]
+  \item $f_1(x) := \lbrace \begin{array}{rl} (\sin x)/x, & x \ne 0\\ 1, & x = 0 \\\end{array}$
+  \item $f_2(x) := \lbrace \begin{array}{rl} e^{-1/x}, & x \ne 0\\ 0, & x = 0 \\\end{array}$
+  \item $f_3(x) := \lbrace \begin{array}{rl} e^{-1/x^2}, & x \ne 0\\ 0, & x = 0 \\\end{array}$
+  \item $f_4(x) := \lbrace \begin{array}{rl} \sin(1/x), & x \ne 0 \\ 0, & x = 0 \\\end{array}$
+  \item All of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: This answer is explained more in the lecture
+  notes.
+
+  {\em Why the other options are wrong}:
+
+  Option (A): This is in fact globlally analytic, and is given by the
+  power series $1 - x^2/3! + x^4/5! - \dots$
+
+  Option (B): This is not continuous at $0$. The left hand limit at
+  $0$ is $+\infty$.
+
+  Option (D): This is not continuous at $0$. The limit at $0$ is not
+  defined.
+
+  {\em Performance review}: $1$ out of $11$ got this correct. $5$
+  chose (D), $2$ chose (B), $1$ each chose (A) and (E).
+
+  {\em Historical note (last year)}: $3$ out of $26$ people got this
+  correct. $11$ chose (D), $6$ each chose (A) and (E).
+
+  {\em Action point}: We will discuss the example in option (C) during
+  Friday's review session. After that, hopefully what's happening will
+  become clear.
+
+\item Which of the following functions is in $C^\infty(\R)$ and is
+  analytic about $0$ but is not globally analytic?
+  \begin{enumerate}[(A)]
+  \item $x \mapsto \ln(1 + x^2)$
+  \item $x \mapsto \ln(1 + x)$
+  \item $x \mapsto \ln(1 - x)$
+  \item $x \mapsto \exp(1 + x)$
+  \item $x \mapsto \exp(1 - x)$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: The function is in $C^\infty(\R)$ because it can
+  be differentiated infinitely often: the first derivative is $2x/(1 +
+  x^2)$, and each subsequent derivative is a rational function whose
+  denominator is a power of $1 + x^2$. Since $1 + x^2$ does not vanish
+  anywhere on $\R$, each derivative is defined and continuous on all
+  of $\R$.
+
+  The radius of convergence of the power series is $1$, basically
+  because it is a power series where the coefficients are rational
+  functions, and any such power series has radius of convergence $1$
+  by the root test or ratio test. Thus, the function is not globally
+  analytic.
+
+  {\em Why the other options are wrong}:
+
+  Option (B) is not in $C^\infty(\R)$ because the function is not
+  defined for $x \le -1$.
+
+  Option (C) is not in $C^\infty(\R)$ because the function is not
+  defined for $x \ge 1$.
+
+  Options (D) and (E) are globally analytic because $\exp$ is globally
+  analytic.
+
+  {\em Performance review}: Nobody got this correct! $8$ chose (B),
+  $3$ chose (C).
+
+  {\em Historical note (last year)}: $7$ out of $26$ people got this
+  correct. $6$ chose (C), $5$ chose (B), $4$ chose (E), $3$ chose (D),
+  and $1$ left the question blank.
+
+\item Which of the following is an example of a globally analytic
+  function whose reciprocal is in $C^\infty(\R)$ but is not globally
+  analytic?
+
+  \begin{enumerate}[(A)]
+  \item $x$
+  \item $x^2$
+  \item $x + 1$
+  \item $x^2 + 1$
+  \item $e^x$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: The reciprocal $1/(x^2 + 1)$ is a rational
+  function all of whose derivatives are rational functions with
+  denominator a power of $x^2 + 1$, hence defined and continuous
+  derivatives. Hence it is is $C^\infty(\R)$. Further, the power
+  series expansion for it is like a geometric series, which has radius
+  of convergence $1$, hence it is not globally analytic.
+
+  {\em Why the other options are wrong}:
+
+  Options (A) and (B): The reciprocals are not in $C^\infty(\R)$
+  because the functions $1/x$ and $1/x^2$ are not defined or
+  continuous at $0$.
+
+  Option (C): The reciprocal is not in $C^\infty(\R)$ because the
+  function $1/(x + 1)$ is not defined or continuous at $-1$.
+
+  Option (E): The reciprocal, which is $\exp(-x)$, is globally
+  analytic.
+
+  {\em Performance review}: $9$ out of $11$ got this correct. $1$ each
+  chose (A) and (E).
+
+  {\em Historical note (last year)}: $10$ out of $26$ people got this
+  correct. $5$ chose (C), $4$ each chose (A) and (E), $2$ chose (B),
+  $1$ left the question blank.
+
+\item Consider the rational function $1/\prod_{i=1}^n (x - \alpha_i)$,
+  where the $\alpha_i$ are all distinct real numbers. This rational
+  function is analytic about any point other than the $\alpha_i$s, and
+  in particular its Taylor series converges to it on the interval of
+  convergence. What is the radius of convergence for the Taylor series
+  of the rational function about a point $c$ not equal to any of the
+  $\alpha_i$s?
+
+  \begin{enumerate}[(A)]
+  \item It is the minimum of the distances from $c$ to the $\alpha_i$s.
+  \item It is the second smallest of the distances from $c$ to the
+    $\alpha_i$s.
+  \item It is the arithmetic mean of the distances from $c$ to the $\alpha_i$s.
+  \item It is the second largest of the distances from $c$ to the
+    $\alpha_i$s.
+  \item It is the maximum of the distances from $c$ to the $\alpha_i$s.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Since the Taylor series converges to the function
+  on its interval of convergence, the interval of convergence must be
+  contained in the domain of definition. In particular, it must
+  exclude all the $\alpha_i$s. Hence, the radius of convergence cannot
+  be more than the minimum of the distances from $c$ to the
+  $\alpha_i$s.
+
+  That it is exactly equal to the minimum can be shown by using the
+  fact that we get a product of geometric series.
+
+  {\em Performance review}: $3$ out of $11$ got this correct. $4$
+  chose (E), $2$ chose (C), $1$ chose (B).
+
+  {\em Historical note (last year)}: $10$ out of $26$ people got this
+  correct. $6$ people chose (C), $5$ chose (E), $2$ each chose (B) and
+  (D), $1$ left the question blank.
+
+\item What is the interval of convergence of the Taylor series for
+  $\arctan$ about $0$?
+  
+  \begin{enumerate}[(A)]
+  \item $(-1,1)$
+  \item $[-1,1)$
+  \item $(-1,1]$
+  \item $[-1,1]$
+  \item All of $\R$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: For the boundary points, we use the alternating
+  series theroem. See a more detailed discussion in the lecture notes.
+
+  {\em Performance review}: $10$ out of $11$ got this correct. $1$
+  chose (A).
+
+  {\em Historical note (last year)}: $11$ out of $26$ people got this
+  correct. $8$ chose (A), $4$ chose (C), $2$ chose (B), $1$ chose (E).
+
+\item (*) Consider the function $F(x,p) = \sum_{n=1}^\infty x^n/n^p$. For
+  fixed $p$, this is a power series in $x$. What can we say about the
+  interval of convergence of this power series about $x = 0$, in terms
+  of $p$ for $p \in (0,\infty)$?
+  \begin{enumerate}[(A)]
+  \item The interval of convergence is $(-1,1)$ for $0 < p \le 1$ and
+    $[-1,1]$ for $p > 1$.
+  \item The interval of convergence is $(-1,1)$ for $0 < p < 1$ and
+    $[-1,1]$ for $p \ge 1$.
+  \item The interval of convergence is $[-1,1)$ for $0 < p \le 1$ and
+    $[-1,1]$ for $p > 1$.
+  \item The interval of convergence is $(-1,1]$ for $0 < p < 1$ and
+    $[-1,1]$ for $p \ge 1$.
+  \item The interval of convergence is $(-1,1)$ for $0 < p \le 1$ and
+    $[-1,1)$ for $p > 1$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The radius of convergence is $1$ for obvious
+  reasons. Convergence at the boundary point $-1$ follows from the
+  alternating series theorem. At the boundary point $1$, we get a
+  $p$-series, which converges if and only if $p > 1$.
+
+  {\em Performance review}: $5$ out of $11$ got this correct. $3$
+  chose (A), $2$ chose (D), $1$ chose (B).
+
+  {\em Historical note (last year)}: $4$ out of $26$ people got this
+  correct. $10$ chose (B), $7$ chose (A), $3$ chose (E), $2$ chose
+  (D).
+
+  {\em Action point}: This should probably be clearer to you after the
+  material covered in class on Wednesday and further review that we'll
+  do on Friday. In any case, please go through the solution and
+  understand it clearly.
+\item Which of the following functions of $x$ has a power series
+  $\sum_{k=0}^\infty x^{4k}/(4k)!$?
+  \begin{enumerate}[(A)]
+  \item $(\sin x + \sinh x)/2$
+  \item $(\sin x - \sinh x)/2$
+  \item $(\sinh x - \sin x)/2$
+  \item $(\cosh x + \cos x)/2$
+  \item $(\cosh x - \cos x)/2$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Take the Taylor series and add. Also, use that
+  both $\cosh$ and $\cos$ are globally analytic.
+
+  {\em Performance review}: $5$ out of $11$ got this correct. $3$
+  chose (C), $2$ chose (A), $1$ chose (B).
+
+  {\em Historical note (last year)}: $9$ out of $26$ people got this
+  correct. $5$ chose (B), $4$ each chose (A), (C), and (E).
+
+\item What is the sum $\sum_{k=0}^\infty (-1)^kx^{2k}/k!$? Note that
+  the denominator is $k!$ and {\em not} $(2k)!$.
+
+  \begin{enumerate}[(A)]
+  \item $\cos x$
+  \item $\sin x$
+  \item $\cos(x^2)$
+  \item $\cosh(x^2)$
+  \item $\exp(-x^2)$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Put $ u = -x^2$, and we get $\sum_{k=0}^\infty
+  u^k/k!$.
+
+  {\em Performance review}: $1$ out of $11$ got this correct. $7$
+  chose (C), $2$ chose (D), $1$ chose (B).
+
+  {\em Historical note (last year)}: $12$ out of $26$ people got this
+  correct. $7$ chose (C), $3$ each chose (A) and (D), $1$ chose (B).
+
+\item (*) Define an operator $R$ from the space of power series about $0$
+  to the set $[0,\infty]$ (nonnegative real numbers along with
+  $+\infty$) that sends a power series $a = \sum a_kx^k$ to the radius
+  of convergence of the power series about $0$. For two power series
+  $a$ and $b$, $a + b$ is the sum of the power series. What can we say
+  about $R(a + b)$ given $R(a)$ and $R(b)$?
+
+  \begin{enumerate}[(A)]
+  \item $R(a + b) = \max \{ R(a), R(b) \}$ in all cases.
+  \item $R(a + b) = \min \{ R(a), R(b) \}$ in all cases.
+  \item $R(a + b) = \max \{ R(a), R(b) \}$ if $R(a) \ne R(b)$. If
+    $R(a) = R(b)$, then $R(a + b)$ could be any number greater than or
+    equal to $\max \{ R(a), R(b) \}$.
+  \item $R(a + b) = \max \{ R(a), R(b) \}$ if $R(a) \ne R(b)$. If
+    $R(a) = R(b)$, then $R(a + b)$ could be any number less than or
+    equal to $\max \{ R(a), R(b) \}$.
+  \item $R(a + b) = \min \{ R(a), R(b) \}$ if $R(a) \ne R(b)$. If
+    $R(a) = R(b)$, then $R(a + b)$ could be any number greater than or
+    equal to $\min \{ R(a), R(b) \}$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: $R(a + b) \ge \min \{ R(a), R(b) \}$ because if
+  both $a$ and $b$, so does $a + b$. Let $c = a + b$. We also then get
+  that $R(a) \ge \min \{ R(b), R(c) \}$ and $R(b) \ge \min \{ R(a),
+  R(c) \}$ because $a = c - b$ and $b = c - a$.
+
+  Juggling these possibilities, we find that of the three numbers
+  $R(a)$, $R(b)$, and $R(a + b)$, the smaller two of the three numbers
+  must be equal. This forces option (E).
+
+  {\em This is a type of hyperbolic geometry -- all ``triangles'' must
+  be isosceles.}
+
+  {\em Performance review}: $3$ out of $11$ got this correct. $4$
+  chose (B) $3$ chose (D), $1$ chose (C).
+
+  {\em Historical note (last year)}: $3$ out of $26$ people got this
+  correct. $11$ chose (C), $7$ chose (D), $3$ chose (A), $1$ chose (B).
+
+  {\em Action point}: Please make sure you review and understand this
+  solution. The underlying idea is extremely important!
+\item (*) Which of the following is/are true?
+
+  \begin{enumerate}[(A)]
+  \item If we start with any function in $C^\infty(\R)$ and take the
+    Taylor series about $0$, the Taylor series converges everywhere on
+    $\R$.
+  \item If we start with any function in $C^\infty(\R)$ and take the
+    Taylor series about $0$, the Taylor series converges to the
+    original function on its interval of convergence.
+  \item If we start with a power series about $0$ that converges
+    everywhere in $\R$, then the function it converges to is in
+    $C^\infty(\R)$ and its Taylor series about $0$ equals the original
+    power series.
+  \item All of the above.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: See the lecture notes. A counterexample to (A) is
+  $\arctan$, and a counterexample to (B) is $e^{-1/x^2}$.
+
+  {\em Performance review}: $9$ out of $11$ got this correct. $1$
+  chose (B) and $1$ chose (E).
+
+  {\em Historical note (last year)}: $5$ out of $26$ people got this
+  correct. $10$ chose (B), $5$ each chose (D) and (E), and $1$ chose
+  (A).
+
+  {\em Action point}: This should become clearer to you after the
+  material covered in class on Wednesday and the Friday review.
+\item Consider the function $f(x) := \sum_{k=0}^\infty
+  x^k/(k!)^2$. The power series converges everywhere, so the function
+  is globally analytic. What pair of functions bounds $f$ from above
+  and below for $x > 0$?
+
+  \begin{enumerate}[(A)]
+  \item $\exp(x)$ from below and $\cosh(2x)$ from above.
+  \item $\exp(x)$ from below and $\cosh(x^2)$ from above.
+  \item $\exp(x/2)$ from below and $\exp(x)$ from above.
+  \item $\cosh(\sqrt{x})$ from below and $\exp(x)$ from above.
+  \item $\cosh(2x)$ from below and $\cosh(x^2)$ from above.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We use the fact that:
+
+  $$k! \le (k!)^2 \le (2k)!$$
+
+  for all $k \ge 0$, with both inequalities strict if $k \ge 2$.
+
+  We thus get:
+
+  $$\frac{x^k}{k!} \ge \frac{x^k}{(k!)^2} \ge \frac{x^k}{(2k)!}$$
+
+  for $x > 0$, with both inequalities strict if $k \ge 2$. Summing up, we get:
+  
+  $$\sum_{k=0}^\infty \frac{x^k}{k!} > \sum_{k=0}^\infty \frac{x^k}{(k!)^2} > \sum_{k=0}^\infty \frac{x^k}{(2k)!}$$
+
+  The left most expression is $e^x$. For the right most expression,
+  put $u = \sqrt{x}$, and we get $\cosh u$, so $\cosh \sqrt{x}$. Thus
+  option (D) is the right choice.
+
+  {\em Performance review}: $1$ out of $11$ got this correct. $6$
+  chose (C) and $4$ chose (B).
+
+  {\em Historical note (last year)}: $12$ out of $26$ people got this
+  correct. $5$ each chose (A) and (C), $3$ chose (B), and $1$ chose
+  (E).
+\item Consider the function $f(x) := \sum_{k=0}^\infty
+  x^k/2^{k^2}$. The power series converges everywhere, so $f$ is a
+  globally analytic function. What is the best description of the
+  manner in which $f$ grows as $x \to \infty$?
+
+  \begin{enumerate}[(A)]
+  \item $f$ grows polynomially in $x$.
+  \item $f$ grows faster than any polynomial function but slower than
+    any exponential function of $x$.
+  \item $f$ grows like an exponential function of $x$.
+  \item $f$ grows faster than any exponential function but slower than
+    any doubly exponential function of $x$.
+  \item $f$ grows like a doubly exponential function of $x$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Note that {\em any} power series wiht infinitely
+  many positive coefficients must grow faster than a polynomial,
+  which, after all, has finite degree.
+
+  The rough reason that growth is strictly slower than an exponential
+  function is that the denominators are growing much faster than
+  $k!$. Recall that if the denominators are $k!$, we get precisely the
+  exponential function. This can be made more precise.
+
+  {\em Performance review}: $5$ out of $11$ got this correct. $4$
+  chose (D), $1$ each chose (A) and (C).
+
+  {\em Historical note (last year)}: $12$ out of $26$ people got this
+  correct. $6$ chose (D), $4$ chose (C), $2$ each chose (A) and (E).
+\end{enumerate}
+
+\end{document}

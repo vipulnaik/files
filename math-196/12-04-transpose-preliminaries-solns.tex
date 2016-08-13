@@ -1,0 +1,332 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Wednesday December 4: Matrix transpose: Preliminaries}
+\author{Math 196, Section 57 (Vipul Naik)}
+
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+25 people took this 7-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of 4: 4 people
+\item Score of 5: 5 people
+\item Score of 6: 4 people
+\item Score of 7: 12 people
+\end{itemize}
+
+The mean score was 5.96.
+
+The question-wise answers and performance review were as follows:
+
+\begin{enumerate}
+\item Option (A): 25 people (everybody)
+\item Option (D): 25 people (everybody)
+\item Option (A): 23 people
+\item Option (C): 22 people
+\item Option (A): 18 people
+\item Option (D): 18 people
+\item Option (A): 18 people
+\end{enumerate}
+
+\section{Solutions}
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+The following questions are related to material from parts of Chapter
+5 that we are glossing over. You do not need to read that chapter,
+because we are using a very limited part of it in a very limited
+fashion and we've included all relevant definitions in the
+quiz. However, if you want to understand some of the constructs in
+more detail, please do read the chapter.
+
+{\em Note}: Due to limited class time, I'm making this a take-home
+class quiz, but in an ideal world, this would have been a diagnostic
+in-class quiz.
+
+For a $n \times m$ matrix $A$, denote by $A^T$ (spoken as {\em
+  $A$-transposed} and called the {\em transpose of $A$}) the $m \times
+n$ matrix whose $(ij)^{th}$ entry is defined as the $(ji)^{th}$ entry
+of $A$. In other words, the roles of rows and columns are interchanged
+when we transition from $A$ to $A^T$. The ${}^T$ should not be
+interpreted as an exponent letter. Note that whereas $A$ describes a
+linear transformation from $\R^m$ to $\R^n$, $A^T$ describes a linear
+transformation from $\R^n$ to $\R^m$. Note, however, that although the
+domain and co-domain for $A$ and $A^T$ are interchanged with each
+other, $A$ and $A^T$ are not in general inverses of each other.
+
+
+\begin{enumerate}
+\item Suppose $A$ is a $n \times m$ matrix and $A^T$ is the tranpose
+  of $A$. Under what conditions does the sum $A + A^T$ make sense
+  (i.e., exist as a matrix)?
+
+  \begin{enumerate}[(A)]
+  \item $A + A^T$ makes sense if and only if $m = n$.
+  \item $A + A^T$ makes sense if and only if $m < n$.
+  \item $A + A^T$ makes sense if and only if $m > n$.
+  \item $A + A^T$ makes sense regardless of whether $m = n$, $m < n$,
+    or $m > n$.
+  \end{enumerate} 
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: $A$ is a $n \times m$ matrix whereas $A^T$ is a
+  $m \times n$ matrix. We know that $A + A^T$ makes sense if and only
+  if $A$ and $A^T$ have the same number of rows and also have the same
+  number of columns. Both of these conditions are equivalent to
+  requiring that $m = n$.
+
+  {\em Performance review}: All 25 got this correct.
+
+\item Suppose $A$ is a $n \times m$ matrix and $A^T$ is the transpose
+  of $A$. Under what conditions does the product $AA^T$ make sense
+  (i.e., exist as a matrix)?
+
+  \begin{enumerate}[(A)]
+  \item $AA^T$ makes sense if and only if $m = n$.
+  \item $AA^T$ makes sense if and only if $m < n$.
+  \item $AA^T$ makes sense if and only if $m > n$.
+  \item $AA^T$ makes sense regardless of whether $m = n$, $m < n$,
+    or $m > n$.
+  \end{enumerate} 
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: $A$ is a $n \times m$ matrix and $A^T$ is a $m
+  \times n$ matrix. The product $AA^T$ makes sense because the number
+  of columns in $A$ equals the number of rows in $A^T$, so the product
+  $AA^T$ is a $n \times n$ matrix.
+
+  {\em Performance review}: All 25 got this correct.
+
+\item Suppose $A$ is a $n \times m$ matrix and $A^T$ is the transpose
+  of $A$. Under what conditions do both $AA^T$ and $A^TA$ exist {\em
+    and} have the same number of rows as each other and the same
+  number of columns as each other (note that they still need not be
+  equal)?
+
+  \begin{enumerate}[(A)]
+  \item This happens if and only if $m = n$.
+  \item This happens if and only if $m < n$.
+  \item This happens if and only if $m > n$.
+  \item This happens always, regardless of whether $m = n$, $m < n$,
+    or $m > n$.
+  \end{enumerate} 
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: The product $AA^T$ is a $n \times n$ matrix (see
+  the explanation for Question 2). For similar reasons, the product
+  $A^TA$ is a $m \times m$ matrix. These have the same size if and
+  only if $m = n$.
+
+  {\em Performance review}: 23 out of 25 got this. 2 chose (D).
+
+\item Suppose $A$ is a $n \times n$ matrix such that $A^T =
+  A^{-1}$. We describe this condition by saying that $A$ is an {\em
+    orthogonal} $n \times n$ matrix. Which of the following is a
+  correct characterization of a matrix being orthogonal? Please see
+  Option (C) before answering, and select the option that best
+  reflects your view.
+
+  \begin{enumerate}[(A)]
+  \item Every row vector of $A$ is a unit vector, and any two distinct
+    rows of $A$ are orthogonal.
+  \item Every column vector of $A$ is a unit vector, and any two
+    distinct columns of $A$ are orthogonal.
+  \item Both of the above work, i.e., they are equivalent to each
+    other and to the condition that $A^T = A^{-1}$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The condition that $A^T = A^{-1}$ can be
+  interpreted in two equivalent ways: $AA^T = I_n$ and $A^TA = I_n$.
+
+  With the $AA^T = I_n$ interpretation, we see that the dot product of
+  each row of $A$ with the corresponding column of $A^T$ is $1$, and
+  the dot product of each row of $A$ with a different column of $A^T$
+  is $0$. Since the ``corresponding column of $A^T$'' agrees with the
+  original row of $A$, we obtain that the dot product of each row of
+  $A$ with itself is $1$ (i.e., each row of $A$ is a unit vector) and
+  the dot product of any two distinct rows of $A$ is $0$, i.e., any
+  two distinct rows of $A$ are orthogonal.
+
+  With the $A^TA = I_n$ interpretation, we obtain the analogous result
+  for columns, because we are now dealing with dot products between
+  rows of $A^T$ and columns of $A$.
+
+  {\em Performance review}: 22 out of 25 got this. 2 chose (B), 1 chose (A).
+
+  \vspace{0.5in}
+
+  A square matrix $A$ is termed {\em symmetric} if $A = A^T$ and {\em
+    skew-symmetric} if $A = -A^T$. 
+
+  The following facts are true and can be easily verified:
+
+  \begin{itemize}
+  \item Suppose $A$ and $B$ are matrices such that $A + B$ makes
+    sense. Then, $(A + B)^T = A^T + B^T$.
+  \item Suppose $A$ and $B$ are matrices such that $AB$ makes
+    sense. Then, $(AB)^T = B^TA^T$. Note that the order of
+    multiplication flips over. The rule is similar to the rule for
+    inverses, even though the transpose is {\em not} the same as the
+    inverse.
+  \item For any matrix $A$, $(A^T)^T = A$.
+  \end{itemize}
+
+\item Suppose $A$ is a matrix. What can we say that the nature of the
+  matrices $A + A^T$ and $AA^T$?
+
+  \begin{enumerate}[(A)]
+  \item $A + A^T$ is symmetric if it makes sense. $AA^T$ is symmetric
+    if it makes sense.
+  \item $A + A^T$ is symmetric if it makes sense. $AA^T$ is
+    skew-symmetric if it makes sense.
+  \item $A + A^T$ is skew-symmetric if it makes sense. $AA^T$ is
+    symmetric if it makes sense.
+  \item $A + A^T$ is skew-symmetric if it makes sense. $AA^T$ is
+    skew-symmetric if it makes sense.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: For the sum: $(A + A^T)^T = A^T + (A^T)^T = A^T +
+  A = A + A^T$. We use that $(A^T)^T = A$ while simplifying.
+
+  For the product: $(AA^T)^T = (A^T)^TA^T$ (we use the rule for
+  transpose of a product). This simplifies to $AA^T$ using the fact
+  that $(A^T)^T = A$.
+
+  {\em Performance review}: 18 out of 25 got this. 5 chose (B), 2 chose (C).
+
+\item Suppose $n$ is a positive integer. Consider the vector space
+  $\R^{n \times n}$ of $n \times n$ matrices. The subset comprising
+  symmetric matrices is a linear subspace and the subset comprising
+  skew-symmetric matrices is also a linear subspace. The subset
+  comprising diagonal matrices is also a linear subspace. Which of the
+  following best describes the containment relation between the
+  subspaces of diagonal matrices, symmetric matrices, and
+  skew-symmetric matrices?
+
+  \begin{enumerate}[(A)]
+  \item The subspace comprising all diagonal matrices is contained in
+    the subspace comprising all skew-symmetric matrices, which in turn
+    is contained in the subspace comprising all symmetric matrices.
+  \item The subspace comprising all diagonal matrices is contained
+    both in the subspace comprising all skew-symmetric matrices and in
+    the subspace comprising all symmetric matrices. However, neither
+    of the two latter subspaces is contained in the other.
+  \item The subspace comprising all diagonal matrices is contained in
+    the subspace comprising all skew-symmetric matrices, but neither
+    of these subspaces is contained in the subspace comprising all
+    symmetric matrices.
+  \item The subspace comprising all diagonal matrices is contained in
+    the subspace comprising all symmetric matrices, but neither
+    of these subspaces is contained in the subspace comprising all
+    skew-symmetric matrices.
+  \item None of the three subspaces is fully contained in any of the
+    others.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: The subspace of diagonal matrices is contained in
+  the subspace of skew-symmetric matrices, because any diagonal matrix
+  is symmetric. This can easily be seen by looking at such a
+  matrix. In the $2 \times 2$ case, a diagonal matrix is a matrix of
+  the form:
+
+  $$\left[\begin{matrix} a_{11} & 0 \\ 0 & a_{22} \\\end{matrix}\right]$$
+
+  Clearly, such a matrix equals its own transpose.
+
+  On the other hand, the {\em only} symmetric matrix that is also
+  skew-symmetric is the zero matrix. Explicitly, if $A$ is a matrix
+  satisfying both the conditions $A = A^T$ and $A + A^T = 0$, then we
+  get $2A = 0$, hence $A = 0$. In particular, this also means that the
+  only {\em diagonal} matrix that is skew-symmetric is the zero
+  matrix. Thus, the space of diagonal matrices is not contained in the
+  space of skew-symmetric matrices.
+
+  {\em Performance review}: 18 out of 25 got this. 2 each chose (B),
+  (C), and (E), 1 chose (A).
+
+\item Suppose $n$ is a positive integer. Consider the vector space
+  $\R^{n \times n}$ of $n \times n$ matrices. This vector space has
+  dimension $n \times n = n^2$. What are the respective dimensions of
+  the subspaces comprising symmetric and skew-symmetric matrices? {\em
+    Hint}: Try the case $n = 1$ and then the case $n = 2$. In both
+  cases, try to write down an explicit basis for each of the
+  subspaces. You might want to revisit the preceding question in light
+  of your improved understanding after solving this question.
+
+  \begin{enumerate}[(A)]
+  \item The subspace comprising all symmetric matrices has dimension
+    $n(n + 1)/2$ and the subspace comprising all skew-symmetric
+    matrices has dimension $n(n - 1)/2$.
+  \item The subspace comprising all symmetric matrices has dimension
+    $n(n - 1)/2$ and the subspace comprising all skew-symmetric
+    matrices has dimension $n(n + 1)/2$.
+  \item Both subspaces have dimension $n^2/2$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: For a symmetric matrix $A$, we can freely choose
+  all the diagonal entries (this gives $n$ dimensions) and for each
+  pair $i \ne j$ of distinct elements of $\{ 1,2,\dots,n \}$, we can
+  choose the entry $a_{ij} = a_{ji}$. There are $(n^2 - n)/2$
+  dimensions arising from the latter choices. The total number of
+  choices we have is therefore $n + (n^2 - n)/2 = n(n+1)/2$.
+
+  In the skew-symmetric case, the diagonal entries all need to be
+  zero. For each pair $i \ne j$ of distinct elements of $\{
+  1,2,\dots,n\}$, we can choose the entry $a_{ij} = -a_{ji}$. There
+  are $(n^2 - n)/2 = n(n - 1)/2$ such choices.
+
+  In the $1 \times 1$ case, all matrices are symmetric and only the
+  zero matrix is skew-symmetric. This agrees with our counts: the
+  dimension of the subspace of symmetric matrices is $n(n+1)/2 = 1(1 +
+  1)/2 = 1$ (as it should be, because that's the dimension of the
+  whole space) and the dimension of the subspace of skew-symmetric
+  matrices is $n(n-1)/2 = 1(1-1)/2 = 0$ (as it should be, because
+  that's the dimension of the zero subspace).
+
+  In the $2 \times 2$ case, the following matrices form a basis for
+  the subspace of symmetric matrices (the basis has size $2(2+1)/2 =
+  3$):
+
+  $$\left[ \begin{matrix} 1 & 0 \\ 0 & 0 \\\end{matrix}\right], \left[\begin{matrix} 0 & 0 \\ 0 & 1 \\\end{matrix}\right], \left[\begin{matrix} 0 & 1 \\ 1 & 0 \\\end{matrix}\right]$$
+
+  The subspace of skew-symmetric matrices has dimension $2(2-1)/2 = 1$
+  and has a basis given by the following matrix:
+
+  $$\left[ \begin{matrix} 0 & 1 \\ -1 & 0 \\\end{matrix}\right]$$
+
+  In the $3 \times 3$ case, the following matrices form a basis for
+  the subspace of symmetric matrices (there are $3(3 + 1)/2 = 6$ of them):
+
+  $$\left[ \begin{matrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \\\end{matrix}\right], \left[ \begin{matrix} 0 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \\\end{matrix}\right], \left[ \begin{matrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \\\end{matrix}\right]$$
+
+  $$\left[\begin{matrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 \\\end{matrix}\right], \left[\begin{matrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \\\end{matrix}\right], \left[\begin{matrix} 0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \\\end{matrix}\right]$$
+
+  The following matrices form a basis for the subspace of
+  skew-symmetric matrices (there are $3(3 - 1)/2 = 3$ of them):
+
+  $$\left[ \begin{matrix} 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 0 \\\end{matrix}\right], \left[\begin{matrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ -1 & 0 & 0 \\\end{matrix}\right], \left[\begin{matrix} 0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & -1 & 0 \\\end{matrix}\right]$$
+
+  {\em Performance review}: 18 out of 25 got this. 5 chose (B), 2 chose (C).
+
+\end{enumerate}
+\end{document}

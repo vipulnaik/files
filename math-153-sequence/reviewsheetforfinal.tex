@@ -1,0 +1,807 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Review sheet for final}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf To maximize efficiency, please bring a copy (print or readable
+electronic) of this review sheet AND the previous review sheet to the
+review session.}
+
+This review sheet does {\em not} repeat review of material in the
+midterm 1 or midterm 2 syllabus, although there is some coverage of
+ideas introduced earlier that have been expanded upon more
+recently. So, please go through the midterm 1 and midterm 2 review
+sheets as well.
+
+{\bf New feature}: This review sheet has ``Cautionary notes'' and
+``Error-spotting exercises.'' The error-spotting exercises include
+lists of erroneous statements that may be found in student
+answers. Your task is to identify all errors in these statements.
+\section{Series and convergence}
+
+Words ...
+
+\begin{enumerate}
+\item {\em Not for discussion}: The $\sum$ summation notation is used
+  to compactly express a sum of many (finitely or infinitely many)
+  terms. The terms of the summation are called {\em summands} and the
+  variable that changes value across summands is termed the {\em
+  variable of summation} or {\em index of summation}, and is a {\em
+  dummy variable}. Some variants include: (i) writing the start of
+  summation at the bottom and the end of summation at the top, (ii)
+  writing the set constraint at the bottom, (iii) doing (i) or (ii)
+  but omitting the index of summation.
+\item The infinite sum $\sum_{k=1}^\infty f(k)$ is defined as the
+  limit $\lim_{n \to \infty} \sum_{k=1}^n f(k)$. The sums
+  $\sum_{k=1}^n f(k)$ are termed the {\em partial sums}. We use the
+  term {\em series} for a sequence to be summed up. The sum of a
+  series is the limit of the sequence of partial sums. The summands
+  are called the {\em terms} of the series.
+\item For a series of nonnegative terms, the sum is independent of the
+  ordering of the terms. It can also be determined by grouping
+  together the terms in any manner whatsoever. Thus, sums of
+  nonnegative terms are commutative and associative in a strong sense.
+\item Summation is linear: it is additive and scalar multiples can be
+  pulled out. In other words, $\sum (f(k) + g(k)) = \sum f(k) + \sum
+  g(k)$. On the other hand, summation is {\em not} multiplicative. In
+  other words, $\sum f(k)g(k)$ is not the same thing as $(\sum
+  f(k))(\sum g(k))$.
+\item If $g = \Delta f$ where $\Delta$ is the forward difference
+  operator, then $\sum_{k=a}^b g(k) = f(b + 1) - f(a)$. This has a
+  more general version called telescoping. Telescoping can be thought
+  of as the discrete analogue of the fundamental theorem of calculus.
+\item There are four kinds of things we can do concretely for a series
+  of nonnegative terms: (i) show that the series diverges, (ii) show
+  that the series converges, and find its sum, (iii) show that the
+  series converges, and find bounds on its sum, without finding an
+  explicit summation-free expression for the sum, (iv) show that the
+  series converges, without any explicit bounds on its sum.
+\item A series of nonnegative terms converges to the least upper bound
+  of its sequence of partial sums. Note that the sequence of partial
+  sums is a non-decreasing sequence precisely because the terms of the
+  series (i.e., the summands) are nonnegative.
+\item If a series of (possibly mixed sign) terms converges, the
+  magnitudes of the terms must go to $0$. The contrapositive is that
+  if the terms of a series do not go to $0$, the series does not
+  converge. This establishes a {\em necessary but not sufficient
+  condition} for the convergence of a series. {\em Note that we are
+  talking about the terms here, not the partial sums. Also, the terms
+  going to zero does not directly say anything about the value of the
+  sum of the series.}
+\item Left shifts and/or changing finitely many terms does not change
+  the convergence of a series though it may change the value of the
+  sum of the series. This result holds for a series with mixed sign
+  terms.
+\item A geometric series is a series where the quotient of successive
+  terms is constant. The constant (successor term over current term)
+  is termed the {\em common ratio}. A geometric series of possibly
+  mixed sign terms converges if and only if the common ratio has
+  absolute value strictly less than $1$. If the first term is $a$ and
+  the common ratio is $r$, the geometric series converges to $a/(1 -
+  r)$.
+\item The sum of a {\em finite} segment of a geometric series with $n$
+  terms, first term $a$, and common ratio $r$, is $a(1 - r^n)/(1 - r)$
+  if $r \ne 1$, and $na$ if $r = 1$.
+\item The integral test gives both a computational estimate for the
+  sum of a series and a conditional test for whether the series
+  converges. In particular, it states that for a (eventually)
+  nonnegative, (eventually) continuous, (eventually) decreasing
+  function, the integral is finite if and only if the sum is. (See the
+  class notes for the details on the computational estimate; the book
+  concentrates on the conditionality aspect).
+\item The basic comparison test states that if $0 \le a_k \le b_k$ for
+  all sufficiently large $k$, and $\sum b_k$ converges, so does $\sum
+  a_k$. Similarly, if $\sum a_k$ diverges, so does $\sum b_k$.
+\item The limit comparison test states that if $\lim_{k \to \infty}
+  a_k/b_k$ is finite and positive, then both series have the same
+  convergence/divergence behavior.
+\item For $p > 0$, consider the $p$-series $\sum_{k=1}^\infty
+  k^{-p}$. This series diverges for $p \le 1$ and converges for $p >
+  1$. We define the zeta function $\zeta(p)$ as the sum of the
+  series. We note that $\max \{ 1, 1/(p-1) \} \le \zeta(p) \le
+  p/(p-1)$ for all $p$, by the integral test. [Review how this is
+  derived]. $\zeta$ is a continuous decreasing function on
+  $(1,\infty)$ with $\lim_{p \to 1^+} \zeta(p) = \infty$ and $\lim_{p
+  \to \infty} \zeta(p) = 1$. Also, $\zeta(2) = \pi^2/6$ and $\zeta(4)
+  = \pi^4/90$. [Note: We have {\em not} seen how to derive these values.]
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item Telescoping is a powerful tool. It allows us to use partial
+  fractions to sum up various kinds of sums with quadratic
+  denominatorics. In particular, if $g(k) = f(k) - f(k + m)$, with
+  $f(k) \to 0$ as $n \to \infty$, them $\sum g(k) = f(1) + f(2) +
+  \dots + f(m)$.
+\item We can also use the known formulas for summing up $\sum 1$,
+  $\sum k$, $\sum k^2$ and $\sum k^3$ along with linearity to
+  calculate summations where the summands are polynomials of degree at
+  most $3$ in $k$.
+\item We can sum up an {\em eventually} geometric series by summing up
+  the eventual geometric part of the series and separately handling
+  the first few anomalous terms. {\em It often happens in real world
+  series that the series is eventually geometric but the first few
+  terms are anomalous. This is due to boundary effects/startup
+  issues.} [For instance, the bouncing ball distance traveled problem.]
+\item For a series with alternating common ratios, we can sum up by
+  splitting into two geometric series. (see example from class notes).
+\item The geometric series can be interpreted as an expansion for $1/(1 - x)$:
+
+  $$\frac{1}{1 - x} = 1 + x + x^2 + \dots, |x| < 1$$
+
+  As we see later, this is the Taylor series for the function $1/(1 - x)$.
+\item As a corollary of the convergence results on $p$-series and the
+  basic comparison test, we have the following rule: for a rational
+  function $f$, the series $\sum f(k)$ converges if the degree of the
+  denominator exceeds the degree of the numerator by at least $2$, and
+  diverges otherwise.
+\item More generally, for series involving polynomial-like things, if
+  the degree of the denominator (possibly fractional) exceeds the
+  degree of the numerator by something strictly greater than $1$, the
+  series converges, otherwise it diverges.
+\item Things get a little trickier when $\ln k$ appears in the
+  terms. $\ln$ can be thought of as being a polynomial in $k$ of
+  degree $0^+$ -- slightly greater than $0$ but less than any positive
+  number. If, in the given setup, the degree of the denominator minus
+  the degree of the numerator is strictly less than $1$, $1^-$ or $1$,
+  the series diverges. If it is strictly greater than $1$, the series
+  converges. If it is $1^+$, then the situation is indeterminate, and
+  we may need to use the integral test. For instance, $\sum (\ln k)/k$
+  clearly diverges, because the difference is $1^-$. On the other hand
+  $\sum 1/(k \ln (k+1))$ and $1/(k[(\ln k)^2 + 1])$ are ambigious,
+  because we get $1^+$ in both cases. In fact, the series diverges in
+  the former case and converges in the latter case, as we can see
+  using the integral test.
+\item $\sin$ and $\cos$ are bounded between $-1$ and $1$, and this,
+  along with the basic comparison test, can often be used to ascertain
+  behavior about these functions. For instance, consider $\sum (2 +
+  \sin k)/k^2$.
+\end{enumerate}
+
+Cautionary notes ...
+
+\begin{enumerate}
+\item {\em Where you start -- it matters}: In some cases, we index the
+  terms of a series with labels starting from $0$ rather than
+  $1$. This is most customarily done when dealing with power series,
+  but is also something done in other contexts. {\em Please be careful
+  when writing expressions for the general term whether the term
+  labels begin at $0$ or $1$}.
+\item {\em Start late to determine convergence}: If you are asked to
+  judge whether a series converges, but are not told a starting point,
+  then always start with a large enough starting point so that the
+  terms beyond that are well defined. For instance, if dealing with
+  $1/(k\ln(k - 1))$, you need to start from $k = 3$. Note that even if
+  you start later than the absolute earliest possible starting point,
+  this will not affect the conclusion on convergence.
+\item {\em Use the correct letter}: When writing the general expression
+  for the term of a series (or sequence) please {\em use the same
+  letter} as the subscript for the general term. If the general term
+  is written as $a_k$, then you should write it as a function of $k$,
+  not of some other variable.
+\item {\em Dummy variable cannot appear outside}: The sum of a series
+  whose terms are indexed by $k$ {\em cannot} have a $k$ in it,
+  because $k$, the {\em index of summation}, is a {\em dummy
+  variable}.
+\item {\em Keep distinction between terms and partial sums clear}: The
+  sum of a series is the limit of the partial sums. When talking of
+  the {\em terms} of a series $\sum a_k$, simply write $a_k$, do {\em
+  not} write $\sum a_k$. The partial sum $s_n = \sum_{k=1}^n a_k$ is
+  not the same thing as a term of the series.
+\end{enumerate}
+
+Error-spotting exercises (be more nitpicky than ever before -- find
+all the errors)...
+
+\begin{enumerate}
+\item {\em Horribly wrong}: The sum $\sum_{k=0}^\infty 1/k^2$
+  converges. One way of seeing this is that when $k = \infty$, $1/k^2
+  = 1/\infty^2 = 0$. Hence, we know that the terms approach $0$. We
+  know that for a series to converge, the terms must go to
+  zero. Hence, the terms go to zero. Hence, the series converges.
+\item {\em Somewhat wrong}: The sum $\sum_{k=1}^\infty 1/x^2$
+  converges. One way of seeing this is to use the integral test. We
+  know that $1/x^2$ is a nonnegative continuous decreasing function of
+  $x$. So we can apply the integral test to it, and we get:
+
+  $$\sum_{k=1}^\infty 1/x^2 = \int_1^\infty dx/x^2 = -1/\infty - (-1/1) = 1$$
+
+  So the sum is $1$, which is a finite number.
+\item {\em Horribly wrong}: The sum $\sum_{k=0}^\infty 1/(k^3 + k^2)$
+  converges, because as we all know:
+
+  $$\sum_{k=0}^\infty \frac{1}{k^3 + k^2} = \sum_{k=0}^\infty \frac{1}{k^3} + \sum_{k=0}^\infty \frac{1}{k^2}$$
+
+  The sum on the right side converges.
+\end{enumerate}
+
+\section{Root and ratio tests}
+
+Words ...
+
+\begin{enumerate}
+\item {\em Not for discussion}: A geometric series with common ratio
+  less than $1$ is a discrete analogue of exponential decay. A
+  geometric series with common ratio greater than $1$ is a discrete
+  analogue of exponential growth. The common ratio of the geometric
+  series is a parameter controlling growth, just as the constant
+  $k$ controls growth in $e^{kx}$.
+\item If a series of nonnegative terms is eventually bounded from
+  above by a geometric series with common ratio less than $1$, then
+  the series converges. This is the idea behind both the root test and
+  the ratio test.
+\item The root test for a nonnegative series $\sum a_k$ looks at the
+  limit $\lim_{k \to \infty} a_k^{1/k}$. If this limit is less than
+  $1$, the root test tells us that the series converges. If the limit
+  is greater than $1$, the series diverges. If the limit equals $1$,
+  the root test is indecisive (i.e., the series may converge or it may
+  diverge).
+\item The ratio test for a nonnegative series $\sum a_k$ looks at the
+  limit $\lim_{k \to \infty} a_{k+1}/a_k$. If this limit is less than
+  $1$, the series converges. If the limit is greater than $1$, the
+  series diverges. If the limit equals $1$, the ratio test is
+  indecisive (i.e., the series may converge or it may diverge).
+\item Here is a slight modification of the root test: if $a_k^{1/k}$
+  is greater than $1$ for infinitely many $k$, the series
+  diverges. This is for the simple reason that the terms cannot go to
+  $0$. On the other hand, if the sequence $a_k^{1/k}$ is {\em
+  eventually bounded away from and below $1$} (i.e., bounded from
+  above by a number strictly less than $1$) then the series
+  converges. The inconclusive case is thus where the sequence does
+  eventually get below $1$ but cannot be bounded away from $1$ (i.e.,
+  it has terms arbitrarily close to $1$).
+\item Here is a slight modification of the ratio test: if
+  $a_{k+1}/a_k$ approaches $1$ from the right, or, more generally, if
+  it is $\ge 1$ for all sufficiently large $k$, the series
+  diverges. This is because the terms do not go to $0$. On the other
+  hand, if $a_{k+1}/a_k$ is bounded away from and bleow $1$, the
+  series converges. The inconclusive case is where the series comes
+  really close to or overshoots $1$ infinitely often.
+\item The root test is stronger than the ratio test. The reason is
+  that the ratio test is highly sensitive to the precise orderings of
+  the terms, while the root test can handle small permutations. [An
+  example of this is in one of the advanced homework problems. Please
+  look it up to refresh your memory.]
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item The root test is more useful for power functions.
+\item The ratio test is more useful for factorials.
+\item For rational functions and for $p$-series, both tests are
+  indecisive (the limit becomes $1$), and we fall back on the rule
+  covered earlier about the difference of degrees of numerator and
+  denominator.
+\item In some cases, it is somewhat more convenient to massage the
+  series a little before applying the root and ratio tests. As long as
+  this massaging does not change the property of whether or not the
+  series converges, that is perfectly fine.
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item We can use the root test to show that $\sum_{k=1}^\infty 1/k^2$
+  is convergent as follows. The $k^{th}$ root of the $k^{th}$ term is
+  $(1/k)^{2/k}$. As $k \to \infty$, $1/k \to 0^+$, so $(1/k)^{2/k} \to
+  0$. Hence, the root test applies and the series converges.
+\item By the ratio test, we can show that $\sum_{k=1}^\infty 1/k^2$
+  converges as follows. The ratio of the $(k+1)^{th}$ term to the
+  $k^{th}$ term is $k^2/(k + 1)^2$. This is clearly less than $1$. By
+  the ratio test, since the ratio is less than $1$, the series
+  converges.
+\end{enumerate}
+
+\section{Absolute and conditional convergence}
+
+Words ...
+
+\begin{enumerate}
+\item {\em Not for discussion}: When discussing the convergence of a
+  series, we can throw out all the terms that are zero.
+\item {\em Not for discussion}: A series $\sum a_k$ is termed {\em
+  absolutely convergent} if the series $\sum |a_k|$ converges. Note
+  that for a series of nonnegative terms, being absolutely convergent
+  is equivalent to being convergent.
+\item Suppose a series $\sum a_k$ is absolutely convergent. Then, the
+  positive terms converge (say, to $P$) and the negative terms
+  converge (say, to $N$). Moreover, $\sum a_k$ is the sum $P + N$, and
+  $\sum |a_k| = |P| + |N|$.
+\item If a series is absolutely convergent, then it is convergent and
+  {\em every rearrangement} of the series converges to the same sum.
+\item If a series is not absolutely convergent but is convergent, it
+  is termed {\em conditionally convergent}, and the positive terms add
+  up to $+\infty$, the negative terms add up to $-\infty$, and both
+  the positive terms and the negative terms go to $0$.
+\item The Riemann series rearrangement theorem states that a series
+  that is conditionally convergent but not absolutely convergent can
+  be rearranged to give any real number as its sum. It can also be
+  rearranged to give a sum of $+\infty$ and it can also be rearranged
+  to give a sum of $-\infty$. It can also be rearranged so that the
+  sequence of partial sums oscillates between any two fixed
+  locations. [Recall that you heard some non-symbolic, purely didactic
+  reasoning for this in class. Please review this reasoning from the
+  class notes.]
+\item The alternating series theorem states that a series whose terms
+  have alternating signs, and have magnitudes {\em monotonically}
+  decreasing to zero, must converge. Moreover, the point to which the
+  series converges is the least upper bound of the decreasing sequence
+  of even-numbered partial sums and the greatest lower bound of the
+  increasing sequence of odd-numbered partial sums. [Recall the
+  interpretation of this in terms of jumping along the number line.]
+\item (Questions: What happens if the magnitudes go to zero but not
+  monotonically? What happens if the series is not alternating? What
+  happens if the magnitudes decrease monotonically but not to zero?)
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item Consider the series $\sum (-1)^k k^3/(k^2 + 1)$. We know that
+  the terms are alternating in sign. Hence, by the alternating series
+  theorem, the summation converges.
+\item Consider the series $1 - 1/2 + 1/3 - 1/4 + 1/5 - \dots$. We know
+  that the series converges by the alternating series theorem, and by
+  Abel's theorem, it converges to $\ln 2$. Suppose $A = 1 + 1/2 + 1/3
+  + 1/4 + \dots$. Then $A/2 = 1/2 + 1/4 + 1/6 + \dots$. Thus $A - A/2
+  = 1 + 1/3 + 1/5 + 1/7 + \dots$. So we get:
+
+  $$A/2 = 1 + 1/3 + 1/5 + 1/7 + \dots$$
+
+  We also had:
+
+  $$A/2 = 1/2 + 1/4 + 1/6 + 1/8 + \dots$$
+
+  Subtracting, we get:
+
+  $$0 = 1 - 1/2 + 1/3 - 1/4 + 1/5 - 1/6 + \dots$$
+
+  But we already noted that the sum is $\ln 2$. Thus, $0 = \ln 2$.
+\end{enumerate}
+
+\section{Taylor series}
+
+\subsection{Taylor series at $0$}
+
+Words ...
+
+\begin{enumerate}
+\item Suppose $f$ is a function defined and $n$ times differentiable
+  at $0$. Then, the $n^{th}$ Taylor polynomial of $f$ is:
+
+  $$P_n(x) = \sum_{k=0}^n f^{(k)}(0) \frac{x^k}{k!}$$
+
+\item The degree of the $n^{th}$ Taylor polynomial is $\le n$. Note
+  that it is exactly $n$ if and only if $f^{(n)}(0) \ne 0$.
+\item The number of nonzero terms in the $n^{th}$ Taylor polynomial is
+  at most $n + 1$, but it could be substantially less, depending on
+  how many of the $n + 1$ numbers $f(0)$, $f'(0)$, $\dots, f^{(n)}(0)$
+  are nonzero.
+\item For $m < n$, the $m^{th}$ Taylor polynomial is the truncation to
+  terms of degree $\le m$ of the $n^{th}$ Taylor polynomial.
+\item The Taylor series is the infinite sum:
+
+  $$\sum_{k=0}^\infty f^{(k)}(0) \frac{x^k}{k!}$$
+
+  The Taylor polynomials are thus truncations of the Taylor series.
+\item The Taylor series for $\exp$, $\sin$, $\cos$, $\sinh$, and
+  $\cosh$ are particularly easy to write down because the sequence of
+  derivatives of these functions is periodic, hence so is the sequence
+  of derivative values at $0$. [Review the formulas]
+\item The Taylor series of a polynomial is the same polynomial.
+\item For $\exp$, $\sin$, $\cos$, $\sinh$, $\cosh$, and polynomials,
+  the Taylor series converges to the function everywhere.
+\item The Taylor series for an even function has nonzero coefficients
+  only for even powers of $x$. In other words, the Taylor series for
+  an even function is an even power series. Similarly, the Taylor
+  series for an odd function has nonzero coefficients only for odd
+  powers of $x$.
+\item The Taylor series of the derivative is the derivative (via term
+  wise differentiation) of the Taylor series.
+\item The Taylor series operator is linear and multiplicative: the
+  Taylor series for $f + g$ is the sum of the Taylor series for $f$
+  and $g$, and the Taylor series for $f \cdot g$ is the product for
+  the Taylor series for $f$ and $g$. [Note: Multiplying two Taylor
+  series is a pain in general. Howveer, if one of the functions is a
+  polynomial, it is not too hard. For instance, $xe^x$, $x^2 \sin
+  (x^2)$, $(2x + 1)\cos x$]
+\item Suppose $g$ is a polynomial with zero constant term. Then, the
+  Taylor series for $f \circ g$ can be obtained by taking the Taylor
+  series for $f$, replacing $x$ by $g(x)$ throughout, and
+  simplifying. Consider, for instance, the Taylor series for
+  $\sin(x^2)$ and $e^{-x^2/2}$.
+\item The $n^{th}$ (Taylor) {\em remainder} $R_n$ for a function $f$
+  is defined as $f - P_n$, where $P_n$ is the $n^{th}$ Taylor
+  polynomial for $f$. Taylor's theorem states that if $f$ is at least
+  $(n + 1)$ times differentiable, the remainder $R_n$ is given by
+  $R_n(x) = \frac{1}{n!} \int_0^x f^{(n +1)}(t) (x - t)^n \, dt$.
+\item The Lagrange formula is a corollary of Taylor's theorem, and it
+  states that there exists $c$ between $0$ and $x$ such that $R_n(x) =
+  f^{(n + 1)}(c)x^{n+1}/(n + 1)!$. Here, $c$ between $0$ and $x$ means
+  $c \in [0,x]$ if $x > 0$ and $c \in [x,0]$ if $x < 0$.
+\item A further corollary of the Lagrange formula (that we call the
+  max-estimate here) states that $|R_n(x)|$ is at most $|x|^{n+1}/(n +
+  1)!$ times the maximum value of $|f^{(n + 1)}(t)|$ for $t$ between
+  $0$ and $x$.
+\item The max-estimate can be used to justify that the Taylor series
+  for $\exp$, $\sin$, and $\cos$ actually converge to the respective
+  functions. This is done by showing that for any $x \in \R$, we have
+  $\lim_{n \to \infty} R_n(x) = 0$.
+\item The zeroth Taylor polynomial for a function $f$ is the constant
+  function $f(0)$. The first Taylor polynomial is the constant/linear
+  function $f(0) + f'(0)x$. This describes the tangent line to the
+  function, and is the {\em best straight line approximation} to the
+  function locally around $0$. More generally, the $n^{th}$ Taylor
+  polynomial is the best approximation to the function around $0$
+  among the polnyomials of degree $\le n$.
+\end{enumerate}
+
+Error-spotting exercises:
+
+\begin{enumerate}
+\item The Taylor series for $\sin x$ is just $x$: The first derivative
+  of $\sin$ is $\cos$, the second derivative is $-\sin$. We see that
+  the second derivative of $\sin$ is $0$ at $0$. Differentiating $0$
+  further gives $0$, so all higher derivatives are also zero. So, the
+  Taylor series is just $P_1$, which is just the polynomial $x$.
+\item The Taylor series for $x^{34/3}$ is just the zero polynomial: We
+  know that all higher derivatives of $x^{34/3}$ are powers of $x$,
+  but since $34/3$ is not an integer, we never get to $x^0$, and hence
+  all the powers evaluated at $0$ give the value $0$. So the Taylor
+  series is just $0$.
+\item The Taylor polynomial $P_2$ for $e^x\sin x$ is the product of
+  the Taylor polynomials $P_2$ for $e^x$ and for $\sin x$.
+\end{enumerate}
+
+\subsection{Taylor series in $x - a$}
+
+It is an instructive exercise (and I urge you to do this) to translate
+all the statements about Taylor series around $0$ to the corresponding
+statements about Taylor series around an arbitrary $a \in \R$. In
+particular, see if you can correctly translate (pun intended) Taylor's
+theorem, the Lagrange formula, and its max-estimate corollary. We will
+go over this further in the review session.
+
+\section{Power series}
+
+Words ...
+
+\begin{enumerate}
+\item The objects of interest here are power series, which are series
+  of the form $\sum_{k=0}^\infty a_kx^k$. Note that for power series,
+  we start by default with $k = 0$. If the set of values of the index
+  of summation is not specified, assume that it starts from $0$ and
+  goes on to $\infty$. The exception is when the index of summation
+  occurs in the denominator, or some other such thing that forces us
+  to exclude $k = 0$.
+\item Also note that $x^0$ is shorthand for $1$. When
+  evaluating a power series at $0$, we simply get $a_0$. {\em We do
+  not actually do $0^0$}.
+\item If a power series converges for $c$, it converges absolutely for
+  all $|x| < |c|$. If a power series diverges for $c$, it diverges for
+  all $|x| > |c|$.
+\item Given a power series $\sum a_kx^k$, the set of values where it
+  converges is either $0$, or $\R$, or an interval that (apart from
+  the issue of inclusion of endpoints) is symmetric about $0$. In
+  particular, the interval could be of the following four forms:
+  $(-c,c)$, $[-c,c]$, $[-c,c)$, and $(-c,c]$. The radius of
+  convergence is $c$. Note that if the set of convergence is $\{ 0
+  \}$, we say that the radius of convergence is $0$, and if the power
+  series converges everywhere, we say that the radius of convergence
+  is $\infty$.
+\item Suppose a power series $\sum a_kx^k$ converges on an interval
+  $(-c,c)$ to a function $f$. Then, $f$ is infinitely differentiable
+  on $(-c,c)$ and the power series for $f'$ is obtained by
+  differentiating the power series for $f$. In fact, the radius of
+  convergence of the power series for $f'$ is precisely the same as
+  the radius of convergence of the power series for $f$. {\em On the
+  other hand, the interval of convergence may differ} -- the power
+  series for $f$ may converge at boundary points where the power
+  series for $f'$ does not. An example is $\arctan$, which has
+  interval of convergence $[-1,1]$, but whose derivative has interval
+  of convergence $(-1,1)$.
+\item Suppose a power series $\sum a_kx^k$ converges on an interval
+  $(-c,c)$ to a function $f$. Then, term wise integration of this
+  power series gives an antiderivative of $f$ on $(-c,c)$. In
+  particular, if we choose the power series with constant term $0$, we
+  get the unique antiderivative that takes the value $0$ at $0$.
+\item Abel's theorem states that if $\sum a_kx^k = f(x)$ on $(-c,c)$,
+  $f$ is left continuous at $c$, and $\sum a_kc^k$ exists, then $f(c)
+  = \sum a_kc^k$. Similarly, if $f$ is right continuous at $-c$, and
+  $\sum a_k(-c)^k$ exists, then $f(-c) = \sum a_k(-c)^k$.
+\item We can also consider power series centered at $a$: $\sum a_k (x
+  - a)^k$. Everything translates nicely.
+\end{enumerate}
+
+Deeper elaboration ...
+
+\begin{enumerate}
+\item We have two kinds of operators: one from functions to power
+  series (which involves taking the Taylor series) and the other from
+  power series to functions (which involves summing up). It turns out
+  that, if we start with a power series with a nonzero (possibly
+  infinite) radius of convergence, look at the function it converges
+  to, and take the Taylor series of that function, we retrieve the
+  original power series. {\em This follows from the differentiation
+  theorem stated above, which states that the derivative of a power
+  series converges to the derivative of the function that the power
+  series converges to.}
+\item On the other hand, it is possible to start with a function $f$
+  infinitely differentiable on $\R$, take the Taylor series, and have
+  the Taylor series converge to some function other than $f$. An
+  example is the function that is $e^{-1/x^2}$ for all $x \ne 0$ and
+  $0$ at $x = 0$. The function is infinitely differentiable everywhere
+  and all its derivatives at $0$ take the value $0$. Thus, its Taylor
+  series is $0$, which obviously converges to the zero function rather
+  than the specified function.
+\item It is also possible to have a function $f$ that is infinitely
+  differentiable on all of $\R$ such that the Taylor series of $f$
+  converges to $f$, but the radius of convergence of the Taylor series
+  is finite. More generally, it is possible that the interval of
+  convergence of the Taylor series is smaller than the domain of the
+  function. Two important examples in this direction are the $\arctan$
+  function (infinitely differentiable on all of $\R$ but interval of
+  convergence $[-1,1]$) and the function $\ln(1 + x)$ (infinitely
+  differentiable on $(-1,\infty)$ but interval of convergence $(-1,1]$).
+\item Call a function {\em globally analytic} if it is defined on all
+  of $\R$ and has a power series about $0$ that converges to the
+  function everywhere. Sine, cosine, the exponential function, and
+  polynomial functions are all globally analytic. Moreover, globally
+  analytic functions are closed under addition, subtraction,
+  multiplication, and composition.
+\item Call a function $C^\infty$ on $\R$ if it is defined and
+  infinitely differentiable on all of $\R$. The space of $C^\infty$
+  functions is closed under addition, subtraction, multiplication, and
+  composition. Moreover, any globally analytic function is
+  $C^\infty$. The converse is not true.
+\item A function is termed {\em analytic about $0$} if its Taylor
+  series converges to it on an interval of nonzero radius. Any
+  function that is analytic about $0$ is infinitely differentiable
+  ($C^\infty$) around $0$. However, the function may well be
+  $C^\infty$ on a bigger interval than the interval on which the
+  Taylor series converges.
+\item If $f$ and $g$ have Taylor series that both converge on $(-c,c)$
+  to the respective functions, the Taylor series for $f + g$ also
+  converges on $(-c,c)$ to it.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item We can consider functions in the following decreasing order of
+  the behavior as $x \to \infty$: double exponential (like $e^{e^x}$,
+  $e^{2^x}$), exponential in higher powers of $x$ ($e^{x^\lambda}$,
+  $\lambda > 1$), factorial ($x!$, $\Gamma(x)$, $x^x$), exponential
+  ($a^x$, $a > 1$), exponential in lower powers of $x$
+  ($e^{x^\lambda}$, $0 < \lambda < 1$), exponential in higher powers
+  of $\ln x$ ($e^{(\ln x)^\lambda}$, $\lambda > 1$), polynomial or
+  power functions of $x$ ($x^\lambda$, which we can again split into
+  cases based on whether $\lambda > 1$, $\lambda = 1$, or $0 < \lambda
+  < 1$), polynomials in $\ln x$, $\ln(\ln x)$, and so on down.
+\item There is often quite a bit of separation within each level of
+  the hierarchy (allowing for further stratification). Anything at a
+  higher level in the hierarchy beats anything at a lower level in the
+  hierarchy, so that the quotients tend to $\infty$ or $0$ depending
+  on which one is higher.
+\item The decay rates of the reciprocal functions mirror the growth
+  rates of the functions.
+\item We use the term {\em superexponential} for functions that grow
+  faster than exponential functions (for instance, $e^{e^x}$,
+  $e^{x^2}$, and $x!$), {\em exponential} for functions that grow
+  exponentially, and {\em subexponential} for functions that grow
+  smaller than exponential.
+\item In general, when adding, subtracting, and multiplying, the
+  larger one dominates. Division by a superexponential function leads
+  to superexponential decay.
+\item Consider a power series $\sum a_kx^k$. If the $a_k$ grow
+  superexponentially in $k$, then the series converges only at $0$. If
+  the $a_k$ decay superexponentially in $k$ (i.e., $1/a_k$ grow
+  superexponentially in $k$), then the series converges
+  everywhere. [Justify to yourself using the ratio and/or root test]
+\item For $\sum a_kx^k$, if the $a_k$ grow or decay exponentially,
+  then the radius of convergence is finite and nonzero, and equals
+  $\lim_{k \to \infty} 1/|a_k|^{1/k}$ -- in other words, the
+  reciprocal of the limiting common ratio of the $a_k$s. This is
+  because at exponential growth, the $a_k$s match the $x^k$s and can
+  affect the radius of convergence.
+\item For $\sum a_kx^k$, if the $a_k$ grow or decay subexponentially,
+  they have no effect on the radius of convergence -- it is still
+  $1$. More generally, if $a_k$ is the product of an exponential and a
+  subexponential function, only the exponential function affects the
+  radius of convergence. {\em The subexponential component does affect
+  whether the endpoints are included in the interval of convergence.}
+\item As regards endpoints, the following is a rough
+  statement. Consider $\sum a_kx^k$. If the $a_k$s are growing or
+  constant, the series diverges at $\pm 1$, so the interval of
+  convergence is $(-1,1)$. If the $a_k$s are decaying at a rate that
+  is linear or slower, then the series does not absolutely converge,
+  but it may conditionally converge at one or both ends due to the
+  alternating series theorem. If the $a_k$s are decaying at a rate
+  that is $k^{-\lambda}, \lambda > 1$, then the series converges at
+  both $+1$ and $-1$. Note that cases like $1/[k(1 + (\ln k)^2)]$ are
+  ambiguous, as discussed earlier.
+\item In particular, if $a_k = p(k)/q(k)$ where $p$ and $q$ are
+  polynomials, the following can be said: if the degree of $q$ is at
+  least $2$ greater than the degree of $p$, the interval of
+  convergence is $[-1,1]$. If the degree of $q$ is equal to or less
+  than the degree of $p$, the interval of convergence is $(-1,1)$. If
+  the degree of $q$ is exactly one more than the degree of $p$, the
+  interval of convergence is $[-1,1)$. Note that the endpoint included
+  may change under slight modifications of the situation, so you
+  should also be aware of the reasoning process that leads to this
+  conclusion. For instance, if there are only odd degree terms and
+  nonnegative coefficients, we do not get any alternating series and
+  the interval of convergence is $(-1,1)$. On the other hand, if there
+  are odd degree terms and alternating signs of coefficients among the
+  odd degree terms, then the alternating series theorem applies at
+  {\em both} ends $-1$ and $1$.
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{itemize}
+\item Consider the power series $\sum_{k=0}^\infty x^k/2^{k^2}$. The
+  radius of convergence for this is $\lim_{k \to \infty}
+  1/(1/(2^{k^2}))^{1/k}$, which is $2^k$. So, the power series has radius of
+  convergence $2^k$.
+\item Consider the power series $\sum_{k=0}^\infty 2^{2^k}x^k$. The
+  radius of convergence is $\lim_{k \to \infty} 1/(2^{2^k})^{1/k} =
+  1/2^2 = 1/4$.
+\item $\arctan$ is a function defined and infinitely differentiable on
+  all of $\R$. So, the Taylor series of $\arctan$ must have radius of
+  convergence equal to $\infty$.
+\end{itemize}
+\section{Summation techniques}
+
+\begin{enumerate}
+\item For finite sums involving polynomials of small degree, use
+  linearity and the formulas for summations of $1$, $k$, $k^2$, $k^3$.
+\item For reciprocals of quadratic functions, use partial fractions
+  and then look for telescoping when the quadratic can be
+  factorized. If the quadratic cannot be factorized but is a perfect
+  square, try to use $\zeta(2) = \pi^2/6$. If the quadratic has
+  negative discriminant, there is no closed form expression.
+\item In general, look for telescoping wherever you go. This includes
+  rational functions, logarithms (e.g., $\ln((k + 1)/k)$).
+\item Sometimes, for higher degree rational functions, you can combine
+  telescoping with known information about zeta functions.
+\item See if the summation is a geometric series in disguise, or
+  combines two or more geometric series and some possibly anomalous
+  terms.
+\item Sometimes, the summation is related to a geometric series via
+  integration or differentiation. For instance $\sum kx^k$ is related
+  to $\sum x^k$ via differentiation. Use the differentiation and
+  integration theorems to use these to get closed forms.
+\item In some cases, the summation is a known series such as that for
+  the exponential, sine, cosine, arc tangent or logarithm, with some
+  modifications: it might involve a sum or difference of two such
+  series, it might be arrived at by composing such a series with
+  $mx^n$, it might be arrived by multiplying such a series with
+  $mx^n$, it might be arrived at by integrating or differentiating
+  such a series.
+\item To identify these possibilities better, here are some
+  heuristics: factorials in denominator suggests exponentials or
+  sine/cosine, and the nature of sign alternation helps decide
+  which. Ordinary $k$ in the denominator suggests logarithm or arc
+  tangent, and the nature of sign alternation helps decide
+  which. [Exponential and logarithm have a sign periodicity of at most
+  $2$, while sine, cosine and arc tangent have a sign periodicity of
+  $4$].
+\end{enumerate}
+
+\section{Approximations all in one place}
+
+To make life easier for you, we list here the various approximation
+techniques used.
+
+\begin{enumerate}
+\item {\em Approximating a sum by an integral}: This is done using a
+  numerical version of the integral test. This allows us to
+  approximate the values of the zeta function. Please see the notes
+  for how this is done. Note that this gives both an upper bound and a
+  lower bound.
+\item {\em Approximating a function by Taylor polynomials}: For a
+  function that is globally analytic or analytic about a point, we can
+  approximate its value by Taylor polynomials. The higher the degree
+  we allow for the Taylor polynomial, the better the approximation in
+  general. The magnitude of possible error is determined using the
+  max-estimate version of the Lagrange formula. {\em It is important
+  to note that the error estimate could vary quite a bit from function
+  to function. Some power series converge more slowly than others}. A
+  good rule of thumb is that the more quickly the terms go to zero,
+  the fewer the number of terms we need to take to get a good
+  approximation.
+
+  In some cases, the Taylor approximation applies nicely only in a
+  small range. For instance, the Taylor series for $\sin$ converges to
+  $\sin$ globally, but the convergence is quick only for small values
+  of $x$. The Taylor series for $\arctan$ converges to it only on
+  $[-1,1]$. However, we can use various identities such as those
+  relating $\sin x$ and $\cos(\pi/2 - x)$ and those relating $\arctan
+  x$ and $\arctan(1/x)$ to reduce to the case of a rapidly converging
+  Taylor series.
+\item {\em Approximating an integral computation using Taylor
+  polynomials}: Even computing the value of plain vanilla functions
+  like $\sin$ at specific points requires the use of Taylor
+  series. Miraculously, we can do with Taylor series what we cannot
+  always do with functions -- integrate term wise. This allows us to
+  calculate definite integrals of globally and locally analytic
+  functions by first integrating the Taylor series term wise and then
+  using a Taylor polynomial approximation. Examples of functions that
+  cannot be integrated in the language of elementary functions, but
+  whose integrals can be computed to a fair degree of accuracy using
+  this approach, are $(\sin x)/x$, $(e^x - 1)/x$, $e^{-x^2}$,
+  $\sin(x^2)$, and similar functions.
+
+  Note that, at least for cases where the power series is easy to
+  write down, this approach is a lot less cumbersome than the approach
+  of using upper and lower sums.
+\item {\em Trying to find where a function is zero}, particularly when
+  there is no algebraic method to solve this: We use techniques like
+  the intermediate value theorem and the mean value theorem to show
+  the existence of zeros in certain intervals. We also use derivative
+  behavior and other techniques to further narrow down the intervals
+  under consideration.
+\end{enumerate}
+
+\section{Limit computations and order of zero}
+
+\begin{enumerate}
+\item Suppose $f$ is a function that has a zero at $a$. The order $r$
+  of the zero at $a$ is the least upper bound of the set of values
+  $\beta$ such that $\lim_{x \to a} |f(x)|/|x - a|^\beta = 0$. For
+  $\beta < r$, the limit is $0$. For $\beta > r$, the limit is
+  undefined ($\infty$-types).
+\item To simplify notation, we concentrate on the case where $a = 0$
+  (the location of $a$ does not matter, because we can always translate).
+\item If $f$ is infinitely differentiable at $0$ and takes the value
+  $0$ at $0$, the order of $f$ at $0$ is the smallest $n$ such that
+  $f^{(n)}(0) \ne 0$. Note that it is possible, but rare, for a
+  function to have a zero of order $\infty$ at $0$ (an example is the
+  $e^{-1/x^2}$ function). We ignore such examples.
+\item In particular, for an infinitely differentiable function that is
+  $0$ at $0$, the order of the zero (if finite) if always a positive
+  integer. Moreover, if the order is $r$, them $\lim_{x \to 0}
+  f(x)/x^r = f^{(r)}(0)/r!$, which is the corresponding Taylor
+  coefficient.
+\item This is particularly intuitive for analytic functions, because
+  if we replace a function by its Taylor series we readily see that
+  the order of its zero is the lowest order with nonzero
+  coefficient. We also see that the limit of the quotient by $x^r$ is
+  that coefficient.
+\item We can have a function with a zero at a point that has
+  fractional order, but the function cannot be infinitely
+  differentiable. For instance, consider $x^{p/q}$, where $p$ and $q$
+  are positive and $q$ is odd, with $q$ not dividing $p$. This is
+  differentiable $k$ times where $k$ is the greatest integer less than
+  $p/q$. On the other hand, the order of the zero is $p/q$, which is a
+  fraction. What happens is that we cannot differentiate the
+  $(k+1)^{th}$ time at $0$, since that exceeds the order.
+\item We can also have a situation of a function $f$ with zero of
+  order $r$ such that $\lim_{x \to \infty} f(x)/x^r$ is zero. Again,
+  however, $f$ cannot be infinitely differentiable. Examples include
+  $x/(\ln x)$, which has a zero order order $1$. Intuitively, the
+  order of the zero here is $1^+$. (Note that $\ln$ in the denominator
+  has a positive effect near zero though it has a negative effect near
+  $\infty$. Ponder why).
+\item {\em Important note on order of zero of log}: Note that $\ln x
+  \to -\infty$ as $x \to 0^+$, so log hsa an {\em anti-zero} at zero
+  of order infinitesimally less than $0$, i.e., $0^-$. Thus, for $r >
+  0$, $x^r \ln x$ has a zero at $0$ of degree $r^-$.
+
+  {\em Thus, the rule for logarithm near $0$ (where the zero has
+  degree $0^-$) is somewhat opposite to the rule for logarithm out to
+  $\infty$ (where the growth is $0^+$)}.
+\item We can also have a situation of a function $f$ with zero of
+  order $r$ such that $\lim_{x \to \infty} f(x)/x^r$ is undefined or
+  infinite. Again, however, $f$ cannot be infinitely
+  differentiable. Examples include $x(\ln x)$, which has a zero order
+  order $1$ at $0$. Intuitively, the order of the zero here is $1^-$.
+\end{enumerate}
+
+\end{document}

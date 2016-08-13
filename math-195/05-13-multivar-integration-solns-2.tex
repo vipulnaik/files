@@ -1,0 +1,194 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: May 13: Multi-variable integration (Qs 1-5)}
+\author{Math 195, Section 59 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$19$ people took this quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $0$: $1$ person
+\item Score of $1$: $3$ people
+\item Score of $2$: $3$ people
+\item Score of $3$: $6$ people
+\item Score of $4$: $6$ people
+\end{itemize}
+
+The question wise answers and performance are as follows:
+
+\begin{enumerate}
+\item Option (C): $15$ people
+\item Option (A): $13$ people
+\item Option (C): $13$ people
+\item Option (D): $7$ people
+\item Option (A): $3$ people. {\em Please review this solution!}
+\end{enumerate}
+
+\section{Solutions}
+
+Suppose $F$ is a function of two real variables, say $x$
+and $t$, so $F(x,t)$ is a real number for $x$ and $t$ restricted to
+suitable open intervals in the real number. Suppose, further, that $F$
+is jointly continuous (whatever that means) in $x$ and $t$.
+
+Define $f(t) := \int_0^\infty F(x,t) \, dx$. Here, while doing the
+integration, $t$ is treated as a constant. $x$, the variable of
+integration, is being integrated on $[0,\infty)$.
+  
+Suppose further that $f$ is defined and continuous for $t$ in
+$(0,\infty)$.
+
+In the next few questions, you are asked to compute the function $f$
+explicitly given the function $F$, for $t \in (0,\infty)$.
+
+\begin{enumerate}
+
+\item $F(x,t) := e^{-tx}$. Find $f$.
+
+  \begin{enumerate}[(A)]
+  \item $f(t) = e^{-t}/t$
+  \item $f(t) = e^t/t$
+  \item $f(t) = 1/t$
+  \item $f(t) = -1/t$
+  \item $f(t) = -t$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The integral becomes
+  $[-e^{-tx}/t]_0^\infty$. Plugging in at $\infty$ gives $0$ and
+  plugging in at $0$ gives $-1/t$. Since the value at $0$ is being
+  subtracted, we eventually get $1/t$.
+
+  Note that the answer must be positive for the simple reason that we
+  are integrating a positive function from left to right across an
+  interval.
+
+  {\em Performance review}: $15$ out of $19$ people got this
+  correct. $3$ people chose (D) and $1$ person chose (B)q.
+
+  {\em Historical note}: This question appeared in a 153 quiz. At the
+  time, $17$ out of $25$ people got this correct. $4$ chose (A), $3$
+  chose (D), and $1$ chose (E).
+
+\item $F(x,t) := 1/(t^2 + x^2)$. Find $f$.
+
+  \begin{enumerate}[(A)]
+  \item $f(t) = \pi/(2t)$
+  \item $f(t) = \pi/t$
+  \item $f(t) = 2\pi/t$
+  \item $f(t) = \pi t$
+  \item $f(t) = 2\pi t$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: We get $[(1/t)\arctan(x/t)]_0^\infty$. The
+  evaluation at $\infty$ gives $\pi/(2t)$ and the evaluation at $0$
+  gives $0$. Subtracting, we get $\pi/(2t)$.
+
+  {\em Performance review}: $13$ out of $19$ people got this
+  correct. $2$ people each chose (B), (C), and (D).
+
+  {\em Historical note}: This question appeared in a 153 quiz. At the
+  time, $17$ out of $25$ got this correct. $5$ chose (B), $2$ chose
+  (D), $1$ chose (C).
+
+\item $F(x,t) := 1/(t^2 + x^2)^2$. Find $f$.
+
+  \begin{enumerate}[(A)]
+  \item $f(t) = \pi/t^3$
+  \item $f(t) = \pi/(2t^3)$
+  \item $f(t) = \pi/(4t^3)$
+  \item $f(t) = \pi/(8t^3)$
+  \item $f(t) = 3\pi/(8t^3)$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Put in $\theta = \arctan(x/t)$. Substitute, and
+  we get $(1/t^3) \int_0^{\pi/2} \cos^2\theta \,
+  d\theta$. Integrating, we get $[\theta/2t^3 +
+  \sin(2\theta)/4t^3]_0^{\pi/2}$. The trigonometric part vanishes
+  between limits, and we are left with $\pi/(4t^3)$
+
+  {\em Performance review}: $13$ out of $19$ people got this
+  correct. $3$ people chose (D) and $1$ each chose (A), (B), and (E).
+
+  {\em Historical note}: This question appeared in a 153 quiz. At the
+  time, $15$ out of $25$ people got this correct. $5$ chose (B), $2$
+  chose (A), $1$ each chose (D) and (E), $1$ left the question blank.
+
+\item $F(x,t) = \exp(-(tx)^2)$. Use that $\int_0^\infty \exp(-x^2) \, dx=
+  \sqrt{\pi}/2$. Find $f$.
+
+  \begin{enumerate}[(A)]
+  \item $f(t) = t^2\sqrt{\pi}/2$
+  \item $f(t) = t\sqrt{\pi}/2$
+  \item $f(t) = \sqrt{\pi}/2$
+  \item $f(t) = \sqrt{\pi}/(2t)$
+  \item $f(t) = \sqrt{\pi}/(2t^2)$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Put $u = tx$, get a $1/t$ on the outside, giving
+  $(1/t) \int_0^\infty \exp(-u^2) \, du$.
+
+  {\em Performance review}: $7$ out of $19$ people got this
+  correct. $7$ people chose (E), $2$ each chose (A) and (B), and $1$
+  chose (C).
+
+  {\em Historical note}: This question appeared in a 153 quiz. At the
+  time, $12$ out of $25$ people got the question correct. $6$ chose
+  (E), $3$ chose (C), $2$ each chose (A) and (B).
+
+\item In the same general setup as above (but with none of these
+  specific $F$s), which of the following is a {\em sufficient}
+  condition for $f$ to be an increasing function of $t$?
+
+  \begin{enumerate}[(A)]
+  \item $t \mapsto F(x_0,t)$ is an increasing function of $t$ for
+    every choice of $x_0 \ge 0$.
+  \item $x \mapsto F(x,t_0)$ is an increasing function of $x$ for
+    every choice of $t_0 \in (0,\infty)$.
+  \item $t \mapsto F(x_0,t)$ is a decreasing function of $t$ for
+    every choice of $x_0 \ge 0$.
+  \item $x \mapsto F(x,t_0)$ is a decreasing function of $x$ for
+  every choice of $t_0 \in (0,\infty)$.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: If $F$ is increasing in $t$ for every value of
+  $x_0$, then that means that as $t$ gets bigger, the function $F$
+  being integrated gets bigger everywhere in $x$, i.e., if $t_1 <
+  t_2$, then $F(t_1,x_0) < F(t_2,x_0)$ for every $x_0 \ge 0$. The
+  integral for the larger value $t_2$ must therefore also be
+  bigger. (We looked at this stuff in Section 5.8 of the book).
+
+  {\em Performance review}: $3$ out of $19$ people got this
+  correct. $9$ chose (B), $4$ chose (E), $2$ chose (C), $1$ chose (D).
+
+  {\em Historical note}: This question appeared in a 153 quiz. At the
+  time, $4$ out of $25$ got the question correct. $10$ chose (B), $5$
+  chose (E), $3$ chose (C), $2$ chose (D), and $1$ left the question
+  blank.
+
+  (A) was the ``obvious'' choice -- people may have tried to seek more
+  subtletly in the question than it had.
+
+
+\end{enumerate}
+
+\end{document}

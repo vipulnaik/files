@@ -1,0 +1,1297 @@
+\section{Isoclinism and homoclinism for groups}\label{sec:isoclinism-and-homoclinism}
+
+The goal of this section is to establish the basic theory of {\em
+  isoclinism} and {\em homoclinism} for groups. Informally, a
+homoclinism of groups is a homomorphism between the {\em commutator
+  structures} of the groups. Informally, two groups are isoclinic if
+their commutator maps are equivalent. Isoclinism defines an
+equivalence relation on the collection of groups. Under this
+equivalence relation, all abelian groups are equivalent to the trivial
+group.
+
+The original results that we present later (Section \ref{sec:bcuti}
+and \ref{sec:lcuti}) describe bijective correspondences between
+certain equivalence classes of groups and certain equivalence classes
+of Lie rings. The equivalence classes of groups are based on the
+equivalence relation of isoclinism.
+
+Readers already familiar with the definitions of isoclinism and
+homoclinism may skip this section and return to it later if needed.
+Readers who want the bare minimum necessary for later sections can
+read Sections
+\ref{sec:isoclinism-definition}-\ref{sec:homoclinism-category}, and
+the statements of the theorems in Section
+\ref{sec:homoclinism-misc-results}. The proofs of the theorems in
+Section \ref{sec:homoclinism-misc-results} can be skipped.
+
+
+\subsection{Isoclinism of groups: definition}\label{sec:isoclinism-definition}
+
+The concept of isoclinism as introduced here was first defined in 1937
+by Philip Hall in \cite{Hall37}. It was used by Philip Hall as an aid
+to the classification of finite groups of small prime power
+order. Hall's work was later extended by Marshall Hall and Senior, who
+published detailed information on the groups of order $2^n, n \le 6$
+in \cite{HallSenior}. The basic definition and most of the elementary
+facts stated here about isoclinism can be found on Page 93 of Suzuki's
+group theory text \cite{SuzukiII}.
+
+For any group $G$, denote by $\operatorname{Inn}(G)$ the inner
+automorphism group of $G$, denote by $G'$ the derived subgroup of $G$,
+and denote by $Z(G)$ the center of $G$ (this and related notation used
+in this document are described in Section \ref{sec:group-notation}). Note that $\operatorname{Inn}(G) \cong G/Z(G)$.
+
+For any group $G$, the commutator map in $G$ descends to a map of sets:
+
+$$\omega_G: \operatorname{Inn}(G) \times \operatorname{Inn}(G) \to G'$$
+
+This map is well-defined because the commutator of two elements
+depends only on their cosets modulo the center. Note that this map is
+only a {\em set} map at this stage, not a homomorphism. Later, in
+Section \ref{sec:exteriorsquare}, we will introduce the concept of the
+exterior square of a group, and we will be able to interpret
+$\omega_G$ as a homomorphism in that context.
+
+Suppose now that $G_1$ and $G_2$ are groups. The commutator maps in
+the groups define the following respective maps:
+
+$$\omega_{G_1}: \operatorname{Inn}(G_1) \times \operatorname{Inn}(G_1) \to G_1'$$
+
+$$\omega_{G_2}: \operatorname{Inn}(G_2) \times \operatorname{Inn}(G_2) \to G_2'$$
+
+An {\em isoclinism} from $G_1$ to $G_2$ is a pair of isomorphisms
+$(\zeta,\varphi)$ where $\zeta$ is an isomorphism from
+$\operatorname{Inn}(G_1)$ to $\operatorname{Inn}(G_2)$ and $\varphi$ is an
+isomorphism from $G_1'$ to $G_2'$, satisfying the condition that:
+
+\begin{equation}\label{eq:homoclinism-point-free}
+  \varphi \circ \omega_{G_1} = \omega_{G_2} \circ (\zeta \times \zeta)
+\end{equation}
+
+More explicitly, for any $x,y \in \operatorname{Inn}(G_1)$, we require that:
+
+\begin{equation}\label{eq:homoclinism-pointed}
+  \varphi(\omega_{G_1}(x,y)) = \omega_{G_2}(\zeta(x),\zeta(y))
+\end{equation}
+
+In other words, taking the commutator and then applying the
+isomorphism of derived subgroups is equivalent to applying the
+isomorphism between inner automorphism groups and then taking the
+commutator.
+
+Pictorially, this can be represented as saying that the following
+diagram commutes:
+
+$$\begin{array}{ccc}
+  \operatorname{Inn}(G_1) \times \operatorname{Inn}(G_1) & \stackrel{\zeta \times \zeta}{\to} & \operatorname{Inn}(G_2) \times \operatorname{Inn}(G_2) \\
+  \downarrow^{\omega_{G_1}}  & & \downarrow^{\omega_{G_2}}\\
+  G_1' & \stackrel{\varphi}{\to} & G_2'\\
+\end{array}$$
+
+Note that both the inner automorphism group and the derived subgroup
+are quantitative measurements of the ``non-abelianness'' of the
+group. The notion of isoclinism can thus properly be thought of as
+saying ``equivalent modulo the subvariety of abelian groups.'' In
+particular, a group is abelian if and only if it is isoclinic to the
+trivial group.
+
+There is a precise way of formulating this using the more general
+notion of isologism, which we describe in the Appendix, Section
+\ref{appsec:homologism-theory}.
+
+\subsection{Homoclinism of groups}\label{sec:homoclinism-definition}
+
+The notion of {\em homoclinism of groups} relates to isoclinism of
+groups in the same way as homomorphism of groups relates to
+isomorphism of groups. We have not been able to confirm the first use
+of the term, but a somewhat more general definition called
+$n$-homoclinism appears in \cite{Hekster}. We have chosen this
+presentation, despite its being non-standard, because it is a
+convenient framework for understanding later results. Although the
+presentation is non-standard, none of the results in this or the next
+few sections are substantively different from results available in the
+literature.
+ 
+Suppose $G_1$ and $G_2$ are groups. A {\em homoclinism of groups} from
+$G_1$ to $G_2$ is a pair of homomorphisms $(\zeta,\varphi)$ where
+$\zeta$ is a homomorphism from $\operatorname{Inn}(G_1)$ to
+$\operatorname{Inn}(G_2)$ and $\varphi$ is a homomorphism from $G_1'$
+to $G_2'$, satisfying Equation \ref{eq:homoclinism-point-free} (that
+can alternatively be stated as \ref{eq:homoclinism-pointed}).
+
+Pictorially, this can be represented as saying that the following
+diagram commutes:
+
+$$\begin{array}{ccc}
+  \operatorname{Inn}(G_1) \times \operatorname{Inn}(G_1) & \stackrel{\zeta \times \zeta}{\to} & \operatorname{Inn}(G_2) \times \operatorname{Inn}(G_2) \\
+  \downarrow^{\omega_{G_1}}  & & \downarrow^{\omega_{G_2}}\\
+  G_1' & \stackrel{\varphi}{\to} & G_2'\\
+\end{array}$$
+
+Note that this is the same as the diagram for isoclinisms. The only difference is that the horizontal maps are no longer required to be bijective.
+
+\subsection{Composition of homoclinisms}\label{sec:homoclinism-composition}
+
+Suppose $G_1$, $G_2$, and $G_3$ are groups. Suppose
+$(\zeta_{12},\varphi_{12})$ is a homoclinism from $G_1$ to $G_2$ and
+$(\zeta_{23},\varphi_{23})$ is a homoclinism from $G_2$ to $G_3$. We
+then define the {\em composite} of these homoclinisms to be the
+following homoclinism from $G_1$ to $G_3$:
+
+$$(\zeta_{23},\varphi_{23}) \circ (\zeta_{12},\varphi_{12}) = (\zeta_{23}\circ \zeta_{12}, \varphi_{23} \circ \varphi_{12})$$
+
+To see that this composite is indeed a homoclinism, we need to check
+that both the component maps are homomorphisms, and that the
+corresponding diagram commutes. The component maps are homomorphisms
+because a composite of homomorphisms is a homomorphism. The fact that
+the diagram commutes can be seen from the full diagram below. The left
+square commutes because $(\zeta_{12},\varphi_{12})$ is a
+homoclinism. The right square commutes because
+$(\zeta_{23},\varphi_{23})$ is a homoclinism. Thus, the overall
+diagram commutes.
+
+$$\begin{array}{ccccc}
+  \operatorname{Inn}(G_1) \times \operatorname{Inn}(G_1) & \stackrel{\zeta_{12} \times \zeta_{12}}{\to} & \operatorname{Inn}(G_2) \times \operatorname{Inn}(G_2) & \stackrel{\zeta_{23} \times \zeta_{23}}{\to} & \operatorname{Inn}(G_3) \times \operatorname{Inn}(G_3)\\
+  \downarrow^{\omega_{G_1}}  & & \downarrow^{\omega_{G_2}} & & \downarrow^{\omega_{G_3}}\\
+  G_1' & \stackrel{\varphi_{12}}{\to} & G_2' & \stackrel{\varphi_{23}}{\to} & G_3'\\
+\end{array}$$
+
+\subsection{Category of groups with homoclinisms}\label{sec:homoclinism-category}
+
+We define a category that will be useful to work with.
+
+\begin{definer}[Category of groups with homoclinisms]
+  The {\em category of groups with homoclinisms} is defined as the
+  following category:
+
+  \begin{itemize}
+  \item The {\em objects} of the category are groups.
+  \item The {\em morphisms} of the category are homoclinisms.
+  \item Composition of morphisms is composition of homoclinisms.
+  \item The identity morphism is the identity homoclinism: it is the
+    identity map on both the inner automorphism group and the derived
+    subgroup.
+  \end{itemize}
+\end{definer}
+
+In the category of groups with homoclinisms, the isomorphisms (i.e.,
+the invertible morphisms) are precisely the isoclinisms.
+
+\subsection{Homomorphisms and homoclinisms}\label{sec:homomorphisms-and-homoclinisms}
+
+Suppose $G_1$ and $G_2$ are groups and $\theta: G_1 \to G_2$ is a
+homomorphism of groups. If $\theta$ satisfies the property that
+$\theta(Z(G_1)) \le Z(G_2)$, then $\theta$ induces a homoclinism of
+groups. Explicitly the homoclinism induced by $\theta$ is defined as
+$(\zeta,\varphi)$ where $\zeta$ and $\varphi$ are as defined below.
+
+\begin{itemize}
+\item Since $\theta(Z(G_1)) \le Z(G_2)$, $\theta$ descends to a
+  homomorphism from $G_1/Z(G_1) \cong \operatorname{Inn}(G_1)$ to
+  $G_2/Z(G_2) \cong \operatorname{Inn}(G_2)$. Denote by $\zeta$ the
+  induced homomorphism $\operatorname{Inn}(G_1) \to
+  \operatorname{Inn}(G_2)$.
+\item The restriction of $\theta$ to $G_1'$ maps inside $G_2'$. Denote
+  by $\varphi$ the induced map $G_1' \to G_2'$.
+\end{itemize}
+
+It is easy to verify that $(\zeta,\varphi)$ defines a homoclinism.
+
+Note that the condition $\theta(Z(G_1)) \le Z(G_2)$ is necessary in
+order to be able to construct $\zeta$.
+
+The following are true:
+
+\begin{itemize}
+\item Every {\em surjective} homomorphism $\theta:G_1 \to G_2$
+  satisfies the condition that $\theta(Z(G_1)) \le Z(G_2)$. Thus,
+  every surjective homomorphism induces a homoclinism.
+\item The inclusion of a subgroup $H$ in a group $G$ satisfies the
+  condition if and only if $Z(H) \le Z(G)$, or equivalently, $Z(H) = H
+  \cap Z(G)$. Thus, these are the subgroups whose inclusions induce
+  homoclinisms.
+\end{itemize}
+
+\subsection{Miscellaneous results on homoclinisms and words}\label{sec:homoclinism-misc-results}
+
+\begin{lemma}
+  Suppose $(\zeta,\varphi)$ is a homoclinism of groups $G_1$ and
+  $G_2$, where $\zeta:\operatorname{Inn}(G_1) \to
+  \operatorname{Inn}(G_2)$ and $\varphi:G_1' \to G_2'$ are the
+  component homomorphisms. Denote by $\theta_1:G_1' \to
+  \operatorname{Inn}(G_1)$ the composite of the inclusion of $G_1'$ in
+  $G_1$ and the projection from $G_1$ to $G_1/Z(G_1) =
+  \operatorname{Inn}(G_1)$. Similarly define $\theta_2:G_2' \to
+  \operatorname{Inn}(G_2)$. Then, we have:
+  
+  $$\zeta \circ \theta_1 = \theta_2 \circ \varphi$$
+
+  or equivalently, for any $w \in G_1'$:
+
+  $$\zeta(\theta_1(w)) = \theta_2(\varphi(w))$$
+\end{lemma}
+
+\begin{proof}
+  To show the equality of the two expressions, it suffices to show
+  equality on a generating set for $G_1'$. By definition, the set of
+  commutators of elements in $G_1$ is a generating set for
+  $G_1'$. Thus, it suffices to show that:
+
+  $$\zeta(\theta_1([u,v])) = \theta_2(\varphi([u,v])) \ \forall \ u,v \in G_1$$
+
+  This is equivalent to showing that:
+
+  $$\zeta(\theta_1(\omega_{G_1}(x,y))) = \theta_2(\varphi(\omega_{G_1}(x,y))) \ \forall \ x,y \in \operatorname{Inn}(G_1)$$
+
+  Let us examine the left and right sides separately. 
+
+  {\em The left side}: The expression $\theta_1(\omega_{G_1}(x,y))$
+  first computes the commutator of lifts of $x$ and $y$ in $G_1$, then
+  projects to $G_1/Z(G_1)$. This is equivalent to directly computing
+  the commutator in $G_1/Z(G_1)$, so $\theta_1(\omega_{G_1}(x,y)) =
+  [x,y]$. Thus, the left side becomes $\zeta([x,y])$.
+
+  {\em The right side}: By the definition of homoclinism,
+  $\varphi(\omega_{G_1}(x,y)) = \omega_{G_2}(\zeta(x),\zeta(y))$. The
+  right side now becomes
+  $\theta_2(\omega_{G_2}(\zeta(x),\zeta(y)))$. In other words, we are
+  taking the lifts of $\zeta(x)$ and $\zeta(y)$ in $G_2$, then
+  computing the commutator, then projecting to $G_2/Z(G_2)$. This is
+  equivalent to directly computing the commutator in $G_2/Z(G_2)$, so
+  the right side simplifies to $[\zeta(x),\zeta(y)]$. Since $\zeta$ is
+  a homomorphism, this is equal to $\zeta([x,y])$, and hence agrees
+  with the left side.
+\end{proof}
+
+We state two important theorems. Both theorems reference the concept
+of a {\em word map}. The concept is defined and some of the properties
+of word maps are described in the Appendix, Section
+\ref{appsec:word-maps} and the subsequent sections. However, we do not
+use any nontrivial facts about word maps, so it is not necessary to
+read that section to understand the theorems that follow.
+
+\begin{theorem}\label{thm:iterated-commutator-descends-to-inn}
+  Suppose $w(g_1,g_2,\dots,g_n)$ is a word in $n$ letters with the
+  property that $w$ evaluates to the identity element in {\em any}
+  abelian group. This is equivalent to saying that $w$, viewed as an
+  element of the free group on $g_1,g_2,\dots,g_n$, is in the derived
+  subgroup. Then, for any group $G$, the word map $w:G^n \to G$ obtained
+  by evaluating $w$ descends to a map:
+
+  $$\chi_{w,G}: (\operatorname{Inn}(G))^n  \to G'$$
+
+  Any word $w$ that is an iterated commutator (with any bracketing)
+  satisfies this condition.
+\end{theorem}
+
+\begin{proof}
+  Denote by $\nu:G \to \operatorname{Inn}(G)$ the quotient map.
+
+  $w$ can be written in the form (note that the product is in general
+  noncommutative):
+
+  $$w(g_1,g_2,\dots,g_n) = \prod_{i=1}^m[u_i(g_1,g_2,\dots,g_n),v_i(g_1,g_2,\dots,g_n)]$$
+
+  where $u_i,v_i, 1 \le i \le m$ are words. Suppose $y_i \in G$ are
+  elements for which $\nu(y_i) = x_i$. Then:
+
+  $$w(y_1,y_2,\dots,y_n) := \prod_{i=1}^m[u_i(y_1,y_2,\dots,y_n),v_i(y_1,y_2,\dots,y_n)]$$
+
+  We have that:
+
+  $$\nu(u_i(y_1,y_2,\dots,y_n)) = u_i(x_1,x_2,\dots,x_n), \qquad \nu(v_i(y_1,y_2,\dots,y_n)) = v_i(x_1,x_2,\dots,x_n)$$
+
+  Thus, we obtain that:
+
+  $$[u_i(y_1,y_2,\dots,y_n),v_i(y_1,y_2,\dots,y_n)] = \omega_G(u_i(x_1,x_2,\dots,x_n),v_i(x_1,x_2,\dots,x_n))$$
+
+  In particular, the expression
+  $[u_i(y_1,y_2,\dots,y_n),v_i(y_1,y_2,\dots,y_n)]$ depends only on
+  $x_1$, $x_2$, $\dots$, $x_n$ and not on the choice of lifts $y_i$. Thus, the
+  product $w(y_1,y_2,\dots,y_n)$ also depends only on the values of
+  $x_i$, and we obtain the function:
+
+  $$\chi_{w,G}(x_1,x_2,\dots,x_n) = \prod_{i=1}^m \omega_G(u_i(x_1,x_2,\dots,x_n),v_i(x_1,x_2,\dots,x_n))$$
+\end{proof}
+
+
+\begin{theorem}\label{thm:iterated-commutator-commutes-homoclinisms}
+  Suppose $(\zeta,\varphi)$ is a homoclinism of groups $G_1$ and
+  $G_2$, where $\zeta:\operatorname{Inn}(G_1) \to
+  \operatorname{Inn}(G_2)$ and $\varphi:G_1' \to G_2'$ are the
+  component homomorphisms. Then for any word $w(g_1,g_2,\dots,g_n)$
+  that is trivial in every abelian group (as described above), we have:
+
+  $$\chi_{w,G_2}(\zeta(x_1),\zeta(x_2),\dots,\zeta(x_n)) = \varphi(\chi_{w,G_1}(x_1,x_2,\dots,x_n))$$
+
+  for all $x_1,x_2,\dots,x_n \in \operatorname{Inn}(G)$.
+
+  Any word $w$ that is an iterated commutator (with any order of
+  bracketing) satisfies this condition, and the theorem applies to
+  such word maps.
+\end{theorem}
+
+\begin{proof}
+  Denote by $\nu_1:G_1 \to \operatorname{Inn}(G_1)$ and $\nu_2:G_2 \to
+  \operatorname{Inn}(G_2)$ the canonical quotient maps.
+
+  We use the same notation and steps in the proof of the preceding
+  theorem, replacing $G$ by $G_1$. We obtain:
+
+  $$w(g_1,g_2,\dots,g_n) =  \prod_{i=1}^m[u_i(g_1,g_2,\dots,g_n),v_i(g_1,g_2,\dots,g_n)]$$
+
+  where $u_i,v_i, 1 \le i \le m$ are words. Suppose $y_i \in G_1$ are
+  elements for which $\nu_1(y_i) = x_i$. As demonstrated in the proof of
+  the preceding theorem:
+
+  \begin{equation*}
+    \chi_{w,G_1}(x_1,x_2,\dots,x_n) = \prod_{i=1}^m \omega_{G_1}(u_i(x_1,x_2,\dots,x_n),v_i(x_1,x_2,\dots,x_n)) \tag{$\dagger$}
+  \end{equation*}
+
+  Suppose $z_i \in G_2$ are elements for which $\nu_2(z_i) =
+  \zeta(x_i)$. Similar reasoning to the above yields that:
+
+  \begin{small}
+  \begin{equation*}
+    \chi_{w,G_2}(\zeta(x_1),\zeta(x_2),\dots,\zeta(x_n)) = \prod_{i=1}^m \omega_{G_2}(u_i(\zeta(x_1),\zeta(x_2),\dots,\zeta(x_n)),v_i(\zeta(x_1),\zeta(x_2),\dots,\zeta(x_n))) \tag{$\dagger\dagger$}
+  \end{equation*}
+  \end{small}
+  Apply $\varphi$ to both sides of $(\dagger)$, use the defining
+  property of homoclinisms, and compare with $(\dagger\dagger)$ to
+  obtain the result.
+\end{proof}
+
+\subsection{Isoclinic groups: how similar are they?}
+
+We say that groups $G_1$ and $G_2$ are {\em isoclinic groups} if there
+exists an isoclinism from $G_1$ to $G_2$. The relation of being
+isoclinic is an equivalence relation. Briefly:
+
+\begin{itemize}
+\item The relation of being isoclinic is {\em reflexive} because we
+  can choose both the isomorphisms to be the respective identity
+  maps. Explicitly, for any group $G$,
+  $(\operatorname{id}_{\operatorname{Inn}(G)},\operatorname{id}_{G'})$
+  defines an isoclinism from $G$ to itself.
+\item The relation of being isoclinic is {\em symmetric} because we
+  can take the inverse isomorphisms to both the
+  isomorphisms. Explicitly, if $(\zeta,\varphi)$ describes the
+  isoclinism from $G_1$ to $G_2$, then $(\zeta^{-1},\varphi^{-1})$
+  describes the isoclinism from $G_2$ to $G_1$.
+\item The relation of being isoclinic is {\em transitive} because we
+  can compose both kinds of isomorphisms separately. Explicitly, if
+  $(\zeta_{12},\varphi_{12})$ describes the isoclinism from $G_1$ to
+  $G_2$ and $(\zeta_{23},\varphi_{23})$ describes the isomorphism from
+  $G_2$ to $G_3$, then $(\zeta_{23} \circ \zeta_{12}, \varphi_{23}
+  \circ \varphi_{12})$ describes the isoclinism from $G_1$ to $G_3$.
+\end{itemize}
+
+Here is an alternative way of seeing that being isoclinic is an
+equivalence relation: isoclinisms are precisely the isomorphisms in
+the category of groups with homoclinisms, and being isomorphic in any
+category is an equivalence relation.
+
+We first list some very obvious similarities between isoclinic groups.
+
+\begin{itemize}
+\item They have isomorphic derived subgroups: This is direct from the
+  definition, which includes an isomorphism between the derived
+  subgroups.
+\item They have isomorphic inner automorphism groups: This is direct
+  from the definition, which includes an isomorphism between the inner
+  automorphism groups.
+\item They have precisely the same non-abelian composition factors (if
+  the composition factors do exist): Since the center is abelian, all
+  the non-abelian composition factors occur inside the inner
+  automorphism group for both, which we know to be isomorphic.
+\item If one is nilpotent, so is the other, and they have the same
+  nilpotency class (with the exception of class zero getting conflated
+  with class one): The nilpotency class is one more than the
+  nilpotency class of the inner automorphism group.
+\item If one is solvable, so is the other, and they have the same
+  derived length (with the exception of length zero getting conflated
+  with length one): The derived length is one more than the derived
+  length of the derived subgroup.
+\end{itemize}
+
+We move to the first straightforward but somewhat non-obvious fact:
+isoclinic finite groups have the same {\em proportions} of conjugacy
+class sizes. The statement of the theorem is below. The proof can be
+found in the Appendix, Section \ref{appsec:isoclinism-extra-proofs}.
+
+\begin{theorem}\label{isoclinic-same-proportions-conjugacy-class-sizes}
+  Suppose $G_1$ and $G_2$ are isoclinic finite groups. Suppose $c$ is
+  a positive integer. Let $m_1$ be the number of conjugacy classes in
+  $G_1$ of size $c$ (so that the {\em total} number of elements in
+  such conjugacy classes is $m_1c$). Let $m_2$ be the number of
+  conjugacy classes in $G_2$ of size $c$ (so that the {\em total}
+  number of elements in such conjugacy classes is $m_2c$). Then, $m_1$
+  is nonzero if and only if $m_2$ is nonzero, and if so, $m_1/m_2 =
+  |G_1|/|G_2|$.
+
+  In particular, if $G_1$ and $G_2$ additionally have the same order,
+  then they have precisely the same multiset of conjugacy class sizes.
+\end{theorem}
+
+The next theorem is a similar result for the degrees of irreducible
+representations. The proof of this is also in the Appendix, Section
+\ref{appsec:isoclinism-extra-proofs}.
+
+\begin{theorem}\label{isoclinic-same-proportions-irrep-degrees}
+  Suppose $G_1$ and $G_2$ are isoclinic finite groups. Suppose $d$ is
+  a positive integer. Let $m_1$ denote the number of equivalence
+  classes of irreducible representations of $G_1$ over $\mathbb{C}$
+  that have degree $d$. Let $m_2$ denote the number of equivalence
+  classes of irreducible representations of $G_2$ over $\mathbb{C}$
+  that have degree $d$. Then, $m_1$ is nonzero if and only if $m_2$ is
+  nonzero, and if so, $m_1/m_2 = |G_1|/|G_2|$.
+
+  In particular, if $G_1$ and $G_2$ additionally have the same order,
+  then they have precisely the same multiset of degrees of irreducible
+  representations.
+\end{theorem}
+
+\begin{theorem}
+  \begin{enumerate}
+  \item Suppose $G_1$ and $G_2$ are isoclinic finite groups. Then, the
+    ratio of the number of conjugacy classes in $G_1$ to the number of
+    conjugacy classes in $G_2$ is $|G_1|/|G_2|$. In particular, if
+    $G_1$ and $G_2$ also have the same order, they have the same
+    number of conjugacy classes.
+  \item Suppose $G_1$ and $G_2$ are isoclinic finite groups. Then, the
+    centers of their respective group algebras over $\mathbb{C}$ are
+    both algebras that are direct products of copies of
+    $\mathbb{C}$. The ratio of the number of copies used for $G_1$ and
+    for $G_2$ is $|G_1|/|G_2|$. In particular, if $G_1$ and $G_2$ also
+    have the same order, then the centers of their group algebras are
+    isomorphic.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  These follow quite directly from either of the preceding
+  theorems. More specifically, the proof for part (1) can be deduced
+  from either Theorem
+  \ref{isoclinic-same-proportions-conjugacy-class-sizes} or Theorem
+  \ref{isoclinic-same-proportions-irrep-degrees}. Note that we can use
+  the latter because the number of conjugacy classes equals the number
+  of irreducible representations.
+
+  For (2), note that the center of the group algebra is a direct
+  product of as many copies of $\mathbb{C}$ as the number of conjugacy
+  classes. We can use the conjugacy class element sums as a
+  basis. Alternatively, we can use the centers of the irreducible
+  constituents in a direct sum decomposition into two-sided ideals as
+  a basis. Thus, (2) follows directly from (1).
+\end{proof}
+
+\subsection{Isoclinism defines a correspondence between some subgroups}\label{sec:isoclinism-correspondence-some-subgroups}
+
+Suppose $G_1$ and $G_2$ are isoclinic groups with an isoclinism
+$(\zeta,\varphi): G_1 \to G_2$ where $\zeta:\operatorname{Inn}(G_1)
+\to \operatorname{Inn}(G_2)$ and $\varphi:G_1' \to G_2'$ are the
+component isomorphisms. Then, $\zeta$ gives a correspondence:
+
+\begin{center}
+Subgroups of $G_1$ that contain $Z(G_1)$ $\leftrightarrow$ Subgroups
+of $G_2$ that contain $Z(G_2)$
+\end{center}
+This correspondence does not preserve the isomorphism type of the
+subgroup, but it preserves some related structure. Explicitly, the
+following hold whenever a subgroup $H_1$ of $G_1$ containing $Z(G_1)$
+corresponds with a subgroup $H_2$ of $G_2$ containing $Z(G_2)$:
+
+\begin{itemize}
+\item $H_1/Z(G_1)$ is isomorphic to $H_2/Z(G_2)$.
+\item $H_1$ and $H_2$ are isoclinic.
+\item $H_1$ is normal in $G_1$ if and only if $H_2$ is normal in
+  $G_2$, and if so, then $G_1/H_1$ is isomorphic to $G_2/H_2$.
+\end{itemize}
+
+We have a similar correspondence given by $\varphi$:
+
+\begin{center}
+  Subgroups of $G_1$ that are contained in $G_1'$ $\leftrightarrow$
+  Subgroups of $G_2$ that are contained in $G_2'$
+\end{center}
+
+This correspondence preserves a number of structural
+features. Explicitly, the following hold if a subgroup $H_1$ of $G_1'$
+is in correspondence with a subgroup $H_2$ of $G_2'$:
+
+\begin{itemize}
+\item $H_1$ is isomorphic to $H_2$
+\item $H_1$ is normal in $G_1'$ if and only if $H_2$ is normal in
+  $G_2'$, and if so, then $G_1'/H_1$ is isomorphic to $G_2'/H_2$.
+\item $H_1$ is normal in $G_1$ if and only if $H_2$ is normal in
+  $G_2$, and if so, then $G_1/H_1$ is isoclinic to $G_2/H_2$.
+\end{itemize}
+
+The two correspondences discussed above may partially overlap, and
+they agree with each other wherever they overlap. Explicitly, if $H_1$
+is a subgroup of $G_1$ that satisfies {\em both the conditions} (it
+contains $Z(G_1)$ and is contained in $G_1'$), then the subgroup $H_2$
+obtained by both correspondences is identical.
+
+\subsection{Characteristic subgroups, quotient groups, and subquotients determined by the group up to isoclinism}\label{sec:isoclinism-char-sub-quot}
+
+The vast majority of characteristic subgroups that we see defined
+(particularly for $p$-groups) are either contained in the derived
+subgroup or contain the center. The exceptions are those such as the
+socle and Frattini subgroup, which are smaller than the center and
+larger than the derived subgroup respectively.
+
+Based on the correspondences discussed in the preceding section, we
+can deduce the following regarding important subgroups, quotients, and
+subquotients of a group $G$ that are determined up to isomorphism by
+knowing $G$ up to isoclinism:
+
+\begin{itemize}
+\item All lower central series member subgroups $\gamma_c(G), c \ge
+  2$. Note that $\gamma_1(G) = G$ needs to be excluded. Further, the
+  isomorphism types of successive quotients between lower central
+  series members of the form $\gamma_i(G)/\gamma_j(G)$ with $j \ge i
+  \ge 2$ are also determined by the knowledge of $G$ up to
+  isoclinism. Note that the quotient groups $G/\gamma_c(G)$ are in
+  general determined only up to isoclinism and not up to isomorphism.
+
+\item All derived series member subgroups $G^{(i)}$, $i \ge 1$. Note
+  that we need to exclude $G^{(0)} = G$. Further, the isomorphism
+  types of quotients between derived series members of the form
+  $G^{(i)}/G^{(j)}$ with $j \ge i \ge 1$ are also determined by the
+  knowledge of $G$ up to isoclinism. Note that the quotient groups
+  $G/G^{(i)}$ are determined only up to isoclinism and not up to
+  isomorphism.
+\item Quotients $G/Z^c(G)$ for all upper central series member
+  subgroups $Z^c(G)$, $c \ge 1$. We need to exclude $c = 0$ which
+  would give $G/Z^0(G) = G$. Further, the isomorphism types of
+  subquotients of the form $Z^i(G)/Z^j(G)$ where $i \ge j \ge 1$ are
+  also determined up to isomorphism by the knowledge of $G$ up to
+  isoclinism. Note that the subgroups $Z^i(G)$ themselves are
+  determined only up to isoclinism and not up to isomorphism.
+\end{itemize}
+
+\subsection{Correspondence between abelian subgroups}\label{sec:isoclinism-abelian-subgroups}
+
+Suppose $G_1$ and $G_2$ are isoclinic groups. The following are true:
+
+\begin{itemize}
+\item The isoclinism establishes a correspondence between abelian
+  subgroups of $G_1$ containing $Z(G_1)$ and abelian subgroups of
+  $G_2$ containing $Z(G_2)$. Note that the abelian subgroups that are
+  in correspondence are not necessarily isomorphic to each other. In
+  fact, unless $Z(G_1)$ and $Z(G_2)$ have the same order, the abelian
+  subgroups in correspondence need not even have the same order as
+  each other.
+\item The isoclinism establishes a correspondence between the abelian
+  subgroups of $G_1$ that are self-centralizing and the abelian
+  subgroups of $G_2$ that are self-centralizing. A self-centralizing
+  abelian subgroup is an abelian subgroup that equals its own
+  centralizer, or equivalently, it is a subgroup that is maximal among
+  abelian subgroups of the group.
+\item In the case that $G_1$ and $G_2$ are both finite, the isoclinism
+  establishes a correspondence between abelian subgroups of maximum
+  order in $G_1$ and abelian subgroups of maximum order in
+  $G_2$.
+\item Each of the correspondences above preserves normality.
+\item If $G_1$ and $G_2$ are both finite, then each of the
+  correspondences above preserves the index of the subgroups.
+\end{itemize}
+
+In particular, this means that isoclinic finite $p$-groups of the same
+order have the same value for the maximum order of abelian subgroup,
+the same value for the maximum order of abelian normal subgroup, and
+the same values for the orders of self-centralizing abelian normal
+subgroups.
+
+\subsection{Constructing isoclinic groups}
+
+Here are some ways of constructing groups isoclinic to a given group:
+
+\begin{itemize}
+\item Take a direct product with an abelian group.
+\item Find a subgroup whose product with the center is the whole
+  group. In symbols, if $H$ is a subgroup of $G$ and $HZ(G) = G$
+  (where $Z(G)$ denotes the center of $G$), then $H$ is isoclinic to
+  $G$. Note that for finite groups, this is the only way to find
+  isoclinic subgroups to the whole group: a subgroup is isoclinic to
+  the whole group if and only if its product with the center of the
+  whole group is the whole group.
+\end{itemize}
+
+\subsection{Hall's purpose in introducing isoclinism}
+
+Although this is not directly relevant, it might be helpful for
+historical motivation to understand why Philip Hall introduced the
+concept of isoclinism. At the time that Hall wrote his paper
+\cite{Hall37}, very few systematic lists of finite $p$-groups of small
+order were available. Existing classifications tended to be {\em ad
+  hoc} and use a bunch of invariants. In hindsight, many of these
+invariants were invariants up to isoclinism. As we saw in the
+preceding section, this is true for information about conjugacy
+classes and irreducible representations, and many important attributes
+related to characteristic subgroups and their quotient
+groups. However, since they were purely numerical invariants rather
+than invariants capturing structural information, they were too weak
+to meaningfully distinguish groups once the orders got large. Below
+are some invariants that are ``good enough'' to uniquely determine
+groups up to isoclinism for small orders, but fail at larger
+orders. The second column gives the smallest $n$ for which there exist
+groups of order $2^n$ that have the same value of the invariant but
+are not isoclinic to each other.
+
+\vspace{0.3in}
+
+\begin{small}
+\begin{table}[htbp]
+\caption{The smallest $n$ for which a given isoclinism-invariant fails to classify groups of order $2^n$ up to isoclinism}\label{T1}
+\begin{tabular}{|l|l|l|}
+  \hline
+  Isoclinism-invariant (fixed order) & Smallest $n$ where it fails to classify \\\hline
+  Derived length & 4 \\\hline
+  Nilpotency class & 5 \\\hline
+  Conjugacy class sizes & 5 \\\hline
+  Degrees of irreducible representations & 5 \\\hline
+  Inner automorphism group & 6 \\\hline
+  Derived subgroup & 5 \\\hline
+  Inner automorphism group, derived subgroup & 6 \\\hline
+\end{tabular}
+\end{table}
+\end{small}
+
+\vspace{0.3in}
+
+As the orders get bigger, numerical invariants becomes progressively
+more inadequate in describing the structure. They are also not helpful
+to computing the algebraic structure of the group.
+
+As indicated in the table above, even knowledge of the inner
+automorphism group and the derived subgroup up to isomorphism does not
+determine the group uniquely up to isoclinism, with the smallest
+counterexamples occurring for order $2^6$. The commutator {\em map} is
+crucial to describing the group structure up to isoclinism.
+
+Hall sought to introduce a systematic procedure that could be used to
+generate all the $p$-groups of a particular order based on smaller
+groups, and group them together in ways that made it easy to compute
+and remember important invariants (such as their nilpotency class,
+number of conjugacy classes, etc.)
+
+The use of isoclinism allows for a recursive procedure to go from
+order $p^{n-1}$ to $p^n$. In broad strokes, the idea is as follows:
+
+\begin{itemize}
+\item Assume we have classified all the groups of order up to
+  $p^{n-1}$, and we need to classify groups of order $p^n$.
+
+\item First, we need to identify the equivalence classes up to
+  isoclinism for groups of order $p^n$. This involves identifying
+  candidate pairs of inner automorphism group and derived subgroup
+  with a candidate for the commutator map. Note that the concept of
+  ``candidate for the commutator map'' is somewhat problematic without
+  reference to the ambient group, but we will see later that it can be
+  made precise using the concept of exterior squares. Hall did not
+  have this formalism at his disposal, but used a similar idea in a
+  more {\em ad hoc} fashion in his classification efforts.
+
+\item For each such equivalence class up to isoclinism, identify all
+  the groups of order $p^n$ up to isomorphism in that equivalence
+  class up to isoclinism.
+
+\end{itemize}
+
+Our purpose differs somewhat from Hall's, but is broadly in the same
+spirit. Instead of classifying groups, we are interested in
+identifying some regular aspects of their behavior.
+
+For a detailed classification that builds on Hall's ideas, see
+\cite{HallSenior}, which classifies groups of order $2^n$ for $n \le
+6$. The classification of groups of order $2^n$ for $n \ge 7$ was done
+using somewhat different methods. Specifically, the focus shifted from
+using isoclinism (which is based on the central series) to using the
+exponent-$p$ central series, and computing immediate descendants based
+on the exponent-$p$ central series. This is more amenable to
+computation because we are working with central extensions where the
+base group is elementary abelian. Algorithms in this genre are termed
+{\em nilpotent quotient algorithms}. See \cite{Order128}
+(classification for order $2^7 = 128$), \cite{Order256}
+(classification for order $2^8 = 256$), and \cite{enumeratingpgroups}
+(general description of the classification strategy) for more details.
+
+\subsection{Stem groups for a given equivalence class under isoclinism}\label{sec:stem-group}
+
+Every equivalence class of groups under isoclinism contains one or
+more {\em stem groups}. A group $G$ is a stem group if $Z(G) \le
+G'$. All stem groups for a given equivalence class under
+isoclinism have the same order, and the order of any isoclinic group is
+a multiple of this order.
+
+Hall stated this fact, with a sketch of a proof, in his 1937 paper
+introducing isoclinism. We will provide a proof of the statement in
+Section \ref{sec:stem-group-existence} using modern language.
+
+Here are some examples of stem groups:
+
+\begin{itemize}
+\item For the class of abelian groups, the unique stem group
+  is the trivial group. 
+
+\item For groups of class two with inner automorphism group a Klein
+  four-group and derived subgroup of order two, there are two
+  possibilities for the stem group: the dihedral group of order eight
+  and the quaternion group of order eight.
+
+\end{itemize}
+
+Unlike what one might naively expect, it is not true that all groups
+in the equivalence class under isoclinism contain a stem group as a
+subquotient. For instance, the group $M_{16} = M_4(2)$ given as
+$\langle a,x \mid a^8 = x^2 = 1, xax = a^5 \rangle$ is a non-abelian
+group of order $16$.\footnote{The group has ID (16,6) in the
+  SmallGroups library available for GAP and Magma.} This group is
+isoclinic to the dihedral group of order eight and the quaternion
+group of order eight, which are the only stem groups in that
+equivalence class up to isoclinism. However, $M_{16}$ does not have
+any subgroup, quotient, or subquotient isomorphic to either of these
+groups. In fact, every proper subquotient of $M_{16}$ is abelian.
+
+\subsection{Some low order classification information}
+
+In this section, we provide a quick summary of the classification of
+groups of order $2^n$ and groups of order $p^n$ (for odd $p$) for
+small $n$, based on isoclinism. A detailed exposition can be found in
+\cite{HallSenior} and also in some online sources included in the
+appendix. is also possible to explore these groups using a
+computational algebra package such as GAP or Magma. More information
+about exploring group information in GAP is available in the appendix.
+
+The most salient information is provided below.
+
+{\bf For groups of order $2^n$}: Note that the last column is the
+number of equivalence classes up to isoclinism of the preceding
+column. It can be computed by subtracting from the value of the
+preceding column the value in the row above for the preceding column.
+
+\begin{small}
+\begin{table}[htbp]
+\caption{Number of equivalence classes up to isoclinism for groups of
+  order $2^n$}\label{T2}
+%\rowcolors{1}{green}{pink}
+\begin{tabular}{|l|l|l|l|l|}
+  \hline
+  $n$ & $2^n$ & Number of groups & Number up to isoclinism & ``New'' equivalence classes\\
+  \hline
+  0 & 1 & 1 & 1 & 1\\\hline
+  1 & 2 & 1 & 1 & 0\\\hline
+  2 & 4 & 2 & 1 & 0\\\hline
+  3 & 8 & 5 & 2 & 1\\\hline
+  4 &16 &14 & 3 & 1\\\hline
+  5 &32 &51 & 8 & 5\\\hline
+  6 &64&267 & 27& 19\\\hline
+  7&128&2328&115& 88\\\hline
+\end{tabular}
+\end{table}
+\end{small}
+{\bf For groups of order $p^n$, $p \ge 3$}: The details depend on $p$,
+but the classification up to $p^4$ is independent of $p$, so we
+construct the table for $n$ up to $4$:
+
+\begin{small}
+\begin{table}[htbp]
+\caption{Number of equivalence classes up to isoclinism for groups of
+  order $p^n$}\label{T3}
+\begin{tabular}{|l|l|l|l|l|}
+  \hline
+  $n$ & $p^n$ & Number of groups & Number up to isoclinism & ``New'' equivalence classes\\
+  \hline
+  0 & 1 & 1 & 1 & 1\\\hline
+  1 & 2 & 1 & 1 & 0\\\hline
+  2 & 4 & 2 & 1 & 0\\\hline
+  3 & 8 & 5 & 2 & 1\\\hline
+  4 &16 &15 & 3 & 1\\\hline
+\end{tabular}
+\end{table}
+\end{small}
+%\newpage
+
+\section{Isoclinism and homoclinism for Lie rings}\label{sec:isoclinism-and-homoclinism-lie}
+
+The goal of this section is to establish the basic theory of {\em
+  isoclinism} and {\em homoclinism} for {\em Lie rings}. The theory is
+analogous to the theory for groups developed in the preceding section
+(Section \ref{sec:isoclinism-and-homoclinism}. 
+
+Informally, a homoclinism of Lie rings is a homomorphism between the
+{\em Lie bracket structures} of the Lie rings. Informally, two Lie
+rings are isoclinic if their Lie bracket maps are
+equivalent. Isoclinism defines an equivalence relation on the
+collection of Lie rings. Under this equivalence relation, all abelian
+Lie rings are equivalent to the trivial group.
+
+The original results that we present later (Section \ref{sec:bcuti}
+and \ref{sec:lcuti}) describe bijective correspondences between
+certain equivalence classes of groups and certain equivalence classes
+of Lie rings. The equivalence classes of Lie rings are based on the
+equivalence relation of isoclinism of Lie rings.
+
+\subsection{Definitions of homoclinism and isoclinism}\label{sec:isoclinism-definition-lie}
+
+The notion of isoclinism of Lie algebras seems to have been introduced
+by Moneyhun in \cite{Moneyhun}. We introduce a corresponding notion of
+homoclinism to parallel the notion for groups. The historical origin
+of the notion of homoclinism for Lie rings is unclear, but it appears
+for instance in the paper \cite{Moghaddametal} published in 2011.
+
+For simplicity, we restrict attention to the case of Lie {\em rings},
+which are Lie algebras over the ring of integers. All our definitions
+and theorems here have very natural analogues in Lie algebras over
+other commutative unital rings. Note that if two Lie algebras over a
+commutative unital ring are isoclinic as Lie algebras over that ring,
+they are also isoclinic as Lie rings. In the Appendix, Section
+\ref{appsec:Lie}, we describe the theory of Lie algebras over
+arbitrary commutative unital rings, and how the general theory of Lie
+algebras relates to the theory of Lie rings.
+
+For a Lie ring $L$, denote by $\operatorname{Inn}(L)$ the inner
+derivation Lie ring of $L$, denote by $L'$ the derived subring of $L$,
+and denote by $Z(L)$ the center of $L$. $\operatorname{Inn}(L)$ is
+canonically isomorphic to the quotient ring $L/Z(L)$. (For other
+notation related to Lie rings that we use in this document, see
+Section \ref{sec:lie-ring-notation}).
+
+The {\em Lie bracket} map in $L$ descends to a map:
+
+$$\omega_L: \operatorname{Inn}(L) \times \operatorname{Inn}(L) \to L'$$
+
+Note that $\omega_L$ is $\mathbb{Z}$-bilinear, but the additional
+structure on it (that is forced from its arising as a Lie bracket) is
+hard to describe explicitly. In Section \ref{sec:exteriorsquare-lie},
+we will describe a structure called the exterior square of a Lie ring
+and reframe the condition on $\omega_L$ as being a bilinear map that
+induces a homomorphism from the exterior square. This situation is
+similar to the situation for groups we discussed earlier, but somewhat
+easier to describe because of the underlying additive group structure.
+
+Suppose $L_1$ and $L_2$ are Lie rings. The Lie brackets of $L_1$ and
+$L_2$ respectively induce $\Z$-bilinear maps:
+
+$$\omega_{L_1}: \operatorname{Inn}(L_1) \times \operatorname{Inn}(L_1) \to L_1'$$
+
+$$\omega_{L_2}: \operatorname{Inn}(L_2) \times \operatorname{Inn}(L_2) \to L_2'$$
+
+A {\em homoclinism} from $L_1$ to $L_2$ is a pair of homomorphisms
+$(\zeta,\varphi)$ where $\zeta$ is a homomorphism from
+$\operatorname{Inn}(L_1)$ to $\operatorname{Inn}(L_2)$ and $\varphi$ is an
+homomorphism from $L_1'$ to $L_2'$, satisfying the condition that:
+
+$$\varphi \circ \omega_{L_1} = \omega_{L_2} \circ (\zeta \times \zeta)$$
+
+More explicitly, for any $x,y \in \operatorname{Inn}(L_1)$, we require that:
+
+$$\varphi(\omega_{L_1}(x,y)) = \omega_{L_2}(\zeta(x),\zeta(y))$$
+
+Pictorially, the following diagram commutes:
+
+$$\begin{array}{ccc}
+  \operatorname{Inn}(L_1) \times \operatorname{Inn}(L_1) & \stackrel{\zeta \times \zeta}{\to} & \operatorname{Inn}(L_2) \times \operatorname{Inn}(L_2) \\
+  \downarrow^{\omega_{L_1}}  & & \downarrow^{\omega_{L_2}}\\
+  L_1' & \stackrel{\varphi}{\to} & L_2'\\
+\end{array}$$
+
+The homoclinism $(\zeta,\varphi)$ from $L_1$ to $L_2$ is termed an
+{\em isoclinism} if both $\zeta$ and $\varphi$ are isomorphisms of Lie
+rings.
+
+We compose homoclinisms of Lie rings by separately composing the
+homomorphisms on the inner derivation Lie rings and on the derived
+subrings. Explicitly, suppose $(\zeta_{12},\varphi_{12})$ is a
+homoclinism from $L_1$ to $L_2$ and suppose
+$(\zeta_{23},\varphi_{23})$ is a homoclinism from $L_2$ to
+$L_3$. Then, the composite $(\zeta_{23},\varphi_{23}) \circ
+(\zeta_{12}, \varphi_{12})$ is $(\zeta_{23} \circ \zeta_{12},
+\varphi_{23} \circ \varphi_{12})$. The proof that this works follows
+from the commutativity of this diagram.
+
+$$\begin{array}{ccccc}
+  \operatorname{Inn}(L_1) \times \operatorname{Inn}(L_1) & \stackrel{\zeta_{12} \times \zeta_{12}}{\to} & \operatorname{Inn}(L_2) \times \operatorname{Inn}(L_2) & \stackrel{\zeta_{23} \times \zeta_{23}}{\to} & \operatorname{Inn}(L_3) \times \operatorname{Inn}(L_3)\\
+  \downarrow^{\omega_{G_1}}  & & \downarrow^{\omega_{G_2}} & & \downarrow^{\omega_{G_3}}\\
+  L_1' & \stackrel{\varphi_{12}}{\to} & L_2' & \stackrel{\varphi_{23}}{\to} & L_3'\\
+\end{array}$$
+
+As was the case with groups, we can define a category where the
+morphisms are homoclinisms.
+
+\begin{definer}[Category of Lie rings with homoclinisms]
+  The {\em category of Lie rings with homoclinisms} is defined as the
+  following category:
+
+  \begin{itemize}
+  \item The {\em objects} of the category are Lie rings.
+  \item The {\em morphisms} of the category are homoclinisms of Lie rings.
+  \item Composition of morphisms is composition of homoclinisms.
+  \item The identity morphism is the identity homoclinism: it is the
+    identity map both on the inner derivation Lie ring and on the
+    derived subring.
+  \end{itemize}
+\end{definer}
+
+In the category of Lie rings with homoclinisms, the isomorphisms
+(i.e., the invertible morphisms) are precisely the isoclinisms.
+
+\subsection{Homomorphisms and homoclinisms}
+
+Suppose $L_1$ and $L_2$ are Lie rings and $\theta: L_1 \to L_2$ is a
+homomorphism of Lie rings. If $\theta$ satisfies the property that
+$\theta(Z(L_1)) \le Z(L_2)$, then $\theta$ induces a homoclinism of
+Lie rings. Explicitly the homoclinism induced by $\theta$ is defined as
+$(\zeta,\varphi)$ where $\zeta$ and $\varphi$ are as defined below.
+
+\begin{itemize}
+\item Since $\theta(Z(L_1)) \le Z(L_2)$, $\theta$ descends to a
+  homomorphism from $L_1/Z(L_1) \cong \operatorname{Inn}(L_1)$ to
+  $L_2/Z(L_2) \cong \operatorname{Inn}(L_2)$. Denote by $\zeta$ the
+  induced homomorphism $\operatorname{Inn}(L_1) \to
+  \operatorname{Inn}(L_2)$.
+\item The restriction of $\theta$ to $L_1'$ maps inside $L_2'$. Denote
+  by $\varphi$ the induced map $L_1' \to L_2'$.
+\end{itemize}
+
+It is easy to verify that $(\zeta,\varphi)$ defines a homoclinism.
+
+Note that the condition $\theta(Z(L_1)) \le Z(L_2)$ is necessary in
+order to be able to construct $\zeta$.
+
+The following are true:
+
+\begin{itemize}
+\item Every {\em surjective} homomorphism $\theta:L_1 \to L_2$
+  satisfies the condition that $\theta(Z(L_1)) \le Z(L_2)$. Thus,
+  every surjective homomorphism induces a homoclinism.
+\item The inclusion of a Lie subring $M$ in a Lie ring $L$ satisfies
+  the condition if and only if $Z(M) \le Z(L)$, or equivalently, $Z(M)
+  = M \cap Z(L)$. Thus, these are the subrings whose inclusions
+  induce homoclinisms.
+\end{itemize}
+
+\subsection{Miscellaneous results on homoclinisms and words}\label{sec:homoclinism-misc-results-lie}
+
+\begin{lemma}
+  Suppose $(\zeta,\varphi)$ is a homoclinism of Lie rings $L_1$ and
+  $L_2$, where $\zeta:\operatorname{Inn}(L_1) \to
+  \operatorname{Inn}(L_2)$ and $\varphi:L_1' \to L_2'$ are the
+  component homomorphisms. Denote by $\theta_1:L_1' \to
+  \operatorname{Inn}(L_1)$ the composite of the inclusion of $L_1'$ in
+  $L_1$ and the projection from $L_1$ to $L_1/Z(L_1) =
+  \operatorname{Inn}(L_1)$. Similarly define $\theta_2:L_2' \to
+  \operatorname{Inn}(L_2)$. Then, we have:
+  
+  $$\zeta \circ \theta_1 = \theta_2 \circ \varphi$$
+
+  or equivalently, for any $w \in L_1'$:
+
+  $$\zeta(\theta_1(w)) = \theta_2(\varphi(w))$$
+\end{lemma}
+
+\begin{proof}
+  To show the equality of the two expressions, it suffices to show
+  equality on a generating set for $L_1'$. By definition, the set of
+  Lie brackets of elements in $L_1$ is a generating set for
+  $L_1'$. Thus, it suffices to show that:
+
+  $$\zeta(\theta_1([u,v])) = \theta_2(\varphi([u,v])) \ \forall \ u,v \in L_1$$
+
+  This is equivalent to showing that:
+
+  $$\zeta(\theta_1(\omega_{L_1}(x,y))) = \theta_2(\varphi(\omega_{L_1}(x,y))) \ \forall \ x,y \in \operatorname{Inn}(L_1)$$
+
+  Let us examine the left and right sides separately. 
+
+  {\em The left side}: The expression $\theta_1(\omega_{L_1}(x,y))$
+  first computes the Lie bracket of lifts of $x$ and $y$ in $L_1$, then
+  projects to $L_1/Z(L_1)$. This is equivalent to directly computing
+  the Lie bracket in $L_1/Z(L_1)$, so $\theta_1(\omega_{L_1}(x,y)) =
+  [x,y]$. Thus, the left side becomes $\zeta([x,y])$.
+
+  {\em The right side}: By the definition of homoclinism,
+  $\varphi(\omega_{L_1}(x,y)) = \omega_{L_2}(\zeta(x),\zeta(y))$. The
+  right side now becomes
+  $\theta_2(\omega_{L_2}(\zeta(x),\zeta(y)))$. In other words, we are
+  taking the lifts of $\zeta(x)$ and $\zeta(y)$ in $L_2$, then
+  computing the Lie bracket, then projecting to $L_2/Z(L_2)$. This is
+  equivalent to directly computing the Lie bracket in $L_2/Z(L_2)$, so
+  the right side simplifies to $[\zeta(x),\zeta(y)]$. Since $\zeta$ is
+  a homomorphism, this is equal to $\zeta([x,y])$, and hence agrees
+  with the left side.
+\end{proof}
+
+We state two important theorems.
+
+\begin{theorem}\label{thm:iterated-bracket-descends-to-inn}
+  Suppose $w(g_1,g_2,\dots,g_n)$ is a word in $n$ letters with the
+  property that $w$ evaluates to the zero element in {\em any}
+  abelian Lie ring. This is equivalent to saying that $w$, viewed as an
+  element of the free Lie ring on $g_1,g_2,\dots,g_n$, is in the derived
+  subring. Then, for any Lie ring $L$, the word map $w:L^n \to L$ obtained
+  by evaluating $w$ descends to a map:
+
+  $$\chi_{w,L}: (\operatorname{Inn}(L))^n  \to L'$$
+
+  Any word $w$ that is an iterated Lie bracket (with any bracketing)
+  satisfies this condition.
+\end{theorem}
+
+\begin{proof}
+  Denote by $\nu:L \to \operatorname{Inn}(L)$ the quotient map.
+
+  $w$ can be written in the form:
+
+  $$w(g_1,g_2,\dots,g_n) = \sum_{i=1}^m [u_i(g_1,g_2,\dots,g_n),v_i(g_1,g_2,\dots,g_n)]$$
+
+  where $u_i,v_i, 1 \le i \le m$ are words. Suppose $y_i \in L$ are
+  elements for which $\nu(y_i) = x_i$. Then:
+
+  $$w(y_1,y_2,\dots,y_n) = \sum_{i=1}^m [u_i(y_1,y_2,\dots,y_n),v_i(y_1,y_2,\dots,y_n)]$$
+
+  We have that:
+
+  $$\nu(u_i(y_1,y_2,\dots,y_n)) = u_i(x_1,x_2,\dots,x_n), \qquad \nu(v_i(y_1,y_2,\dots,y_n)) = v_i(x_1,x_2,\dots,x_n)$$
+
+  Thus, we obtain that:
+
+  $$[u_i(y_1,y_2,\dots,y_n),v_i(y_1,y_2,\dots,y_n)] = \omega_L(u_i(x_1,x_2,\dots,x_n),v_i(x_1,x_2,\dots,x_n))$$
+
+  In particular, the expression
+  $[u_i(y_1,y_2,\dots,y_n),v_i(y_1,y_2,\dots,y_n)]$ depends only on
+  $x_1$, $x_2$, $\dots$, $x_n$ and not on the choice of lifts $y_i$. Thus, the
+  sum $w(y_1,y_2,\dots,y_n)$ also depends only on the values of
+  $x_i$, and we obtain the function:
+
+  $$\chi_{w,L}(x_1,x_2,\dots,x_n) = \sum_{i=1}^m \omega_L(u_i(x_1,x_2,\dots,x_n),v_i(x_1,x_2,\dots,x_n))$$
+\end{proof}
+
+\begin{theorem}\label{thm:iterated-bracket-commutes-homoclinisms}
+  Suppose $(\zeta,\varphi)$ is a homoclinism of Lie rings $L_1$ and
+  $L_2$, where $\zeta:\operatorname{Inn}(L_1) \to
+  \operatorname{Inn}(L_2)$ and $\varphi:L_1' \to L_2'$ are the
+  component homomorphisms. Then for any word $w(g_1,g_2,\dots,g_n)$
+  that is trivial in every abelian Lie ring (as described above), we have:
+
+  $$\chi_{w,L_2}(\zeta(x_1),\zeta(x_2),\dots,\zeta(x_n)) = \varphi(\chi_{w,L_1}(x_1,x_2,\dots,x_n))$$
+
+  for all $x_1,x_2,\dots,x_n \in \operatorname{Inn}(L)$.
+
+  Any word $w$ that is an iterated Lie bracket (with any order of
+  bracketing) satisfies this condition, and the theorem applies to
+  such word maps.
+\end{theorem}
+
+\begin{proof}
+  Denote by $\nu_1:L_1 \to \operatorname{Inn}(L_1)$ and $\nu_2:L_2 \to
+  \operatorname{Inn}(L_2)$ the canonical quotient maps.
+
+  We use the same notation and steps in the proof of the preceding
+  theorem, replacing $L$ by $L_1$. We obtain:
+
+  $$w(g_1,g_2,\dots,g_n) := \sum_{i=1}^m [u_i(g_1,g_2,\dots,g_n),v_i(g_1,g_2,\dots,g_n)]$$
+
+  where $u_i,v_i, 1 \le i \le m$ are words. Suppose $y_i \in L_1$ are
+  elements for which $\nu_1(y_i) = x_i$. As demonstrated in the proof of
+  the preceding theorem:
+
+  \begin{equation*}
+    \chi_{w,L_1}(x_1,x_2,\dots,x_n) = \sum_{i=1}^m \omega_{L_1}(u_i(x_1,x_2,\dots,x_n),v_i(x_1,x_2,\dots,x_n)) \tag{$\dagger$}
+  \end{equation*}
+
+  Suppose $z_i \in L_2$ are elements for which $\nu_2(z_i) =
+  \zeta(x_i)$. Similar reasoning to the above yields that:
+
+  \begin{small}
+  \begin{equation*}
+    \chi_{w,L_2}(\zeta(x_1),\zeta(x_2),\dots,\zeta(x_n)) = \sum_{i=1}^m \omega_{L_2}(u_i(\zeta(x_1),\zeta(x_2),\dots,\zeta(x_n)),v_i(\zeta(x_1),\zeta(x_2),\dots,\zeta(x_n))) \tag{$\dagger\dagger$}
+  \end{equation*}
+  \end{small}
+
+  Apply $\varphi$ to both sides of $(\dagger)$, use the defining
+  property of homoclinisms, and compare with $(\dagger\dagger)$ to
+  obtain the result.
+\end{proof}
+
+\subsection{Isoclinic Lie rings: how similar are they?}
+
+We say that $L_1$ and $L_2$ are isoclinic Lie rings if there is an
+isoclinism of Lie rings from $L_1$ to $L_2$. The relation of being
+isoclinic is an equivalence relation. Briefly:
+
+\begin{itemize}
+\item The relation of being isoclinic is {\em reflexive} because we
+  can choose both the isomorphisms to be the identity
+  maps. Explicitly, for any Lie ring $L$,
+  $(\operatorname{id}_{\operatorname{Inn}(L)},\operatorname{id}_{L'})$
+  defines an isoclinism from $L$ to itself.
+\item The relation of being isoclinic is {\em symmetric} because we
+  can take the inverse isomorphisms to both the
+  isomorphisms. Explicitly, if $(\zeta,\varphi)$ describes the
+  isoclinism from $L_1$ to $L_2$, then $(\zeta^{-1},\varphi^{-1})$
+  describes the isoclinism from $L_2$ to $L_1$.
+\item The relation of being isoclinic is {\em transitive} because we
+  can compose both kinds of isomorphisms separately. Explicitly, if
+  $(\zeta_{12},\varphi_{12})$ describes the isoclinism from $L_1$ to
+  $L_2$ and $(\zeta_{23},\varphi_{23})$ describes the isomorphism from
+  $L_2$ to $L_3$, then $(\zeta_{23} \circ \zeta_{12}, \varphi_{23}
+  \circ \varphi_{12})$ describes the isoclinism from $L_1$ to $L_3$.
+\end{itemize}
+
+Here is an alternative way of seeing that being isoclinic is an
+equivalence relation: isoclinisms are precisely the isomorphisms in
+the category of Lie rings with homoclinisms, and being isomorphic in any
+category is an equivalence relation.
+
+We first list some very obvious similarities between isoclinic Lie rings.
+
+\begin{itemize}
+\item They have isomorphic derived subrings: This is direct from the
+  definition, which includes an isomorphism of the derived subrings.
+\item They have isomorphic inner derivation Lie rings: This is direct
+  from the definition, which includes an isomorphism between the inner
+  derivation Lie rings.
+\item They have precisely the same non-abelian composition factors (if
+  the composition factors do exist): Since the center is abelian, all
+  the non-abelian composition factors occur inside the inner
+  derivation Lie ring for both, which we know to be isomorphic.
+\item If one is nilpotent, so is the other, and they have the same
+  nilpotency class (with the exception of class zero getting conflated
+  with class one): The nilpotency class is one more than the
+  nilpotency class of the inner derivation Lie ring.
+\item If one is solvable, so is the other, and they have the same
+  derived length (with the exception of length zero getting conflated
+  with length one): The derived length is one more than the derived
+  length of the derived subring.
+\end{itemize}
+
+Note that conjugacy class sizes and degrees of irreducible
+representations do not make direct sense for Lie rings. But there are
+important analogues of these statements that apply in a number of
+cases. In Section \ref{sec:kirillov-orbit-method}, we discuss the
+Kirillov orbit method, which relates the irreducible representations
+of a group with its Lazard Lie ring.
+
+\subsection{Isoclinism defines a correspondence between some subrings}\label{sec:isoclinism-correspondence-some-subrings}
+
+Suppose $L_1$ and $L_2$ are isoclinic Lie rings with an isoclinism
+$(\zeta,\varphi): L_1 \to L_2$ where $\zeta:\operatorname{Inn}(L_1)
+\to \operatorname{Inn}(L_2)$ and $\varphi:L_1' \to L_2'$ are the
+component isomorphisms. Then, $\zeta$ gives a correspondence:
+
+Lie subrings of $L_1$ that contain $Z(L_1)$ $\leftrightarrow$
+Lie subrings of $L_2$ that contain $Z(L_2)$
+
+This correspondence does not preserve the isomorphism type of the
+subring, but it preserves some related structure. Explicitly, the
+following hold whenever a subring $M_1$ of $L_1$ corresponds with a
+subring $M_2$ of $L_2$:
+
+\begin{itemize}
+\item $M_1/Z(L_1)$ is isomorphic to $M_2/Z(L_2)$.
+\item $M_1$ and $M_2$ are isoclinic.
+\item $M_1$ is an ideal in $L_1$ if and only if $M_2$ is an ideal in
+  $L_2$, and if so, then $L_1/M_1$ is isomorphic to $L_2/M_2$.
+\end{itemize}
+
+We have a similar correspondence given by $\varphi$:
+
+Lie subrings of $L_1$ that are contained in $L_1'$ $\leftrightarrow$
+Lie subrings of $L_2$ that are contained in $L_2'$
+
+This correspondence preserves a number of structural
+features. Explicitly, the following hold whenever a subring $M_1$ of
+$L_1$ is in correspondence with a subring $M_2$ of $L_2$:
+
+\begin{itemize}
+\item $M_1$ is isomorphic to $M_2$
+\item $M_1$ is an ideal in $L_1'$ if and only if $M_2$ is an ideal in
+  $L_2'$, and if so, then $L_1'/M_1$ is isomorphic to $L_2'/M_2$.
+\item $M_1$ is an ideal in $L_1$ if and only if $M_2$ is an ideal in
+  $L_2$, and if so, then $L_1/M_1$ is isoclinic to $L_2/M_2$.
+\end{itemize}
+
+The two correspondences discussed above overlap somewhat, and they
+agree with each other wherever they overlap. Explicitly, if $M_1$ is a
+subring of $L_1$ that contains $Z(L_1)$ and is contained in $L_1'$,
+then the $M_2$ obtained by both correspondences is identical.
+
+\subsection{Characteristic subrings, quotient rings, and subquotients determined by the Lie ring up to isoclinism}
+
+We can deduce the following regarding important characteristic
+subrings, quotients, and subquotients of a Lie ring $L$ that are
+determined up to isomorphism by knowing $L$ up to isoclinism:
+
+\begin{itemize}
+\item All lower central series member subrings $\gamma_c(L), c \ge
+  2$. Note that $\gamma_1(L) = L$ needs to be excluded. Further, the
+  isomorphism types of successive quotients between lower central
+  series members of the form $\gamma_i(L)/\gamma_j(L)$ with $j \ge i
+  \ge 2$ are also determined by the knowledge of $L$ up to
+  isoclinism. Note that the quotient rings $L/\gamma_c(L)$ are in
+  general determined only up to isoclinism and not up to isomorphism.
+
+\item All derived series member subrings $L^{(i)}$, $i \ge 1$. Note
+  that we need to exclude $L^{(0)} = L$. Further, the isomorphism
+  types of quotients between derived series members of the form
+  $L^{(i)}/L^{(j)}$ with $j \ge i \ge 1$ are also determined by the
+  knowledge of $L$ up to isoclinism. Note that the quotient Lie rings
+  $L/L^{(i)}$ are determined only up to isoclinism and not up to
+  isomorphism.
+\item Quotients $L/Z^c(L)$ for all upper central series member
+  subrings $Z^c(L)$, $c \ge 1$. We need to exclude $c = 0$ which
+  would give $L/Z^0(L) = L$. Further, the isomorphism types of
+  subquotients of the form $Z^i(L)/Z^j(L)$ where $i \ge j \ge 1$ are
+  also determined up to isomorphism by the knowledge of $L$ up to
+  isoclinism. Note that the subrings $Z^i(L)$ themselves are
+  determined only up to isoclinism and not up to isomorphism.
+\end{itemize}
+
+\subsection{Correspondence between abelian subrings}\label{sec:isoclinism-abelian-subrings}
+
+Suppose $L_1$ and $L_2$ are isoclinic Lie rings. The following are true:
+
+\begin{itemize}
+\item The isoclinism establishes a correspondence between abelian
+  subrings of $L_1$ containing $Z(L_1)$ and abelian subrings of $L_2$
+  containing $Z(L_2)$. Note that the abelian subrings that are in
+  correspondence are not necessarily isomorphic to each other. In
+  fact, unless $Z(L_1)$ and $Z(L_2)$ have the same order, the abelian
+  subrings in correspondence need not even have the same order as
+  each other.
+\item The isoclinism establishes a correspondence between the abelian
+  subrings of $L_1$ that are self-centralizing and the abelian
+  subrings of $L_2$ that are self-centralizing. A self-centralizing
+  abelian subring is an abelian subring that equals its own
+  centralizer, or equivalently, it is maximal among abelian subrings
+  of the Lie ring.
+\item In the case that $L_1$ and $L_2$ are both finite, the isoclinism
+  establishes a correspondence between abelian subrings of maximum
+  order in $L_1$ and abelian subrings of maximum order in
+  $L_2$.
+\end{itemize}
+
+If $L_1$ and $L_2$ are both finite, then each of the correspondences
+above preserves the index of the subrings. In particular, this means
+that isoclinic finite Lie rings of the same order have the same value
+for the maximum order of abelian subring, the same value for the
+maximum order of abelian ideal, and the same value for the orders of
+self-centralizing abelian subrings.
+
+\subsection{Constructing isoclinic Lie rings}
+
+Here are some ways of constructing Lie rings isoclinic to a given Lie ring:
+
+\begin{itemize}
+\item Take a direct product with an abelian Lie ring.
+\item Find a Lie subring whose sum with the center is the whole Lie
+  ring. In symbols, if $M$ is a subring of $L$ and $M + Z(L) = L$
+  (where $Z(L)$ denotes the center of $L$), then $M$ is isoclinic to
+  $L$. Note that for finite Lie rings, this is the only way to find
+  isoclinic subrings to the whole Lie ring: a subring is isoclinic to
+  the whole Lie ring if and only if its sum with the center of the
+  whole ring is the whole ring.
+\end{itemize}

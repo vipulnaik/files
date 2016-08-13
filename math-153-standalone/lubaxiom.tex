@@ -1,0 +1,445 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{The least upper bound axiom}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 11.1.
+
+{\bf What students should already know}: The intuitive idea of the
+real line, basic algebra and calculus as done in the course up to this
+point for motivation/background.
+
+{\bf What students should definitely get}: The definitions of least
+upper bound and greatest lower bound, the definition of boundedness,
+the statements about the existence of these in the real
+numbers. Computation of these in special cases.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item The real numbers satisfy the {\em least upper bound property}:
+  any nonempty subset of the set of real numbers that is bounded from
+  above has a least upper bound. This property does {\em not} hold if
+  we replace the real numbers by the rational numbers.
+\item The real numbers satisfy the {\em greatest lower bound
+  property}: any nonempty subset of the set of real numbers that is
+  bounded from below has a greatest lower bound. This property again
+  does {\em not} hold if we replace the real numbers by the rational
+  numbers.
+\item We can prove the greatest lower bound property using the least
+  upper bound property. There are two proofs of this. One of these
+  proofs involve {\em reflection}: replacing a set by its set of
+  negatives. The other proof, which is there in the book, is also
+  worth going through. Please go through it. I'll go through it in
+  review session. You will not be asked the proof in the test, but it
+  may be helpful for multiple choice questions and other conceptually
+  based problems.
+\item The natural numbers satisfy a property that is somewhat similar
+  to the greatest lower bound property for the reals, but stronger:
+  any nonempty subset of the set of natural numbers has a least
+  element. This is equivalent to the {\em principle of mathematical
+  induction}.
+\item If a nonempty subset of the real numbers has a {\em maximum}
+  element, then that element is also the least upper bound of the
+  set. Conversely, if the least upper bound of a set is in the set,
+  then that is also the maximum element of the set.
+\item If a nonempty subset of the real numbers has a {\em minimum}
+  element, then that element is also the greatest lower bound of the
+  set. Conversely, if the greatest lower bound of a set is in the set,
+  then that is also the minimum element of the set.
+\item A nonempty finite subset always has a maximum and a minimum
+  element. Thus, its greatest lower bound and least upper bound are
+  both in the set.
+\item For an interval with lower endpoint $a$ and upper endpoint $b$,
+  the least upper bound is $b$ and the greatest lower bound is
+  $a$. Note that this holds for all the four possibilities for the
+  interval: $[a,b]$, $(a,b)$, $[a,b)$, and $(a,b]$.
+\item If $T$ is a nonempty subset of a nonempty bounded subset $S$ of
+  $\R$, any lower bound for $S$ remains a lower bound for $T$ and any
+  upper bound for $S$ remains an upper bound for $T$. However, we may
+  have an upper bound for $T$ that is {\em not} an upper bound for
+  $S$. Similarly, we may have a lower bound for $T$ that is {\em not}
+  a lower bound for $S$. Thus, the least upper bound for $T$ is $\le$
+  the least upper bound for $S$, and the greatest lower bound for $T$
+  is $\ge$ the greatest lower bound for $S$.
+\item A set does {\em not} have an upper bound if and only if it has
+  arbitrarily large elements. Similarly, a set does {\em not} have a
+  lower bound if and only if it has arbitrarily small elements (i.e.,
+  negative elements of arbitrarily large magnitude).
+\item If $M$ is the least upper bound of a nonempty subset $S$ of
+  $\R$, then, for every $\epsilon > 0$, $S$ has a nonempty
+  intersection with the interval $(M - \epsilon,M]$. In particular, if
+  $M \notin S$, then $S$ has a nonempty intersection with the interval
+  $(M - \epsilon, M)$. (See also the analogous theorem for greatest
+  lower bounds, which is Theorem 11.1.4 in the book).
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item To compute the greatest lower bound and least upper bound of a
+  set, we first need to compute the set. Finding the set as a union of
+  intervals is often useful.
+\item Given a set $S$, we can construct corresponding sets such as $S
+  + \lambda$ (translation), $-S$ (reflection about $0$), $f(S)$ (image
+  of $S$ under a function $f$), and $\operatorname{abs}(S)$ (the set
+  of absolute values of elements of $S$, i.e., folding about
+  $0$). Please review the results that relate bounds for $S$ with
+  bounds on these corresponding sets.
+\end{enumerate}
+
+\section{Ordering, boundedness, and related properties}
+
+\subsection{A total ordering}
+
+The real numbers, as we have come to understand them, are a {\em
+totally ordered set}. This means that for any two real numbers $a$ and
+$b$, one of three possibilities holds:
+
+\begin{enumerate}
+\item $a < b$: Equivalent formulations are $b > a$, $a - b < 0$, and
+  $b - a > 0$. In words, we say that $a$ is {\em less than} or {\em
+  smaller than} $b$.
+\item $a = b$: Equivalent formulations are $b = a$, $a - b = 0$, and
+  $b - a = 0$.
+\item $a > b$: Equivalent formulations are $b < a$, $b - a < 0$, and
+  $a - b > 0$. In words, we say that $a$ is {\em greater than} or {\em
+  bigger than} $b$.
+\end{enumerate}
+
+We also know that if $a < b$ and $b < c$, then $a < c$.
+
+Any two real numbers are {\em comparable}. We can say for sure that
+one real number is bigger or smaller than another. In other words, the
+real numbers can be arranged in increasing order, since they are
+arranged on a line. This {\em total ordering} is something very
+specific to the real numbers and subsets thereof. It breaks down for
+more complicated mathematical structures, such as the complex numbers,
+vector spaces over the real numbers, or polynomials. In many of those
+cases, we can artificially impose an ordering, but it does not behave
+in a nice and familiar way.
+
+\subsection{The reals, the rationals, and the integers}
+
+There are many subsets of the reals with qualitatively different
+behavior, but we concentrate on four important subsets that, when
+studied together, shed light on many of the issues of interest.
+
+\begin{enumerate}
+\item The {\em positive integers} or {\em natural numbers}, denoted
+  $\N$. These start at $1$, and go like $1,2,3,\dots$. A very
+  important feature of the positive integers is that {\em every
+  nonempty subset of the positive integers has a smallest
+  element}. This can be reformulated as the {\em principle of
+  mathematical induction}: if a statement is true for $1$ and its
+  truth for $k$ implies its truth for $k + 1$, then it is true for all
+  positive integers.
+\item The {\em integers}, denoted $\Z$. Unlike the positive integers,
+  they do not satisfy the property that every nonempty subset has a
+  least element. The integers stretch to infinity in both
+  directions. However, just like the positive integers, they are {\em
+  discrete} -- for every integer, there is a unique {\em successor} (a
+  unique smallest integer that's the {\em next} integer) and a unique
+  {\em predecessor} (a unique largest integer that's the {\em
+  previous} integer).
+\item The {\em rational numbers}, denoted $\Q$. These differ from the
+  integers in the following important respect: they have a {\em
+  density property}. Between any two rational numbers, there is yet
+  another rational number. And this process can be repeated {\em ad
+  infinitum}, so between any two rational numbers, there are {\em
+  infinitely many} rational numbers. Although the rational numbers are
+  {\em dense}, they are not {\em complete} -- there are holes. We can
+  have a bunch of rational numbers that seem to be heading to some
+  specific number that turns out to be irrational.
+\item The {\em real numbers}, denoted $\R$. These include the rational
+  numbers and more numbers that can be arrived at by taking limits of
+  rational numbers. The set of real numbers is {\em complete} in the
+  sense that it has no holes. If a sequence of real numbers is headed
+  somewhere finite, it is headed towards a real number.
+\end{enumerate}
+
+We would like to make precise the notion of completeness of the real
+numbers, i.e., the idea that the real numbers don't have holes. There
+are many different (and equivalent) ways of doing this. The one we
+will follow is the {\em least upper bound axiom}, which we discuss next.
+
+\subsection*{Aside: Sequences and sizes of infinite sets}
+
+A {\em sequence} of real numbers is defined as a function from $\N$ to
+$\R$. The sequence can be written as a {\em list}:
+
+$$f(1), f(2), \dots, f(n), \dots$$
+
+Conversely, any list can be thought of as a function:
+
+$$a_1, a_2, \dots, a_n, \dots$$
+
+where the function is defined as $f(n) = a_n$.
+
+An infinite subset of the reals is {\em countable} if there is a
+sequence of real numbers that includes all elements in the subset. In
+other words, we can count, or list, all elements of the subset. It
+turns out that:
+
+\begin{enumerate}
+\item The set of natural numbers (positive integers) is countable. We
+  can just use the sequence $1,2,3,\dots$, which corresponds to the
+  identity function on $\N$.
+\item The set of integers is countable. We can use the sequence
+  $0,1,-1,2,-2,3,-3,\dots$. Note that this sequence involves {\em
+  alternating} between the positive and negative numbers, so it does
+  not preserve the usual ordering.
+\item The set of rational numbers is countable. The way we list the
+  rational numbers does not preserve the usual ordering, and involves
+  a snake-like path.
+\item The set of real numbers is {\em not} countable. In other words,
+  there is no way to list {\em all} real numbers.
+\end{enumerate}
+
+Thus, in this sense, even though all the four sets $\N$, $\Z$, $\Q$,
+and $\R$ are infinite, $\R$ is a bigger set than the other three. Note
+that although $\N \subset \Z \subset \Q$, the ostensibly bigger and
+much more dense set $\Q$ is {\em not} bigger in terms of number of
+elements than the ostensibly smaller $\N$.
+
+\subsection{Boundedness, upper bounds, and lower bounds}
+
+Suppose $S$ is a nonempty subset of the real numbers. An element $a
+\in \R$ is termed an {\em upper bound} for $S$ if $x \le a$ for all $x
+\in S$. In particular, we allow the upper bound to be in the set. A
+nonempty subset of $\R$ that has an upper bound is said to be {\em
+bounded from above}.
+
+An element $b \in \R$ is a {\em lower bound} for $S$ if $b \le x$ for
+all $x \in S$. In particular, we allow the lower bound to be in the
+set. A nonempty subset of $\R$ that has a lower bound is said to be
+{\em bounded from below}.
+
+A nonempty subset of $\R$ is said to be {\em bounded} if it is both
+bounded from above and bounded from below. Some comments:
+
+\begin{enumerate}
+\item $a$ is an upper bound for $S$ if and only if $S \subseteq
+  (-\infty,a]$.
+\item $b$ is a lower bound for $S$ if and only if $S \subseteq [b,\infty)$.
+\item $a$ is an upper bound for $S$ and $b$ is a lower bound for $S$
+  if and only if $S \subseteq [b,a]$.
+\end{enumerate}
+
+\subsection{Least upper bound and greatest lower bound}
+
+Suppose $S$ is a nonempty subset. An element $a \in \R$ is termed a
+{\em least upper bound} for $S$ if $a$ is an upper bound for $S$ and,
+for any upper bound $a'$ of $S$, $a \le a'$. In other words, $a$ is
+the {\em least} possible element we can choose as an upper bound.
+
+We can make two petty observations without much thought:
+
+\begin{enumerate}
+\item For a least upper bound to exist, the set must be bounded from
+  above.
+\item If $a$ and $a'$ are both least upper bounds for a nonempty
+  subset $S$, then $a = a'$. This is because each one is less than or
+  equal to the other.
+\end{enumerate}
+
+Now, whatever we have said so far applies inside the real numbers, but
+it also applies inside the rational numbers, inside the integers, and
+inside the positive integers. In fact, it applies more abstractly
+inside any totally ordered set. However, what we are going to say {\em
+now} is something very specific to the real numbers, in so far as it
+captures a {\em completeness} property of the real numbers. This says that:
+
+\begin{quote}
+  Any nonempty subset of the real numbers that is bounded from above
+  has a least upper bound {\em which is also a real number}.
+\end{quote}
+
+As already mentioned in the two points made above, the ``bounded from
+above'' condition is clearly {\em necessary}, and also, the least
+upper bound must be {\em unique}. Thus, for a subset $S$ of $\R$ that
+is bounded from above, we denote the least upper bound of $S$ by
+$\operatorname{lub}(S)$.
+
+In a similar vein, we can define the notion of {\em greatest lower
+bound}, and we have the following:
+
+\begin{quote}
+  Any nonempty subset of the real numbers that is bounded from below
+  has a greatest lower bound.
+\end{quote}
+
+Similar to the previous case, the ``bounded from below'' condition is
+{\em necessary}, and the greatest lower bound must be {\em unique}. We
+denote this by $\operatorname{glb}(S)$.
+
+\subsection{Pedestrian observations}
+
+\begin{enumerate}
+\item The following are equivalent for a nonempty subset $S$ of $\R$:
+  \begin{enumerate}
+  \item $S$ has a {\em maximum} element -- an element that is larger
+    than every other element of $S$.
+  \item The least upper bound of $S$ is in $S$.
+  \end{enumerate}
+  Moreover, if these equivalent conditions hold, the maximum element
+  equals the least upper bound.
+\item The following are equivalent for a nonempty subset $S$ of $\R$:
+  \begin{enumerate}
+  \item $S$ has a {\em minimum} element -- an element that is smaller
+    than every other element of $S$.
+  \item The greatest lower bound of $S$ is in $S$.
+  \end{enumerate}
+  Moreover, if these equivalent conditions hold, the minimum element
+  equals the greatest lower bound.
+\item A finite set has a maximum element and a minimum element. Thus,
+  any finite set contains its least upper bound and greatest lower
+  bound.
+\item For an interval with lower endpoint $a$ and upper endpoint $b$,
+  the least upper bound is $b$ and the greatest lower bound is
+  $a$. Note that this holds for all the four possibilities for the
+  interval: $[a,b]$, $(a,b)$, $[a,b)$, and $(a,b]$. The key
+  distinction between the closed and open situation is not in the
+  value of the upper/lower bound but in {\em whether that value is
+  contained in the set we start with}.
+\item If $T$ is a nonempty subset of a nonempty bounded subset $S$ of
+  $\R$, any lower bound for $S$ remains a lower bound for $T$ and any
+  upper bound for $S$ remains an upper bound for $T$. However, we may
+  have an upper bound for $T$ that is {\em not} an upper bound for
+  $S$. Similarly, we may have a lower bound for $T$ that is {\em not}
+  a lower bound for $S$. Thus, the least upper bound for $T$ is $\le$
+  the least upper bound for $S$, and the greatest lower bound for $T$
+  is $\ge$ the greatest lower bound for $S$.
+\item A (set does {\em not} have an upper bound) if and only if (it has
+  arbitrarily large elements). Similarly, a set (does {\em not} have a
+  lower bound) if and only if (it has arbitrarily small elements (i.e.,
+  negative elements of arbitrarily large magnitude)).
+\end{enumerate}
+
+\subsection{Boundedness of a set and of related sets}
+
+Given a nonempty set $S \subseteq \R$, we can construct the following sets:
+
+\begin{enumerate}
+\item {\em Translation}: $S + \lambda$, which is defined as $\{ s +
+  \lambda : s \in S \}$: $a$ is an upper (respectively lower) bound
+  for $S$ if and only if $a + \lambda$ is an upper (respectively
+  lower) bound for $S + \lambda$. $S$ is bounded from above
+  (respectively below) if and only if $S + \lambda$ is. The least
+  upper bound and greatest lower bound both get translated to the
+  right by $\lambda$. In other words, the least upper bound of $S +
+  \lambda$ is $\lambda$ plus the least upper bound of $S$, and the
+  greatest lower bound of $S + \lambda$ is $\lambda$ plus the greatest
+  lower bound of $S$.
+\item {\em Reflection about $0$}: $-S$, which is the set $\{ -s : s
+  \in S \}$. $a$ is an upper (respectively lower) bound for $S$ if and
+  only if $-a$ is a lower (respectively upper) bound for $S$. $S$ is
+  bounded from above (respectively below) if and only if $-S$ is
+  bounded from below (respectively above). The least upper bound for
+  $-S$ is the negative of the greatest lower bound for $S$, and the
+  greatest lower bound for $-S$ is the negative of the least upper
+  bound for $S$ (these statements are subject to existence).
+\item {Folding about $0$}: The set $\operatorname{abs}(S) = \{ |s| : s
+  \in S \}$. Although this could be denoted $|S|$, that notation is
+  often used for the {\em size} (or number of elements) of $S$, so we
+  will refrain from that notation. $S$ is bounded (i.e., bounded from
+  both above and below) if and only if $\operatorname{abs}(S)$ is
+  bounded from above. Note that $\operatorname{abs}(S)$ is {\em
+  always} bounded from below by $0$. Moreover, the least upper bound
+  of $\operatorname{abs}(S)$ is the maximum of the absolute values of
+  the greatest lower bound and least upper bound of $S$.
+\item {\em An increasing function}: Suppose $f:\R \to \R$ is a
+  continuous increasing function and $f(S)$ is the image of $S$ under
+  $f$. Then, the least upper bound of the image $f(S)$ is the image
+  under $f$ of the least upper bound of $S$, while the greatest lower
+  bound of the image $f(S)$ is the image under $f$ of the greatest
+  lower bound of $S$.
+\item {\em A decreasing function}: Suppose $f: \R \to \R$ is a
+  continuous decreasing function and $f(S)$ is the image of $S$ under
+  $f$. Then, the greatest lower bound of the image $f(S)$ is the image
+  under $f$ of the least upper bound of $S$, while the least upper
+  bound of the image $f(S)$ is the image under $f$ of the greatest
+  lower bound of $S$.
+\item The least upper bound (respectively greatest lower bound) of a
+  set of rational numbers may be rational or irrational. Similarly,
+  the least upper bound (respectively greatest lower bound) of a set
+  of irrational numbers may be rational or irrational.
+\end{enumerate}
+
+\section{Some important results}
+
+\subsection{There are numbers arbitrarily close up to the least upper bound}
+
+The statement of the theorem is:
+
+\begin{quote}
+  If $M$ is the least upper bound of a nonempty subset $S$ of $\R$,
+  then, for every $\varepsilon > 0$, $S$ has a nonempty intersection with
+  the interval $(M - \varepsilon,M]$. In particular, if $M \notin S$,
+  then $S$ has a nonempty intersection with the interval $(M -
+  \varepsilon, M)$.
+\end{quote}
+
+The proof is straightforward. Suppse there exists $\varepsilon > 0$ such
+that $S$ has empty intersection with the interval. Then, we can easily
+check that $M - \varepsilon$ is {\em also} an upper bound for $S$, which
+contradicts the minimality of $M$ as an upper bound for $S$.
+
+A similar statement holds for the greatest lower bound.
+
+Basically, what these results are saying is that for something to
+qualify as the least upper bound or greatest lower bound, it either
+must be in the set or there must be stuff arbitrarily close to it that
+is in the set. It should not be possible to isolate it away from the
+set that it claims to be the best bound on.
+
+\subsection{Deriving the least upper bound and greatest lower bound results from each other}
+
+In the book's presentation, the statement about the existence of a
+least upper bound is stated as an {\em axiom} while the statement
+about the existence of a greatest lower bound is stated as a {\em
+theorem}, proved using the least upper bound axiom.
+
+In reality, there is an elaborate construction procedure for the real
+numbers, and the details of that construction procedure guarantee both
+the least upper bound and the greatest lower bound
+properties. However, since we are not going through the construction
+procedure, we take a shortcut by treating the least upper bound
+existence statement as a {\em given}. It turns out, though, that the
+statement about the greatest lower bound can be deduced from it. There
+are two ways of deducing it:
+
+\begin{enumerate}
+\item Reflection about $0$: This interchanges the role of upper and
+  lower bounds. We can use the least upper bound axiom on $-S$ to
+  deduce the greatest lower bound property for $S$.
+\item The method as given in the book: The crux of this method is the
+  following observations: (a) the greatest lower bound of a set is the
+  least upper bound of the set of lower bounds of the set, (b) the set
+  of lower bounds on a nonempty set $S$ is bounded from above by an
+  element of $S$, hence is bounded from above. We use the least upper
+  bound axiom to argue that the set of lower bounds of $S$ has a least
+  upper bound, and then use (a) to show that this least upper bound
+  {\em of the set of lower bounds} of $S$ is also the greatest lower
+  bound for $S$. For a formal proof, refer to the book.
+\end{enumerate}
+
+The second approach may seem a little dense (in the non-mathematical
+sense) -- why go for this kind of twisted logic when we can simply use
+the reflection about $0$ proof?  There is a deep reason.
+
+The proof that involves the use of reflection about $0$ is drawing on
+the additive structure of the real numbers and the behavior of the
+negation operation. Thus, this proof {\em does not generalize} to
+arbitrary totally ordered sets. On the other hand, the second proof
+uses {\em nothing special} about the real numbers and is equally valid
+for any totally ordered set. In other words, the second proof is valid
+over any totally ordered set, and says that a totally ordered set
+satisfies the least upper bound property if and only if it satisfies
+the greatest lower bound property.
+\end{document}

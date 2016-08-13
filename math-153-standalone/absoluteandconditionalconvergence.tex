@@ -1,0 +1,232 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Absolute and conditional convergence}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 12.5.
+
+{\bf What students should definitely get}: The distinction between
+absolute and conditional convergence for series with both positive and
+negative terms. The fact that for a conditionally convergent series,
+different rearrangements can produce different sums. The statement
+about convergence of series with terms of alternating signs whose
+magnitudes monotonically go to zero.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item {\em Not for discussion}: When discussing the convergence of a
+  series, we can throw out all the terms that are zero.
+\item {\em Not for discussion}: A series $\sum a_k$ is termed {\em
+  absolutely convergent} if the series $\sum |a_k|$ converges. Note
+  that for a series of nonnegative terms, being absolutely convergent
+  is equivalent to being convergent.
+\item Suppose a series $\sum a_k$ is absolutely convergent. Then, the
+  positive terms converge (say, to $P$) and the negative terms
+  converge (say, to $N$). Moreover, $\sum a_k$ is the sum $P + N$, and
+  $\sum |a_k| = |P| + |N|$.
+\item If a series is absolutely convergent, then it is convergent and
+  {\em every rearrangement} of the series converges to the same sum.
+\item If a series is not absolutely convergent but is convergent, it
+  is termed {\em conditionally convergent}, and the positive terms add
+  up to $+\infty$, the negative terms add up to $-\infty$, and both
+  the positive terms and the negative terms go to $0$.
+\item The Riemann series rearrangement theorem states that a series
+  that is conditionally convergent but not absolutely convergent can
+  be rearranged to give any real number as its sum. It can also be
+  rearranged to give a sum of $+\infty$ and it can also be rearranged
+  to give a sum of $-\infty$. It can also be rearranged so that the
+  sequence of partial sums oscillates between any two fixed
+  locations. [Recall that you heard some non-symbolic, purely didactic
+  reasoning for this in class. Please review this reasoning from the
+  class notes.]
+\item The alternating series theorem states that a series whose terms
+  have alternating signs, and have magnitudes {\em monotonically}
+  decreasing to zero, must converge. Moreover, the point to which the
+  series converges is the least upper bound of the decreasing sequence
+  of even-numbered partial sums and the greatest lower bound of the
+  increasing sequence of odd-numbered partial sums. [Recall the
+  interpretation of this in terms of jumping along the number line.]
+\item (Questions: What happens if the magnitudes go to zero but not
+  monotonically? What happens if the series is not alternating? What
+  happens if the magnitudes decrease monotonically but not to zero?)
+\end{enumerate}
+
+\section{Absolute convergence and its consequences}
+
+\subsection{Absolutely convergent series}
+
+A series $\sum a_k$ (where the terms may be positive, negative, or
+zero) is termed {\em absolutely convergent} if the series $\sum |a_k|$
+converges.
+
+\subsection{The number line and triangle inequalities}
+
+Flash back to when you learned about addition on the number line. Let
+us use that procedure to understand how we sum up series and what
+happens when the terms have mixed signs.
+
+Consider a series:
+
+$$\sum_{k=1}^\infty a_k$$
+
+We start off at $0$. We now move a distance of $a_1$. More
+specifically, if $a_1$ is positive, we move a distance of $a_1$ to the
+right. If $a_1$ is negative, we move a distance of $|a_1| = -a_1$ to
+the left. if $a_1$ is zero, we stay put.
+
+We are now at $a_1$. We look at $a_2$. If $a_2$ is positive, we move a
+distance of $a_2$ to the right. If $a_2$ is negative, we move a
+distance of $-a_2$ to the left. We are now at $a_1 + a_2$. We keep
+going this way. At the $k^{th}$ stage, we are at the partial sum of
+the first $k$ terms, and we then traverse $a_{k+1}$ to reach the
+partial sum of the first $k + 1$ terms.
+
+We now see that:
+
+\begin{enumerate}
+\item If all the terms in the series are nonnegative, then the
+  sequence of partial sums is monotonic increasing (i.e.,
+  non-decreasing). If the series converges, it converges to the least
+  upper bound of the sequence of partial sums. If the series diverges,
+  this just means that the sequence of partial sums monotonically hops
+  off to $\infty$.
+\item If there are mixed signs among the terms in the series, then we
+  keep going up and down (which, on the number line, means right and
+  left). A special case is where the terms have alternating signs. In
+  this case, the partial sum alternates between right moves and left
+  moves. For the series to converge, the magnitude of these moves must
+  keep getting smaller and smaller, so that we eventually get to some
+  point in between. We can think of the partial sums as a swinging
+  pendulum whose successive oscillations get smaller and smaller.
+\item In general, a series with mixed signs can go forward a few steps
+  and back a few steps. It could converge if, in all this back and
+  forth, it is still zeroing in on some particular point. It could be
+  oscillating between finite limits if its magnitude of oscillations
+  never gets smaller than a certain amount. It could be oscillatorily
+  diverging to $\pm \infty$ if the oscillations get bigger and bigger
+  and extend farther and farther in both directions.
+\end{enumerate}
+
+\subsection{Remarkable results}
+
+Here now are some of the results:
+
+\begin{enumerate}
+\item An absolutely convergent series is convergent.
+\item More remarkably, {\em every rearrangement} of an absolutely
+  convergent series is convergent, and they all converge to the same
+  limit.
+\item Suppose a series (eventually) has alternating terms and the
+  magnitudes of the terms (eventually) {\em monotonically} decrease to
+  $0$. Then, the series is convergent. {\em Recall that for any
+  series, whether it has positive, zero, or negative terms, a
+  necessary but not sufficient condition for convergence is that the
+  terms must approach zero.}
+\item A series that is convergent but not absolutely convergent can be
+  rearranged (i.e., its terms permuted) to give {\em any specified
+  real sum}, and can also be rearranged to go to $+\infty$ or to go to
+  $-\infty$. It can also be rearranged to oscillate between {\em any
+  two specified finite limits}. These results are called the {\em
+  Riemann series rearrangement theorem}.
+\end{enumerate}
+
+In the next section, we explain each of these results.
+
+\section{Justifications}
+
+\subsection{Justification for (1) and (2)}
+
+Absolutely convergent series are convergent and the sum doesn't depend
+on how we arrange the terms. Why does this hold?
+
+Let's take an absolutely convergent series and separate it into two
+parts: the positive terms and the negative terms. The zero terms, if
+they existed, can be discarded without affecting the sum. Since the
+original series is absolutely convergent, the positive terms sum up to
+a finite number and the negative terms sum up to a finite
+number. Moreover, if we add the absolute values of these, we get the
+sum of the absolute values of all terms. The whole series adds up to
+the total of the sum of the positive sum and the negative
+sum. Moreover, this is independent of the order in which we arrange
+the terms.
+
+For instance, if the positive terms all add up to $13$ and the
+negative terms all add up to $-9$, the absolute values add up to $|13|
++ |-9| = 22$. The terms of the series add up to $13 + (-9) = 4$.
+
+A real world analogy might help. Suppose you have a total revenue of
+$13$ (across many items) and a total expenditure of $9$ (across many
+items). You can choose the order in which you earn the various revenue
+items and undertake the various expenditure items. The partial sum at
+any time reflects your current balance. If you eventually exhaust all
+the revenue and expenditure items, your final balance will be $4$,
+regardless of the order in which you earn and spend.
+
+\subsection{Justification for (3)}
+
+This is seen using the hopping on the number line. The partial sums
+are oscillating with smaller and smaller magnitudes. The lower ends of
+the oscillation form an increasing sequence and the upper ends of the
+oscillation form a decreasing sequence. The distance between these
+sequences keeps getting smaller, and goes to zero, because the terms
+are going to zero. Thus, the least upper bound of the increasing
+sequence of lower ends of oscillation equals the greatest lower bound
+of the decreasing sequence of upper ends of oscillation, and this also
+turns out to be the series sum.
+
+\subsection{Justification for (4)}
+
+(4) is the most interesting, since it says that if a series is
+convergent but not absolutely convergent, its sum is highly sensitive
+to the ordering of the terms. In fact, a suitable rearrangement can
+generate just about any sum conceivable. What's going on here? How
+does the situation differ fundamentally from (1) and (2)?
+
+Let's once again break up the series into positive and negative
+parts. In the absolutely convergent case, both parts had finite
+sums. If it is not absolutely convergent, at least one of the parts
+must have an infinite sum. But if just one part has an infinite sum,
+then the whole sum is also infinite. Since we are ending up with a
+finite sum at the end, {\em both} sums must be infinite. Specifically,
+the positive series sums up to $+\infty$ and the negative series sums
+up to $-\infty$. Also, the magnitudes of the terms in both series must
+still go to $0$.
+
+Since both these parts go to infinities of opposite signs, the order
+in which we pick the terms matters. Let us look once again at a
+credit/debit analogy. Suppose the potential revenue you can earn from
+all your revenue sources is infinite and so is the potential
+expenditure you can incur from all your potential expenditure
+sinks. You can adopt an {\em earn enough to binge strategy} -- you see
+the biggest expenditure you can make, then earn enough of your biggest
+revenue items to be able to make that expenditure, then make the
+expenditure, then again earn enough to make the next expenditure on
+the list, and so on. You can convince yourself that this way, your
+balance will eventually get closer and closer to zero, because both
+your biggest possible expenditures and your biggest possible revenue
+items will get smaller and smaller as you proceed.
+
+Or you can be a {\em prudent saver} -- earn a lot, and spend a
+little. You may choose to earn $100$ units (using the biggest revenue
+items) and then spend the biggest revenue items that fit within $10$
+units (so you build savings of about $90$ units). Then, again, you
+earn $100$ units, and spend $10$, and so on. This way, you build to an
+eventual saving of $\infty$. Since the {\em total} amount that can be
+earned and the {\em total} amount that can be spent is infinite, the
+time line choices about when to earn and when to spend affect your
+overall savings (or debt, as the case may be), even if you {\em
+eventually} earn everything and spend everything.
+
+Incidentally, Ponzi schemes are based on this sort of idea -- the idea
+that with infinite revenue and infinite expenditures, you can make an
+infinite profit, by suitably ordering the points in time when you
+acquire revenue and expenditure. And they crash in the real world
+because, of course, things are {\em not} infinite.
+
+\end{document}

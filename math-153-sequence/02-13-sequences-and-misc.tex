@@ -1,0 +1,206 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz: due February 13: Sequences and miscellanea}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+Your name (print clearly in capital letters): $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+
+{\bf YOU ARE FREE TO DISCUSS ALL QUESTIONS, BUT PLEASE MAKE SURE TO
+ONLY ENTER ANSWER CHOICES THAT YOU PERSONALLY ENDORSE}
+
+\begin{enumerate}
+\item Consider the sequence $a_n = 2a_{n-1} - \alpha$, with $a_1 =
+  \beta$, for $\alpha, \beta$ real numbers. What can we say about this
+  sequence for sure?
+
+  \begin{enumerate}[(A)]
+  \item $(a_n)$ is eventually increasing for all values of $\alpha,
+    \beta$.
+  \item $(a_n)$ is eventually decreasing for all values of $\alpha,
+    \beta$.
+  \item $(a_n)$ is eventually constant for all values of $\alpha,
+    \beta$.
+  \item $(a_n)$ is either increasing or decreasing, and which case
+    occurs depends on the values of $\alpha$ and $\beta$.
+  \item $(a_n)$ is increasing, decreasing, or constant, and which case
+    occurs depends on the values of $\alpha$ and $\beta$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item {\em This is a generalization of the preceding question}. Suppose
+  $f$ is a continuous increasing function on $\R$. Define a sequence
+  recursively by $a_n = f(a_{n-1})$, with $a_1$ chosen
+  separately. What can we say about this sequence for sure?
+  \begin{enumerate}[(A)]
+  \item $(a_n)$ is eventually increasing regardless of the choice of $a_1$.
+  \item $(a_n)$ is eventually decreasing regardless of the choice of $a_1$.
+  \item $(a_n)$ is eventually constant regardless of the choice of $a_1$.
+  \item $(a_n)$ is either increasing or decreasing, and which case
+    occurs depends on the value of $a_1$ and the nature of $f$.
+  \item $(a_n)$ is increasing, decreasing, or constant, and which case
+    occurs depends on the value of $a_1$ and the nature of $f$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+  For a function $f: \R \to \R$ and a particular element $a \in \R$,
+  define $g: \N \to \R$ by $g(n) = f(f(\dots(f(a))\dots))$ with the
+  $f$ occurring $n - 1$ times. Thus, $g(1) = a$, $g(2) = f(a)$, and so
+  on. Choose the right expression for $g$ for each of these choices of $f$.
+
+\item $f(x) := x + \pi$.
+  \begin{enumerate}[(A)]
+  \item $g(n) := a + n\pi$.
+  \item $g(n) := a + n\pi - 1$.
+  \item $g(n) := a + n(\pi - 1)$.
+  \item $g(n) := a + \pi(n - 1)$.
+  \item $g(n) := \pi + n(a - 1)$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item $f(x) := mx$, $m \ne 0$.
+  \begin{enumerate}
+  \item $g(n) := mna$.
+  \item $g(n) := m^na$.
+  \item $g(n) := n^ma$.
+  \item $g(n) := m^{n-1}a$.
+  \item $g(n) := n^{m-1}a$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item $f(x) := x^2$.
+  \begin{enumerate}[(A)]
+  \item $g(n) := a^{2^n} - 1$.
+  \item $g(n) := a^{2^n - 1}$.
+  \item $g(n) := a^{2^{n-1}}$.
+  \item $g(n) := a^{2^{n^{-1}}}$.
+  \item $g(n) := (a^{2^n})^{-1}$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item One of these sequences can {\em not} be obtained using the
+  procedure described in the previous questions (i.e., iterated
+  application of a function ). Identify this sequence. Only the first
+  five terms of the sequence are presented:
+
+  \begin{enumerate}[(A)]
+  \item $1,2,3,3,3$
+  \item $1,2,3,2,3$
+  \item $1,2,3,2,1$
+  \item $1,2,3,4,5$
+  \item $1,2,3,4,3$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Suppose $f:\R \to \R$ is a function. Identify which of these
+  definitions is {\em not} correct for $\lim_{x \to c} f(x) = L$,
+  where $c$ and $L$ are both finite real numbers.
+  \begin{enumerate}[(A)]
+  \item For every $\epsilon > 0$, there exists $\delta > 0$ such that
+    if $x \in (c - \delta, c + \delta) \setminus \{ c \}$, then $f(x)
+    \in (L - \epsilon, L + \epsilon)$.
+  \item For every $\epsilon_1 > 0$ and $\epsilon_2 > 0$, there exist
+    $\delta_1 > 0$ and $\delta_2 > 0$ such that if $x \in (c -
+    \delta_1,c+\delta_2)\setminus \{ c \}$, then $f(x) \in (L -
+    \epsilon_1, L + \epsilon_2)$.
+  \item For every $\epsilon_1 > 0$ and $\epsilon_2 > 0$, there exists
+    $\delta > 0$ such that if $x \in (c - \delta, c + \delta)
+    \setminus \{ c \}$, then $f(x) \in (L - \epsilon_1, L + \epsilon_2)$.
+  \item For every $\epsilon > 0$, there exist $\delta_1 > 0$ and
+    $\delta_2 > 0$ such that if $x \in (c - \delta_1, c + \delta_2)
+    \setminus \{ c \}$, then $f(x) \in (L - \epsilon, L + \epsilon)$.
+  \item None of these, i.e., all definitions are correct.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item In the usual $\epsilon-\delta$ definition of limit for a given
+  limit $\lim_{x \to c} f(x) = L$, if a given value $\delta > 0$ works
+  for a given value $\epsilon > 0$, then which of the following is
+  true?
+  \begin{enumerate}[(A)]
+  \item Every smaller positive value of $\delta$ works for the same
+    $\epsilon$. Also, the given value of $\delta$ works for every
+    smaller positive value of $\epsilon$.
+  \item Every smaller positive value of $\delta$ works for the same
+    $\epsilon$. Also, the given value of $\delta$ works for every
+    larger value of $\epsilon$.
+  \item Every larger value of $\delta$ works for the same
+    $\epsilon$. Also, the given value of $\delta$ works for every
+    smaller positive value of $\epsilon$.
+  \item Every larger value of $\delta$ works for the same
+    $\epsilon$. Also, the given value of $\delta$ works for every
+    larger value of $\epsilon$.
+  \item None of the above statements need always be true.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item In the usual $\epsilon-\delta$ definition of limit, we find that
+  the value $\delta = 0.2$ for $\epsilon = 0.7$ for a function $f$ at
+  $0$, and the value $\delta = 0.5$ works for $\epsilon = 1.6$ for a
+  function $g$ at $0$. What value of $\delta$ {\em definitely} works
+  for $\epsilon = 2.3$ for the function $f + g$ at $0$?
+
+  \begin{enumerate}[(A)]
+  \item $0.2$
+  \item $0.3$
+  \item $0.5$
+  \item $0.7$
+  \item $0.9$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item The sum of limits theorem states that $\lim_{x \to c} [f(x) +
+  g(x)] = \lim_{x \to c} f(x) + \lim_{x \to c} g(x)$ {\em if} the
+  right side is defined. One of the choices below gives an example
+  where the left side of the equality is defined and finite but the right side
+  makes no sense. Identify the correct choice.
+
+  \begin{enumerate}[(A)]
+  \item $f(x) := 1/x$, $g(x) := -1/(x + 1)$, $c = 0$.
+  \item $f(x) := 1/x$, $g(x) := (x - 1)/x$, $c = 0$.
+  \item $f(x) := \arcsin x$, $g(x) := \arccos x$, $c = 1/2$.
+  \item $f(x) := 1/x$, $g(x) = x$, $c = 0$.
+  \item $f(x) := \tan x$, $g(x) := \cot x$, $c = 0$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\end{enumerate}
+
+\end{document}

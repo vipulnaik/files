@@ -1,0 +1,922 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Partial fractions: an integrationist perspective}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 8.5.
+
+{\bf What students should already know}: The integrals for $1/x$,
+$1/(x^2 + 1)$, and $f'(x)/f(x)$, and the key trigonometric
+substitution of $\arctan$.
+
+{\bf What students should definitely get}: The statement about the
+existence of a partial fraction decomposition. How such a
+decomposition can be obtained, and how each of the pieces can be integrated.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item For most practical purposes, we can study {\em monic}
+  polynomials instead of arbitrary polynomials. A monic polynomial is
+  a polynomial whose leading coefficient is $1$. The reason we can
+  restrict attention to monic polynomials is that any nonzero
+  polynomial can be expressed as a nonzero constant times a monic
+  polynomial.
+\item A nonconstant monic quadratic polynomial is irreducible (i.e.,
+  cannot be expressed as a product of polynomials of smaller degree)
+  if and only if it has negative discriminant.
+\item Every nonconstant monic polynomial with real coefficients is a
+  product of monic linear polynomials and irreducible monic
+  quadratics, and this factorization is unique. Thus, all irreducible
+  monic polynomials are either linear or quadratics with negative
+  discriminant.
+\item The partial fractions approach breaks up any rational function
+  as the sum of a polynomial and rational functions of the form
+  $R/Q^k$ where $Q$ is a monic irreducible factor of the original
+  denominator and $R$ is a polynomial of degree strictly less than the
+  degree of $Q$.
+\item Each of these partial fraction pieces is easy to integrate. The
+  case where $Q$ is linear, it is of the form $x - \alpha$, and the
+  numerator is a constant, so this is a straightforward power
+  integration. In the case where $Q$ is quadratic, we break $R$ as the
+  sum of a constant and the derivative of $Q$. The constant part is
+  handled by a trigonometric substitution, and the derivative of $Q$
+  part is handled by the $u$-substitution $u = Q$.
+\item The partial fractions approach shows that every rational
+  function can be integrated, and we obtain an antiderivative that
+  involves $\ln$ (evaluated at some linear function of $x$), $\arctan$
+  (again, evaluated at some linear function of $x$), and other rational
+  functions.
+\item Using the partial fractions approach and the equivalence of
+  repeated integrability with the integrability of $x$ times a
+  function, we can show that any rational function can be {\em
+  repeatedly} integrated, with the final answer in terms of $\arctan$,
+  $\ln$, and rational functions.
+\end{enumerate}
+
+Actions ... Please go through the notes on partial fractions as well
+as the discussion of these in the book. We here list only some salient
+points:
+
+\begin{enumerate}
+\item Before beginning, make the denominator monic, and use the
+  Euclidean algorithm to reduce to a problem where the degree of the
+  numerator is less than the degree of the denominator.
+\item The general approach is to first factorize the denominator and
+  then break it up into partial fractions with unknown numerators. The
+  coefficients of the numerator need to be determined. One way of
+  doing this is to take a common denominator, multiply out, compare
+  coefficients, and solve the resultant system of linear equations.
+\item Instead of equating coefficients, we can also use a strategy of
+  plugging in values. We plug in values so that a large number of the
+  expressions that we are evaluating become zero.
+\item In particular, if we want to write:
+
+  $$\frac{r(x)}{(x - \alpha_1)(x - \alpha_2) \dots (x - \alpha_n)} = \frac{c_1}{x - \alpha_1} + \dots + \frac{c_n}{x - \alpha_n}$$
+
+  where all the $\alpha_i$s are distinct and the degree of $r$ is less
+  than $n$, then we get:
+
+  $$c_i = \frac{r(\alpha_i)}{\text{product of $\alpha_i - \alpha_j$, all $j \ne i$}}$$
+
+  We can use this to very rapidly write any fraction with denominator
+  a product of distinct linear factors in terms of partial fractions,
+  and then integrate it.
+\item To handle:
+
+  $$\frac{r(x) \, dx}{(q(x))^k}$$
+
+  where $q$ is an irreducible quadratic, we do repeated division,
+  taking quotients and remainders, and obtain the result in terms of
+  partial fractions.
+\item A thorough understanding of the partial fractions approach
+  should allow you to predict, simply by looking at a rational
+  function, whether the antiderivative expression for it will be (i) a
+  rational function, (ii) something involving rational functions and
+  $\arctan$, (iii) something involving rational functions and $\ln$,
+  or (iv) something involving rational functions, $\arctan$, and
+  $\ln$. For some practice of these, refer to the integration quiz.
+\end{enumerate}
+
+\section{The goal: integrate any rational function}
+
+Today's goal is to obtain a general strategy that will allow us to
+integrate any rational function. If we are able to accomplish this,
+then by some remarks made earlier, it should also be possible to {\em
+repeatedly} integrate any rational function.
+
+What we are doing is based on many deep results in algebra about
+polynomials, most of which we cannot explore in full detail because
+you don't have the requisite background.
+
+\subsection{A theorem about factorization of polynomials}
+
+For convenience, we will deal here only with {\em monic}
+polynomials. A monic polynomial is a polynomial whose leading
+coefficient is $1$, i.e., the coefficient of the highest degree term
+is $1$. Every nonzero polynomial can be expressed as a constant
+multiple of a monic polynomial. Since constants can be pulled out of
+integration and differentiation problems, do not affect the nature of
+the zeros, and have a clear and easy-to-work-out effect on the graph
+and behavior of a function, we do not really lose out on much by
+restricting our analysis to monic polynomials.
+
+To further simplify matters, we will deal with polynomials of degree
+$1$ or more, i.e., with nonconstant polynomials. Thus, our focus is on
+{\em nonconstant monic polynomials}.
+
+We are now in a position to state the grand theorem valid {\em over
+the real numbers}:
+
+\begin{quote}
+  Every nonconstant monic polynomial $p$ can be expressed as a product
+  of nonconstant monic polynomials $p_1$, $p_2$, $\dots$, $p_n$, where
+  each $p_i$ is either linear (i.e., degree $1$) or quadratic with
+  negative discriminant. In other words, every nonconstant monic
+  polynomial can be expressed as a product of nonconstant monic
+  irreducible polynomials of degree $1$ or $2$. Moreover, the
+  decomposition is unique up to ordering of the $p_i$s. The $p_i$s
+  need not be distinct.
+\end{quote}
+
+This result essentially states that there is a uniqueness of
+factorization for polynomials and all the irreducible polynomials are
+of degree either $1$ or $2$.
+
+\subsection{The two kinds of irreducible pieces}
+
+It is worth examining a little more closely the nonconstant monic
+polynomials that are irreducible, i.e., cannot be factorized
+further. From the above theorem, the only such types are the linear
+polynomials (polynomials of the form $x - a$) and the quadratic
+polynomials with negative discriminant (polynomials of the form $x^2 +
+Bx + C$ where $B^2 - 4C < 0$).
+
+By the square completion technique, we can write:
+
+$$x^2 + Bx + C = (x + (B/2))^2 - D/4$$
+
+where $D = B^2 - 4C$ is the discriminant.
+
+Since $D$ is negative, $-D/4$ is positive, and is the square of
+something. Setting $\beta = -B/2$ and $\gamma = \sqrt{-D/4}$, we obtain:
+
+$$x^2 + Bx + C = (x - \beta)^2 + \gamma^2$$
+
+where $\gamma > 0$.
+
+\subsection{Coming home}
+
+We next look at the question: how do we integrate:
+
+$$\int \frac{dx}{q(x)}$$
+
+where $q$ is an {\em irreducible} nonconstant monic polynomial? We
+already have the two cases above, so we consider both of them:
+
+\begin{enumerate}
+\item If $q(x) = x - a$, i.e., $q$ is linear, then the integral is
+  $\ln |x - a| + C$. It's a nice coincidence that we have already tackled
+  this integral.
+\item If $q$ is quadratic with negative discriminant, we first write
+  $q(x) = (x - \beta)^2 + \gamma^2$, with $\gamma > 0$. Then we use
+  the integration formula to obtain that the integral is $(1/\gamma)
+  \arctan((x - \beta)/\gamma) + C$. It's again a nice coincidence that
+  we were talking about these integrals recently.
+\end{enumerate}
+
+Now, what about integrating something like:
+
+$$\int \frac{a(x) \, dx}{q(x)}$$
+
+where $q$ is an irreducible nonconstant monic polynomial, and $a$ is
+any polynomial? We first use polynomial long division (yes!) to write:
+
+
+$$a(x) = b(x)q(x) + r(x)$$
+
+where $b$ is the quotient and $r$ is the remainder, with either $r =
+0$ or the degree of $r$ less than the degree of $q$ (note that $r$
+need not be monic). We thus obtain:
+
+$$\frac{a(x)}{q(x)} = b(x) + \frac{r(x)}{q(x)}$$
+
+To integrate the left side, we can integrate the right
+side. Integrating the polynomial $b$ is straightforward, so what we are
+left with is an integration of the form:
+
+$$\int \frac{r(x) \, dx}{q(x)}$$
+
+where the degree of $r$ is strictly smaller than the degree of $q$. We
+make three cases:
+
+\begin{enumerate}
+\item $q$ has degree one: In this case, $r$ is a constant, and can be
+  pulled out of the integration, and we are reduced to integrating
+  $dx/q(x)$, which we discussed above.
+\item $q$ has degree two but $r$ is still a constant: In this case, we
+  pull $r$ out and are again reduced to integrating $dx/(q(x))$, which
+  we discussed above.
+\item $q$ has degree two and $r$ has degree one: This needs more
+  thought, and we will now turn our attention to it.
+\end{enumerate}
+
+\subsection{Integating a linear over an irreducible quadratic}
+
+Consider the integration problem, with $\gamma > 0$:
+
+$$\int \frac{(Ax + B) \, dx}{(x - \beta)^2 + \gamma^2} $$
+
+We use the following two known integrals:
+
+$$\int \frac{1 \, dx}{(x - \beta)^2 + \gamma^2} = \frac{1}{\gamma} \arctan\left(\frac{x - \beta}{\gamma}\right)$$
+
+and:
+
+$$\int \frac{2(x - \beta) \, dx}{(x - \beta)^2 + \gamma^2} = \ln((x - \beta)^2 + \gamma^2)$$
+
+The latter integral is based on the $f'/f$ formulation. Note that we
+do not need an absolute value sign on the right because the expression
+in parentheses is always positive.
+
+We now try to write the integrand that we need to integrate in terms
+of the two integrands that we know how to integrate. In other words,
+we try to write:
+
+$$Ax + B = c_1(1) + c_2(2(x - \beta))$$
+
+where $c_1$ and $c_2$ are constants. We then try to solve for $c_1$
+and $c_2$, and then split the integrand as a linear combination of the
+known integrands, that we then integrate.
+
+For instance:
+
+$$\int \frac{x \, dx}{x^2 + x + 1}$$
+
+Note that the denominator has negative discriminant, and we can use
+square completion to write it as $(x + (1/2))^2 + (\sqrt{3}/2)^2$. We obtain:
+
+$$\int \frac{x \, dx}{(x + (1/2))^2 + (\sqrt{3}/2)^2} $$
+
+The derivative of the denominator is $2x + 1$. We now want to write:
+
+$$x = c_1(1) + c_2(2x + 1)$$
+
+Expanding and comparing coefficients, we obtain that $2c_2 = 1$ and
+$c_1 + c_2 = 0$, which yields that $c_1 = -1/2$, $c_2 = 1/2$. We thus get:
+
+$$\frac{-1}{2} \int \frac{dx}{(x + 1/2)^2 + (\sqrt{3}/2)^2}  + \frac{1}{2} \int \frac{2x + 1}{x^2 + x + 1} \, dx$$
+
+This simplifies to:
+
+$$\frac{-1}{\sqrt{3}} \arctan\left(\frac{x + (1/2)}{\sqrt{3}/2}\right) + \frac{1}{2} \ln(x^2 + x + 1)$$
+
+With some practice, you should be able to see the splitting by
+inspection, and hence will not need to set up a system of simultaneous
+linear equations to determine the constants $c_1$ and $c_2$.
+
+\subsection{Partial fractions}
+
+Suppose we want to integrate a rational function of the form:
+
+$$\frac{a(x)}{q(x)}$$
+
+where $q$ is nonconstant and monic. Note that if $q$ is constant, this
+is just polynomial integration. If $q$ is not monic, we can pull out a
+constant to make it monic. Thus, we can, {\em without loss of
+generality}, restrict to the case where $q$ is a nonconstant monic
+polynomial.
+
+We can first use long division to reduce this problem to integrating:
+
+$$\frac{r(x)}{q(x)}$$
+
+where the degree of $r$ is strictly less than the degree of $q$. The
+claim is that the above can be written as a sum of expressions of
+the form:
+
+$$\frac{R(x)}{Q(x)^k}$$
+
+where $Q$ is nonconstant monic irreducible (hence, degree either $1$
+or $2$), the degree of $R$ is less than the degree of $Q$, $k$ is a
+positive integer, and $Q^k$ divides $q$. We then devise strategies to:
+
+\begin{enumerate}
+\item find a way of taking a rational function and writing it as a sum
+  of terms of the above form. This process is called {\em partial
+    fraction decomposition}.
+\item integrate each of the terms we obtain as a result of the
+  decomposition.
+\end{enumerate}
+
+The unappealing idea behind (1) is setting up and solving a monstrous
+system of linear equations (although there are shortcuts in some
+cases). The unappealing idea behind (2) is to use trigonometric
+substitutions in the rare cases where we cannot directly obtain a
+result from one of the canned formulas.
+
+\subsection{Denominator a product of two distinct linear terms}
+
+Consider:
+
+$$\int \frac{dx}{x^2 - 5x + 6}$$
+
+The denominator can be factorized as $(x - 2)(x - 3)$, and we obtain:
+
+$$\int \frac{dx}{(x - 2)(x - 3)}$$
+
+An astute observation at this stage yields that:
+
+$$\frac{1}{(x - 2)(x - 3)} = \frac{(x - 2) - (x - 3)}{(x - 2)(x - 3)} = \frac{1}{x - 3} - \frac{1}{x - 2}$$
+
+Thus, the original integral expression becomes:
+
+$$\int \frac{dx}{x - 3} - \int \frac{dx}{x - 2}$$
+
+which simplifies to:
+
+$$\ln|x - 3| - \ln |x - 2| + C$$
+
+which can also be written as:
+
+$$\ln\left|\frac{x - 3}{x - 2}\right| + C$$
+
+In this case, the partial fraction decomposition that helped us was:
+
+$$\frac{1}{(x - 2)(x - 3)} = \frac{1}{x - 3} - \frac{1}{x - 2}$$
+
+In general, if we are given:
+
+$$\frac{Ax + B}{(x - \alpha_1)(x - \alpha_2)}$$
+
+We want to write it as:
+
+$$\frac{Ax + B}{(x - \alpha_1)(x - \alpha_2)} = \frac{c_1}{x -
+\alpha_1} + \frac{c_2}{x - \alpha_2}$$
+
+We now want to determine $c_1$ and $c_2$ in terms of $A$ and $B$. We
+do so by cross-multiplying and comparing coefficients. Specifically, we get:
+
+$$Ax + B = c_1(x - \alpha_2) + c_2(x - \alpha_1)$$
+
+This yields $A = c_1 + c_2$ and $B = -(c_1\alpha_2 + c_2\alpha_1)$. We
+then proceed to solve for $c_1$ and $c_2$ in terms of $A$ and $B$.
+
+In our case, $Ax + B$ was $1$, so $A = 0$ and $B = 1$, while $\alpha_1
+= 2$, $\alpha_2 = 3$. Solving this system yielded $c_1 = -1$, $c_2 =
+1$, which is what we used.
+
+\subsection*{Aside: Speed to boast about}
+
+If you want to get really quick at integrating such expressions, you
+should solve these above systems in general (i.e., find expressions
+for $c_1$ and $c_2$ in terms of $A$, $B$, $\alpha_1$, and $\alpha_2$,
+and solve through to the end in the {\em general case}), and then
+memorize the final expressions you get. You can then jump straight
+from the statement of the question to the final answer. However, it is
+recommended that before mastering such shortcuts, you should solve out
+a few problems in full detail.
+
+Of particular interest is the case where the numerator is $1$. In this
+case, the formula is easy to master and fairly intuitive.
+
+\subsection{Denominator a product of more than two distinct linear terms}
+
+In this subsection, we explore the linear equations approach. In the
+next subsection, we consider a slight variant of the approach that
+works well for products of distinct linear terms, and is considerably
+faster in many such cases.
+
+Suppose we want to integrate:
+
+$$\int \frac{dx}{x^3 - 2x}$$
+
+We first note that the denominator is expressible as a product of
+three linear terms, so we rewrite as:
+
+$$\int \frac{dx}{x(x - \sqrt{2})(x + \sqrt{2})}$$
+
+Our goal is to now find constants $c_1$, $c_2$, and $c_3$ such that:
+
+$$\frac{1}{x^3 - 2x} = \frac{c_1}{x} + \frac{c_2}{x - \sqrt{2}} + \frac{c_3}{x + \sqrt{2}}$$
+
+One way to do this is to take a common denominator on the right side
+and simplify it. We get:
+
+$$\frac{1}{x^3 - 2x} = \frac{c_1(x^2 - 2) + c_2x(x + \sqrt{2}) + c_3x(x - \sqrt{2})}{x^3 - 2x}$$
+
+We now equate the numerators to get:
+
+$$1 = c_1(x^2 - 2) + c_2x(x + \sqrt{2}) + c_3x(x - \sqrt{2})$$
+
+Since these are equal as polynomials in $x$, we equate them
+coefficient-wise, obtaining a system of simultaneous linear equations
+in the variables $c_1$, $c_2$, and $c_3$, that we then dutifully
+solve. Once we determine all the values, we write the answer, which is:
+
+$$c_1 \ln|x| + c_2 \ln|x - \sqrt{2}| + c_3 \ln|x + \sqrt{2}| + C$$
+
+Let's do the actual finding of $c_1$, $c_2$, and $c_3$. We get the
+following system of simultaneous linear equations:
+
+\begin{eqnarray*}
+  c_1 + c_2 + c_3 & = & 0 \\
+  \sqrt{2} c_2 - \sqrt{2} c_3 & = & 0\\
+  -2c_1 & = & 1 
+\end{eqnarray*}
+
+Solving, we obtain that $c_1 = -1/2$, $c_2 = 1/4$, and $c_3 =
+1/4$. The answer is thus:
+
+$$\frac{-1}{2} \ln|x| + \frac{1}{4} \ln|x - \sqrt{2}| + \frac{1}{4} \ln|x + \sqrt{2}| + C$$
+
+We can combine the second and third terms to get:
+
+$$\frac{-1}{2} \ln|x| + \frac{1}{4} \ln|x^2 - 2| + C$$
+
+We see how this can be generalized. If the denominator is a product of
+$n$ distinct linear terms, say $(x - \alpha_1)(x - \alpha_2) \dots (x
+- \alpha_n)$, we try to write the function as:
+
+$$\frac{c_1}{x - \alpha_1} + \frac{c_2}{x - \alpha_2} + \dots + \frac{c_n}{x - \alpha_n}$$
+
+We then take a common denominator, simplify the numerator, and equate
+it as a polynomial to the numerator of the original integrand. We
+equate coeffiicent-wise as polynomials in $x$, creating a system of
+simultaneous linear equations with variables $c_i$, that we then
+solve. The final answer is:
+
+$$c_1 \ln|x - \alpha_1| + c_2 \ln|x - \alpha_2| + \dots + c_n\ln |x - \alpha_n|$$
+
+\subsection{Another way of finding the coefficients for partial fractions}
+
+Let us reconsider the problem of splitting into partial fractions:
+
+$$\int \frac{r(x) \, dx}{(x - \alpha_1)(x - \alpha_2) \dots (x - \alpha_n)}$$
+
+where all that $\alpha_i$s are distinct.
+
+We want to write this as:
+
+$$\frac{r(x)}{(x - \alpha_1)(x - \alpha_2) \dots (x - \alpha_n)} = \frac{c_1}{x - \alpha_1} + \frac{c_2}{x - \alpha_2} + \dots + \frac{c_n}{x - \alpha_n}$$
+
+To do this, we take a common denominator and equate the numerators, getting:
+
+$$r(x) = c_1(x - \alpha_2) \dots (x - \alpha_n) + c_2(x - \alpha_1)(x - \alpha_3) \dots (x - \alpha_n) + \dots + c_n(x - \alpha_1) \dots (x - \alpha_{n-1})$$
+
+Earlier, we had proceeded from this point onward by expanding out,
+comparing coefficients of each power of $x$, and equating these
+coefficients. This gave us a system of linear equations in the
+variables $c_1$, $c_2$, $\dots, c_n$. We then proceeded to solve this
+system to find the $c_i$s.
+
+For $n \le 2$, this procedure is feasible and quick. However, for $n
+\ge 3$, the procedure becomes messy because we first need to do a lot
+of tedious term multiplications to find coefficients, and then we need
+to solve a tedious system of linear equations.
+
+The approach we have used above is based on the key idea that {\em if
+two polynomials are equal, they are equal coefficient-wise}.
+
+The approach we will now use is based on the key idea that {\em if two
+polynomials are equal, their values at every number are equal}.
+
+Consider:
+
+$$r(x) = c_1(x - \alpha_2) \dots (x - \alpha_n) + c_2(x - \alpha_1)(x - \alpha_3) \dots (x - \alpha_n) + \dots + c_n(x - \alpha_1) \dots (x - \alpha_{n-1})$$
+
+This equality is an {\em identity} in $x$, in the sense that it is
+true for all $x$. In particular, it is true if we set $x =
+\alpha_1$. Doing this, we note that the only term on the right side
+that survives is the first product, and we get:
+
+$$r(\alpha_1) = c_1(\alpha_1 - \alpha_2)(\alpha_1 - \alpha_3) \dots (\alpha_1 - \alpha_n)$$
+
+We thus get:
+
+$$c_1 = \frac{r(\alpha_1)}{(\alpha_1 - \alpha_2)(\alpha_1 - \alpha_3) \dots (\alpha_1 - \alpha_n)}$$
+
+We can obtain analogous expressions for the other $c_i$s.
+
+With specific values, we can compute this easily. This method is
+preferable (from a speed perspective) when $n \ge 3$. Please see
+numerical examples in the book.
+
+The idea is also important from a conceptual perspective. The key idea
+is that when a given equation is an {\em identity} in one variable
+(i.e., it is true for all possible values that that one variable can
+take) we can plug in specific values of that variable to get specific
+equations in the other variables.
+
+\subsection{Denominator a higher power of a linear expression}
+
+Consider the integration:
+
+$$\int \frac{x^2 + 5x + 6}{(x - 1)^3} \, dx$$
+
+Here, we can do a $u$-substitution with $u = x - 1$, so $x = u + 1$,
+and the expression now becomes a sum of powers of $u$. Let's do
+this. Note that $dx = du$, so we get:
+
+$$\int \frac{(u + 1)^2 + 5(u + 1) + 6}{u^3} \, du$$
+
+This simplifies to:
+
+$$\int \frac{u^2 + 7u + 12}{u^3} \, du$$
+
+Dividing each term by $u^3$ and splitting up, we get:
+
+$$\int \frac{du}{u} + 7 \int \frac{du}{u^2} + 12 \int \frac{du}{u^3}$$
+
+which becomes:
+
+$$\ln|u| - \frac{7}{u} - \frac{6}{u^2}$$
+
+Substituting back $u = x - 1$, we obtain:
+
+$$\ln|x - 1| - \frac{7}{x - 1} - \frac{6}{(x - 1)^2} + C$$
+
+The above approach is equivalent to the following superficially
+different approach, where we try to rewrite the original function as:
+
+$$\frac{\text{first constant}}{x - 1} + \frac{\text{second constant}}{(x - 1)^2} + \frac{\text{third constant}}{(x- 1)^3}$$
+
+where each part is easy to integrate using the integration of power
+functions. 
+
+\subsection{Denominator a product of linear and quadratic irreducibles}
+
+Integration is a thankless task. Accomplishments in integration invite
+more integration problems rather than applause.
+
+So far, we have tackled situations where the denominator is a single
+irreducible, where it is a product of distinct linear terms, and where
+it is a power of a linear term. We now deal with the case where the
+denominator is a product involving distinct linear and quadratic
+irreducibles. This is {\em almost} the end. The final straw will be
+the case where the denominator is a product of possibly repeated
+linear and quadratic terms.
+
+We consider the integral:
+
+$$\int \frac{x^3 + x + 1}{x^3 + x} \, dx$$
+
+First, note that here, the degree of the numerator is {\em not}
+strictly less than the degree of the denominator, which means that the
+first step is long division. We do this, and obtain:
+
+$$\int \left[1 + \frac{1}{x^3 + x}\right] \, dx$$
+
+The $1$ integrates to $x$, so we need to integrate:
+
+$$\int \frac{dx}{x^3 + x}$$
+
+The denominator can be factorized as $x(x^2 + 1)$. It cannot be
+factorized further because $x^2 + 1$ is an irreducible quadratic.
+
+We try now to write it as:
+
+$$\frac{1}{x^3 + x} = \frac{Ax + B}{x^2 + 1} + \frac{c}{x}$$
+
+Again, we cross multiply and simplify the right side and equate
+numerators, getting:
+
+$$1 = x(Ax + B) + c(x^2 + 1)$$
+
+Equating coefficients, we obtain:
+
+\begin{eqnarray*}
+  A + c & = & 0\\
+  B & = & 0 \\
+  c & = & 1 \\
+\end{eqnarray*}
+
+We thus get $A = -1$, $B = 0$, and $c = 1$. Plugging in, we obtain:
+
+$$\frac{1}{x^3 + x} = \frac{-x}{x^2 + 1} + \frac{1}{x}$$
+
+We now try integrating both pieces. Note that we can do each piece
+separately, because it is of the form $r/q$ where $q$ is irreducible
+and $r$ has smaller degree. In our case, the answer is:
+
+$$\frac{-1}{2} \ln(x^2 + 1) + \ln|x|$$
+
+Finally, we should remember that the original problem was different,
+and we need to add a $x$ that comes from integrating the $1$. So the
+answer to the original problem is:
+
+$$x - \frac{1}{2}\ln(x^2 + 1) + \ln|x| + C$$
+
+\subsection{Situation where the denominator is a power of an irreducible quadratic}
+
+Suppose we want to carry out the integration:
+
+$$\int \frac{Ax^3 + Bx^2 + Cx + D}{[(x - \beta)^2 + \gamma^2]^2} \, dx$$
+
+The first step is to break up the integrand as:
+
+$$\frac{\text{constant or linear}}{(x - \beta)^2 + \gamma^2} + \frac{\text{constant or linear}}{[(x - \beta)^2 + \gamma^2]^2} \text{Note: Correction made}$$
+
+This can be done by long division. For instance, consider the problem:
+
+$$\int \frac{x^3 + 2x^2 + 3x + 4}{(x^2 + 1)^2} \, dx$$
+
+We use polynomial division to divide the numerator by $x^2 + 1$. We
+obtain that:
+
+$$x^3 + 2x^2 + 3x + 4 = (x^2 + 1)(x + 2) + (2x + 2)$$
+
+Dividing both sides by $(x^2 + 1)^2$, we obtain:
+
+$$\frac{x^3 + 2x^2 + 3x + 4}{(x^2 + 1)^2} = \frac{x + 2}{x^2 + 1} + \frac{2x + 2}{(x^2 + 1)^2}$$
+
+Now, for each piece, we use the integration strategy we learned
+earlier: write the numerator as a linear combination of $1$ and $2(x -
+\beta)$. In this case, for instance, $2(x - \beta) = 2x$, so the first
+fraction becomes:
+
+$$\frac{1}{2}\frac{2x}{x^2 + 1} + 2 \cdot \frac{1}{x^2 + 1}$$
+
+The second integrand becomes:
+
+$$1 \cdot \frac{2x}{(x^2 + 1)^2} + 2 \cdot \frac{1}{(x^2 + 1)^2}$$
+
+We have thus broken up the original integrand as a combination of four
+terms, each of which has numerator either equal to $1$ or equal to the
+derivative of the quadratic in the denominator. For the cases where
+the numerator is $1$, we use the trigonometric substitution idea. For
+the cases where the numerator is the derivative of the quadratic in
+the denominator, we use a $u$-substitution where $u$ is the expression
+in the denominator. In this case, our answer is:
+
+$$\frac{1}{2} \ln(x^2 + 1) + 2 \arctan (x) - \frac{1}{x^2 + 1} + 2 \int \frac{dx}{(x^2 + 1)^2}$$
+
+The fourth integral requires the trigonometric substitution $\theta =
+\arctan x$, which reduces to integrating $\cos^2 \theta$, which we in
+turn simplify and substitute back in terms of $x$.
+
+\subsection{The overall strategy}
+
+Here is a summary of the overall strategy (as before, we assume that
+the denominator is nonconstant and monic):
+
+\begin{enumerate}
+\item First, factorize the denominator.
+\item Collect all repeated factors together.
+\item If the numerator and denominator have common factors, cancel.
+\item If the degree of the numerator is greater than that of the
+  denominator, use polynomial division to reduce to a problem where the
+  degree of the numerator is less than that of the denominator.
+\item Write the new rational function $r/q$ as a sum of rational
+  functions of the form $R/Q^k$ where $Q$ is one of the irreducible
+  factors, $k$ is at most equal to the multiplicity of $Q$ in $q$, and
+  the degree of $R$ is less than the degree of $Q$. This may be
+  accomplished by polynomial division along with some setting up of
+  simultaneous linear equations.
+\item For those cases where $Q$ is linear, integration is
+  straightforward and gives an answer that is a rational function if
+  $k > 1$ and a logarithmic function if $k = 1$.
+\item For those cases where $Q$ is quadratic, write $R$ as a linear
+  combination of $1$ and the derivative of $Q$. The $1$ part
+  integrates using an arc tangent substitution, while the derivative
+  of $Q$ part integrates by setting $u = Q$. For the derivative of $Q$
+  part, the answer is a rational function if $k > 1$ and $\ln(Q)$ if
+  $k = 1$. Note that we do not need the absolute value here because
+  the quadratic is always positive.
+\end{enumerate}
+
+\section{Integrating between limits}
+
+\subsection{Interval red alert}
+
+One important thing to remember about rational functions is that they
+need not be defined everywhere. Specifically, a rational function {\em
+blows up} at the zeros of the denominator, i.e., the points where the
+denominator becomes zero. Thus, it is meaningless to integrate a
+rational function over an interval if the interval contains any of the
+zeros of the denominator.
+
+\subsection{Sporadic manna from heaven: symmetry}
+
+When integrating rational functions, it is useful to be on the lookout
+for symmetries (even/odd/mirror symmetry/half-turn symmetry) that may
+result in a particular integral being zero without our having to
+compute it as an indefinite integral. Here are some quick reminders:
+
+\begin{enumerate}
+\item A polynomial is an even function if and only if it is an {\em
+  even polynomial}: all its terms with nonzero coefficients have even
+  degree.
+\item A polynomial is an odd function if and only if it is an {\em odd
+  polynomial}: all its terms with nonzero coefficients have odd
+  degree. Thus, $x^3$ is an odd polynomial, and so is $x^3 - 46 x$,
+  but $x^3 + 1$ is not odd.
+\item The quotient of two even polynomials is even, and the quotient
+  of two odd polynomials is even. The quotient of an even polynomial
+  by an odd polynomial, or the quotient of an odd polynomial by an
+  even polynomial, is odd.
+\end{enumerate}
+
+In particular, suppose we are trying to compute:
+
+$$\int_{-1}^1 \frac{x^5 - x}{(x^2 + 2)^3} \, dx$$
+
+the answer is $0$, because the function is odd and the interval of
+integration is symmetric about $0$.
+
+This method may sometimes allow us to simplify one or more of the many
+partial fractions that we obtain using the partial fraction
+decomposition, allowing us to concentrate on the others.
+
+\subsection{Computation as the last resort: boring but dependable}
+
+When shortcuts fail, we simply compute the indefinite integral and
+evaluate it between limits. At the end of this, we get an answer that
+possibly involves $\ln$s and $\arctan$s. Often, these cannot be
+further simplified for the particular limits of
+integration. Sometimes, they can, but the answers are still messy. In
+any case, we {\em have} reduced an integration problem to a problem
+that involves looking up natural logarithm and arc tangent
+tables. This is no small feat.
+
+For instance, consider the problem:
+
+$$\int_1^3 \frac{dx}{x^2 + x + 1}$$
+
+An antiderivative that we obtain using our method is:
+
+$$\frac{2}{\sqrt{3}} \arctan \left(\frac{x + (1/2)}{\sqrt{3}/2}\right)$$
+
+Evaluating between limits, we obtain:
+
+$$\frac{2}{\sqrt{3}} \left[\arctan(7/\sqrt{3}) - \arctan(\sqrt{3})\right]$$
+
+The second $\arctan$ is precisely $\pi/3$, but the first one does not
+correspond to any angle that we already know. Nonetheless, we {\em do}
+know that it is between $\pi/3$ and $\pi/2$. The difference is thus
+between $0$ and $\pi/6$, and the final answer is thus between $0$ and
+$\pi/3\sqrt{3}$, which is less than $0.62$. If we had a better
+understanding of $\arctan$ (something we will achieve by the end of
+this course), we could probably estimate the integral even better.
+
+\section{Summaries and miscellanea}
+
+\subsection{Transcendental mess and repeated integration}
+
+The term {\em transcendental} is used for functions that don't arise
+from algebraic functions through the usual processes of combination,
+composition, and takin inverses. It includes the exponential and
+logarithmic functions, as well as the trigonometric and inverse
+trigonometric functions.
+
+As we have seen, integrating a rational function can give rise to a
+transcendental function. However, only a very limited collection of
+transcendental functions arise this way. In particular, only a small
+number of ways of combining $\ln$ and $\arctan$ can arise in this way.
+
+Further, recall that to {\em repeatedly integrate} a rational function
+$f$, we use the fact that $f(x)$, $xf(x)$, $x^2f(x)$ and so on are all
+rational functions and hence can all be integrated. All of these
+rational functions have the same denominator (possibly a smaller one
+due to cancellations).
+
+Here are some observations:
+
+\begin{itemize}
+\item If the denominator can be completely factorized into {\em
+  distinct} monic linear factors, then the antiderivative we get is a
+  linear combination of $\ln$s (with constant coefficients) at these
+  linear factors (absolute values), plus a polynomial. There is no
+  appearance of $\arctan$.
+
+  Repeated integration of such a rational function yields a
+  combination of $\ln$s with polynomial coefficients, plus a
+  polynomial.
+\item If the denominator can be completely factorized into linear
+  factors, possibly with repetition, then the antiderivative is a
+  linear combination of $\ln$s, reciprocals of powers of these
+  linear factors, plus a polynomial.
+
+  Repeated integration of such a rational function yields a
+  combination of $\ln$s with polynomial coefficients, plus a
+  polynomial.
+\end{itemize}
+
+In particular, $\arctan$ starts appearing only once we introduce
+irreducible {\em quadratic} factors. Some of you may be wondering why
+$\arctan$ should appear at all, and why everything could not be done
+with $\ln$. In fact, {\em if we were allowed to use the complex
+numbers instead of the real numbers}, then we could break everything
+down into linear factors, and everything could be effectively
+accomplished using $\ln$. However, the complex numbers pose their own
+problems. Back in the real world, we need both $\ln$ and $\arctan$,
+which is a kind of imaginary-twisted version of $\ln$. This
+relationship is based on the relationship between circular
+trigonometric functions and hyperbolic trigonometric functions alluded
+to in the past.
+
+\subsection{A summary of techniques for various degrees of numerators and denominators}
+
+Here is a summary for most basic cases -- we assume that the
+denominator is monic:
+
+\begin{enumerate}
+\item The degree of the numerator is greater than the degree of the
+  denominator: Use polynomial long division to convert to a problem
+  where the degree of the numerator is less than the degree of the
+  denominator.
+\item The denominator is linear, and the numerator is constant: In this
+  case, we use the formula:
+
+  $$\int \frac{c}{x - \alpha} \, dx = c\ln|x - \alpha| + C$$
+\item The denominator is quadratic {\em irreducible} and the numerator
+  is constant or linear. We break the numerator into two pieces, one
+  of which integrates to a logarithmic expression and the other one
+  integrates to an arc tangent expression:
+
+  $$\int \frac{Ax + B}{(x - \beta)^2 + \gamma^2} \, dx = \frac{A}{2} \ln\left[(x - \beta)^2 + \gamma^2\right] + \frac{B + A\beta}{\gamma} \arctan\left(\frac{x - \beta}{\gamma}\right) + C$$
+
+\item The denominator is quadratic with two distinct factors $\alpha$
+  and $\beta$:
+
+  $$\int \frac{Ax + B}{(x - \alpha)(x - \beta)} \, dx= \frac{A\alpha + B}{\alpha - \beta} \ln|x - \alpha| + \frac{A\beta + B}{\beta - \alpha} \ln|x - \beta|$$
+
+\item The denominator is a quadratic with a repeated linear factor:
+  Here, we simply put $u$ as that linear factor and do a
+  $u$-substitution. We can also work out an explicit formula:
+
+  $$\int \frac{Ax + B}{(x - \alpha)^2} \, dx = A\ln|x - \alpha| - \frac{A\alpha + B}{x - \alpha} + C$$
+
+\item The denominator is cubic with three distinct linear factors
+  $\alpha_1$, $\alpha_2$, $\alpha_3$: We follow the partial fractions
+  method and get a final answer as $c_1\ln|x - \alpha_1| + c_2\ln|x -
+  \alpha_2| + c_3 \ln|x - \alpha_3|$. As discussed in an earlier
+  section, if we numerator is the polynomial $r(x)$, then $c_1 =
+  r(\alpha_1)/(\alpha_1 - \alpha_2)(\alpha_1 - \alpha_3)$, $c_2 =
+  r(\alpha_2)/(\alpha_2 - \alpha_1)(\alpha_2 - \alpha_3)$, and $c_3 =
+  r(\alpha_3)/(\alpha_3 - \alpha_1)(\alpha_3 - \alpha_2)$.
+
+\item The denominator is cubic and splits as a product of a linear
+  factor and an irreducible quadratic: We use partial fractions to try
+  to write the fraction as:
+
+  $$\frac{\text{constant}}{\text{the linear factor}} + \frac{\text{constant or linear}}{\text{the irreducible quadratic factor}}$$
+
+  We know how to integrate each part. (One could write out a general
+  formula along the lines above, but it is probably unilluminating).
+\item The denominator is cubic and splits as a product of a linear
+  factor repeated twice ($(x - \alpha)^2$) and an isolated linear
+  factor $x - \beta$: In this case, we use partial fractions to write
+  the fraction as:
+
+  $$\frac{\text{constant or linear}}{(x - \alpha)^2} + \frac{\text{constant}}{x - \beta}$$
+
+  We can then solve each part separately. Alternatively, we may choose
+  to {\em directly} write the original as:
+
+  $$\frac{\text{constant}}{(x - \alpha)^2} + \frac{\text{constant}}{x - \alpha} + \frac{\text{constant}}{x - \beta}$$
+
+\item The denominator is the cube of $(x - \alpha)$: Then, set $u = x
+  - \alpha$, substitute, and solve.
+\item The denominator is of degree $4$ and is a product of two
+  distinct irreducible quadratics: Obtain a partial fraction
+  decomposition as:
+
+  $$\frac{\text{constant or linear}}{\text{First irreducible quadratic}} + \frac{\text{constant or linear}}{\text{Second irreducible quadratic}}$$
+
+  We know how to tackle each part.
+\item The denominator is of degree $4$ and is the square of an
+  irreducible quadratic: Obtain a partial fraction decomposition,
+  using polynomial long division, as:
+
+  $$\frac{\text{constant or linear}}{\text{irreducible quadratic}} + \frac{\text{constant or linear}}{\text{square of irreducible quadratic}}$$
+
+  We know how to integrate the first fraction. For the second
+  fraction, we break up the numerator as a linear combination of the
+  derivative of the denominator and $1$. The derivative part is solved
+  by taking $u$ equal to the denominator. The $1$ part is handled by a
+  trigonometric substitution.
+\item The denominator is of degree $4$ and is the product of an
+  irreducible quadratic and two distinct irreducible linear factors:
+  Use partial fractions to get:
+
+  $$\frac{\text{constant or linear}}{\text{irreducible quadratic}} + \frac{\text{constant}}{\text{first linear factor}} + \frac{\text{constant}}{\text{second linear factor}}$$
+\end{enumerate}
+
+Try figuring out the remaining cases for a degree $4$ polynomial: (i)
+product of an irreducible quadratic and the square of a linear factor,
+(ii) product of four distinct linear factors , (iii) product of two
+linear factors, each squared, (iv) product of one linear factor cubed
+and another linear factor (v) product of a squared linear factor and
+two other linear factors (vi) a single linear factor to the fourth
+power.
+
+If you're ambitious, you might want to work out all the cases for
+polynomials of degree five.
+
+\end{document}

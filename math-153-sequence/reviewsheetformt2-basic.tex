@@ -1,0 +1,618 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Review sheet for midterm 2: Basic}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf To maximize efficiency, please bring a copy (print or readable
+electronic) of the basic and advanced review sheet AND the previous
+review sheet to the review session.}
+
+This review sheet does {\em not} repeat review of material in the
+midterm 1 syllabus, although some of the ``Quickly'' stuff does not
+overlap. So, please go through the midterm 1 review sheet too. In the
+review session, we will concentrate on the midterm 2 review sheet
+(advanced version), but we will review some of the formulas from the
+basic version. However, we will not review every point and you should
+do that review on your own time.
+
+This is the basic review sheet. The error-spotting exercises are in
+the advanced review sheet.
+\section{Left-overs from integration}
+
+\subsection{Integrating radicals}
+Words ...
+
+\begin{enumerate}
+\item Expressions of the form $a^2 + x^2$ (with $a > 0$) in the
+  denominator or under the radical sign suggest the substitution
+  $\theta = \arctan(x/a)$. With this substitution, $x = a \tan
+  \theta$, $dx = a \sec^2 \theta \, d\theta$, $a^2 + x^2 = a^2 \sec^2
+  \theta$, and $\sqrt{a^2 + x^2} = a \sec \theta$. In the end, when
+  substituting back, we use $\theta = \arctan(x/a)$, $\tan \theta =
+  x/a$, $\sec \theta = \sqrt{a^2 + x^2}/a$, $\cos \theta = a/\sqrt{a^2
+  + x^2}$, and $\sin \theta = x/\sqrt{a^2 + x^2}$. The first sentence
+  of substitutions is useful when converting the given integrand into
+  a trigonometric integrand. The second sentence is useful when
+  converting the integrated answer back at the end. (This latter step
+  is unnecessary when we are dealing with a definite integral and we
+  transform limits simultaneously).
+\item For $a^2 - x^2$ under a square root, we have a similar
+  substitution $\theta = \arcsin(x/a)$. For $x^2 - a^2$, we take
+  $\theta = \arccos(a/x)$. It is useful to work out the forward and
+  backward substitutions for these. (See the notes for the details of
+  these substitutions). {\em It is strongly suggested that you
+  internalize both the forward and the backward substitutions to the
+  point where they become automatic. Memorization helps, but you
+  should also be able to re-derive things on the spot as the need
+  arises.}
+\item There is a little subtlety in these substitutions. When we take
+  $\theta$ as $\arcsin$, we know that $\cos \theta$ is
+  nonnegative. Hence, when we simplify $\sqrt{a^2 - x^2}$, we get
+  $\sqrt{a^2\cos^2 \theta}$. Because by assumption $a$ is positive,
+  and because $\cos \theta$ is nonnegative, we can write the answer as
+  $a\cos \theta$. In other words, we know how exactly we can lift off
+  the square root. Something similar happens when we are dealing with
+  the tangent and secant functions: secant is nonnegative on the range
+  of arc tangent. Unfortunately, tangent is {\em not} nonnegative on
+  the entire range of arc secant, so we need to actually look at the
+  region where we are carrying out the integration. In case both the
+  upper and lower bounds of integration are greater than $a$, we know
+  that we will in fact get $\tan \theta$.
+\end{enumerate}
+
+{\em Note}: Some of you may find it useful to draw right triangles, as
+suggested in the book, if reading trigonometric ratios off triangles
+is easier for you than algebraic manipulation of trigonometric
+expressions.
+
+Actions ...
+
+\begin{enumerate}
+\item Trigonometric substitutions allow us to integrate things like
+  $x^m(a^2 + x^2)^{n/2}$. However, some special cases of these can be
+  integrated without resort to trigonometric substitutions. For
+  instance, when $n$ is a nonnegative even integer, this is a sum of
+  powers of $x$ and can be integrated term wise. Also, if $m$ is odd,
+  we can do a $u$-substitution with $u = a^2 + x^2$.
+\item Similar remarks apply to expressions involving $\sqrt{a^2 -
+  x^2}$ and $\sqrt{x^2 - a^2}$.
+\item To apply this or similar techniques to more general quadratics,
+  we need to use a technique known as {\em completing the
+  square}. Here, we rewrite:
+
+  $$Ax^2 + Bx + C = A(x + (B/2A))^2 + (C - B^2/4A)$$
+
+  The special case where $A = 1$ is given by:
+
+  $$x^2 + Bx + C = (x + (B/2))^2 + (C - (B/2)^2)$$
+
+  Note that the left-over constant term after completing the square is
+  $-D/4A$ where $D$ is the discriminant of the quadratic
+  polynomial. In the case $A = 1$, when the polynomial has positive
+  discriminant, this left-over term is negative, whereas when the
+  polynomial has negative discriminant, this left-over term is
+  positive. In the latter case, we can write it as the square of
+  something. We would thus have written our original polynomial as $(x
+  - \beta)^2 + \gamma^2$, whereupon we can make the substitution
+  $\theta = \arctan((x - \beta)/\gamma)$ (or directly apply the
+  integration formula).
+\end{enumerate}
+
+\subsection{Partial fractions}
+
+Words ...
+
+\begin{enumerate}
+\item For most practical purposes, we can study {\em monic}
+  polynomials instead of arbitrary polynomials. A monic polynomial is
+  a polynomial whose leading coefficient is $1$. The reason we can
+  restrict attention to monic polynomials is that any nonzero
+  polynomial can be expressed as a nonzero constant times a monic
+  polynomial.
+\item A nonconstant monic quadratic polynomial is irreducible (i.e.,
+  cannot be expressed as a product of polynomials of smaller degree)
+  if and only if it has negative discriminant.
+\item Every nonconstant monic polynomial with real coefficients is a
+  product of monic linear polynomials and irreducible monic
+  quadratics, and this factorization is unique. Thus, all irreducible
+  monic polynomials are either linear or quadratics with negative
+  discriminant.
+\item The partial fractions approach breaks up any rational function
+  as the sum of a polynomial and rational functions of the form
+  $R/Q^k$ where $Q$ is a monic irreducible factor of the original
+  denominator and $R$ is a polynomial of degree strictly less than the
+  degree of $Q$.
+\item Each of these partial fraction pieces is easy to integrate. The
+  case where $Q$ is linear, it is of the form $x - \alpha$, and the
+  numerator is a constant, so this is a straightforward power
+  integration. In the case where $Q$ is quadratic, we break $R$ as the
+  sum of a constant and the derivative of $Q$. The constant part is
+  handled by a trigonometric substitution, and the derivative of $Q$
+  part is handled by the $u$-substitution $u = Q$.
+\item The partial fractions approach shows that every rational
+  function can be integrated, and we obtain an antiderivative that
+  involves $\ln$ (evaluated at some linear function of $x$), $\arctan$
+  (again, evaluated at some linear function of $x$), and other rational
+  functions.
+\item Using the partial fractions approach and the equivalence of
+  repeated integrability with the integrability of $x$ times a
+  function, we can show that any rational function can be {\em
+  repeatedly} integrated, with the final answer in terms of $\arctan$,
+  $\ln$, and rational functions.
+\end{enumerate}
+
+Actions ... Please go through the notes on partial fractions as well
+as the discussion of these in the book. We here list only some salient
+points:
+
+\begin{enumerate}
+\item Before beginning, make the denominator monic, and use the
+  Euclidean algorithm to reduce to a problem where the degree of the
+  numerator is less than the degree of the denominator.
+\item The general approach is to first factorize the denominator and
+  then break it up into partial fractions with unknown numerators. The
+  coefficients of the numerator need to be determined. One way of
+  doing this is to take a common denominator, multiply out, compare
+  coefficients, and solve the resultant system of linear equations.
+\item Instead of equating coefficients, we can also use a strategy of
+  plugging in values. We plug in values so that a large number of the
+  expressions that we are evaluating become zero.
+\item In particular, if we want to write:
+
+  $$\frac{r(x)}{(x - \alpha_1)(x - \alpha_2) \dots (x - \alpha_n)} = \frac{c_1}{x - \alpha_1} + \dots + \frac{c_n}{x - \alpha_n}$$
+
+  where all the $\alpha_i$s are distinct and the degree of $r$ is less
+  than $n$, then we get:
+
+  $$c_i = \frac{r(\alpha_i)}{\text{product of $\alpha_i - \alpha_j$, all $j \ne i$}}$$
+
+  We can use this to very rapidly write any fraction with denominator
+  a product of distinct linear factors in terms of partial fractions,
+  and then integrate it.
+\item To handle:
+
+  $$\frac{r(x) \, dx}{(q(x))^k}$$
+
+  where $q$ is an irreducible quadratic, we do repeated division,
+  taking quotients and remainders, and obtain the result in terms of
+  partial fractions.
+\item A thorough understanding of the partial fractions approach
+  should allow you to predict, simply by looking at a rational
+  function, whether the antiderivative expression for it will be (i) a
+  rational function, (ii) something involving rational functions and
+  $\arctan$, (iii) something involving rational functions and $\ln$,
+  or (iv) something involving rational functions, $\arctan$, and
+  $\ln$. For some practice of these, refer to the integration quiz.
+\end{enumerate}
+
+\subsection{Improper integrals}
+
+Words ...
+
+\begin{enumerate}
+\item The integral $\int_a^\infty f(x) \, dx$ is defined as the limit
+  $\lim_{L \to \infty} \int_a^L f(x) \, dx$. If $F$ is an
+  antiderivative of $f$, this equals $\lim_{L \to \infty} F(L) - F(a)$.
+\item The integral $\int_{-\infty}^a f(x) \, dx$ is defined as the
+  limit $\lim_{L \to -\infty} \int_L^a f(x) \, dx$. If $F$ is an
+  antiderivative of $f$, this equals $F(a) - \lim_{L \to -\infty} F(L)$.
+\item The integral $\int_{-\infty}^\infty f(x) \, dx$ is defined as a
+  double limit, where the upper limit of integration is limited to
+  infinity, while the lower limit of integration is limited to
+  negative infinity. If $F$ is an antiderivative of $f$, this equals
+  $\lim_{L \to \infty} F(L) - \lim_{M \to -\infty} F(M)$.
+\item Another kind of improper integral occurs where the function is
+  integrated over an interval and is not defined at an endpoint of the
+  interval. Here, we take the limit over intervals of integration
+  where the interval gradually tends towards the trouble points. For
+  instance, if a function $f$ is to be integrated over $[a,b]$ but $b$
+  is a trouble point, we take $\lim_{c \to b} \int_a^c f(x) \, dx$. If
+  $F$ is an antiderivative of $f$, then if $F$ extends continuously to
+  $b$, this is just equal to $F(b) - F(a)$.
+\item In general, if there are multiple trouble points, we first
+  partition the interval of integration so that all the trouble points
+  are at the partition boundaries. We then use the limiting procedure
+  on each piece and add up across the pieces.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item The most straightforward way of computing an indefinite integral
+  is to compute the corresponding antiderivative and take the
+  difference between the upper and lower limits.
+\item In some cases, this is either infeasible or terribly messy. In
+  these cases, we may use the various other methods for computing
+  definite integrals that bypass computing the antiderivative. These
+  include the use of symmetry and a combination of $u$-substitution
+  plus noticing that after the substitution, the upper and lower
+  limits of integration become the same.
+\item In yet other cases, taking the limit of the antiderivative may
+  be hard, and we may need to use all the techniques discussed in
+  preceding subsections for computing this antiderivative.
+\end{enumerate}
+
+\section{Differential equations}
+
+\subsection{Solving differential equations at large}
+
+Words ...
+
+\begin{enumerate}
+\item A differential equation with dependent variable $y$ and
+  independent variable $x$ is something of the form
+  $F(x,y,y',y'',\dots) = 0$.
+\item The {\em order} of a differential equation is the {\em largest}
+  $k$ for which the $k^{th}$ derivative appears in the differential
+  equation. In particular, a {\em first-order differential equation}
+  only involves $x$, $y$, and $y'$, and does not involve $y''$ or
+  higher derivatives. A {\em second-order differential equation} only
+  involves $x$, $y$, $y'$, and $y''$.
+\item A {\em polynomial differential equation} is one where $F$ looks
+  like a polynomial in $y$ and its derivatives. A {\em linear
+  differential equation} is a differential equation of the form:
+
+  $$f_k(x)y^{(k)} + \dots + f_1(x)y' + f_0(x)y = g(x)$$
+
+  We can clear out the coefficient of $y^{(k)}$ by dividing throughout
+  by $f_k(x)$. The {\em homogeneous} case is where the right side is
+  zero.
+\item A {\em particular solution} is a relation $R(x,y) = 0$ that,
+  when plugged into the differential equation, satisfies it. (Here,
+  higher derivatives are computed using {\em implicit
+  differentiation}). A particular solution in {\em functional form} is
+  one where we explicitly find a function $f$ with $y = f(x)$ that
+  satisfies the differential equation.
+\item A {\em solution family} is a family with one or more parameters
+  such that for every permissible value of the parameter, we obtain a
+  particular solution.
+\item The {\em general solution} is a solution family that contains
+  all particular solutions.
+\item A general principle is that the number of freely varying
+  parameters in the general solution, also described as the number of
+  {\em degrees of freedom}, equals the order of the original
+  differential equation. The reason for this is roughly that the
+  number of integrations we do that introduce new degrees of freedom
+  equals the order of the differential equation.
+\item An {\em autonomous} differential equation is a differential
+  equation where the independent variable does not appear explicitly
+  (except as the thing in terms of which differentiation is carried
+  out). The independent variable can be thought of as {\em
+  time}. Autonomous differential equations have the property that any
+  time translate of a solution is also a solution. This property is
+  found in most physical laws, and essentially states that the
+  formulation of the physical law does not depend on when we started
+  measuring time, i.e., there is no natural time origin.
+\item To solve a second-order differential equation we usually do a
+  substitution to break it up into solving two first-order
+  differential equations.
+\item Of first-order differential equations, there are two broad
+  classes that we know how to solve: {\em separable} differential
+  equations and {\em linear} differential equations. For the latter
+  case, the solution method isolates $y$ as a function of $x$. In the
+  former case, we can get a mixed bag situation.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+
+\item The separable case is where we have $y' = f(x)g(y)$. In this
+  case, we rearrange to obtain $\int dy/g(y) = \int f(x) \, dx$, and
+  integrate both sides. We need to put the $+C$ on only one side,
+  because additive constants emanating from both integrals can be
+  combined into one additive constant.
+\item In the autonomous separable case, we have $dy/dt = g(y)$, and we
+  integrate to obtain $\int dy/g(y) = \int dt$. This is the case that
+  arises when we look at the logistic equation and its many variants.
+\item In the linear case, we have $y' + p(x)y = q(x)$ (after dividing
+  out by any coefficient of $y'$). Let $H(x) = \int p(x) \, dx$. The
+  integrating factor that we choose is $e^{H(x)}$. When we multiply by
+  this integrating factor the left side becomes the derivative of
+  $ye^{H(x)}$. Thus, we obtain:
+
+  $$y = e^{-H(x)} \int q(x)e^{H(x)} \, dx$$
+
+  Note that the $+C$ arises in the {\em inner} integral, so the
+  general solution is a particular solution plus $Ce^{-H(x)}$.
+\item When solving differential equations (particularly the separable
+  case) we often get a solution involving logarithms. In some cases,
+  it may be useful to {\em exponentiate} both sides. When we do so,
+  the original additive constant $C$ arising from indefinite
+  integration becomes a multiplicative constant $e^C$. We can also
+  absorb {\em sign uncertainty} into it and define a new constant $k =
+  e^C\operatorname{sgn}(y)$ to get the answer in terms of a sign
+  expression.
+\item In a similar vein to the above, if our answer involves an
+  inverse trigonometric function, we can apply the trigonometric
+  function to both sides. In this case, the additive constant {\em
+  sticks inside}. For instance, if we get $\arctan y = x + C$, then
+  applying $\tan$ to both sides yields $y = \tan(x + C)$. To simplify
+  this further (if we so desire), we need to use the angle sum
+  formula. The other major caveat that we need to bear in mind is that
+  there is a {\em loss of information} when we apply the trigonometric
+  substituion to both sides, because an inverse trigonometric function
+  value is constrained to a particular range. This constraint needs to
+  be kept track of separately.
+\item In some cases, before exponentiating or applying the inverse
+  trigonometric function, it might help to use the initial value
+  condition to pin down the freely varying parameters (see the next
+  subsection).
+\end{enumerate}
+
+\subsection{Graphical interpretation and initial value problems}
+
+Words ...
+
+\begin{enumerate}
+\item Any {\em particular solution} (whether expressed with $y$ as an
+  explicit function of $x$ or in terms of a relation between $x$ and
+  $y$) can be plotted as a curve in the $xy$-plane. When it is an
+  explicit function, this is the {\em graph of a function} --
+  otherwise, it's just the set of points satisfying the relation. This
+  picture in the plane is called an {\em integral curve} or a {\em
+  solution curve} for the differential equation.
+\item The {\em general solution} is thus a picture which has all the
+  particular solutions marked.
+\item Since solving a $k^{th}$ order differential equation introduces
+  $k$ degrees of freedom, we expect that to pin down a unique
+  solution, we need $k$ pieces of information. In particular, to
+  choose one particular solution for a first-order differential
+  equation, we need (by and large) one piece of information. In an
+  {\em initial value problem}, this is provided by specifying an
+  initial value, which is one point $(x_0,y_0)$ on the particular
+  solution curve.
+\item Geometrically, we expect that the solution family to a
+  first-order differential equation has one real parameter and that,
+  except in some degenerate cases, knowing one point on the curve
+  determines the curve. In other words we expect that by and large,
+  the solution curves do not intersect.
+\item For higher-order differential equations, on the other hand, we
+  expect that even after knowing one point on the curve, we have
+  pinned down only one of many degrees of freedom, and we still have
+  solution families to deal with rather than isolated solutions. More
+  information, such as information about higher derivatives, or
+  information about the curve passing through other points, is
+  desirable.
+\end{enumerate}
+
+Actions ... Nothing really, except that we plug in the initial value
+condition to pin down the constants.
+
+\section{The least upper bound axiom}
+
+Words ...
+
+\begin{enumerate}
+\item The real numbers satisfy the {\em least upper bound property}:
+  any nonempty subset of the set of real numbers that is bounded from
+  above has a least upper bound {\em that is also a real number}. This
+  property does {\em not} hold if we replace the real numbers by the
+  rational numbers (i.e., the least upper bound of a set of rationals
+  bounded from above exists as a real number, but need not be a
+  rational number).
+\item The real numbers satisfy the {\em greatest lower bound
+  property}: any nonempty subset of the set of real numbers that is
+  bounded from below has a greatest lower bound {\em that is also a
+  real number}. This property again does {\em not} hold if we replace
+  the real numbers by the rational numbers.
+\item We can prove the greatest lower bound property using the least
+  upper bound property. There are two proofs of this. One of these
+  proofs involve {\em reflection}: replacing a set by its set of
+  negatives. The other proof, which is there in the book, is also
+  worth going through. Please go through it. I'll go through it in
+  review session. You will not be asked the proof in the test, but it
+  may be helpful for multiple choice questions and other conceptually
+  based problems.
+\item The natural numbers satisfy a property that is somewhat similar
+  to the greatest lower bound property for the reals, but stronger:
+  any nonempty subset of the set of natural numbers has a least
+  element. This is equivalent to the {\em principle of mathematical
+  induction}.
+\item If a nonempty subset of the real numbers has a {\em maximum}
+  element, then that element is also the least upper bound of the
+  set. Conversely, if the least upper bound of a set is in the set,
+  then that is also the maximum element of the set.
+\item If a nonempty subset of the real numbers has a {\em minimum}
+  element, then that element is also the greatest lower bound of the
+  set. Conversely, if the greatest lower bound of a set is in the set,
+  then that is also the minimum element of the set.
+\item A nonempty finite subset always has a maximum and a minimum
+  element. Thus, its greatest lower bound and least upper bound are
+  both in the set.
+\item For an interval with lower endpoint $a$ and upper endpoint $b$,
+  the least upper bound is $b$ and the greatest lower bound is
+  $a$. Note that this holds for all the four possibilities for the
+  interval: $[a,b]$, $(a,b)$, $[a,b)$, and $(a,b]$.
+\item If $T$ is a nonempty subset of a nonempty bounded subset $S$ of
+  $\R$, any lower bound for $S$ remains a lower bound for $T$ and any
+  upper bound for $S$ remains an upper bound for $T$. However, we may
+  have an upper bound for $T$ that is {\em not} an upper bound for
+  $S$. Similarly, we may have a lower bound for $T$ that is {\em not}
+  a lower bound for $S$. Thus, the least upper bound for $T$ is $\le$
+  the least upper bound for $S$, and the greatest lower bound for $T$
+  is $\ge$ the greatest lower bound for $S$.
+\item A set does {\em not} have an upper bound if and only if it has
+  arbitrarily large elements. Similarly, a set does {\em not} have a
+  lower bound if and only if it has arbitrarily small elements (i.e.,
+  negative elements of arbitrarily large magnitude).
+\item If $M$ is the least upper bound of a nonempty subset $S$ of
+  $\R$, then, for every $\epsilon > 0$, $S$ has a nonempty
+  intersection with the interval $(M - \epsilon,M]$. In particular, if
+  $M \notin S$, then $S$ has a nonempty intersection with the interval
+  $(M - \epsilon, M)$. (See also the analogous theorem for greatest
+  lower bounds, which is Theorem 11.1.4 in the book).
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item To compute the greatest lower bound and least upper bound of a
+  set, we first need to compute the set. Finding the set as a union of
+  intervals is often useful.
+\item Given a set $S$, we can construct corresponding sets such as $S
+  + \lambda$ (translation), $-S$ (reflection about $0$), $f(S)$ (image
+  of $S$ under a function $f$), and $\operatorname{abs}(S)$ (the set
+  of absolute values of elements of $S$, i.e., folding about
+  $0$). Please review the results that relate bounds for $S$ with
+  bounds on these corresponding sets.
+\end{enumerate}
+
+\section{Sequences of reals}
+
+\subsection{Sequencs: basics}
+Words ...
+
+\begin{enumerate}
+\item A sequence in a set is a function from $\N$ to that set.
+\item A sequence of reals can be described in three ways: as an
+  ordered list of real numbers (where we write only the first few
+  members due to space and time considerations), as a closed form
+  expression for the general term of the sequence (i.e., thinking of
+  it as a function), and in terms of a recurrence relation.
+\item The {\em range} of a sequence is the set of values that it
+  takes. The range of a sequence differs from the sequence in the
+  following two senses: (i) it ignores repetition (ii) it ignores the
+  ordering or sequencing of the elements.
+\item There are many properties that we can talk of in the context of
+  sequences: increasing, decreasing, non-increasing, non-decreasing,
+  monotonic, constant, periodic, bounded from below, bounded from
+  above, and bounded. Note that the boundedness-related properties
+  depend {\em only} on the range of the sequence, whereas the other
+  properties depend on the sequence as a whole.
+\item For any property $p$ that can be evaluated on each sequence, we
+  can talk of the property {\em eventually} $p$, which means that some
+  left shift of the sequence has the property $p$. For instance, we
+  can talk of eventually increasing, eventually decreasing, eventually
+  constant, eventually monotonic, and eventually periodic.
+\item Eventually bounded is the same as bounded.
+\item There are various operations we can do on sequences similar to
+  the corresponding operations on functions: add, subtract, multiply,
+  divide, multiply by a scalar, and compose with a function defined on
+  the range of the sequence.
+\item We can do left shifts, right shifts (though this requires us to
+  throw in more new terms), splicing, and other fancy operations.
+\item If a sequence is defined recursively, i.e., using a recurrence
+  relation, then we need to separately specify initial values. The
+  number of initial values that we need to specify depends on how far
+  back the recurrence relation reaches. This is related both to the
+  principle of mathematical induction and the idea of free parameters
+  and initial value specifications for differential equations.
+\item We can define a discrete derivative, called the {\em forward
+  difference operator}, defined as follows: for a sequence $f:\N \to
+  \R$, the forward difference operator is $(\Delta f)(n) = f(n + 1) -
+  f(n)$. This is analogous to the derivative of a continuous function.
+\item The {\em integration equivalent} for the forward difference
+  operator is the summation operator. (Try to find the formula for
+  this in the notes/class discussion).
+\item The forward difference operator behaves analogously to
+  differentiation (though the formulas differ) for constants,
+  polynomial sequences, and periodic sequences. (Please see the notes
+  for a list of points).
+\item Periodic sequences can be defined using a case-wise definition
+  based on the remainder modulo the period. They can alternatively be
+  defined as combinations of trigonometric functions. In the special
+  case of a period $2$, we can also express in terms of $(-1)^n$.
+\item A sequence with periodic derivative can be expressed as the sum
+  (pointwise) of a linear sequence and a periodic sequence.
+\end{enumerate}
+
+\subsection{Continuous-discrete interplay}
+
+Words ...
+
+\begin{enumerate}
+\item Given a function on $\R$, we can restrict the function to $\N$
+  and obtain a sequence. This restriction is unique.
+\item Conversely, given a sequence, i.e., a function on $\N$, we can
+  extend it to a continuous function on $\R$. However, the extension
+  is not unique, and there are a lot of different ways of
+  extending. If the sequence is described by means of a nice closed
+  form functional expression, we may be able to extend it by
+  considering that functional expression for all real numbers.
+\item Usually, information about the function on the reals gives us
+  corresponding information about the corresponding sequence, but we
+  cannot get information in the reverse direction that easily. For
+  instance, an increasing function gives an increasing sequence, but
+  increasing sequences can arise from functions that are not
+  increasing. A decreasing function gives a decreasing sequence, a
+  monotonic function gives a monotonic sequence, and a bounded
+  function gives a bounded sequence.
+\item A function with integer period gives a periodic sequence.
+\item The mean value theorem relates the derivative of a function to
+  the discrete derivative (i.e., forward difference operator) of the
+  corresponding sequence.
+\item We can define a notion of concave up and concave down for
+  sequences based on the second discrete derivative. If a function is
+  concave up, so is the corresponding sequence. If the function is
+  concave down, so is the corresponding sequence.
+\end{enumerate}
+
+\section{Limit computation techniques}
+
+Words ...
+
+\begin{enumerate}
+\item L'H\^{o}pital's rule for $0/0$ form: Consider $\lim_{x \to c}
+  f(x)/g(x)$ where $\lim_{x \to c} f(x) = \lim_{x \to c} g(x) = 0$. If
+  both $f$ and $g$ are differentiable around $c$, then this limit is
+  equal to $\lim_{x \to c} f'(x)/g'(x)$.
+\item Analogous statements hold for one-sided limits and in the case
+  $c = \pm \infty$.
+\item The $0/0$ form LH rule {\em cannot} be applied if the numerator
+  does not limit to zero or if the denominator does not limit to zero.
+\item L'H\^{o}pital's rule for $\infty/\infty$ form: Consider $\lim_{x
+  \to c} f(x)/g(x)$ where $\lim_{x \to c} f(x) = \pm \infty$ and
+  $\lim_{x \to c} g(x) = \pm \infty$. If both $f$ and $g$ are
+  differentiable around $c$, then this limit is equal to $\lim_{x \to
+  c} f'(x)/g'(x)$.
+\item Analogous statements hold for one-sided limits and for $c = \pm
+  \infty$.
+\item For a function $f$ having a zero at $c$, the {\em order} of the
+  zero at $c$ is the least upper bound of $\beta$ such that $\lim_{x
+  \to c} |f(x)|/|(x - c)|^{\beta} = 0$. At this least upper bound, the
+  limit is usually finite and nonzero. For larger values of $\beta$,
+  the limit is undefined.
+\item Given a quotient $f/g$ for which we need to calculate the limit
+  at $c$, the limit is zero if the order of the zero for $f$ is
+  greater than the order for $g$, and undefined if the order of the
+  zero for $f$ is less than the order for $g$. When the orders are the
+  same, the limit could potentially be a finite nonzero number.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item For polynomial functions and other continuous functions, we can
+  calculate the limit at a point by evaluating at the point. For
+  rational functions, we can cancel common factors between the
+  numerator and the denominator till one of them becomes nonzero at
+  the point.
+\item There is a bunch of basic limits that translate to saying that
+  for the following functions $f$: $f(0) = 0$ and $f'(0) = 1$, which
+  is equivalent to saying that $\lim_{x \to 0} f(x)/x = 1$. These
+  functions are $\sin x$, $x \mapsto \ln(1 + x)$, $x \mapsto e^x - 1$,
+  $x \mapsto \tan x$, $x \mapsto \arcsin x$, and $x \mapsto \arctan
+  x$.
+\item For all the functions $f$ of the above kind (that we call {\em
+  strippable}), the following is true: in any multiplicative
+  situation, if the input to the function goes to zero in the limit,
+  the function can be stripped off.
+\item Two other basic limits are $\lim_{x \to 0} (1 - \cos x)/x^2 =
+  1/2$ and $\lim_{x \to 0} (x - \sin x)/x^3 = 1/6$. These can be
+  obtained using the LH rule.
+\item Typically, to compute limits, we can combine the LH rule,
+  stripping, and removing multiplicative components that we can
+  calculate directly.
+\item Applying the LH rule $0/0$ form pushes the orders of both the
+  numerator and the denominator down by one.
+\item It is also useful to remember that logarithmic functions are
+  dominated by polynomial functions, which in turn are dominated by
+  exponential functions. These facts can be seen in various ways,
+  including the LH rule.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,345 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: January 6: Exponential growth}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$12$ people took this quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $2$: $1$ person
+\item Score of $4$: $2$ persons
+\item Score of $5$: $3$ persons
+\item Score of $7$: $6$ persons
+\end{itemize}
+
+The mean score was $5.58$.
+
+Here is the question-wise performance (full solutions in the next
+section):
+
+\begin{enumerate}
+\item Option (D): $10$ people
+\item Option (B): $10$ people
+\item Option (E): $7$ people
+\item Option (E): $9$ people
+\item Option (C): $12$ people
+\item Option (E): $10$ people
+\item Option (E): $9$ people
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+\item A species of unicellular micro-organisms doubles in number every
+  one hour at room temperature and remains constant when placed in a
+  refrigerator. Given that the initial number of micro-organisms in a
+  dish is $N_0$, and the dish is kept at room temperature for $A$ hours
+  and in a refrigerator for $B$ hours, what is the {\bf total number} of
+  micro-organisms at {\bf the end}? 
+
+  \begin{enumerate}[(A)]
+  \item $N_0 \cdot 2^{A - B}$
+  \item $N_0 \cdot 2^{A + B}$
+  \item $N_0 \cdot 2^{AB}$
+  \item $N_0 \cdot 2^A$
+  \item $N_0 \cdot 2^B$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: The hours in the refrigerator play no role in
+  changing the number of micro-organisms, so all that matters is the
+  hours spent at room temperature. For every hour spent, the number
+  doubles, so the number is $N_0 \cdot 2^A$.
+
+  {\em Performance review}: $10$ out of $12$ got this correct. $1$
+  chose (A), $1$ chose (B).
+
+  {\em Historical note (last year)}: All $29$ students got this correct.
+
+  {\em Historical note 2}: A version of this question (without option
+  (C), so there were only four options) appeared in last year's 152
+  final. $27$ out of $30$ students got it correct.
+
+
+\item A radioactive substance has a half-life of $3$ years. {\bf
+  Determine the integer} $n$ such that $90\%$ of the substance decays
+  within somewhere between $n - (1/2)$ and $n + (1/2)$ years.
+
+  \begin{enumerate}[(A)]
+  \item $5$
+  \item $10$
+  \item $15$
+  \item $20$
+  \item $25$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Since $90\%$ of the radioactive substance decays,
+  the fraction left is $0.1$. Let $x$ be the time taken for this to
+  happen. Then:
+
+  $$\frac{\ln 0.5}{3} = \frac{\ln 0.1}{x}$$
+
+  Simplifying, we obtain that:
+
+  $$x = \frac{3 \ln 10}{\ln 2}$$
+
+  Since $\ln 10 \approx 2.3$ and $\ln 2 \approx 0.69$, we see that $x
+  \approx 10$. Thus, the closest integer to $x$ is $n = 10$.
+
+  We can work this out even if we do not remember $\ln 10$ and $\ln
+  2$. In order to do this, we need to recognize that:
+
+  $$x = 3 \log_2(10)$$
+
+  Now, $\log_2(10) > 3$ since $2^3 = 8 < 10$, so $3 \log_2(10) >
+  9$. Also, $\log_2(10) < 4$ since $2^4 = 16 > 10$, so $3 \log_2(10) <
+  12$. Thus, the closest integer should be somewhere betwee $9$ and
+  $12$. For further estimation, we verify that $2^{1/3} \approx 1.26$,
+  so $2^{10/3} \approx 8 (1.26)$ which is slightly greater than
+  $10$. Thus, $\log_2(10)$ is just slightly less than $10/3$, so $3
+  \log_2(10)$ is just slightly less than $10$, so $n = 10$ works.
+
+  Another way of seeing this is that $2^{10} = 1024$ (a standard fact
+  in computer storage measurements) which is close to $10^3$ (in fact,
+  $1KB$ actually means $1024$ bytes, not $1000$ bytes). Thus,
+  $2^{10/3} \approx 10$, which is what we need.
+
+  {\em Performance review}: $10$ out of $12$ got this correct. $1$
+  chose (A), $1$ chose (C).
+
+  {\em Historical note (last year)}: $23$ out of $29$ people got this
+  correct. $4$ people chose (C), $1$ person chose (A), and $1$ person
+  left the question blank.
+\item $A$, $B$, and $C$ are three species of unicellular
+  micro-organisms. Under specified conditions, species $A$ doubles in
+  number every $2$ hours, species $B$ triples in number every $3$
+  hours, and species $C$ quadruples (i.e., becomes $4$ times) in
+  number every $4$ hours. Assume that they start off in the same
+  quantities at the beginning. What can we say about their relative
+  rates of growth?
+  \begin{enumerate}[(A)]
+  \item They are all growing at the same rate.
+  \item Species $A$ is growing fastest, species $C$ is growing
+    slowest, and species $B$ is growing at an intermediate rate.
+  \item Species $A$ is growing slowest, species $C$ is growing
+    fastest, and species $B$ is growing at an intermediate rate.
+  \item Species $A$ and $C$ are both growing at the same rate, which
+    is faster than the rate at which species $B$ is growing.
+  \item Species $A$ and $C$ are both growing at the same rate, which
+    is slower than the rate at which species $B$ is growing.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: If a population multiplies by a factor of $q$ in
+  a time period $t$, the rate of growth is $(\ln q)/t$. We thus need
+  to compare $(\ln 2)/2$, $(\ln 3)/3$, and $(\ln 4)/4$.
+
+  First, note that since $\ln 4 = 2\ln 2$, $(\ln 2)/2 = (\ln
+  4)/4$. Thus $A$ and $C$ grow at the same rate. This makes sense:
+  doubling every $2$ hours is the same as quadrupling every $4$ hours.
+
+  It remains to compare the value against $(\ln 3)/3$. We know that
+  $\ln 3$ is between $1.09$ and $1.1$, so $(\ln 3)/3$ is between
+  $0.363$ and $0.367$. $\ln 2$ is between $0.69$ and $0.7$, so $(\ln
+  2)/2$ is between $0.345$ and $0.35$. Thus, $(\ln 3)/3$ is the bigger number.
+
+  The comparison can be carried out without needing to know the $\ln$
+  values. For this, consider the question: what happens after $6$
+  hours? Species $A$ has doubled thrice, so it has multiplied by a
+  factor of $2^3 = 8$. Species $B$ has tripled twice, so it has
+  multiplied by a factor of $3^2 = 9$. Thus, after six hours, species
+  $B$ is more numerous than species $A$. Hence, it must have a higher
+  growth rate.
+
+  {\em Performance review}: $7$ out of $12$ got this correct. $4$
+  chose (D), $1$ chose (C).
+
+  {\em Historical note (last year)}: $22$ out of $29$ people got this
+  correct. $3$ people chose (D), $2$ people chose (B), and $1$ person
+  each chose (A) and (C).
+\item A species of bacteria doubles in number every hour. It takes $9$
+  hours for a given initial quantity of this species to fill up a
+  petri dish volume. How many hours from the start did the species
+  occupy half the petri dish volume (assume that the volume occupied is
+  proportional to the quantity)?
+
+  \begin{enumerate}[(A)]
+  \item $1$ hour from the beginning
+  \item $3$ hours from the beginning
+  \item $4.5$ hours from the beginning
+  \item $6$ hours from the beginning
+  \item $8$ hours from the beginning
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Since the species doubles in number every hour,
+  it must have doubled in the last hour. Thus, at the beginning of the
+  last hour, it must have occupied half the petri dish volume. This is
+  $8$ hours from the beginning, since $9 - 1 = 8$.
+
+  {\em Performance review}: $9$ out of $12$ got this correct. $2$
+  chose (B), $1$ chose (C).
+
+  {\em Historical note (last year)}: $28$ out of $29$ people got this
+  correct. $1$ person chose (C).
+
+  {\em Note}: This is a standard trick/conceptual question. Variants
+  of this are used to test people's ``intuitive'' understanding of
+  exponential growth.
+
+\item Suppose the populations in two countries $A$ and $B$ are growing
+  exponentially at possibly different rates. Which of the following
+  statements is {\bf false}?
+
+  \begin{enumerate}[(A)]
+  \item If the initial population of $A$ is more, and the exponential
+    population growth rate of $A$ is greater, then the population of
+    $A$ will always be greater than that of $B$.
+  \item If the initial population of $A$ is more, and the exponential
+    population growth rate of $B$ is greater, then the population of
+    $B$ will eventually overtake the population of $A$.
+  \item If the initial population of $A$ is more, and the exponential
+    population growth rates of $A$ and $B$ are equal, then the
+    populations of $A$ and $B$ will eventually become equal.
+  \item All of the above.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: With equal growth rates, the populations do not
+  become equal -- rather, the original proportion of the populations
+  remains preserved forever. For instance, if the original population
+  of $A$ was $11$ times the original population of $B$, then at any
+  later instant of time, it will continue to be $11$ times.
+
+  {\em Performance review}: Everybody got this correct!
+
+  {\em Historical note (last year)}: $24$ out of $29$ people got this
+  correct. $3$ people chose (B), $1$ person chose (A), and $1$ person
+  left the question blank.
+
+\item It takes time $T$ for $1/5$ of a radioactive substance to
+  decay. How much time does it take for $2/5$ of the same radioactive
+  substance to decay? 
+
+  \begin{enumerate}[(A)]
+  \item Precisely $T/2$
+  \item Between $T/2$ and $T$
+  \item Between $T$ and $2T$
+  \item Precisely $2T$
+  \item Between $2T$ and $3T$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: In time $T$, the quantity gets multiplied by $4/5
+  = 0.8$. In time $2T$, the quantity gets multiplied by $0.64$. In
+  time $3T$, the quantity gets multiplied by $(0.8)^3 = 0.512$. Thus, it
+  takes a between $2T$ and $3T$ to multiply by $0.6$, which means that
+  $2/5$ has decayed.
+
+  {\em Performance review}: $10$ out of $12$ got this correct. $1$
+  chose (B) and $1$ chose (D).
+
+  {\em Historical note (last year)}: $7$ out of $28$ people got this
+  correct. $10$ people chose (C), $7$ people chose (B), and $4$ people
+  chose (D).
+
+\item The population in the island of Andrognesia as a function of
+  time is believed to be an exponential function. On January 1, 1984,
+  the population was measured to be $3 * 10^5$ with a measurement
+  error of up to $10^5$ on either side, i.e., the population was
+  measured to be between $2* 10^5$ and $4 * 10^5$. On January 1,
+  1998, the population was measured to be $1.2 * 10^6$ with a
+  measurememt error of up to $4 * 10^5$ on either side, i.e., the
+  population was measured to be between $8 * 10^5$ and $1.6 *
+  10^6$. If the population is an exponential function of time (i.e.,
+  the increment in population per year is a fixed proportion of the
+  population that year), what is the {\bf range of possible values} of
+  the population measured on January 1, 2012?
+
+  \begin{enumerate}[(A)]
+  \item Between $3.2 * 10^6$ and $6.4 * 10^6$
+  \item Between $3.2 * 10^6$ and $1.28 * 10^7$
+  \item Between $1.6 * 10^6$ and $3.2 * 10^6$
+  \item Between $1.6 * 10^6$ and $6.4 * 10^6$
+  \item Between $1.6 * 10^6$ and $1.28 * 10^7$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Note first that $2012 - 1998 = 1998 - 1984 = 14$.
+
+  The key idea is that the lowest estimate occurs
+  if the 1998 population was measured as low as possible {\em and} the
+  rate of population growth estimated using the 1984 and 1998
+  populations is as low as possible. The lowest possible rate of
+  growth we can measure occurs if we choose the highest possible 1984
+  value and the lowest possible 1998 value. Picking these, we obtain
+  that the population estimate for 1984 is $4 * 10^5$ and the
+  population estimate for 1998 is $8 * 10^5$. Since the
+  multiplicative growth of the population depends on the time elapsed,
+  the total population in 2012 will be the solution $x$ to:
+
+  $$\frac{x}{8 * 10^5} = \frac{8 * 10^5}{4 * 10^5}$$
+
+  which solves to $x = 1.6 * 10^6$.
+
+  Similarly, the highest estimate will occur if we take the highest
+  estimate possible for the 1998 population and the lowest estimate
+  possibly for the 1984 population.
+
+  {\em Performance review}: $9$ out of $12$ got this correct. $2$
+  chose (C) and $1$ chose (D).
+
+  {\em Historical note (last year)}: $4$ out of $29$ students got this
+  correct. It is not clear by looking at the explanations given
+  whether these people got it correct for the correct reasons. $22$
+  people chose (A), which is the correct choice if you match the low
+  estimates with each other and the high estimates with each
+  other. $2$ people chose (B) (possibly trying to get (A), but made a
+  calculation error?) and $1$ person left the question blank.
+
+  {\em Action point}: This is a {\em real-life error}! Making such an
+  error in real life can be very costly to you (and to those whose
+  lives depend upon your decisions), so internalize this
+  concept. Please!
+
+  The key concept is that when one measurement depends on two others,
+  the worst case scenario happens when the errors in the other two
+  measurements are correlated in the {\em worst possible manner}.
+
+  Here's another example of this kind of error. Suppose a test
+  measures student knowledge of calculus. The test is used at the
+  beginning of a calculus course and then again at the end of Calculus
+  class. The test has a margin of error $\delta$ in measurement of
+  current student knowledge. If we're using the test to measure {\em
+  gain in student knowledge} by doing final knowledge minus initial
+  knowledge, the maximum possible error for the gain measure is
+  $2\delta$ -- the worst case occurs when the initial and final
+  measurement errors are in opposite directions.
+
+  In the real world, because we are working over probability
+  distributions, the margins of error do not double; rather, under
+  suitable nice assumption, the expected margin of error multiplies by
+  a factor of $\sqrt{2}$. But it certainly {\em does increase}.
+
+\end{enumerate}
+
+\end{document}

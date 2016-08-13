@@ -1,0 +1,340 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Review sheet for midterm 2: advanced}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf To maximize efficiency, please bring a copy (print or readable
+electronic) of this review sheet to the review session.}
+
+{\em The document does not include material that was part of the
+midterm 1 syllabus. Very little of that material will appear directly
+in midterm 2; however, you should have reasonable familiarity with the
+material}.
+
+\section{Formula summary}
+
+\subsection{Formula formulas}
+
+\begin{enumerate}
+
+\item Unit vectors parallel to a nonzero vector $v$ are $v/|v|$ and
+  $-v/|v|$.
+\item Coordinates of the unit vector are the direction cosines. If
+  $v/|v| = \langle \ell,m,n\rangle$, these are the direction
+  cosines. If $\alpha, \beta, \gamma \in [0,\pi]$ are such that $\cos
+  \alpha = \ell$, $\cos \beta = m$, $\cos \gamma = n$, then $\alpha,
+  \beta, \gamma$ are the direction angles.
+\item Parametric equation of line in $\R^3$: $\mathbf{r} =
+  \mathbf{r_0} + t\mathbf{v}$, $\mathbf{r_0}$ is the radial vector for
+  a point in the line, $\mathbf{v}$ is the difference vector between
+  two points in the line. In scalar terms, $x = x_0 + ta$, $y = y_0 +
+  tb$, $z = z_0 + tc$, where $\mathbf{r} = \langle x,y,z \rangle$,
+  $\mathbf{r_0} = \langle x_0,y_0,z_0 \rangle$, and $\mathbf{v} =
+  \langle a,b,c \rangle$. (See also two-point form parametric equation).
+\item Symmetric equation of line in $\R^3$ not parallel to any
+  coordinate plane (i.e., $abc \ne 0$ case):
+
+  $$\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}$$
+
+  with same notation as for parametric equation. (See also cases of
+  parallel to coordinate plane).
+\item Equation of plane: vector equation $\mathbf{n} \cdot \mathbf{r}
+  = \mathbf{n} \cdot \mathbf{r_0}$ where $\mathbf{n}$ is a nonzero
+  normal vector, $\mathbf{r_0}$ is a fixed point in the plane. If
+  $\mathbf{n} = \langle a,b,c \rangle$, $\mathbf{r_0} = \langle x_0,
+  y_0, z_0 \rangle$, and $\mathbf{r} = \langle x,y,z \rangle$, we get:
+
+  $$ax + by + cz = ax_0 + by_0 + cz_0$$
+\item For a function $z = f(x,y)$, the tangent plane to the graph of
+  this function (a surface in $\R^3$) at the point
+  $(x_0,y_0,f(x_0,y_0))$ {\em such that $f$ is differentiable at the
+    point $(x_0,y_0)$} is the plane:
+
+  $$z - f(x_0,y_0) = f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0)$$
+
+  The corresponding linear function we get is:
+
+  $$L(x,y) = f(x_0,y_0) + f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0)$$
+
+  This provides a linear approximation to the function near the point
+  where we are computing the tangent plane.
+\end{enumerate}
+
+\subsection{Artistic formulas}
+
+\begin{enumerate}
+\item Partial differentiation, multiplicatively separable --
+  differentiate each piece in the corresponding variable the
+  corresponding number of times.
+\item Partial differentiation, additively separable -- pure partials,
+  just care about function of that variable, mixed partials are zero.
+\item Integration along rectangular region, multiplicatively
+  separable -- product of integrals for function of each variable.
+\item Integration along non-rectangular region, multiplicatively
+  separable -- outer variable function can be pulled to outer integral.
+\end{enumerate}
+\section{Equations of lines and planes}
+\subsection{Direction cosines}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item If $\alpha, \beta, \gamma$ are the direction angles of the
+  vector $\langle a,b,c \rangle$ then the direction angles of the vector
+  $\langle -a,b,c \rangle$ are $-\alpha, \beta, \gamma$.
+\end{enumerate}
+
+\subsection{Lines}
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em Counting issues}: They say that to describe a line in
+  $\R^3$, we need $3 - 1 = 2$ equations in a top down
+  description. However, the symmetric equation of a line:
+
+  $$\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}$$
+
+  is a {\em single} equation that describes the line.
+\item {\em Unparalleled lines}: By definition, if two lines do not
+  intersect, they are parallel. Thus, the $x$-axis is parallel to the
+  line $x = 1 + u$, $y = 2 + u$, $z = 3 + u$.
+\item {\em And and/or or}: Consider the planes $x + y + z = 0$ and $2x
+  + 3y + 4z = 0$. Their intersection is a line given by the equation
+  $(x + y +z)(2x + 3y + 4z) = 0$.
+\end{enumerate}
+
+\subsection{Planes}
+
+No error-spotting exercises.
+
+\section{Functions of several variables}
+
+\subsection{Introduction}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em One-point curves}: Consider the function $f(x,y) := (x -
+  1)^2 + (y + 1)^2 - 3$. The level ``curve'' for the value $-3$ is the
+  single point $(1,-1)$. This is a point, not a curve at all. So, the
+  claim that level curves are one-dimensional is wrong, and the term
+  ``curve'' itself is a misnomer.
+\item {\em Count issues again}: Consider the function $f(x,y) := x^2 -
+  y^2$. The level ``curve'' for the value $1$ is a union of two
+  curves, one on the positive $x$-axis side and the other on the
+  negative $x$-axis side. The level curve thus isn't a curve at all,
+  it is a union of multiple curves.
+\item {\em A new unparalleled level}: Consider the function $f(x,y,z) :=
+  ax + by + cz$ of three variables. The level curves of this function
+  are the lines parallel to the vector $\langle a,b,c \rangle$.
+\end{enumerate}
+
+\subsection{Limits and continuity}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em Zero ain't infinity}: Consider the limit $\lim_{(x,y) \to
+  (0,0)} (x^4 + y^4)/(x^2 + y^2)^2$. We see that the numerator and
+  denominator are both homogeneous polynomials of degree four, and so
+  the limit of the quotient is the quotient of the leading
+  coefficients, which are both $1$. So the limit of the quotient is
+  $1$. We can verify this by noting that the limit for approach along
+  the $x$-axis as well as the $y$-axis are both equal to $1$.
+\item {\em Curvophobia} or {\em straightonormativity}: To verify that
+  the limit of a function at the origin equals a particular value, we
+  need to compute the limit along the $x$-axis, along the $y$-axis,
+  and along the line $y = mx$ for $m$ fixed but arbitrary. If all the
+  three answers are a constant independent of $m$, then that is the
+  limit.
+\end{enumerate}
+
+\subsection{Partial derivatives}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em Once it's fixed, it stays fixed}: Here is a simple logical
+  explanation as to why, for any function $f$ of two variables $x$ and
+  $y$, the second-order mixed partial derivative $f_{xy}$ must be
+  zero. Recall that $f_x$ is the first-order partial derivative of $x$
+  holding $y$ constant. In other words, we fix the value of $y$ and
+  are allowed to vary only $x$, and measure the rate of change of $f$
+  subject to that restriciton.
+
+  The second-order mixed partial derivative $f_{xy} = (f_x)_y$ is
+  obtained by taking the first-order partial $f_x$ and figuring out
+  how it changes with respect to $y$ holding $x$ constant. But note
+  from the preceding paragraph that $y$ needs to be held constant in
+  order to make sense of $f_x$. Thus, for computing $f_{xy}$, {\em
+  both} $x$ and $y$ need to be held constant. Since both coordinates
+  are being held constant, there is no scope for $f$ to change, hence
+  $f_{xy}$ is zero.
+
+\item {\em Mixed up partials}: To differentiate a multiplicatively
+  separable function, we differentiate the function of $x$ with
+  respect to $x$ the required number of times and the function of $y$
+  with respect to $y$ the required number of times, and then
+  multiply. Thus, if $f(x,y) := \sin(x^2\sin y)$, we get $f_{xy}(x,y)
+  = \cos(2x\cos y)$.
+\item {\em Slaving for joy}: My happiness is proportional to the
+  logarithm of my income; every time my income doubles, my happiness
+  goes up $0.3$ units. I have observed that my income obeys increasing
+  returns to effort, and empirically I find that my total income is
+  proportional to the $(4/3)^{th}$ power of the number of hours I
+  work. Therefore, my happiness also obeys increasing returns to
+  effort.
+\item {\em Futility personified}: Consider a production function
+  $f(L,K) = (\min \{ L, K \})^2$. We know that if $L > K$, then
+  $f_L(L,K) = 0$. This means that reducing the value of $L$ has no
+  impact on the output. But if that's true, then $L$ can be reduced to
+  $0$, and output would be unaffected. Similarly, $K$ can be reduced
+  to zero, and output would be unaffected. But that's nonsense.
+\item {\em Mixed up partials -- something doesn't add up}: Suppose
+  $F(x,y) := f(x) + g(y)$. Then $F_{xy}(x,y) = f'(x) + g'(y)$.
+\item {\em Mixed up partials -- shut up and multiply}: Suppose $F(x,y)
+  := f(x)g(y)$. We know that the mixed partial $F_{xy}(x,y) =
+  f'(x)g'(y)$. But this is in contradiction with the product rule,
+  which states that the derivative of the product is {\em not} the
+  product of the derivatives. Shouldn't the answer be $f'(x)g(y) +
+  f(x)g'(y)$?
+\item {\em Quid est quod custodire cupis constans}: Let $f$ be a
+  function of two variables. Define $g(x,y) := f(x,x + y)$. Then,
+  clearly, $g(2,3) = f(2,5)$. Hence also, we have $g_1(2,3) =
+  f_1(2,5)$ (where the subscript $_1$ denotes partial differentiation
+  with respect to the first input keeping the second input constant).
+\item {\em Value depends only on the variable you differentiate with
+  respect to}: A manager wants to figure out the marginal product of
+  labor. He has an expression for the production function in terms of
+  labor and capital. In order to calculate the marginal product of
+  labor, he simply needs to know the current labor expenditure to plug
+  into the formula. Information on the current capital expenditures is
+  redundant.
+\end{enumerate}
+\subsection{Tangent planes and linear approximations}
+
+Error-spotting exercises...
+
+\begin{enumerate}
+
+\item {\em The rational elite and the irrational hoi polloi are on
+  different planes}: Consider the function:
+
+  $$f(x,y) := \left\lbrace \begin{array}{rl} 1, & x \text{ rational  or } y \text { rational }\\0, & x \text{ and } y \text{ both irrational } \\\end{array}\right.$$
+
+  Suppose $x_0,y_0$ are rational numbers, so $(x_0,y_0)$ is a point
+  both of whose coordinates are rational. Then, we have $f(x_0,y_0) =
+  1$ and $f_x(x_0,y_0) = f_y(x_0,y_0) = 0$. Thus, we get that the
+  tangent plane to the graph of $f$ through the point
+  $(x_0,y_0,f(x_0,y_0))$ is:
+
+  $$z = 1 + 0(x - x_0) + 0(x - x_0)$$
+
+  So we get that the equation is:
+
+  $$z = 1$$
+
+\item {\em So near, yet so far, or, missing the forest for the trees,
+  or, going off on tangents}: The tangent line to $(0,0)$ for the
+  curve $y = \sin x$ in the $xy$-plane is the $y = x$ line. This is
+  therefore the best straight line approximation to the curve. Thus,
+  for instance, a reasonable approximation for $\sin(1000)$ is $1000$.
+\end{enumerate}
+
+\subsection{Chain rule}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em $x$, $tx$, it's all the same}: Suppose $f(x,y)$ is a
+  function of two variables. Then, we have:
+
+  $$f_x(tx,ty) = \frac{\partial}{\partial x}[f(tx,ty)]$$
+
+  {\em Note: The underlying issue here affected some people's attempts
+  at advanced HW 6 question 5}.
+\item {\em Functions are born free, yet everywhere they are in
+  chains}: Suppose $f$ and $g$ are functions of one variable. Then, we
+  know that:
+
+  $$(f \circ g)'(t) = f'(g(t))g'(t)$$
+
+  by the chain rule. Differentiating both sides with respect to $t$
+  again, and using the product rule, we get:
+
+  $$(f \circ g)''(t) = \frac{d}{dt}\left[f'(g(t))g'(t) + f'(g(t))g''(t)\right] = f''(g(t))g'(t) + f'(g(t))g''(t)$$
+
+\item {\em On the other hand}: Suppose $z = f(x,y)$ where $x = g(t)$ and
+$y = h(t)$. Then, we have:
+
+  $$\frac{\partial f_x}{\partial t} = \frac{\partial f_x}{\partial x}\frac{\partial x}{\partial t}$$
+\end{enumerate}
+
+\section{Double and iterated integrals}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em Fundamental theorem of miscalculus}: Suppose we are
+  integrating a continuous function $g(x,y)$ of two variables over a
+  rectangular region $[a,b] \times [p,q]$. Then, if $G_{xy} = g$, the
+  value of the integral is $G(b,q) - G(a,p)$. This is just like the
+  fundamental theorem of calculus.
+\item {\em Separation of abscissa and ordinate}: Suppose $F(x,y) :=
+  f(x)g(y)$. We want to integrate $F$ on the region $0 \le x \le 5$,
+  $0 \le y \le x^2$. Since $F$ is multiplicatively separable, we don't
+  need to compute this as an iterated integral, and instead, we can
+  compute it as a product:
+
+  $$\left(\int_0^5 f(x) \, dx\right)\left(\int_0^{x^2} g(y) \, dy \right)$$
+\item {\em Dissolving the bonds of addition}: Suppose $F(x,y) := f(x)
+  + g(y)$, and we need to integrate $F$ on $[a,b] \times [p,q]$. The
+  integral is:
+
+  $$\int_a^b f(x) \, dx + \int_p^q g(y) \, dy$$
+\item {\em Argument from personal incredulity}: The double integral for
+  a function $F$ on a domain $D$ exists only if $D$ is a Type I or
+  Type II region.
+\item {\em Another argument from personal incredulity}: $e^{-x^2}$ is
+  not an integrable function of one variable, i.e., it does not have
+  an antiderivative.
+\item {\em Straightonormativity yet again}: If $F(x,y) = f(x)g(y)$ and
+  we have antiderivatives available for $f$ and $g$, we can use these
+  to successfully integrate $F$ over any closed bounded convex region.
+
+\item {\em O mirror to my soul, don't be orthogonal!}: If $f$ is a
+  function and $D$ is a closed convex region centered at the origin
+  symmetric about the $x$-axis, such that $f$ is odd in $x$ for each
+  fixed value of $y$, then the integral of $f$ over $D$ is zero.
+
+\item {\em Positivity bias yet again, or tunnel vision}: The integral:
+
+  $$\int_2^3 \frac{dx}{x^2 + y}$$
+
+  gives us:
+
+  $$\left[\frac{1}{\sqrt{y}} \arctan\left(\frac{x}{\sqrt{y}}\right)\right]_{x = 2}^{x =3}$$
+
+  This simplifies to:
+
+  $$\frac{1}{\sqrt{y}} \left[\arctan\left(\frac{3}{\sqrt{y}}\right) - \arctan\left(\frac{2}{\sqrt{y}}\right)\right]$$
+
+\item Consider the following integral on the region $D = [0,a] \times
+  [0,a]$ for the function $f(x,y) := g[(\max \{ x,y \})^2]$. We get:
+
+  $$\int \int_D f(x,y) \, dA = \max \{ \int_0^a g(x^2) \, dx, \int_0^a g(y^2) \, dy \}$$
+
+  Since both integrals are the same, this becomes:
+
+  $$\int \int_D f(x,y) \, dA = \int_0^a g(x^2) \, dx$$
+
+  If $G$ is an antiderivative for $g$, this becomes:
+
+  $$[G(x^2)]_0^a$$
+
+  This simplifies to $G(a^2) - G(0)$.
+\end{enumerate}
+\end{document}

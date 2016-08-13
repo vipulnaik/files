@@ -1,0 +1,758 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, amssymb, setspace, enumerate, pdfpages}
+
+%Title details
+\title{Lazard correspondence: talk}
+\author{Vipul Naik}
+
+%List of new commands
+\newcommand{\Skew}{\operatorname{Skew}}
+\newcommand{\ad}{\operatorname{ad}}
+\begin{document}
+\maketitle
+\onehalfspacing
+
+Overall breakdown:
+
+\begin{itemize}
+\item Oral review of pre-written material: 5-7 minutes
+\item Outline of main proof parts: 5-10 minutes
+\item Baer correspondence up to isoclinism (in-depth discussion): 20-25 minutes, {\em and/or}
+\item Global Lazard correspondence (more details): 20-25 minutes
+\end{itemize}
+
+\section{Pre-written material}
+
+Total time on this section: about 5-7 minutes
+
+
+\subsection{Background board}
+
+Background material (zero time):
+
+\begin{itemize}
+\item Nilpotent groups
+\item Lie rings ($\Z$-Lie algebras)
+\item Basic homological algebra (short exact sequences, etc.)
+\item Basic language from category theory and universal algebra
+\item $\Z[\pi^{-1}]$ for prime sets $\pi$
+\end{itemize}
+
+\section{Loose intro board (write beforehand)}
+
+{\em Say time}: 1-2 minutes
+
+\begin{itemize}
+\item Groups are hard because the noncommutativity is entangled with
+  the group operations.
+
+  {\em Say (don't write)}: Rings are better because, even though they
+  have noncomutative operations, there is an underlying additive group
+  that is abelian and we can achieve a lot by using that.
+
+\item Lie rings have similar axioms to groups, and therefore similar
+  behavior.
+\item Lie rings are nicer because the non-abelianness (stored via the
+  Lie bracket) is cleanly separated from the group operation.
+
+  {\em Say (don't write)}: If we can somehow reversibly transform
+  between a group and a Lie ring, we can use this fact to study the
+  group.
+\end{itemize}
+
+\subsection{Nilpotent groups (write beforehand)}
+
+{\em Say time}: 1 minute
+
+A group $G$ is termed nilpotent of nilpotency class $c$ if:
+
+$$[[ \dots [x_1,x_2],\dots,x_{c+1}] = 1 \ \forall \ x_1,x_2,\dots,x_{c+1} \in G$$
+
+Here, $[x,y] = xyx^{-1}y^{-1}$ is the group commutator. 
+
+{\em Say (don't write)}: We're using the left action convention. Note
+that a group is abelian if and only if the commutator of any two
+elements is the identity element. For nilpotent, we require the
+``higher-order'' versions of commutators, i.e., iterated commutators,
+to be trivial.
+
+There's a similar definition for nilpotent Lie ring, with commutator
+replaced by Lie bracket.
+
+\subsection{Lazard correspondence}
+
+{\em Say time}: 2 minutes
+
+The global Lazard correspondence is a correspondence:
+
+Some groups (leave space, later write $\pi_c$-powered groups of class
+$c$) $\leftrightarrow$ Some Lie rings (leave space, write
+$\pi_c$-powered Lie rings of class $c$)
+
+
+{\em Put arrow-marked $\exp$ and $\log$}
+
+The group and Lie ring have the same underlying set, and there are
+formulas for the group operations in terms of the Lie ring operations
+(and vice versa) that are inverses of each other.
+
+\begin{itemize}
+\item Baker-Campbell-Hausdorff formula: group multiplication in terms
+  of Lie ring operations
+\item Inverse Baker-Campbell-Hausdorff formulas: Lie ring addition and
+  Lie bracket in terms of group multiplication
+\end{itemize}
+
+Baker-Campbell-Hausdorff formula:
+
+$$xy + x + y + \frac{1}{2}[x,y] + \frac{1}{12}([x,[x,y]] - [y,[x,y]]) + \dots$$
+
+{\em Say, don't write}: Note that the formula involves division by
+some numbers. The weight $c$ term in the formula involves division by
+a number all of whose prime divisors are less than or equal to $c$. In
+other words, the larger the class we have, the larger the primes we
+need to divide by (loosely speaking).
+
+{\em Write}: $\pi_c$ = the set of primes less than or equal to $c$.
+
+$\pi_c$-powered group = group where every element has a unique
+$p^{th}$ root for all $p \in \pi_c$
+
+\subsection{Isoclinism}
+
+{\em Say time}: 2 minutes
+
+For any group $G$, the commutator map in $G$ descends to a map of sets:
+
+$$\omega_G: \operatorname{Inn}(G) \times \operatorname{Inn}(G) \to G'$$
+
+An {\em isoclinism} from $G_1$ to $G_2$ is a pair of isomorphisms
+$(\zeta,\varphi)$ where $\zeta$ is an isomorphism from
+$\operatorname{Inn}(G_1)$ to $\operatorname{Inn}(G_2)$ and $\varphi$ is an
+isomorphism from $G_1'$ to $G_2'$, satisfying the condition that:
+
+\begin{equation}\label{eq:homoclinism-pointed}
+  \varphi(\omega_{G_1}(x,y)) = \omega_{G_2}(\zeta(x),\zeta(y))
+\end{equation}
+
+Pictorially:
+
+$$\begin{array}{ccc}
+  \operatorname{Inn}(G_1) \times \operatorname{Inn}(G_1) & \stackrel{\zeta \times \zeta}{\to} & \operatorname{Inn}(G_2) \times \operatorname{Inn}(G_2) \\
+  \downarrow^{\omega_{G_1}}  & & \downarrow^{\omega_{G_2}}\\
+  G_1' & \stackrel{\varphi}{\to} & G_2'\\
+\end{array}$$
+
+Abelian $\iff$ Isoclinic to the trivial group
+
+{\em Say, don't write}: Note that both the inner automorphism group
+and the derived subgroup are quantitative measurements of the
+``non-abelianness'' of the group. The notion of isoclinism can thus
+properly be thought of as saying ``equivalent modulo the subvariety of
+abelian groups.'' In particular, a group is abelian if and only if it
+is isoclinic to the trivial group.
+
+\section{Erase first few intro boards, then continue}
+
+Total time with this section: 5-10 minutes
+
+\subsection{Global Lazard correspondence up to isoclinism}
+
+{\em Write + say together time}: 3 minutes
+
+Global Lazard correspondence up to isoclinism from a Lie ring $L$ to a
+group $G$ is a pair of isomorphisms $(\zeta,\varphi)$ where $\zeta$ is
+an isomorphism from $\operatorname{Inn}(L)$ to
+$\log(\operatorname{Inn}(G))$ and $\varphi$ is an isomorphism from
+$L'$ to $\log(G')$ such that:
+
+$$\varphi(\omega_L(x,y)) = \omega^{\text{Lie}}_G(\zeta(x),\zeta(y))$$
+
+This is equivalent to the requirement that:
+
+$$\varphi(\omega^{\text{Group}}_L(x,y)) = \omega_G(\zeta(x),\zeta(y))$$
+
+(make the diagrams, discuss)
+
+It's a correspondence:
+
+Equivalence classes up to isoclinism of $\pi_c$-powered groups of class $c + 1$ $\leftrightarrow$ Equivalence classes  up to isoclinism of $\pi_c$-powered Lie rings of class $c + 1$
+
+\subsection{Key difficulty: showing existence}
+
+{\em Write + say time}: 2 minutes
+
+We'll apply ideas from group extension theory and Lie ring extension
+theory to:
+
+$$0 \to Z(L) \to L \to L/Z(L) \to 0$$
+
+and
+
+$$0 \to Z(G) \to G \to G/Z(G) \to 1$$
+
+{\em Key idea (say, don't write, rest of this section)}: We begin by
+viewing $L$ as an extension with central subring $Z(L)$ and quotient
+ring $L/Z(L) \cong \operatorname{Inn}(L)$. We obtain the corresponding
+Lie bracket map $\operatorname{Inn}(L) \times \operatorname{Inn}(L)
+\to L'$. We then obtain a desired commutator map
+$\exp(\operatorname{Inn}(L)) \times \exp(\operatorname{Inn}(L)) \to
+\exp(L')$ by using the formula describing the commutator map in terms
+of the Lie bracket map. Finally, we demonstrate the existence of a
+group $G$ that realizes this commutator map.
+
+We will show that equivalence classes of groups up to isoclinism can
+be described by storing the commutator structure in an abstract
+fashion, without reference to an actual group in that equivalence
+class.
+
+This will be useful to the final step of our proof of existence
+established above: instead of directly trying to construct the groups
+in the equivalence class up to isoclinism, we construct the commutator
+structure. In the notation above, we construct the desired commutator
+map $\exp(\operatorname{Inn}(L)) \times \exp(\operatorname{Inn}(L))
+\to \exp(L')$.
+
+Below, we provide a few more details about how we store the commutator
+structure abstractly. This discussion may be accessible only to people
+familiar either with group cohomology or with some other type of
+cohomology theory that is structurally similar. Note also that the
+group $G$ that we use here is not the same as the group $G$ used above.
+
+\subsection{Universal coefficient theorem: technical details}
+
+{\em Say + write time}: 2 minutes
+
+Central extensions with central subgroup $A$ and quotient group $G$:
+
+\begin{equation*}
+  0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},A) \to H^2(G;A) \to \operatorname{Hom}(M(G),A) \to 0
+\end{equation*}
+
+It splits, but not canonically:
+
+$$H^2(G;A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}},A) \oplus \operatorname{Hom}(M(G),A)$$
+
+The map:
+
+$$H^2(G;A) \to \operatorname{Hom}(M(G),A)$$
+
+classifies extensions up to ``isoclinism of extensions.''
+
+Surjectivity is key.
+
+{\em Say, don't write}: Surjectivity tells us: every homomorphism from
+$M(G)$ to $A$ can be ``realized'' via an equivalence class up to
+isoclinism of extensions.
+
+We can do something similar on the Lie ring side.
+
+\subsection{Boils down to isomorphism of Schur multipliers}
+
+{\em Say + write time}: 1 minute
+
+Schur multiplier $M(G)$ ``classifies'' equivalence classes up to
+isoclinism of extensions of $G$.
+
+Schur multiplier $M(L)$ ``classifies'' equivalence classes up to
+isoclinism of extensions of $L$.
+
+We show that if $G$ and $L$ are in global Lazard correspondence, then
+$M(G) \cong M(L)$ canonically.
+
+This allows us to prove results for groups that are extensions of
+groups in Lazard correspondence, i.e., $\pi_c$ 
+
+\subsection{Option bifurcation}
+
+{\em Say + write time}: 2 minutes
+
+We could either:
+
+\begin{itemize}
+\item go over the Baer correspondence up to isoclinism (the case $c =
+  1$ and $c + 1 = 2$) in detail. The advantage here is that we could
+  delve deeply into examples and understand everything explicitly, or
+\item go over the general case, but we will have to hand-wave quite a
+  bit and will not be able to cover examples.
+\end{itemize}
+
+\section{First option: the Baer correspondence up to isoclinism}
+
+\subsection{The case $c = 1$: the Baer correspondence up to isoclinism}
+
+For now, $G$ and $A$ are abelian groups ($A$ also viewed as an abelian
+Lie ring by abuse of notation), and $L$ is an abelian Lie ring.
+
+The short exact sequence classifying extensions of abelian groups is:
+
+\begin{equation}\label{eq:ses-uct-abelian}
+  0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G;A) \to H^2(G;A) \to \operatorname{Hom}(G \wedge G,A) \to 0
+\end{equation}
+
+(explain in detail each of the maps and what it means)
+
+{\em Say some version of this}: The map:
+
+$$\operatorname{Ext}^1_{\mathbb{Z}}(G;A) \to H^2(G;A)$$
+
+can be interpreted as follows. The underlying set of the group on the
+left is canonically identified with the set of all {\em abelian} group
+extensions with subgroup $A$ and quotient group $G$. The group on the
+right is the group whose elements are all the {\em central} extensions
+with central subgroup $A$ and quotient group $G$. Every abelian group
+extension is a central extension, and there is therefore a canonical
+injective set map from $\operatorname{Ext}^1_{\mathbb{Z}}(G;A)$ to
+$H^2(G;A)$.
+
+The map:
+
+$$H^2(G;A) \to \operatorname{Hom}(G \wedge G,A)$$
+
+can be described as follows. For any group extension $E$, the
+commutator map $E \times E \to E$ descends to a set map:
+
+$$\omega_{E,G}: G \times G \to A$$
+
+Our earlier definition of $\omega_{E,G}$ defined it as a map to
+$[E,E]$, but $[E,E]$ lies in the image of $A$ (under the inclusion of
+$A$ in $E$), so it can be viewed as a map to $A$.
+
+Note that the image of the map is in $A$ {\em because} $G$ is
+abelian. Further, $\omega_{E,G}$ is bilinear, because the image of the map
+is central. It thus defines a group homomorphism $G \wedge G \to A$.
+
+The homomorphism above can also be described in terms of the how it
+operates at the level of $2$-cocycles (this description requires
+understanding the explicit description of the second cohomology group
+using the bar resolution, as given in Section
+\ref{sec:cohomology-explicit}). Explicitly, the map:
+
+$$H^2(G;A) \to \operatorname{Hom}(G \wedge G,A)$$
+
+arises from a homomorphism:
+
+$$Z^2(G;A) \to \operatorname{Hom}(G \wedge G,A)$$
+
+given by:
+
+$$f \mapsto \operatorname{Skew}(f)$$
+
+where $\operatorname{Skew}(f)$ is the map $(x,y) \mapsto f(x,y) -
+f(y,x)$.
+
+Intuitively, this is because the commutator of two elements represents
+the distance between their products in both possible orders, i.e.,
+$[x,y]$ is the quotient $(xy)/(yx)$. Whether we use left or right
+quotients does not matter because the group has class two.
+
+Based on the discussion in Section \ref{sec:extensionsuptoisoclinism},
+the homomorphism:
+
+$$H^2(G;A) \to \operatorname{Hom}(G \wedge G,A)$$
+
+{\em Write}: Similarly for Lie rings:
+
+\begin{equation}\label{eq:ses-uct-lie-abelian}
+0 \to \operatorname{Ext}^1_{\mathbb{Z}}(L;A) \to H^2_{\text{Lie}}(L;A) \to \operatorname{Hom}(L \wedge L, A) \to 0
+\end{equation}
+
+The short exact sequence splits {\em canonically}, and we get a
+canonical isomorphism:
+
+$$H^2_{\text{Lie}}(L;A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(L;A) \oplus \operatorname{Hom}(L \wedge L,A)$$
+
+{\em Say}: We can describe the splitting either by specifying the projection
+$H^2_{\text{Lie}}(L;A) \to \operatorname{Ext}^1_{\mathbb{Z}}(L;A)$ or by specifying
+the inclusion $\operatorname{Hom}(L \wedge L,A) \to H^2_{\text{Lie}}(L;A)$. We do both.
+
+The projection:
+
+$$H^2_{\text{Lie}}(L;A) \to \operatorname{Ext}^1_{\mathbb{Z}}(L;A)$$
+
+is defined as follows. For any extension Lie ring $M$, map it to the
+extension Lie ring that is {\em abelian} as a Lie ring and has the
+same additive group as $M$. In other words, keep the additive
+structure intact, but ``forget'' the Lie bracket.
+
+The inclusion:
+
+$$\operatorname{Hom}(L \wedge L,A) \to H^2_{\text{Lie}}(L;A)$$
+
+is defined as follows. Given a bilinear map $b:L \times L \to A$,
+define the extension Lie ring as a Lie ring $M$ whose additive group
+is $L \oplus A$, and where the Lie bracket is:
+
+$$[(x_1,y_1),(x_2,y_2)] = [0,b(x_1,x_2)]$$
+
+In other words, we use the direct sum for the additive structure, and
+use the bilinear map to define the Lie bracket.
+
+In light of this, we can think of the direct sum decomposition as follows:
+
+$$H^2_{\text{Lie}}(L;A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(L;A) \oplus \operatorname{Hom}(L \wedge L,A)$$
+
+The projection onto the first component stores the additive structure
+of the Lie ring, while destroying, or forgetting, the Lie bracket. The
+projection onto the second component preserves the Lie bracket while
+replacing the additive structure with a direct sum of $L$ and
+$A$. Note also that the latter projection is equivalent to passing to
+the associated graded Lie ring.%%TODO: Check statement: (we will
+                               %%return to this topic later).
+
+\subsection{Baer correspondence up to isoclinism for extensions}
+
+{\em Write}: We have demonstrated the existence of canonical
+isomorphisms between the left groups and between the right groups in
+the two short exact sequences:
+
+$$\begin{array}{ccccccccc}
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(G;A) &\to &H^2(G;A) &\to &\operatorname{Hom}(G \wedge G,A) &\to &0\\
+  & & \downarrow & & & & \downarrow & & \\
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(L;A) & \to & H^2_{\text{Lie}}(L;A) & \to & \operatorname{Hom}(L \wedge L, A) & \to & 0\\
+\end{array}$$
+
+{\em Say}: As described in Sections \ref{sec:ses-uct-abelian} and
+\ref{sec:ses-uct-lie-abelian}, both short exact sequences
+split. Therefore, it is possible to find an isomorphism $H^2(G;A) \to
+H^2_{\text{Lie}}(L;A)$ that establishes an isomorphism of the short
+exact sequences.
+
+{\em Do}: Mark canonical, non-canonical isomorphisms.
+
+{\em Say}: Note, however, that the middle isomorphism is not
+canonical. In fact, choosing a middle isomorphism is equivalent to
+choosing a splitting of the top sequence. This is because the bottom
+sequence splits canonically, as we just described.
+
+When we have the actual Baer correspondence, that gives us a canonical
+middle isomorphism, or equivalently, a canonical splitting of the
+universal coefficient theorem short exact sequence.
+
+(can also explain this in the context of the BCH formula if necessary).
+
+\subsection{Cocycle-level description of the Baer correspondence}\label{sec:baer-correspondence-cocycle-level}
+
+Suppose $G$ and $A$ are abelian groups (we will soon restrict to the
+case that one or both of $G$ and $A$ is $2$-powered). Consider the
+following two short exact sequences. The first is the short exact
+sequence relating the coboundary, cocycle and cohomology groups,
+originally described in Section
+\ref{sec:ses-coboundary-cocycle-cohomology}:
+
+$$0 \to B^2(G;A) \to Z^2(G;A) \to H^2(G;A) \to 0$$
+
+The second is the universal coefficient theorem short exact sequence,
+originally described in Section \ref{sec:ses-uct} and described
+specifically for abelian $G$ in Section \ref{sec:ses-uct-abelian}:
+
+$$0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G;A) \to H^2(G;A) \to \operatorname{Hom}(G \wedge G,A) \to 0$$
+
+The first short exact sequence need not split. An example where it
+does not split was discussed in Section
+\ref{sec:ses-coboundary-cocycle-cohomology}. The second short exact
+sequence does always split but the splitting need not be canonical (see
+Section \ref{sec:ses-uct-non-canonical-splitting}).
+
+The right parts of these short exact sequences give surjective
+homomorphisms, which we can compose:
+
+$$Z^2(G;A) \to H^2(G;A) \to \operatorname{Hom}(G \wedge G,A)$$
+
+As we discussed in Section \ref{sec:ses-uct-abelian-right-map}, the
+composite of these maps is the skew map. Explicitly, the composite is
+the map $f \mapsto \operatorname{Skew}(f)$, that sends a function $f$
+to the function:
+
+$$\operatorname{Skew}(f) = (x,y) \mapsto f(x,y) - f(y,x)$$
+
+Note that the function $\operatorname{Skew}(f)$ is a
+$\mathbb{Z}$-bilinear map $G \times G$ to $A$, which can be
+interpreted as a homomorphism $G \wedge G \to A$.
+
+Now, suppose that $G$ and $A$ are both $2$-powered abelian
+groups.\footnote{The assumption can be modified to requiring that any
+  one of $G$ and $A$ be $2$-powered, in which case we will need to use
+  one of the generalizations of the Baer correspondence described in
+  Section \ref{sec:baer-correspondence-definition-relaxation}, but we
+  do not describe it here since it is not necessary for our purpose.}
+
+In that case, there is a canonical splitting of the composite map,
+given as follows:
+
+$$f \mapsto \frac{1}{2}f$$
+
+In other words, a $\mathbb{Z}$-bilinear map $f: G \times G \to A$ is
+sent to $\frac{1}{2}f:G \times G \to A$. Note that any
+$\mathbb{Z}$-bilinear map is a $2$-cocycle (in general, any $n$-linear
+map is a $n$-cocycle) so this works.
+
+In particular, {\em both} the short exact sequences split, and we get
+canonical direct sum decompositions:
+
+$$Z^2(G;A) \cong B^2(G;A) \oplus H^2(G;A), \text{ splitting is } H^2(G;A) \to Z^2(G;A)$$
+
+$$H^2(G;A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(G;A) \oplus \operatorname{Hom}(G \wedge G,A), \text{ splitting is } \operatorname{Hom}(G \wedge G,A) \to H^2(G;A)$$
+
+Note that the first short exact sequence need not split for all $G$
+and $A$ (see the discussion in Section
+\ref{sec:ses-coboundary-cocycle-cohomology}) and the existence of a
+splitting is itself a piece of information. The second short exact
+sequence does split for all $G$ and $A$, but the splitting is not in
+general canonical, as discussed in Section
+\ref{sec:ses-uct-non-canonical-splitting}, so the case where $G$ and
+$A$ are both $2$-powered is special in that we obtain a {\em
+  canonical} splitting.
+
+The splitting map $\operatorname{Hom}(G\wedge G,A) \to H^2(G;A)$ is
+the same as the one arising from the Baer correspondence. Explicitly,
+as noted in Section \ref{sec:bcuti-extensions-splitting}, specifying the
+splitting map $\operatorname{Hom}(G \wedge G, A) \to H^2(G;A)$ is
+equivalent to specifying an isomorphism of $H^2(G;A)$ and
+$H^2_{\text{Lie}}(L;A)$ such that the diagram below commutes:
+
+$$\begin{array}{ccccccccc}
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(G;A) &\to &H^2(G;A) &\to &\operatorname{Hom}(G \wedge G,A) &\to &0\\
+  & & \downarrow & & \downarrow & & \downarrow & & \\
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(L;A) & \to & H^2_{\text{Lie}}(L;A) & \to & \operatorname{Hom}(L \wedge L, A) & \to & 0\\
+\end{array}$$
+
+This isomorphism can be described in an alternative way. Let $E$ be an
+extension group corresponding to an element of $H^2(G;A)$. Let $N =
+\log(E)$ via the Baer correspondence. We can relate two short exact
+sequences via a $\log$ functor.
+
+$$\begin{array}{lllll}
+    0 \to & A \to & E \to & G \to & 1 \\
+    & \downarrow^{\log} & \downarrow^{\log} & \downarrow^{\log}&  \\
+    0  \to & A \to & N \to & L \to & 0\\
+\end{array}$$
+
+Note that we abuse notation again, using the same letter $A$ for $A$
+as a group and as a Lie ring.
+
+Then, the element of $H^2_{\text{Lie}}(L;A)$ that corresponds to the
+second row is the same as the image of the element of $H^2(G;A)$ under
+the isomorphism described earlier.
+
+\subsection{A setting where the Baer correspondence works only up to isoclinism}\label{sec:bcuti-ex}
+
+In the case that $G$ and $A$ are odd-order abelian groups, the {\em
+  original} Baer correspondence works. To obtain finite examples where
+the Baer correspondence works only up to isoclinism, we need to look
+at $2$-groups. Further, our examples must be cases where the quotient
+$\operatorname{Hom}(G \wedge G,A)$ is nontrivial, so that there is at
+least some non-abelian extension.\footnote{The abelian extensions can
+  be put in correspondence based on the correspondence between abelian
+  groups and abelian Lie rings, which, although not strictly part of
+  the Baer correspondence as have defined it, falls under the
+  generalization (1) of it described in Section
+  \ref{sec:baer-correspondence-definition-relaxation}}
+
+The smallest sized example is: $A = \mathbb{Z}_2$ is the cyclic group
+of order $2$ and $G = V_4$ is the Klein four-group, isomorphic to
+$\mathbb{Z}_2 \times \mathbb{Z}_2$.
+
+The short exact sequences discussed in Sections
+\ref{sec:ses-uct-abelian} and \ref{sec:ses-uct-lie-abelian}, along
+with the canonical isomorphisms discussed in Section
+\ref{sec:bcuti-extensions}, give the following:
+
+$$\begin{array}{ccccccccc}
+0 & \to & \operatorname{Ext}^1(V_4;\mathbb{Z}_2) & \to & H^2(V_4;\mathbb{Z}_2) & \to & \operatorname{Hom}(V_4 \wedge V_4,\mathbb{Z}_2) & \to & 0 \\
+& & \downarrow & & & & \downarrow & & \\
+0 & \to & \operatorname{Ext}^1(V_4;\mathbb{Z}_2) & \to & H^2_{\text{Lie}}(V_4;\mathbb{Z}_2) & \to & \operatorname{Hom}(V_4 \wedge V_4,\mathbb{Z}_2) & \to & 0\\
+\end{array}$$
+
+Recall that both short exact sequences split, and, as per the
+discussion in Section \ref{sec:ses-uct-lie-abelian}, the Lie ring
+short exact sequence splits canonically (with the splitting separating
+out the addition and Lie bracket parts).
+
+It turns out that:
+
+\begin{itemize}
+\item $\operatorname{Ext}^1(V_4;\mathbb{Z}_2)$ is itself isomorphic to $V_4$, the Klein four-group.
+\item $\operatorname(V_4 \wedge V_4)$ is isomorphic to $\mathbb{Z}_2$,
+  and thus, $\operatorname{Hom}(H_2(V_4;\mathbb{Z}),\mathbb{Z}_2)$ is
+  isomorphic to $\mathbb{Z}_2$.
+\item Thus, both of the second cohomology groups (the group and Lie
+  ring side) are isomorphic to the elementary abelian group of order
+  eight.
+\end{itemize}
+
+On the group side, we have the following eight extensions (eight being
+the order of the cohomology group):
+
+\begin{enumerate}[(a)]
+\item Elementary abelian group of order eight (1 time).
+\item $\mathbb{Z}_4 \oplus \mathbb{Z}_2$ (3 times).
+\item $D_8$ (3 times).
+\item $Q_8$ (1 time).
+\end{enumerate}
+
+(a) and (b) together form the image of $\operatorname{Ext}^1$ (total
+size 4) while (c) and (d) form the non-identity coset of that
+image.
+
+On the Lie ring side, the eight extensions (eight being the order of the cohomology group) are:
+
+\begin{enumerate}[(a)]
+\item Abelian Lie ring, additive group elementary abelian of order eight (1 time)
+\item Abelian Lie ring, additive group direct product of
+  $\mathbb{Z}_4$ and $\mathbb{Z}_2$ (3 times).
+\item The niltriangular matrix Lie ring ($3 \times 3$ strictly upper
+  triangular matrices) over the field of two elements. (1 time)
+\item The semidirect product of $\mathbb{Z}_4$ and $\mathbb{Z}_2$ as
+  Lie rings. (3 times).
+\end{enumerate}
+
+(a) and (b) together form the image of $\operatorname{Ext}^1$ (total
+size 4) while (c) and (d) form the non-identity coset of that
+image.
+
+Note that there is no canonical bijection between the set of eight
+group extensions and the set of eight Lie ring extensions, but we can
+naturally correspond the images of $\operatorname{Ext}^1$ in both. The
+problem arises when attempting an element-to-element identification of the
+non-identity cosets in the two cases. In other words, we have a
+correspondence at a coset level:
+
+$$\{ \text{The four non-abelian Lie ring extensions} \} \leftrightarrow \{ D_8, D_8, D_8, Q_8 \}$$
+
+But there is no clear-cut way of making sense of {\em which} Lie ring
+extension to correspond to {\em which} group. This is an example of a
+situation where the Baer correspondence up to isoclinism does not seem
+to have any natural refinement to a correspondence up to isomorphism.
+
+Note that in this case, it so happens that we can use an
+automorphism-invariance criterion and get a unique
+automorphism-invariant bijection. This would map the niltriangular
+matrix Lie ring to the quaternion group and the semidirect product of
+$\Z_4$ and $\Z_2$ to the dihedral group. However, this does not give a
+meaningful bijection at the level of elements. For instance, one
+feature that holds in all generalizations described so far for the
+Baer correspondence is that the correspondence restricts to
+isomorphism between cyclic subgroups and cyclic subrings. In
+particular, the multiset of the orders of the elements in the group
+must match the multiset of the orders of the elements in the additive
+group of the Lie ring. However, the multiset of the orders of the
+elements of $D_8$ does not match the multiset of the orders of
+elements in any abelian group of order $8$. The same is true of $Q_8$.
+
+
+\section{Second option: going over the general case, but in a handwavy fashion}
+
+\subsection{Optional extra: explain about the exterior square and Schur multiplier}
+
+{\em Write header}: Exterior square
+
+{\em Say, don't write}: Recall how we define exterior square of a {\em
+  vector space}. We have a concept of alternating bilinear maps from
+the vector space. The exterior square is an object such that
+homomorphisms from it correspond to alternating bilinear maps from the
+vector space.
+
+{\em Write}: Exterior square of $G$ is the ``freest'' group $G \wedge G$
+generated by formal symbols $x \wedge y$, $x,y \in G$, such that for
+any central extension $E$ of $G$, if we consider the map:
+
+$$\omega_{E,G}: G \times G \to [E,E]$$ (slight variant of the
+$\omega_E$ described above)
+
+this extends to a group homomorphism:
+
+$$\Omega_{E,G}: G \wedge G \to [E,E]$$
+
+{\em If there's time}: Originally introduced by Miller (1952), later
+described by Brown and Loday (1987) and Graham Ellis (1987).
+
+There is an explicit presentation with generators and relations.
+
+{\em Say (don't write)}: There is a similar definition of the exterior
+square of a Lie ring. Note that the exterior square of a Lie ring as a
+Lie ring is not the same as its exterior square as an abelian
+group. It is a quotient of that, however.
+
+{\em Write}: There's a canonical short exact sequence (central extension):
+
+$$0 \to M(G) \to G \wedge G \to [G,G] \to 1$$
+
+Right map, on a generating set: $$x \wedge y \mapsto [x,y]$$
+
+$M(G)$ = Schur multiplier of $G$
+
+{\em Say (don't write)}: We can think of $M(G)$ as the formal products
+of expressions of the form $x \wedge y$ that, when we evaluate in $G$,
+become trivial. This has the flavor of looking at central extensions. Indeed:
+
+{\em Write}: 
+
+$$\begin{array}{ccccccccc}
+0 & \to & M(G) & \to & G \wedge G & \to & [G,G] & \to & 1\\
+ &&               && \downarrow     &&\downarrow&& \\
+0 & \to & A & \to & E & \to & G & \to & 1\\
+\end{array}$$
+
+{\em Do}: make dashed arrow $M(G) \to A$.  This is the map $\beta:M(G)
+\to A$, same as the element of $\operatorname{Hom}(M(G),A)$ that
+appears in the universal coefficient theorem short exact sequence.
+
+{\em Write}: Let $B$ be the image of $\beta$ and $\beta': M(G) \to B$
+be the restriction. We have a map:
+
+$$\begin{array}{ccccccccc}
+0 & \to & M(G) & \to & G \wedge G & \to & [G,G] & \to & 1\\
+ &&   \downarrow^{\beta'}  &&  \downarrow^{\Omega_{E,G}}     && \downarrow^{\text{id}} && \\
+0 & \to & B &\to & [E,E] & \to & [G,G] & \to & 1\\
+\end{array}$$
+
+{\em Say or write}: Knowing the map $M(G) \to B$ determines the map
+$\Omega_{E,G}$. Latter classifies extensions up to isoclinism, hence
+so does the former.
+
+{\em Say}: Analogous results hold for the Lie ring. The key aspect we
+need to prove is that the Schur multiplier, which classifies
+extensions up to isoclinism, is the same for the group and the Lie
+ring, if the group and the Lie ring are in Lazard correspondence. This
+will allow us to draw conclusions about the central extension groups
+and Lie rings, that has class one more than the original group and Lie
+ring. We will in fact show that the short exact sequences:
+
+{\em Write}:
+
+$$0 \to M(L) \to L \wedge L \to [L,L] \to 0$$
+
+and
+
+$$0 \to M(G) \to G \wedge G \to [G,G] \to 1$$
+
+are in Lazard correspondence up to (canonical) isomorphism.
+
+{\em Say}: {\em Why this is plausible}: Note that if $G$ has class
+$c$, $G \wedge G$ has class at most $\lfloor (c + 1)/2 \rfloor$, so if
+$G$ is in the domain of the Lazard correspondence, so is $G \wedge G$.
+
+{\em Why this is nontrivial}: The intermediate formulas that we would
+use to calculate $G \wedge G$ and $L \wedge L$ are inside groups and
+Lie rings that are not in Lazard correspondence (e.g., if we use the
+Hopf formula). We need to show that despite this, the subgroups that
+end up getting used in the formula are in Lazard correspondence.
+
+\subsection{The finite case}
+
+Global Lazard correspondence:
+
+finite $p$-groups of class $\le p - 1$ $\leftrightarrow$ finite
+$p$-Lie rings of class $\le p - 1$ (write below: additive group is a
+finite $p$-group)
+
+Global Lazard correspondence up to isoclinism:
+
+equivalence classes up to isoclinism of finite $p$-group of class $\le
+p$ $\leftrightarrow$ equivalence classes up to isoclinism of finite
+$p$-Lie rings of class $\le p$
+
+\end{document}

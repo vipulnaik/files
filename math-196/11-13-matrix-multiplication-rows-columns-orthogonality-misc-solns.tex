@@ -1,0 +1,545 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Wednesday November 13: Matrix multiplication: rows, columns, orthogonality, and other miscellanea}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+25 people took this 13-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of 4: 2 people
+\item Score of 5: 1 person
+\item Score of 6: 1 person
+\item Score of 7: 3 people
+\item Score of 8: 3 people
+\item Score of 9: 5 people
+\item Score of 10: 4 people
+\item Score of 11: 4 people
+\item Score of 12: 2 people
+\end{itemize}
+
+The mean score was 8.68.
+
+The question-wise answers and performance review are as follows:
+
+\begin{enumerate}
+\item Option (D): 24 people
+\item Option (C): 22 people
+\item Option (D): 22 people
+\item Option (E): 19 people
+\item Option (A): 17 people
+\item Option (B): 23 people
+\item Option (E): 14 people
+\item Option (E): 20 people
+\item Option (C): 7 people
+\item Option (A): 12 people
+\item Option (B): 7 people
+\item Option (E): 14 people
+\item Option (B): 16 people
+\end{enumerate}
+
+\section{Solutions}
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+The purpose of this quiz is two-fold. First, many of the ideas related
+to matrix multiplication are at the stage where a bit of review will
+help prevent their fading out. Drawing from the best research on {\em
+  spaced repetition} (see for instance
+\url{http://en.wikipedia.org/wiki/Spaced_repetition}) we will try to
+recall some of the stuff. But with a twist, because we consider it
+from a somewhat different angle.
+
+Second, the new angle will also turn out to be useful for later
+material.
+
+For Questions 1-5: Given a $n$-dimensional vector $\langle
+a_1,a_2,\dots,a_n \rangle \in \R^n$, the vector can be interpreted as
+a $n \times 1$ matrix (a column vector). This is the default
+interpretation. But there are also two other interpretations: as a $1
+\times n$ matrix (a row vector) and as a diagonal $n \times n$ matrix.
+
+Also note that for Questions 1-5, all the three ways of representing
+vectors coincide with each other for $n = 1$, so the questions are
+uninteresting for $n = 1$ because all answer options are
+equivalent. You may therefore assume that $n > 1$ for these questions,
+though obviously the correct answers are correct for $n = 1$ as well.
+
+\begin{enumerate}
+\item Suppose I want to add two vectors $\vec{a} = \langle a_1, a_2,\dots,a_n
+  \rangle$ and $\vec{b} = \langle b_1,b_2,\dots,b_n \rangle$ to obtain the
+  output vector $\langle a_1 + b_1, a_2 + b_2, \dots, a_n + b_n
+  \rangle$ using matrix addition. What format (row vector, column
+  vector, or diagonal matrix) should I use? Please see Option (D)
+  before answering and select the option that best describes your view.
+
+  \begin{enumerate}[(A)]
+  \item Represent both $\vec{a}$ and $\vec{b}$ as row vectors and
+    interpret the sum as a row vector.
+  \item Represent both $\vec{a}$ and $\vec{b}$ as column vectors and
+    interpret the sum as a column vector.
+  \item Represent both $\vec{a}$ and $\vec{b}$ as diagonal matrices and
+    interpret the sum as a diagonal matrix.
+  \item We can use any of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Regardless of whether we represent the vectors as
+  row vectors, column vectors, or diagonal matrices, matrix addition
+  is executed coordinate-wise, as desired.
+
+  {\em Performance review}: 24 out of 25 people got this. 1 chose (B).
+
+\item Suppose I want to perform coordinate-wise multiplication on two
+  vectors. Explicitly, I have two vectors $\vec{a} = \langle a_1,
+  a_2,\dots,a_n \rangle$ and $\vec{b} = \langle b_1,b_2,\dots,b_n
+  \rangle$ and I want to obtain the output vector $\langle a_1b_1,
+  a_2b_2, \dots, a_nb_n \rangle$ using matrix multiplication (with the
+  matrix for $\vec{a}$ written on the left and the matrix for
+  $\vec{b}$ written on the right). What format (row vector, column
+  vector, or diagonal matrix) should I use?  Please see Option (D)
+  before answering and select the option that best describes your
+  view.
+
+  \begin{enumerate}[(A)]
+  \item Represent both $\vec{a}$ and $\vec{b}$ as row vectors and
+    interpret the matrix product as a row vector.
+  \item Represent both $\vec{a}$ and $\vec{b}$ as column vectors and
+    interpret the matrix product as a column vector.
+  \item Represent both $\vec{a}$ and $\vec{b}$ as diagonal matrices and
+    interpret the matrix product as a diagonal matrix.
+  \item We can use any of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The multiplication of diagonal matrices is
+  coordinate-wise along the diagonal. For instance, when $n = 2$, we
+  get:
+
+  $$\left[\begin{matrix} a_1 & 0 \\ 0 & a_2 \\\end{matrix}\right] \left[\begin{matrix} b_1 & 0 \\ 0 & b_2 \\\end{matrix}\right] = \left[\begin{matrix} a_1b_1 & 0 \\ 0 & a_2b_2 \\\end{matrix}\right]$$
+
+  In general:
+
+  $$\left[\begin{matrix} a_1 & 0 & \dots & 0 \\ 0 & a_2 & \dots & 0 \\ \cdot & \cdot & \cdot & \cdot \\ 0 & \dots & 0 & a_n \\\end{matrix}\right]\left[\begin{matrix} b_1 & 0 & \dots & 0 \\ 0 & b_2 & \dots & 0 \\ \cdot & \cdot & \cdot & \cdot \\ 0 & \dots & 0 & b_n \\\end{matrix}\right] = \left[\begin{matrix} a_1b_1 & 0 & \dots & 0 \\ 0 & a_2b_2 & \dots & 0 \\ \cdot & \cdot & \cdot & \cdot \\ 0 & \dots & 0 & a_nb_n \\\end{matrix}\right]$$
+
+  Note that for Options (A) and (B), it does not even make sense to
+  try computing the product.
+
+  {\em Option (A)}: Here, $\vec{a}$ and $\vec{b}$ are both represented
+  by $n$-dimensional row vectors, i.e., $1 \times n$ matrices, so we cannot
+  multiply them because the number of columns of the first matrix does
+  not equal the number of rows of the second matrix.
+
+  {\em Option (B)}: Here, $\vec{a}$ and $\vec{b}$ are both represented
+  by $n$-dimensional column vectors, i.e., $n \times 1$ matrices, so
+  we cannot multiply them because the number of columns of the first
+  matrix does not equal the number of rows of the second matrix.
+
+  {\em Performance review}: 22 out of 25 got this. 3 chose (D).
+
+\item Suppose I am given two vectors $\vec{a} = \langle a_1,
+  a_2,\dots,a_n \rangle$ and $\vec{b} = \langle b_1,b_2,\dots,b_n
+  \rangle$ and I want to obtain a $1 \times 1$ matrix with entry
+  $\sum_{i=1}^n a_ib_i$ using matrix multiplication (with the matrix
+  for $\vec{a}$ written on the left and the matrix for $\vec{b}$
+  written on the right). What format (row vector, column vector, or
+  diagonal matrix) should I use?
+  \begin{enumerate}[(A)]
+  \item Represent both $\vec{a}$ and $\vec{b}$ as row vectors.
+  \item Represent both $\vec{a}$ and $\vec{b}$ as column vectors.
+  \item Represent both $\vec{a}$ and $\vec{b}$ as diagonal matrices.
+  \item Represent $\vec{a}$ as a row vector and $\vec{b}$ as a column
+    vector.
+  \item Represent $\vec{a}$ as a column vector and $\vec{b}$ as a row vector.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: The dimensions match: $\vec{a}$ is represented by
+  a $1 \times n$ matrix and $\vec{b}$ is represented by a $n \times 1$
+  matrix. The product definition also matches. Note that this
+  particular form of product is the {\em dot product} of the vectors.
+
+  Note that Option (C) would give a diagonal matrix with the products
+  $a_ib_i$ along the diagonal, but would not add them up. Options (A)
+  and (B) do not make sense, for the same reason as discussed in the
+  answer to Question 2. Option (E) would give a product that is a $n
+  \times n$ matrix whose $(ij)^{th}$ entry is the product
+  $a_ib_j$. The matrix described by Option (E) is termed the {\em
+    Hadamard product}.
+
+  {\em Performance review}: 22 out of 25 got this.  2 chose (E), 1
+  left the question blank.
+\item Suppose I am given three vectors $\vec{a} = \langle
+  a_1,a_2,\dots,a_n \rangle$, $\vec{b} = \langle b_1,b_2,\dots,b_n
+  \rangle$, and $\vec{c} = \langle c_1,c_2,\dots,c_n \rangle$. I want
+  to obtain a $1 \times 1$ matrix with entry $\sum_{i=1}^n
+  (a_ib_ic_i)$ using matrix multiplication (with the matrix for
+  $\vec{a}$ written on the left, the matrix for $\vec{b}$ written in
+  the middle, and the matrix for $\vec{c}$ written on the right). What
+  format should I use?
+
+  \begin{enumerate}[(A)]
+  \item $\vec{a}$ as a row vector, $\vec{b}$ as a column vector,
+    $\vec{c}$ as a diagonal matrix.
+  \item $\vec{a}$ as a column vector, $\vec{b}$ as a row vector,
+    $\vec{c}$ as a diagonal matrix.
+  \item $\vec{a}$ as a diagonal matrix, $\vec{b}$ as a row vector,
+    $\vec{c}$ as a column vector.
+  \item $\vec{a}$ as a column vector, $\vec{b}$ as a diagonal matrix,
+    $\vec{c}$ as a row vector.
+  \item $\vec{a}$ as a row vector, $\vec{b}$ as a diagonal matrix,
+    $\vec{c}$ as a column vector.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: First, note that the dimensions match. $\vec{a}$
+  is represented by a $1 \times n$ matrix, $\vec{b}$ by a diagonal $n
+  \times n$ matrix, and $\vec{c}$ by a $n \times 1$ matrix. The
+  multiplication makes sense, and the product is a $1 \times 1$
+  matrix.
+ 
+  Second, note that the matrix we get is the correct one. The product
+  of the diagonal matrix for $\vec{b}$ and the column vector for
+  $\vec{c}$ gives a column vector whose $i^{th}$ coordinate is
+  $b_ic_i$. The product of the row vector for $\vec{a}$ with this
+  column vector gives $\sum_{i=1}^n (a_ib_ic_i)$ as desired.
+
+  Here is how it looks in the case $n = 2$:
+
+  $$\left[\begin{matrix} a_1 & a_2 \\\end{matrix}\right] \left[\begin{matrix} b_1 & 0 \\ 0 & b_2 \\\end{matrix}\right] \left[\begin{matrix} c_1 \\ c_2 \\\end{matrix}\right]$$
+
+  If we begin our simplification by multiplying the second and third matrix, we obtain:
+
+  $$\left[\begin{matrix} a_1 & a_2 \\\end{matrix}\right] \left[\begin{matrix} b_1c_1 \\ b_2c_2 \\\end{matrix}\right]$$
+
+  We now do the remaining multiplication and obtain the desired $1 \times 1$ matrix:
+
+  $$\left[\begin{matrix} a_1b_1c_1 + a_2b_2c_2 \\\end{matrix}\right]$$
+
+  Alternatively, we could simplify the original product by multiplying the first two matrices to begin with, and obtain:
+
+  $$\left[\begin{matrix} a_1b_1 & a_2b_2 \\\end{matrix}\right]\left[\begin{matrix} c_1 \\ c_2 \\\end{matrix}\right]$$
+
+  Multiplying them out gives the desired result. {\em Note}: It's not
+  surprising that both ways of simplifying the product of three
+  matrices give the same result. That follows from associativity of
+  matrix multiplication. We did it both ways for a sanity check.
+
+  {\em Performance review}: 19 out of 25 got this. 2 each chose (A)
+  and (C). 1 each chose (B) and (D).
+
+  \vspace{0.5in}
+
+  The next few questions rely on the concept of orthogonality ({\em
+    orthogonal} is a synonym for {\em perpendicular} or {\em at right
+    angles}). We say that two vectors (of the same dimension) are
+  orthogonal if their dot product is zero. By this definition, the
+  zero vector of a given dimension is orthogonal to every vector of
+  that dimension. Note that it does not make sense to talk of
+  orthogonality for vectors with different dimensions, i.e., with
+  different numbers of coordinates.
+
+\item Suppose $A$ is a $n \times m$ matrix. We can think of solving
+  the system $A\vec{x} = \vec{0}$ (where $\vec{x}$ is a $m \times 1$
+  column vector of unknowns) as trying to find all the vectors
+  orthogonal to all the vectors in a given set of vectors. What set of
+  vectors is that?
+
+  \begin{enumerate}[(A)]
+  \item The set of row vectors of $A$, i.e., the rows of $A$, viewed
+    as $m$-dimensional vectors.
+  \item The set of column vectors of $A$, i.e., the columns of $A$,
+    viewed as $n$-dimensional vectors.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: $A\vec{x}$ is a $n \times 1$ matrix (i.e., a
+  column vector with $n$ coordinates) and its $i^{th}$ entry is the
+  dot product of the $i^{th}$ row of $A$ and the vector $\vec{x}$,
+  both of which are $m$-dimensional vectors. This is zero if and only
+  if the $i^{th}$ row of $A$ and the vector $\vec{x}$ are orthogonal
+  to each other. In order to have $A\vec{x} = \vec{0}$, we need
+  $\vec{x}$ to be orthogonal to all the rows of $A$.
+
+  {\em Performance review}: 17 out of 25 got this. 8 chose (B).
+
+\item Suppose $A$ is a $p \times q$ matrix and $B$ is a $q \times r$
+  matrix where $p$, $q$, and $r$ are positive integers. The matrix
+  product $AB$ is a $p \times r$ matrix. What orthogonality condition
+  corresponds to the condition that the matrix product $AB$ is a zero
+  matrix (i.e., all its entries are zero)?
+
+  \begin{enumerate}[(A)]
+  \item Every row of $A$ is orthogonal to every row of $B$.
+  \item Every row of $A$ is orthogonal to every column of $B$.
+  \item Every column of $A$ is orthogonal to every row of $B$.
+  \item Every column of $A$ is orthogonal to every column of $B$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The $ik^{th}$ entry of $AB$ can be viewed as the
+  dot product of the $i^{th}$ row of $A$ and the $k^{th}$ column of
+  $B$. In particular, this entry is zero if and only if the $i^{th}$
+  row of $A$ is orthogonal to the $k^{th}$ column of $B$. In order for
+  $AB$ to be the zero matrix, we need this to hold for {\em every} row
+  of $A$ and {\em every} column of $B$, giving the answer option.
+
+  {\em Performance review}: 23 out of 25 got this. 2 chose (C).
+\item Suppose $A$ is an invertible $n \times n$ square matrix. Which
+  of the following correctly characterizes the $n \times n$ matrix
+  $A^{-1}$ using orthogonality? Recall that $AA^{-1}$ and $A^{-1}A$
+  are both equal to the $n \times n$ identity matrix.
+
+  \begin{enumerate}[(A)]
+  \item For every $i$ in $\{ 1,2,\dots,n\}$, the $i^{th}$ row of $A$ is
+    orthogonal to the $i^{th}$ row of $A^{-1}$. The dot product of the
+    $i^{th}$ row of $A$ and the $j^{th}$ row of $A^{-1}$ for distinct
+    $i,j$ in $\{1,2,\dots,n\}$ equals $1$.
+  \item For every $i$ in $\{ 1,2,\dots,n\}$, the $i^{th}$ column of $A$ is
+    orthogonal to the $i^{th}$ column of $A^{-1}$. The dot product of the
+    $i^{th}$ row of $A$ and the $j^{th}$ column of $A^{-1}$ for distinct
+    $i,j$ in $\{1,2,\dots,n\}$ equals $1$.
+ \item For every distinct $i,j$ in $\{1,2,\dots,n\}$, the $i^{th}$ row
+   of $A$ is orthogonal to the $j^{th}$ row of $A^{-1}$. The dot
+   product of the $i^{th}$ row of $A$ with the $i^{th}$ row of
+   $A^{-1}$ equals $1$.
+   \item For every $i$ in $\{ 1,2,\dots,n\}$, the $i^{th}$ row of $A$ is
+    orthogonal to the $i^{th}$ column of $A^{-1}$. The dot product of the
+    $i^{th}$ row of $A$ and the $j^{th}$ column of $A^{-1}$ for distinct
+    $i,j$ in $\{1,2,\dots,n\}$ equals $1$.
+  \item For every distinct $i,j$ in $\{1,2,\dots,n\}$, the $i^{th}$
+    row of $A$ is orthogonal to the $j^{th}$ column of $A^{-1}$. The
+    dot product of the $i^{th}$ row of $A$ and the $i^{th}$ column of
+    $A^{-1}$ equals $1$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: The product $AA^{-1}$ is the identity matrix. The
+  entries of this matrix can be described as follows:
+
+  \begin{itemize}
+  \item For distinct $i,j$ in $\{ 1,2,\dots,n \}$, the $(ij)^{th}$
+    entry of $AA^{-1}$ is $0$. This translates to saying that the
+    $i^{th}$ row of $A$ is orthogonal to the $j^{th}$ column of
+    $A^{-1}$.
+  \item For any $i$ in $\{ 1,2,\dots, n\}$, the $(ii)^{th}$ entry of
+    $AA^{-1}$ is $1$. This translates to saying that the dot product of
+    the $i^{th}$ row of $A$ and the $i^{th}$ column of $A^{-1}$ is
+    equal to $1$.
+  \end{itemize}
+
+  These correspond to Option (E).
+
+  Note that it is {\em also} true that $A^{-1}A$ is the identity
+  matrix. We can use this to obtain an alternative characterization of
+  $A^{-1}$. This condition will use the rows of $A^{-1}$ and the
+  columns of $A$. Explicitly:
+
+  \begin{itemize}
+  \item For distinct $i,j$ in $\{ 1,2,\dots,n \}$, the $(ij)^{th}$
+    entry of $A^{-1}A$ is $0$. This translates to saying that the
+    $i^{th}$ row of $A^{-1}$ is orthogonal to the $j^{th}$ column of
+    $A$.
+  \item For any $i$ in $\{ 1,2,\dots, n\}$, the $(ii)^{th}$ entry of
+    $A^{-1}A$ is $1$. This translates to saying that the dot product of
+    the $i^{th}$ row of $A^{-1}$ and the $i^{th}$ column of $A$ is
+    equal to $1$.
+  \end{itemize}
+
+  {\em Performance review}: 14 out of 25 got this. 6 chose (C), 3
+  chose (D), 1 each chose (A) and (B).
+
+  \vspace{0.3in}
+
+  The remaining questions review your skills at abstract behavior
+  prediction.
+
+\item Suppose $n$ is a positive integer greater than $1$. Which of the
+  following is always true for two invertible $n \times n$ matrices
+  $A$ and $B$?
+
+  \begin{enumerate}[(A)]
+  \item $A + B$ is invertible, and $(A + B)^{-1} = A^{-1} + B^{-1}$
+  \item $A + B$ is invertible, and $(A + B)^{-1} = B^{-1} + A^{-1}$
+  \item $A + B$ is invertible, though neither of the formulas of the
+    preceding two options is correct
+  \item $AB$ is invertible, and $(AB)^{-1} = A^{-1}B^{-1}$
+  \item $AB$ is invertible, and $(AB)^{-1} = B^{-1}A^{-1}$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: $A$ and $B$ being invertible does not imply that
+  $A + B$ is invertible. For instance, $A$ may be the identity matrix
+  and $B$ may be its negative.
+
+  On the other hand, $AB$ is invertible and $(AB)^{-1} =
+  B^{-1}A^{-1}$. This is because when we invert (i.e., go backward) we
+  must do so in reverse.
+
+  {\em Performance review}: 20 out of 25 got this. 3 chose (D), 1 each
+  chose (A) and (B).
+
+  {\em Historical note (last time, appeared in a midterm)}: $21$ out of
+  $30$ people got this. $5$ chose (C), $4$ chose (D).
+
+\item Suppose $n$ is a positive integer greater than $1$. For a
+  nilpotent $n \times n$ matrix $C$, define the {\em nilpotency} of
+  $C$ as the smallest positive integer $r$ such that $C^r = 0$. Note
+  that the nilpotency is not defined for a non-nilpotent matrix. Given
+  two $n \times n$ matrices $A$ and $B$, what is the relation between
+  the nilpotencies of $AB$ and $BA$?
+
+  \begin{enumerate}[(A)]
+  \item $AB$ is nilpotent if and only if $BA$ is nilpotent, and if
+    so, their nilpotencies must be equal.
+  \item $AB$ is nilpotent if and only if $BA$ is nilpotent, and if so,
+    their nilpotencies must differ by $1$.
+  \item $AB$ is nilpotent if and only if $BA$ is nilpotent, and if so,
+    their nilpotencies must either be equal or differ by $1$.
+  \item It is possible for $AB$ to be nilpotent and $BA$ to be
+    non-nilpotent; however, {\em if} both are nilpotent, then their
+    nilpotencies must be equal.
+  \item It is possible for $AB$ to be nilpotent and $BA$ to be
+    non-nilpotent, however {\em if} both are nilpotent, then their
+    nilpotencies must differ by $1$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: We have seen examples where the nilpotencies are
+  not equal. For instance:
+
+  $$A = \left[\begin{matrix} 0 & 1 \\ 0 & 0 \\\end{matrix}\right], B = \left[ \begin{matrix} 1 & 0 \\ 0 & 0 \\\end{matrix}\right]$$
+
+  $AB = 0$ but $BA$ is not zero.
+
+  On the other hand, we also have examples where the nilpotencies are
+  equal. For instance:
+
+  $$A = \left[\begin{matrix} 1 & 0 \\ 0 & 0 \\\end{matrix}\right], B = \left[ \begin{matrix} 0 & 0 \\ 0 & 1 \\\end{matrix}\right]$$
+
+  Note, however, that $(AB)^r = 0$ implies $(BA)^{r+1} = 0$ and
+  $(BA)^s = 0$ implies $(AB)^{s+1} = 0$. Thus, the nilpotencies can
+  differ by at most one, since each nilpotency is bounded by $1$ more
+  than the other.
+ 
+  {\em Performance review}: 7 out of 25 got this. 9 chose (D), 4 chose
+  (E), 2 chose (A), 1 chose (B), and 2 left the question blank.
+
+  {\em Historical note (last time, appeared in a midterm)}: $5$ out of
+  $30$ got this. $12$ chose (E), $11$ chose (D), and $2$ chose (B).
+
+\item What is the smallest $n$ for which there exist examples of
+  invertible $n \times n$ matrices $A$ and $B$ such that $A \ne B$ but
+  $A^2 = B^2$?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item This is not possible for any $n$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explananation}: We can take $A = [-1]$ and $B = [1]$.
+
+  {\em Performance review}: 12 out of 25 got this. 10 chose (B), 2
+  chose (E), 1 chose (C).
+
+\item What is the smallest $n$ for which there exist examples of
+  invertible $n \times n$ matrices $A$ and $B$ such that $A \ne B$ but
+  $A^3 = B^3$?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item This is not possible for any $n$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Note first that $n = 1$ does not work, because if
+  two real numbers have the same cube, they must be equal (this is
+  because cubing is a one-one function).
+
+  However, $n = 2$ works. Explicitly, we can take $A$ as a rotation
+  matrix by $2\pi/3$ and $B$ as the identity matrix. Both $A^3$ and
+  $B^3$ equal the identity matrix. Explicitly:
+
+  $$A = \left[\begin{matrix} -1/2 & -\sqrt{3}/2 \\ \sqrt{3}/2 & -1/2 \\\end{matrix}\right], B = \left[\begin{matrix} 1 & 0 \\ 0 & 1 \\\end{matrix}\right]$$
+
+  If you prefer dealing only with matrices with integer entries, consider the following matrix. This is harder to think of, however:
+
+  $$A = \left[\begin{matrix} -1 & -1 \\ 1 & 0 \\\end{matrix}\right], B = \left[\begin{matrix} 1 & 0 \\0 & 1 \\\end{matrix}\right]$$
+
+  {\em Performance review}: 7 out of 25 got this. 13 chose (C), 4
+  chose (E), 1 chose (D).
+\item What is the smallest $n$ for which there exist examples of
+  invertible $n \times n$ matrices $A$ and $B$ such that $A \ne B$ but
+  $A^2 = B^2$ and $A^3 = B^3$?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item This is not possible for any $n$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Suppose $A^2 = B^2$ with $A$ and $B$ both
+  invertible. Then, $A^{-2} = B^{-2}$ as well. We are also given $A^3
+  = B^3$. Multiplying the two equations, we get $A = B$. Thus, the
+  specification required is not possible.
+
+  {\em Performance review}: 14 out of 25 got this. 7 chose (B), 3
+  chose (C), 1 chose (D).
+\item What is the smallest $n$ for which there exist examples of (not
+  necessarily invertible) $n \times n$ matrices $A$ and $B$ such that
+  $A \ne B$ but $A^2 = B^2$ and $A^3 = B^3$?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item This is not possible for any $n$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Note that the condition $A^3 = B^3$ would imply
+  $A = B$ if $n = 1$. Therefore, the smallest possible case is $n =
+  2$. We will furnish an example in this case. In our example, we take:
+
+  $$A = \left[\begin{matrix} 0 & 1 \\ 0 & 0 \\\end{matrix} \right], B = \left[\begin{matrix} 0 & 0 \\ 0 & 0 \\\end{matrix}\right]$$
+
+  Note how and why this example works: $A^2 = B^2 = 0$, so all higher
+  powers of $A$ and of $B$ are equal to $0$.
+
+  {\em Performance review}: 16 out of 25 got this. 5 chose (E), 3
+  chose (C), 1 chose (A).
+\end{enumerate}
+\end{document}

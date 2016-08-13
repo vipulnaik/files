@@ -1,0 +1,1289 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Formal definition of limit}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Difficulty level}: Hard. Full attention needed.
+
+{\bf Covered in class?}: Yes. But it is strongly recommended that you
+read this, as well as the book, preferably {\em prior} to the lecture.
+
+{\bf Corresponding material in the book}: Section 2.2.
+
+{\bf Corresponding material in homework problems}: Homework 2 advanced
+problems 1--6 and 10.
+
+{\bf Things that students should get immediately}: The definition of
+limit is tricky but there is a ``method behind the madness''. The
+subtleties in the definition are largely to avoid problems with
+functions that fluctuate too much.
+
+{\bf Things that students should get with effort}: The full definition
+of limit in terms of $\epsilon$s and $\delta$s. Ideally, write the
+definition for both generic functions and specific functions, and be
+able to clearly identify the bounding task that is needed. Also, be
+able to execute $\epsilon-\delta$ proofs for constant, linear,
+quadratic functions and for functions that are piecewise of these
+types.
+
+{\bf Things that students should hopefully get}: The approach to
+showing that certain limits do not exist.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item $\lim_{x \to c} f(x) = L$ if, for every $\epsilon > 0$, there
+  exists $\delta > 0$ such that, for every $x \in \R$ satisfying $0 <
+  |x - c| < \delta$ (in other words, $x \in (c-\delta,c) \cup
+  (c,c+\delta)$, we have $|f(x) - L| < \epsilon$ (in other words,
+  $f(x) \in (L - \epsilon,L+\epsilon)$.
+\item What that means is that however small a trap (namely $\epsilon$)
+  the skeptic demands, the person who wants to claim that the limit
+  does exist can find a $\delta$ such that when the $x$-value is
+  $\delta$-close to $c$, the $f(x)$-value is $\epsilon$-close to $L$.
+\item The negation of the statement $\lim_{x \to c} f(x) = L$ is: there
+  exists $\epsilon > 0$ such that for every $\delta > 0$ there exists
+  $x \in \R$ such that $0 < |x - c| < \delta$ but $|f(x) - L| \ge
+  \epsilon$.
+\item The statement $\lim_{x \to c} f(x)$ doesn't exist: for every $L
+  \in \R$, there exists $\epsilon > 0$ such that for every $\delta >
+  0$ there exists $x \in \R$ such that $0 < |x - c| < \delta$ but
+  $|f(x) - L| \ge \epsilon$.
+\item We can think of $\epsilon-\delta$ limits as a game. The skeptic,
+  who is unconvinced that the limit is $L$, throws to the prover a
+  value $\epsilon > 0$. The prover must now throw back a $\delta >
+  0$. Then, the skeptic provides a value of $x$ within a
+  $\delta$-distance of $c$. If the $f(x)$-value is within an
+  $\epsilon$-distance of $L$, the prover wins. Otherwise, the skeptic
+  wins. $L$ being the limit means that the prover has a winning
+  strategy, i.e., the prover has a way of picking, for any $\epsilon >
+  0$, a value of $\delta > 0$ suitable to that $\epsilon$.
+\item The function $f(x) = \sin(1/x)$ is a classy
+  example of a limit not existing. The problem is that, however small
+  we choose a $\delta$ around $0$, the function takes all values
+  between $-1$ and $1$, and hence refuses to be confined within small
+  $\epsilon$-traps.
+\item We say that $f$ is continuous at $c$ if $\lim_{x \to c} f(x) =
+  f(c)$.
+\end{enumerate}
+
+Actions...
+
+\begin{enumerate}
+\item If a $\delta$ works for a given $\epsilon$, then every smaller
+  $\delta$ works too. Also, if a $\delta$ works for a given
+  $\epsilon$, the same $\delta$ works for any larger $\epsilon$.
+\item Constant functions are continuous, we can choose $\delta$ to be
+  anything. In this $\epsilon-\delta$ game, the person trying to prove
+  that the limit does exist wins no matter what $\epsilon$ the skeptic
+  throws and no matter what $\delta$ is thrown back.
+\item For the function $f(x) = x$, it's continuous, and $\delta =
+\epsilon$ works.
+\item For a linear function $f(x) = ax + b$ with $a \ne 0$, it's
+  continuous, and $\delta = \epsilon/|a|$ works. That's the largest
+  $\delta$ that works.
+\item For a function $f(x) = x^2$ taking the limit at a point $p$, the
+  limit is $p^2$ (the function is continuous) and $\delta = \min\{1,
+  \epsilon/(1 + |2p|) \}$ works. It isn't the best, but it works.
+\item For a function $f(x) = ax^2 + bx + c$, taking the limit at a
+  point $p$, the limit is $f(p)$ (the function is continuous) and
+  $\delta = \min \{1, \epsilon/(|a| + |2ap + b|) \}$ works. It isn't
+  the best, but it works.
+\item If there are two functions $f$ and $g$ and $\lim_{x \to c} f(x)
+  = \lim_{x \to c} g(x) = L$, and $h$ is a function such that $h(x) =
+  f(x)$ or $h(x) = g(x)$ for every $x$, then $\lim_{x \to c} h(x) =
+  L$. The $\delta$ that works for $h$ is the minimum of the $\delta$s
+  that work for $f$ and $g$. This applies to many situations:
+  functions defined differently on the left and right of the point,
+  functions defined differently for the rationals and the irrationals,
+  functions defined as the max or min of two functions.
+\end{enumerate}
+
+\section*{Pep talk}
+
+In this really important lecture, we're going to try and understand
+the formal definition of limit. This formal definition is really
+tricky to understand and it is sort of like a ``rite of passage'',
+like in some places the boys have to kill a tiger to become men. So
+it's the same way -- this is when all the wishy-washy precalculus
+stuff ends and proper college calculus begins. And this definition has
+a lot of subtleties, and I hope you took the time to read the book and
+try to understand the definition.
+
+\section{Rugged terrain}
+
+\subsection{The topologist's sine curve}
+
+First, let's recall the graph of the sine curve. This is a
+nice function -- it is a periodic function with period $2\pi$, and it
+is not just continuous, it is very smooth, waving smoothly. As good a
+function as you can get.
+
+We now consider a slightly different function, which is the function:
+
+\begin{equation*}
+  f(x) := \sin(1/x)
+\end{equation*}
+
+Can you think of $f$ as a composite of two functions? Indeed, $f =
+\sin \circ g$, where $g(x) = 1/x$. So what are the points where $f$ is
+defined? Well, what could be the problem? The first problem could be
+that the function $g(x) = 1/x$ isn't defined. And that happens at $x =
+0$. So $0$ is a problem point. Once we've done the $1/x$ part, what
+next? Well, we need to take $\sin$ of that, which isn't a problem,
+because $\sin$ is defined for all real numbers. Thus, the domain of
+the function is all nonzero real numbers, or $\R \setminus \{0 \}$,
+also written as $(-\infty,0) \cup (0,\infty)$.
+
+So when I first saw this function, I was like: {\em ouch}! What does
+it even mean to be such a function? What would the graph of such a
+function look like? Well, there are ways to compose graphs
+pictorially, but we don't want to go into those right now. So we'll
+just do some {\em ad hoc} stuff.
+
+First, let's do the positive side. Suppose $x \to +\infty$. What
+happens to $1/x$? Well, it approaches $0$, from the right side. And as
+you can see from the graph of $x$, that means it goes to zero. Now in
+the graph of $\sin$, you see a very quick, almost straight line
+descent to zero. But when you are seeing this for $1/x$, this is
+almost painfully slow, so this is how it is going to look -- it is
+going to sort off go more and more horizontal. By the way, in this
+picture, the $x$-axis is called a {\em horizontal asymptote}. We'll
+talk about asymptotes a little later in the course.
+
+So the graph of $\sin(1/x)$ reaches $1$, here, at $x = 2/\pi$. And as
+you know, $2/\pi$ is around $7/11$, so it is less than $1$. So that
+part from $0$ to $\pi/2$ in the $\sin$ graph gives rise to this part
+from $2/\pi$ to $\infty$. That really small part in the $\sin$ graph
+becomes this really huge part out here.
+
+
+And all the other oscillations in the $\sin$ graph get compressed into
+the little region between $0$ and $2/\pi$. So the graph falls to $0$
+here at $1/\pi$, then, it falls to $-1$ at $2/3\pi$, then comes back
+to zero at $1/2\pi$, and then the oscillations are faster than ever
+before. And as you get closer and closer to zero from the right, it is
+almost like it's madly just going up and down between $-1$ and
+$1$.
+
+What about the negative side? Well, if you wanted to build your
+skills, you would do the whole thing again, but we can save some time
+by making an observation. The sine function is an odd function, and
+the function sending $x$ to $1/x$ is an odd function, so the composite
+is also an odd function. Or another way of thinking about this is that
+$\sin(1/(-x)) = \sin(-1/x) = -\sin(1/x)$. So, what's going to happen
+is that the graph on the left is just obtained from the graph on the
+right using two flips, or a half turn about the origin.
+
+Okay, now this is the graph that you need to look at and remember. By
+the way, some mathematicians have a name for the graph, or more
+specifically, the $x > 0$ part; they call it the {\em topologist's
+sine curve}.
+
+Here's the zoomed out picture:
+
+\includegraphics[width=4in]{topologistssinecurvezoomout.png}
+
+Here's a somewhat intermediate picture where we restrict the domain to
+$[-1,1]$.
+
+\includegraphics[width=3in]{topologistssinecurve-1to1.png}
+
+Here is the picture zoomed in further (note: the $x$ and $y$ axes are
+scaled differently to make the picture fit in the page):
+
+\includegraphics[width=3in]{topologistssinecurvezoomin1.png}
+
+And here it is, zoomed in even further:
+
+\includegraphics[width=3in]{topologistssinecurvezoomin2.png}
+\subsection{One definition of limit}
+
+We first discuss a definition of limit that is wrong but it is wrong
+in an interesting way. And although it is wrong, it could still be a
+meaningful definition and is a useful concept in some cases.
+
+Well, let's try to build this wrong definition. We want to interpret
+the sentence:
+
+\begin{equation*}
+  \lim_{x \to c} f(x) = L
+\end{equation*}
+
+So one way of thinking of this is: as $x$ gets arbitrarily close to
+$c$, $f(x)$ gets arbitrarily close to $L$. And so here's one guess:
+
+Wrong definition of limit:
+
+For every $\epsilon > 0$ and every $\delta > 0$, there exists $x$ such
+that $0 < |x - c| < \delta$ and $|f(x) - L| < \epsilon$.
+
+Okay, let's try to interpret this. This is saying that if you pick a
+really small interval $(c - \delta, c + \delta)$ around $c$ on the
+$x$-axis, and a really small interval $(L - \epsilon, L + \epsilon)$
+around $L$ on the $f(x)$-axis, then you get this rectangle. And what
+my definition is saying that you'll have some point of the curve in
+this rectangle (but is not the point $(c,L)$ itself). So what this
+definition is saying is that however small a rectangle you make around
+the point $(c,L)$, you will have some points of the form $(x,f(x))$.
+
+This seems like a reasonable description, because it says that you
+have these points that are really close. And this is certainly
+satisfied for most of the functions you have seen. But this is not the
+correct definition.
+
+\subsection{Back to the topologist's sine curve}
+
+So to understand what is wrong with this definition, we need to look
+again at the topologist's sine curve. And we need to look at this
+curve at the point $0$, and ask: what is the limit at $0$?
+
+Well, I claim that by the definition I gave, the limit at $0$ can be
+any number between $-1$ and $1$. Why? Well, think about what is
+happening to the function close to zero on the positive side. It is
+madly oscillating. This means that however small an interval around
+$0$ you take for the $x$-value, the $\sin(1/x)$ function takes all
+possible values between $-1$ and $1$. So, however small a rectangle
+you draw at any point, you're going to get points that are in there.
+
+So the thing with the function is that its rapid oscillation is
+creating a problem: by our definition, we get all points in the
+interval $[-1,1]$ as the limit. But that's not the way we would like
+limits to behave -- we want the limit to be unique, and it should be a
+reasonable description of where the function {\em tends to}. If this
+definition says that the limit at $0$ could be both $0$ and $1/2$ and
+$-1/2$ and $1$, and this jars your intuition, it is this definition
+that you need to throw out.
+
+Here's a graphical illustration, where we are trying to study the
+approach of $\sin(1/x)$ to $0.4$ as $x$ approaches $0$. Note that
+however small a rectangle we make around the point, it contains lots
+of points of the $\sin(1/x)$ graph. However, the $\sin(1/x)$ graph is
+all over the place, so the function is never {\em trapped} within a
+small rectangle.
+
+\includegraphics[width=3in]{topologistssinecurveepsilondeltarectangle.png}
+
+\includegraphics[width=3in]{topologistssinecurveepsilondeltarectanglezoomin.png}
+
+\subsection{Challenging!}
+
+So I know that you're not happy with me -- I just tried to shove down
+your throat a wrong definition and you spent the time trying to
+understand it and then I told you that this is the wrong
+definition. So, this was just to give you a flavor that getting the
+definition is challenging, and a definition that might seem right
+could be riddled with holes. I know this is exhausting, so I'll skip
+right to the correct definition and explain why it works. And then
+after some time, I suggest you come back and compare the correct
+definition and the wrong definition and try to understand exactly what
+the difference is.
+
+The way I think about the definition is in terms of a {\em cage} (or
+{\em trap}). And the reason why we need this notion of a cage or trap
+is precisely to avoid these kinds of oscillations that give rise to
+multiple limits. So, here is the formal definition:
+
+We say that $\lim_{x \to c} f(x) = L$ (as a two-sided limit) if, for
+every $\epsilon > 0$, there exists $\delta > 0$ such that, for every
+$x$ such that $0 < |x - c| < \delta$, we have $|f(x) - L| < \epsilon$.
+
+That's quite a mouthful. Let's interpret it graphically. What it
+is saying is that: ``for every $\epsilon$'' so we consider this region
+$(L - \epsilon, L + \epsilon)$, so there are these two horizontal bars
+at heights $L - \epsilon$ and $L + \epsilon$. Next it says, there
+exists a $\delta$, so there exist these vertical bars at $c + \delta$
+and $c - \delta$. So we have the same rectangle that we had in the
+earlier definition.
+
+What is different this time is that we not only demand that the graph
+have a few points in that rectangle, but rather, that it lies
+completely inside the rectangle. And this is the crucial difference
+between this definition and the previous definition, that allowed
+sometimes-in-sometimes-out graphs. Because, here we are saying that
+the condition holds for {\em all} $x$ such that $0 < |x - c| <
+\delta$. Which is the same as saying that the condition holds on the
+interval $(c - \delta, c + \delta)$ minus the point $\{ c \}$
+itself. Or, you can think of that set as $(c - \delta, c) \cup (c, c +
+\delta)$. And we're insisting that the condition hold for all things,
+not just that there exists a point here or a point there.
+
+The other main difference from the earlier definition is that in this
+definition, the value of $\delta$ depends on $\epsilon$. So here is
+another way of thinking of this definition that I find useful. Suppose
+I claim that as $x$ tends to $c$, $f(x)$ tends to $L$, and you are
+skeptical. So you throw me a value $\epsilon > 0$ as a challenge and
+say -- can I trap the function within $\epsilon$? And I say, yeah,
+sure, because I can find a $\delta > 0$ such that, within the ball of
+radius $\delta$ about $c$, the value $f(x)$ is trapped in an interval
+of size $\epsilon$ about $L$. So basically you are challenging me: can
+I create an $\epsilon$-cage? And for every $\epsilon$ that you hand
+me, I can find a $\delta$ that does the job of this cage.
+
+Here's a pictorial illustration:
+
+\includegraphics[width=4.5in]{epsilondeltapicture.png}
+
+\subsection{Formal description as a game}
+
+We make the discussion above somewhat more formal by encoding it as a
+game. Consider the assertion:
+
+$$\lim_{x \to c} f(x) = L$$
+
+where specific values are provided for $c$ and $L$ and for the
+function $f$. Suppose, further, that $f$ is defined at all points on
+the immediate left and the immediate right of $c$ (otherwise, the game
+would be meaningless).
+
+The game has two players, a {\em prover}, whose goal is to show that
+the limit statement above is correct, and a {\em skeptic} (in higher
+mathematics jargon, this person is called a {\em verifier}, but I
+think you'll find {\em skeptic} a more intuitive term) who is far from
+convinced and wants to raise the best counter-arguments. The game has
+three moves:
+
+\begin{itemize}
+\item The skeptic chooses an $\epsilon > 0$ (the subtext being the
+  interval $(L - \epsilon, L + \epsilon)$), effectively telling the
+  prover: ``try to trap the function with $\epsilon$ of $L$ if you
+  can.''
+\item The prover chooses a $\delta > 0$ (the subtext being the
+  interval $(c - \delta,c + \delta)$, excluding the point $c$),
+  effectively telling the skeptic: ``here's a trap that works.
+\item The skeptic chooses a value of $x$ such that $0 < |x - c| <
+  \delta$, (i.e., within the set $(c - \delta, c + \delta) \setminus
+  \{ c \}$), challenging the prover at that specific $x$.
+\end{itemize}
+
+Once these moves are complete: we compute $|f(x) - L|$. If it is less
+than $\epsilon$, the prover wins. Otherwise, the skeptic wins.
+
+We say that $\lim_{x \to c} f(x) = L$ is {\em true} if the prover has
+a {\em winning strategy}. In other words, {\em no matter what} choice
+the skeptic makes for $\epsilon$, the prover has a (smart) choice of
+$\delta$ such that {\em no matter what} value of $x$ the skeptic
+chooses in $(c- \delta, c) \cup (c, c + \delta)$, $f(x)$ lies in the
+interval $(L - \epsilon,L + \epsilon)$.
+
+If, in contrast, the {\em skeptic} has a winning strategy, then we
+declare the statement to be false.
+
+The key take-away is that in order to show a limit statement to be
+true, we need to devise a winning strategy for the prover in the above
+game. Note that the winning strategy must work against an extremely
+smart skeptic, not merely against a skeptic who makes a silly choice
+of $\epsilon$.
+
+\subsection{One-sided limits}
+
+The definition of limit we have given is:
+
+$\lim_{x \to c} f(x) = L$ if, for every $\delta > 0$, there exists
+$\delta > 0$ such that, for every $x$ such that $0 < |x - c| <
+\delta$, then $|f(x) - L| < \delta$.
+
+This defintion is fine when the function is defined on both
+sides. Note the way we are using {\em both sides} of $c$, because when
+we say $0 < |x - c| < \delta$, we are including the
+$\delta$-interval on the left side $(c - \delta,c)$ and the right
+side $(c, c+\delta)$.
+
+For the right hand limit, we want to restrict $x$ to the interval
+$(c,c + \delta)$ on the right side, and for the left hand limit, we
+want to restrict $x$ to the interval $(c - \delta,c)$.
+
+Here's how we define the {\em left hand limit}: $\lim_{x \to
+c^-} f(x) = L$ if, for every $\epsilon > 0$, there exists a $\delta >
+0$ such that, for all $x$ satisfying $0 < c - x < \delta$, we have
+$|f(x) - L| < \epsilon$.
+
+Note that $0 < c - x < \delta$ is the same as saying that $x \in (c -
+\delta,c)$.
+
+Here's how we define the {\em right hand limit}: $\lim_{x \to c^+}
+f(x) = L$ if, for every $\epsilon > 0$, there exists $\delta > 0$ such
+that, for all $x$ satisfying $0 < x - c < \delta$, we have $|f(x) - L|
+< \epsilon$.
+
+Note that $0 < x - c < \delta$ is the same as saying that $x \in (c,c
++ \delta)$.
+
+\section{Strategy stockpile}
+
+We now discuss strategies for showing that a particular limit exists
+and has a particular value, and hence, for showing that a function is
+continuous.
+\subsection{What we need to do}
+
+Recall the way of thinking of a limit in terms of a {\em cage} or a
+{\em trap}:
+
+We say that $\lim_{x \to c} f(x) = L$ (as a two-sided limit) if, for
+every $\epsilon > 0$, there exists $\delta > 0$ such that, for every
+$x$ such that $0 < |x - c| < \delta$, we have $|f(x) - L| < \epsilon$.
+
+This is quite a mouthful, so let's slow down and try to understand
+what it means. Let's interpret it graphically. What it is saying is
+that: ``for every $\epsilon$''so we consider this region $(L -
+\epsilon, L + \epsilon)$, so there are these two horizontal bars at
+heights $L - \epsilon$ and $L + \epsilon$. Next it says, there exists
+a $\delta$, so there exist these vertical bars at $c + \delta$ and $c
+- \delta$. And what we're saying is that if the $x$-value is trapped
+between the vertical bars $c - \delta$ and $c + \delta$ (but is not
+equal to $c$), the $f(x)$-value is trapped between $L - \epsilon$ and
+$L + \epsilon$.
+
+The important thing to note here is that the value of $\delta$ depends
+on the value of $\epsilon$. As I said earlier, we can think of this as
+a game, where I (as the prover) am trying to prove to you that the
+limit $\lim_{x \to c} f(x) = L$ and you are a skeptic who is trying to
+catch me out. So you throw $\epsilon$s at me, and challenge me to show
+that I have a $\delta$ to trap that $\epsilon$. And if I have a
+winning strategy, that enables me to find a $\delta$ for every
+$\epsilon$ that you throw at me, then yes, the limit is equal to $L$.
+
+\subsection{The winning strategy for constant functions}
+
+So the real question is: can I obtain a winning strategy? And what
+would such a strategy be? It would be some procedure, some function,
+that takes as input a value of $\epsilon$ and outputs a value of
+$\delta$ in terms of that $\epsilon$. Now I know that's a mouthful, so
+let's look at some simple examples.
+
+We'll take two kinds of functions for which the limit is particularly
+easy to compute: {\em constant functions} and the identity
+function. Let's first look at a constant function that sends every
+real number to $k$. So let me call this $f$. So $f$ is a function with
+the property that $f(x) = k$ for all $x \in \R$. So, what can we say
+about the graph of $f$? Well, it is this horizontal line at height
+$k$. So far, so good.
+
+Let's look at a point $c$, and try to calculate $\lim_{x \to c}
+f(x)$. Which is the same as trying to compute $\lim_{x \to c} k$. The
+guess, from looking at the graph, is that the limit equals $k$. So how
+do we show this in terms of the $\epsilon-\delta$ definition?
+
+Okay, lost? No problem. Sometimes, when unwinding mathematical
+expressions, you (and even I) get lost. That's not the time to give
+up. Rather, it is the time to refocus and go back to the original
+definition and work things out again.
+
+So we want to show that $\lim_{x \to c} f(x) = k$. In other words, we
+want to show that for every $\epsilon > 0$, there exists a $\delta >
+0$ such that if $0 < |x - c| < \delta$, then $|f(x) - k| <
+\epsilon$. By the way, that $k$ that appeared at the end there is
+because we're claiming the limit is $k$.
+
+Before we unravel that (and it's a bit of an anti-climax once we
+do), let's just think of this graphically. We are saying that for
+every $\epsilon > 0$, so we are thinking of the region between the
+horizontal bars at heights $k - \epsilon$ and $k + \epsilon$. And then
+we want to say that there exists a $\delta > 0$ (that we haven't
+determined) so we are thinking of the vertical bars at $c - \delta$
+and $c + \delta$, so we have this rectangle. And we have to choose
+$\delta$ such that that part of the graph lies inside that rectangle.
+
+\includegraphics[width=3in]{constantfunctionepsilondelta.png}
+
+But the picture makes it clear that we can choose just about any
+$\delta > 0$! So in the case of the constant function, we can choose
+just about anything and not run into trouble. So, let's see that from the algebra.
+
+We want to show that there exists a $\delta > 0$ such that if $0 <
+|x - c| < \delta$, then $|f(x) - k| < \epsilon$. but what's $|f(x) -
+k|$? it is $|k - k| = 0$, and so is less than $\epsilon$, so the
+condition is tautologically satisfied for all $x$. So any $\delta$
+will do.
+
+Another way of thinking of this is that in this case, I don't need a
+trap at all -- any trap will do because the function is already at the
+right place all along! Also, remember that the kind of examples that
+gave us headaches were things where the function changed a lot from
+point to point, and constant functions change as little as possible --
+they don't change at all.
+
+Or, thinking of it in terms of the two-person game where you (the
+skeptic) throw me $\epsilon$s and I throw back $\delta$s that work,
+this is a really easy game. Whatever you throw at me, I can throw back
+anything at you. This is a great game for me -- no matter how smart
+you are or how stupid I am, I always win.
+
+I urge you to go through this example carefully and understand it
+thoroughly. It's also Example 5 on page 67 of the book.
+
+\subsection{The winning strategy for the identity function}
+
+Okay, now when I asked you to calculate the limit of the identity
+function, you might remember I said it's like a word puzzle: ``as $x$
+approaches $c$, what does $x$ approach?'' Well, obviously $c$. So now
+we want to do the fancy $\epsilon-\delta$ version of that same
+argument.
+
+Let's unwind the definition. And by the way, the main thing, once you
+have got the correct definition, is to be able to carefully apply it
+by interpreting it correctly. That isn't easy but it isn't
+impossible. In fact, at some stage you should be able to take a
+definition that you're seeing for the first time and apply it to a
+given problem well.
+
+So define $g(x) = x$. So we want to show that for every $\epsilon >
+0$, there exists a $\delta > 0$ such that whenever $0 < |x - c| <
+\delta$, then $|g(x) - c| < \epsilon$. And by the way, the second $c$
+came because we're claiming that the limit is $c$. And by the way,
+since $g(x) = x$, I can rewrite this as follows:
+
+I want to show that for every $\epsilon > 0$, there exists a $\delta >
+0$ such that whenever $0 < |x - c| < \delta$, then $|x - c| <
+\epsilon$. Hmm. So what $\delta$ has the property that whenever $0 <
+|x - c| < \delta$, then $|x - c| < \epsilon$? Again, the answer is
+almost tautological: set $\delta = \epsilon$.
+
+For the game where the function is the identity function, I can
+choose the identity function as my winning strategy, in the sense that
+whatever $\epsilon$ you throw at me, I throw back the same value to
+you for $\delta$. We can also see this graphically:
+
+\includegraphics[width=3in]{identityfunctionepsilondelta.png}
+
+I urge you to go through this example carefully and understand it
+thoroughly. It's also Example 5 on page 67 of the book.
+
+\subsection{The winning strategy for linear functions: motivation}
+
+Okay, let's up the ante a little bit, getting more abstract without
+actually making our function a lot harder. Suppose we have the
+function:
+
+\begin{equation*}
+  f(x) := ax + b
+\end{equation*}
+
+So this $f$ is a {\em linear function}. And we want to determine the
+limit $\lim_{x \to c} f(x)$. Here, the numbers $a$ and $b$ are unknown
+constants, i.e., in a specific problem situation, their values will be
+known.
+
+The first thing you can do is draw the graph, and this graph is a
+straight line. The slope of that straight line depends on the value of
+$a$. So if $a$ is positive, this is a south-west to north-east line,
+and if $a$ is negative, this is a north-west to south-east line. And,
+if $a = 0$, the line is flat. And the parameter $b$ tells you further
+where the line is placed -- different $b$s give different lines that
+are all parallel to each other.
+
+Your guess would be that the limit at $c$ is $f(c)$, which is sort of
+pictorially clear, because a straight line looks very continuous. And
+you'll notice that this generalizes both the constant function and the
+identity function: the constant function would be the case $a = 0$,
+and the identity function would be the case $a = 1$ and $b = 0$. Since
+we already settled the constant function case, we'll assume $a \ne 0$.
+
+So, what again do I want to show? $\lim_{x \to c} f(x) = f(c)$. And
+so, I need to find, for every $\epsilon$, a suitable $\delta$ such
+that something holds. What thing?
+
+So, what I want is to find, for every $\epsilon > 0$, a value $\delta
+> 0$ such that for $0 < |x - c| < \delta$, we have $|f(x) - f(c)| <
+\epsilon$. We now try to substitute the actual expression for $f$ in
+that last inequality. So let's do this simplification on the side.
+
+$$f(x) - f(c) = (ax + b) - (ac + b) = a(x - c)$$
+
+So, what we want is the following: for every $\epsilon > 0$, find a
+value $\delta > 0$ such that for $0 < |x - c| < \delta$, we have $|a(x
+- c)| < \epsilon$.
+
+Okay, now this looks reasonable, but it isn't tautological as the
+previous examples were. We need to do some thinking, and there is a
+real logical impasse here. So let's look at the part:
+
+$$|x - c| < \delta$$
+
+What does this allow us to say about $|a(x - c)|$? Well, we can try
+multiplying the above inequality by $|a|$, and we get:
+
+$$|a| |x - c| < |a|\delta$$
+
+And, note that there isn't any sign change because $|a| > 0$ (as we
+assumed $a \ne 0$). And, using the absolute value of a product is the
+product of the absolute values, we get:
+
+$$|a(x - c)| < |a|\delta$$
+
+Okay, so what we {\em have} is the above, and what we {\em want} is
+$|a(x - c)| < \epsilon$. And remember, we have the freedom to choose
+any $\delta$ that we want. So what value of $\delta$ do we choose?
+Well, a little thought should reveal that a simple way of choosing a
+$\delta$ that works is to set $|a|\delta = \epsilon$. That gives
+$\delta = \epsilon/|a|$. So that's a value of $\delta$ that works.
+
+\subsection{The winning strategy: proved succinctly}
+
+{\bf Problem}: Prove that $\lim_{x \to c} f(x) = f(c)$ where $f(x) :=
+ax + b, a \ne 0$.
+
+{\bf Winning strategy for prover-skeptic game}: Choose $\delta =
+\epsilon/|a|$.
+
+We want to show that, for any $\epsilon > 0$, if $0 < |x - c| <
+\delta$, then $|f(x) - f(c)| < \epsilon$, where $\delta =
+\epsilon/|a|$. We do this as follows:
+
+\begin{align*}
+  & |f(x) - f(c)|\\
+= & |(ax + b) - (ac + b)| \\
+= & |ax - ac| \\
+= & |a(x - c)| \\
+= & |a||x - c| \\
+< & |a|\delta \qquad \text{using $|x - c| < \delta$}\\
+= & |a|\frac{\epsilon}{|a|} \qquad \text{using $\delta = \epsilon/|a|$}\\
+= & \epsilon
+\end{align*}
+
+The chain has one strict inequality and the rest all equalities, so we
+get, overall, that $|f(x) - f(c)| < \epsilon$.
+
+So that's it. We've proved that for a linear function, the limit
+always exists at any point, and moreover, the limit equals the value
+of the function at the point. As you saw in the informal introduction
+earlier, that's basically saying that linear functions are continuous.
+
+Here's the $\epsilon-\delta$ picture for a linear function:
+
+\includegraphics[width=3in]{linearfunctionepsilondelta.png}
+
+Note that the larger the value of $|a|$, the smaller the $\delta$
+needs to be for a given $\epsilon$. This makes sense, because the
+steeper the slope, the more rapidly the function is changing, and
+hence, the smaller the trap has to be to catch the function.
+
+\subsection{Smaller $\delta$s work too}
+
+One other important thing to note is that we have some latitude in
+choosing $\delta$. In other words, the winning strategy isn't always
+unique. In fact, if, for a given $\epsilon$, one value of $\delta$
+works, then any smaller positive value of $\delta$ also works. I urge
+you to think about this graphically and also in strategic terms.
+
+\subsection{Principles and practice}
+
+So there are two aspects to everything: there's the {\em theory} and
+there's the {\em practice}. And one of the popular quotes on U of C
+T-shirts and merchandise is ``that's all well and good in
+practice... but how does it work in theory?'' So what we did in this
+and the previous lecture was take a little glimpse at how limits work
+in theory. And by these attempts to calculate the $\delta$ in terms of
+the $\epsilon$, we are basically trying to bridge the gap between
+theory and practice.
+
+Going from the theory to the practice requires an understanding of
+inequalities, which you already have. But it doesn't just require that
+-- it requires a better conceptual grasp of {\em what we have to
+determine} and {\em what is given}. The thing here is that in the
+proof, we have to {\em work backwards}, in the sense that we have to
+first guess what the limit is going to be, then we have to guess how
+to get a $\delta$ that works, and then we can check that it works. And
+this working backwards can be a little tricky because of the
+implications stuff.
+
+That is why it is very important that you go home and look at the
+examples we did in class and the other examples in the book. As far as
+expectations from you are concerned, you are not expected to be able
+to do the $\epsilon-\delta$ computations for things other than
+constant, linear, and quadratic functions, and we've already done the
+constant and linear cases, and we will now consider general quadratic
+case. But I suggest you understand the book's examples for a couple of
+the slightly trickier cases -- basically to get an idea of what their
+goal is and how they're approaching it.
+
+\subsection{General case of quadratic functions: obtaining the formula}
+
+{\bf NOTE}: On your homework or in the midterm, you cannot assume the
+$\epsilon-\delta$ formulas we have derived for linear and quadratic
+functions. However, knowing these formulas will enable you to skip the
+{\em rough work} needed to find the $\delta$ and move directly to the
+{\em fair work} of showing that that $\delta$ works.
+
+We look here at the general case of a quadratic function:
+
+\begin{equation*}
+  f(x) := ax^2 + bx + c
+\end{equation*}
+
+with $a,b,c \in \R$ and $a \ne 0$. Note that if $a = 0$, we get a
+linear or constant function, and we already know how to deal with it.
+
+The letter $c$ is used up as a variable, so we should not use $c$ as a
+limiting point. Let's call the limiting point $p$ instead. So we claim
+that, for $p \in \R$, we have $\lim_{x \to p} f(x) = f(p)$.
+
+In other words, we need to show that for every $\epsilon > 0$, there
+exists a value $\delta > 0$ such that for $0 < |x - p| < \delta$, we
+have $|f(x) - f(p)| < \epsilon$.
+
+So we again do the usual thing: simplify $|f(x) - f(p)|$. We have:
+
+$$f(x) - f(p) = (ax^2 + bx + c) - (ap^2 + bp + c) = a(x^2 - p^2) + b(x - p)$$
+
+Okay, now that's nice, but can we simplify it a little more? Yes, and
+this is the important idea you should take from this problem: the idea
+is to factor out the $(x - p)$ factor from the expression. So we get:
+
+$$f(x) - f(p) = (x - p)(a(x + p) + b)$$
+
+Why did we factor out $x - p$? Think of what we need to do. We need to
+say that if the absolute value of $x - p$ is small, then the absolute
+value of $f(x) - f(p)$ is small too. And if you go back to the linear
+example, what we did was to show that $f(x) - f(p)$ is a scalar
+multiple of $x - p$, i.e., it is $x - p$ times a constant. In the case
+of the quadratic function, we do not have a constant for the other
+factor, so it's going to be a little harder, but this is the right
+direction.
+
+Okay, now what next? We need to find a $\delta$ such that if $0 < |x -
+p| < \delta$, then $|f(x) - f(p)| < \epsilon$. Now if $|x - p| <
+\delta$, then we have:
+
+$$|f(x) - f(p)| = |x - p| |a(x + p) + b| < \delta|a(x + p) + b|$$
+
+Okay, and now we're stuck, because unlike the linear case, the second
+part isn't a constant, and it involves an $x$. But can we bound it by
+a constant? Well, let's think about this intuitively. We are really
+interested in situations where $x - p$ is really small, so $x$ is
+really close to $p$. So $x + p = (x - p) + 2p$, with the $x - p$ part
+being small. So:
+
+$$|a(x + p) + b| = |a(x - p) + 2ap + b| \le |a(x - p)| + |2ap + b| < |a|\delta + |2ap + b|$$
+
+So this is progress, and what exactly is the nature of the progress?
+Well, what we've found is that that expression which isn't constant is
+still bounded from above by some constant plus $|a|\delta$. So, we get:
+
+$$|f(x) - f(p)| < \delta(|a|\delta + |2ap + b|)$$
+
+And now the original question: given a value $\epsilon > 0$, how do we
+find a value $\delta > 0$ such that that right side in terms of
+$\delta$ is not more than $\epsilon$? Well, you can try solving a
+quadratic inequality, but that's a pain, so I'll show you a simpler approach.
+
+First, notice that we're really interested in small values of
+$\delta$. So let's assume $\delta \le 1$. Then, we get:
+
+$$|f(x) - f(p)| < \delta(|a| + |2ap + b|)$$
+
+And now, if we have $\delta \le \epsilon/(|a| + |2ap + b|)$, we are in
+good shape.
+
+So, a value of $\delta$ that works is $\min \{ 1, \epsilon/(|a| + |2ap
++ b|) \}$.
+
+What we've done above is obtained a value of $\delta$. You should now
+be able to retrace the steps to confirm that this value of $\delta$
+works.
+
+By the way, this generalizes Example 6 (Section 2.2, Page 68) of the
+book. In that example, $a = 1, b = c = 0$, and $p = 3$. So if there
+are too many symbols in this example and you want a simpler example
+with fewer symbols, you should look at that example in the book and
+then, armed with that, come back to master this one.
+
+{\em Please go through both these very thoroughly; this is very
+important to understand.}
+
+\subsection{General case of quadratic function: how to present the solution}
+
+We illustrate how the solution would be {\em presented} for the
+general case of a quadratic function.
+
+{\bf Problem}: Prove that $\lim_{x \to p} f(x) = f(p)$ where $f(x) :=
+ax^2 + bx + c, a \ne 0$.
+
+{\bf Winning strategy for prover-skeptic game}: Choose $\delta = \min
+\{ 1, \frac{\epsilon}{|a| + |2ap + b|} \}$.
+
+{\bf Proof}: We need to show that, for any $\epsilon > 0$, if $0 < |x -
+p| < \delta$, then $|f(x) - f(p)| < \epsilon$, where $\delta = \min \{
+1, \frac{\epsilon}{|a| + |2ap + b|} \}$.
+
+We have:
+
+\begin{align*}
+  & |f(x) - f(p)| \\
+= & |(ax^2 + bx + c) - (ap^2 + bp + c)| \\
+= & |a(x^2 - p^2) + b(x - p)| \\
+= & |x - p||a(x + p) + b| \\
+= & |x - p||a(x - p) - 2ap + b|\\
+\le & |x - p|(|a||x - p| + |2ap + b|) \qquad \text{by triangle inequality} \\
+< & \delta(|a|\delta + |2ap + b|) \qquad \text{using $|x - p| < \delta$}\\
+\le & \delta(|a| + |2ap + b|) \qquad \text{using $\delta \le 1$ for the inner $\delta$} \\
+\le & \frac{\epsilon}{|a| + |2ap + b|}(|a| + |2ap + b|) \qquad \text{using $\delta \le \epsilon/(|a| + |2ap + b|)$ for the outer $\delta$} \\
+= & \epsilon
+\end{align*}
+
+Each step of the process involves one of the three signs $=, <, \le$,
+with one of the steps involving strict inequality. Thus, overall, we
+obtain that $|f(x) - f(p)| < \epsilon$.
+
+Qualitatively, the process can be described as follows:
+
+\begin{itemize}
+\item Factor the quadratic $|f(x) - f(p)|$ with one of the factors
+  being $|x - p|$.
+\item Rewrite the other factor as a constant times $x - p$ plus another constant.
+\item Now split using the triangle inequality.
+\item Use $|x - p| < \delta$ at both places.
+\item For the inner factor of $\delta$, use $\delta \le 1$.
+\item For the outer factor, use $\delta \le \epsilon/(...)$.
+\end{itemize}
+
+\subsection{Concrete case of quadratic}
+
+We consider a concrete example of a quadratic with actual numerical
+values of $a$, $b$, $c$, and $p$, and walk through what the general
+steps just described would look like in the concrete example.
+
+Consider the limit proof:
+
+$$\lim_{x \to 5} (2x^2 + 3x + 17) = 82$$
+
+{\bf Winning strategy}: Take $\delta = \min \{ 1, \epsilon/25 \}$. We
+obtain $25$ using the formula $|a| + |2ap + b|$, where $a = 2$, $p =
+5$, and $b = 3$, so we got $|2| + |2 \cdot 2 \cdot 5 + 3| = |2| + |23|
+= 25$.
+
+{\bf Proof}: We want to show that, for any $\epsilon > 0$, if $0 < |x
+- 5| < \delta$, then $|(2x^2 + 3x + 17) - (2(5)^2 + 3(5) + 17)| <
+\epsilon$, where $\delta = \min \{ 1, \epsilon/25 \}$.
+
+We consider:
+
+\begin{align*}
+  & |2x^2 + 3x + 17 - (2(5)^2 + 3(5) + 17)| \\
+= & |2x^2 + 3x - 65| \\
+= & |x - 5||2x + 13|\\
+= & |x - 5||2(x - 5) + 23| \\
+\le & |x - 5|(2|x - 5| + 23) \qquad \text{by triangle inequality} \\
+< & \delta(2\delta + 23) \qquad \text{using $|x - 5| < \delta$}\\
+\le \delta(2 + 23) \qquad \text{using $\delta \le 1$}\\
+= &25\delta \\
+\le &25\frac{\epsilon}{25} \qquad \text{using $\delta \le \epsilon/25$}\\
+= & \epsilon
+\end{align*}
+
+More examples will be done in the relevant review sessions.
+
+\section{More $\epsilon-\delta$ limit computations}
+
+\subsection{Function with left and right definition}
+
+One kind of situation, that we have already seen, is a situation where
+a function given to us has one definition on the left side of a point
+and another definition on the right side of the point. Your intuition
+would tell you that if the left hand limit and the right hand limit
+exist separately {\em and are equal}, then the limit exists on the
+whole as well, and equals both these values.
+
+How can we make this intuition precise in terms of the
+$\epsilon-\delta$ game? The idea is to think of it as two games in
+parallel: the left hand limit game, where I (the prover) have to throw
+back a $\delta$ at you that works for $x$ approaching $c$ from the
+left side, and an analogous right hand limit game. The fact that the
+left hand limit and right hand limit are both equal to $L$ tells me
+that I have winning strategies for both games. I now need to combine
+them into a winning strategy for the two-sided limit game. How do I do
+this?
+
+Basically, I need to choose $\delta$ small enough that it's good
+enough on both the left and the right. The idea is simple: pick
+$\delta$ as the {\em minimum} of the $\delta$s that I picked on the left and
+on the right. This will work for {\em both} the left side {\em and}
+the right side.
+
+See, for instance, the example of the absolute value function (given
+on Page 67 of the book). At the point $0$, the absolute value function
+has the definition $-x$ on the left and $x$ on the right.
+
+So what we first need to do is figure out the left strategy and the
+right strategy separately. For the function $f(x) = -x$, what is the
+$\delta$ that works for a given $\epsilon$? Well, you can do the
+calculations again, but since we already did the general case of a
+linear function, we can just plug that in and get that $\delta =
+\epsilon$ works. Similarly, on the right side, we again get that
+$\delta = \epsilon$ works. So in this case, the same strategy works on
+both sides, so we can use $\delta = \epsilon$ as the winning strategy
+for the two-sided limit.
+
+Okay, let's take a more interesting example. Suppose $f(x) =
+\lbrace\begin{array}{ll}3x,& x < 0\\-5x, & x \ge 0\end{array}$. It is an
+obvious guess that the limit at $0$ equals $0$. Since both sides are
+linear functions, we know how to get the strategies for the left side
+and the right side separately. The strategy for the left side is
+$\delta = \epsilon/3$ and the strategy for the right side is $\delta =
+\epsilon/5$. So, what is our overall strategy?
+
+The overall strategy should pick a $\delta$ small enough that it works
+for both sides. In this case, the smaller of the numbers $\epsilon/3$
+and $\epsilon/5$ is $\epsilon/5$ (remember, $\epsilon > 0$). So, we
+get a winning strategy by choosing $\delta = \epsilon/5$.
+
+{\bf REMINDER}: On your homework or in the midterm, you cannot assume the
+$\epsilon-\delta$ formulas we have derived for linear and quadratic
+functions. However, knowing these formulas will enable you to skip the
+{\em rough work} needed to find the $\delta$ and move directly to the
+{\em fair work} of showing that that $\delta$ works.
+
+Let's now do the general case, with a full proof:
+
+\begin{claimer}
+  Suppose $a_1,a_2,b_1,b_2 \in \R$ with $a_1 \ne 0$ and $a_2 \ne
+  0$. Suppose $f(x) = \lbrace\begin{array}{ll} a_1x + b_1, & x <
+  c\\a_2x + b_2, & x > c\end{array}$. Then, if $L = a_1c + b_1 = a_2c + b_2$, we
+  have $\lim_{x \to c} f(x) = L$. For any $\epsilon > 0$, a $\delta$
+  that works is $\epsilon/\max\{|a_1|,|a_2| \} = \min \{
+  \epsilon/|a_1|, \epsilon/|a_2|\}$ (note that $\delta$ is positive).
+\end{claimer}
+
+\begin{proof}
+  To prove the claim, we need to show that for any $x$ such that $0 <
+  |x - c| < \delta$, we have $|f(x) - L| < \epsilon$.
+
+  We split this into two cases: the case where $x < c$ and the case
+  where $x > c$.
+
+  {\em Case that $x < c$}: In this case, we have $f(x) = a_1x +
+  b_1$. Thus, we get:
+
+  $$|f(x) - L| = |a_1x + b_1 - (a_1c + b_1)| = |a_1(x - c)| = |a_1||x - c| < |a_1|\delta \le |a_1|(\epsilon/|a_1|) = \epsilon$$
+
+  Thus, $|f(x) - L| < \epsilon$.
+
+  {\em Case that $x > c$}: In this case, we have $f(x) = a_2x +
+  b_2$. Thus, we get:
+
+  $$|f(x) - L| = |a_2x + b_2 - (a_2c + b_2)| = |a_2(x - c)| = |a_2||x - c| < |a_2|\delta \le |a_2|(\epsilon/|a_2|) = \epsilon$$
+\end{proof}
+
+\subsection{Weirder functions, mundane ideas}
+
+So far, we have considered the case where the function has one
+definition on the left and another definition on the right, and how we
+can combine the winning strategies. Basically, we combine the winning
+strategies by picking the smaller of the two $\delta$s. This allows us
+to use our strategies for constant, linear, and quadratic functions to
+tackle functions that are piecewise constant, linear, and quadratic.
+
+The strategy extends to some more weirdly defined functions, where
+there are multiple definitions, but they are not clearly separated in
+left-right terms. For instance, consider the function:
+
+$$f(x) = \lbrace\begin{array}{ll}x^2, & x \text{ rational } \\ x, & x \text{ irrational }\end{array}$$
+
+What we have done is split the domain of definition into two subsets,
+but this time the two subsets aren't nicely left and right of some
+point, they are both scattered all over the place. However, trying to
+prove limit problems for such functions follows {\em essentially the
+same strategy}. For instance, if, for the above function, we are
+trying to prove that $\lim_{x \to 1} f(x) = 1$, then what we do is to
+find a winning strategy for the $x^2$ function, a winning strategy for
+the $x$ function, and take the smaller of the $\delta$s. And, instead
+of splitting into cases based on left and right, we split into cases
+based on -- you guessed it -- {\em rational} and {\em irrational}.
+
+Let's try to formally prove that $\lim_{x \to 1} f(x) = 1$. The first
+thing we need to do is rough work to figure out the $\delta$s that
+work for the individual functions $x^2$ and $x$. But we've already
+done this. Recall that for $x^2$, we can choose $\delta = \min \{ 1,
+\epsilon/3 \}$, and for $x$, we can choose $\delta = \epsilon$. So the
+overall $\delta$ that we need to choose is $\min \{1, \epsilon/3,
+\epsilon \}$. We can simplify that to $\min \{ 1, \epsilon/3\}$.
+
+To complete the proof, we first consider the case where $x$
+is rational and then consider the case that $x$ is irrational.
+
+\begin{proof}
+  {\em Case that $x$ is rational}: We want to show that if $0 < |x -
+  1| < \min \{ 1, \epsilon/3 \}$, then $|x^2 - 1| < \epsilon$. Let's
+  do this:
+
+  $$|x^2 - 1| = |x - 1||x + 1| < (\epsilon/3)|x + 1| \le (\epsilon/3)(|x - 1| + 2) < \epsilon/3( 1 + 2) = \epsilon$$
+
+  In the second step, we used that $|x - 1| < \epsilon/3$, and in the
+  fourth step, we used $|x - 1| < 1$.
+
+  {\em Case that $x$ is irrationa}: We want to show that if $0 < |x -
+  1| < \min \{1 , \epsilon/3 \}$, then |$x - 1| < \epsilon$. Let's do
+  this:
+
+  $$|x - 1| < \min \{ 1, \epsilon/3 \} \le \epsilon/3 <  \epsilon$$
+\end{proof}
+
+\subsection{Max or min of two functions}
+
+Suppose $f$ and $g$ are two functions and we define $h(x) = \min \{
+f(x), g(x) \}$. Suppose, further, that at some point $c$, we have
+$\lim_{x \to c} f(x) = L$ and $\lim_{x \to c} g(x) = L$. Then, we'll
+also have $\lim_{x \to c} h(x) = L$.
+
+The reason? Well, the minimum of two functions is a special situation
+where, at every point, we are picking one of the functions. And we've
+just discussed that, whenever you get a function by always picking one
+of two functions, and both of them are approaching the same limit, the
+new function that you're picking also approaches the same limit. The
+reason for that is that we can determine the winning strategies for
+both the $\epsilon-\delta$ games and then choose the smaller of the
+$\delta$s that we have for both functions.
+
+So, this general strategy works for the minimum. It also works for the
+maximum.
+\subsection{ADDENDUM: A harder problem}
+
+Suppose $f: \R \to \R$ is a function with the property that, for every
+$x \in \R$, we have $(f(x))^2 - 3xf(x) + 2x^2 = 0$. We want to show
+that $\lim_{x \to 0} f(x) = 0$.
+
+Here's how we do this problem. First, note that the given statement is that:
+
+\begin{eqnarray*}
+  (f(x))^2 - 3xf(x) + 2x^2 & = & 0\\
+  \implies (f(x) - x)(f(x) - 2x) & = & 0
+\end{eqnarray*}
+
+This means that for every value of $x$, we either have $f(x) = x$ or
+we have $f(x) = 2x$. Unlike the previous cases where the domain
+was split based on left-right or rationa-irrational, we do not know
+exactly how the domain splits up into these two definitions. But we do
+know that everywhere in the domain, the function behaves like one of
+these linear functions. And that itself is enough.
+
+Thus, to show that the limit at $0$ equals $0$, we use the same old
+trick: we find $\epsilon-\delta$ winning strategies for the functions
+$x$ and $2x$, and then we combine these winning strategies by picking
+the smaller of the $\delta$s and show that it works.
+
+So I began by calling this a hard problem but we have somehow overcome
+the hard part and you should now consider it an easy problem.
+
+\section{Skeptic's victory: showing that something is not the limit}
+
+\subsection{Negating the existence of limit}
+
+Recall the definition of limit: We say that $\lim_{x \to c} f(x) = L$
+if $f$ is defined in a neighborhood of $c$ (except possibly at $c$)
+and the following holds:
+
+For every $\epsilon > 0$, there exists $\delta > 0$ such that, for all
+$x \in \R$ satisfying $0 < |x - c| < \delta$, we have $|f(x) - L| <
+\epsilon$.
+
+Now, what does it mean to say that it is {\em not true} that $\lim_{x
+\to c} f(x) = L$? It means:
+
+There exists $\epsilon > 0$ such that for all $\delta > 0$, there
+exists $x \in \R$ such that $0 < |x - c| < \delta$ but $|f(x) - L| \ge
+\epsilon$.
+
+Note that the quantifiers change roles: {\em for all} becomes {\em
+there exists}, and {\em there exists} becomes {\em for all}.
+
+In our game interpretation, this means that the skeptic has a winning
+strategy. In other words, the skeptic has a strategic choice of
+$\epsilon > 0$ such that whatever $\delta > 0$ the prover tries to
+use, the prover fails to trap the function within $\epsilon$ of the
+claimed limit.
+
+\subsection{What does it mean to say that no limit exists?}
+
+What does it mean to say that there is no $L$ for which $\lim_{x \to
+c} f(x) = L$? In other words, what does it mean to say that the limit
+{\em does not exist}? It means that:
+
+For all $L \in \R$, there exists $\epsilon > 0$ such that for all
+$\delta > 0$, there exists $x \in \R$ such that $0 < |x - c| < \delta$
+but $|f(x) - L| \ge \epsilon$.
+
+\subsection{An example of showing that no limit exists}
+
+Let's think back to the picture of the function $f(x) :=
+\sin(1/x)$. This example was the example we used to realize that we
+need a certain kind of definition of limit. We noticed that, as $x \to
+0$, the value of $\sin(1/x)$ didn't really approach anything because
+it was oscillating rapidly between $-1$ and $1$. This led us to define
+limits in terms of traps; hence the $\epsilon-\delta$ definition.
+
+We have to now come back full circle and try to explain {\em why}, as
+$x \to 0$, there does not exist a limit for $\sin(1/x)$. The way to
+think about this is that the function takes both the values $1$ and
+$-1$ arbitrarily close to $x = 0$. We want to somehow make this be in
+contradiction with the fact that we can set $\epsilon$-traps for
+arbitrarily small $\epsilon$. Basically, there are two things going on:
+
+\begin{enumerate}
+
+\item Suppose $\lim_{x \to 0} \sin(1/x) = L$. Suppose $\epsilon =
+  0.1$. Then, there exists a value of $\delta$ such that, if $0 < |x -
+  0| < \delta$, then $|\sin(1/x) - L| < 0.1$. In other words, we have
+  $\sin(1/x) \in (L - 0.1,L + 0.1)$. Now, the interval $(L -
+  0.1,L + 0.1)$ has width $0.2$, and hence, it cannot contain both the
+  numbers $1$ and $-1$. Thus, what we have is that there exists a
+  $\delta > 0$ such that for $0 < |x| < \delta$, the function
+  $\sin(1/x)$ does not take both the values $1$ and $-1$.
+
+\item On the other hand, we have that for every $\delta > 0$, the
+  function $\sin(1/x)$ takes the values $+1$ and $-1$ for $0 < |x| <
+  \delta$. In fact, it takes {\em all} values in $[-1,1]$. To see
+  this, note that for $0 < |x| < \delta$, the set of possible values
+  for $1/x$ is $(-\infty,-1/\delta) \cup (1/\delta,\infty)$. You can
+  now see from the graph of the sine function that $\sin(1/x)$ takes
+  all values in $[-1,1]$.
+
+\end{enumerate}
+
+Something similar works for the {\em Dirichlet function}, except that
+instead of using $-1$ and $1$, we use $1$ and $0$. And, the main point
+that needs to be made for the Dirichlet function is that any open
+interval, no matter how small, contains infinitely many rational
+numbers and infinitely many irrational numbers.
+
+\section{Stability of limit}
+
+\subsection{Statement of the problem}
+
+Let $f$ be a function defined on some open interval $(c - p, c +
+p)$. Now change the value of $f$ at a finite number of points $x_1,
+x_2, \dots, x_n$ and call the resulting function $g$. Show that if
+$\lim_{x \to c} f(x) = L$, then $\lim_{x \to c} g(x) = L$.
+
+\subsection{Meaning of the problem}
+
+Here's what the problem means. We start with some function $f$. For
+simplicity you can just imagine $f$ to be a continuous function -- a
+wiggly wavy curve where the $x$-value varies in the interval $(c - p,
+c + p)$. Now, we choose a few points at random and just move the value
+of the function. So, if say $f(5) = 7$, and we don't like that, we
+just move the value to $9$, creating a {\em hole} at the point $7$
+here and filling in the poitn at $9$. And we do this for finitely many
+points.
+
+The new function that we get after we do all these moves, we choose to
+call $g$. Note that although the function $f$ that we started with was
+continuous, $g$ isn't. Of course, it isn't necessray that the function
+that we start with is continuous either. We could juts start with some
+function that wiggles and waves and jumps and then move a few values
+here and there and get a new function that wiggles and waves and jumps.
+
+\subsection{What the question asks for, and the intuitive reason it is true}
+
+The question says that if the limit $\lim_{x \to c} f(x)$ exists and
+is equal to $L$, then the limit $\lim_{x \to c} g(x)$ {\em also}
+exists and is equal to $L$. In other words, what this is saying is
+that the notion of limit is {\em stable} under changes of value at
+only finitely many points.
+
+Now, the first thing you should notice is that if $c$ itself is one of
+the $x_i$s (i.e., one of the points where we are changing the value of
+the function) that should make no difference to the limit. Because, if
+you recall, the definition of the limit specifically excludes behavior
+{\em at the point} where we are taking the limit. The definition says:
+
+For every $\epsilon > 0$, there exists $\delta > 0$ such that if $0 <
+|x - c| < \delta$, then $|f(x) - L| < \epsilon$. Note the $0 <$
+part. This basically says that we aren't really imposing any condition
+when $x = c$. Specifically, remember that the set of $x$ satisfying $0
+< |x - c| < \delta$ is the set $(c - \delta,c + \delta) \setminus \{ c
+\}$, which is the same as the set $(c - \delta,c) \cup (c, c +
+\delta)$.
+
+So changing the value of the function at $c$ doesn't affect
+anything. And once we've acknowledged this, we'll just assume that if
+$c$ is equal to one of the $x_i$s, we can just throw out that value of
+$x_i$. In other words, we'll just assume that we retain only those
+$x_i$s that are not equal to $c$.
+
+Now, all the {\em other} $x_i$s -- the points where we change the
+value of the function -- are far away from $c$. What do I mean by
+that? I mean that we can choose a {\em small open interval} about $c$
+that excludes all the other $x_i$s. (It may be helpful to think of the
+$x_i$s as {\em bad points} that should be excluded from all decent
+society for being traitors to their function.)
+
+And the main idea of limit is that it is intensely local -- it only
+matters what is happening really really close to the
+point.\footnote{There is a deep mathematical concept related to this
+called a {\em germ}, which means the essence of a function really
+really close to a point, but you don't have to bother about that right
+now.} So, if all those other points are far away, the value of the
+function at those points shouldn't affect the value of the limit.
+
+\subsection{A reality check: why finitely many?}
+
+What is the significance of the fact that we are allowed to change the
+value of the function at only finitely many points? The thing is that
+if we are allowed to change the value of the function at infinitely
+many points, then we can affect the limits at some points. The reason
+is that when we have infinitely many points, it may not be possible to
+avoid all of them.
+
+For example, suppose we have a function defined as the constant $5$ on
+$(-1,1)$ and we are interested in the limit at $0$. Suppose now that
+we change the value of the function to the constant $7$ at the points
+$1/2, 1/3, \dots, 1/n, \dots$. There are two things you should note:
+first, we have changed the value of the function at infinitely many
+points, and second, the value of the function at {\em most} points is
+still $5$. So we haven't really changed the function all that
+much. However, even this small change is enough to disrupt the limit
+at $0$. Because now, no matter how small an interval I choose about
+$0$, that interval will contain some of those {\em bad points} --
+those points where the definition changed.
+
+\subsection{Formalization of the proof in terms of $\epsilon$ and $\delta$}
+
+{\em Read this only after you feel you have understood the ideas at an
+intuitive level.}
+
+We begin by throwing out any $x_i$ that equals $c$, because the value
+of $f$ or $g$ at $c$ is clearly of no relevance to the limits of the
+functions at $c$.
+
+We need to show that, if $\lim_{x \to c} f(x) = L$, then, for every
+$\epsilon > 0$, there exists a $\delta > 0$ such that if $0 < |x - c|
+< \delta$, then $|g(x) - L| < \epsilon$.
+
+We begin by noting that since $\lim_{x \to c} f(x) = L$, plugging in
+the $\epsilon-\delta$ definition shows that there exists $\delta_1 >
+0$ such that if $0 < |x - c| < \delta_1$, then $|f(x) - L| < \epsilon$.
+
+Now, let $\delta = \min \{ \delta_1, |c - x_1|, |c - x_2|, \dots, |c -
+x_n| \}$. The intuition here is to pick $\delta$ small enough so that
+none of the $x_i$ are in the interval $(c - \delta, c + \delta)$.
+
+Note that $\delta_1 > 0$, and since $c$ is not equal to any of the
+$x_i$s, $|c - x_i| > 0$. Thus, $\delta > 0$. We claim that this
+$\delta$ works.
+
+To see this, we note two things.
+
+First, if $0 < |x - c| < \delta$, we also have $0 < |x - c| <
+\delta_1$, and this gives:
+
+\begin{equation*}
+  |f(x) - L| < \epsilon \tag{1}
+\end{equation*}
+
+Second, if $0 < |x - c| < \delta$, we cannot have $x$ equal to any of
+the $x_i$s (why? think about this. This is the only part that I
+haven't justified in the proof). Hence, we get:
+
+\begin{equation*}
+  f(x) = g(x) \tag{2}
+\end{equation*}
+
+Combining (1) and (2), we get $|g(x) - L| < \epsilon$ for $0 < |x - c|
+< \delta$, completing the proof.
+
+\end{document}

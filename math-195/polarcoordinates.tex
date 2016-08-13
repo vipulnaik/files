@@ -1,0 +1,327 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Polar coordinates}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 10.3.
+
+{\bf What students should definitely get}: The information needed to
+set up a polar coordinate system, how to go between a physical point
+and its polar coordinates, conversion back and forth between Cartesian
+and polar coordinates. Thinking of polar coordinate descriptions as
+parametric descriptions when viewed in Cartesian coordinates. Using
+this to compute the slope of the tangent line.
+
+{\bf What students should hopefully get}: The dimensionality of the
+plane is $2$, so $2$ parameters are needed to describe a point in any
+decent coordinate system. What happens when we fix one coordinate in a
+Cartesian or polar coordinate system. Why spirals are easy to describe
+in polar coordinates. How various symmetries in implicit and
+functional descriptions correspond to geometric symmetries.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item {\em Specifying a polar coordinate system}: To specify a polar
+  coordinate system, we need to choose a point (called the {\em
+  origin} or {\em pole}), a half-line starting at the point (called
+  the {\em polar axis} or {\em reference line}) and an orientation of
+  the plane (chosen counter-clockwise in the usual depictions).
+\item {\em Finding the polar coordinates of a point and vice versa}:
+  The radial coordinate $r$ is the distance between the point and the
+  pole. The angular coordinate $\theta$ is the angle (measured in the
+  counter-clockwise direction) from the polar axis to the line segment
+  from the pole to the point. Note that $\theta$ is uniquely defined
+  up to addition of multiples of $2\pi$, and it becomes truly unique
+  if we restrict it to a half-open half-closed interval of length
+  $2\pi$. {\em The exception is the pole itself, for which $\theta$ is
+  undefined} in the sense that any value of $\theta$ could be chosen.
+\item {\em Converting between Cartesian and polar coordinates}: If we
+  take the polar axis as the positive $x$-axis and the axis at an
+  angle of $+\pi/2$ from it as the positive $y$-axis, we get a
+  Cartesian coordinate system. The point defined by polar coordinates
+  $(r,\theta)$ has Cartesian coordinates $(r\cos \theta,r \sin
+  \theta)$. Conversely, given a point with Cartesian coordinates
+  $(x,y)$ the corresponding polar coordinates are $r = \sqrt{x^2 +
+  y^2}$ and $\theta$ is the unique angle (up to addition of multiples
+  of $2\pi$) such that $x = r \cos \theta$, $y = r\sin \theta$.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item A functional description of the form $r = F(\theta)$ gives rise
+  to a parametric description in Cartesian coordinates: $x =
+  F(\theta)\cos \theta$ and $y = F(\theta)\sin \theta$. We can do the
+  usual things (like find slopes of tangent lines) using this
+  parametric description. Note that here, $\theta$ is typically
+  allowed to vary over all of $\R$ rather than simply being restricted
+  to an interval of length $2\pi$. The slope of the tangnet line in
+  Cartesian terms is given by:
+
+$$\frac{dy}{dx} = \frac{dy/d\theta}{dx/d\theta} = \frac{d(F(\theta)\sin \theta)/d\theta}{d(F(\theta)\cos \theta)/d\theta} = \frac{F'(\theta)\sin \theta + F(\theta)\cos \theta}{F'(\theta) \cos \theta - F(\theta)\sin \theta}$$
+
+\item An implicit (relational) description in Cartesian coordinates
+  can be converted to a description in polar coordinates by replacing
+  $x$ by $r\cos \theta$ and $y$ by $r\sin \theta$.
+\item An implicit (relational) description in polar coordinates can
+  sometimes be converted to a description in Cartesian coordinates,
+  but with some ambiguity. General idea: replace $r$ by $\sqrt{x^2 +
+  y^2}$, $\cos \theta$ by $x/\sqrt{x^2 + y^2}$, and $\sin \theta$ by
+  $y/\sqrt{x^2 + y^2}$.
+\end{enumerate}
+\section{Review of Cartesian coordinates}
+
+\subsection{Descartes' achievement}
+
+We're so used to Cartesian coordinates that we don't often give them
+much thought. But the idea of using Cartesian coordinates to describe
+a plane, or to describe three-dimensional space, was a fundamental
+breakthrough when it did occur. The idea here being that something as
+geometric as a plane or space could be represented purely by a tuple
+of real numbers.
+
+There are some aspects of the {\em rectangular Cartesian coordinate
+system} that are worth disaggregating:
+
+\begin{enumerate}
+\item The {\em number} of parameters used is equal to the {\em
+  dimensionality} of the system being studied. The concept of
+  dimensionality as the {\em number of free parameters} or {\em number
+  of degrees of freedom} is probably not something totally new to you.
+\item In order to actually specify a Cartesian coordinate system, we
+  need to choose a pair of orthogonal lines, an ordering of these
+  lines, and a direction to be labeled positive within each line.
+\item Once we choose an origin and an ordered pair of orthogonal
+  directed lines through it, we can use Cartesian coordinates to
+  proceed from an ordered pair of real numbers to a point in the
+  plane, and back. The two procedures are reverses of each other.
+\item Different choices of origin and different choices of direction
+  for the pair of perpendicular lines give different choices of
+  Cartesian coordinate systems. Moving from one to the other {\em
+  geometrically} corresponds to translations, rotations, and
+  reflections. Moving from one to the other {\em algebraically}
+  corresponds to some specific algebraic operations on the
+  coordinates.
+\end{enumerate}
+
+The most important of these ideas is (1). In some sense, the
+dimensionality of the plane -- namely $2$, is far more fundamental
+than the specific choice of coordinate system used. We will soon
+construct a new kind of coordinate system called a {\em polar
+coordinate system}. This looks very different from a Cartesian
+coordinate system, but the number of real parameters needed to
+describe a point remains $2$.
+
+\subsection{Fixing one coordinate in the Cartesian system}
+
+Let's consider another aspect of the Cartesian coordinate system. A
+point in the Cartesian coordinate system is given by a pair of
+coordinates $(x,y)$. What happens if we fix one coordinate and let the
+other vary over $\R$. Specifically:
+
+\begin{itemize}
+\item If we fix a value of $x$ to $x_0$ and let $y$ vary over $\R$, we
+  get a vertical line given by $x = x_0$. For different choices of
+  $x_0$, we get parallel lines. Overall, we get a family of parallel
+  lines.
+\item If we fix a value of $y$ to $y_0$ and let $x$ vary over $\R$, we
+  get a horizontal line given by $y = y_0$. Overall, we get a family
+  of parallel lines.
+\end{itemize}
+
+\section{Polar coordinates}
+
+\subsection{The key definitions}
+
+The key idea behind polar coordinates is to specify the {\em distance}
+from a specified origin and the {\em direction} of the line joining
+the point to the origin.
+
+To create a polar coordinate system, we need the following pieces of data:
+
+\begin{itemize}
+\item A point selected as the {\em pole} or {\em origin} for the
+  coordinate system.
+\item A half-line (ray) with the point at its endpoint. We will call
+  this the {\em polar axis} or {\em reference line}.
+\item An orientation (counter-clockwise) on the plane.
+\end{itemize}
+
+Every point has two coordinates:
+
+\begin{itemize}
+\item The {\em radial coordinate}, denoted $r$, which is the distance
+  from the origin to that point.
+\item The {\em angular coordinate}, denoted $\theta$, which is the
+  angle made between the reference line and the line segment joining the
+  origin to that point, measured counter-clockwise.
+\end{itemize}
+
+Some important notes:
+
+\begin{itemize}
+\item The radial coordinate is a nonnegative real number.
+\item The angular coordinate for the pole is not defined. In fact,
+  {\em any} value of $\theta$ could be used for the pole and it would
+  serve to describe the pole. This is a kind of degeneracy or
+  singularity.
+\item For any other point, the angular coordinate is unique up to
+  multiples of $2\pi$. To make it truly unique, we usually adopt the
+  convention that the angle $\theta$ must satisfy $0 \le \theta <
+  2\pi$.
+\end{itemize}
+
+The role of coordinates in a polar coordinate system is
+asymmetric. The $r$-coordinate is a length coordinate, and the
+$\theta$-coordinate is a dimensionless angle coordinate. This
+contrasts with the Cartesian coordinate system where both coordinates
+play a symmetric role as lengths.
+
+\subsection{What happens if we fix one coordinate?}
+
+We note that:
+
+\begin{itemize}
+\item If we fix a given value of $r$ but allow $\theta$ to vary
+  freely, we get a circle centered at the origin. The exceptional case
+  $r = 0$ gives us the single point namely the origin. Thus, we get a
+  family of concentric circles centered at the origin.
+\item If we fix a given value of $\theta$ but allow $r$ to vary
+  freely, we get a ray (half-line) starting at the origin.
+\end{itemize}
+
+\subsection{Polar and Cartesian coordinates: conversion}
+
+Every polar coordinate system has a corresponding Cartesian coordinate
+system, and vice versa. For a Cartesian coordinate system, we convert
+to a polar coordinate system by selecting the same origin, taking the
+reference line as the positive $x$-axis, and choosing the orientation
+as counter-clockwise, from the positive $x$-axis to the positive
+$y$-axis.
+
+With this back-and-forth, here are the conversion rules:
+
+\begin{itemize}
+\item The Cartesian coordinates $(x,y)$ gives $r = \sqrt{x^2 + y^2}$
+  and $\theta$ is the angle $0 \le \theta < 2\pi$ such that $r \cos
+  \theta = x$ and $r \sin \theta = y$.
+\item The polar coordinates $(r,\theta)$ gives the Cartesian
+  coordinates $x = r\cos \theta$ and $y = r\sin \theta$.
+\end{itemize}
+
+With these conversion rules, we can derive formulas involving polar
+coordinates from the corresponding formulas involving Cartesian
+coordinates.
+
+\subsection{Polar coordinates with negative radial coordinate}
+
+A slight variation on the polar coordinate theme is the case where we
+consider polar coordinates with {\em negative} radial coordinate
+value. Here $r$ is the negative of the distance from the pole to the
+point, and $\theta$ is the usual $\theta$ shifted by $\pi$, so it is
+the angle made from the polar axis to the half-line in the {\em
+opposite} direction to that joining the pole to the point.
+\section{Descriptions of curves in polar coordinates}
+
+\subsection{$r$ as a function of $\theta$}
+
+When we give this kind of description, we {\em usually} allow $\theta$
+to vary over all real numbers, rather than just restrict it to an
+interval of length $2\pi$. Typically, the curves for which these
+descriptions work well are {\em spirals} starting out at the origin
+and spiraling outward. For instance, the curve with equation $r =
+e^{\theta}$ is a spiral.
+
+One way of thinking of these curves in terms of the {\em usual
+Cartesian coordinate system} is in parametric terms -- $\theta$ is a
+parameter. If we denote $r = F(\theta)$, then the two coordinate
+functions $x$ and $y$ are given by $x = F(\theta)\cos \theta$ and $y =
+F(\theta)\sin \theta$.
+
+\subsection{Case of negative $r$ values}
+
+In some cases, the expression $r = F(\theta)$ gives rise to negative
+$r$-values for some values of $\theta$. In this case, we interpret
+these the way we discussed the interpretation of negative $r$-values.
+
+\subsection{Slope of tangent line in Cartesian terms}
+
+We can determine the slope of the tangent line as follows:
+
+$$\frac{dy}{dx} = \frac{dy/d\theta}{dx/d\theta} = \frac{d(F(\theta)\sin \theta)/d\theta}{d(F(\theta)\cos \theta)/d\theta} = \frac{F'(\theta)\sin \theta + F(\theta)\cos \theta}{F'(\theta) \cos \theta - F(\theta)\sin \theta}$$
+
+Using this, we can determine the equation of the tangent line in a
+Cartesian coordinate system.
+
+\subsection{Relational description}
+
+In addition to functional descriptions of the form $r = F(\theta)$, we
+could more generally have implicit (relational) descriptions between
+$r$ and $\theta$, i.e., descriptions of the form $H(r,\theta) = 0$
+where $H$ is a function of two variables. These are more general than
+functional descriptions.
+
+Note that it is generally possible to convert a relational description
+in a Cartesian coordinate system to a relational description in a
+polar coordinate system. Starting with a relational description
+$G(x,y) = 0$ in a Cartesian coordinate system we get the corresponding
+polar relation by setting $x = r \cos \theta$ and $y = r \sin
+\theta$. For instance, the parabola $y = x^2$, in polar coordinates,
+becomes:
+
+$$r \sin \theta = r^2 \cos^2 \theta$$
+
+which simplifies to:
+
+$$r(\sin \theta - r\cos^2 \theta) = 0$$
+
+It turns out that the $r$ solution is subsumed in the other, so we get:
+
+$$\sin \theta = r\cos^2 \theta$$
+
+Similarly if we have the equation:
+
+$$xy = \sin(x^2 + y^2)$$
+
+Then, in polar coordinates, this becomes:
+
+$$r^2 \cos \theta \sin \theta = \sin(r^2 \cos^2 \theta + r^2\sin^2\theta)$$
+
+This simplifies to:
+
+$$r^2 \cos \theta \sin \theta = \sin(r^2)$$
+
+Going the other way around, the rule is to plug in $r = \sqrt{x^2 +
+y^2}$, $\cos \theta = x/\sqrt{x^2 + y^2}$ and $\sin \theta =
+y/\sqrt{x^2 + y^2}$. Note that directly plugging $\theta$ in reverse
+is tricky, because there is no single shorthand expression for
+$\theta$ -- the expression depends on the signs of $x$ and $y$ and
+gets a little messy.
+
+\subsection{Symmetries for polar equations}
+
+Here are two symmetries of note:
+
+\begin{itemize}
+\item {\em Mirror symmetry}: A functional or relational description is
+  symmetric about the polar axis (the reference line) if it satisfies
+  the condition that the condition is satisfied by replacing $\theta$
+  with $-\theta$. More generally, if replacing $\theta$ by $2\alpha -
+  \theta$ preserves the condition, then there is symmetry about the
+  line $\theta = \alpha$. Thus, for instance, if replacing $\theta$ by
+  $\pi - \theta$ preserves the condition, the curve has mirror
+  symmetry about the $y$-axis.
+\item {\em Half turn symmetry}: If replacing $\theta$ by $\theta +
+  \pi$ preserves the condition, then the curve has half turn symmetry
+  about the pole (origin). Similarly, if replacing $r$ by $-r$
+  preserves the condition, then the curve has half turn symmetry about
+  the pole (origin).
+\end{itemize}
+
+\end{document}

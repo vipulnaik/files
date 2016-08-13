@@ -1,0 +1,375 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Root and ratio tests}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 12.4.
+
+{\bf What students should definitely get}: The statements and typical
+applications of the root test and the ratio test.
+
+{\bf What students should hopefully get}: The notion of when a given
+test is indecisive, and the rationale behind these tests.
+
+{\bf Throughout the material covered here, we deal with series of
+nonnegative terms.}
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item {\em Not for discussion}: A geometric series with common ratio
+  less than $1$ is a discrete analogue of exponential decay. A
+  geometric series with common ratio greater than $1$ is a discrete
+  analogue of exponential growth. The common ratio of the geometric
+  series is a parameter controlling growth, just as the constant
+  $k$ controls growth in $e^{kx}$.
+\item If a series of nonnegative terms is eventually bounded from
+  above by a geometric series with common ratio less than $1$, then
+  the series converges. This is the idea behind both the root test and
+  the ratio test.
+\item The root test for a nonnegative series $\sum a_k$ looks at the
+  limit $\lim_{k \to \infty} a_k^{1/k}$. If this limit is less than
+  $1$, the root test tells us that the series converges. If the limit
+  is greater than $1$, the series diverges. If the limit equals $1$,
+  the root test is indecisive (i.e., the series may converge or it may
+  diverge).
+\item The ratio test for a nonnegative series $\sum a_k$ looks at the
+  limit $\lim_{k \to \infty} a_{k+1}/a_k$. If this limit is less than
+  $1$, the series converges. If the limit is greater than $1$, the
+  series diverges. If the limit equals $1$, the ratio test is
+  indecisive (i.e., the series may converge or it may diverge).
+\item Here is a slight modification of the root test: if $a_k^{1/k}$
+  is greater than $1$ for infinitely many $k$, the series
+  diverges. This is for the simple reason that the terms cannot go to
+  $0$. On the other hand, if the sequence $a_k^{1/k}$ is {\em
+  eventually bounded away from and below $1$} (i.e., bounded from
+  above by a number strictly less than $1$) then the series
+  converges. The inconclusive case is thus where the sequence does
+  eventually get below $1$ but cannot be bounded away from $1$ (i.e.,
+  it has terms arbitrarily close to $1$).
+\item Here is a slight modification of the ratio test: if
+  $a_{k+1}/a_k$ approaches $1$ from the right, or, more generally, if
+  it is $\ge 1$ for all sufficiently large $k$, the series
+  diverges. This is because the terms do not go to $0$. On the other
+  hand, if $a_{k+1}/a_k$ is bounded away from and bleow $1$, the
+  series converges. The inconclusive case is where the series comes
+  really close to or overshoots $1$ infinitely often.
+\item The root test is stronger than the ratio test. The reason is
+  that the ratio test is highly sensitive to the precise orderings of
+  the terms, while the root test can handle small permutations. [An
+  example of this is in one of the advanced homework problems. Please
+  look it up to refresh your memory.]
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item The root test is more useful for power functions.
+\item The ratio test is more useful for factorials.
+\item For rational functions, both tests are indecisive, and we fall
+  back on the rule covered earlier about the difference of degrees of
+  numerator and denominator.
+\item In some cases, it is somewhat more convenient to massage the
+  series a little before applying the root and ratio tests. As long as
+  this massaging does not change the property of whether or not the
+  series converges, that is perfectly fine.
+\end{enumerate}
+
+\section{Geometric series: some reflections}
+
+Our current goal is to devise more tests and techniques that can be
+used to quickly determine whether a given series converges. The idea
+is to compare the series with some known series behavior using such
+things as the {\em basic comparison theorem} (which is about the terms
+of one series being eventually bounded by the terms of the other
+series) and the {\em limit comparison theorem} (which is about the
+quotients of terms of two series having a finite nonzero limit).
+
+The root test and the ratio test build on the ideas of basic
+comparison and limit comparison along with a heavy reliance on the
+properties of geometric series.
+
+\subsection{Geometric or exponential decay}
+
+The geometric series with common ratio $r < 1$ is analogous to an
+exponential decay. The fact that such a geometric series converges is
+the discrete analogue of the fact that $\int_0^\infty e^{-kx} \, dx$
+is finite.
+
+How can we graphically characterize geometric or exponential decay?
+What is happening is that the graph of the {\em logarithm} function is
+linear with negative slope. Another way of thinking of it is that the
+{\em multiplicative} rate of decay is constant.
+
+\subsection{Decaying faster than exponential}
+
+An example of a function that decays faster than exponential is
+$e^{-x^2}$. In the picture below, $e^{-x^2}$ starts off decaying
+slower than $e^{-x}$ but then overtakes it at $x = 1$:
+
+\includegraphics[width=2in]{expandnormaldecay.png}
+
+We see that although $e^{-x^2}$ starts off decaying more slowly than
+$e^{-x}$, it soon gets to decay a lot faster and reaches very close to
+zero rather quickly. A plot of the logarithm of this function reveals
+(the right half of) a downward facing parabola.
+
+Here are the logarithmic plots. The straight line is $-x$, and the
+downward sloping parabola half is $-x^2$:
+
+\includegraphics[width=2in]{expandnormaldecaylog.png}
+
+A discrete version of $e^{-x^2}$ may be the function $e^{-n^2}$, for
+$n \in \N$. If $e$ spooks you out, you can consider $2^{-n^2}$ -- it
+has the same qualitative behavior.
+
+It is worth thinking a bit about what it means qualitatively to decay
+faster than exponential.
+
+Exponential decay occurs in situations where the current rate of decay
+is in constant proportion to the current quantity. Radioactivity and
+interest rates are examples. In the case of radioactivity, there is a
+fixed probability that a given atom undergoes radioactive decay in a
+given time frame, and so the fraction of the total number of atoms
+that undergo radioactive decay is a constant. This constant
+proportionality forces exponential decay.
+
+The decay that we see in $e^{-x^2}$ is a lot faster. Note that if
+$f(x) = e^{-x^2}$, then $f'(x) = -2xe^{-x^2}$. Thus, we get
+$f'(x)/f(x) = -2x$. The quotient $-2x$ is not a constant -- it
+increases in magnitude as $x$ gets larger. Thus, in proportional
+terms, $e^{-x^2}$ decays faster than $e^{-x}$.
+
+What this means, in practical terms, is that $e^{-x^2}$ has much
+thinner tails than $e^{-x}$. For $f(x) = e^{-x^2}$, the value
+$f(5)/f(4)$ is much smaller than the value $f(4)/f(3)$.
+
+
+\subsection*{Aside: Implications for understanding the normal distribution}
+
+The normal distribution is a mainstay of statistics and it arises a
+lot in the natural and the social sciences. The probability density
+function of the normal distribution is (up to scaling and translation)
+$e^{-x^2/2}$ for $x \in \R$, and the cumulative distribution function
+is $\Phi(x) = \int_{-\infty}^x e^{-t^2/2} \, dt$.
+
+The fast decay can be interpreted in the following way in statistics:
+the proportion of items that are two standard deviations above the
+median to those that are one standard deviation above the median is
+much bigger than the proportion at three standard deviations to two
+standard deviations. For height, for instance, if we assume a median
+of 5 feet 10 inches and a standard deviation of 2 inches, then the
+proportion of 6 feet 2 inches to 6 inches is much higher than the
+proportion of 6 feet 4 inches to 6 feet 2 inches.
+
+\subsection{Bounded by a geometric implies summable (integrable)}
+
+The basic comparison theorem tells us that if the terms of one series
+(with nonnegative terms) are eventually bounded by a summable series,
+then the first series is also summable. The analogous statement for
+integration is also obvious.
+
+In particular, if a series decays at a rate faster than geometric, it
+should be bounded by some geometric series, and hence should be
+summable. Analogously, if a nonnegative function decays at a rate
+faster than exponential, it is bounded from above by an exponentially
+decaying function and hence has a finite improper integral.
+
+\section{Root test and ratio test}
+
+\subsection{The ratio test}
+
+Recall that for a geometric series of nonnegative terms, each term is
+given by a fixed multiple of the preceding term:
+
+$$a_{k+1} = ra_k$$
+
+and, if the series is convergent, then $0 < r < 1$.
+
+This suggests that, for a series that is not a geometric series, we
+study the ratios of successive terms and see what these ratios look
+like. Specifically, for a series $\sum a_k$ with {\em nonnegative
+terms} we look at:
+
+$$\lim_{k \to \infty} \frac{a_{k+1}}{a_k}$$
+
+The ratio test says the following things:
+
+\begin{enumerate}
+\item If the limit is less than $1$, the series converges. The
+  explanation is that we can find a geometric series with common ratio
+  strictly less than $1$ that bounds it eventually from above.
+\item If the limit is greater than $1$, the series diverges. The
+  explanation is that we can find a geometric series with common ratio
+  strictly greater than $1$ that bounds it eventually from below.
+\item If the limit is equal to $1$, the test is inconclusive. In other
+  words, it is possible that the series converges and it is possible
+  that the series diverges. Note that {\em all} the $p$-series, some
+  of which converge and some of which diverge, fall under this
+  inconclusive case of the ratio test.
+\end{enumerate}
+
+\subsection{The root test}
+
+While the ratio test works by generalizing from the recursive
+description of geometric series, the root test works by generalizing
+from the closed form description. Recall that the closed form
+descroption of a geometric series is of the form $a_n =
+a_0r^n$. Equivalently, $a_n^{1/n} = (a_0)^{1/n}r \to r$ as $n \to
+\infty$. We know that if $r < 1$, the series converges, and if $r >
+1$, the series diverges.
+
+The root test says that for a series $\sum a_n$ with nonnegative
+terms, we consider the limit:
+
+$$\lim_{k \to \infty} (a_k)^{1/k}$$
+
+\begin{enumerate}
+\item If the limit is less than $1$, the series converges. This is
+  because it can be bounded from above by a geometric series with
+  common ratio less than $1$.
+\item If the limit is greater than $1$, the series diverges. This is
+  because it can be bounded from below by a geometric series with
+  common ratio greater than $1$. An even more trivial reason is that
+  the terms cannot go to $0$, so the series cannot converge.
+\item If the limit equals $1$, the test is inconclusive, i.e., the
+  series may converge or diverge -- we need to do something more to
+  figure out exactly what's happening.
+\end{enumerate}
+
+\subsection{Ratio test and root test}
+
+The ratio test and root test have roughly the same power, and which
+test we choose to apply to a given situation depends only on which of
+the expressions $(a_k)^{1/k}$ and $a_{k+1}/a_k$ is easier to compute
+and take the limit of.
+
+Strictly speaking, the root test is more powerful than the ratio
+test. In other words, any series to which we can conclusively apply
+the ratio test is also a series to which we can conclusively apply the
+root test, and in fact, the limit of the sequence of ratios is the
+same as the limit of the sequence of roots. However, there do exist
+series where the root test works and the ratio test does not. This is
+essentially because the ratio test is very sensitive to the ordering
+of terms in the series while the root test depends only on the rough
+position. If we take a series that succumbs to both tests and shuffle
+the terms around slightly, the new series continues to satisfy the
+root test but no longer satisfies the ratio test. An example of such a
+series is in your advanced homework for this week.
+
+\subsection{Oscillatory limits}
+
+What if we try to apply the ratio test, and it turns out that the
+ratio isn't heading to any particular limit? We can still hope to use
+somewhat more general forms of the ratio test. Specifically, if the
+ratios $a_{k+1}/a_k$ are eventually bounded below and away from $1$
+(i.e., there is some number $\alpha < 1$ and some $k_0$ such that
+$a_{k+1}/a_k < \alpha$ for all $k \ge k_0$) then the series
+converges. In other words, we aren't really interested in the ratios
+actually converging to a single number -- we only care that they
+eventually settle down somewhere that is clearly below $1$.
+
+Similarly, of the ratios $a_{k+1}/a_k$ are eventually bounded above
+and away from $1$, the series diverges.
+
+The same remarks apply to the root test.
+
+\subsection{Approaching $1$ from the left or the right}
+
+For both the ratio and the root test, the limit equal to $1$ is the
+inconclusive case. One subcase of this, however, is clear.
+
+\begin{quote}
+  If the sequence of ratios (respectively, roots) approaches $1$ from
+  the {\em right}, i.e., all terms of the sequence beyond a certain
+  point are bigger than $1$, then the series diverges. This is because
+  if the ratios (respectively roots) are eventually bigger than $1$,
+  the series cannot go to $0$.
+\end{quote}
+
+Thus, the {\em genuinely} inconclusive case is the case where the
+sequence of ratios (or roots) approaches $1$ either from the left side
+or in an oscillatory fashion. (For the root test, even infinitely many
+elements bigger than $1$ are enough to declare divergence; for the
+ratio test, it is inconclusive).
+
+In this case, the question is whether this sequence (of ratios/roots)
+approaches $1$ slowly enough that the terms still go to $0$ fast
+enough for the sums to converge. The slower the approach to $1$, the
+faster the terms go to zero, and the better the conditions for the
+series sum to converge.
+
+\section{Modifying the series before applying root and ratio tests}
+
+We can apply any convergence-preserving modification before applying
+the root and ratio tests. Some of these modifications are discussed below:
+
+\begin{itemize}
+\item Left and right shifts: Applying these shifts does not affect the
+  outcome of the root or ratio test, i.e., if we could use the root or
+  ratio test after shifting, we could also use it, arriving at the
+  same conclusion, prior to shifting.
+
+  However, a left or right shift may make the root test easier to
+  apply (in the sense of computational ease). For instance, for the
+  series $2^{(n + 1)^2}$, a shift might make it $2^{n^2}$ to which the
+  root test is easier to apply.
+\item Basic comparison and limit comparison: If computing ratios or
+  roots for the original series terms is hard, we can use basic
+  comparison or limit comparison to shift to a new series for which
+  the computation is easier.
+\item Permutations of terms: Applying permutations may make the root
+  test easier to apply, but will not change the outcome. On the other
+  hand, it may well change the outcome of the ratio test from
+  inconclusive to conclusive. For example, consider a geometric series
+  of positive terms with common ratio $r$ between $0$ and $1$. Now,
+  alter this series by flipping the $(2n - 1)^{th}$ and $(2n)^{th}$
+  terms for every $n$. In the new series, the common ratios between
+  $1/r$ and $r^3$, so the ratio test fails. But if we undid this flip
+  operation, the common ratios would all become $r$, so the ratio test
+  would be applicable. The root test, on the other hand, gives the
+  same conclusion in both cases, but it is easier to apply for the
+  actual geometric series rather than the messed-up one.
+\end{itemize}
+
+\section{Summary of tests}
+
+We have seen the following rules/tests for nonnegative series:
+
+\begin{enumerate}
+\item A {\em necessary but not sufficient condition} for a series of
+  nonnegative terms to converge is that the terms approach zero. (In
+  fact, this condition is also necesssary but not sufficient when the
+  series has terms of mixed sign, something we shall talk about later).
+\item The rule for geometric series.
+\item The integral test, both in terms of a precise numerical bound
+  and in its more general form of saying that the summation is finite
+  if and only if the integral is finite.
+\item The basic comparison test, which says that if one series is
+  eventually bounded by another, then there is a relationship
+  (conclusive only in some directions) between the
+  convergence/divergence of the series.
+
+  We also developed some practical rules for the convergence of series
+  constructed using rational functions and similar things. These
+  practical rules can be proved rigorously using $p$-series and the
+  basic comparison or limit comparison tests.
+\item The limit comparison test, which says that if, for two series,
+  the quotients of correpsonding terms has a finite nonzero limit,
+  then one series converges if and only if the other series does.
+\item The ratio test, which looks at the limit of the rations of
+  successive terms of a series and uses that to predict
+  convergence/divergence. The inconclusive case is where the ratio
+  limits to $1$.
+\item The root test, which looks at the limit of the $n^{th}$ root of
+  the $n^{th}$ term, and uses that to predict
+  convergence/divergence. The inconclusive case is where the root
+  limits to $1$.
+\end{enumerate}
+
+\end{document}

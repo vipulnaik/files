@@ -1,0 +1,875 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Vector stuff}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Sections 12.2, 12.3, 12.4.
+
+{\bf What students should definitely get}: Vector as a $n$-tuple,
+special attention to case $n = 3$, geometric interpretation of
+vectors, free and localized vectors, computation and properties of dot
+product, computation and properties of length, computation and
+properties of cross product, computation and properties of scalar
+triple product. Geometric applications to computing angles, areas of
+triangles and parallelograms, finding a vector orthogonal to two
+vectors, testing coplanarity and orthogonality.
+
+{\bf What students should hopefully get}: The idea of correlation,
+cosine as measuring closeness, the significance of $n$-dimensional
+vectors, the notion of vector operations and meaningfulness depending
+on the kind of scale from which the coordinates are drawn, the notions
+of ordinal scale, difference scale, and ratio scale.
+
+\section*{Executive summary}
+
+\subsection{$n$-dimensional generality}
+
+Words ...
+
+\begin{enumerate}
+\item A vector is an ordered $n$-tuple of real numbers (or quantities
+  measured using real numbers). The space of such $n$-tuples is a
+  $n$-dimensional vector space over the real numbers. Vectors can be
+  used to store tuples of prices, probabilities, and other kinds of
+  quantities.
+\item There is a zero vector. We can add vectors and we can multiply a
+  vector by a scalar. Note that these operations may or may not have
+  an actual meaning based on the thing we are storing using the vector.
+\item We can take the dot product $v \cdot w$ of two vectors $v$ and
+  $w$ in $n$-dimensional space. if $v = \langle v_1, v_2, \dots, v_n
+  \rangle$ and $w = \langle w_1, w_2, \dots, w_n \rangle$, then $v
+  \cdot w = \sum_{i=1}^n v_iw_i$. The dot product is a real number
+  (though if we put units to the coordinates of the vector, it gets
+  corresponding squared units; if we use different units for the
+  different vectors, the units are the product units).
+\item The length or norm of a vector $v$, denoted $|v|$, is defined as
+  $\sqrt{v \cdot v}$. It is a nonnegative real number.
+\item The correlation between two vectors $v$ and $w$ is defined as
+  $(v \cdot w)/(|v||w|)$. It is in $[-1,1]$. (For geometric
+  interpretation, see the three-dimensional case).
+\item {\em Properties of the dot product}: The dot product is
+  symmetric, the dot product of any vector with the zero vector is
+  $0$, the dot product is additive (distributive) in each coordinate
+  and scalars can be pulled out.
+\item {\em Properties of length}: The only vector with length zero is
+  the zero vector, all other vectors have positive length. The length
+  of $\lambda v$ is $|\lambda|$ times the length of $v$. We also have
+  $|v + w| \le |v| + |w|$ for any vectors $v$ and $w$, with equality
+  occurring if either is a positive scalar multiple of the other or
+  one of them is the zero vector.
+\end{enumerate}
+
+\subsection{Three-dimensional geometry}
+
+Words ...
+
+\begin{enumerate}
+\item We can identify points in three-dimensional space with
+  three-dimensional vector as follows: the vector corresponding to a
+  point $(x,y,z)$ is the vector $\langle x,y,z \rangle$. Physically,
+  this can be thought of as a directed line segment or arrow from the
+  origin to the point $(x,y,z)$.
+\item We can also consider vectors starting at any point in
+  three-dimensional space and ending at any point. The corresponding
+  vector can be obtained by subtracting the coordinates of the
+  points. The vector from point $P$ to point $Q$ is denoted
+  $\overline{PQ}$.
+\item There are unit vectors $\mathbf{i} = \langle 1,0,0 \rangle$,
+  $\mathbf{j} = \langle 0,1,0 \rangle$, and $\mathbf{k} = \langle
+  0,0,1 \rangle$. These are thus the vectors of length $1$ along the
+  positive $x$, $y$, and $z$ directions respectively. A vector
+  $\langle x,y,z \rangle$ can be written as $x\mathbf{i} + y\mathbf{j}
+  + z\mathbf{k}$.
+\item Vectors can be added geometrically using the {\em parallelogram
+  law}. This procedure gives the same answer as the usual
+  coordinate-wise addition.
+\item Scalar multiplication also has a geometric interpretation -- the
+  length gets scaled by the scalar multiple, and the direction remains
+  the same or is reversed depending on the scalar's sign.
+\item For vectors $v$ and $w$, we have $v \cdot w = |v||w|\cos \theta$
+  where $\theta$ is the angle between $v$ and $w$. We can use this
+  procedure to find the angle between two vectors. The correlation
+  between the vectors is thus $\cos \theta$. We can interpret this
+  specifically for $\theta = 0$, $\theta$ an acute angle, $\theta =
+  \pi/2$, $\theta$ an obtuse angle, and $\theta = \pi$ (see the table
+  in the lecture notes).
+\item We can define the vector cross product $v \times w$ using a
+  matrix determinant. Equivalently, if $v = \langle v_1,v_2,v_3
+  \rangle$ and $w = \langle w_1,w_2,w_3 \rangle$, then $v \times w =
+  \langle v_2w_3 - v_3w_2, v_3w_1 - v_1w_3, v_1w_2 - v_2w_1
+  \rangle$. {\em This is a specifically three-dimensional construct}.
+\item The cross product has the property that cross product of any two
+  qcollinear vectors is zero, cross product of any vector with the
+  zero vector is zero, the cross product is skew-symmetric,
+  distributive in each variable, and allows scalars to be pulled
+  out. It is not associative in general. There is an identity relating
+  cross product and dot product: $a \times (b \times c) = (a \cdot c)b
+  - (a \cdot b)c$. Also, the cross product satisfies the relation: $$a
+  \times (b \times c) + b \times (c \times a) + c \times (a \times b)
+  = 0$$
+\item The cross product of $a$ and $b$ satisfies $|a \times b| =
+  |a||b| \sin \theta$ where $\theta$ is the angle between $a$ and $b$,
+  and further, the cross product vector is perpendicular to both $a$
+  and $b$, and its direction is given by the right hand rule.
+\item There is a scalar triple product. The scalar triple product of
+  vectors $a$, $b$, and $c$ is defined as the number $a \cdot (b
+  \times c)$. It can also be viewed as the determinant of a matrix
+  whose rows are the coordinates of $a$, $b$, and $c$
+  respectively. The scalar triple product is preserved under cyclic
+  permutations of the input vectors and gets negated under flipping
+  two of the input vectors. It is linear in each input variable (i.e.,
+  distributive and pulls out scalars). The scalar triple product is
+  zero if and only if the three input vectors can all be made to lie
+  in the same plane.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item Vector and scalar projections: Given vectors $a$ and $b$, the
+  {\em vector projection} of $b$ onto $a$, denoted
+  $\operatorname{proj}_ab$, is given by the vector $\frac{a \cdot
+  b}{|a|^2} a$. The scalar projection or component of $b$ along $a$,
+  denoted $\operatorname{comp}_ab$, is given by $\frac{a \cdot
+  b}{|a|}$. The vector projection is what we obtain by taking the
+  vector from the origin to the foot of the perpendicular from the
+  head of $b$ to the line of $a$. The scalar projection is the {\em
+  directed} length of this vector, measured positive in the direction
+  of $a$.
+\item Finding the angle between vectors: This is done using the dot
+  product. The angle between vectors $v$ and $w$ is $\arccos((v \cdot
+  w)/|v||w|)$.
+\item Finding the area of a triangle or a parallelogram: We first find
+  two adjacent sides as vectors both with the same starting vertex (by
+  taking the differences of coordinates of endpoints). For the
+  parallelogram, we take the length of the cross product of these two
+  vectors. For the triangle, we take {\em half} the length.
+\item Finding the volume of a parallelopiped: We find three sides as
+  vectors, all with the same starting vertex. Then we take the scalar
+  triple product of these sides.
+\item Finding a vector orthogonal to two given vectors: Simply take
+  the cross product if they are linearly independent. Otherwise, just
+  pick anything that dots with one of them to zero.
+\item Testing orthogonality: We check whether the dot product is zero.
+\item Testing coplanarity of points: We take one point as the
+  basepoint, compute difference vectors to it from the other three
+  points. We then take the scalar triple product of these three
+  vectors. If we get zero, then the four points are coplanar,
+  otherwise they are not.
+\end{enumerate}
+
+\section{Vectors -- what's the big deal?}
+
+In this lecture (and the corresponding notes) I will take a somewhat
+different approach to vector spaces from what is to be found in the
+book. The reasons are multi-fold. First, the highly geometric approach
+to vectors that the book takes, although standard fare, is somewhat
+misleading for applications of vector space theory to the social
+sciences. The approach taken in the book {\em is} right for applying
+vector spaces to the physical sciences, particularly physics. But the
+intended as well as actual audience for this course comprises
+economics majors, so I've determined the focus accordingly.
+
+\subsection{Vector as a tuple of data, and vector-valued functions}
+
+A {\em real number} can be used to store a single quantitative
+variable. What happens when we need to store more than one variable?
+In this case, we need to store a bunch of real numbers. One way of
+storing a bunch of data is as a tuple, or a system of comma-separated
+values. This kind of bunch of data can be thought of as a vector.
+
+For instance, let's think of the share prices of five different
+companies as a function of time. At any given time, each share price
+is a number (measured in fixed units). The collection of five share
+prices is a tuple of $5$ numbers, which can be represented as
+comma-separated values. If the prices are $p_1$, $p_2$, $p_3$, $p_4$,
+and $p_5$, then the tuple in question is $\langle
+p_1,p_2,p_3,p_4,p_5\rangle$.
+
+Since the prices vary {\em with time}, each of the prices is actually
+a function of time, so what we really have is a {\em vector-valued
+function} whose coordinates are $p_1$, $p_2$, $p_3$, $p_4$, and $p_5$,
+given by:
+
+$$t \mapsto \langle p_1(t),p_2(t),p_3(t),p_4(t),p_5(t)\rangle$$
+
+We say that this is a vector-valued function in a five-dimensional
+vector space.
+
+Vector-valued functions are a new perspective on the parametric
+descriptions we saw a little while ago. In fact, these parametric
+descriptions of curves in the plane can be thought of as vector-valued
+functions in two dimensions.
+
+Here are some other examples of vectors and vector-valued functions:
+
+\begin{itemize}
+\item To keep track of prices, a bundle of commodities is chosen and
+  unit prices for these commodities are tracked as a function of
+  time. If $15$ commodities are chosen, each of the unit prices is a
+  function of time. The collection of all unit prices at a given time
+  is a vector in $15$ dimensions and the function that sends a time to
+  the collection of these $15$ unit prices is a vector-valued function.
+\item In a given market, the quantity demanded and quantity supplied
+  are both functions of price, i.e., at a given price, there is a
+  certain quantity demanded and a certain quantity supplied for a
+  commodity. The pair of these quantities thus gives a $2$-dimensional
+  vector-valued function of price.
+\item The scores of $20$ students on a given test are stored as a
+  $20$-dimensional tuple, or a vector in $20$-dimensional space.
+\end{itemize}
+
+\subsection{The theory of measurement: a little aside}
+
+When we talk of scales for measuring stuff, there are three different
+kinds of scales we typically use:
+
+\begin{itemize}
+\item {\em Ordinal scales} or {\em comparison scales} where we can
+  only compare things as greater or less -- the quantification of {\em
+  how} different two things are doesn't really make sense.
+\item {\em Difference scales} where we can measure how different two
+  things are -- but there need not be an absolute zero quantity.
+\item {\em Ratio scales} where there is an absolute zero and hence we
+  can perform operations like scalar multiplication, addition,
+  subtraction, ratios.
+\end{itemize}
+
+Ordinal scales or comparison scales are the weakest, in the sense that
+they reflect very little understanding of what is being
+measured. Difference scales reflect a better local understanding but a
+poor global understanding. Ratio scales are pretty good.
+
+Consider, for instance, the example of temperature. In the olden days,
+the human understanding of temperature was simply as a means of
+comparison -- some things were hotter than others, some things were
+colder than others. We didn't have an idea how to address the question
+``Is the hotness difference between $A$ and $B$ more than the hotness
+difference between $C$ and $D$?'' Then, temperature scales such as the
+Celsius and Fahrenheit scale were invented/discovered, and it was now
+possible to address the question of {\em difference in temperature}
+precisely. One could say that the temperature difference between 20
+degrees Celsius and 30 degrees Celsius is more than the temperature
+difference between 40 degrees Celsius and 45 degrees Celsius. Note
+that the conclusions are the same whether we measure temperatures in
+degrees Celsius or degrees Fahrenheit.
+
+With a difference scale, we can also talk of {\em average}
+temperatures. The average of the temperatures 20 degrees Celsius and
+30 degrees Celsius is 25 degrees Celsius. Note that we arrive at the
+same average whether we measure temperatures in Celsius or Fahrenheit.
+
+However, what does {\em not} make sense is the {\em addition} of
+temperatures. We cannot add 20 degrees Celsius and 30 degrees Celsius
+to get 50 degrees Celsius. We can, but it does not make sense. Also,
+this addition does not give the same answers in Celsius and
+Fahrenheit. Similarly, it does not make sense to multiple a
+temperature of 20 degrees Celsius by $1.7$.
+
+The reason these fail is that in neither Celsius nor Fahrenheit is the
+zero temperature an {\em absolute zero}.
+
+Prior to the discovery of absolute zero by Kelvin and the creation of
+the Kelvin scale for temperature, a difference scale was the best one
+could do. Now that the Kelvin scale exists, and we have an absolute
+zero, we can measure temperatures in degrees Kelvin. Measured in these
+units, temperatures can be added and the ratios of temperatures can be
+taken.
+
+\subsection{Return to vectors: vector operations coordinate-wise}
+
+Recall that a vector is just a bunch of scalars stored side by
+side. Now, we can define some vector operations, but {\em those
+operations may not have any meaning for some interpretations of
+vectors}. The basic operations are:
+
+\begin{itemize}
+\item The {\em zero vector}, denoted $0$, is defined as the vector all
+  of whose coordinates are zero.
+\item We can multiply a vector by a scalar (i.e., a real
+  number). Given a real number $\lambda$ and a vector $v = \langle
+  v_1, v_2, \dots, v_n \rangle$, we achieve this multiplication by
+  multiplying $\lambda$ by each of the coordinates $v_i$, to get the
+  new vector $\langle \lambda v_1, \lambda v_2, \dots, \lambda v_n
+  \rangle$.
+\item We can add two vectors in the same vector space $\langle
+  v_1,v_2,\dots,v_n \rangle$ added to $\langle w_1,w_2,\dots,w_n
+  \rangle$ is $\langle v_1 + w_1,v_2 + w_2,\dots, v_n+w_n \rangle$.
+\end{itemize}
+
+Both addition and scalar multiplication are carried out {\em
+coordinate-wise}. In particular, we can use these to compute the {\em
+difference} of two vectors (by subtracting the values in each
+coordinate) and the {\em average} of two or more vectors (by averaging
+the values in each coordinate). Note that it is imperative that the
+vectors live in the same space in order for us to perform the
+operations.
+
+Further, note that although we can perform these operations
+arithmetically, whether they make sense depends on whether the
+quantities being measured are on the right kind of scale. If the
+quantities are merely on an ordinal scale, and the quantification is
+purely for ease of understanding, then {\em none of the vector
+operations have any meaning}. If the quantities are on a difference
+scale, then taking differences and averages makes sense but taking
+sums and scalar multiples does not. If the quantities are on a ratio
+scale, then all the vector operations make sense.
+
+\subsection{Dot product or scalar product}
+
+Given two vectors $v$ and $w$ in the same vector space, say $v =
+\langle v_1,v_2,\dots,v_n \rangle$ and $w = \langle w_1,w_2,\dots,w_n
+\rangle$, their {\em dot product} is defined as:
+
+$$\sum_{i=1}^n v_iw_i$$
+
+or, in long form, as:
+
+$$v_1w_1 + v_2w_2 + \dots + v_nw_n$$
+
+As such, this number is a {\em scalar}, not a vector, because it is a
+single number obtained as a sum of products of real numbers.
+
+However, in the real world interpretation where the coordinates of the
+vector represent quantities that have units attached to them, we can
+interpret this dot product too as having a unit. Note that:
+
+\begin{itemize}
+\item Quantities of different kinds cannot be added. Thus, for a dot
+  product to make sense, it is necessary that all coordinates of the
+  vector be measuring the same kind of quantity in the same units. In
+  other words, all coordinates of $v$ should use the same units as
+  each other, and all coordinates of $w$ should use the same units as
+  each other.
+\item It is not necessary that the vectors $v$ and $w$ be measured in
+  the same units as each other. The units for the dor product are the
+  units for $v$ times the units for $w$. For instance, if the units
+  for $v$ are meters per second, and the units for $w$ are seconds,
+  the units for $v \cdot w$ are meters. In case both $v$ and $w$ are
+  measured in the same units, the units for $v \cdot w$ are the
+  corresponding squared units.
+\end{itemize}
+
+Here's one (somewhat contrived?) application to {\em total money
+value} calculations (as come up when calculating GDP). The {\em money
+value} of a commodity is the product of its unit price $p$ and its
+quantity $q$. If we have a bunch of commodities and the price vector
+(i.e., the collection of unit prices) is given by $p = \langle
+p_1,p_2, \dots, p_n \rangle$ while the quantity vector (i.e., the
+collection of quantities) is given by $q = \langle q_1,q_2,\dots,q_n
+\rangle$, then the total money value is the dot product $p \cdot q$ of
+the two vectors. Explicitly, it is the sum $\sum_{i=1}^n p_iq_i$.
+
+Here's another example. Suppose you make a gamble which has $n$
+possible outcomes. The pay-off to you for outcomes $i$, with $1 \le i
+\le n$, is $m_i$. The probability of outcome $i$ is $p_i$. The {\em
+expected value of pay-off} for this gamble is $\sum_{i=1}^n
+p_im_i$. We can think of this as a dot product of the {\em
+probabilities vector} $\langle p_1, p_2, \dots, p_n \rangle$ and the
+{\em pay-offs vector} $\langle m_1, m_2, \dots, m_n \rangle$.
+
+Another example is calorie consumption: your overall calorie
+consumption in a day is the dot product of the vector giving the
+caloric contents of the foods you eat, with the vector describing how
+much of each food you eat.
+
+\subsection{Length of a vector and correlation between vectors}
+
+The {\em length} or {\em norm} of a vector $v = \langle v_1, v_2,
+\dots, v_n \rangle$ is denoted $|v|$ and defined as:
+
+$$|v| = \sqrt{v \cdot v} = \sqrt{\sum_{i=1}^n v_i^2}$$
+
+Note that it makes sense to take the square root of the expression
+because a sum of squares is nonnegative. Also note that, by
+definition, $|v|$ is a nonnegative real number.
+
+When we study the geometric interpretation of vectors, we will see
+that the length or norm is the same as the length of the corresponding
+geometric notion of vector when we are in the familiar
+three-dimensional setting.
+
+The {\em correlation} between two vectors $v$ and $w$ is defined as:
+
+$$\frac{v \cdot w}{|v||w|}$$
+
+This correlation basically measures how similar the {\em directions}
+of the vectors $v$ and $w$ are to each other. In particular, this
+correlation is in the interval $[-1,1]$, where $-1$ occurs if $v$ and
+$w$ are {\em negative} scalar multiples of each other, and $1$ occurs
+if $v$ and $w$ are {\em positive} scalar multiples of each other. We
+will see the relation with some geometry and trigonometry a little
+later.
+
+\subsection{Why square up to measure the length?}
+
+There is a real-world reason for defining the norm or length by taking
+squares, adding, and then taking the square root, rather than just
+adding up the absolute values. The reason is that we want each
+coordinate to be weighed {\em by itself}, so that larger magnitude
+coordinates get a higher weighting. An example is when considering
+population densities. If we average the population density between an
+area with high density and an area with zero density, the effective
+population density comes out to be a lot less than that of the area
+with high density. However, the population density {\em
+lived/experienced} by people is only the density in the high density
+area, not in the zero density area. Ideally, we want to weight the
+zero density area by zero, because nobody actually lives there. More
+generally, we want to weight low density areas by their low densities
+or low populations, reflecting the fact that since fewer people
+actually live there, they should count for less in the average. The
+use of squares in the norm concept captures this idea.
+
+\subsection{Properties of the dot product and length}
+
+Here are some key properties of the dot product:
+
+\begin{itemize}
+\item The dot product of any vector with the zero vector is the number
+  zero: $a \cdot 0 = 0 \cdot a = 0$ for all $a$. Note that the
+  right-most $0$ is the {\em scalar} $0$ and the other two $0$s are
+  vector $0$s.
+\item The dot product is {\em symmetric}, i.e., $a \cdot b = b \cdot
+  a$ for all vectors $a$ and $b$.
+\item The dot product is {\em distributive} in both coordinates, i.e.,
+  $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$ and $(a + b) \cdot c =
+  (a \cdot c) + (b \cdot c)$.
+\item Scalars can be pulled out of the dot product: $(\lambda a) \cdot
+  b = \lambda(a \cdot b)$.
+\end{itemize}
+
+{\em Note}: The last two properties {\em together} constitute what is
+called {\em linearity} in each variable, and hence, {\em
+bilinearity}. This may make more sense to you if/when you become
+familiar with linear algebra.
+
+Here are the key properties of length:
+
+\begin{itemize}
+\item The length of a vector is $0$ if and only if the vector is the
+  zero vector.
+\item For any vector $a$ and scalar $\lambda$, the length of $\lambda
+  a$ is $|\lambda|$ times the length of $a$.
+\item {\em Triangle inequality}: For any vectors $a$ and $b$, we have
+  $|a + b| \le |a| + |b|$ with equality holding if and only if $a$ and
+  $b$ are positive scalar multiples of each other (i.e., the angle
+  between them is $0$) or one of the vectors $a$ and $b$ is $0$.
+\end{itemize}
+
+\section{Vectors in the physical world: in three dimensions}
+
+\subsection{Vectors as arrows or directed line segments}
+
+We now shift attention to the notion of vectors in the physical
+world. This concept is not important as an end in itself, but some of
+these ideas are necessary for later applications to vector integration
+and differentiation, as well as developing the theory of vector-valued
+functions.
+
+Consider a three-dimensional space equipped with a coordinate system.
+Geometrically, a {\em vector based at the origin} in the space can be
+thought of as an arrow (a directed line segment) with tail at the
+origin and head at some point in the space. Thus, there is a
+correspondence:
+
+Points in three-dimensional space $\leftrightarrow$ Vectors based at
+the origin in three-dimensional space
+
+More generally, we can talk of a vector {\em based at any point}. This
+is just a directed line segment starting at one point and ending at
+another (possibly the same) point. Given a vector based at a point,
+there is a unique vector based at the origin that is parallel to it
+and has the same length and same direction. Basically, this is
+obtained by taking the original vector and translating it till its
+tail becomes the origin.
+
+Consequently, there is a notion of a {\em free vector}. A free vector
+can be thought of as an equivalence class of vectors, with different
+starting points, all of which have the same length and
+direction. Given any free vector, there is a unique way of
+representing it using a vector based at the origin.  
+
+Some notation: the vector with tail at a point $A$ and head at a point
+$B$ is denoted $\overline{AB}$, and we sometimes put an arrow in the
+left-to-right direction.
+\subsection{Vectors and coordinates}
+
+In a coordinate system, the vector from the origin to the point with
+coordinates $(x,y,z)$ is denoted as the vector $\langle x,y,z
+\rangle$. The operations of vector addition, scalar multiplication,
+and dot product, are all done in the context of this description.
+
+Before describing these, I will briefly note the
+$\mathbf{i}$,$\mathbf{j}$,$\mathbf{k}$ notation. We define the three
+unit vectors $\mathbf{i}$, $\mathbf{j}$, and $\mathbf{k}$ as follows:
+
+\begin{itemize}
+\item $\mathbf{i}$ is the unit vector $\langle 1,0,0 \rangle$, i.e.,
+  it is a vector of length $1$ along the positive $x$-axis.
+\item $\mathbf{j}$ is the unit vector $\langle 0,1,0 \rangle$, i.e.,
+  it is a vector of length $1$ along the positive $y$-axis.
+\item $\mathbf{k}$ is the unit vector $\langle 0,0,1 \rangle$, i.e.,
+  it is a vector of length $1$ along the positive $z$-axis.
+\end{itemize}
+
+We can thus write:
+
+$$\langle x,y,z \rangle = x \mathbf{i} + y \mathbf{j} + z \mathbf{k}$$
+
+In other words, the vector $\langle x,y,z \rangle$ is obtained by
+traveling $x$ in the $x$-axis direction, $y$ in the $y$-axis
+direction, $z$ in the $z$-axis direction.
+
+\subsection{Vector operations: scalar multiplication and addition}
+
+We can do a bunch of vector operations, as discussed earlier, and
+relate it to geometric operations:
+
+\begin{itemize}
+\item {\em Scalar multiplication}: Given a vector $\langle x,y,z
+  \rangle$ and a scalar $\lambda$, we get the vector $\langle \lambda
+  x, \lambda y, \lambda z \rangle$. Geometrically, this new vector is
+  parallel to the old vector, its length is $|\lambda|$ times the
+  length of the old vector, and its direction (forward/backward) is
+  the same as or reverse of the old vector depending on whether
+  $\lambda > 0$ or $\lambda < 0$.
+\item {\em Addition}: Given a vector $v_1 = \langle x_1, y_1, z_1
+  \rangle$ and a vector $v_2 = \langle x_2, y_2, z_2 \rangle$, the sum
+  of the vectors is $\langle x_1 + x_2, y_1 + y_2, z_1 + z_2
+  \rangle$. Geometrically, this can be obtained as follows: we take
+  the vector $v_2$, treat it as a free vector, and translate it so
+  that its tail is at the head of $v_1$. Now, we make a vector from
+  the origin to the {\em head} of this translated $v_2$. This new
+  vector is $v_1 + v_2$. Note that we could interchange the roles of
+  $v_1$ and $v_2$ in this process, and get the same answer. When we
+  make the whole picture, we get a parallelogram, so this method
+  sometimes goes under the name of the {\em parallelogram law of
+  addition}.
+\end{itemize}
+
+\subsection{Terminological note}
+
+We say that two vectors are {\em collinear} or {\em parallel} or {\em
+  linearly dependent} if either is a scalar multiple of the other.
+
+The {\em zero vector} is the vector all of whose coordinates are
+zero. It corresponds to the arrow from the origin to itself.
+
+\subsection{Bold face conventions}
+
+Note that the book uses a bold face letter convention for vectors,
+e.g., the vector with name $v$ will be written as $\mathbf{v}$ instead
+of just $v$.
+
+I will not be bothered too much about this convention, and it's anyway
+hard to make bold face conventions clear when writing things with pen,
+pencil, or chalk. So you don't have to bother much about it.
+
+\subsection{Vector operations: dot product}
+
+Recall the general definition of dot product, $\langle v_1, v_2,
+\dots, v_n \rangle \cdot \langle w_1, w_2, \dots, w_n \rangle$ is
+given by $\sum_{i=1}^n v_iw_i$.
+
+In particular, if $v = \langle v_1,v_2,v_3 \rangle$ and $w = \langle
+w_1,w_2,w_3 \rangle$, we get:
+
+$$v \cdot w = v_1w_1 + v_2w_2 + v_3w_3$$
+
+We also define:
+
+$$|v| = \sqrt{v \cdot v} = \sqrt{v_1^2 + v_2^2 + v_3^2}$$
+
+This is the {\em length} of the vector $v$ and is the same as the
+length of the actual line segment corresponding to the vector.
+
+It turns out that if $v$ and $w$ are vectors, then:
+
+$$v \cdot w = |v||w| \cos \theta$$
+
+where $\theta$ is the angle between $v$ and $w$.
+
+\subsection{Thinking about dot product: what does it measure?}
+
+As noted above:
+
+$$v \cdot w = |v||w| \cos \theta$$
+
+This can be rearranged to give:
+
+$$\cos \theta = \frac{v \cdot w}{|v||w|}$$
+
+In other words, taking $\theta$ as the angle between $0$ and $\pi$:
+
+$$\theta = \arccos\left[ \frac{v \cdot w}{|v||w|}\right]$$
+
+The quantity $\cos \theta$, which is also equal to the right side, is
+the {\em correlation} between the vectors $v$ and $w$, or, in other
+words, it is the degree of similarity in the direction of the vectors
+$v$ and $w$. This is a number in the interval $[-1,1]$. Let's think more
+clearly about what this means:
+
+\begin{tabular}{|l|l|l|}
+  \hline
+  $\theta$ & $\cos \theta$ & Interpretation on the relation between $v$ and $w$\\
+  \hline
+  $0$ & $1$ & $w$ is a {\em positive} scalar multiple of $v$, i.e., they are in the same direction\\
+
+  \hline
+
+  In $(0,\pi/2)$ & In $(0,1)$ & $v$ and $w$ are positively correlated, form an acute angle\\
+
+  \hline
+
+  $\pi/2$ & $0$ & $v$ and $w$ are {\em uncorrelated}. They are perendicular or orthogonal.\\
+
+  \hline
+
+  In $(\pi/2,\pi)$ & In $(-1,0)$ & $v$ and $w$ are negatively
+  correlated, form an obtuse angle.\\
+  
+  \hline
+  
+  $\pi$ & $-1$ & $w$ is a negative scalar multiple of $v$, i.e., they
+  are in exactly opposite directions.\\
+
+  \hline
+\end{tabular}
+
+
+\subsection{Rethinking trigonometry: components and projections}
+
+The preceding discussion can give you a deeper perspective on
+trigonometry. The $\cos$ function measures the {\em closeness} or {\em
+correlation} or {\em degree of agreement} between two things separated
+by the given angle. The $\sin$ function measures how big the {\em rest
+of the stuff is}. The relation:
+
+$$\cos^2\theta + \sin^2\theta = 1$$
+
+basically says that if you add up the parts that agree and the rest of
+the stuff you get $100\%$.
+
+Let's discuss a related notion that helps make this clearer. Given
+vectors $a$ and $b$, both based at the origin, the {\em vector
+projection} of $b$ onto $a$ is the vector starting at the origin and
+ending at the foot of the perpendicular from the head of $b$ to the
+line of $a$. The {\em component} or {\em scalar projection} of $b$
+along $a$ is the length of this vector projection measured in the
+direction of $a$ (so it could be negative). Specifically:
+
+\begin{itemize}
+\item The vector projection of $b$ onto $a$, denoted
+  $\operatorname{proj}_ab$, is $\frac{a \cdot b}{|a|^2} a$.
+\item The scalar projection of $b$ onto $a$, denoted
+  $\operatorname{comp}_ab$, is $\frac{a \cdot b}{|a|}$.
+\end{itemize}
+
+\subsection{Sidenote: orthogonal as unrelated}
+
+People who are mathematically and statistically literate have an
+interesting new adjective to add to their vocabulary for daily use:
+``orthogonal'' in the sense of being unrelated or irrelevant. This
+usage stems from the above discussion of dot products and
+correlation. However, this usage is not common among people without a
+math/stats background, and it is a way for you to show off your
+mathematical/statistical erudition. An amusing exchange was recorded
+in Supreme Court proceedings in the United States in 2006:
+
+\url{http://www.volokh.com/2010/01/11/orthogonal-ooh/}
+
+Short version: Supreme Court justices were flummoxed when a law professor used the word ``orthogonal'' in the sense of unrelated.
+
+\section{Vagaries of three dimensions: cross product and scalar triple product}
+
+The constructions we will discuss now are specific to three
+dimensions. Although they do have some analogues or generalizations in
+higher dimensions, the analogues are not obvious or intuitive and
+require considerable mathematical machinery.
+
+\subsection{The cross product}
+
+The cross product of two vectors $a = \langle a_1, a_2, a_3 \rangle$ and
+$b = \langle b_1, b_2, b_3 \rangle$ is defined as follows:
+
+$$a \times b = \langle a_2b_3 - a_3b_2, a_3b_1 - a_1b_3, a_1b_2 - a_2b_1 \rangle$$
+
+The formula looks a bit cryptic. Here is the idea: we arrange the
+coordinates in the cyclic ordering $1 \to 2 \to 3 \to 1$. A particular
+coordinate in $a \times b$ is then the next coordinate of $a$ times
+the next to next coordinate of $b$ minus the next coordinate of $b$
+minus the next-to-next coordinate of $a$. We can also write this as a
+{\em determinant} as follows:
+
+$$\left|\begin{array}{lll} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \\\end{array}\right|$$
+
+For those of you who have seen determinants, this should make
+sense. Basically, we evaluate the determinant by expansion using the
+first row. Recall that $\mathbf{i}$, $\mathbf{j}$, and $\mathbf{k}$,
+are the unit vectors in the $x$, $y$, and $z$ directions, so their
+coefficients are the coordinates of the vector we finally want.
+
+\subsection{Properties of the cross product}
+
+Here are some key properties of the cross product:
+
+\begin{itemize}
+\item The cross product of any vector with the zero vector is the zero
+  vector: $a \times 0 = 0 \times a = 0$ for any vector $a$.
+\item The cross product is {\em anti-symmetric} or {\em
+  skew-symmetric}: For any vectors $a$ and $b$, $a \times b = -(b
+  \times a)$. 
+\item The cross product of two vectors that are scalar multiples of
+  each other is zero: $a \times b = 0$ if $b = \lambda a$ for some
+  scalar $\lambda$.
+\item The cross product is {\em distributive} in both vectors: $a
+  \times (b + c) = (a \times b) + (a \times c)$ and $(a + b) \times c
+  = (a \times c) + (b \times c)$.
+\item Scalars can be pulled out of cross product: $(\lambda a) \times
+  b = \lambda(a \times b)$ and $a \times (\lambda b) = \lambda(a
+  \times b)$.
+\item The cross product is {\em not associative}: $a \times (b \times
+  c) \ne (a \times b) \times c$.
+\item We have the following relation: $a \times (b \times c) = (a
+  \cdot c)b - (a \cdot b)c$.
+\item The cross product $a \times b$ is orthogonal to $a$ and to
+  $b$. In particular, we get that $a \cdot (a \times b) = 0$ and $b
+  \cdot (a \times b) = 0$.
+\item We have the following identity involving the cross product:
+
+  $$(a \times (b \times c)) + (b \times (c \times a)) + (c \times (a \times b)) = 0$$
+
+  Also:
+
+  $$((a \times b) \times c) + ((b \times c) \times a) + ((c \times a) \times b) = 0$$
+\end{itemize}
+
+\subsection{Geometric interpretation of the cross product}
+
+The cross product of non-collinear vectors $a$ and $b$ is a vector
+perpendicular to both $a$ and $b$ (and hence, perpendicular to the
+plane spanned by $a$ and $b$). Its direction is given by the right
+hand rule: curl the fingers of the right hand from $a$ to $b$, make
+the thumb point away from the fingers, then the thumb points in the
+direction of $a \times b$. Its magnitude is given by the formula:
+
+$$|a \times b| = |a||b| \sin \theta$$
+
+where $\theta$ is the angle between $a$ and $b$.
+
+In particular, we note some important relations between the unit
+vectors $\mathbf{i}$, $\mathbf{j}$, $\mathbf{k}$:
+
+\begin{eqnarray*}
+  \mathbf{i} \times \mathbf{j} & = & \mathbf{k} \\
+  \mathbf{j} \times \mathbf{i} & = & -\mathbf{k}\\
+  \mathbf{j} \times \mathbf{k} & = & \mathbf{i} \\
+  \mathbf{k} \times \mathbf{j} & = & -\mathbf{i} \\
+  \mathbf{k} \times \mathbf{i} & = & \mathbf{j} \\
+  \mathbf{i} \times \mathbf{k} & = & -\mathbf{j} \\
+\end{eqnarray*}
+
+\subsection{Scalar triple product}
+
+There is a special construction in three dimensions called the {\em
+scalar triple product}. Given vectors $a = \langle a_1, a_2, a_3
+\rangle$, $b = \langle b_1, b_2, b_3 \rangle$, $c = \langle c_1, c_2,
+c_3 \rangle$. The scalar triple product, denoted $[a \ b \ c]$, is
+defined as the number:
+
+$$a_1b_2c_3 - a_1b_3c_2 + a_2b_3c_1 - a_2b_1c_3 + a_3b_1c_2 - a_3b_2c_1$$
+
+It can be defined also as the determinant of the matrix:
+
+$$\left|\begin{array}{lll} a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \\\end{array}\right|$$
+
+Finally, $[a \ b \ c]$ can be defined in terms of dot and cross product:
+
+$$[a \ b \ c] = a \cdot (b \times c) = b \cdot (c \times a) = c \cdot (a \times b)$$
+
+The scalar triple product has the following properties:
+
+\begin{itemize}
+\item If $a$, $b$, and $c$ are in a common plane (i.e., there is a
+  plane containing the heads of all the vectors, when their tails are
+  at the origin), then the scalar triple product is $0$. In
+  particular, if any two of the vectors are collinear (i.e., one is a
+  scalar multiple of the other), the scalar triple product is $0$.
+\item The scalar triple product is invariant under cyclic
+  permutations, i.e., $[a \ b \ c] = [b \ c \ a] = [c \ a \ b]$.
+\item The scalar triple product gets negated if we just switch two of
+  the pieces: $[a \ b \ c] = -[b \ a \ c]$.
+\item The scalar triple product is distributive in each input. For
+  instance, here's distributivity in the third input: $[a \ b \ (c +
+  d)] = [a \ b \ c] + [a \ b \ d]$.
+\item Scalars can be pulled out from any of the three inputs to the
+  outside.
+\end{itemize}
+
+\section{Geometric applications of dot product and cross product}
+
+Examples are not included in the lecture notes, but you can see some
+in the book and you will also do more practice of examples when doing
+your homework.
+\subsection{Area of triangle, parallelogram, volume of parallelopided}
+
+To compute the area of a triangle or parallelogram, we need to first
+treat the sides as free vectors. To do this, we subtract the
+coordinates of the endpoints of the sides from each other.
+
+For instance, consider a triangle with vertices $P(p_1,p_1,p_3)$,
+$Q(q_1,q_2,q_3)$, and $R(r_1,r_2,r_3)$. The side $PQ$, viewed as a
+vector, is $\langle q_1 - p_1, q_2 - p_2, q_3 - p_3
+\rangle$. Similarly, the side $PR$, viewed as a vector, is $\langle
+r_1 - p_1, r_2 - p_2, r_3 - p_3 \rangle$. The area of the triangle is
+given by {\em half} the length of the cross product:
+
+$$\operatorname{Ar}(\triangle PQR) = \frac{1}{2} |\overline{PQ} \times \overline{PR}|$$
+
+For a parallelogram, we compute two of its adjacent sides as vectors,
+and the area of the parallelogram is then the length of the cross
+product of these sides. Thus, for a parallelogram $PQRS$, the area is
+given by:
+
+$$\operatorname{Ar}(PQRS) = |\overline{PQ} \times \overline{PR}|$$
+
+A parallelopiped (sometimes written parallelepided) is a
+three-dimensional analogue of a parallelogram. The volume of a
+parallelopiped is the absolute value of the scalar triple product of
+three adjacent vectors emanating from a single vertex.
+
+\subsection{Determining the angle between vectors}
+
+This can be done using the dot product (see earlier). Note that {\em
+we cannot use the cross product approach} -- the cross product
+approach is sufficient to find $\sin \theta$, but there could be two
+different values of $\theta$ (an acute and an obtuse angle) giving
+rise to the same value of $\sin \theta$.
+
+\subsection{Finding a vector orthogonal to two given vectors}
+
+If the two given vectors are not collinear, we simply take the cross
+product.
+
+If they are collinear, we can choose any vector orthogonal to either
+of them, and we basically do this by looking at the dot product.
+
+\subsection{Testing coplanarity and orthogonality}
+
+We can use the dot product, cross product, and scalar triple product
+to do various kinds of tests:
+
+\begin{itemize}
+\item To test whether three points are collinear, take the difference
+  vectors of the first and second point, and then of the second and
+  third point. Then, check if these difference vectors are scalar
+  multiples of each other.
+\item To test whether four points are coplanar, pick one as basepoint,
+  and calculate difference vectors from it of the other three
+  points. The four points are coplanar if and only if this scalar
+  triple product is zero.
+\end{itemize}
+\end{document}

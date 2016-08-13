@@ -1,0 +1,521 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Wednesday November 6: Geometry of linear transformations (abstract)}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+27 people took this 14-question quiz. The score distribution was
+as follows:
+
+\begin {itemize}
+\item Score of 2: 1 person
+\item Score of 4: 1 person
+\item Score of 6: 3 people
+\item Score of 7: 2 people
+\item Score of 8: 4 people
+\item Score of 9: 4 people
+\item Score of 10: 5 people
+\item Score of 11: 4 people
+\item Score of 12: 2 people
+\item Score of 14: 1 person
+\end{itemize}
+
+The mean score was 8.8.
+
+The question-wise answers and performance review are as follows:
+
+\begin{enumerate}
+\item Option (B): 18 people
+\item Option (C): 22 people
+\item Option (C): 17 people
+\item Option (C): 18 people
+\item Option (A): 10 people
+\item Option (E): 22 people
+\item Option (C): 25 people
+\item Option (E): 16 people
+\item Option (C): 13 people
+\item Option (B): 17 people
+\item Option (B): 12 people
+\item Option (A): 20 people
+\item Option (C): 15 people
+\item Option (C): 13 people
+\end{enumerate}
+
+\section{Solutions}
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+This quiz tests for a deep abstract understanding of linear
+transformations and their geometry. It is related to Section 2.2 of
+the book and also to the {\tt Geometry of linear transformations}
+lecture notes.
+
+For the questions here, please use the following terminology.
+
+Suppose $n$ is a fixed natural number greater than $1$. For ease of
+geometric visualization, you can take $n = 2$ for the discussion.
+
+\begin{itemize}
+\item A {\em linear automorphism} of $\R^n$ is defined as
+  a bijective linear transformation from $\R^n$ to $\R^n$.
+\item An {\em affine linear automorphism} of $\R^n$ is defined as a
+  bijective function from $\R^n$ to itself that preserves
+  collinearity, i.e., it sends lines to lines. In addition, it
+  preserves the ratios of lengths within each line. This can be
+  included as part of the definition or deduced from the fact that
+  collinearity is preserved for $n > 1$.
+\item A {\em self-isometry} of $\R^n$ is defined as a bijective
+  function from $\R^n$ to itself that preserves Euclidean distance:
+  for all pairs of points $\vec{x},\vec{y} \in \R^n$, the Euclidean
+  distance between $\vec{x}$ and $\vec{y}$ equals the Euclidean
+  distance between $T(\vec{x})$ and $T(\vec{y})$.
+\item A {\em self-homothety} (or {\em similitude transformation} or
+  {\em similarity transformation}) of $\R^n$ is defined as a bijective
+  function from $\R^n$ to itself that multiplies all distances by a
+  fixed number called the {\em factor of similitude} (dependent on the
+  transformation): if the factor of similitude is $\lambda$, then for
+  all pairs of points $\vec{x},\vec{y} \in \R^n$, the distance between
+  $T(\vec{x})$ and $T(\vec{y})$ equals $\lambda$ times the distance
+  between $\vec{x}$ and $\vec{y}$.
+\end{itemize}
+
+\begin{enumerate}
+\item What is the relationship between linear automorphisms and affine
+  linear automorphisms of $\R^n$?
+
+  \begin{enumerate}[(A)]
+  \item Being a linear automorphism is precisely the same as being an
+    affine linear automorphism.
+  \item Every linear automorphism is an affine linear automorphism,
+    but not every affine linear automorphism is a linear automorphism.
+  \item Every affine linear automorphism is a linear automorphism, but
+    not every linear automorphism is an affine linear automorphism.
+  \item A linear automorphism need not be affine linear, and an affine
+    linear automorphism need not be linear.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Linear automorphisms are precisely those affine
+  linear automorphisms that send the origin to itself. In general, an
+  affine linear automorphism can be expressed as a composite of a
+  translation and a linear automorphism.
+
+  {\em Performance review}: 18 out of 27 got this. 8 chose (C), 1 chose (A).
+
+  {\em Historical note (last time)}: $16$ out of $27$ got this. $10$ chose (C),
+  $1$ chose (D).
+
+\item What is the relationship between self-homotheties and
+  self-isometries of $\R^n$?
+
+  \begin{enumerate}[(A)]
+  \item Being a self-homothety is precisely the same as being a
+    self-isometry.
+  \item Every self-homothety is a self-isometry, but not every
+    self-isometry is a self-homothety.
+  \item Every self-isometry is a self-homothety, but not every
+    self-homothety is a self-isometry.
+  \item A self-homothety need not be a self-isometry, and a
+    self-isometry need not be a self-homothety.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: We can define a self-isometry as a self-homothety
+  where the factor of homothety (the factor of similitude) is $1$.
+
+  {\em Performance review}: 22 out of 27 got this. 4 chose (B), 1 chose (D).
+
+  {\em Historical note (last time)}: $21$ out of $27$ got this. $4$ chose (D),
+  $1$ each chose (A) and (B).
+
+\item What is the relationship between self-homotheties and affine
+  linear automorphisms of $\R^n$?
+
+  \begin{enumerate}[(A)]
+  \item Being an affine linear automorphism is precisely the same as
+    being a self-homothety.
+  \item Every affine linear automorphism is a self-homothety, but not
+    every self-homothety is an affine linear automorphism.
+  \item Every self-homothety is an affine linear automorphism, but not
+    every affine linear automorphism is a self-homothety.
+  \item An affine linear automorphism need not be a self-homothety,
+    and a self-homothety need not be affine linear.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: A self-homothety must preserve ratios of
+  distances. In particular, thanks to the triangle inequality, it must
+  preserve collinearity with betweennness. In other words, if $T$ is a
+  self-homothety of $\R^n$ and $A,B,C$ are points in $\R^n$ with $B$
+  between $A$ and $C$, then $T(A)$, $T(B)$, and $T(C)$ are also points
+  in $\R^n$ with $T(B)$ between $T(A)$ and $T(C)$, because of the
+  triangle inequality.
+
+  There are affine linear automorphisms, such as shear automorphisms,
+  that are not self-homotheties. Alternatively, we could also consider
+  a dilation along one axis keeping the other axis fixed.
+
+  {\em Performance review}: 17 out of 27 got this. 6 chose (B), 4 chose (A).
+
+  {\em Historical note (last time)}: $18$ out of $27$ got this. $6$ chose (B),
+  $2$ chose (D), $1$ chose (A).
+
+\item What is the relationship between affine linear automorphisms and
+  self-isometries of $\R^n$?
+
+  \begin{enumerate}[(A)]
+  \item Being an affine linear automorphism is precisely the same as
+    being a self-isometry.
+  \item Every affine linear automorphism is a self-isometry, but not
+    every self-isometry is an affine linear automorphism.
+  \item Every self-isometry is an affine linear automorphism, but not
+    every affine linear automorphism is a self-isometry.
+  \item An affine linear automorphism need not be a self-isometry, and
+    a self-isometry need not be affine linear.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: This can be deduced from the two preceding
+  questions, and can also be seem directly.
+
+  {\em Performance review}: 18 out of 27 got this. 3 each chose (B)
+  and (D), 2 chose (A), 1 left the question blank.
+
+  {\em Historical note (last time)}: $22$ out of $27$ got this. $4$ chose (D),
+  $1$ chose (A).
+\item There is a special kind of bijection from $\R^n$ to $\R^n$
+  called a {\em translation}. A translation with translation vector
+  $\vec{v}$ is defined as the bijection $\vec{x} \mapsto \vec{x} +
+  \vec{v}$. A {\em nontrivial} translation is a translation whose
+  translation vector is not the zero vector. Which of the following is
+  an automorphism type that nontrivial translations are {\em not}?
+  Please see Option (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item Linear automorphism
+  \item Affine linear automorphism
+  \item Self-isometry
+  \item Self-homothety
+  \item None of the above, i.e., nontrivial translations are of all
+    these types
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Translations are self-isometries. Hence, they are
+  also self-homotheties and affine linear automorphisms. They are not
+  linear automorphisms because they do not preserve the origin.
+
+  {\em Performance review}: 10 out of 27 got this. 7 chose (E), 5
+  chose (C), 4 chose (D), 1 chose (B).
+
+  {\em Historical note (last time)}: $12$ out of $27$ got this. $11$ chose (E),
+  $3$ chose (C), and $1$ chose (D).
+
+\item A collection of bijections from $\R^n$ to itself is said to form
+  a {\em group} if it satisfies all these three conditions:
+
+  \begin{itemize}
+  \item The composite of any two (possibly equal, possibly distinct)
+    bijections in the collection is also in the collection.
+  \item The identity bijection (i.e., the map sending every vector to
+    itself) is in the collection.
+  \item For every bijection in the collection, the inverse bijection is
+    also in the collection.
+  \end{itemize}
+
+  For fixed $n$, which of the following collections of bijections from
+  $\R^n$ to itself does {\em not} form a group? Please see Option (E)
+  before answering.
+
+  \begin{enumerate}[(A)]
+  \item The collection of all linear automorphisms of $\R^n$
+  \item The collection of all affine linear automorphisms of $\R^n$
+  \item The collection of all self-isometries of $\R^n$
+  \item The collection of all self-homotheties of $\R^n$
+  \item None of the above, i.e., each of them is a group
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: This is obvious from the definition and concept
+  of symmetry.
+
+  {\em Performance review}: 22 out of 27 got this. 2 each chose (B)
+  and (D), 1 chose (C).
+
+  {\em Historical note (last time)}: $24$ out of $27$ got this. $2$ chose (C),
+  $1$ chose (D).
+
+  For the remaining questions, we deal with the case $n = 2$.
+
+  We consider two special types of bijections from $\R^2$ to $\R^2$:
+  {\em rotations} (a rotation is specified by the center of rotation
+  and the angle of rotation) and {\em reflections} (a reflection is
+  specified by the line of reflection).
+  
+  The identity map (i.e., the map sending every point to itself) is
+  considered both a translation and a rotation. It is the translation
+  by the zero vector. It can be viewed as a rotation about any point
+  by the zero angle.
+
+  Note that for a rotation, the angle of rotation is determined
+  uniquely up to additive multiples of $2\pi$. The center of rotation
+  is determined uniquely for all nontrivial rotations.
+
+ \item What is the composite of two rotations centered at the same
+   point in $\R^2$? Assume for simplicity that the composite is not the
+   identity, i.e., the two rotations do not cancel each other. Note
+   that the rotations must commute, so the order of operation does
+   not matter.
+
+   \begin{enumerate}[(A)]
+   \item It must be a reflection about a line passing through that center point.
+   \item It must be a reflection about a line {\em not} passing through
+     that center point.
+   \item It must be a rotation centered at the same point
+   \item It must be a rotation but it need not be centered at the same point.
+   \item It must be a translation.
+   \end{enumerate}
+
+   {\em Answer}: Option (C)
+
+   {\em Explanation}: This is physically obvious.
+
+   {\em Performance review}: 25 out of 27 got this. 1 chose (D), 1
+   left the question blank.
+
+   {\em Historical note (last time)}: $18$ out of $27$ got this. $5$ chose (D),
+   $3$ chose (E), $1$ chose (A).
+
+ \item What is the composite of two reflections about lines in $\R^2$,
+   if the two lines of reflection are known to be parallel but
+   distinct? Although the two reflections do not commute, the {\em
+     type} of their composite does not depend upon the order in which
+   we compose them.
+
+   \begin{enumerate}[(A)]
+   \item It must be a reflection about a third line which is parallel
+     to both the lines and is equidistant from them.
+   \item It must be a reflection about a third line which is
+     perpendicular to both the lines.
+   \item It must be a rotation about a point that is equidistant from
+     both lines.
+   \item It must be a translation by a vector parallel to the lines
+     about which we are reflecting.
+   \item It must be a translation by a vector perpendicular to the
+     lines about which we are reflecting.
+   \end{enumerate}
+
+   {\em Answer}: Option (E)
+
+   {\em Explanation}: The vector will in fact be twice the
+   perpendicular difference vector between the lines.
+
+   You can think about it in terms of double mirrors.
+
+   {\em Performance review}: 16 out of 27 got this. 6 chose (A), 3
+   chose (D), 1 chose (B).
+
+   {\em Historical note (last time)}: $20$ out of $27$ got this. $3$ chose (D),
+   $2$ each chose (A) and (C).
+ \item What is the composite of two reflections about lines in $\R^2$,
+   if the two lines of reflection are distinct and intersect? Once
+   again, the reflections do not in general commute, but the {\em type}
+   of the composite does not depend on the order of composition.
+
+   \begin{enumerate}[(A)]
+   \item It must be a reflection about a third line which passes
+     through the point of intersection of the two lines of reflection.
+   \item It must be a reflection about a third line which does not pass
+     through the point of intersection of the two lines of reflection.
+   \item It must be a rotation about the point of intersection.
+   \item It must be a translation by a vector that makes equal angles
+     with both the lines.
+   \item It need not be a translation, rotation, or reflection.
+   \end{enumerate}
+
+   {\em Answer}: Option (C)
+
+   {\em Explanation}: In fact, it will be a rotation with the angle of
+   rotation equal to {\em twice} the angle between the lines. We can
+   easily see this using basic Euclidean geometry. The simplest case
+   to think of is the case of perpendicular lines of reflection. In
+   this case, the composite is a rotation by $\pi$, also known as a
+   half-turn.
+
+   {\em Performance review}: 13 out of 27 people got this. 8 chose
+   (A), 2 each chose (D) and (E), 1 chose (B).
+
+   {\em Historical note (last time)}: $18$ out of $27$ got this. $5$
+   chose (A), $2$ each chose (B) and (E).
+ \item What is the composite of a nontrivial rotation in $\R^2$ (i.e.,
+   the angle of rotation is not a multiple of $2\pi$) and a nontrivial
+   translation?
+
+   \begin{enumerate}[(A)]
+   \item It must be a rotation with the same center of rotation but
+     with a different angle of rotation.
+   \item It must be a rotation with the same angle of rotation but with a
+     different center of rotation.
+  \item It must be a reflection about a line passing through the
+    center of rotation.
+  \item It must be a reflection about a line {\em not} passing through
+    the center of rotation.
+  \item It must be a translation.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The angle of rotation must remain the same. We
+  can see this by imagining some kind of physical figure that is made
+  to undergo the rotation and then the translation. The rotation
+  changes the direction of the figure by the angle of rotation. The
+  translation then preserves the direction of the figure. The
+  composite should also change the direction of the figure by the same
+  angle, hence must be a rotation by the same angle. The center of
+  rotation may well be different, and in fact, must be different if
+  the translation is nontrivial.
+
+  {\em Performance review}: 17 out of 27 got this. 3 each chose
+  (A) and (E), 2 chose (D), 1 chose (C), 1 left the question blank.
+
+  {\em Historical note (last time)}: $16$ out of $27$ got this. $7$ chose (A),
+  $2$ chose (C), $1$ each chose (D) and (E).
+\item An affine linear automorphism of $\R^2$ is termed {\em
+  area-preserving} if it preserves areas, i.e., the area of the image
+  of any triangle under the automorphism is the same as the area of
+  the original triangle. What is the relation between being a
+  self-isometry and being an area-preserving affine linear
+  automorphism of $\R^2$?
+
+  \begin{enumerate}[(A)]
+  \item Being a self-isometry is precisely the same as being an
+    area-preserving affine linear automorphism.
+  \item Every self-isometry is area-preserving, but not every
+    area-preserving affine linear automorphism is a self-isometry.
+  \item Every area-preserving affine linear automorphism is a
+    self-isometry, but not every self-isometry is area-preserving.
+  \item A self-isometry need not be an area-preserving affine linear
+    automorphism, and an area-preserving affine linear automorphism
+    need not be a self-isometry.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: If something preserves lengths, it sends
+  triangles to congruent triangles, hence it also preserves areas.
+
+  There can be area-preserving affine linear automorphisms that are
+  not self-isometries. Shear operations, such as the one with this
+  matrix:
+
+  $$\left[\begin{matrix} 1 & 1 \\ 0 & 1 \\\end{matrix}\right]$$
+
+  are examples. The point is that areas still get preserved. For
+  instance, a triangle based on the $x$-axis gets bent out of shape,
+  but its base and height remain the same, hence its area remains the
+  same.
+
+  {\em Performance review}: 12 out of 27 got this. 9 chose (A), 4
+  chose (C), 1 chose (D), 1 left the question blank.
+
+  {\em Historical note (last time)}: $15$ out of $27$ got this. $5$ chose (A),
+  $3$ each chose (C) and (D), $1$ left the question blank.
+
+\item An affine linear automorphism of $\R^2$ is termed {\em
+  orientation-preserving} if it preserves orientation, i.e., it does
+  not interchange left with right. An affine linear automorphism of
+  $\R^2$ is termed {\em orientation-reversing} if it reverses
+  orientation, i.e., it interchanges the roles of left and
+  right. Obviously, the composite of two orientation-preserving affine
+  linear automorphisms is orientation-preserving. What can we say
+  about the composite of two orientation-reversing affine linear
+  automorphisms?
+
+  \begin{enumerate}[(A)]
+  \item It must be orientation-preserving
+  \item It must be orientation-reversing
+  \item It may be orientation-preserving or orientation-reversing
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Reversing the orientation means switching the
+  roles of left and right. Reversing the orientation a second time
+  means switching the roles back. Thus, the composite of
+  orientation-preserving.
+
+  {\em Performance review}: 20 out of 27 got this. 6 chose (C), 1 left
+  the question blank.
+
+  {\em Historical note (last time)}: $24$ out of $27$ got this. $2$ chose (B),
+  $1$ chose (C).
+\item The linear automorphism of $\R^2$ with matrix:
+
+  $$\left[\begin{matrix} 1 & 1 \\ 0 & 1 \\\end{matrix}\right]$$
+
+  is an example of a {\em shear automorphism}. Which of the following
+  is this automorphism {\em not}? Please see options (D) and (E)
+  before answering.
+
+  \begin{enumerate}[(A)]
+  \item Area-preserving
+  \item Orientation-preserving
+  \item Self-isometry
+  \item None of the above, i.e., it is area-preserving,
+    orientation-preserving, and a self-isometry
+  \item All of the above, i.e., it is not area-preserving, not
+    orientation-preserving, and not a self-isometry of $\R^2$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The vector $\left[\begin{matrix} 0 \\ 1
+      \\\end{matrix}\right]$ maps to the vector $\left[\begin{matrix}
+      1 \\ 1 \\\end{matrix}\right]$. The original vector had length
+  $1$, but the new vector has length $\sqrt{2}$, so the map does not
+  preserve length. It does preserve area and orientation.
+
+  {\em Performance review}: 15 out of 27 got this. 6 chose (E), 3
+  chose (D), 2 chose (A).
+
+  {\em Historical note (last time)}: $16$ out of $27$ got this. $4$ each chose
+  (A) and (D), $3$ chose (B).
+
+\item Which of the following is guaranteed to send any triangle in
+  $\R^2$ to a similar triangle? Please see Options (D) and (E) before
+  answering.
+
+  \begin{enumerate}[(A)]
+  \item Linear automorphism
+  \item Affine linear automorphism
+  \item Self-homothety
+  \item All of the above
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Follows from the definition.
+
+  {\em Performance review}: 13 out of 27 got this. 10 chose (D), 2
+  chose (E), 1 chose (B), 1 left the question blank.
+
+  {\em Historical note (last time)}: $20$ out of $27$ got this. $5$ chose (D),
+  $1$ each chose (A) and (E).
+\end{enumerate}
+\end{document}

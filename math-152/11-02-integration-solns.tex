@@ -1,0 +1,234 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: November 2: Integration}
+\author{Math 152, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+This quiz actually happened on November 7. $11$ people took this
+quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $0$: $2$ people
+\item Score of $1$: $2$ people
+\item Score of $2$: $4$ people
+\item Score of $3$: $2$ people
+\item Score of $4$: $1$ person
+\end{itemize}
+
+The mean score was $1.8$. The problem wise solutions and scores:
+
+\begin{enumerate}
+\item Option (B): $7$ people
+\item Option (A): $7$ people
+\item Option (C): $1$ person
+\item Option (B): $5$ people
+\item Option (E): Nobody
+\end{enumerate}
+
+Overall, performance on Questions 1 and 3 was not as good as it had
+been last year, with Question 3 the most prominent of the lot. I think
+this may have been because I explained something very similar to the
+questions in class last year.
+\section{Solutions}
+
+\begin{enumerate}
+
+\item Suppose $f$ and $g$ are both functions on $\R$ with the property
+  that $f''$ and $g''$ are both everywhere the zero function. For
+  which of the following functions is the second derivative {\em not
+  necessarily} the zero function everywhere?
+
+  \begin{enumerate}[(A)]
+  \item $f + g$, i.e., the function $x \mapsto f(x) + g(x)$
+  \item $f \cdot g$, i.e., the function $x \mapsto f(x)g(x)$
+  \item $f \circ g$, i.e., the function $x \mapsto f(g(x))$
+  \item All of the above, i.e., the second derivative need not be
+    identically zero for any of these functions.
+  \item None of the above, i.e., for all these functions, the second
+    derivative is the zero function.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: $f$ and $g$ are both polynomial functions of
+  degree at most $1$, i.e., they are both constant or linear. A sum of
+  two such functions is again of the same type (i.e., constant or
+  linear). A composite of two such functions is also of the same type
+  (i.e., constant or linear). On the other hand, a product of two such
+  functions need not be of that type, e.g., $x$ times $x$ is $x^2$.
+
+  Note that the question can also be solved without explicitly using
+  the actual form of $f$ and $g$, i.e., by just computing $(f + g)''$,
+  $(f \cdot g)''$, and $(f \circ g)''$. However, this is somewhat more
+  time-consuming.
+
+  {\em Performance review}: $7$ out of $11$ got this correct. $3$
+  chose (E) and $1$ chose (D).
+
+  {\em Historical note (last year)}: $14$ out of $15$ people got this
+  correct. $1$ person chose (D).
+
+\item Suppose $f$ and $g$ are both functions on $\R$ with the property
+  that $f'''$ and $g'''$ are both everywhere the zero function. For
+  which of the following functions is the third derivative {\em
+  necessarily} the zero function everywhere?
+
+  \begin{enumerate}[(A)]
+  \item $f + g$, i.e., the function $x \mapsto f(x) + g(x)$
+  \item $f \cdot g$, i.e., the function $x \mapsto f(x)g(x)$
+  \item $f \circ g$, i.e., the function $x \mapsto f(g(x))$
+  \item All of the above, i.e., the third derivative is identically
+    zero for all of these functions.
+  \item None of the above, i.e., the third derivative is not
+    guaranteed to be the zero function for any of these.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Clearly, $(f + g)''' = f''' + g'''$, so if $f'''
+  = g''' = 0$, then $(f + g)''' = 0$.
+
+  Counterexamples for the others: for products, take $f(x) = g(x) =
+  x^2$. For composites, the same counterexample works. What's
+  different from the previous problem is that while a composite of
+  linear polynomials is linear, a composite of quadratic polynomials
+  has degree $4$.
+
+  {\em Performance review}: $7$ out of $11$ got this correct. $2$
+  chose (B) and $2$ chose (D).
+
+  {\em Historical note (last year)}: $12$ out of $15$ people got this
+  correct. $3$ people chose (D).
+
+\item Suppose $f$ is a function on an interval $[a,b]$, that is
+  continuous except at finitely many interior points $c_1 < c_2 <
+  \dots < c_n$ ($n \ge 1)$, where it has jump discontinuities (hence,
+  both the left-hand limit and the right-hand limit exist but are not
+  equal). Define $F(x) := \int_a^x f(t) \, dt$. Which of the following
+  {\bf is true}?
+
+  \begin{enumerate}[(A)]
+  \item $F$ is continuously differentiable on $(a,b)$ and the
+    derivative equals $f$ wherever $f$ is continuous.
+  \item $F$ is differentiable on $(a,b)$ but the derivative is not
+    continuous, and $F' = f$ on the entire interval.
+  \item $F$ has one-sided derivatives on $(a,b)$ and the left-hand
+    derivative of $F$ at any point equals the left-hand limit of $f$
+    at that point, while the right-hand derivative of $F$ at any point
+    equals the right-hand limit of $f$ at that point.
+  \item $F$ has one-sided derivatives on all points of $(a,b)$ except
+    at the points $c_1, c_2, \dots, c_n$; it is continuous at all
+    these points but does not have one-sided derivatives.
+  \item $F$ is continuous at all points of $(a,b)$ except at the
+  points $c_1, c_2, \dots, c_n$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: On each interval $[c_i,c_{i+1}]$, the function is
+  differentiable on the interior and has one-sided derivatives at the
+  endpoints, which equal the corresponding one-sided limits of
+  $f$. Piecing together the intervals, we get the desired result.
+
+  {\em Performance review}: $1$ out of $11$ got this correct. $4$ each
+  chose (B) and (E), $2$ chose (D).
+
+  {\em Historical note (last year)}: $8$ out of $15$ people got this
+  correct. $5$ people chose (B) and $2$ people chose (D).
+
+  {\em Action point}: We'll review this in class next time.
+
+\item (**) For a continuous function $f$ on $\R$ and a real number
+  $a$, define $F_{f,a}(x) = \int_a^x f(t) \, dt$. Which of the
+  following is {\bf true}?
+
+  \begin{enumerate}[(A)]
+  \item For every continuous function $f$ and every real number $a$,
+    $F_{f,a}$ is an antiderivative for $f$, and every antiderivative
+    of $f$ can be obtained in this way by choosing $a$ suitably.
+  \item For every continuous function $f$ and every real number $a$,
+    $F_{f,a}$ is an antiderivative for $f$, but it is not necessary
+    that every antiderivative of $f$ can be obtained in this way by
+    choosing $a$ suitably. (i.e., there are continuous functions $f$
+    where not every antiderivative can be obtained in this way).
+  \item For every continuous function $f$, every antiderivative of $f$
+    can be written as $F_{f,a}$ for some suitable $a$, but there may
+    be some choices of $f$ and $a$ for which $F_{f,a}$ is not an
+    antiderivative of $f$.
+  \item There may be some choices for $f$ and $a$ for which $F_{f,a}$
+    is not an antiderivative for $f$, and there may be some choices of
+    $f$ for which there exist antiderivatives that cannot be written
+    in the form $F_{f,a}$.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The first clause: for every continuous function
+  $f$ and every real number $a$, $F_{f,a}$ is an antiderivative of $f$
+  is just a restatement of Theorem 5.3.5, which we covered. This
+  already whittles our options down to (A) and (B). To see why (B) is
+  true, imagine a situation where $F_{f,0}$ does not take all real
+  values, e.g., it is an increasing function with horizontal
+  asymptotes at $-1$ and $1$. We have $F_{f,0} - F_{f,a} = F_{f,0}(a)$
+  (by properties of integrals). Thus, there is no way we can choose a
+  value of $a$ for which $F_{f,a} = F_{f,0} + 5$.
+
+  In more intuitive terms, the problem is that whereas for getting all
+  antiderivatives, we should be able to add arbitrary constants, there
+  could be cases where the definite integral between two points cannot
+  be made to include the set of all constants.
+
+  An explicit functional example (unfamiliar to you at this stage) is
+  where $f(x) = 1/(x^2 + 1)$. Then $F_{f,0} = \arctan$ is bounded
+  between $-\pi/2$ and $\pi/2$. Thus, say the function $20 + \arctan
+  x$ cannot be realized as $F_{f,a}$ for any $a$.
+
+  {\em Performance review}: $5$ out of $11$ got this correct. $5$
+  chose (C), $1$ chose (A).
+
+  {\em Historical note (last year)}: $5$ out of $15$ people got this
+  correct. $5$ people chose (A), $4$ people chose (C), and $1$ person
+  chose (D).
+
+  {\em Action point}: We will return to this in Math 153 when we study
+  improper integrals.
+
+\item (**) Suppose $F$ is a differentiable function on an open interval
+  $(a,b)$ and $F'$ is not a continuous function. Which of these
+  discontinuities can $F'$ have?
+
+  \begin{enumerate}[(A)]
+  \item A removable discontinuity (the limit exists and is finite but
+    is not equal to the value of the function)
+  \item An infinite discontinuity (one or both the one-sided limits is
+    infinite)
+  \item A jump discontinuity (both one-sided limits exist and are
+    finite, but not equal)
+  \item All of the above
+  \item None of the above
+  \end{enumerate}
+  
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: This is hard -- perhaps part of a future
+  challenge problem, so won't say more more. Briefly, the only kinds
+  of discontinuities allowed are oscillatory discontinuities, of the
+  kind seen with the derivative of $x^2\sin (1/x)$ at $0$.
+
+  {\em Performance review}: Nobody got this correct. $3$ each chose
+  (B), (C), (D), and $1$ chose (A).
+
+  {\em Historical note (last year)}: Nobody got this correct.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,128 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, amssymb}
+
+%Title details
+\title{Extending the Baer correspondence to 2-groups: result summary}
+\author{Vipul Naik}
+
+%List of new commands
+\newcommand{\Skew}{\operatorname{Skew}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\makeindex
+\begin{document}
+\maketitle
+
+Here are the main results presented in a form that stands independent
+of the more detailed document. In our setup, $E$ is a (finite) group
+of nilpotency class two. Without loss of generality, we can assume $E$
+to be a $2$-group of class two. $A$ is a central subgroup of $E$ and
+$G = E/A$ is abelian. In other words, $[E,E] \le A \le Z(E)$.
+
+We use the following two terms:
+
+\begin{enumerate}
+\item For $E$ a group with central subgroup $A$ and abelian quotient
+  group $G$, a {\em generalized Baer Lie ring} for the extension is a
+  Lie ring $L$ also viewed as a central extension with base $A$ and
+  quotient $G$, along with a bijection from $E$ to $L$ that (i) is a
+  $1$-isomorphism (ii) induces identity maps on the $A$ and $G$
+  parts. Usually,we identify $E$ with $L$ as a set.
+\item For $E$ a group of nilpotency class two, a {\em generalized Baer
+  Lie ring} is a Lie ring $L$ along with a bijection between $L$ and
+  $E$ that arises as a generalized Baer Lie ring for some way of
+  viewing $E$ as a central extension with abelian quotient group.
+\end{enumerate}
+
+Now, the results.
+
+\begin{theorem}[Uniqueness theorem]\label{uniqueness}
+  Assume $A$ and $G$ are both finite abelian groups with $G$ acting
+  trivially on $A$. Then, for any extension group $E$ with base $A$
+  (central) and quotient group $G$, there is at most one generalized
+  Baer Lie ring (up to equivalence of extensions) for that extension
+  group.
+\end{theorem}
+
+Here's a conjecture that I've almost (but not completely) proved:
+
+\begin{conjecture}
+  If a generalized Baer Lie ring exists for $E$, then the generalized
+  Baer Lie ring is independent of the way of viewing $E$ as a central
+  extension (i.e., it is independent of the choice of $A$ and $G$).
+\end{conjecture}
+
+Next, we consider various conditions for a generalized Baer Lie ring to exist:
+
+\begin{theorem}
+  Suppose $E$ is a class two $2$-group such that $E/Z(E)$ is the
+  direct product of a cyclic group and an elementary abelian
+  group. Then, $E$ has a generalized Baer Lie ring if and only if
+  $[E,E] \subseteq \mho^1(Z(E))$.
+\end{theorem}
+
+Here's a theorem that follows from the above using the construction of
+a central product.
+
+\begin{theorem}\label{embedding}
+  Suppose $P$ is a class two $2$-group such that $P/Z(P)$ is the
+  direct product of a cyclic group and an elementary abelian
+  group. Then, $P$ can be embedded in a class two $2$-group $E$ such
+  that $E$ has a generalized Baer Lie ring.
+\end{theorem}
+
+Here's my conjecture.
+
+\begin{conjecture}
+  Suppose $E$ is a class two $2$-group. Let $r$ be the number such
+  that $2^r$ is the second largest of the elementary divisors for
+  $E/Z(E)$. Then, $E$ has a generalized Baer Lie ring if and only if
+  $[E,E] \le \mho^r(Z(E))$.
+\end{conjecture}
+
+If this conjecture were true, we would also be able to prove the
+following using the central product construction:
+
+\begin{conjecture}
+  Every class two $2$-group $P$ can be embedded in some class two
+  $2$-group $E$ such that $E$ has a generalized Baer Lie ring.
+\end{conjecture}
+
+Note that this last conjecture could well be true even if the
+conjecture before it were false -- because the specifics of that
+conjecture are not that important to proving this one.
+
+A quick numerical summary:
+
+\begin{itemize}
+\item For order $16$, there are two cases of a non-abelian group of
+  class two having a generalized Baer Lie ring. These explain all the
+  non-abelian groups of class two that are $1$-isomorphic to abelian
+  groups.
+\item For order $32$, there are six cases of a non-abelian group of
+  class two having a generalized Baer Lie ring. These explain six of
+  the eight non-abelian groups of class two that are $1$-isomorphic to
+  abelian groups.
+\end{itemize}
+Areas that I am exploring:
+
+\begin{itemize}
+\item Proving all the conjectures stated above: the generalized Baer
+  Lie ring being independent of the central extension perspective
+  (this should be easy), and the conjecture for the case where
+  $E/Z(E)$ is more complicated than just a direct product of a cyclic
+  group an dan elementary abelian group.
+\item In principle, there is a way of extending this to class three
+  for the primes $2$ and $3$ (but no further) -- however, I have not
+  connected these principled possibilities to some of the actual
+  examples that arise for the primes $2$ and $3$.
+\item There are {\em some} examples (two such of order $32$) where a
+  non-abelian group of class two is $1$-isomorphic to an abelian group
+  but this $1$-isomorphism does {\em not} seem to arise from a
+  generalized Baer Lie ring. I am trying to figure out whether the
+  $1$-isomorphism arises purely as an accident or whether there is
+  some alternative deeper explanation for it.
+\end{itemize}
+\end{document}

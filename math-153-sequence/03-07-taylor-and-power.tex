@@ -1,0 +1,303 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Hybrid take-home plus class quiz: March 7: Taylor series and power series}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+Your name (print clearly in capital letters): $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+
+{\bf PLEASE ATTEMPT THIS QUIZ BEFORE CLASS. I WILL GIVE YOU TIME TO
+REVIEW AND UPDATE YOUR SOLUTIONS IN CLASS, BUT THIS WILL NOT BE
+SUFFICIENT TO ATTEMPT ALL QUESTIONS FROM SCRATCH.}
+
+{\bf FEEL FREE TO DISCUSS ALL QUESTIONS, BUT ONLY ENTER ANSWER CHOICES
+THAT YOU PERSONALLY ENDORSE.}
+
+For these questions, we denote by $C^\infty(\R)$ the space of
+functions from $\R$ to $\R$ that are {\em infinitely} differentiable
+{\em everywhere} in $\R$.
+
+We denote by $C^k(\R)$ the space of functions from $\R$ to $\R$ that
+are at least $k$ times continuously differentiable on all of
+$\R$. Note that for $k \ge l$, $C^k(\R)$ is a subspace of
+$C^l(\R)$. Further, $C^\infty(\R)$ is the intersection of $C^k(\R)$
+for all $k$.
+
+We say that a function $f$ is analytic about $c$ if the Taylor series
+of $f$ about $c$ converges to $f$ on some open interval about $c$. We
+say that $f$ is {\em globally analytic} if the Taylor series of $f$
+about $0$ converges to $f$ everywhere on $\R$.
+
+It turns out that if a function is globally analytic, then it is
+analytic not only about $0$ but about any other point. In particular,
+globally analytic functions are in $C^\infty(\R)$.
+
+\begin{enumerate}
+\item Recall that if $f$ is a function defined and continuous around
+  $c$ with the property that $f(c) = 0$, the order of the zero of $f$
+  at $c$ is defined as the least upper bound of the set of real $\beta$ for
+  which $\lim_{x \to c} |f(x)|/|x - c|^\beta = 0$. If $f$ is in
+  $C^{\infty}(\R)$, what can we conclude about the orders of zeros of
+  $f$? {\em Last year: $11/26$ correct}
+
+  \begin{enumerate}[(A)]
+  \item The order of any zero of $f$ must be between $0$ and $1$.
+  \item The order of any zero of $f$ must be between $1$ and $2$.
+  \item The order of any zero of $f$, if finite, must be a positive
+  integer.
+  \item The order of any zero of $f$ must be exactly $1$.
+  \item The order of any zero of $f$ must be $\infty$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item For the function $f(x) := x^2 + x^{4/3} + x + 1$ defined on
+  $\R$, what can we say about the Taylor polynomial about $0$? {\em
+  Last year: $8/26$ correct}
+
+  \begin{enumerate}[(A)]
+  \item No Taylor polynomial is defined for $f$.
+  \item $P_0(f)(x) = 1$, $P_n(f)$ is not defined for $n > 0$.
+  \item $P_0(f)(x) = 1$, $P_1(f)(x) = 1 + x$, $P_n(f)$ is not defined
+    for $n > 1$.
+  \item $P_0(f)(x) = 1$, $P_1(f)(x) = 1 + x$, $P_2(f) = f$, and
+    $P_n(f)$ is not defined for $n > 2$.
+  \item $P_0(f)(x) = 1$, $P_1(f)(x) = 1 + x$, $P_2(f) = f$, and
+    $P_n(f) = f$ for all $n > 2$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Which of the following functions is in $C^\infty(\R)$ but is
+  {\em not} analytic about $0$? {\em Last year: $3/26$ correct}
+
+  \begin{enumerate}[(A)]
+  \item $f_1(x) := \lbrace \begin{array}{rl} (\sin x)/x, & x \ne 0\\ 1, & x = 0 \\\end{array}$
+  \item $f_2(x) := \lbrace \begin{array}{rl} e^{-1/x}, & x \ne 0\\ 0, & x = 0 \\\end{array}$
+  \item $f_3(x) := \lbrace \begin{array}{rl} e^{-1/x^2}, & x \ne 0\\ 0, & x = 0 \\\end{array}$
+  \item $f_4(x) := \lbrace \begin{array}{rl} \sin(1/x), & x \ne 0 \\ 0, & x = 0 \\\end{array}$
+  \item All of the above.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Which of the following functions is in $C^\infty(\R)$ and is
+  analytic about $0$ but is not globally analytic? {\em Last year:
+  $7/26$ correct}
+  \begin{enumerate}[(A)]
+  \item $x \mapsto \ln(1 + x^2)$
+  \item $x \mapsto \ln(1 + x)$
+  \item $x \mapsto \ln(1 - x)$
+  \item $x \mapsto \exp(1 + x)$
+  \item $x \mapsto \exp(1 - x)$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Which of the following is an example of a globally analytic
+  function whose reciprocal is in $C^\infty(\R)$ but is not globally
+  analytic? {\em Last year: $10/26$ correct}
+
+  \begin{enumerate}[(A)]
+  \item $x$
+  \item $x^2$
+  \item $x + 1$
+  \item $x^2 + 1$
+  \item $e^x$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Consider the rational function $1/\prod_{i=1}^n (x - \alpha_i)$,
+  where the $\alpha_i$ are all distinct real numbers. This rational
+  function is analytic about any point other than the $\alpha_i$s, and
+  in particular its Taylor series converges to it on the interval of
+  convergence. What is the radius of convergence for the Taylor series
+  of the rational function about a point $c$ not equal to any of the
+  $\alpha_i$s? {\em Last year: $10/26$ correct}
+
+  \begin{enumerate}[(A)]
+  \item It is the minimum of the distances from $c$ to the $\alpha_i$s.
+  \item It is the second smallest of the distances from $c$ to the
+    $\alpha_i$s.
+  \item It is the arithmetic mean of the distances from $c$ to the $\alpha_i$s.
+  \item It is the second largest of the distances from $c$ to the
+    $\alpha_i$s.
+  \item It is the maximum of the distances from $c$ to the $\alpha_i$s.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item What is the interval of convergence of the Taylor series for
+  $\arctan$ about $0$? {\em Last year: $11/26$ correct}
+  
+  \begin{enumerate}[(A)]
+  \item $(-1,1)$
+  \item $[-1,1)$
+  \item $(-1,1]$
+  \item $[-1,1]$
+  \item All of $\R$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Consider the function $F(x,p) = \sum_{n=1}^\infty x^n/n^p$. For
+  fixed $p$, this is a power series in $x$. What can we say about the
+  interval of convergence of this power series about $x = 0$, in terms
+  of $p$ for $p \in (0,\infty)$? {\em Last year: $4/26$ correct}
+  \begin{enumerate}[(A)]
+  \item The interval of convergence is $(-1,1)$ for $0 < p \le 1$ and
+    $[-1,1]$ for $p > 1$.
+  \item The interval of convergence is $(-1,1)$ for $0 < p < 1$ and
+    $[-1,1]$ for $p \ge 1$.
+  \item The interval of convergence is $[-1,1)$ for $0 < p \le 1$ and
+    $[-1,1]$ for $p > 1$.
+  \item The interval of convergence is $(-1,1]$ for $0 < p < 1$ and
+    $[-1,1]$ for $p \ge 1$.
+  \item The interval of convergence is $(-1,1)$ for $0 < p \le 1$ and
+    $[-1,1)$ for $p > 1$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Which of the following functions of $x$ has a power series
+  $\sum_{k=0}^\infty x^{4k}/(4k)!$? {\em Last year: $9/26$ correct}
+  \begin{enumerate}[(A)]
+  \item $(\sin x + \sinh x)/2$
+  \item $(\sin x - \sinh x)/2$
+  \item $(\sinh x - \sin x)/2$
+  \item $(\cosh x + \cos x)/2$
+  \item $(\cosh x - \cos x)/2$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item What is the sum $\sum_{k=0}^\infty (-1)^kx^{2k}/k!$? Note that
+  the denominator is $k!$ and {\em not} $(2k)!$. {\em Last year:
+  $12/26$ correct}
+
+  \begin{enumerate}[(A)]
+  \item $\cos x$
+  \item $\sin x$
+  \item $\cos(x^2)$
+  \item $\cosh(x^2)$
+  \item $\exp(-x^2)$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Define an operator $R$ from the space of power series about $0$
+  to the set $[0,\infty]$ (nonnegative real numbers along with
+  $+\infty$) that sends a power series $a = \sum a_kx^k$ to the radius
+  of convergence of the power series about $0$. For two power series
+  $a$ and $b$, $a + b$ is the sum of the power series. What can we say
+  about $R(a + b)$ given $R(a)$ and $R(b)$? {\em Last year: $3/26$ correct}
+
+  \begin{enumerate}[(A)]
+  \item $R(a + b) = \max \{ R(a), R(b) \}$ in all cases.
+  \item $R(a + b) = \min \{ R(a), R(b) \}$ in all cases.
+  \item $R(a + b) = \max \{ R(a), R(b) \}$ if $R(a) \ne R(b)$. If
+    $R(a) = R(b)$, then $R(a + b)$ could be any number greater than or
+    equal to $\max \{ R(a), R(b) \}$.
+  \item $R(a + b) = \max \{ R(a), R(b) \}$ if $R(a) \ne R(b)$. If
+    $R(a) = R(b)$, then $R(a + b)$ could be any number less than or
+    equal to $\max \{ R(a), R(b) \}$.
+  \item $R(a + b) = \min \{ R(a), R(b) \}$ if $R(a) \ne R(b)$. If
+    $R(a) = R(b)$, then $R(a + b)$ could be any number greater than or
+    equal to $\min \{ R(a), R(b) \}$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Which of the following is/are true? {\em Last year: $5/26$ correct}
+
+  \begin{enumerate}[(A)]
+  \item If we start with any function in $C^\infty(\R)$ and take the
+    Taylor series about $0$, the Taylor series converges everywhere on
+    $\R$.
+  \item If we start with any function in $C^\infty(\R)$ and take the
+    Taylor series about $0$, the Taylor series converges to the
+    original function on its interval of convergence (which may not be
+    all of $\R$).
+  \item If we start with a power series about $0$ that converges
+    everywhere in $\R$, then the function it converges to is in
+    $C^\infty(\R)$ and its Taylor series about $0$ equals the original
+    power series.
+  \item All of the above.
+  \item None of the above.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Consider the function $f(x) := \sum_{k=0}^\infty
+  x^k/(k!)^2$. The power series converges everywhere, so the function
+  is globally analytic. What pair of functions bounds $f$ from above
+  and below for $x > 0$? {\em Last year: $12/26$ correct}
+
+  \begin{enumerate}[(A)]
+  \item $\exp(x)$ from below and $\cosh(2x)$ from above.
+  \item $\exp(x)$ from below and $\cosh(x^2)$ from above.
+  \item $\exp(x/2)$ from below and $\exp(x)$ from above.
+  \item $\cosh(\sqrt{x})$ from below and $\exp(x)$ from above.
+  \item $\cosh(2x)$ from below and $\cosh(x^2)$ from above.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Consider the function $f(x) := \sum_{k=0}^\infty
+  x^k/2^{k^2}$. The power series converges everywhere, so $f$ is a
+  globally analytic function. What is the best description of the
+  manner in which $f$ grows as $x \to \infty$? {\em Last year: $12/26$
+  correct}
+
+  \begin{enumerate}[(A)]
+  \item $f$ grows polynomially in $x$.
+  \item $f$ grows faster than any polynomial function but slower than
+    any exponential function of $x$.
+  \item $f$ grows like an exponential function of $x$.
+  \item $f$ grows faster than any exponential function but slower than
+    any doubly exponential function of $x$.
+  \item $f$ grows like a doubly exponential function of $x$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+
+\end{enumerate}
+
+\end{document}

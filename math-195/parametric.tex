@@ -1,0 +1,685 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Parametric stuff}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 10.1, 10.2. {\em We
+are omitting the topic of surface area mentioned at the end of Section
+10.2 of the book}.
+
+{\bf What students should definitely get}: Parametric descriptions of
+curves, relationship with functional and relational descriptions,
+domain of parameters, parametric differentiation, arc length.
+
+{\bf What students should hopefully get}: Distinction between curve
+and parameterization, self-intersections, going back and forth between
+parametric and relational descriptions, the subtletly behind higher
+derivatives.
+
+\section*{Note on lecture notes and book}
+
+The lecture notes are intended to be a reasonably faithful version of
+what was planned for the lecture, though the actual contents of the
+lecture may deviate somewhat.
+
+I generally avoid doing a lot of worked examples of the kind that are
+already present in the book. You are encouraged to read the worked
+examples and other discussions in the book to get a different
+perspective when you sit down to do the weekly homework.
+
+The book often has some fancy examples (for instance, cycloids,
+strophoids, conchoids, cissoids, cochleoids, cardioids, etc.)  that
+are fun to read, but you are not expected to have a thorough mastery
+of this stuff for the course. The level of difficulty of the tests is
+roughly going to be like the routine homeworks, with a few multiple
+choice questions of the level of difficulty of the quizzes and one
+question at the level of the advanced homeworks.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item A parametric description of a curve is one where both
+  coordinates are expressed as functions of of a parameter, typically
+  denoted $t$. Parametric descriptions offer an alternative to
+  functional and implicit (relational) descriptions of curves. Here,
+  $t$ varies over some subset of the real numbers. In symbols, we have
+  something like $x = f(t)$, $y = g(t)$, where $t$ varies over some
+  subset $D$ of the real numbers.
+\item Descriptions where $x$ is a function of $y$ or $y$ is a function
+  of $x$ are special cases of parametric descriptions.
+\item The same curve may admit multiple parametrizations, and
+  different parameterizations may correspond to different speeds and
+  different orderings of traversal of the point. The curve itself only
+  contains the information of {\em what} points were traversed, not
+  the information of the {\em sequence} and {\em pace} in which they
+  were traversed.
+\item The curve traced by a parameterization depends not only on the
+  coordinate functions but also the domain for the parameter. The
+  larger the domain, in general, the larger the curve traced. However,
+  in some cases, expanding the domain may not make the curve strictly
+  larger. This happens in cases where both coordinate functions are
+  even or have commensurable periods.
+\item A parameterization of a curve may involve self-intersections,
+  retracings (e.g., tracing back for even function pairs), or even
+  wrapping around itself (for periodic function pairs).
+\item Function composition allows us to switch between multiple
+  parameterizations.
+\item In some cases, it is possible to move back and forth between
+  parametric and relational descriptions.
+\item Parametric differentiation: if $x = f(t)$ and $y = g(t)$, then
+  $dy/dx = (dy/dt)/(dx/dt) = g'(t)/f'(t)$. This can also be used to
+  differentiate repeatedly. Note that the derivative is a function of
+  $t$ rather than of $(x,y)$, so to find the derivative given the
+  point $(x,y)$ we need to go back and determine $t$.
+\item Higher derivatives can be computed iteratively using parametric
+  differentiation. But note that it is {\em not} true that $d^2y/dx^2
+  = (d^2y/dt^2)/(d^2x/dt^2)$. The actual formula/procedure is more
+  complicated (see lecture notes).
+\item Arc length: The formula for arc length from $t = a$ to $t = b$
+  (with $a < b$) is $\int_a^b \sqrt{(dx/dt)^2 + (dy/dt)^2} \, dt$.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item {\em Parametric to relational: elimination of parameter}: In
+  many cases, it is possible to eliminate a parameter from a
+  parametric description. The idea is to use some well known
+  identities or manipulation techniques to try to directly relate $x$
+  and $y$ by finding some equation between them that is true for all
+  $t$. However, this is not the full story. We next need to see if
+  there are additional restrictions on $x$ and $y$ deducible from the
+  fact that they arose as function of $t$, also keeping in mind the
+  domain restrictions on $t$.
+
+  For instance, the parameterization $x = t^2, y = t^4$ for $t \in \R$
+  can be rewritten as $y = x^2$, but we need the additional condition
+  that $x \ge 0$.
+
+  See more examples in the lecture notes, quizzes, and homeworks.
+\item {\em Relational to parametric}: Here, we see a relation between
+  $x$ and $y$, and try to choose a parametric description that would
+  give rise to the relation. Again, the domain of choice for the
+  parameter needs to be chosen wisely.
+
+  See more examples in the lecture notes and quizzes.
+\item {\em Parametric differentiation and geometric consequences}: We
+  use the formula $(dy/dt)/(dx/dt)$. If $x = f(t)$ and $y = g(t)$,
+  then this becomes $g'(t)/f'(t)$. This is valid for all $t$ in the
+  interior of the domain of definition where both $f'$ and $g'$ are
+  defined and $f' \ne 0$. If $f'(t) = 0$ but $g'(t) \ne 0$, we have a
+  vertical tangent situation. If $g'(t) = 0$ but $f'(t) \ne 0$, we
+  have a horizontal tangent situation.
+\end{enumerate}
+
+\section{An introduction to the parametric approach}
+
+\subsection{Describing curves: the old ways}
+
+In single variable calculus, you saw two main kinds of ways that
+curves in the $xy$-coordinate plane can be described:
+
+\begin{itemize}
+\item Explicit functional descriptions, where one coordinate is
+  written as a function of the other, i.e., $y = f(x)$ or $x = f(y)$
+  type form. The $y = f(x)$ type description must satisfy the vertical
+  line test.
+\item Implicit descriptions or relational descriptions, where an
+  expression in both variables is declared to be zero, i.e., $R(x,y) =
+  0$ where $R$ is an expression that involves both $x$ and
+  $y$. Implicit descriptions need not define functions globally,
+  though under suitable conditions, they may still define functions
+  locally. You saw implicit descriptions when looking at implicit
+  differentiation, and later you saw that the general solution to a
+  differential equation often appears naturally first in the form of
+  an implicit description, and depending on the circumstances, it may
+  or may not be possible to write $y$ {\em explicitly} as a function
+  of $x$.
+\end{itemize}
+
+\subsection{A new approach: a parameter}
+
+In addition to {\em functional} and {\em relational} descriptions of
+curves, there is a third kind of description called a {\em parametric}
+description. Here, we find functions $f$ and $g$ and a parameter $t$ and write:
+
+$$x = f(t), y = g(t), t \in D$$
+
+where $D$ is a subset of $\R$. The curve traced by this parametric description is precisely the set of points:
+
+$$\{ (f(t),g(t)) : t \in D \}$$
+
+One way of thinking of this is that $t$ is time, and there is a
+particle such that the $x$-coordinate of its location at time $t$ is
+$f(t)$ and the $y$-coordinate is $g(t)$. In other words, the location
+of the particle at time $t$ is functionally dependent on $t$, with
+each coordinate given by its own function. The set $D$ is the set of
+times for which this is valid.
+
+\subsection{The relation between functional and parametric descriptions}
+
+Functional descriptions (where one of the coordinates $x$, $y$ is
+expressed in terms of the other) are special cases of parametric
+descriptions as follows:
+
+\begin{itemize}
+\item If $f$ is the identity function (i.e., $f(t) = t$ by definition)
+  then the curve is the graph of the function $y = g(x)$ with $x \in
+  D$.
+\item If $g$ is the identity function (i.e., $g(t) = t$ by definition)
+  then the curve is the graph of the function $x = f(y)$ with $y \in
+  D$.
+\end{itemize} 
+
+\subsection{Parameterization}
+
+Given a curve, a particular parametric description of the curve is
+termed a {\em parameterization} of the curve. We say that the
+parameterization is {\em continuous} if the function $f$ and $g$ are
+continuous (and also, typically, we assume that $D$ is connected) and
+we say that the parameterization is {\em smooth} if it is continuous
+and the functions $f$ and $g$ are continuously differentiable on the
+interior of $D$ (in some definitions, ``smooth'' requires us to assume
+that $f$ and $g$ are both infinitely differentiable).
+
+\subsection{Parameterization: a story reconstruction}
+
+A curve, or a subset of the plane, is a static entity. It's just
+there, all at once.
+
+A parameterization creates a {\em story} behind the curve. The story
+reveals, how, with the passage of time (the parameter $t$) the curve
+was gradually constructed.
+
+However, the important point to note here is that we have a lot of
+leeway in how to construct this story. We can think of the curve as a
+collection of trails left behind by a wild animal -- but it's up to us
+to connect the dots and decide just {\em how fast} the wild animal
+moved. We even have leeway in determining {\em which direction} the
+wild animal moved -- there are two mutually opposite directions of
+motion that would leave the same trail. The trails don't give us
+conclusive information in this regard.
+
+The upshot is that the same curve can have multiple
+parameterizations. These parameterizations differ in the speed with
+which they go through stuff. They could also differ in other subtler
+ways.
+
+For instance, the curve $y = x^2$ can be represented using the
+parameterization $x = t$, $y = t^2$ or using the parameterization $x =
+t^3$, $y = t^6$, or using the parameterization $x = \sinh t$, $y =
+\sinh^2 t$.
+
+There is an additional leeway we have in some cases: in case the curve
+is self-intersecting, we have further leeway in choosing the order of
+paths taken by the curves, i.e., the sequence in which various trails
+were left.
+\subsection{Choice of domain}
+
+The same pair of function $f$ and $g$ can define different curves
+depending on the domain of the variable $t$. In general, if $D_1
+\subseteq D_2$, then the curve obtained by making $t$ vary over $D_1$
+is a subset of the curve obtained by varying $t$ over $D_2$.
+
+However, just because $D_1$ is a {\em proper} subset of $D_2$ does not
+necessarily mean that the corresponding curve is a {\em proper}
+subset. For instance, the circle $x^2 + y^2 = 1$ can be described by
+$x = \cos t$, $y = \sin t$, for $t \in [0,2\pi]$, but allowing $t$ to
+vary over the much bigger set of {\em all} real numbers gives the {\em
+same} circle. Similarly, the curve given by $x = t^2, y = t^4$ is the
+same whether we let $t$ vary over all nonnegative reals or whether we
+let $t$ vary over all reals. In both cases, it is the graph of the
+function $y = x^2$ restricted to $x \ge 0$.
+
+\subsection{Different letter for the parameter}
+
+In most cases, we use the parameter $t$ and we're secretly thinking of
+time. However, there is nothing sacred about $t$, and we could use any
+other letter such as $u$ or $\theta$.
+
+\subsection{Switching between multiple parametric descriptions}
+
+Consider a parametric description $x = f(t)$, $y = g(t)$. Suppose we
+consider a function $h$. Then we can define a new parametric
+description using $t = h(u)$, i.e., we now define $x = f(h(u))$ and $y
+= g(h(u))$ with $u$ the new parameter. We do need to worry about
+domain issues, but this is best seen in context.
+
+\section{The topology and geometry of parametric descriptions}
+
+\subsection{Various kinds of repetitions}
+
+The same point $(x,y)$ may occur in a given parametric description for
+multiple values of $t$. Some possible ways that this repetition could
+occur are given below -- note that the list is not exhausitve:
+
+\begin{itemize}
+\item {\em Self-intersection at an isolated point}: Here, just a single
+  point is repeated, and the behavior around the point is not
+  repeated. The curve thus intersects itself. For instance, the curve
+  $x = t(t-1)(t-2)$, $y = t(t-1)(t-3)$ gives the same point pair
+  $(0,0)$ for $t = 0$ and $t = 1$, but the curve intersects itself
+  only at this isolated point.
+\item {\em Reverse trace}: Here, the curve traces back along
+  itself. This occurs when both functions have a common axis of mirror
+  symmetry. For instance, $x = t(1 - t)$ and $y = \sin(\pi t)$ are
+  both functions with mirror symmetry about $t = 1/2$. Thus, the path
+  traced from $-\infty$ to $1/2$ is retraced in reverse from $1/2$ to
+  $\infty$. As an easier example, if both coordinates are defined by
+  even functions, then the path traced from $-\infty$ to $0$ is traced
+  back in reverse from $0$ to $\infty$.
+\item {\em Wrap around itself}: Here, the curve wraps around
+  itself. This occurs if both $x$ and $y$ are periodic functions with
+  equal or commensurable periods. The canonical example is $x = \cos
+  t$, $y = \sin t$.
+\end{itemize}
+
+\subsection{Dense fillings and such curves}
+
+Some parameterizations can fill an area pretty densely. One example is
+the parameterization $x = \sin t$, $y = \sin(\alpha t)$ where $\alpha$
+is an irrational number. Note first that both $x$ and $y$ remain in
+$[-1,1]$, so this curve remains in a closed bounded region, namely the
+square with vertices with $(x,y)$-coordinates $(1,1)$, $(-1,1)$,
+$(-1,-1)$, and $(1,-1)$. It turns out that the curve covers the square
+densely as $t \in \R$.
+
+\subsection{Closed intervals, open intervals, disconnections, etc.}
+
+We have an intuitive idea of what it means for a subset of the real
+numbers to be {\em connected}. For subsets of the real numbers to be
+connected is equivalent to its being an {\em interval}, which may be
+open, closed, or infinite at one or both ends.
+
+Typically, when we perform a parameterization $x = f(t)$, $y = g(t)$,
+$t \in D$, then $D$ is taken to be an interval. We make some notes:
+
+\begin{itemize}
+\item If $D$ is a closed bounded interval, i.e., of the form $[a,b]$
+  for $a < b$ both finite, then the curve traced is a curve that
+  includes its endpoints, and hence is also closed and
+  bounded. Basically, the image of something closed and bounded is
+  closed and bounded. This is a result of topology that is also
+  responsible for the {\em extreme value theorem} which you have seen
+  in single variable calculus.
+\item In other cases, the curve traced may or may not be closed and
+  bounded. We cannot say anything for sure.
+\end{itemize}
+\section{Converting back and forth between the various forms}
+
+Here we discuss the back and forth:
+
+Parametric description $\leftrightarrow$ Implicit (relational) description
+
+You will not be expected to actually execute this back and forth except
+in some simple cases. The purpose of this discussion is simply to
+illustrate this with simple examples.
+\subsection{Proceeding from a parametric to a relational description}
+
+The key idea here is to notice how $x$ and $y$ relate to the parameter
+$t$, and then try to deduce from this a relationship between $x$ and
+$y$ that does not involve $t$. For instance, consider $x = \cos t$ and
+$y = \sin^2t$. In this case, we know that:
+
+$$\cos^2 t + \sin^2 t = 1 \ \forall \ t \in \R$$
+
+Thus, we get that $x$ and $y$ satisfy the relation:
+
+$$x^2 + y = 1$$
+
+Note that in this case, we see that $y$ is in fact a function of $x$:
+
+$$y = 1 - x^2$$
+
+{\em However}, and this is the key point, there may well be a loss of
+information when we move to the relational description. Specifically,
+the parameterization using $t$ imposes the constraints that $-1 \le x
+\le 1$ and $0 \le y \le 1$. On the other hand, the relation $x^2 + y =
+1$ covers a larger swath of possibilities for $x$ and $y$. Thus, we
+need to {\em explicitly} include the restrictions based on the range
+of possible values for $x$ and $y$, in this case, the restriction that
+$x \in [-1,1]$. Since $y$ is determined based on $x$, the additional
+restriction on the value of $y$ is not necessary.
+
+Here are some other examples:
+
+\begin{itemize}
+\item $x = \cosh t$, $y = \sinh t$, $t \in \R$. We obtain that $x^2 =
+  1 + y^2$, with the additional restriction that $x > 0$ (and no
+  restriction on $y$). Alternatively, we can express this as $x =
+  \sqrt{1 + y^2}$. If we write it in this form, the additional
+  restriction is unnecessary.
+\item $x = \cos t$, $y = \cos(2t)$, $t \in \R$. We obtain that $y =
+  2x^2 - 1$, with the additional restriction that $x \in [-1,1]$.
+\item $x = t^3$, $y = t^7$. We can rewrite this as $x^7 = y^3$, with
+  no additional restrictions on $x$ and $y$. Note that the situation
+  becomes a little more tricky if we have even exponents instead of
+  the odd numbers $3$ and $7$.
+\item $x = t^4$, $y = t^2 + 1$, $t \in \R$. We get $x = (y - 1)^2$,
+  with the restriction that $y \ge 1$. 
+\item $x = t^2$, $y = t^3$, $t \in [1,2]$. We get $x^3 = y^2$, with $y
+  \in [1,8]$. 
+\end{itemize}
+
+\subsection{Proceeding from a relational to a parametric description}
+
+Converting a relational description to a {\em nice} parametric
+description is tricky, and occasionally requires the invention of new
+branches of mathematics. For instance, trigonometry is the branch of
+mathematics that was developed to provide a nice parametric
+description for the circle $x^2 + y^2 = 1$. There are some simple
+cases where parametric descriptions are easy to construct, but these
+are usually exceptions.
+
+For instance, for $x^2 - y^2 = 1$, $x > 0$, we could take the
+parametric description $x = \cosh t$ and $y = \sinh t$ for $t \in
+\R$ or the parametric description $x = \sec t$ and $y = \tan t$ for $t
+\in (-\pi/2,\pi/2)$.
+
+\section{Calculus with parameters}
+
+\subsection{Implicit differentiation recall}
+
+You're already aware of how to do differentiation and integration, and
+apply these to geometric situations (tangents, normals, angle of
+intersection, etc.) for curves given explicitly in functional
+form. And you've also seen how to do differentiation of curves given
+in implicit or relational form (it's called {\em implicit
+differentiation}).
+
+We'll spend a few seconds recalling implicit differentiation, since
+there are important parallels and similarities between implicit and
+parametric differentiation.
+
+Implicit differentiation goes something like this -- we start with a
+mixed expression in $x$ and $y$ that describes the curve, e.g.:
+
+$$\sin(x + y) = xy$$
+
+We differentiate both sides:
+
+$$\frac{d(\sin(x + y))}{dx} = \frac{d(xy)}{dx}$$
+
+Now, how would we handle something like $\sin(x + y)$? It is something
+in terms of $x + y$, so we use the chain rule on the left side,
+thinking of $v = x + y$ as the intermediate function:
+
+$$\frac{d(\sin(x + y))}{d(x + y)} \frac{d(x + y)}{dx} = x \frac{dy}{dx} + y \frac{dx}{dx}$$
+
+This simplifies to:
+
+$$ \cos (x + y) \left[1 + \frac{dy}{dx}\right] = x \frac{dy}{dx} + y$$
+
+Opening up the parentheses, we get:
+
+$$\cos(x + y) + \cos(x + y) \frac{dy}{dx} = x \frac{dy}{dx} + y$$
+
+Now, we move stuff together to one side, to get:
+
+$$(\cos(x + y) - x)\frac{dy}{dx} = y - \cos(x + y)$$
+
+And we now isolate $dy/dx$:
+
+$$\frac{dy}{dx} = \frac{y - \cos(x + y)}{\cos(x + y) - x}$$
+
+Notice first that the right side is a {\em mixed expression in both
+$x$ and $y$}, rather than an expression purely in terms of $x$. This
+is to be expected since $y$ is not explicitly a function of $x$. 
+
+But something subtler is going on. When we do differentiation with the
+English letter ``d'' then that notation makes sense {\em only} if $y$
+is (locally) a function of $x$. If it isn't, then the answer above
+notwithstanding, the derivative $dy/dx$ does not exist.
+
+Here's another example: the circle of radius $1$ centered at the
+origin. This is given by the equation $x^2 + y^2 = 1$. Note that in
+this case, $y$ is {\em not} a function of $x$, because for many values
+of $x$, there are two values of $y$. For instance, for $x = 0$, we
+have $y = 1$ and $y = -1$. For $x = 1/2$, we have $y = \sqrt{3}/2$ and
+$y = -\sqrt{3}/2$. So, $y$ is not a function of $x$.
+
+However, {\em locally} $y$ is still a function of $x$, in the
+following sense. If you just restrict yourself to the part above the
+$x$-axis, then you do get $y$ as a function of $x$. This is the
+function $y := \sqrt{1 - x^2}$ for $-1 \le x \le 1$.  If we restrict
+ourselves to the part below the $x$-axis, we consider the function $y
+:= -\sqrt{1 - x^2}$ for $-1 \le x \le 1$.
+
+Now, how do we calculate $dy/dx$? Well, it depends on whether we are
+interested in the part above the $x$-axis or in the part below the
+$x$-axis. For the part above the $x$-axis, we have the function
+$\sqrt{1 - x^2}$, and we get that the derivative is:
+
+$$\frac{d(\sqrt{1 - x^2})}{dx} = \frac{d(\sqrt{1 - x^2})}{d(1 - x^2)} \frac{d(1 - x^2)}{dx} = \frac{1}{2\sqrt{1 - x^2}} \cdot (2x) = \frac{-x}{\sqrt{1 - x^2}}$$
+
+If we are interested in the lower side, we get $x/\sqrt{1 - x^2}$.
+
+Now, in this case, we have to split into two cases, and do a painful
+calculation involving differentiating a square root via the chain rule.
+
+Let's now consider how to use implicit differentiation to do the same example.
+
+We start with the original expression:
+
+$$x^2 + y^2 = 1$$
+
+This is an {\em identity}, which means that it's true for every point
+on the curve. When we have an equation that is identically true, it is
+legitimate to differentiate both sides and still get an
+identity. Differentiating both sides with respect to $x$, we get:
+
+$$\frac{d(x^2)}{dx} + \frac{d(y^2)}{dx} = 0$$
+
+Simplifying and using the chain rule, we get:
+
+$$2x + 2y\frac{dy}{dx} = 0$$
+
+We thus get:
+
+$$\frac{dy}{dx} = \frac{-x}{y}$$
+
+Notice that with this method, we get $-x/y$, which works in {\em both}
+cases. When $y = \sqrt{1 - x^2}$, we get $-x/\sqrt{1 - x^2}$, and when
+$y = -\sqrt{1 - x^2}$, we get $x/\sqrt{1 - x^2}$. The method that we
+used is called {\em implicit differentiation}.
+
+So, with a functional description, we need to split into cases. With
+an implicit description, we can give the general answer in one case,
+but it involves {\em both} variables $x$ and $y$. With these examples
+in mind, let's consider the parametric situation.
+
+\subsection{Parametric differentiation}
+
+For the curve given parametrically by $x = f(t), y = g(t), t \in D$,
+where $f$ and $g$ are both differentiable at some point $t_0$ in the
+interior of $D$, the derivative $dy/dx$ is given by:
+
+$$\frac{dy}{dx}|_{t = t_0} = \frac{dy/dt}{dx/dt}|_{t = t_0} = \frac{g'(t)}{f'(t)}|_{t = t_0}$$
+
+In short:
+
+$$\frac{dy}{dx} = \frac{g'(t)}{f'(t)}$$
+
+This is an application of the chain rule, or thinking of the
+derivative as the relative rate of change. Basically, we are saying
+that the relative rate of change of $y$ with respect to $x$ at time
+$t_0$ is the rate of change of $y$ with respect to time divided by the
+rate of change of $x$ with respect to time. That makes sense.
+
+Also note that the answer that we get is {\em purely} a function of
+$t$, and $x$ and $y$ do not appear in the description. This is
+important at many levels. The first is that it takes account of
+self-intersections. Remember that given a parametric description, the
+same point on the curve can be repeated at different times, with the
+curve moving in different directions at these different times. Since
+the differentiation is with respect to $t$, {\em we can thus get
+different derivative values at different times for the same physical
+point location}.
+
+Second, if given a point $(x,y)$, we first need to reverse engineer
+and find the time $t$ that gave rise to the point $(x,y)$ and {\em
+then} plug in the formula to find the derivative value.
+
+Let's apply this to the circle $x^2 + y^2 = 1$ using the
+parameterization $x = \cos t$, $y = \sin t$. We get:
+
+$$\frac{dy}{dx} = \frac{\sin't}{\cos't} = \frac{\cos t}{-\sin t} = -\cot t$$
+
+Now, suppose we want to find the derivative value at the point
+$(1/2,\sqrt{3}/2)$. We first need to determine that this point arises
+from $t = 2n\pi + \pi/3$. Note that since the curve repeats
+periodically, the choice of $n$ is irrelevant, so we can choose $t =
+\pi/3$. Then, the derivative value is $-\cot(\pi/3) = -1/\sqrt{3}$.
+
+You can compare this to the derivative value obtained using implicit
+differentiation -- $-x/y$ -- and see that they are in fact the same.
+
+\subsection{Vertical/horizontal tangents and cusps}
+
+Here $x = f(t)$, $y = g(t)$, and $t \in D$. Even if $f$ and $g$ are
+both differentiable functions everywhere on the domain $D$, it is
+still possible for there to be vertical/horizontal tangents and
+cusps. Below are given some {\em sufficient} conditions for a
+horizontal/vertical tangent.
+
+\begin{itemize}
+\item {\em Horizontal tangent}: This ocurs when $g'(t) = 0$ and $f'(t)
+  \ne 0$. Note that the horizontal tangent itself could be of many
+  kinds -- a local extremum type or a point of inflection type, or
+  something different.
+\item {\em Vertical tangent}: This occurs when $f'(t) = 0$ and $g'(t)
+  \ne 0$. Again, there are many possibilities for this.
+\end{itemize}
+
+If both $f'(t)$ and $g'(t)$ are zero, then we need to determine which
+is more zeroey, and also whether there is a sign change, etc. to
+determine whether we have a horizontal/vertical tangent/cusp. We
+refrain from the details here.
+\subsection{Repeated differentiation}
+
+Note that the second derivative $d^2y/dx^2$ is the derivative of the
+first derivative and the roles of $x$ and $y$ are not symmetric. In
+particular, the {\em freshman chain rule} does not work for second
+derivatives -- we need something more sophisticated. Some of you have
+worked out chain rule equivalents for second derivatives, e.g., we
+have that $(f \circ g)'' = (f'' \circ g) \cdot (g')^2 + (f' \circ g)
+\cdot (g'')$ and also that $(f^{-1})'' = -(f'' \circ f^{-1})/(f' \circ
+f^{-1})^3$. You don't need to memorize these, since they can always be
+derived from the rules for first derivatives. The key point is that
+the {\em naive} chain rules are false. In particular, $d^2y/dx^2$ is
+{\em not} the same as $(d^2y/dt^2)/(d^2x/dt^2)$.
+
+So how do we differentiate twice in practice? We first compute the
+first derivative in parametric form, and then differentiate that with
+respect to $x$, again using parametric differentiation. Specifically,
+if $x = f(t)$ and $y = g(t)$, we have:
+
+$$\frac{dy}{dx} = \frac{g'(t)}{f'(t)}$$
+
+Thus, we get:
+
+$$\frac{d^2y}{dx^2} = \frac{\frac{d}{dt}\left(\frac{g'(t)}{f'(t)}\right)}{f'(t)}$$
+
+where the denominator is just $dx/dt$. The same idea can be used to
+calculate higher derivatives. Note that we could simplify the above as
+a {\em general expression} using the quotient rule for
+differentiation, and thus get another version of the same formula:
+
+$$\frac{d^2y}{dx^2} = \frac{f'(t)g''(t) - g'(t)f''(t)}{(f'(t))^3}$$
+
+It's up to you which form you choose to remember. I recommend that for
+better conceptual understanding and generalizability, you definitely
+remember the first version, since the second version can easily be
+derived from it on the spot.
+
+\subsection{Arc length, speed, and unit speed parameterization}
+
+This is new stuff, in the sense that you have probably not seen this
+even in the context of functional descriptions. It turns out that the
+description is easier to give in parametric form anyway. Basically,
+the arc length is given by:
+
+$$\int \sqrt{(dx)^2 + (dy)^2}$$
+
+More concretely, if $x = f(t)$, $y = g(t)$, then the arc length from time $t = a$ to $t = b$ (with $a < b$) is given by:
+
+$$\int_a^b \sqrt{(dx/dt)^2 + (dy/dt)^2} \, dt$$
+
+or equivalently:
+
+$$\int_a^b \sqrt{(f'(t))^2 + (g'(t))^2} \, dt$$
+
+The {\em speed} of a curve is defined as the speed with which it is
+traveling with respect to $t$, and is hence simply:
+
+$$\sqrt{(dx/dt)^2 + (dy/dt)^2}$$
+
+In other words, if $x = f(t)$ and $y = g(t)$, the speed as a function
+of time $t$ is:
+
+$$\sqrt{(f'(t))^2 + (g'(t))^2}$$
+
+We say that a particular parameterization of a curve is a {\em unit
+speed parameterization} if the speed at any time $t$ is $1$. What this
+means is that the arc length from $t = a$ to $t = b$ is simply $b -
+a$. 
+
+An example of a unit speed parameterization is the parameterization $x
+= \cos t$, $y = \sin t$ for a circle. Another example is $x =
+t/\sqrt{2}$, $y = t/\sqrt{2}$ for the line $y = x$.
+
+Note that for the particular case where $y$ is a function of $x$, the
+arc length from $x = a$ to $x = b$, with $a < b$, becomes:
+
+$$\int_a^b \sqrt{1 + (dy/dx)^2} \, dx$$
+
+\subsection*{Note on the difficulty of arc length computations}
+
+Actually computing the arc length as a number is not easy in most
+cases because the integration that we need to do is not possible
+within the world of elementary integrations. In fact, whole new
+branches of mathematics (such as the theory of elliptic integrals)
+were invented to be able to perform some of the integrations that
+arose in arc length computations.
+
+Roughly, here are the kinds of curves for which arc lengths can be
+computed:
+
+\begin{itemize}
+\item Straight lines (yeah, and we didn't even need calculus for those)
+\item Circles (again, no need for calculus here -- the radian measure
+  directly defines arc length).
+\item Parabolas such as $x = y^2$ and $y = x^2$. To compute the arc
+  length, we need to do a trigonometric or hyperbolic trigonometric
+  substitution. The final answer we get involves something like
+  integration $\sec^3 \theta$: For instance, consider $y = x^2$. We get:
+
+  $$\int \sqrt{1 + (2x)^2} \, dx$$
+
+  Put $\theta = \arctan(2x)$, so $x = (1/2)\tan \theta$, and we get:
+
+  $$\frac{1}{2} \int \sqrt{1 + \tan^2\theta} \sec^2 \theta \, d\theta$$
+
+  This simplifies to $(1/2) \int \sec^3\theta \, d\theta$, which can
+  be done using integration by parts.
+
+\item The graph of the hyperbolic cosine function (catenary): The
+  derivative of $\cosh$ is $\sinh$, so we get:
+
+  $$\int_a^b \sqrt{1 + (\sinh^2x)} \, dx$$
+
+  This becomes:
+
+  $$\int_a^b \cosh x \, dx$$
+
+  giving $[\sinh x]_a^b = \sinh b - \sinh a$.
+\end{itemize}
+
+While this list above is by no means exhaustive, most of the
+computable examples you will see will be variations on this theme.
+\end{document}

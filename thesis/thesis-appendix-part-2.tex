@@ -1,0 +1,882 @@
+\section{Some computational proofs related to the Baker-Campbell-Hausdorff formula}
+
+\subsection{Baker-Campbell-Hausdorff formula: class two: full derivation}\label{appsec:bch-class-two}
+
+In this case, we work with non-commuting variables $x_1,x_2$ such that
+$x_1^3 = x_1^2x_2 = x_1x_2x_1 = x_1x_2^2 = x_2x_1^2 = x_2x_1x_2 =
+x_2^2x_1 = x_2^3 = 0$. Thus:
+
+$$ \exp(x_1) = 1 + x_1 + \frac{x_1^2}{2}$$
+
+$$ \exp(x_2) = 1 + x_2 + \frac{x_2^2}{2}$$
+
+We thus get:
+
+$\exp(x_1)\exp(x_2) = \left(1 + x_1 + \frac{x_1^2}{2}\right)\left(1 + x_2 + \frac{x_2^2}{2}\right) = 1 + x_1 + \frac{x_1^2}{2} + x_2 + x_1x_2 + \frac{x_1^2x_2}{2} + \frac{x_2^2}{2} + \frac{x_1x_2^2}{2} + \frac{x_1^2x_2^2}{4}$
+
+We drop all products of degree three or more and rearrange the remaining terms to get:
+
+$$ \exp(x_1)\exp(x_2) = 1 + x_1 + x_2 + \frac{x_1^2}{2} + x_1x_2 + \frac{x_2^2}{2}$$
+
+We thus get:
+
+$$ w = \exp(x_1)\exp(x_2) - 1 = x_1 + x_2 + \frac{x_1^2}{2} + x_1x_2 + \frac{x_2^2}{2}$$
+
+Finally, we compute $\log(1 + w)$. We have:
+
+$$\log(1 + w) = w - \frac{w^2}{2}$$
+
+We note that $w^2$ is the same as the square of its linear part
+because the square of the degree two part, as well as products of the
+degree two and the linear part, are degree three or more and hence
+zero. Thus:
+
+$\log(1 + w) = x_1 + x_2 + \frac{x_1^2}{2} + x_1x_2 + \frac{x_2^2}{2} - (x_1 + x_2)^2/2$
+
+Simplifying, we get:
+
+$\log(1 + w) = x_1 + x_2 + \frac{x_1^2 + 2x_1x_2 + x_2^2 - (x_1 + x_2)^2}{2}$
+
+Now note that:
+
+$ (x_1 + x_2)^2 = x_1^2 + x_1x_2 + x_2x_1 + x_2^2$
+
+Plugging this in, we get:
+
+$\log(1 + w) = x_1 + x_2 + \frac{x_1^2 + 2x_1x_2 + x_2^2 - (x_1^2 + x_1x_2 + x_2x_1 + x_2^2)}{2}$
+
+Simplifying, we get:
+
+$\log(1 + w) = x_1 + x_2 + \frac{x_1x_2 - x_2x_1}{2}$
+
+Rewrite $x_1x_2 - x_2x_1 = [x_1,x_2]$ and we get the formula:
+
+$ x_1 + x_2 + \frac{1}{2}[x_1,x_2]$
+
+%% Recall that this {\em is the same as the formula for the group product
+%%   of $x_1$ and $x_2$ in terms of the Lie ring operations} that we saw
+%% in the Baer correspondence. This is not a coincidence. The
+%% significance will become clearer soon.
+
+\subsection{Baker-Campbell-Hausdorff formula: class three: full derivation}\label{appsec:bch-class-three}
+
+Before proceeding to work out the formula in class three, we obtain a
+more concise description of $w$ in terms of $x_1$ and $x_2$, thus
+saving steps on the initial computation. If we are working in class $c$, then:
+
+$$w = \sum_{k,l \ge 0, 0 < k + l \le c} \frac{x_1^kx_2^l}{k!l!} = \sum_{n=1}^c \frac{1}{n!} \sum_{k=0}^n \binom{n}{k} x_1^kx_2^{n-k}$$
+
+We now deduce the class three Baker-Campbell-Hausdorff formula:
+
+$w = \exp(x_1)\exp(x_2) -1 = (x_1 + x_2) + \frac{1}{2!}(x_1^2 + 2x_1x_2 + x_2^2) + \frac{1}{3!}(x_1^3 + 3x_1^2x_2 + 3x_1x_2^2 + x_2^3)$
+
+Since the class is three, we have $w^4 = 0$, hence we get:
+
+$\log(1 + w) = w - \frac{w^2}{2} + \frac{w^3}{3} = (x_1 + x_2) + \frac{1}{2!}(x_1^2 + 2x_1x_2 + x_2^2) + \frac{1}{3!}(x_1^3 + 3x_1^2x_2 + 3x_1x_2^2 + x_2^3) - \frac{1}{2}((x_1 + x_2) + \frac{1}{2!}(x_1^2 + 2x_1x_2 + x_2^2) + \frac{1}{3!}(x_1^3 + 3x_1^2x_2 + 3x_1x_2^2 + x_2^3))^2 + \frac{1}{3}((x_1 + x_2) + \frac{1}{2!}(x_1^2 + 2x_1x_2 + x_2^2) + \frac{1}{3!}(x_1^3 + 3x_1^2x_2 + 3x_1x_2^2 + x_2^3))^3$
+
+The calculations for the degree one and degree two parts proceed
+exactly as they did in the class two case covered in the preceding
+section. We thus concentrate on the degree three part:
+
+$\mbox{Degree three part} = \frac{1}{6}(x_1^3 + 3x_1^2x_2 + 3x_1x_2^2 + x_2^3) - \frac{1}{4}(x_1 + x_2)(x_1^2 + 2x_1x_2 + x_2^2) - \frac{1}{4}(x_1^2 + 2x_1x_2 + x_2^2) + \frac{1}{3}(x_1 + x_2)^3$
+
+Instead of simplifying directly, we adopt the following procedure. We rewrite:
+
+$x_1^2 + 2x_1x_2 + x_2^2 = (x_1 + x_2)^2 + [x_1,x_2]$
+
+We similarly rewrite:
+
+$x_1^3 + 3x_1^2x_2 + 3x_1x_2^2 + x_2^3 = (x_1 + x_2)^3 + 2x_1[x_1,x_2] + [x_1,x_2]x_1 + 2[x_1,x_2]x_2 + x_2[x_1,x_2]$
+
+This can be further rewritten as:
+
+$x_1^3 + 3x_1^2x_2 + 3x_1x_2^2 + x_2^3 = (x_1 + x_2)^3 + 3x_1[x_1,x_2] + 3[x_1,x_2]x_2 - [x_1,[x_1,x_2]] + [x_2,[x_1,x_2]]$
+
+Now, we plug these into the expression 
+
+$\mbox{Degree three part} = \frac{1}{6}((x_1 + x_2)^3 + 3x_1[x_1,x_2] + 3[x_1,x_2]x_2 - [x_1,[x_1,x_2]] + [x_2,[x_1,x_2]]) - \frac{1}{4}(x_1 + x_2)((x_1 + x_2)^2 + [x_1,x_2]) - \frac{1}{4}((x_1 + x_2)^2 + [x_1,x_2])(x_1 + x_2) + \frac{1}{3}(x_1 + x_2)^3$
+
+We rearrange to obtain:
+
+$\mbox{Degree three part} = \left(\frac{1}{6} - \frac{1}{4} - \frac{1}{4} + \frac{1}{3}\right)(x_1 + x_2)^3 + \frac{1}{2}(x_1[x_1,x_2] + [x_1,x_2]x_2) - \frac{1}{6}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]]) - \frac{1}{4}(x_1 + x_2)[x_1,x_2] - \frac{1}{4}([x_1,x_2](x_1 + x_2))$
+
+The $(x_1 + x_2)^3$ term has zero coefficient and disappears, and we are left with:
+
+$\mbox{Degree three part} = \frac{1}{2}(x_1[x_1,x_2] + [x_1,x_2]x_2) - \frac{1}{6}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]]) - \frac{1}{4}x_1[x_1,x_2] - \frac{1}{4}x_2[x_1,x_2] - \frac{1}{4}[x_1,x_2]x_1 - \frac{1}{4}[x_1,x_2]x_2$
+
+We now use that $x_2[x_1,x_2] = [x_1,x_2]x_2 + [x_2,[x_1,x_2]]$ and $[x_1,x_2]x_1 = x_1[x_1,x_2] - [x_1,[x_1,x_2]]$ to get:
+
+$\mbox{Degree three part} = \frac{1}{2}(x_1[x_1,x_2] + [x_1,x_2]x_2) - \frac{1}{6}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]]) - \frac{1}{4}x_1[x_1,x_2] - \frac{1}{4}[x_1,x_2]x_2 - \frac{1}{4}[x_2,[x_1,x_2]] - \frac{1}{4}x_1[x_1,x_2] + \frac{1}{4}[x_1,[x_1,x_2]] - \frac{1}{4}[x_1,x_2]x_2$
+
+Combining coefficients, we find that the coefficients on $x_1[x_1,x_2]$ and $[x_1,x_2]x_2$ are zero, and we are left with:
+
+$\mbox{Degree three part} = - \frac{1}{6}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]]) + \frac{1}{4}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]])$
+
+We simplify $1/4 - 1/6 = 1/12$ to get:
+
+$\mbox{Degree three part} = \frac{1}{12}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]])$
+
+Plug this back in to the formula, and get the overall formula:
+
+$x_1 + x_2 + \frac{1}{2}[x_1,x_2] + \frac{1}{12}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]])$
+
+\subsection{Bounds on prime power divisors of the denominator}\label{appsec:bch-prime-power-divisor-bound}
+
+For a prime $p$ and a natural number $c$, define $f(p,c)$ as
+follows. Consider the class $c$ Baker-Campbell-Hausdorff
+formula. $f(p,c)$ is defined as the largest positive integer $k$ such
+that $p^k$ appears as a divisor of the denominator for one of the
+coefficients for the formula.
+
+It turns out that:
+
+$$f(p,c) \le \left \lfloor \frac{c - 1}{p - 1} \right \rfloor$$
+
+This was proved in Lazard's original paper (\cite{Lazardsoriginal}).
+%% {\em TONOTDO: Insert position within paper}
+The proof sketch for the {\em associative} version of the formula is
+below. The result for the Lie version of the formula follows from
+Khukhro's text \cite{Khukhro}, Theorem 5.39 (see more generally the
+discussion in Sections 5.3 and 9.9 of the text).
+
+Consider the ring of formal power series over $\mathbb{Q}$ in the two non-commuting variables $x_1$ and $x_2$.
+
+Consider a $p$-adic valuation on $\mathbb{Q}$, i.e., a valuation $v_p: \mathbb{Q} \setminus \{ 0 \} \to \mathbb{Z}$ that sends a rational number $a/b$ to the integer $k$ such that $a/(bp^k)$ in reduced form has no divisor of $p$ for either the numerator or the denominator.
+
+Extend the valuation to a value $1/(p-1)$ on the formal variables
+$x_1,x_2$. The valuation can then be extended to the whole ring. We
+then use multiplicativity to compute the valuation at various terms,
+for $n \le c$:
+
+$\! v_p(x_1^n/n!)=c/(p-1) - v_p(n!) \geq 1/(p-1)$
+
+where we have used that $v_p(n!) \leq
+\left \lfloor(n-1)/(p-1)\right\rfloor$. Then, $v_p(\exp x_1 - 1)\geq
+1/(p-1)$. Denote $w = \exp(x_1)\exp(x_2) - 1$. It is easy to see that
+$v_p(w) \geq 1/(p-1)$. The Baker-Campbell-Hausdorff formula is
+obtained by expanding
+
+$\! \log(1 + w)$
+
+Note that $v_p(w^n/n)=nv_p(w)-v_p(c)\geq n/(p-1) - v_p(n!) \geq
+1/(p-1)$. That is, $v_p(\log(1 + w))\geq 1/(p-1)$. For coefficients in
+degree $n$ with $n \le c$, we obtain:
+
+$$v_p(\mbox{coefficient in degree n}) \geq 1/(p-1) - n/(p-1)=-(n-1)/(p-1)$$
+
+Since the above holds for all $n \le c$, we obtain that all the
+coefficients in degree $\le c$ have prime power divisors of the
+denominator less than or equal to $(c - 1)/(p - 1)$. Thus, $f(p,c) \le
+(c - 1)/(p - 1)$. Since $f(p,c)$ is an integer, we obtain that:
+
+$$f(p,c) \le \left \lfloor \frac{c - 1}{p - 1}\right \rfloor$$
+
+\subsection{Finding the explicit formula $M_{c+1}$ for $c = 2$}\label{appsec:M3formula}
+
+In Section \ref{sec:group-commutator-ito-lie-bracket}, we described
+the general approach for computing a formula $M_{c+1}$ to describe the
+group commutator in terms of the Lie bracket for the class $(c + 1)$
+Lazard correspondence. The case $c = 1$ (and hence $c + 1 = 2$) was
+discussed in detail in Section \ref{sec:baer-correspondence-basics}
+(Lemma \ref{lemma:baer-correspondence-lie-ring-to-group} says this
+explicitly). We consider the case $c = 2$, so that $c + 1 = 3$. In
+other words, we are considering the class $3$ Lazard correspondence.
+
+We mimic the general procedure of Section
+\ref{sec:group-commutator-ito-lie-bracket}.
+
+The class three Baker-Campbell-Hausdorff formula gives us that:
+
+\begin{eqnarray*}
+  xy & = & x + y + \frac{1}{2}[x,y] + \frac{1}{12}([x,[x,y]] - [y,[x,y]])\\
+  yx & = & y + x + \frac{1}{2}[y,x] + \frac{1}{12}([y,[y,x]] - [x,[y,x]])\\
+\end{eqnarray*}
+
+We will denote the degree $i$ part as $t_i$, as in the discussion of
+the Baker-Campbell-Hausdorff formula. In other words, we have:
+
+\begin{eqnarray*}
+  xy & = & t_1(x,y) + t_2(x,y) + t_3(x,y)\\
+  yx & = & t_1(y,x) + t_2(y,x) + t_3(y,x)\\
+\end{eqnarray*}
+
+Here:
+
+$$t_1(x,y) = t_1(y,x) = x + y = y + x$$
+
+$$t_2(x,y) = -t_2(y,x) = \frac{1}{2}[x,y]$$
+
+$$t_3(x,y) = t_3(y,x) = \frac{1}{12}([x,[x,y]] - [y,[x,y]]) = \frac{1}{12}([y,[y,x]] - [x,[y,x]])$$
+
+Thus:
+
+$$[x,y]_{\text{Group}} = (xy)(-(yx))$$
+
+becomes:
+
+$t_1(x,y) + t_2(x,y) + t_3(x,y) - (t_1(y,x) + t_2(y,x) + t_3(y,x)) +$
+
+$t_2(xy,-(yx)) + t_3(xy,-(yx))$
+
+Based on the relationships above, this simplifies to:
+
+$[x,y]_{\text{Group}} = 2t_2(x,y) + t_2(xy,-(yx)) + t_3(xy,-(yx)) \qquad (*)$
+
+We now expand each of the other terms. We have:
+
+$t_2(xy,-(yx)) = \frac{1}{2}\left[t_1(x,y) + t_2(x,y) + t_3(x,y),- (t_1(y,x) + t_2(y,x) + t_3(y,x))\right]$
+
+Expanding this out, we obtain:
+
+$t_2(xy,-(yx)) = \frac{1}{2}[t_1(x,y),-t_2(y,x)] + \frac{1}{2}[t_2(x,y), -t_1(y,x)]$
+
+$ = [t_1(x,y),t_2(x,y)] = \frac{1}{2}[x + y,[x,y]] \qquad (**)$
+
+On the other hand:
+
+$t_3(xy,-(yx)) = t_3(t_1(x,y) + t_2(x,y) + t_3(x,y),-(t_1(y,x) + t_2(y,x) + t_3(y,x))$
+
+$ = t_3(t_1(x,y),-t_1(y,x)) = 0 \qquad (***) $
+
+Plugging (**) and (***) into (*), we obtain that:
+
+$[x,y]_{\text{Group}} = 2t_2(x,y) + \frac{1}{2}[x + y,[x,y]]$
+
+This simplifies to:
+
+$$[x,y]_{\text{Group}} = [x,y] + \frac{1}{2}[x + y,[x,y]]$$
+
+Thus, we get:
+
+$$M_3(x,y) = [x,y] + \frac{1}{2}[x + y,[x,y]]$$
+
+Note that the formula would look somewhat different if we used the
+right action convention for the group commutator. Explicitly, the
+formula with the right action convention, which would be the formula
+for the group commutator $x^{-1}y^{-1}xy$, would be:
+
+$$x^{-1}y^{-1}xy = [x,y] - \frac{1}{2}[x + y,[x,y]]$$
+
+\subsection{Finding the explicit formula $M_{c+1}$ for $c = 3$}\label{appsec:M4formula}
+
+The steps here are very similar to the steps for the preceding
+example, so we go over the steps very briefly. We have:
+
+\begin{eqnarray*}
+  xy & = & t_1(x,y) + t_2(x,y) + t_3(x,y) + t_4(x,y)\\
+  yx & = & t_1(y,x) + t_2(y,x) + t_3(y,x) + t_4(y,x)\\
+\end{eqnarray*}
+
+Here:
+
+$$t_1(x,y) = t_1(y,x) = x + y = y + x$$
+
+$$t_2(x,y) = -t_2(y,x) = \frac{1}{2}[x,y]$$
+
+$$t_3(x,y) = t_3(y,x) = \frac{1}{12}([x,[x,y]] - [y,[x,y]]) = \frac{1}{12}([y,[y,x]] - [x,[y,x]])$$
+
+$$t_4(x,y) = -t_4(y,x) = - \frac{1}{24}[y,[x,[x,y]]]$$
+
+Based on the above relationships, we get:
+
+$[x,y]_{\text{Group}} = (xy)(-(yx)) = 2(t_2(x,y) + t_4(x,y)) + t_2(xy,-(yx)) + t_3(xy,-(yx)) + t_4(xy,-(yx))$
+
+The last expression $t_4(xy,-(yx))$ is $0$ based on general reasons. We thus get:
+
+$[x,y]_{\text{Group}} = 2(t_2(x,y) + t_4(x,y)) + t_2(xy,-(yx)) + t_3(xy,-(yx))$
+
+We simplify the pieces separately. We have:
+
+$t_2(xy,-(yx)) = \frac{1}{2}[t_1(x,y) + t_2(x,y) + t_3(x,y) + t_4(x,y),-(t_1(y,x) + t_2(y,x) + t_3(y,x) + t_4(y,x))]$
+
+Note that any pair involving $t_4$ becomes zero, so this becomes:
+
+$t_2(xy,-(yx)) = \frac{1}{2}[t_1(x,y) + t_2(x,y) + t_3(x,y),-t_1(x,y) + t_2(x,y) - t_3(x,y)]$
+
+Note that $[t_1(x,y),t_3(x,y)]$ and $[t_3(x,y),t_1(x,y)]$
+cancel. Also, the products $[t_i(x,y),t_j(x,y)]$ are zero for $i + j
+\ge 5$, and also for $i = j$. Thus, the only products that survive are
+$[t_1(x,y),t_2(x,y)]$ and $[t_2(x,y),-t_1(x,y)]$, and we obtain:
+
+$t_2(xy,-(yx)) = \frac{1}{2}[x + y,[x,y]] \qquad (**)$
+
+We now simplify $t_3(xy,-(yx))$:
+
+$t_3(xy,-(yx)) = \frac{1}{12}[xy,[xy,-(yx)]] - \frac{1}{12}[-(yx),[xy,-(yx)]]$
+
+The product $[xy,-(yx)]$ on the inside simplifies to $[x + y,[x,y]]$
+based on the above calculations. Thus, we get:
+
+$t_3(xy,-(yx)) = \frac{1}{12}[xy + yx,[x + y,[x,y]]$
+
+We know that $xy + yx = 2t_1(x,y) + 2t_3(x,y)$. Thus:
+
+$t_3(xy,-(yx)) = \frac{1}{12}[2t_1(x,y),[x+y,[x,y]]] + \frac{1}{12}[2t_3(x,y),[x+y,[x,y]]]$
+
+The second term is zero because the degree is six. Simplifying the first term, we get:
+
+$t_3(xy,-(yx)) = \frac{1}{6}[x + y,[x+y,[x,y]]] \qquad (***)$
+
+Plugging (**) and (***) into the original formula (*), we obtain:
+
+$[x,y]_{\text{Group}} = [x,y] - \frac{1}{12}[y,[x,[x,y]]] + \frac{1}{2}[x + y,[x,y]] + \frac{1}{6}[x + y,[x + y,[x,y]]]$ 
+
+Rearranging, we obtain:
+
+$[x,y]_{\text{Group}} = [x,y] + \frac{1}{2}[x + y,[x,y]] + \frac{1}{6}[x + y,[x + y,[x,y]]] - \frac{1}{12}[y,[x,[x,y]]]$ 
+
+\subsection{Computing the second inverse Baker-Campbell-Hausdorff formula in the case $c = 2$, and an illustration of why it involves only strictly smaller primes}\label{appsec:lie-bracket-denominators-illustration}
+
+We will use the case $c = 2$ to illuminate the discussion in Section
+\ref{sec:lie-bracket-ito-group-commutator}, specifically the proof of
+Lemma \ref{lemma:lie-bracket-denominators}.
+
+We have:
+
+$M_3(x,y) = [x,y] + \frac{1}{2}[x + y,[x,y]]$
+
+Our goal is to find the expression for $h_{2,3}(x,y)$. In the class
+two case, the group commutator and Lie bracket coincide, so we know
+that:
+
+$M_2(x,y) = [x,y], \qquad h_{2,2}(x,y) = [x,y]_{\text{Group}}$
+
+Following the notation of Lemma \ref{lemma:lie-bracket-denominators}, we have that:
+
+$(h_{2,2} \circ M_2)(x,y) = [x,y]$
+
+Note that this case is remarkable because the equality holds {\em
+  exactly}, rather than just modulo $\mathcal{A}^{c+1}$. In
+particular, this means that the degree $(c + 1)$ expression
+$\chi_{c+1}(x,y)$ defined in Lemma
+\ref{lemma:lie-bracket-denominators} as the expression such that:
+
+$(h_{2,2} \circ M_2)(x,y) = [x,y]_{\text{Lie}} + \chi_{c+1}(x,y) \pmod{\mathcal{A}^{c+2}}$
+
+turns out to be zero, i.e., $\chi_{c+1}(x,y) = 0$.
+
+We also have that:
+
+$$M_3(x,y) = M_2(x,y) + \xi_{c+1}(x,y)$$
+
+where $\xi_{c+1}(x,y) = \frac{1}{2}[x + y,[x,y]]$. Thus, we obtain that:
+
+$$(h_{2,2} \circ M_3)(x,y) = [x,y]_{\text{Lie}} + \chi_{c+1}(x,y) + \xi_{c+1}(x,y)$$
+
+or more explicity:
+
+$$(h_{2,2} \circ M_3)(x,y) = [x,y]_{\text{Lie}} + \frac{1}{2}[x + y,[x,y]]$$
+
+It therefore follows that:
+
+$$h_{2,3}(x,y) = \frac{[x,y]}{\sqrt{[xy,[x,y]]}}$$
+
+%%TONOTDO: Make this clearer
+
+\section{Some results involving local nilpotency class}
+
+
+\subsection{$3$-local class three implies global class three for Lie rings}\label{appsec:3-local-class-three-implies-global-class-three}
+
+We prove that nilpotency class three is $3$-local.
+
+\begin{lemma}
+  Suppose $L$ is a Lie ring with the property that for any subset of
+  $L$ of size at most three, the Lie subring generated by that subset
+  is a subring of nilpotency class at most three. In other words, $L$
+  has $3$-local nilpotency class at most three. Then, $L$ is a
+  nilpotent Lie ring and its nilpotency class is at most three.
+\end{lemma}
+
+\begin{proof}
+  The map $(w,x,y,z) \mapsto [w,[x,[y,z]]]$ is alternating and
+  multi-linear, and hence skew-symmetric, in all pairs of inputs. The
+  ``alternating'' condition follows from the $3$-local class three
+  condition: whenever two inputs are the same, the product is a degree
+  four product in a subring generated by three elements, hence it must
+  equal zero. In particular, this means that the sign of the
+  expression $[w,[x,[y,z]]]$ is reversed under any odd permutation of
+  the inputs and is preserved under any even permutation of the
+  inputs.
+
+  We will show that for all $w$, $x$, $y$, $z \in L$, the Lie bracket
+  $[w,[x,[y,z]]]$ equals $0$. The elements $w$, $x$, $y$, and $z$ are
+  fixed but arbitrary for the duration of this proof.
+
+  
+  In particular, we obtain that $[w,[x,[y,z]]] = [w,[y,[z,x]]] =
+  [w,[z,[x,y]]]$ for all $w,x,y,z \in L$. Combining with the Jacobi
+  identity, we obtain that for all $w,x,y,z \in L$, we have that:
+
+  $$3[w,[x,[y,z]]] = 0 \qquad (\dagger)$$
+
+  We also obtain that 
+
+  $$[w,[x,[y,z]]] = [[y,z],[w,x]] \qquad (*)$$
+
+  The proof is as follows: Use the Jacobi identity to get
+  $[w,[x,[y,z]]] + [x,[[y,z],w]] + [[y,z],[w,x]] = 0$. Now, the middle
+  term $[x,[[y,z],w]]$ is the negative of $[x,[w,[y,z]]]$, which by
+  the alternating condition we know to be the negative of
+  $[w,[x,[y,z]]]$. So, the middle term equals $[w,[x,[y,z]]]$. Thus,
+  the Jacobi identity expression gives $2[w,[x,[y,z]]] + [[y,z],[w,x]]
+  = 0$. Combine with ($\dagger$) to obtain that $[w,[x,[y,z]]] =
+  [[y,z],[w,x]]$.
+
+  Similarly, we obtain that:
+
+  $$[y,[z,[w,x]]] = [[w,x],[y,z]] \qquad (**)$$
+
+  Combine (*), (**), and the fact that $[w,[x,[y,z]]] = [y,[z,[w,x]]]$
+  because of the alternating nature of the map, and obtain that:
+
+  $$[[y,z],[w,x]] = [[w,x],[y,z]] \qquad (***)$$
+
+  On the other hand, we have, by the alternating nature of the Lie bracket, that:
+
+  $$[[y,z],[w,x]] = -[[w,x],[y,z]] \qquad (****)$$
+
+  Combining (***) and (****), we obtain that:
+
+  $$2[[y,z],[w,x]] = 0$$
+
+  Combining with (*), we obtain that:
+
+  $$2[w,[x,[y,z]]] = 0$$
+
+  Combining with ($\dagger$), we obtain that:
+
+  $$[w,[x,[y,z]]] = 0$$
+
+  as desired.
+\end{proof}
+%\newpage
+
+%% {\em TONOTDO: Fill this in later}
+
+%% %\newpage
+
+
+%% \section{Operads}\label{appsec:operads}
+
+%% {\em TONOTDO: Fill in}
+
+%% %\newpage
+
+%% \section{Multiplicative Lie rings}\label{appsec:multiplicative-lie-rings}
+
+%% {\em TONOTDO: Fill in}
+ 
+%% %\newpage
+
+%% \section{Exploring groups of small order}
+
+\section{Proofs related to isoclinism}\label{appsec:isoclinism-extra-proofs}
+
+We begin with the proof of Theorem
+\ref{isoclinic-same-proportions-conjugacy-class-sizes}. The theorem is
+restated below.
+
+\begin{quote}
+  Suppose $G_1$ and $G_2$ are isoclinic groups. Suppose $c$ is a
+  positive integer. Let $m_1$ be the number of conjugacy classes in
+  $G_1$ of size $c$ (so that the {\em total} number of elements in
+  such conjugacy classes is $m_1c$). Let $m_2$ be the number of
+  conjugacy classes in $G_2$ of size $c$ (so that the {\em total}
+  number of elements in such conjugacy classes is $m_2c$). Then, $m_1$
+  is nonzero if and only if $m_2$ is nonzero, and if so, $m_1/m_2 =
+  |G_1|/|G_2|$.
+
+  In particular, if $G_1$ and $G_2$ additionally have the same order,
+  then they have precisely the same multiset of conjugacy class sizes.
+
+\end{quote}
+
+\begin{proof}
+  Let $W$ be the group identified with $\operatorname{Inn}(G_1) \cong
+  \operatorname{Inn}(G_2)$, and $T$ be the group identified with $G_1'
+  \cong G_2'$. Denote by $\alpha_1: G_1 \to W$ and $\alpha_2: G_2 \to
+  W$ the respective quotient maps. Denote by $\omega: W \times W \to
+  T$ the group commutator map. Note that the map $\omega$ is the same
+  for both groups -- that's precisely the point of their being
+  isoclinic.
+
+  For $w \in W$, the centralizer in $G_1$ of any element in
+  $\alpha_1^{-1}(w)$ is precisely $\alpha_1^{-1}(\mathcal{C}(w))$
+  where
+  
+  $$\mathcal{C}(w) = \{ u \in W \mid \omega(u,w) \mbox{ is the identity element of } T \}$$
+
+  Thus, the size of the conjugacy class in $G_1$ of any element in
+  $\alpha_1^{-1}(w)$ is the index of the subgroup $\mathcal{C}(w)$ in $W$.
+ 
+  From this, it follows that the set of elements of $G_1$ with
+  conjugacy class size $c$ is $\alpha_1^{-1}(S)$ where $S$ is the set
+  of $w \in W$ for which the index of the subgroup $\mathcal{C}(w) =
+  \{ u \in W \mid \omega(u,w) \mbox{ is the identity element of } T
+  \}$ in $W$ is $c$.
+
+  Thus, we get the equality of the following two expressions for the
+  number of elements of $G_1$ in conjugacy classes of size $c$:
+
+  $$m_1c = |S||Z(G_1)|$$
+
+  Analogously, we have:
+
+  $$m_2c = |S||Z(G_2)|$$
+
+  The crucial thing to note is that the subset $S$ of $W$ is the same
+  in both cases.
+
+  Taking the quotient, we get that $m_1$ is nonzero if and only if
+  $m_2$ is nonzero, and if so:
+
+  $$\frac{m_1}{m_2} = \frac{|Z(G_1)|}{|Z(G_2)|}$$
+
+  Since $[G_1:Z(G_1)] = |W| = [G_2:Z(G_2)]$, we have 
+  $|Z(G_1)|/|Z(G_2)| = |G_1|/|G_2|$, so we obtain:
+
+  $$\frac{m_1}{m_2} = \frac{|G_1|}{|G_2|}$$
+
+\end{proof}
+
+We now turn to the proof of the result on irreducible
+representations. We need some preliminary definitions.
+
+\begin{definer}[Projective general linear group]
+  Suppose $K$ is a field and $d$ is a positive integer. The {\em
+    projective general linear group} of degree $d$ over $K$, denoted
+  $PGL_d(K)$, is defined as the quotient group of the general linear
+  group $GL_d(K)$ by the subgroup of scalar matrices in $GL_d(K)$. The
+  subgroup of scalar matrices in $GL_d(K)$ is precisely the center of
+  $GL_d(K)$. Hence, $PGL_d(K)$ is isomorphic to the inner automorphism
+  group of $GL_d(K)$.
+\end{definer}
+
+\begin{definer}[Projective representation]
+  Suppose $G$ is a group and $K$ is a field. A {\em projective
+    representation} of $G$ over $K$ of degree $d$ is a homomorphism
+  from $G$ to the projective general linear group $PGL_d(K)$ for some
+  positive integer $d$. The value $d$ here is termed the {\em degree
+    of the projective representation}.
+
+  A projective representation $\rho:G \to PGL_d(K)$ is said to have a
+  linear lift $\theta:G \to GL_d(K)$ if $\pi \circ \theta = \rho$,
+  where $\pi: GL_d(K) \to PGL_d(K)$ is the natural quotient map. The
+  term ``linear lift'' here refers to the fact that $\theta$ is a {\em
+    linear} representation that serves as a ``lift'' of $\rho$.
+\end{definer}
+
+A projective representation may or may not admit a linear lift. The
+next lemma describes the nature of the set of linear lifts assuming
+that a linear lift exists.
+
+\begin{lemma}\label{stabilizer-kernel-description}
+  Suppose $G$ is a finite group and $\rho:G \to PGL_d(\mathbb{C})$ is
+  a projective representation. Suppose $\theta:G \to GL_d(\mathbb{C})$
+  a linear representation of $G$ that is a lift of $\rho$. In other
+  words, if $\pi: GL_d(\mathbb{C}) \to PGL_d(\mathbb{C})$ is the
+  natural quotient map, then we want that $\rho = \pi \circ
+  \theta$. We know that the set of one-dimensional representations of
+  $G$ (identified as the Pontryagin dual of $G/G'$) acts naturally on
+  the set of irreducible representations of $G$. The claim is that the
+  stabilizer of $\theta$ is precisely the set of one-dimensional
+  representations of $G$ whose kernel contains the subgroup generated
+  by $G'$ and all the elements $g$ of $G$ on which the trace of
+  $\theta(g)$ takes a nonzero value.
+\end{lemma}
+
+\begin{proof}
+  {\em One direction (one-dimensional representation whose kernel
+    contains $G'$ and the elements with nonzero trace values for
+    $\theta$ must be in the stabilizer of $\theta$)}: If a
+  one-dimensional representation $\beta$ has a kernel containing all
+  the points where $\theta$ has a nonzero-valued character, then that
+  means that for any $g \in G$, either $\theta(g)$ has trace zero or
+  $\beta(g)$ is the identity. Thus, in all cases, we have that
+  $\beta(g)\theta(g)$ and $\theta(g)$ have the same trace. Thus,
+  $\beta\theta$ and $\theta$ have the same character, hence, by basic
+  character theory, are equivalent as representations.
+
+  {\em Reverse direction (one-dimensional representation that
+    stabilizes $\theta$ must have kernel containing $G'$ and the
+    elements with nonzero trace values)}: Let $\beta$ be a
+  one-dimensional representation of $G$ that stabilizes $\theta$. Note
+  that the kernel of any one-dimensional representation already
+  contains $G'$, so $G'$ is contained in the kernel of $\beta$. Thus,
+  we only need to show it contains all the elements at which the trace
+  of $\theta$ is nonzero. Suppose $g \in G$ is an element at which
+  $\theta(g)$ has nonzero trace, and $\beta$ is a one-dimensional
+  representation in the stabilizer of $\theta$. Then $\beta \theta$
+  and $\theta$ are equivalent representations, hence they have the
+  same character. Thus, $\beta(g)\theta(g)$ and $\theta(g)$ have the
+  same trace. By assumption, $\theta(g)$ has nonzero trace, so this
+  forces the complex number $\beta(g)$ to equal $1$, so $g$ is in the
+  kernel of $\beta$, as desired.
+\end{proof}
+
+We can now turn to the proof of Theorem
+\ref{isoclinic-same-proportions-irrep-degrees}, the main theorem about
+irreducible representations.
+
+\begin{quote}
+  Suppose $G_1$ and $G_2$ are isoclinic finite groups. Suppose $d$ is
+  a positive integer. Let $m_1$ denote the number of equivalence
+  classes of irreducible representations of $G_1$ over $\mathbb{C}$
+  that have degree $d$. Let $m_2$ denote the number of equivalence
+  classes of irreducible representations of $G_2$ over $\mathbb{C}$
+  that have degree $d$. Then, $m_1$ is nonzero if and only if $m_2$ is
+  nonzero, and if so, $m_1/m_2 = |G_1|/|G_2|$.
+
+  In particular, if $G_1$ and $G_2$ additionally have the same order,
+  then they have precisely the same multiset of degrees of irreducible
+  representations.
+\end{quote}
+
+\begin{proof}
+  Let $W$ be the group identified with $\operatorname{Inn}(G_1) \cong
+  \operatorname{Inn}(G_2)$, and $T$ be the group identified with $G_1'
+  \cong G_2'$. Denote by $\alpha_1:G_1 \to W$ and $\alpha_2: G_2 \to
+  W$ the respective quotient maps. $\omega: W \times W \to T$ the group
+  commutator map, which is the same for both groups.
+
+  We have short exact sequences:
+
+  $$1 \to Z(G_1) \to G_1 \to W \to 1$$
+
+  and
+
+  $$1 \to Z(G_2) \to G_2 \to W \to 1$$
+
+  We will show the following:
+
+  \begin{enumerate}
+  \item For any irreducible projective representation $\rho: W \to
+    PGL_d(\mathbb{C})$, there exists a linear representation of $G_1$
+    that descends to $\rho$ if and only if there exists a linear
+    representation of $G_2$ that descends to $\rho$.
+  \item Further, if so, the ratio of the number of linear
+    representations of $G_1$ that descend to $\rho$ equals the number
+    of linear representations of $G_2$ that descend to $\rho$ is
+    $|G_1|/|G_2|$.
+  \end{enumerate}
+
+  Note that once we have (1) and (2), the result will follow: first,
+  simply list all the projective representations of $W$ of degree $d$
+  that lift to linear representations in the groups $G_1$ and/or
+  $G_2$. For each, the number of lifts in the two groups is in the
+  proportion $|G_1|:|G_2|$, so the overall proportion is also
+  $|G_1|:|G_2|$.
+
+  Proof of (1): This follows from Isaacs, Theorem 11.13, and the
+  observation that the condition Isaacs specifies for the
+  representation to lift is satisfied for $G_1$ if and only if it is
+  satisfied for $G_2$. %% {\em TONOTDO: Add a little more detail here, since
+  %% the notation used in Isaacs is a little different, so it may be hard
+  %% for readers to follow this step; also, Suzuki's book might be a
+  %% better reference since Isaacs never explicitly discusses isoclinism}.
+
+  Proof of (2): If a projective representation lifts to $G_1$, then
+  the set of lifts has a transitive action on it of the set of
+  one-dimensional linear representations of $G_1$, which is the
+  Pontryagin dual of $G_1/G_1'$. By the fundamental theorem of group
+  actions, the size of the set of lifts equals the index of the
+  stabilizer in this Pontryagin dual of any lift. So the question is:
+  what is the necessary and sufficient condition for a one-dimensional
+  representation $\chi$ of $G_1/G_1'$ to fix a linear lift of $\rho$
+  to $G_1$?
+
+  The notion of whether the trace is zero is a well-defined notion for
+  $\rho$, even though the outputs are in $PGL_d(\mathbb{C})$ rather
+  than being matrices themselves. Let $\mathcal{N}(\rho)$ be the
+  subgroup of $W$ generated by $W'$ and all those elements of $W$ for
+  which the trace of the image under $\rho$ is nonzero. By the
+  preceding lemma (Lemma \ref{stabilizer-kernel-description}), the
+  stabilizer of any lift of $\rho$ is precisely the set of
+  one-dimensional representations of $G_1$ whose kernel contains
+  $\alpha_1^{-1}(\mathcal{N}(\rho))$. Another way of putting it is
+  that it is the Pontryagin dual of
+  $G_1/\alpha_1^{-1}(\mathcal{N}(\rho))$, viewed as a subgroup of the
+  Pontryagin dual of $G_1/G_1'$.
+
+
+  The number of linear lifts is therefore:
+
+  $$\frac{|G_1/G_1'|}{|G_1/\alpha_1^{-1}(\mathcal{N}(\rho))|}$$
+
+  By the third isomorphism theorem of basic group theory, this is the
+  same as:
+
+  $$|\alpha_1^{-1}(\mathcal{N}(\rho))/G_1'|$$
+
+  This simplifies to:
+
+  $$\frac{|\mathcal{N}(\rho)||Z(G_1)|}{|G_1'|}$$
+
+  Similarly, the number of lifts of $\rho$ to $G_2$ is:
+
+  $$\frac{|\mathcal{N}(\rho)||Z(G_2)|}{|G_2'|}$$
+
+  Note the crucial fact that $\mathcal{N}(\rho)$ is the same in both
+  cases.
+
+  Taking the quotient, we get $|Z(G_1)|/|Z(G_2)|$, which is the same
+  as $|G_1/G_2|$ because the groups have isomorphic inner automorphism
+  groups. This completes the proof of (2), and hence of the original
+  statement.
+\end{proof}
+
+%\end{document}
+
+%% Peter May back and forth:
+
+%% Forth:
+
+%% (1) The homology groups *with coefficients in the integers* for a Lie
+%% ring L whose additive group is T-local are all T-local abelian
+%% groups. I'm interested only in the nilpotent case and the second
+%% homology group.
+
+%% (2) Even better (though not necessary) would be the statement that for
+%% any Lie ring L, if we denote by L_T the tensor product obtained by
+%% extending the ring of scalars to Z_T, the following is true:
+
+%% H_*(L;integers) -> H_*(L_T;integers)
+
+%% Back:
+
+%% I don't know the Lie ring literature, but I'm perfectly comfortable working
+%% with Lie algebras over any commutative ring, and in your case I would
+%% think of your L as a Lie algebra over $\bZ_{(p)}$, but we have a silly
+%% choice: take the enveloping algebra as a Lie ring (Lie algebra over $\bZ$)
+%% or a Lie algebra over $\bZ_{(p)}$.  Defining cohomology in the obvious
+%% way using Ext over the universal enveloping algebra, these should differ
+%% only in degree $0$, giving $\bZ$ with one choice and $\bZ_{(p)}$ with
+%% the other there.  Modulo this distinction, the answer to (1) should be yes,
+%% in positive degrees, with either choice.   The answer to (2) should be yes
+%% in all degrees with either choice.   There should be nothing to prove.
+
+
+
+%% \subsection{Summary of attributes preserved under Baer correspondence}
+
+%% Let $G$ be a Baer Lie group and $L = \log G$ is its Baer Lie
+%% ring. The following are true:
+
+%% \begin{enumerate}
+%% \item Under the Baer correspondence, endomorphisms of $G$ correspond
+%%   to endomorphisms of $L$, as described in Section
+%%   \ref{sec:baer-correspondence-isocat-consequences}.
+%% \item Under the Baer correspondence, automorphisms of $G$ correspond
+%%   to automorphisms of $L$, as described in Section
+%%   \ref{sec:baer-correspondence-isocat-consequences}.
+%% \item Under the Baer correspondence, the center of $G$ corresponds to
+%%   the center of $L$.
+%% \item Under the Baer correspondence, the derived subgroup of $G$
+%%   corresponds to the derived subring of $L$.
+%% \item As described in Section
+%%   \ref{sec:baer-correspondence-sub-quot-dp}, we obtain the following
+%%   correspondences:
+
+%%   \begin{center}
+%%     Baer Lie subgroups of $G$ $\leftrightarrown$ Baer Lie subrings of
+%%     $L$
+%%   \end{center}
+
+%%   \begin{center}
+%%     Normal Baer Lie subgroups of $G$ $\leftrightarrow$ Baer Lie ideals in $L$
+%%   \end{center}
+
+%%   \begin{center}
+%%     Baer Lie quotient groups of $G$ $\leftrightarrow$ Baer Lie
+%%     quotient rings of $L$
+%%   \end{center}
+
+%% \item The Baer correspondence gives a correspondence:
+
+%%   \begin{center}
+%%     $2$-powered characteristic subgroups of $G$ $\leftrightarrow$ $2$-powered characteristic subrings in $L$
+%%   \end{center}
+
+%%   Note that this also implies that any $2$-powered characteristic
+%%   subring of $L$ is an ideal.
+
+%% \item Conjecture \ref{conj:charpowering} (respectively, Conjecture
+%%   \ref{conj:charpowering-lie}) stated that in a $\pi$-powered
+%%   nilpotent group (respectively, $\pi$-powered nilpotent Lie ring),
+%%   any characteristic subgroup (respectively, characteristic Lie
+%%   subring) must be $\pi$-powered. We can consider restricted versions
+%%   of Conjectures \ref{conj:charpowering} and
+%%   \ref{conj:charpowering-lie} to the case of Baer Lie groups and Baer
+%%   Lie rings respectively. The restricted versions of the conjectures
+%%   are equivalent. Further, if the equivalent conjectures are true, the
+%%   correspondence of the preceding point becomes a correspondence:
+
+%%   \begin{center}
+%%     Characteristic subgroups of $G$ $\leftrightarrow$ Characteristic
+%%     subrings of $L$
+%%   \end{center}
+%% \end{enumerate}
+
+%% \subsection{Some results about generating sets of the derived subgroup that we will use}\label{sec:derived-subgroup-results-to-use}
+
+%% The following two results are easy to prove, but useful to keep in
+%% mind.
+
+%% \begin{itemize}
+%% \item For a group $G$ with a generating set $S$, the derived subgroup
+%%   of $G$ has the following generating set: all elements that can be
+%%   expressed as commutator words (of length at least two) using the
+%%   elements of $S$. To see this, note that $G$ is the normal closure of
+%%   the set of commutators between elements of $S$, hence it is
+%%   generated by the set of all conjugates of commutators between
+%%   elements of $S$. It suffices to show that each such conjugate is
+%%   expressible as a product of iterated commutators involving elements
+%%   of $S$, and this is an easy exercise.
+%% \item For a Lie ring $L$ with a generating set $S$, the derived
+%%   subring of $L$ has the following generating set: all elements that
+%%   can be expressed as Lie products (of length at least two) using the
+%%   elements of $S$.
+%% \end{itemize}
+
+%% %\newpage
+
+
+%% %% \subsection{Replacement theorems}
+
+%% %% There is a considerable literature related to questions such as:
+
+%% %% \begin{quote}
+%% %%   Given a prime $p$ and positive integers $k \le n$, is it true
+%% %%   that for every group $G$ of order $p^n$ having an abelian subgroup
+%% %%   of order $p^k$, $G$ must have an abelian subring of order $p^k$?
+%% %% \end{quote}
+
+%% %% A major paper addressing questions of this type was a 1975 paper
+%% %% \cite{JK75} by Jonah and Konvisser. The paper proved that for an odd
+%% %% prime $p$ and for $0 \le k \le 5$, the answer to the question above
+%% %% was always {\em yes}. In fact, their paper demonstrated a
+%% %% substantially stronger result: they showed that if $G$ has an abelian
+%% %% subgroup of order $p^k$ for some fixed $k$ satisfying $0 \le k \le 5$,
+%% %% then the total number of abelian subgroup of $G$ of order $p^k$ is
+%% %% congruent to $1$ mod $p$. The counting methods proposed by Jonah and
+%% %% Konvisser were unsuited to settling the question above. In fact,
+%% %% another paper \cite{JK75.2} by the same authors published in the same
+%% %% journal issue constructed a generic example (valid for all odd primes
+%% %% $p$) of a group of order $p^9$ that has exactly two abelian subgroups
+%% %% of order $p^6$, both of which are elementary abelian and normal.
+
+%% %% The paper \cite{AG98} by Alperin and Glauberman proves more powerful
+%% %% results in the same direction. The paper uses the Lazard
+%% %% correspondence for its proof, and also uses group-theoretic reasoning
+%% %% to generalize the result somewhat to situations where the Lazard
+%% %% correspondence does not directly apply. Explicitly, Theorem C of the
+%% %% paper reads:
+
+%% %% \begin{theorem}[Theorem C of \cite{AG98}]
+%% %%   If $A$ is an abelian subalgebra of the Lie algebra $L$ over $F$ and
+%% %%   $L$ is nilpotent of class at most $p$, then there is an abelian
+%% %%   ideal $N$ of $L$, in the ideal closure of $A$ in $L$, of the same
+%% %%   dimension as $A$.
+%% %% \end{theorem}
+

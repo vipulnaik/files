@@ -1,0 +1,203 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul}
+
+%Title details
+\title{Lie pring theory}
+\author{Vipul Naik}
+
+%List of new commands
+\newcommand{\Skew}{\operatorname{Skew}}
+
+\begin{document}
+\maketitle
+
+\section*{Motivational note}
+
+The idea is to generalize for arbitrary primes $p$ what Lie cring
+theory does for the prime $p = 2$.
+
+\section{Lie pring: definition}
+
+We define a Lie pring for the prime $p$ as follows: It is a set $L$
+equipped with the following:
+
+\begin{itemize}
+\item An abelian group structure denoted additively, such that the
+  abelian group is uniquely $q$-divisible for all primes $q < p$.
+\item A Lie bracket that makes $L$ a Lie ring with addition the above
+  abelian group structure.
+\item A function $\theta_p: L \times L \to L$ satisfying the following
+  three conditions: 
+
+  \begin{itemize}
+  \item The {\em boundary condition}, which states that
+    $\partial \theta_p$ (in the sense of the boundary of a $2$-cochain)
+    is formally the same as $\partial$ of the $p^{th}$ term of the
+    Baker-Campbell-Hausdorff formula (note that that formal expression
+    has on $p$s in its denominator).
+  \item The {\em multiple condition}, which states that$p\theta_p$ is
+    formally the same as $p$ times the $p^{th}$ term of the
+    Baker-Campbell-Hausdorff formula.
+  \item The {\em near-alternating condition}, which states that
+    $\theta_p(x,y) = 0$ whenever $x$ and $y$ generate a cyclic
+    subgroup of $L$.
+  \end{itemize}
+\end{itemize}
+
+To avail of the advantages of infix notation for binary operations, we
+choose the symbol $\wr$ for $\theta_p$, so $x \wr y$ is shorthand for
+$\theta_p(x,y)$.
+
+\subsection{The definition of nilpotency class}
+
+This definition is trickier than we're used to, so some preliminaries.
+
+We define a {\em monomial} as a formal expression in finitely many
+variables that involves {\em only} iterating the Lie bracket and the
+pring operation $\wr$, i.e., it does not involve any addition or
+scalar multiplication, and where all the starting points are among the
+variables. To evaluate this monomial at an element of the Lie pring,
+we need to specify actual values of all variables.
+
+We define the {\em min-degree} of a monomial inductively as follows:
+
+\begin{itemize}
+\item Each of the formal variables has degree $1$.
+\item The min-degree of $[A,B]$ is the sum of the min-degrees of $A$
+  and of $B$.
+\item The min-degree of $A \wr B$ is defined as follows. Let $d_A$ and
+  $d_B$ be the degrees of $A$ and $B$. Consider each of the monomials
+  in the $p^{th}$ term of the BCH formula. In each of them, $A$ occurs
+  $k_i$ number of times and $B$ occurs $p - k_i$ number of times. Take
+  $\min_i \{ k_id_A + (p - k_i)d_B \}$. In other words, it is the
+  smallest of the degrees of all the monomials.
+\end{itemize}
+
+We can now define the min-degree of a general expression as the
+minimum of the min-degrees of all monomials used to constitute
+it. Note that some additional algebraic simplifications may be used to
+push up the min-degree, so the min-degree should really be considered
+a lower bound on the min-degree. All our results are of the flavor: if
+the min-degree is $\ge k$, then ...
+
+We define a Lie pring $L$ to have class $\le c$ if any expression of
+min-degree $\ge c + 1$ takes the value $0$ for all possible choices of
+input from $L$.
+
+
+\section{Cring theory}
+
+\subsection{The case $p = 2$: Lie cring}
+
+A Lie cring is a Lie pring for the prime $p = 2$. Specifically, the
+cring multiplication is the operation $\theta_2$, and the Lie bracket
+coincides with twice of that. The boundary condition in this case
+becomes $\partial \theta_2 = 0$, which is why we get a cocycle. The
+multiple condition is $2\theta_2 = [ \ , \ ]$.
+
+Note that for Lie crings, as usually defined, the Lie bracket is not
+included as part of the structure, because the Lie bracket is uniquely
+recoverable from the cring multiplication or $\theta_2$, i.e., it is
+$2\theta_2$. For larger values of $p$, this reverse determination is
+not possible.
+
+\section{Tring theory}
+\subsection{The case $p = 3$: Lie tring}
+
+A Lie tring is a Lie pring for the prime $p = 3$. We write down the
+boundary condition and multiple condition explicitly:
+
+\begin{itemize}
+\item The boundary condition states that $(\partial\theta_3)(x,y,z) =
+  \frac{-1}{4}[y,[z,x]]$.
+\item The multiple condition states that $3\theta_3(x,y) =
+  \frac{1}{4}[x,[x,y]] - \frac{1}{4}[y,[x,y]]$.
+\end{itemize}
+
+For simplicity, we denote $\theta_3(x,y)$ by $x \wr y$. 
+
+We now try to define a notion of {\em nilpotency class} for
+trings. What does it mean for a tring to have a particular class? In
+order to make this definition, we need a notion of {\em min-degree of
+monomial}, where the monomial involves a composition of both $\wr$ and
+$[,]$. We define this degree inductively: 
+
+\begin{itemize}
+\item The min-degree of a primitive term/variable is $1$.
+\item The min-degree of $[A,B]$ where $A$ and $B$ are both expressions is
+  the sum of the degrees of $A$ and $B$.
+\item The min-degree of $A \wr B$ where $A$ and $B$ are both expressions
+  is $d_A + d_B + \min \{ d_A,d_B\}$.
+\end{itemize}
+
+We say that a Lie tring in $L$ has class $k$ if for any monomial of
+min-degree $k + 1$, setting values of the term variables to any bunch
+of elements in $L$ is $0$.
+
+In particular, a Lie tring has class three iff it satisfies all these
+conditions:
+
+\begin{itemize}
+\item $[[[x,y],z],w] = 0$ for all $x,y,z,w \in L$ (Note that this
+  implies corresponding conditions on all other parenthesizations
+  involving purely Lie brackets, via the Jacobi condition and
+  alternation).
+\item $[(x \wr y),z] = 0$ for all $x,y,z \in L$. This automatically
+  implies $[x,y \wr z] = 0$ for all $x,y,z \in L$, again by
+  alternation.
+\item $(x \wr y) \wr z = x \wr (y \wr z) = 0$ for all $x,y,z \in L$.
+\end{itemize}
+
+We can now state the first theorem.
+
+\begin{theorem}
+  Suppose $L$ is a Lie tring of class three (with the notation used
+  above). We can provide a group structure on $L$ as follows:
+
+  $$x \cdot y = x + y + \frac{1}{2}[x,y] + (x \wr y)$$
+
+  Further, the set identity mapping from $L$ to this group is a
+  $1$-isomorphism of groups, i.e., any cyclic subgroup of $L$ goes to
+  the corresponding cyclic subgroup in the group.
+\end{theorem}
+
+\begin{proof}
+  {\em Cyclic subgroup, identity element, inverses}: If $x$ and $y$
+  generate a cyclic subgroup, then $[x,y] = 0$ and $x \wr y = 0$ by
+  assumption. Thus, $x \cdot y = x + y$. In particular, $x \cdot 0 = x
+  + 0 = x$, and $0 \cdot x = 0 + x = x$. Also, $x \cdot (-x) = x +
+  (-x) = 0$, so $-x = x^{-1}$.
+
+  {\em Associativity}: We have:
+
+  $$(x \cdot y) \cdot z = \{ x + y + \frac{1}{2}[x,y] + (x \wr y) \}  + z + \frac{1}{2}\left[x + y + \frac{1}{2}[x,y] + (x \wr y),z\right] + (x + y + \frac{1}{2}[x,y] + (x \wr y)) \wr z$$
+
+  and:
+
+  $$x \cdot (y \cdot z) = x + \{ y + z + \frac{1}{2}[y,z] + (y \wr z) \} + \frac{1}{2}\left[x,y + z + \frac{1}{2}[y,z] + (y \wr z)\right] + x \wr (y + z + \frac{1}{2}[y,z] + (y \wr z))$$
+
+  Subtracting these two:
+
+  $$((x \cdot y) \cdot z) - (x \cdot (y \cdot z)) = \frac{1}{2}\{[x,y] + [x+y,z] - [x,y+z] - [y,z]\} + \frac{1}{4}\{[[x,y],z] - [x,[y,z]]\} + \{ (x \wr y) + ((x + y + \frac{1}{2}[x,y] + (x \wr y)) \wr z) - (x \wr (y + z + \frac{1}{2}[y,z] + (y \wr z))) - (y \wr z) \} + \frac{1}{2}\{[x \wr y,z] - [x,y \wr z] \}  $$
+
+  We now argue that:
+
+  $$x \wr (y + z + \frac{1}{2}[y,z] + (y \wr z)) = x \wr (y + z)$$
+
+  The argument here basically uses the boundary condition on the
+  triple $x$, $y + z$, and $\frac{1}{2}[y,z] + (y \wr z)$. The
+  split-off method works!
+
+  The degree two part:
+
+  $$\frac{1}{2} \{ [x,y] + [x+y,z] - [x,y+z] - [y,z] \}$$
+
+  becomes equal to zero using the additivity of the Lie bracket.
+
+  The degree three part becomes zero using the boundary condition. The
+  higher degree parts are automatically zero.
+\end{proof}
+
+\end{document}

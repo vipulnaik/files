@@ -1,0 +1,335 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Wednesday December 4: Ordinary least squares regression}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+25 people took this 8-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of 3: 1 person
+\item Score of 4: 2 people
+\item Score of 5: 1 person
+\item score of 6: 8 people
+\item Score of 7: 8 people
+\item Score of 8: 5 people
+\end{itemize}
+
+The mean score was 6.4.
+
+The question-wise answers and performance review were as follows:
+
+\begin{enumerate}
+\item Option (C): 23 people 
+\item Option (C): 24 people
+\item Option (C): 22 people
+\item Option (D): 20 people
+\item Option (A): 13 people
+\item Option (D): 20 people
+\item Option (A): 18 people
+\item Option (A): 20 people
+\end{enumerate}
+\section{Solutions}
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+\begin{enumerate}
+
+\item Assume no measurement error. Consider the situation where we
+  have a function $f$ of the form $f(x) = a_0 + a_1x$ with unknown
+  values of the parameters $a_0$ and $a_1$. We collect $n$ distinct
+  input-output pairs, i.e., we collect $n$ distonct inputs and compute
+  the outputs for them. The coefficient matrix for the system is a $n
+  \times 2$ matrix (the rows correspond to the input values, and the
+  columns correspond to the unknown parameters). What is the rank of
+  this matrix?
+
+  \begin{enumerate}[(A)]
+  \item It is always $2$
+  \item It is always $n$
+  \item It is always $\min \{ 2, n \}$
+  \item It is always $\max \{ 2, n \}$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Note that the rank is at most $\min \{ 2,n \}$
+  because the rank is at most the minimum of the number of rows and
+  the number of columns. To see that the rank is exactly that value,
+  consider the cases $n = 1$ and $n = 2$. In the case $n = 1$, we have
+  a single nonzero row $\left[\begin{matrix} 1 & x_1 \\\end{matrix}\right]$ so the rank is exactly one. In the
+  case $n = 2$, we have a coefficient matrix as follows:
+
+  $$\left[\begin{matrix} 1 & x_1 \\ 1 & x_2 \\\end{matrix}\right]$$
+
+  Note that, since $x_1 \ne x_2$, the second row is {\em not} a scalar
+  multiple of the first. Thus, the matrix has rank two. The case $n
+  \ge 2$ follows, because we have already achieved the maximum
+  possible rank of two using the first two rows.
+
+  {\em Performance review}: 23 out of 25 people go this. 2 chose (A).
+
+\item Assume no measurement error. Consider the situation where we
+  have a function $f$ of the form $f(x) =a_0 + a_1x + a_2x^2 + \dots +
+  a_mx^m$ with unknown values of the parameters $a_0$, $a_1$, $\dots$,
+  $a_m$. We collect $n$ distinct input-output pairs, i.e., we collect
+  $n$ distinct inputs and compute the outputs for them. The
+  coefficient matrix for the system is a $n \times (m + 1)$ matrix
+  (the rows correspond to the input values, and the columns correspond
+  to the unknown parameters). What is the rank of this matrix?
+
+  \begin{enumerate}[(A)]
+  \item It is always $m + 1$
+  \item It is always $n$
+  \item It is always $\min \{ m + 1, n \}$
+  \item It is always $\max \{ m + 1, n \}$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The rank can be at {\em most} $\min \{m + 1,n \}$
+  because it is at most the minimum of the number of rows and the
+  number of columns. See Section 3.1 of the lecture notes on
+  ``hypothesis testing, rank, and overdetermination'' but note that
+  the roles of $m$ and $n$ are interchanged there relative to this
+  question.
+  
+  {\em Performance review}: 24 out of 25 people got this. 1 chose (D).
+
+\item Assume no measurement error. Consider the situation where we
+  have a function $f$ of the form $f(x,y) = a_0 + a_1x + a_2y$ with
+  unknown values of the parameters $a_0$, $a_1$, and $a_2$. We collect
+  $n$ distinct input-output pairs, i.e., we collect $n$ distinct
+  inputs (here an input specification involves specifying both the
+  $x$-value and the $y$-value) and compute the outputs for them. The
+  coefficient matrix for the system is a $n \times 3$ matrix (the rows
+  correspond to the input values, and the columns correspond to the
+  unknown parameters). What is the rank of this matrix?
+
+  \begin{enumerate}[(A)]
+  \item It is always $\min \{ 3,n \}$
+  \item It is always $\max \{ 3,n \}$
+  \item For $n = 1$, it is $1$. For $n \ge 2$, it is $2$ if the input
+    points are all collinear in the $xy$-plane. Otherwise, it is $3$.
+  \item For $n = 1$, it is $1$. For $n \ge 2$, it is $3$ if the input
+    points are all collinear in the $xy$-plane. Otherwise, it is $2$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: For $n \ge 2$, the first two rows are not scalar
+  multiples of each other. Explicitly, the first two rows look like:
+
+  $$\left[\begin{matrix} 1 & x_1 & y_1 \\ 1 & x_2 & y_2 \\\end{matrix}\right]$$
+
+  In the case that all the points are collinear, later rows can be
+  obtained as linear combinations of the first two rows. Equivalently,
+  knowing the value of $f$ at $(x_1,y_1)$ and at $(x_2,y_2)$ allows us
+  to predict the value of $f$ at all other points on the line joining
+  these in $\R^2$, and therefore other points on the line do not
+  reveal new information. Thus, the rank of the coefficient matrix is
+  $2$. 
+
+  See the discussion in Section 2.1 of the lecture notes on hypothesis
+  testing, rank and overdetermination. Also see the answer to Question
+  1 of the Friday October 11 take-home quiz on linear systems, and the
+  answer to Question 5 of the Monday October 7 take-home class quiz on
+  linear functions and equation-solving (part 2).
+
+  {\em Performance review}: 22 out of 25 people got this. 2 chose (A),
+  1 chose (D).
+
+\item Which of the following is closest to correct in the setting
+  where we use a linear system to find the parameters using
+  input-output pairs given a functional form that is linear in the
+  parameters? Assume for simplicity that we are dealing with a
+  functional form $y = f(x)$ with one input and one output, but
+  possibly multiple parameters in the general description.
+
+  \begin{enumerate}[(A)]
+  \item The solutions to the linear system that we set up correspond
+    to possibilities for the inputs to the function, and geometrically
+    correspond to choices of points $x$ for the graph $y = f(x)$.
+  \item The solutions to the linear system that we set up correspond
+    to possibilities for the inputs to the function, and geometrically
+    correspond to different possible choices for the line or curve
+    that is the graph $y = f(x)$.
+  \item The solutions to the linear system that we set up correspond
+    to possibilities for the parameters, and geometrically correspond
+    to choices of points $x$ for the graph $y = f(x)$.
+  \item The solutions to the linear system that we set up correspond
+    to possibilities for the parameters, and geometrically correspond
+    to different possible choices for the line or curve that is the
+    graph $y = f(x)$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We are trying to find the line or curve. That's
+  the whole goal of regression. And the way we do this is by choosing
+  a general functional form and then using regression to estimate the
+  parameters in that functional form.
+
+  {\em Performance review}: 20 out of 25 people got this. 5 chose (C).
+
+\item Continuing with the notation and setup of the preceding
+  question, consider the coefficient matrix of the linear system. This
+  matrix defines a linear transformation from the vector space of
+  possible parameter values to the vector space of the outputs of the
+  function. What is the image of this linear transformation?
+
+  \begin{enumerate}[(A)]
+  \item The image is the set of possible output values for which the
+    linear system is consistent, i.e., we can find {\em at least one}
+    function $f$ of the required functional form that fits all the
+    input-output pairs with {\em no measurement error}.
+  \item The image is the set of possible output values for which the
+    linear system has {\em at most one solution}, i.e., the set of
+    output valus for which we can find {\em at most one} function $f$
+    of the required functional form that fits all the input-output
+    pairs with {\em no measurement error}.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: This follows from the definition of image.
+
+  {\em Performance review}: 13 out of 25 people got this. 12 chose (B).
+
+\item Consider the case of polynomial regression for a polynomial
+  function of one variable, allowing for measurement error. We believe
+  that a function has the form of a polynomial. We can tentatively
+  choose a degree $m$ for the polynomial we are trying to fit, and a
+  value $n$ for the number of distinct inputs for which we compute the
+  corresponding outputs to obtain input-output pairs (i.e., data
+  points). We will get a $n \times (m + 1)$ coefficient matrix. Which
+  of the following correctly describes what we should try for?
+
+  \begin{enumerate}[(A)]
+  \item We should choose $n$ and $m + 1$ to be exactly equal, so that
+    we get a unique polynomial.
+  \item We should choose $n$ to be greater than $m + 1$, so that the
+    system is guaranteed to be consistent and we can find the
+    polynomial.
+  \item We should choose $n$ to be less than $m + 1$, so that the
+    system is guaranteed to be consistent and we can find the polynomial.
+  \item We should choose $n$ to be greater than $m + 1$, so that the
+    system is {\em not} guaranteed to be consistent, but we do have a
+    unique solution after we project the output vector to a vector for
+    which the system is consistent.
+  \item We should choose $n$ to be less than $m + 1$, so that the
+    system is {\em not} guaranteed to be consistent, but we do have a
+    unique solution after we project the output vector to a vector for
+    which the system is consistent.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: If we chose $n > m + 1$, the coefficient matrix
+  has full column rank $m + 1$, and therefore the linear
+  transformation is injective, i.e., we have at most one
+  solution. However, it does not have full row rank, so the linear
+  transformation is not surjective, i.e., we do not necessarily have a
+  solution for every output vector.
+
+  Both aspects are features for us. The existence of at most one
+  solution means that we can find the parameters uniquely after we
+  project to the closest vector in the image. The fact that the system
+  does not have full row rank means that there is a potential for
+  inconsistency, and in the presence of measurement error, the system
+  will probably be inconsistent with the measured output vector. This
+  is good because the potential for inconsistency allows us to test
+  the validity of the model better. Also, in the case of measurement
+  error, the more the number of inputs that we use, the better our
+  estimate of the function is likely to be.
+
+  {\em Performance review}: 20 out of 25 people got this. 3 chose (E),
+  1 each chose (B) and (C).
+
+\item Consider the general situation of linear regression. Denote by
+  $X$ the coefficient matrix for the linear system (also called the
+  design matrix). Denote by $\vec{\beta}$ the parameter vector that we
+  are trying to solve for. Denote by $\vec{y}$ an observed output
+  vector. The idea in ordinary least squares regression is to choose a
+  suitable vector $\vec{\varepsilon}$ such that the linear system
+  $X\vec{\beta} = \vec{y} - \vec{\varepsilon}$ can be solved for
+  $\vec{\beta}$. Among the many possibilities that we can choose for
+  $\vec{\varepsilon}$, what criterion do we use to select the
+  appropriate choice? Recall that the {\em length} of a vector is the
+  square root of the sum of squares of its coordinates.
+
+  \begin{enumerate}[(A)]
+  \item We choose $\vec{\varepsilon}$ to have the minimum length
+    possible subject to the constraint that $X\vec{\beta} = \vec{y} -
+    \vec{\varepsilon}$ has a solution.
+  \item We choose $\vec{\varepsilon}$ such that the system
+    $X\vec{\beta} = \vec{y} - \vec{\varepsilon}$ can be solved and
+    such that the solution vector $\vec{\beta}$ has the minimum
+    possible length (among all such choices of $\vec{\varepsilon}$).
+  \item We choose $\vec{\varepsilon}$ such that the system
+    $X\vec{\beta} = \vec{y} - \vec{\varepsilon}$ can be solved and
+    such that the difference vector $\vec{y} - \vec{\varepsilon}$ has
+    the minimum possible length (among all such choices of
+    $\vec{\varepsilon}$).
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: We want to deviate as little as possible from the
+  measured output. This is the idea behind using the orthogonal
+  projection.
+  
+  {\em Performance review}: 18 out of 25 people got this. 6 chose (C),
+  1 chose (B).
+
+\item We have data for the logarithm of annual per capita GDP for a
+  country for the last 100 years. We want to see if this fits a
+  polynomial model. The idea is to try to first fit a polynomial of
+  degree $0$ (i.e., per capita GDP remains constant), then fit a
+  polynomial of degree $\le 1$ (i.e., per capita GDP grows or decays
+  exponentially), then fit a polynomial of degree $\le 2$ (i.e., per
+  capita GDP grows or decays as the exponential of a quadratic
+  function), and so on.
+
+  What happens to the length of the error vector $\vec{\varepsilon}$ as
+  we increase the degree of the polynomial that we are trying to fit?
+
+  \begin{enumerate}[(A)]
+  \item The error vector $\vec{\varepsilon}$ keeps getting smaller and
+    smaller in length, with a near-certainty that it keeps
+    {\em strictly} decreasing in length at each step, until the error
+    vector becomes $\vec{0}$ (which we expect will happen when we get
+    to the stage of trying to fit the function using a polynomial of
+    degree 99).
+  \item The error vector $\vec{\varepsilon}$ keeps getting larger and
+    larger in length, with a near-certainty that it keeps {\em
+      strictly} increasing in length at each step, until the error
+    vector becomes $\vec{y}$ (which we expect will happen when we get
+    to the stage of trying to fit the function using a polynomial of
+    degree 99).
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: The space that we are projecting on keeps getting
+  bigger and bigger, so the distance from the vector $\vec{y}$ to the
+  space keeps getting smaller and smaller. Note that it's highly
+  unlikely that there would be {\em no} improvement possible by
+  introducing a new parameter, so it's likely that the improvement
+  would be strict at every stage until the time that we reach a
+  polynomial of degree 99, where we can obtain a perfect fit because
+  we have only 100 data points.
+
+  {\em Performance review}: 20 out of 25 people got this. 5 chose (B).
+
+\end{enumerate}
+\end{document}

@@ -1,0 +1,283 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Wednesday October 30: Linear transformations and finite state automata}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+28 people took this 7-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of 0: 2 people
+\item Score of 1: 1 person
+\item Score of 2: 1 person
+\item Score of 3: 5 people
+\item Score of 4: 3 people
+\item Score of 5: 3 people
+\item Score of 6: 8 people
+\item Score of 7: 5 people
+\end{itemize}
+
+The mean score was 4.57.
+
+The question-wise answers and performance review are below:
+
+\begin{enumerate}
+\item Option (E): 19 people
+\item Option (B): 23 people
+\item Option (A): 21 people
+\item Option (C): 10 people
+\item Option (D): 17 people
+\item Option (B): 18 people
+\item Option (C): 20 people
+\end{enumerate}
+\section{Solutions}
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+The purpose of this quiz is to explore in greater depth particular
+types of matrices, the corresponding linear transformations, and the
+relationship between operations on sets and similar operations on
+vector spaces. The material covered in the quiz will also prove to be
+a fertile source of {\em examples} and {\em counterexamples} for later
+content: in the future, when you are asked to come up with matrices
+that satisfy some very loosely stated conditions, the matrices of the
+type described here can be a place to begin your search.
+
+\vspace{0.2in}
+
+Let $n$ be a natural number greater than $1$. Suppose $f: \{
+0,1,2,\dots,n\} \to \{ 0,1,2,\dots,n\}$ is a function satisfying $f(0)
+= 0$. Let $T_f$ denote the linear transformation from $\R^n$ to $\R^n$
+satisfying the following for all $i \in \{ 1,2,\dots,n\}$:
+
+$$T_f(\vec{e}_i) = \left \lbrace \begin{array}{rl} \vec{e}_{f(i)}, & f(i) \ne 0\\ \vec{0}, & f(i) = 0\\\end{array}\right.$$
+
+Let $M_f$ denote the matrix for the linear transformation $T_f$. $M_f$
+can be described explicitly as follows: the $i^{th}$ column of $M_f$
+is $\vec{0}$ if $f(i) = 0$ and is $\vec{e}_{f(i)}$ if $f(i) \ne 0$.
+
+Note that if $f,g: \{ 0,1,2,\dots,n \} \to \{ 0,1,2,\dots,n\}$ are
+functions with $f(0)= g(0) = 0$, then $M_{f \circ g} = M_fM_g$ and
+$T_{f \circ g} = T_f \circ T_g$.
+
+We will also use the following terminology:
+
+\begin{itemize}
+\item A $n \times n$ matrix $A$ is termed {\em idempotent} if $A^2 = A$.
+\item A $n \times n$ matrix $A$ is termed {\em nilpotent} if there
+  exists a positive integer $r$ such that $A^r = 0$.
+\item A $n \times n$ matrix $A$ is termed a {\em permutation matrix}
+  if every row contains one $1$ and all other entries $0$, {\em and}
+  every column contains one $1$ and all other entries $0$.
+\end{itemize}
+
+\begin{enumerate}
+\item What condition on a function $f: \{ 0,1,2,\dots, n\} \to \{
+  0,1,2,\dots,n\}$ (satisfying $f(0) = 0$) is equivalent to requiring
+  $M_f$ to be idempotent?
+
+  \begin{enumerate}[(A)]
+  \item $(f(x))^2 = x$ for all $x \in \{ 0,1,2,\dots,n\}$
+  \item $f(x^2) = x$ for all $x \in \{ 0,1,2,\dots,n \}$
+  \item $(f(x))^2 = f(x)$ for all $x \in \{ 0,1,2,\dots,n\}$
+  \item $f(f(x)) = x$ for all $x \in \{ 0,1,2,\dots,n\}$
+  \item $f(f(x)) = f(x)$ for all $x \in \{0,1,2,\dots,n \}$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: As noted above, $M_f^2 = M_fM_f = M_{f \circ
+    f}$. In order to have $M_f^2 = M_f$, we need $M_{f \circ f} =
+  M_f$. Since the matrix determines the function, we get $f \circ f =
+  f$, so $f(f(x)) = f(x)$ for all $x \in \{ 0,1,2,\dots,n \}$.
+
+  {\em Performance review}: 19 out of 28 got this. 5 chose (C), 3
+  chose (D), 1 chose (B).
+
+  {\em Historical note (last time)}: $12$ out
+  of $26$ got this. $9$ chose (C), $5$ chose (D).
+
+\item What condition on a function $f: \{ 0,1,2,\dots, n\} \to \{
+  0,1,2,\dots,n\}$ (satisfying $f(0) = 0$) is equivalent to requiring
+  $M_f$ to be nilpotent?
+
+  \begin{enumerate}[(A)]
+  \item Composing $f$ enough times with itself gives the identity
+    function (i.e., the function that sends everything to itself).
+  \item Composing $f$ enough times with itself gives the function that
+    sends everything to $0$.
+  \item Composing $f$ enough times with itself gives the function that
+    sends everything to $1$.
+  \item Multiplying $f$ enough times with itself gives the identity
+    function (i.e., the function that sends everything to itself).
+  \item Multiplying $f$ enough times with itself gives the function
+    that sends everything to $0$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The matrix $M_f^r$ is the same as $M_{f \circ
+    \dots \circ f}$ where $f$ is composed with itself $r$ times. Thus,
+  $M_f^r = 0$ if and only if $M_{f \circ \dots f} = 0$, which means
+  that the $r$-fold composite of $f$ is the function that sends
+  everything to zero.
+
+  {\em Performance review}: 23 out of 28 got this. 3 chose (A), 2
+  chose (E).
+
+  {\em Historical note (last time)}: $23$ out of $26$ got this. $2$
+  chose (C), $1$ chose (E).
+\item What condition on a function $f: \{ 0,1,2,\dots, n\} \to \{
+  0,1,2,\dots,n\}$ (satisfying $f(0) = 0$) is equivalent to requiring
+  $M_f$ to be a permutation matrix?
+
+  \begin{enumerate}[(A)]
+  \item Composing $f$ enough times with itself gives the identity
+    function (i.e., the function that sends everything to itself).
+  \item Composing $f$ enough times with itself gives the function that
+    sends everything to $0$.
+  \item Composing $f$ enough times with itself gives the function that
+    sends everything to $1$.
+  \item Multiplying $f$ enough times with itself gives the identity
+    function (i.e., the function that sends everything to itself).
+  \item Multiplying $f$ enough times with itself gives the function
+    that sends everything to $0$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: $f$ itself is bijective, which means it cycles
+  around the coordinates. Repeating $f$ enough times should bring
+  everything back where it was.
+
+  {\em Performance review}: 21 out of 28 got this. 7 chose (D).
+
+  {\em Historical note (last time)}: $23$ out of $26$ got this. $2$ chose (C),
+  $1$ chose (B).
+\item Consider a function $f: \{ 0,1,2,\dots,n \} \to
+  \{0,1,2,\dots,n\}$ with the property that $f(0) = 0$ and, for each
+  $i \in \{ 1,2,\dots,n\}$, $f(i)$ is either $i$ or $0$. Note that the
+  behavior may be different for different values of $i$ (so some of
+  them may go to themselves, and others may go to $0$). What can we say
+  $M_f$ must be?
+
+  \begin{enumerate}[(A)]
+  \item $M_f$ must be the identity matrix.
+  \item $M_f$ must be the zero matrix.
+  \item $M_f$ must be an idempotent matrix.
+  \item $M_f$ must be a nilpotent matrix.
+  \item $M_f$ must be a permutation matrix.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The function $f$ given here satisfies the
+  condition that $f(f(i)) = f(i)$ for all $i$. To see this, note that:
+
+  \begin{itemize}
+  \item if $f(i) = i$, then $f(f(i)) = f(i) = i$, i.e., we stay looped at $i$.
+  \item if $f(i) = 0$, then $f(f(i)) = f(0) = 0$, i.e., once we reach
+    $0$, we stay there.
+  \end{itemize}
+
+  {\em Performance review}: 10 out of 28 got this. 9 chose (D), 7
+  chose (E), 2 chose (A).
+
+  {\em Historical note (last time)}: $12$ out of $26$ got this. $6$ chose (D),
+  $5$ chose (E), $3$ chose (A).
+\item Which of the following pairs of candidates for $f,g: \{ 0,1,2 \}
+  \to \{ 0,1,2 \}$ satisfies the condition that $M_fM_g = 0$ but
+  $M_gM_f \ne 0$? 
+
+  \begin{enumerate}[(A)]
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 2$, whereas $g(0) = 0$, $g(1)
+    = 2$, $g(2) = 1$
+  \item $f(0) = 0$, $f(1) = 0$, $f(2) = 1$, whereas $g(0) = 0$, $g(1)
+    = 2$, $g(2) = 0$
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 0$, whereas $g(0) = 0$, $g(1)
+    = 0$, $g(2) = 2$
+  \item $f(0) = 0$, $f(1) = 0$, $f(2) = 1$, whereas $g(0) = 0$, $g(1)
+    = 1$, $g(2) = 0$
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 0$, whereas $g(0) = 0$, $g(1)
+    = 0$, $g(2) = 1$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: For this option, $f \circ g$ sends everything to
+  $0$. $g \circ f$ sends $0$ and $1$ to $0$ and sends $2$ to $1$.
+
+  {\em Performance review}: 17 out of 28 got this. 5 chose (E), 2 each
+  chose (A), (B), and (C).
+
+  {\em Historical note (last time)}: $20$ out of $26$ got this. $2$
+  each chose (A), (B), and (E).
+\item Which of the following pairs of candidates for $f,g: \{ 0,1,2 \}
+  \to \{ 0,1,2 \}$ satisfies the condition that $M_f$ and $M_g$ are
+  both nilpotent but $M_fM_g$ is not nilpotent?
+
+  \begin{enumerate}[(A)]
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 2$, whereas $g(0) = 0$, $g(1)
+    = 2$, $g(2) = 1$
+  \item $f(0) = 0$, $f(1) = 0$, $f(2) = 1$, whereas $g(0) = 0$, $g(1)
+    = 2$, $g(2) = 0$
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 0$, whereas $g(0) = 0$, $g(1)
+    = 0$, $g(2) = 2$
+  \item $f(0) = 0$, $f(1) = 0$, $f(2) = 1$, whereas $g(0) = 0$, $g(1)
+    = 1$, $g(2) = 0$
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 0$, whereas $g(0) = 0$, $g(1)
+    = 0$, $g(2) = 1$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: $f \circ f$ is the function sending everything to
+  $0$. $g \circ g$ is also the function sending everything to $0$. On
+  the other hand, $f \circ g$ is the function that sends $1$ to $1$
+  and sends $0$ and $2$ to $0$.
+
+  {\em Performance review}: 18 out of 28 got this. 3 each chose (A)
+  and (E), 2 chose (D), 1 chose (C), and 1 left the question blank.
+
+  {\em Historical note (last time)}: $22$ out of $26$ got this. $3$
+  chose (A), $1$ chose (C).
+\item Which of the following pairs of candidates for $f,g: \{ 0,1,2 \}
+  \to \{ 0,1,2 \}$ satisfies the condition that neither $M_f$ and
+  $M_g$ is nilpotent but $M_fM_g$ is nilpotent?
+
+  \begin{enumerate}[(A)]
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 2$, whereas $g(0) = 0$, $g(1)
+    = 2$, $g(2) = 1$
+  \item $f(0) = 0$, $f(1) = 0$, $f(2) = 1$, whereas $g(0) = 0$, $g(1)
+    = 2$, $g(2) = 0$
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 0$, whereas $g(0) = 0$, $g(1)
+    = 0$, $g(2) = 2$
+  \item $f(0) = 0$, $f(1) = 0$, $f(2) = 1$, whereas $g(0) = 0$, $g(1)
+    = 1$, $g(2) = 0$
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 0$, whereas $g(0) = 0$, $g(1)
+    = 0$, $g(2) = 1$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: $M_f$ and $M_g$ are both idempotent, since $f
+  \circ f = f$ and $g \circ g = g$. However, $f \circ g$ is the
+  function sending everything to $0$, so $M_fM_g = 0$.
+
+  {\em Performance review}: 20 out of 28 got this. 3 chose (A), 2
+  chose (B), 1 each chose (D) and (E), 1 left the question blank.
+
+  {\em Historical note (last time)}: $20$ out of $26$ got this. $3$
+  chose (B), $1$ each chose (A), (D), and (E).
+
+\end{enumerate}
+\end{document}

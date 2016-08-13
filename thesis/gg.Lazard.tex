@@ -1,0 +1,3206 @@
+\documentclass[mathscr]{amsart}
+\usepackage{amssymb, enumerate, eucal, xspace}
+%\usepackage[arrow, matrix, tips]{xy}
+
+\theoremstyle{theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{hypothesis2.1'}{Hypothesis 3.1$^\prime$}
+\newtheorem*{theoA}{Theorem A}
+\newtheorem*{theoB}{Theorem B}
+\newtheorem{corollary}[theorem]{Corollary}
+
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{pr}[theorem]{Proposition}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{conjecture}[theorem]{Conjecture}
+%\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remarknn}{Remark}
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\numberwithin{equation}{section}
+
+\bibliographystyle{amsalpha}
+
+\newcommand{\abso}[1]{\ensuremath{\left|#1\right|}}
+\newcommand{\normal}{\triangleleft}
+\newcommand{\smod}[1]{\hspace*{-.1cm}\pmod{#1}}
+
+
+\def \({\left(}
+\def \){\right)}
+\def\[{\left[}
+\def\]{\right]}
+\def\Q{\mathbb{Q}}
+\def\Z{\mathbb{Z}}
+\def\S{\mathcal{S}}
+\def\O{\mathcal{O}}
+\def \Exp{\text{Exp}\,}
+\def \Log{\text{Log}\,}
+%\def \ad{\text{ad}\,}
+\def\ol{\overline}
+%\def \smod{\vspace*{-2cm}\pmod}
+
+\begin{document}
+
+\title{A Partial Extension of Lazard's Correspondence for finite P-groups}
+\author{George Glauberman}
+\date{\today}
+
+\maketitle
+
+\begin{abstract}
+M. Lazard established a correspondence between finite $p$-groups of
+nilpotence class less than $p$ and finite nilpotent Lie rings of
+$p$-power order and nilpotence class less than $p$. This
+correspondence has had many applications, but cannot generally be
+extended to $p$-groups of class $p$ or larger. However, in this
+paper, we obtain a partial extension of Lazard's result for a
+$p$-group that is a product of normal subgroups of class less than
+$p.$
+
+\end{abstract}
+
+\section{Introduction and notation}\label{sec1}
+Let $S$ be a finite $p$-group for some prime $p.$ If $S$ is abelian,
+it is sometimes convenient to represent the operation in $S$ as
+addition. If $p$ is odd and $S$ has nilpotence class at most two,
+then we may define new operations + and $[\ ,\ ]$ on $S$ under which
+$S$ becomes a Lie ring, by a construction of R. Baer (below). M.
+Lazard extended Baer's construction to the case in which $p$ is
+arbitrary and $S$ has class at most $p-1$. Furthermore, Lazard
+established a correspondence (Theorem \ref{theo3.6} below) between
+these $p$-groups and finite nilpotent Lie rings of $p$-power order
+and class at most $p-1$, since one may recover the group operation
+from the Lie ring operations. (Thus, this Lie ring differs from the
+more commonly used Lie ring (\cite{Kh}, Definition 6.1), which may
+be defined for any nilpotent group and which may be the same for
+non-isomorphic groups.)
+
+Lazard's correspondence has many applications (\cite{Kh}, Remark
+10.29). Unfortunately, examples (below) show that it is generally
+impossible to extend to a $p$-group $S$ of class at least $p$.
+However, in this paper, we show that one may associate to $S$ a Lie
+ring that reflects a large part of the structure  of $S$ in the case
+in which $S$ is equal to a product $B_1B_2\cdots B_n$ of normal
+subgroups of class at most $p-1$, e.g., normal  abelian subgroups.
+We do this by making a slight change in the definition of the
+operations.
+
+In the Lazard correspondence for a given group the Lie ring
+operations are defined by formulas
+$$a+b=h_1(a,\,b)\quad\text{and}\quad[a,\,b]=h_2(a,\,b),$$
+where each of $h_1(a,\,b)$ and $h_2(a,\,b)$ is a product of elements
+equal to $a$ or $b$ or to a commutator in $a$ and $b$ raised to a
+rational power (as defined below). However, $h_1$ and $h_2$ need not
+be well defined in a $p$-group of class at least $p$. We give below
+a family of examples in which $h_2(x,\,y)$, but not $h_1(x,\,y),$ is
+well defined  for some pairs of elements $x,\,y$. More generally,
+there are conditions under which $h_2(x,\,y)$, but not $h_1(x,\,y),$
+may become well defined by multiplying its product formula by some
+powers of commutators $c^r$ for which  the choice of $x$ and $y$
+yields $c=1$. Therefore, in this paper (in Remark
+\ref{rem5.11-3-30}), we modify the product formula for $h_2(a,\,b)$
+in this way to obtain a product $h_2'(a,\,b)$ that is equal to
+$h_2(a,\,b)$ for $p$-groups of class at most $p-1$, but is also well
+defined in some other situations. We then let $[a,\,b]$ be
+$h_2'(a,\,b)$ in these situations.
+
+Lazard's correspondence was originally inspired by a correspondence
+of Mal'cev for infinite nilpotent groups (Theorem
+\ref{theo4.6-3-28}). Although its main applications concern finite
+$p$-groups, it is stated in a more general form. Our main results,
+too, are stated in a more general (and complicated) form in Section
+\ref{sec6} of the paper. We also mention some open questions (Remark
+\ref{rem6.11} and below).
+
+Our main results are the following (for $[a,\,b]$ as above):
+
+%{\tt (Theorems A, B in page 1E.)}
+\begin{theoA}
+Suppose $p$ is a prime and $S$ is a finite $p$-group. Then $[x,\,y]$
+is well defined whenever $x$ and $y$ are elements of (possibly
+different) normal subgroups of $S$ of nilpotence class at most
+$p-1.$
+
+In addition, suppose $A$ and $B$ are normal subgroups of $S$ of
+nilpotence class at most $p-1$. Define $+$ and $[\ ,\ ]$ on $A$ and
+$B$ as in the Lazard correspondence. Then:
+\begin{enumerate}
+\item[(i)] for each $u$ in $A$ and $v$ in $B$, the elements $[u,\,v]$ and $[v,\,u]$ lie in $A\cap B$,
+and $[v,\,u]=[u,\,v]^{-1}$, and
+\item[(ii)] for each $u,\,u'$ in $A$ and $v$ in $B$,
+$$[u+u',\,v]=[u,\,v]+[u',\,v]\quad\text{and}\quad\[\[u,\,u'\],\,v\]=\[\[u,\,v\],\,u'\]+\[u,\,\[u',\,v\]\].$$
+\end{enumerate}
+\end{theoA}
+
+\begin{theoB}
+Suppose $S$ is a finite $p$-group generated by a set $\S$ of normal
+subgroups $N$ of $S$ having nilpotence class at most $p-1$. Let
+$\mathfrak U$ be the set-theoretic union of the elements of $\S$.
+For each $N$ in $\S$, define $+$ on $N$ by Lazard's definition. For
+each $u,\,v$ in $\mathfrak U$, define $[u,\,v]$ as in Theorem A.
+
+Let $E=End(\S)$ be the set of all mappings $\phi$ from $\mathfrak U$
+to $\mathfrak U$ such that, for each $N$ in $\S,$
+\begin{center}
+$\phi$ maps $N$ into $N$ and induces an endomorphism of $N$ under
+$+$.
+\end{center}
+Define addition and multiplication on $E$ by
+$$\(\phi+\phi'\)(x)=\phi(x)+\phi'(x)\quad\text{and}\quad\(\phi\phi'\)(x)=\phi\(\phi'(x)\).$$
+Then $E$ forms an associative ring, and hence also a Lie ring under
+the definition $$\left[\phi,\phi'\right]=\phi\phi'-\phi'\phi.$$ For
+each $v$ in $\mathfrak U$, define a mapping $ad\ v$ on $\mathfrak U$
+by
+$$(ad\ v)(u)=[u,\,v].$$
+Then
+\begin{enumerate}
+\item[(i)] $ad\ v$ lies in $E$ for each $v$ in $\mathfrak U$,
+\item[(ii)] for each $N$ in $\S$ and each $v,\,w$ in $N$,
+$ad(v+w)=ad\ v+ad\ w,$
+\item[(iii)] for $v,\,w$ in $\mathfrak U$,
+$$[ad\ v, ad\ w]=ad\ [w,\,v]=-ad\ [v,\,w], \text{ and }$$
+$$ad\ v=ad\ w\text{ iff } v\equiv w\ (mod\ Z(S)),$$
+\item[(iv)] the additive subgroup $L(\S)$ of $E$ spanned by
+the mappings $ad\ v$ for $v$ in $\mathfrak U$ is a Lie subring of
+$E,$ and
+\item[(v)] for $L(\S)$ as in (d), each element of $\phi$ of
+$L(\S)$ satisfies
+$$\phi\([u,\,v]\)=\[\phi(u),\,v\]+\[u,\phi(v)\], \text{ for every $u,\,v$ in $\mathfrak U.$}$$
+\end{enumerate}
+\end{theoB}
+
+Note that in Theorem B, we associate to $S$ a Lie ring, $L(\S)$,
+although it may be impossible to make $S$ itself into a Lie ring by
+Lazard's methods. The elements of $L(\S),$ together with the
+identity mapping on $\mathfrak U$, generate an associative subring
+of $E(\S)$ that contains the inner automorphism group of $\S$ as a
+multiplicative subset (Remark \ref{rem6.9}). The condition that $\S$
+generate $S$ in Theorem B is used only for the second part of
+conclusion (iii).
+
+Part (ii) of Theorem A shows that, for each $v$ in $\mathfrak U$ and
+each $N$ in $\S$, $ad\ v$ induces a derivation of $N$, for $N$
+regarded as a Lie ring under Lazard's definition. Part (v) of
+Theorem B generalizes this.
+
+To illustrate our methods, consider the case in which $S$ has class
+two. For $p$ odd, Baer's construction (\cite{Baer}, Theorem B.1)
+gives
+$$x+y=x^{\frac12}yx^{\frac12}=xy\(y,\,x\)^{\frac12}\quad\text{and}\quad[x,\,y]=(x,\,y),$$
+where $\(u^\frac12\)^2=u$ and $(u,\,v)$ is the group commutator
+$u^{-1}v^{-1}uv$, for all $u,\,v$ in $S$. For $p=2$, $[x,\,y]$ is
+still well defined, but $x+y$ is not, in general. (For groups of
+larger class, usually $[x,\,y]$ does not coincide with $(x,\,y)$.)
+
+An explanation for our results is that one almost seems to need $S$
+(or the subgroup generated by $x$ and $y$) to have class at most
+$p-1$ in order to define $x+y$, while one needs less to define
+$[x,\,y]$. For example, the original definition of $x+y$ (in
+\cite{Lazard}, Th\'eor\`eme II.2.4, pp. 155-156) uses a formula for
+products $x^ty^t$ (for every integer $t$) that is a product of
+factors $c_i$ in various terms $\gamma_{k_i}(S)$ of the lower
+central series $\{\gamma_k(S)\}$ of $S$, raised to powers $f_i(t)$
+that are polynomials in $t$ with rational coefficients. (Here, $k_i$
+tends to infinity as $i$ increases.) For the factors $c_i$ inside
+(but not outside) $\gamma_p(S)$, the rational coefficients may have
+denominators divisible by $p$, so that $c_i^{f_i(t)}$ may be
+undefined. This is why we assume that $\gamma_p(S)=1$ (i.e., $S$ has
+nilpotence class at most $p-1$) for the Lazard correspondence. In
+contrast, the bracket product $[x,\,y]$ is related to the formula
+for $\(x^t,\,y^t\)$, which may be expressed similarly as a product
+of powers of  extended commutators $c_i^{h_i(t)}$ in which the
+rational coefficients of $h_i(t)$ may have denominators divisible by
+$p$ only if $c_i$ has weight at least $p$ in $x$ or at least $p$ in
+$y$. This was shown by T. Easterfield (in Theorem C of \cite{East})
+and is illustrated by the formulas above for Baer's construction.
+
+For example, suppose $S$ has class at most $p-1$. For a fixed
+element $y$ of $S$, define
+$$\delta(x)=\(y^{-1}xy\)+\(x^{-1}\)\quad\text{for every $x$ in $S$.}$$
+Define powers of $\delta$ by composition and regard $S$ as a Lie
+algebra over $\Z/|S|\Z$. Then (Corollary \ref{cor6.2-4-2}) for every
+$x$ in $S$,
+\begin{equation}\label{1.2}
+[x,\,y]=\delta(x)-\delta^2(x)/2+\cdots+(-1)^{p-2}\delta^{p-1}(x)/(p-1).
+\end{equation}
+(Thus, $[x,\,y]=\(\Log\gamma\)(x)$ for $\gamma$ given by
+$\gamma(x)=y^{-1}xy$ for all $x$ in $S$.) It turns out that if $S$
+has class greater than $p-1$, we may define $[x,\,y]$ by \eqref{1.2}
+if we have the situation of Theorem A (with $x$ in A and $y$ in B).
+
+A special case of our results appears in the Section 5 of
+\cite{GG-SMI}. It concerns a $p$-group $S$ of class $p$. Here, every
+element $x$ lies in a normal subgroup $N_x=\langle x,\,S'\rangle$ of
+class at most $p-1$, so that $L(\S)$ is isomorphic to the Lazard Lie
+ring of $S/Z(S)$ for $\S=\{N_x\ |\ x\text{ in }S\}$.
+
+These results lead to further questions. In the Lazard
+correspondence, the entire group $S$ becomes a Lie ring. In Theorem
+B, in effect, we turn each subgroup $B$ in $\S$ into a Lie ring and
+then embed $BZ(S)/Z(S)$ into the Lie ring $L(\S).$ Then $L(\S)$ is
+spanned additively by the Lie rings $BZ(S)/Z(S)$. It would seem
+preferable to construct an analogous Lie ring in which we embed the
+Lie rings $B$, but we do not know whether this is possible. Some
+other questions are given in Remark \ref{rem6.11}.
+
+It is easy to see that in the original situation of Lazard's
+correspondence, the elements of order 1 or $p$ in the group $S$ form
+a Lie subring of $S$ (and thus a subgroup of $S$). Therefore,
+Lazard's correspondence cannot be extended to a dihedral group of
+order 8. Similarly, for any prime $p$, the Sylow $p$-subgroup of the
+symmetric group of degree $p^2$ (i.e., the wreath product of a group
+of order $p$ by a group of order $p$) provides an example of a
+$p$-group of class $p$ to which the Lazard correspondence cannot be
+extended.
+
+This paper relies heavily on the proof of the Mal'cev and Lazard
+correspondences given in \cite{Kh}, which uses the free nilpotent
+associative $\Q$-algebra $A$ of some arbitrary class $c.$ After some
+preliminary lemmas in Section \ref{sec2}, we devote Sections
+\ref{sec3} and \ref{sec4} to steps in the proof of the Lazard
+correspondence and to extensions of these steps. In Section
+\ref{sec5-3-28-07}, we study a quotient algebra $A/I_d$ of $A$. The
+derivation of our main results from properties of $A/I_d$ is
+analogous to the derivation of the Lazard correspondence from
+properties of $A$. Thus, we use Sections \ref{sec3} and \ref{sec4}
+as a basis and as a model for Section \ref{sec5-3-28-07}. Finally,
+in Section \ref{sec6}, we obtain our main results and some technical
+results intended for further applications.
+
+Our notation is mainly standard and taken from \cite{Gor} and
+\cite{Kh}. We mention some exceptions and some possibly unfamiliar
+notation.
+
+Suppose $G$ is a group and $H$ and $K$ are subgroups of $G$. We
+write $H\lhd K$ to indicate that $H$ is a normal subgroup of $K$.
+For an element $x$ of $G$, we let $x^H$ be the set of all elements
+$x^y(=y^{-1}xy)$ as $y$ ranges over $H$. For elements $x$ and $y$ of
+$G$, we let $(x,\,y)$ be the commutator $x^{-1}y^{-1}xy$. Here, we
+differ from \cite{Gor} and \cite{Kh}, which denote the commutator by
+$[x,\,y]$, because we often need to write $[x,\,y]$ for the bracket
+product of $x$ and $y$ given by the Lazard correspondence or by the
+formula $h_2'(x,\,y)$ of Remark \ref{rem5.11-3-30}.
+
+As in \cite{Gor} and \cite{Kh}, we use left-normed commutators, so
+that $(x,\,y,\,z)$ denotes $((x,\,y),\,z)$ for elements $x,\,y,\,z$
+in a group $G$, and likewise for $(x_1,\,x_2,\dots,x_n)$. We also
+let
+$$(y,\,x;\,0)=y\quad\text{and}\quad (y,\,x;\,n+1)=((y,\,x;\,n),\,x)$$
+for every
+positive integer $n.$ For a subset $T$ of $G$, we let
+$$(T,\,x)=\langle(t,\,x)\ |\ t\in T\rangle$$
+and define subgroups $(T,\,x;\,n)$ similarly. We adopt analogous
+notation for bracket products where a Lie ring is involved.
+
+We take some further definitions and notation from \cite{Kh}
+(especially pp.18 and 121-122) that concern mainly infinite groups.
+
+A group $G$ is {\it torsion-free} if the identity is the only
+element of finite order in $G$; it is {\it divisible} if, for every
+element $h$ of $G$ and every positive integer $n$, there exists an
+$n$th root of $h$ in $G$, i.e., an element $g$ in $G$ such that
+$g^n=h$.
+
+Now suppose $G$ is nilpotent, torsion-free, and divisible, and $h\in
+G$.  Then (\cite{Kh}, Lemma 3.16) for every positive integer $n$,
+$h$ has a {\it unique} $n$th root in $G$.  A short argument shows
+that for every rational number $r$, there exists a unique element
+$g$ in $G$ such that
+\begin{equation}\label{eq1.2}
+g^k=h^m, \text{ for all integers }m,k\text{ such that }k\neq 0\text{
+and }m/k=r;\end{equation}
+we denote $g$ by $h^r$. Moreover, for all
+$r,s$ in $\mathbb{Q}$,
+
+\begin{equation}h^{r+s}=h^rh^s\text{ and }\(h^r\)^s=h^{rs}.\label{eq3.3}
+\end{equation}
+
+Following \cite{Kh}, p.18, we call $G$ a $\mathbb{Q}${\it -powered
+group}. If the operation of $G$ is written additively, we usually
+write $r\cdot h$ or $rh$ for $h^r$.
+
+Conversely, a $\mathbb{Q}$-powered group must be torsion-free and
+divisible. Thus, a nilpotent group is $\Q$-powered if and only if it
+is torsion free and divisible.
+
+Now let $\pi$ be a set of primes.  An integer is said to be a {\it
+$\pi$-number} if it is a product of powers of primes from $\pi$ (we
+regard $1$ as a $\pi$-number.)  A group $G$ is {\it $\pi$-divisible}
+if, for every $\pi$-number $k$, every element in $G$ has a $k$th
+root in $G$.  A group $G$ is {\it $\pi$-torsion-free} if it has no
+non-identity elements whose orders are $\pi$-numbers.
+
+Let $\mathbb{Q}_\pi$ be the ring of all rational numbers whose
+denominators are $\pi$-numbers.
+
+Suppose $G$ is a nilpotent group.  If $G$ is $\pi$-divisible and
+$\pi$-torsion-free, then Lemma 10.18 of \cite{Kh} and our argument
+above show that for every element $h$ of $G$ and every number $r$ in
+$\mathbb{Q}_\pi$, there exists a unique element $g$ of $G$ (denoted
+by $h^r$) such that \eqref{eq1.2} is valid.
+%$$g^k=h^m\text{ whenever }m/k=r.$$
+Moreover, (\ref{eq3.3}) is satisfied for all $r,s$ in
+$\mathbb{Q}_\pi$.  Thus, $G$ is a $\mathbb{Q}_\pi$-{\it powered}
+group, as defined in \cite{Kh}, pp. 18-19. Since a $\Q_\pi$-powered
+subgroup is obviously $\pi$-torsion-free and $\pi$-divisible, we see
+that a nilpotent group is $\Q_\pi$-powered if and only if it is
+$\pi$-torsion free and $\pi$-divisible. In the special case that
+$\pi$ consists of all primes, then $\mathbb{Q}_\pi=\mathbb{Q}$, and
+the properties of being $\pi$-divisible and $\pi$-torsion-free
+coincide with the properties of being divisible and torsion-free.
+
+For a subgroup $H$ of a nilpotent group $G$, the set of all roots in
+$G$ of elements from $H$ is denoted by
+
+$$_G\hspace*{-0.05cm}\sqrt{H}=\left\{g\in G\,|\,g^n\in H\text{ for some positive integer }n\right\}.$$
+
+Likewise, we let
+
+$$_G\hspace*{-0.1cm}\sqrt[\pi]{H}=\left\{g\in G\,|\, g^n\in H\text{ for some }\pi\text{-number
+}n\right\}.
+$$
+If there is no danger of confusion, we may write $\sqrt{H}$ and
+$\sqrt[\pi]{H}$ for $_G\hspace*{-0.1cm}\sqrt{H}$ and
+$_G\sqrt[\pi]{H}$.
+
+\section{$\mathbb{Q}$-Powered Groups and Generalizations}
+\label{sec2}
+
+In this section, we prove some preliminary results, mainly about
+infinite groups.  %We require some definitions and notation from
+%\cite{Kh} (especially pp. 18 and 121-122).
+
+The following elementary result from (\cite{Gor}, p.19) will be
+useful:
+
+\begin{lemma}\label{lemma2.1-3-24}
+Suppose $x$ and $y$ are elements of a group $G$ and $z=(x,y)$
+commutes with both $x$ and $y$.  Then
+$$
+\(x^i,y^j\)=z^{ij}\text{ for all integers }i,j.
+$$
+\end{lemma}
+
+\begin{lemma}\label{lemma2.2-3-24}
+Let $\pi$ be a set of primes and $H$ be a subgroup of a nilpotent
+\newline$\mathbb{Q}_\pi$-powered group $G$.  Assume $H$ has
+nilpotence class at most $c$.
+
+Then $\sqrt[\pi]{H}$ is a $\mathbb{Q}_\pi$-powered subgroup of $G$
+of nilpotence class at most $c$.
+\end{lemma}
+
+\begin{proof}
+Let $H_\pi=\sqrt[\pi]{H}$. By Theorem 10.19 of \cite{Kh}, $H_\pi$ is
+a subgroup of $G$. Since $G$ is a nilpotent $\mathbb{Q}_\pi$-powered
+group, $H_\pi$ is nilpotent and $\pi$-torsion-free.  Moreover, $G$
+is $\pi$-divisible and, therefore, $H_\pi$ is $\pi$-divisible.
+Hence, $H_\pi$ is a $\mathbb{Q}_\pi$-powered group.
+
+One may use Theorem 10.20 of \cite{Kh} to show that $H_\pi$ has
+class at most $c$, but we give a short direct proof.  Let $d$ be the
+nilpotence class of $H_\pi$.  We may assume that $d\geq 1$.  Then
+$\gamma_{d+1}\(H_\pi\)=1$ and, by Lemma 3.6 of \cite{Kh}, there
+exists an iterated commutator
+$$
+h=\(h_1,h_2,\dots,h_d\)
+$$
+of elements $h_1,h_2,\dots,h_d$ of $H_\pi$ such that $h\neq 1$.
+
+For each $j=1,2,\dots,d$, there exists a $\pi$-number $k(j)$ such
+that $h_j^{k(j)}$ lies in $H$.  Let $k=k(1)k(2)\cdots k(d)$. By
+Lemma 6.13 of \cite{Kh},
+
+$$
+\(h_1^{k(1)},h_2^{k(2)},\dots,h_d^{k(d)}\)=\(h_1,h_2,\dots,h_d\)^k=h^k.
+$$
+
+
+As $G$ is $\pi$-torsion-free and $h\neq 1,h^k\neq 1$.  Therefore,
+$\gamma_d(H)>1$.  As $H$ has class at most $c$, we have $d\leq c$ as
+desired.
+\end{proof}
+
+\begin{lemma}\label{lemma2.3-3-24}
+Let $\pi$ be a set of primes and $H$ and $K$ be subgroups of a
+nilpotent group $G$.  Assume $H\lhd K$.  Then
+$$
+\sqrt[\pi]{H}\lhd\sqrt[\pi]{K}.
+$$
+\end{lemma}
+
+\begin{proof}
+This is part of Theorem 10.19 of \cite{Kh}.
+\end{proof}
+
+The remaining results in this section are not necessary for
+applications to finite groups, except for the easy special cases in
+which $G$ is finite.
+
+\begin{lemma}\label{lemma2.4-3-24}
+Suppose $H$ and $K$ are subgroups of a nilpotent group $G$.  Let
+$$
+L=(H,K)=\langle (x,y)\,|\,x\in H,\,y\in K\rangle.
+$$
+\begin{enumerate}
+\item[(a)] If $K$ is $\pi$-divisible and $L\leq Z(G)$, then $L$ is
+$\pi$-divisible.
+\item[(b)] If $H$ and $K$ are both normal in $G$ and
+$\pi$-divisible, then $L$ is normal in $G$ and $\pi$-divisible.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\ \\
+(a) Here, $L$ is abelian.  Take any $x$ in $H$ and $y$ in $K$, and
+let $k$ be a $\pi$-number.  We claim that $(x,y)$ has a $k$th root
+in $L$.
+
+Since $K$ is $\pi$-divisible, there exists $z$ in $K$ such that
+$z^k=y$. Since $(x,z)$ lies in $Z(G)$, Lemma \ref{lemma2.1-3-24}
+yields
+$$
+(x,y)=\(x,z^k\)=(x,z)^k.
+$$
+Thus, $(x,y)$ has a $k$th root in $L$, as claimed. Since $L$ is
+abelian and is generated by elements of the form $(x,y)$ above, $L$
+is $\pi$-divisible.
+\\
+
+\noindent (b) Let $M=\langle H,K\rangle $.  Since $G$ is nilpotent,
+so is $M$. Let $d$ be the nilpotence class of $M$, and let
+$$
+1=Z_0(M)<Z_1(M)<\cdots <Z_d(M)=M
+$$
+be the upper central series of $M$.  Take $r$ minimal such that
+$L\leq Z_r (M)$. Since $H,K \lhd G$, we have $L\lhd G$ (\cite{Gor},
+p.18).
+
+We prove that $L$ is $\pi$-divisible by induction on $r$. Part (a)
+handles the case in which $r$ is 0 or 1.
+
+Now assume $r\geq 2$.  Then $L$ is not contained in $Z(M)$.  Take
+$s$ minimal such that
+$$
+L\cap Z_s(M)>L\cap Z(M).
+$$
+Then
+$$
+1<\(L\cap Z_s(M),M\)\leq L\cap Z_{s-1}(M)=L\cap Z(M).
+$$
+(This shows that $s=2$, as is well known.)  Let
+
+\begin{equation}\label{eq2.2-3-24}
+L^\star =L\cap Z_s(M)\text{ and }Y=\(L^\star,H\)\(L^\star,K\).
+\end{equation}
+Then $Y\leq L\cap Z(M)$.
+
+Since $Y$ is abelian and $\(L^\star,H\)$ and $\(L^\star,K\)$ are
+$\pi$-divisible by (a),
+\begin{equation}\label{eq2.3-3-24}
+Y\text{ is }\pi\text{-divisible}.
+\end{equation}
+
+Let $\overline M=M/Y$ and let $\overline X=XY/Y$ for every subgroup
+$X$ of $M$.  Since $H$ and $K$ are normal in $G$ and
+$\pi$-divisible, $\overline H$ and $\overline K$ are normal in
+$\overline M$ and $\pi$-divisible.   Moreover,
+
+\begin{equation}
+\overline L=\overline{(H,K)}=\(\overline H,\overline
+K\).\label{eq2.4-3-24}
+\end{equation}
+It is easy to see that $\(\overline{L^\star},\overline M\)=1$ (in
+fact, $Y=\(L^\star,M\)$ ).  Therefore, by \eqref{eq2.2-3-24} and a
+short argument, we have
+$$
+\overline L\leq Z_{r-1}\(\overline M\).
+$$
+By \eqref{eq2.4-3-24} and the induction hypothesis,
+\begin{equation}\label{eq2.5-3-24}
+\overline L\text{ is }\pi\text{-divisible}.
+\end{equation}
+Take any element $x$ of $L$ and any $\pi$-number $k$.  By
+\eqref{eq2.5-3-24}, there exists $y$ in $L$ such that $\overline
+y^k=\overline x$.  Then $xy^{-k}$ lies in $Y$.  By
+\eqref{eq2.3-3-24}, there exists $z$ in $Y$ such that $z^k=xy^{-k}$.
+Since $Y\leq Z(M)$,
+$$
+x=z^ky^k=\(zy\)^k.
+$$
+Thus, $L$ is $\pi$-divisible, as desired.
+\end{proof}
+
+\begin{corollary}\label{cor2.5-3-24}
+Suppose $G$ is a $\pi$-divisible nilpotent group.  Then
+$\gamma_n\(G\)$ is \newline$\pi$-divisible for every positive
+integer $n$.
+\end{corollary}
+
+\begin{proposition}\label{prop2.6-3.24}
+Suppose $G$ is a nilpotent group generated by $\pi$-divisible
+subgroups.  Then
+\begin{enumerate}
+\item[(a)] $Z(G)$ is $\pi$-divisible, and
+\item[(b)] $G$ is $\pi$-divisible.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+
+Let $Z=Z(G)$.
+
+\noindent(a) Let $N=\sqrt[\pi]{Z}$.  Since $Z\lhd G$, Lemma
+\ref{lemma2.3-3-24} yields
+$$
+N=\sqrt[\pi]{Z}\lhd \sqrt[\pi]{G}=G.
+$$
+
+Assume $N>Z$.  We work toward a contradiction.  Since $N\lhd G$ and
+$G$ is nilpotent,
+$$
+1<N/Z\lhd G/Z\text{ and }1<\(N/Z\)\cap Z\(G/Z\)=\(N\cap Z_2(G)\)/Z.
+$$
+Take $x$ in $N\cap Z_2(G)$ such that $x$ lies outside $Z$.
+
+Since $N=\sqrt[\pi]{Z}$, $x^k\in Z$ for some $\pi$-number $k$. Since
+$x$ lies outside $Z$, and $G$ is generated by $\pi$-divisible
+subgroups, some $\pi$-divisible subgroup $H$ of $G$ does not
+centralize $x$. Take $y$ in $H$ such that $y$ does not centralize
+$x$. Take $z$ in $H$ such that $z^k=y$.
+
+Since $x$ lies in $Z_2(G)$, the element $(x,y)$ lies in $Z$.
+Therefore, by Lemma \ref{lemma2.1-3-24},
+$$
+(x,y)=\(x,z^k\)=(x,z)^{k}=\(x^k,z\)=1,
+$$
+since $x^k$ lies in $Z$.  This contradicts the choice of $y$.  Thus,
+$Z$ is $\pi$-divisible.
+
+\noindent(b)  We use induction on the nilpotence class of $G$.
+
+For every $\pi$-divisible subgroup $H$ of $G$, the group $HZ/Z$ is
+$\pi$-divisible.  Therefore, by induction,
+\begin{equation}\label{eq2.6-3-24}
+G/Z\text{ is }\pi\text{-divisible}.
+\end{equation}
+
+Take any element $x$ in $G$ and any $\pi$-number $k$.  By
+\eqref{eq2.6-3-24}, there exists $y$ in $G$ such that $y^k\equiv
+x\smod Z$.  Then $xy^{-k}$ lies in $Z$.  By (a), $xy^{-k}=z^k$ for
+some $z$ in $Z$.  Then
+$$
+x=z^ky^k=\(zy\)^k.
+$$
+Thus, $G$ is $\pi$-divisible.
+
+
+\end{proof}
+\begin{center}
+\section{Group operations on Algebras}
+\label{sec3}
+\end{center}
+
+In this section, we describe some relations among associative
+algebras, Lie algebras, and groups, taken mainly from \cite{Kh},
+Chapters 9-10, that are extended in Sections \ref{sec4} and
+\ref{sec5-3-28-07}.
+
+All rings and algebras that we discuss will be associative unless
+otherwise specified. We use the following conditions:
+
+\begin{hypothesis}\label{2.1}
+\begin{enumerate}
+\item[(i)] $R$ is a commutative ring with unity element 1.
+\item[(ii)] $B$ is an algebra over $R$ with unity element (also denoted by 1)
+\item[(iii)] $A$ is a subalgebra (without unity element) of $B$ over $R$
+\item[(iv)] $c$ is a positive integer
+\item[(v)] $A$ is nilpotent of class at most $c$, i.e.,
+$a_1a_2\cdots a_{c+1}=0$ for all $a_1, a_2, \cdots, a_{c+1}$ in $A.$
+\end{enumerate}
+\end{hypothesis}
+
+Suppose $u$ is an element of $B$ in Hypothesis \ref{2.1}. We define
+a mapping $ad(u)$ on $B$ by $ad(u)(x)=xu-ux.$ If $u$ is in $A$, then
+$u^{c+1}=0$ by condition {\it (v)}. Assume further that, for some
+positive integer $d$,
+
+\begin{equation}\label{eq3.1}
+d!\text{ is invertible in }R \text{ and }u^{d+1}=0.
+\end{equation}
+
+Then we may define
+$$\Exp(u)=e^{u}=1+u+\frac{u^2}{2!}+\cdots+\frac{u^d}{d!}$$
+and
+$$\Log(1+u)=u-\frac{u^2}{2}+\cdots+(-1)^{d+1}\frac{u^d}{d}.$$
+
+It is easy to see that $\(\Exp(u)-1\)^{d+1}=\(\Log(1+u)\)^{d+1}=0.$
+By a proof similar to the usual proof for real numbers (e.g., by a
+small change in the proof of Proposition 2.1 of \cite{JAGG}), we
+have:
+
+\begin{lemma}\label{lemma2.2}
+Suppose $u$ is in $B$, $d$ is a positive integer, d! is invertible
+in $R$, and $u^{d+1}=0$. Then
+$$u=Log(\Exp(u))\quad\text{and}\quad 1+u=\Exp(Log(1+u)).$$
+\end{lemma}
+
+We sometimes use the following assumption.
+
+\begin{hypothesis2.1'}\label{2.1'}
+\begin{enumerate}
+\item[(i)] Hypothesis \ref{2.1} is satisfied.
+\item[(ii)] $d$ is a positive integer and $d!$ is invertible in $R$.
+\item[(iii)] $u$ is an element of $B$ and $u^ibu^{d+1-i}=0$ for all $b$ in $B$ and for $i=1,2, \cdots, d.$
+\end{enumerate}
+\end{hypothesis2.1'}
+Note that, by (iii) in Hypothesis 3.1$^\prime$, $u^{d+1}=u1u^d=0.$
+
+The following result appears as Lemma 4.5.1 in \cite{Carter}.
+%Exercise 9.5 in \cite{Kh}, and Exercise 6.1 in Chapter 2 in
+%\cite{Bourbaki}.
+
+\begin{lemma}\label{lemma2.3}
+Assume Hypothesis 3.1$^\prime$. %\ref{2.1'}.
+Let $\gamma=\Exp\(ad(u)\)$ and let $(\gamma-1)(x)=\gamma(x)-x$ for
+all $x$ in $B$. Then
+\begin{enumerate}
+\item[(a)] $ad(u)=\Log\ \gamma$ and $\(ad(u)\)^{d+1}=(\gamma-1)^{d+1}=0,$
+\item[(b)] $\gamma(x)=e^{-u}xe^u$, for all $x$ in $B$, and
+\item[(c)] $\gamma(e^x)=e^{\gamma(x)}$ whenever $x$ is in $B$ and $x^{d+1}=0.$
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $E$ be the ring of all endomorphisms of $B$ as a module over
+$R$. Then $E$ is an algebra over $R$, and $E$ contains the mappings
+$r(u)$ and $l(u)$ on $B$ given by
+$$r(u)(x)=xu,\qquad l(u)(x)=ux.$$
+Clearly, $ad(u)=r(u)-l(u)$ and $r(u)l(u)=l(u)r(u)$.
+
+By Hypothesis 3.1$^\prime$%\ref{2.1'}
+and the Binomial Theorem,
+$$r(u)^{d+1}=l(u)^{d+1}=\(ad(u)\)^{d+1}=0.$$
+Therefore, by Lemma \ref{lemma2.2} (applied to $E$ in place of $B$),
+$ad(u)=\Log\(\Exp\(ad(u)\)\)=\Log\ \gamma.$
+
+Since $r(u)l(u)=l(u)r(u)$,
+$$\gamma=e^{ad(u)}=e^{r(u)-l(u)}=e^{-l(u)}e^{r(u)}.$$
+Moreover, $\gamma-1$ is an element of $E$ and since
+$\(r(u)-l(u)\)^{d+1}=0$ (by Hypothesis 3.1$^\prime$ and the Binomial
+Theorem), $(\gamma-1)^{d+1}=0$.
+
+For $x$ in $B$,
+$$e^{r(u)}(x)=\sum_{i=0}^d \frac{\(r(u)\)^i(x)}{i!}=\sum_{i=0}^d \frac{xu^i}{i!}=xe^u,$$
+and similarly $e^{-l(u)}(x)=e^{-u}x$ and
+$\gamma(x)=e^{ad(u)}(x)=e^{-u}xe^u.$
+
+Now suppose $x^{d+1}=0$. Since $\gamma$ is conjugation by $e^u$, it
+is an algebra automorphism, and $\(\gamma(x)\)^{d+1}=0$.
+
+Then
+$$e^{\gamma(x)}=\sum_{i=0}^d \frac{\(\gamma(x)\)^i}{i!}=\sum_{i=0}^d \frac{\gamma\(x^i\)}{i!}=\gamma(e^x).$$
+\end{proof}
+
+%\input{261.tex}
+
+In $B$, let $1+A$ be the subset $\left\{1+x\ |\ x \text{ in }
+A\right\}$. For each $x$ in $A$, the element $1+x$ has a
+multiplicative inverse because $x^{c+1}=0$ and
+
+$$(1+x)^{-1}=1-x+x^2-x^3+\cdots+(-1)^c x^c.$$
+Now it is easy to see that $1+A$ is a group under multiplication.
+
+Note that $B$ becomes a Lie algebra $B^{-}$ over $R$ under the
+bracket multiplication
+
+$$[u,\,v]=uv-vu,$$
+and $A$ becomes a Lie subalgebra $A^-$ of $B^-$.
+
+Now suppose also that $c!$ is invertible in $R$.  Then, for every
+$u$ in $A$, since $u^{c+1}=0$, we see that $\Exp(u)$ and $\Log(1+u)$
+are well defined, and $\Log\(\Exp(u)\)=u$ and
+$\Exp\(\Log(1+u)\)=1+u$ by Lemma \ref{lemma2.2}. Therefore, the
+function $Exp$ from $A$ to $1+A$ is a bijection for which $Log$ is
+the inverse function.  Since $1+A$ is a group under multiplication,
+this bijection induces a group operation $\star$ on $A$, given by
+
+\begin{eqnarray*}
+\Exp\(u\star v\)&=&\(\Exp\ u\)\(\Exp\ v\)=e^u e^v,\,\text{i.e.},\\
+u\star v&=&\Log\(e^u e^v\).
+\end{eqnarray*}
+
+It is easy to see that, under $\star$, $0$ is the identity element
+and the inverse of an element $u$ is $-u$.  For each natural number
+$n$, the $n$th power of an element $u$ under $\star$ is the element
+$nu$ in $A$.
+
+For a set $\pi$ of primes, recall that $\mathbb{Q}_\pi$ consists of
+all rational numbers that can be expressed in the form $m/k$, where
+$m$ and $k$ are integers and every prime divisor of $k$ lies in
+$\pi$.  For the next result, note that if $c!$ is invertible in $R$,
+then $A$ may be regarded as an algebra over the ring
+$\mathbb{Z}[1/c!]$ obtained by adjoining $1/c!$ to the ring
+$\mathbb{Z}$ of integers.  However, $\mathbb{Z}[1/c!]$ coincides
+with $\mathbb{Q}_\sigma$ for the set $\sigma$ of all primes not
+exceeding $c$, since $\mathbb{Q}_\sigma$ is obtained from
+$\mathbb{Z}$ by adjoining $1/p$ for every such prime $p$.
+
+\begin{theorem}{(Baker-Campbell-Hausdorff (BCH) formula; \cite{Kh}, Theorem 9.11 %\ref{9.11}
+and Remark 9.17.)} %\ref{9.17}}
+Assume Hypothesis \ref{2.1}. Suppose $c!$ is invertible in $R$.  Let
+$\sigma$ be the set of all primes not exceeding $c$, and regard $A$
+as an algebra over $\mathbb{Q}_\sigma$.
+
+Then, for $u$ and $v$ in $A$,
+
+%\smallskip
+% \ \\
+\begin{center}
+$u\star v$ lies in the subalgebra of $A^-$ over $R$ generated by $u$
+and $v$,
+\end{center}
+% \ \\
+ \smallskip
+
+\noindent and is given by a formula $H(u,v)$ over
+$\mathbb{Q}_\sigma$ that depends only on $c$, not on $u$ and $v$.
+
+\label{theo2.4}
+\end{theorem}
+
+ The formula in the theorem is given as (9.16) %$(\ref{eq9.16})$
+ in \cite{Kh}, page 109; in particular (\cite{Ddms}, p.116),
+ it gives
+
+ \begin{equation}
+u\star v=u+v+\frac 12 [u,\,v]+w,\label{eq2.2}
+ \end{equation}
+where $w$ is a linear combination over $\mathbb{Q}_\sigma$ of
+bracket products of weight at least three in $u$ and $v$.
+
+Recall that for $u$ and $v$ in $B$,
+
+$$[v,u;0]=v\quad\text{and}\quad[v,u;n+1]=\left[[v,u;n],u\right]$$
+for every positive integer $n$, and that extended iterated
+commutators $(v,u;n)$ in a group are defined similarly.
+
+\begin{prop}\label{prop2.5} Assume Hypothesis 3.1$^\prime$. %\ref{2.1'}
+Let
+$$\gamma(x)=e^{-u}x e^u,\qquad\text{for all }x\text{ in }B.$$
+Then
+
+\begin{enumerate}
+\item[(a)] $\(ad(u)\)^{d+1}=(\gamma-1)^{d+1}=0,\,\gamma=\Exp\(ad(u)\)$ and
+$ad(u)=Log\ \gamma$ and
+
+\item[(b)] for all $v$ in $A$,
+$$\gamma(v) = v + [v,\,u]+\cdots + [v,u;d]/d!$$
+and
+$$
+[v,u]=\(\gamma-1\)(v)-\frac 12
+\(\gamma-1\)^2(v)+\cdots+(-1)^{d+1}\frac1d\(\gamma-1\)^d(v).
+$$
+Moreover,
+
+\item[(c)] if $c!$ is invertible in $R$, then for all $v$ in $A$,
+
+$$u^{-1}\star v\star u=\gamma(v),$$
+where $u^{-1}$ is the inverse of $u$ under $\star$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Lemma \ref{lemma2.3} gives (a), which gives (b).
+
+To prove (c), take $v$ in $A$ and assume $c!$ is invertible in $R$.
+Then
+
+\begin{eqnarray*}
+u^{-1}\star v\star u&=&u^{-1}\star (v\star u)=(-u)\star \Log\(e^v
+e^u\) =\\
+&=&\Log\(e^{-u}\Exp\(\Log\(e^v e^u\)\)\)=\Log\(e^{-u}e^ve^u\)=\\
+&=&\Log\(\gamma(e^v)\)=\Log\(e^{\gamma(v)}\)=\gamma(v),\text{ by
+Lemma \ref{lemma2.3}}.
+\end{eqnarray*}
+
+\end{proof}
+
+\begin{prop}
+Assume Hypothesis 3.1$^\prime$. %\ref{2.1'}.
+Suppose $d$ is a positive integer, $d!$ is invertible in $R$, $C$ is
+a subalgebra of $A$ that is nilpotent of class at most $d$, $T$ is a
+Lie subalgebra of $C^{-}$, and $\alpha$ is an automorphism of $T$.
+
+For each positive integer $i$, let $\(\alpha-1\)^i(T)$ be the image
+of the additive group of $T$ under the endomorphism
+$\(\alpha-1\)^i$. Then:
+
+\begin{enumerate}
+\item[(a)] $C$ is a group under $\star$ and $T$ is a subgroup of
+$C$,
+\item[(b)] $\alpha$ is an automorphism of $T$ under $\star$, and
+\item[(c)] in the semi-direct product of $T$ (under $\star$) by the
+cyclic group generated by $\alpha$,
+\begin{center}
+the subgroup $\(T,\alpha;i\)$ contains the set $\(\alpha-1\)^i(T)$
+above, for every $i$.
+\end{center}
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+(a) Since $d!$ is invertible in $R$ and $C$ is nilpotent of class at
+most $d$, $C$ forms a group under $\star$.  The (BCH) formula
+(Theorem \ref{theo2.4}) shows that $T$ is closed under $\star$.
+Since $T$ contains the negatives of its elements, it contains its
+inverses under $\star$.  Therefore, $T$ is a subgroup of $C$.
+
+(b) This also follows from Theorem \ref{theo2.4}.
+
+(c) This is an extension of Lemma 6.5 %\ref{lemma6.5}
+of \cite{GG-CL}, but follows from the proof of that lemma.
+\end{proof}
+
+\newpage
+
+\begin{center}\section{The Mal'cev and Lazard Correspondences}
+\label{sec4}
+\end{center}
+
+To prove our main results, we need a variation of the Mal'cev and
+Lazard correspondences. Here, we present part of Khukhro's
+exposition of these correspondences (Chapters 9 and 10 of \cite{Kh},
+especially Sections 9.1 and 10.1 in pp. 101-104 and 113-121),
+together with some applications.
+
+Take positive integers $c$ and $n$ such that $n\geq 2$.  (We will
+later choose $n$ to be 2 or 3, depending on our applications.)  Let
+$A$ be a free associative $\mathbb{Q}$-algebra of nilpotency class
+$c$ with free (non-commuting) generators $x_1,\,\dots,\,x_n$.  Then
+$A$ has a basis consisting of all monomials of the form
+
+$$x_{i_1}x_{i_2}\cdots x_{i_k},\qquad 1\leq k \leq c,\qquad 1\leq
+i_j\leq n\text{ for }j=1,\,2,\,\dots,\,k.$$ Thus, $A$ is
+homogeneous: $A=A_1\oplus \cdots \oplus A_c$, where $A_i$ is the
+homogeneous component of $A$ of degree $i$.
+
+The bracket multiplication $[x,\,y]=xy-yx$ defines the structure of
+the Lie $\mathbb{Q}$-algebra $A^{-}$ on the additive group of $A$;
+and $x_1,\,\dots,\,x_n$ generate a Lie ring ($\mathbb{Z}$-algebra)
+$L$ inside $A^{-}$ and a Lie algebra $\mathbb{Q}L$ over
+$\mathbb{Q}$. Then $L$ is a free nilpotent Lie ring of class $c$
+with free generators $x_i$ (and, $\mathbb{Q}L$ is a similar free
+nilpotent Lie $\mathbb{Q}$-algebra).  Both $L$ and $\mathbb{Q}L$ are
+homogeneous with components $L_k=L\cap A_k$ and
+$\mathbb{Q}L_k=\mathbb{Q}L\cap A_k$ and are multihomogeneous with
+respect to the free generators $x_i$.  Recall that certain Lie
+products of $x_1,\,\dots,\,x_n$ are called {\it basic} Lie products.
+By Theorem 5.39 of \cite{Kh},
+
+%\begin{quote}
+%(3.1)\quad the additive group of $L$ (respectively, of $
+%\mathbb{Q}L$) has a free $\mathbb{Z}$-basis (respectively, a
+%$\mathbb{Q}$-basis) consisting of the basic Lie products in
+%$x_1,\,\dots,\,x_n$ of weight at most $c$.
+%\end{quote}
+
+%\begin{gather}
+%\text{ the additive group of $L$ (respectively, of $ \mathbb{Q}L$)
+%has a free $\mathbb{Z}$-basis }\\\notag
+%\text{(respectively, a
+%$\mathbb{Q}$-basis) consisting of the basic Lie products in
+%$x_1,\,\dots,\,x_n$}\\\notag \text{of weight at most $c$.}
+%\end{gather}
+
+%asi es que se
+\bigskip
+\qquad the additive group of $L$ (respectively, of $ \mathbb{Q}L$)
+has a free $\mathbb{Z}$-basis (respectively, a $\mathbb{Q}$-basis)
+consisting of the basic Lie products in $x_1,\,\dots,\,x_n$ of
+weight at most $c$. \vspace{-1.02cm}
+\begin{equation}\label{eq4.1-3-28}
+\end{equation}
+\smallskip
+
+%\bigskip\noindent
+%(4.1) the additive group of $L$ (respectively, of $ \mathbb{Q}L$)
+%has a free $\mathbb{Z}$-basis (respectively, a $\mathbb{Q}$-basis)
+%consisting of the basic Lie products in $x_1,\,\dots,\,x_n$ of
+%weight at most $c$. \bigskip \addtocounter{equation}{1}
+
+We adjoin an outer unity $1$ to $A$ to form the associative
+$\mathbb{Q}$-algebra $B=A_0\oplus A$, where $1$ spans the
+one-dimensional algebra $A_0$.  Then every ideal of $A$ is an ideal
+of $B$ and, as in Section \ref{sec3}, the set
+
+$$1+A=\left\{1+a\ |\ a\in A\right\}$$
+forms a group under multiplication.  Moreover, Hypothesis \ref{2.1}
+is satisfied with $R=\mathbb{Q}$.
+
+Since $c!$ is invertible in $\mathbb{Q}$ and $A$ is nilpotent of
+class $c$, Hypothesis 3.1$^\prime$ %\ref{hyp2.1'}
+is satisfied for every element $u$ of $A$ if we take $d$ to be $c$.
+Therefore, we may define $e^u=\Exp(u)$ and $\Log(1+u)$ for every $u$
+in $A$, and the function $\Exp$ from $A$ to $1+A$ is a bijection for
+which $\Log$ is the inverse function.  This bijection induces a
+group operation $\star$ on $A$, given by
+
+$$u\star v = \Log\(e^u e^v\)$$
+As in \cite{Kh}, let $H(u,\,v)=u\star v$ for all $u,\,v$ in $A$.
+Since (Theorem \ref{theo2.4}) $H(u,\,v)$ is a linear combination of
+$u,\,v,$ and Lie ring commutators involving $u$ and $v$ with
+rational coefficients, $\mathbb{Q}L$ is a subgroup of $A$ under
+$\star$. For $i=1,\cdots, n$, let $y_i=e^{x_i}-1-x_i$, so that
+
+\begin{equation} 1+x_i+y_i=e^{x_i}=1+x_i+\frac{x_i^2}{2!}+\cdots +
+\frac{x_i^c}{c!}.\label{eq3.2}\end{equation}
+
+Then, for each $i$, $y_i$ is a linear combination of powers of $x_i$
+of degree at least 2.  Let $F$ be the multiplicative subgroup of
+$1+A$ generated by the elements $e^{x_1},\,\dots,\,e^{x_n}$.
+
+For each positive integer $k$, let $A^k$ be the sum $A_k\oplus
+\cdots \oplus A_c$.  (Thus $A^k=0$ if $k>c$.)  Note that $A^k$ is an
+ideal of $A$ and of $B$.  Because we make heavy use of both group
+commutators and Lie ring commutators, we denote the commutator of
+two group elements $a,\,b$ by
+$$(a,b)=a^{-1}b^{-1}ab,$$
+unlike \cite{Kh}, which uses the notation $[a,b]$ for both group
+commutators and Lie ring commutators.  For any group $G$ and
+positive integer $k$, we let $\gamma_k(G)$ be the $k$th term of the
+lower central series of $G$:
+
+$$\gamma_1(G)=G,\text{ and }\gamma_{i+1}(G)=\(G,\gamma_i(G)\)\text{
+for }i\geq 1.$$
+
+As in \cite{Kh}, we consider a commutator $\kappa$ to be an abstract
+bracket product of variables that may be all taken from a Lie ring
+or all taken from a group.  In the latter case, we interpret each
+bracket product $[a,b]$ within $\kappa$ to be a group commutator
+$(a,b)$. (However, at the end of Section \ref{sec4} and afterward,
+we will interpret a bracket product $[a,b]$ of group elements
+differently.)
+
+Now we quote two important results from \cite{Kh}.
+
+\begin{lemma} (Special case of Lemma 9.1 in \cite{Kh})\label{lemma3.1}
+(a) Suppose that $\kappa$ is a commutator of weight $k$.  Then the
+group commutator $\kappa\(e^{x_i}\)$, the value of $\kappa$ on the
+elements $e^{x_i}$ in $F$, is equal to $1+\kappa\(x_i\)+\lambda$,
+where $\lambda\in A^{k+1}$ and $\kappa\(x_i\)$ is the corresponding
+Lie ring commutator, the value of $\kappa$ on the elements $x_i$ in
+$L$.
+
+(b) Suppose that $\displaystyle g\equiv \prod_j
+\kappa_j^{\alpha_j}\smod{\gamma_{k+1}(F)},~ \alpha_j\in \mathbb{Z}$,
+where the $\kappa_j=\kappa_j\(e^{x_i}\)$ are group commutators of
+weight $k$ in the $e^{x_i}$.  Then $\displaystyle g=1+\sum_j
+\alpha_j\kappa_j\(x_i\)+\lambda$, where $\lambda \in A^{k+1}$ and
+the $\kappa_j\(x_i\)$ are the corresponding Lie ring commutators in
+the $x_i$.
+\end{lemma}
+
+\begin{theorem}(Special case of Theorem 9.2 of \cite{Kh}).  The
+group $F$ is free nilpotent of class $c$ with free generators
+$e^{x_i}$.  \label{theo3.2}
+\end{theorem}
+
+It is easy to see that the group $A$ under the operation $\star$ is
+a nilpotent $\mathbb{Q}$-powered group in which a power $u^r$ is
+simply the scalar multiple $ru$. The isomorphism of $A$ under
+$\star$ onto $1+A$ under multiplication shows that $1+A$ is a
+$\mathbb{Q}$-powered group.
+
+\begin{remark}\label{rem3.3}  Let $F^\star$ be the set of all roots
+of elements of $F$ in $1+A$, i.e.,
+$$F^{\star}=\sqrt{F}=\left\{g\in 1+A\ |\ g^n\in F\text{ for some positive integer
+}n\right\}.$$
+ Then (\cite{Kh}.  Theorem 9.19 and Corollary 9.22),
+
+\begin{quote}
+$F^\star$ is a subgroup of $1+A$, and is a free nilpotent
+$\mathbb{Q}$-powered group of class $c$ freely generated by the
+elements $e^{x_i}$.
+\end{quote}
+Therefore, for any nilpotent $\mathbb{Q}$-powered group $G$ of class
+at most $c$ and elements $g_1,\,\dots,\,g_n$ of $G$, there exists a
+unique homomorphism of $F^\star$ into $G$ that maps $e^{x_i}$ to
+$g_i$ for each $i$.
+\end{remark}
+
+
+Recall that $L$ is the Lie subring of $A^{-}$ generated by
+$x_1,\,\dots,\,x_n$.  Theorem 10.4 of \cite{Kh} yields:
+
+\begin{prop}\label{prop3.4}  We have
+$$F^{\star}=e^{\mathbb{Q}L}=\left\{e^u\ |\ u\text{ in
+}\mathbb{Q}L\right\}.$$
+\end{prop}
+
+\begin{remark}\label{rem4.5-3-28}
+Now let $f_i=e^{x_i}$ for $i=1,\,\dots,\,n$.  We first consider the
+case in which $n=2$.  There $F=\langle
+e^{x_1},e^{x_2}\rangle=\langle f_1,f_2\rangle$.  Since $x_1+x_2$ and
+$\left[x_1,x_2\right]$ lie in $L$ (and hence in $\mathbb{Q}L$),
+$e^{x_1+x_2}$ and $e^{\left[x_1,x_2\right]}$ lie in $F^{\star}$.
+Thus, we may express them as ``words'' in $f_1$ and $f_2$ obtained
+by taking inverses, products, and rational powers:
+
+\begin{equation}\label{eq3.4}
+e^{x_1+x_2}=h_1\(f_1,\,f_2\)\text{ and
+}e^{\left[x_1,x_2\right]}=h_2\(f_1,\,f_2\).
+\end{equation}
+
+Now consider any nilpotent $\mathbb{Q}$-powered group $G$ of class
+at most $c$.  For any elements $u$ and $v$ of $G$, there exists a
+unique homomorphism $\phi$ of $F^{\star}$ into $G$ such that
+$\phi\(f_1\)=u$ and $\phi\(f_2\)=v$, by Remark \ref{rem3.3}.  If we
+evaluate the ``words" $h_1$ and $h_2$ on $u$ and $v$ in the natural
+manner, we see that
+
+\begin{eqnarray}\label{eq3.5}
+h_1(u,v)&=&\phi\(e^{x_1+x_2}\)=\phi\(h_1\(f_1,f_2\)\)\text{ and }\\
+\nonumber
+h_2(u,v)&=&\phi\(e^{\left[x_1,x_2\right]}\)=\phi\(h_2\(f_1,f_2\)\)
+\end{eqnarray}
+This allows us to define operations $\hat+$ and $\hat[,\,\hat]$ on
+$G$ by
+$$u\hat+ v=h_1(u,v)\text{ and }\hat[u,v\hat]=h_2(u,v), \text{ for
+all }u,v\text{ in }G.$$
+
+We also define $r\cdot u$ to be $u^r$ for $r$ in $\mathbb{Q}$ and
+$u$ in $G$.  Since
+$$h_1\(f_2,f_1\)=e^{x_2+x_1}=e^{x_1+x_2}=h_1\(f_1,f_2\),$$
+we obtain for $u,\,v$ in $G$,
+$$
+v\hat +
+u=h_1(v,u)=\phi\(h_1\(f_2,f_1\)\)=\phi\(h_1\(f_1,f_2\)\)=h_1(u,v)=u\hat
++ v.$$
+Likewise, as
+$$e^{\left[x_1,x_1\right]}=e^0=1\text{ and
+}e^{\left[x_2,x_1\right]}=e^{-\left[x_1,x_2\right]}=\(e^{\left[x_1,x_2\right]}\)^{-1},$$
+we obtain $\hat[u,u\hat]=1$ and $\hat[v,u\hat]=(-1)\cdot
+\hat[u,v\hat]=\hat[u,v\hat]^{-1}.$
+
+Similar arguments (some with $n=2$ and some with $n=3$) show that,
+under $\hat+$ and $\hat[,\,\hat]$ and scalar multiplication as
+above, $G$ becomes a nilpotent Lie algebra $L_G$ over $\mathbb{Q}$
+with class at most $c$ (\cite{Kh}, pp. 116-117).  In particular, the
+identity element of $G$ is the zero element of $L_G$ and the inverse
+of each element $u$ of $G$ is the element $-u=(-1)\cdot u$ of $L_G$.
+\end{remark}
+
+Remark \ref{rem4.5-3-28} gives part of the notation and proof for
+the Mal'cev correspondence, which is proved in full as Theorem 10.11
+in pp. 116-118 of \cite{Kh}:
+
+\begin{theorem}(Mal'cev Correspondence)\label{theo4.6-3-28}
+
+Let $c$ be a positive integer.  For every nilpotent
+$\mathbb{Q}$-powered group $G$ of class at most $c$, the
+corresponding nilpotent Lie $\mathbb{Q}$-algebra $L_G$ of class at
+most $c$ is defined on the same underlying set $L_G=G$, with Lie
+$\mathbb{Q}$-algebra operations
+$$
+a+b=h_1(a,b),\quad[a,b]=h_2(a,b),\quad ra=a^r
+$$
+for $r\in \mathbb{Q}$.
+
+Conversely, for every nilpotent Lie $\mathbb{Q}$-algebra $M$ of
+class at most $c$, the corresponding nilpotent $\mathbb{Q}$-powered
+group $G_M$ of class at most $c$ is defined on the same underlying
+set $G_M=M$, with group operations
+$$
+a\cdot b=H(a,b)\text{ and }a^r=ra\text{ for }r\in\mathbb{Q},
+$$
+where $H(a,b)$ is given by the Baker-Campbell-Hausdorff (BCH)
+formula as in Theorem \ref{theo2.4}.
+
+These transformations are inverses of one another: $L_{G_M}=M$ as
+Lie $\mathbb{Q}$-algebras (that is, not only sets, but all
+operations coincide), and, similarly, $G_{L_G}=G$ as
+$\mathbb{Q}$-powered groups.
+\end{theorem}
+
+(For $G$ as in Theorem \ref{theo4.6-3-28} above, we write $+$ and
+$[\ ,\ ]$ for the Lie operations instead of $\hat +$ and $\hat[\ ,\
+\hat]$ when there is no danger of confusion.)
+
+Since the ideas in the proof of Theorem \ref{theo4.6-3-28}
+ are used in the proof of the Lazard correspondence and our main
+ results, we have mentioned some of these ideas in Remark \ref{rem4.5-3-28}, and
+we mention some more now.
+
+Returning to the original case in which $G$ is the group
+$F^{\star}=e^{\mathbb{Q}L}$ for some $n$, we obtain (\cite{Kh},
+p.114) for all $x,y$ in $\mathbb{Q}L$,
+\begin{equation}\label{eq3.6}
+e^x\hat+e^y=e^{x+y}\text{ and }\hat[e^x,e^y \hat]=e^{[x,y]}.
+\end{equation}
+
+Since we have defined
+\begin{equation}\label{eq3.7}
+r\cdot e^x=\(e^x\)^r=e^{rx}\,\text{ for all }e^x\text{ in }F^\star,
+\end{equation}
+we see that the Lie $\mathbb{Q}$-algebra
+$L_{F^\star}=L_{e^{\mathbb{Q}L}}$ on the set $F^\star$ is isomorphic
+to the original Lie $\mathbb{Q}$-algebra $\mathbb{Q}L$ under the
+logarithm mapping, which takes $e^x$ to $x$ for each $x$.
+
+The inverse of the logarithm mapping in the previous paragraph is
+the exponential bijection that takes each element $x$ of
+$\mathbb{Q}L$ to the element $e^x$ of $F^\star$.  We used the
+exponential mapping earlier to define the group action $\star$ on
+$A$ and on $\mathbb{Q}L$:
+\begin{equation}\label{eq3.8}
+x\star y =H(x,y)=\Log\(e^xe^y\)\text{ (and }\Exp(x\star y)=(\Exp
+x)(\Exp y)\text{)}.
+\end{equation}
+
+The definition forces $\mathbb{Q}L$ under $\star$ to be isomorphic
+to $F^\star$ under multiplication.  Similarly, the (BCH) formula
+ can be applied to define a product $u\star
+v=H(u,v)$ for elements $u,v$ in any nilpotent $\mathbb{Q}$-algebra
+$M$ of class at most $c$.  Moreover, take $n=2$ and recall that
+$\mathbb{Q}L$ is a free nilpotent Lie $\mathbb{Q}$-algebra of class
+$c$ with free generators $x_1$ and $x_2$.  Then for any $u,v$ and
+$M$ as above, there is a unique Lie $\mathbb{Q}$-algebra
+homomorphism $\phi$ that takes $x_1$ to $u$ and $x_2$ to $v$.
+Clearly,
+$$
+u\star v=H(u,v)=\phi\(H\(x_1,x_2\)\).
+$$
+
+We may show above that under $\star$, $M$ satisfies the associative
+law and is a nilpotent $\mathbb{Q}$-powered group of class at most
+$c$ (with $u^r$ in the group equal to $r\cdot u$ in the Lie algebra
+for $r$ in $\mathbb{Q}$ and $u$ in $M$) by taking $n=3$ and using
+arguments similar to those in the proof above that $L_G$ is a Lie
+$\mathbb{Q}$-algebra for a suitable group $G$ (\cite{Kh}, p. 178).
+We denote the set $M$ under the group operation by $G_M$.  Thus, by
+(\ref{eq3.8}),
+$$
+G_{\mathbb{Q}L}\cong F^\star = e^{\mathbb{Q}L}.
+$$
+
+Now let us consider the special case in which $M$ is
+$L_{F^\star}$,%5.10-3-30
+i.e., the set $F^\star$ considered as a Lie $\mathbb{Q}$-algebra. We
+saw in (\ref{eq3.6}) and (\ref{eq3.7}) that for all $e^x,e^y$ in
+$F^\star$ and $r$ in $\mathbb{Q}$,
+$$
+e^x\hat+e^y=e^{x+y},\quad
+\hat[e^x,e^y\hat]=e^{[x,y]},\quad\text{and}\quad r\cdot e^x=e^{rx}.
+$$
+Therefore, the mapping $\Log:L_{F^\star}\to\mathbb{Q}L$ is a Lie
+$\mathbb{Q}$-algebra isomorphism.  Hence, for $e^x,e^y$ in
+$L_{F^{\star}}$,
+$$
+\Log\(e^x\star e^y\)=\Log\(e^x\)\star\Log\(e^y\)=x\star y
+=H(x,y)=\Log\(e^xe^y\),
+$$
+by (\ref{eq3.8}), i.e., $e^x\star e^y=e^xe^y$.  Thus, $L_{F^\star}$
+under $\star$ and $F^\star$ under its usual multiplication are the
+same set with the same operation: $G_{L_{F^\star}}=F^\star$. This is
+a special case of the Mal'cev
+Correspondence. %(\cite{Kh}, p.118), which gives
+%$$G_{L_H}=H\text{ and }L_{G_M}=M$$
+%for all nilpotent $\mathbb{Q}$-powered groups $H$ of class at most
+%$c$ and all nilpotent Lie algebras $M$ of class at most $c$.
+In particular, the functions $h_1$ and $h_2$ in the formula
+(\ref{eq3.5}) together give an {\it inversion} of the BCH Formula by
+giving a Lie algebra structure on a group.
+
+The derivation of the Mal'cev correspondence by algebraic means
+above was obtained by M. Lazard, inspired by Mal'cev's orginal work,
+which used analytic methods (\cite{Lazard}, p.104).  Lazard then
+extended the Mal'cev correspondence in the following way.
+
+%We take some additional definitions and notations from \cite{Kh}
+%especially pp. 121-122.
+
+By Theorem \ref{theo3.2}, $F$ is a free nilpotent group of class $c$
+with free generators $f_1,\dots,f_n$.  Recall that $F$ is a subgroup
+of the $\mathbb{Q}$-powered group $F^\star$.  For every set of
+primes $\pi$, we define
+$$
+F_\pi=\sqrt[\pi]{F}=\left\{g\in F^\star\ |\ g^k\in F \text{ for some
+}\pi\text{-number }k\right\}.
+$$
+Note that $F^\star$ is a $\Q_\pi$-powered subgroup. By Lemma
+\ref{lemma2.2-3-24} above and Theorem 10.20 of \cite{Kh}, we obtain:
+
+\begin{theorem}\label{theo3.5}
+Let $\pi$ be a set of primes.  Then $F_\pi$ is a subgroup of
+$F^\star$, and is the free nilpotent $\mathbb{Q}_\pi$-powered group
+of class $c$ freely generated by $f_1,\,\dots,\,f_n$.
+\end{theorem}
+
+Now let $\sigma$ be the set of all primes not exceeding $c$ and
+$\pi$ be a set of primes containing $\sigma$. Because the
+coefficients in the BCH formula (Theorem \ref{theo2.4}) lie in
+$\mathbb{Q}_\sigma$ (and hence in $\mathbb{Q}_\pi$), the Lie
+$\mathbb{Q}_\pi$-algebra $\mathbb{Q}_\pi L$ is closed under the
+group operation $\star$. By \cite{Kh}, Theorem 10.22,
+\begin{equation}\label{eq4.4-3-28}
+F_\pi=\left\{e^x\ |\ x\in\mathbb{Q}_\pi L\right\}.
+\end{equation}
+
+Recall from \eqref{eq3.4}
+\begin{equation*}%\label{eq4.5-3-28}
+e^{x_1+x_2}=h_1\(f_1,\,f_2\)\text{ and
+}e^{\left[x_1,x_2\right]}=h_2\(f_1,\,f_2\).
+\end{equation*}
+Since $x_1+x_2$ and $[x_1,x_2]$ lie in $L$, hence in $\mathbb{Q}_\pi
+L$,
+$$
+h_1\(f_1,f_2\)\text{ and }h_2\(f_1,f_2\)\text{ lie in
+}e^{\mathbb{Q}_\pi L}.
+$$
+
+Now we may apply our previous arguments to $\mathbb{Q}_\pi$-powered
+groups and Lie algebras over $\mathbb{Q}_\pi$ instead of
+$\mathbb{Q}$-powered groups and Lie algebras over $\mathbb{Q}$.  We
+obtain (Results 10.11 and 10.13 and p. 124 of \cite{Kh})
+
+\begin{theorem}(Lazard Correspondence)\label{theo3.6}
+Let $c$ be a positive integer and $\pi$ be a set of primes
+containing every prime not exceeding $c$.  For every nilpotent
+$\mathbb{Q}_\pi$-powered group $G$ of class at most $c$, the
+corresponding nilpotent Lie $\mathbb{Q}_\pi$-algebra $L_G$ of class
+at most $c$ is defined on the same underlying set $L_G=G$, with Lie
+$\mathbb{Q}_\pi$-algebra operations
+$$
+a+b=h_1(a,b),\quad[a,b]=h_2(a,b),\quad ra=a^r
+$$
+for $r\in \mathbb{Q}_\pi$.
+
+Conversely, for every nilpotent Lie $\mathbb{Q}_\pi$-algebra $M$ of
+class at most $c$, the corresponding nilpotent
+$\mathbb{Q}_\pi$-powered group $G_M$ of class at most $c$ is defined
+on the same underlying set $G_M=M$, with group operations
+$$a\cdot b=H(a,b)\text{ and }a^r=ra\text{ for }r\in\mathbb{Q_\pi}.$$
+
+These transformations are inverses of one another: $L_{G_M}=M$ as
+Lie $\mathbb{Q}_{\pi}$-algebras (that is, not only sets, but all
+operations coincide), and, similarly, $G_{L_G}=G$ as
+$\mathbb{Q}_\pi$-powered groups.
+\end{theorem}
+
+
+
+\begin{corollary}\label{cor3.7} Let $\pi$ be a set of primes
+containing every prime not exceeding $c$.  Let $A^\star$ be a
+nilpotent algebra over $\mathbb{Q}_\pi$ of class at most $c$
+contained in an algebra $B^\star$ with 1 over $\mathbb{Q}_\pi$. Let
+$1+A^\star$ be the set $\left\{1+a\ |\ a\in A^\star\right\}$.  Then
+
+\begin{enumerate}
+\item[(a)] $1+A^\star=\left\{e^a\ |\ a\in A^\star\right\}$,
+\item[(b)] $1+A^\star$ is a nilpotent $\mathbb{Q}_\pi$-powered group of
+class at most $c$ under multiplication, and
+\item[(c)] for every $a,a'$ in $A^\star$ and $r$ in $\mathbb{Q}_\pi,$
+$$h_1\(e^a,e^{a'}\)=e^{a+a'},\quad
+h_2\(e^a,e^{a'}\)=e^{aa'-a'a},\quad\text{and}\quad
+\(e^a\)^r=e^{ra}.$$
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Let $R=\mathbb{Q}_\pi$.  Note that Hypothesis \ref{2.1} is satisfied
+with $A^\star$ and $R1\oplus A^\star$ in place of $A$ and $B$. Our
+discussion after Lemma \ref{lemma2.3} shows that $1+A^\star$ is a
+group under multiplication and that (a) is valid.
+
+Let us consider $A^\star$ as a Lie $R$-algebra under the bracket
+multiplication given by $\left[a,a'\right]=aa'-a'a$.  Since
+$A^\star$ is nilpotent of class at most $c$, $A^\star$ is a
+nilpotent Lie $R$-algebra of class at most $c$.  By the Lazard
+Correspondence, $A^\star$ becomes a nilpotent $R$-powered group
+$G_{A^\star}$ of class at most $c$ under the operation $\star$
+(given by the BCH-formula), and then for $a,a'$ in $A^\star$
+(regarded as elements of the group $G_{A^\star}$) and $r$ in
+$\mathbb{Q}_0$,
+\begin{equation}\label{eq3.9}
+h_1\(a,a'\)=a+a',\quad
+h_2\(a,a'\)=\left[a,a'\right]=aa'-a'a,\quad\text{and}\quad a^r=ra.
+\end{equation}
+
+  By our discussion after Lemma \ref{lemma2.3}, the group operation
+  $\star$ is also given by
+$$
+\Exp\(a\star b\)=\(\Exp a\)\(\Exp b\),
+$$
+and the exponential mapping defines a group isomorphism of $A^\star$
+under $\star$ onto the group $1+A^\star$ under its usual
+multiplication. Therefore, (b) is valid by the previous paragraph,
+and in the group $1+A^\star$ under multiplication, (\ref{eq3.9})
+gives
+$$h_1\(e^a,e^{a'}\)=e^{a+a'},\quad h_2\(e^a,e^{a'}\)=e^{aa'-a'a},\quad\text{and}\quad\(e^a\)^r=e^{ra},$$ which then gives (c).
+\end{proof}
+
+Let $S$ be the set of all basic commutators
+$\kappa_j=\kappa_j\(x,y\)$ of weight at least two and at most $c$ in
+two variables of a group.  We order $S$ linearly so that commutators
+of smaller weight precede those of larger weight.  Let $\sigma$ be
+the set of primes not exceeding $c$.
+
+By Lemma 10.12, Remark 10.15, and page 124 of \cite{Kh}, there exist
+unique elements $r_j$ and $s_j$ of $\mathbb{Q}_\sigma$ such that,
+for any elements $a,b$ of a nilpotent $\mathbb{Q}_\sigma$-powered
+group of class at most $c$,
+\begin{equation}\label{eq3.10}
+h_1(a,b)=ab\prod_{\kappa_j\in S} \kappa_j\(a,b\)^{r_j}
+\end{equation}
+and
+\begin{equation}\label{eq3.11}
+h_2\(a,b\)=\prod_{\kappa_j\in S} \kappa_j\(a,b\)^{s_j}.
+\end{equation}
+
+Note that $h_1$ and $h_2$ may be defined by (\ref{eq3.10}) and
+(\ref{eq3.11}) for every $\mathbb{Q}_\sigma$-powered group,
+regardless of whether it is nilpotent.  Moreover, by p.116 of
+\cite{Kh}, for any positive integer $d$ less than $c$, the analogous
+formulas hold with the same exponents, but with the product taken
+over only those $\kappa_j$ in $S$ of weight at most $d$.  For such
+$\kappa_j$, the previous paragraph asserts that the exponents $r_j$
+and $s_j$ lie in $\mathbb{Q}_\tau$, for $\tau$ being the set of
+primes not exceeding $d$.
+
+Note that every $\mathbb{Q}_\sigma$-powered group is a
+$\mathbb{Q}_\tau$-powered group.  By the discussion above, we
+obtain:
+
+\begin{prop}\label{prop3.8}  Suppose $d$ is a positive integer less
+than $c$.  Let $\sigma$ be the set of primes not exceeding $c$ and
+$\tau$ be the set of primes not exceeding $d$.  Take functions $h_1$
+and $h_2$ on $\mathbb{Q}_\sigma$-powered groups as above, and let
+$h_1'$ and $h_2'$ be the analogous functions on
+$\mathbb{Q}_\tau$-powered groups, where $\kappa_j$  ranges over only
+the elements of $S$ of weight at most $d$.
+
+Then, for all elements $u,v$ in a $\mathbb{Q}_\sigma$ powered group
+$G$,
+$$\(h_j'\(u,v\)\)^{-1} h_j\(u,v\)\in\gamma_{d+1}(G),\text{ for
+}j=1,2.
+$$
+\end{prop}
+
+Now we obtain a further relation between the group structure and Lie
+algebra structure.
+
+\begin{prop}\label{prop3.9}
+Suppose $\pi,\,A^\star,$ and $B^\star$ satisfy the hypothesis of
+Corollary \ref{cor3.7}, and $g\in \(1+A^\star\),$ $u=\Log\ g$, and
+$d$ is a positive integer.  Assume that
+$$d\leq c\text{ and }u^ibu^{d+1-i}=0,\text{ for all }b\text{ in
+}B^\star\text{ and }i=1,2,\dots,d.$$ Define operations $\hat +$ and
+$\hat[\ ,\ \hat]$ on $1+A^\star$ and scalar multiplication on
+$1+A^\star$ by
+
+$$x\hat + y=h_1\(x,y\),~ \hat[x,y\hat]=h_2\(x,y\),\text{ and
+}rx=x^r,$$ for $r\in \mathbb{Q}_\pi$.
+
+Define mappings $\gamma$ and $\delta$ on $1+A^\star$ by
+
+$$\gamma(h)=g^{-1}hg\text{ and }\delta(h) =\gamma(h)\hat
++\(h^{-1}\).$$ Define powers of $\delta$ by composition.
+
+Then $\delta^{d+1}=0$ and, for all $h$ in $1+A^\star$,
+$$
+\hat[h,g\hat]=\left\{\delta(h)\right\}^{e(1)}\hat +
+\left\{\delta^2(h)\right\}^{e(2)}\hat +\cdots \hat +
+\left\{\delta^d(h)^d\right\}^{e(d)},
+$$
+ where $e(i)=(-1)^{i+1}/i$,
+for each $i$.
+\end{prop}
+
+\begin{proof}
+Recall from the proof of Corollary \ref{cor3.7} that the exponential
+mapping is a bijection of $A^\star$ into $1+A^\star$ and that the
+logarithm mapping is the inverse bijection.  Let $L(h)=\Log h$ for
+every $h$ in $1+A^\star$.  For all $x,y$ in $A^\star$ and $r$ in
+$\mathbb{Q}_\pi$, Corollary \ref{cor3.7} asserts that
+$$
+e^x\hat+ e^y=e^{x+y},\quad
+\hat[e^x,e^y\hat]=e^{[x,y]},\quad\text{and}\quad r\cdot e^x=e^{rx}.
+$$
+Therefore, for all $g_1, g_2$ in $1+A^\star$ and $r$ in
+$\mathbb{Q}$,
+
+\begin{eqnarray}
+L\(g_1\hat+g_2\)&=&L\(g_1\)+L\(g_2\),\label{eq3.12}\\
+L\(\hat[g_1,g_2\hat]\)&=&\left[L\(g_1\),L\(g_2\)\right],\label{eq3.13}
+\end{eqnarray}
+and
+\begin{equation}
+L\(g_1^r\)=rL\(g_1\)\label{eq3.14}
+\end{equation}
+
+Since $u=L(g),\ g=e^u$.  Let $R=\mathbb{Q}_\pi$.  Note that
+Hypothesis 3.1$^\prime$ %\ref{hyp2.1'}
+is satisfied.  Extend the definition of $\gamma$ to all of $B$ by
+defining
+$$\gamma(b)=g^{-1}bg.$$
+Since $c!$ is invertible in $R$, part (c) of Lemma \ref{lemma2.3}
+applies with $c$ in place of $d$.  Hence
+$\gamma\(e^x\)=e^{\gamma(x)}$ for all $x$ in $A^\star$, and
+
+$$L(\gamma(h))=\gamma\(L(h)\),\qquad\text{ for all }h\text{ in
+}1+A^\star.
+$$
+By (\ref{eq3.12}) and (\ref{eq3.14}),
+$$
+L\(\delta(h)\)=L\(\gamma(h)\hat
++h^{-1}\)=L(\gamma(h))+L\(h^{-1}\)=\gamma(L(h))-L(h).
+$$
+
+We have defined $\delta$ on $1+A^\star$.  We define $\delta$ on the
+set $A^\star$ (which is disjoint from $1+A^\star$) by
+
+$$
+\delta(h)=\gamma(x)-x.
+$$
+Then, for $h$ in $1+A^\star$,
+
+\begin{equation}\label{eq3.15}
+L\(\delta(h)\)=\gamma\(L(h)\)-L(h)=\delta\(L(h)\).
+\end{equation}
+Since $\delta$ is an endomorphism of $A^\star$ under addition, so
+are its powers under composition, and (\ref{eq3.15}) gives
+
+\begin{equation}\label{eq3.16}
+L\(\delta^i(h)\)=\delta^i\(L(h)\),\text{ for all positive integers
+}i.
+\end{equation}
+
+As before, take $h$ in $1+A^\star$.  Let $v=L(h)$.  By Proposition
+\ref{prop2.5},
+$$
+[v,u]=e(1)\delta(v)+e(2)\delta^2(v)+\cdots + e(d)\delta^d(v).
+$$
+So, by (\ref{eq3.16}),
+$$
+[v,u]=e(1)L\(\delta(h)\)+e(2)L\(\delta^2(h)\)+\cdots+e(d)L\(\delta^d(h)\).
+$$
+
+By (\ref{eq3.12}), (\ref{eq3.13}), and (\ref{eq3.14}), this says
+\begin{eqnarray*}
+L\(\hat[h,g\hat]\)&=&\left[L(h),L(g)\right]=[v,u]=\\
+&=&
+L\(\left\{\delta(h)\right\}^{e(1)}\)+L\(\left\{\delta^2(h)\right\}^{e(2)}\)+
+\cdots+ L\(\left\{\delta^d(h)\right\}^{e(d)}\)\\
+&=& L\(\left\{\delta(h)\right\}^{e(1)}\hat +
+\left\{\delta^2(h)\right\}^{e(2)}\hat +\cdots \hat +
+\left\{\delta^d(h)\right\}^{e(d)}\).
+\end{eqnarray*}
+Since $L$ is an injective function from $1+A^\star$ to $A^\star$,
+this gives the conclusion.
+\end{proof}
+
+\begin{center}
+%\section{Proof of Theorem $A$}
+\section{A new definition for the Lie product $[u,\,v]$}
+\label{sec5-3-28-07}
+\end{center}
+
+In Section \ref{sec4}, we used the free associative
+$\mathbb{Q}$-algebra $A$ of nilpotency class $c$ on $n$ generators
+to construct the free nilpotent $\mathbb{Q}$-powered group $F^\star$
+of class $c$ on $n$ generators, and to obtain the operations $+$ and
+$[\ ,\ ]$ for the Mal'cev correspondence. In a similar way, we used
+a subgroup $F_\pi$ of $F^\star$ to obtain the Lazard correspondence.
+In this section, we define an ideal $I_d$ of $A$ and a normal
+subgroup $K_d$ of $F^\star$ so that $A/I_d,\, F^\star/K_d$ and
+$F_\pi K_d/K_d$ will play similar roles for defining %extending the
+%definition of the Lie product $[u,\,v]$ in Section \ref{sec6}. In
+%Remark \ref{rem5.10-3-30} we define
+a ``word" $h_2'(u,\,v)$ for $u$ and $v$ in a
+$\mathbb{Q}_\pi$-powered group (for suitable $\pi$). In Section
+\ref{sec6}, we will show that $h_2'(u,\,v)$ can be used to extend
+the definition of the Lie product $[u,\,v]$ given in the Lazard
+correspondence to suitable elements in a wider class of groups.
+
+We continue to assume the hypothesis and notation of Section
+\ref{sec4}. %in order to prove Theorem $A$.
+We also let $\pi$ be an
+arbitrary set of primes, $d$ be a positive integer such that $d\leq
+c$, and $\tau$ be the set of all primes $p$ such that $p\leq d$.
+%{\tt  For some ???? $nd\leq c$.}
+
+Recall that
+\begin{equation}
+f_i=e^{x_i}=1+x_1+\frac{x_i^2}{2!}+\cdots+ \frac{x_i^d}{d!},\text{
+for }i=1,\,2,\,\dots,\,n, \label{eq5.1-3-28-07}
+\end{equation}
+$1+A$ is a group under multiplication, and $F$ is the subgroup
+$\langle \,f_1,\,f_2,\,\dots,\,f_n\,\rangle$ of $1+A$.  For each
+$i=1,\,2,\,\dots,\,n$ and each positive integer $k$, let
+\begin{equation}
+N_i=\left\langle\,f_i^g\,|\,g\in F\,\right\rangle = \text{ normal
+closure of }f_i\text{ in }F\label{eq5.2-3-28-07}
+\end{equation}
+and let $C_{ik}$ be the $\mathbb{Q}$-subgroup of $A$ spanned by all
+monomials of degree at least $k$ in $x_i$.  It is easy to see that
+$C_{ik}$ is an ideal of $A$ and of $B$.
+
+Let $I_d$ be the $\mathbb{Q}$-subspace of $A$ spanned by all the
+monomials in $x_1,\,\dots,\,x_d$ that have degree at least $d+1$ in
+$x_i$ for some $i~ (1\leq i\leq n)$.  Thus,
+$$
+I_d=C_{1,d+1}+C_{2,d+1}+\cdots+C_{n,d+1}.
+$$
+Let
+$$
+K_d=\left\{g\in F^\star\,|\,g\equiv 1\smod{I_d}\right\}.
+$$
+
+\begin{lemma}\label{lemma5.1-3-28-07}
+Suppose $I$ is an ideal of $B$ contained in $A$.  Let
+$$
+K_I=\left\{g\in F^\star\,|\, g\equiv 1 \smod{I}\right\}
+$$
+Then
+\begin{enumerate}
+\item[(a)] $K_I$ is a normal subgroup of $F^\star$, and
+\item[(b)] $K_I$ and $F^\star/K_I$ are $\mathbb{Q}$-powered groups.
+\end{enumerate}
+\end{lemma}
+
+\begin{remarknn}
+Note that since $B$ contains a copy of the rational field
+$\mathbb{Q}$, every ring ideal of $B$ is a $\mathbb{Q}$-algebra
+ideal of $B$. By taking $I=I_d$, we obtain $K_d=K_{I_d}.$
+\end{remarknn}
+
+\begin{proof}
+(a) Since $I$ is an ideal of $B$, there is a canonical algebra
+homomorphism of $B$ onto $B/I$ that induces a group homomorphism of
+$F^\star$.  Then $K_I$ is the kernel of this homomorphism and is,
+therefore, a normal subgroup of $F^\star$.
+
+(b) Recall that
+
+\bigskip
+\qquad the mapping Log is a group isomorphism of $1+A$ (under
+multiplication) onto $A$ under $\star$, and $\Exp$ is the inverse
+isomorphism. \vspace{-1.02cm}
+\begin{equation}\label{eq5.3-3-28-07}
+\end{equation}
+\smallskip
+
+
+%\begin{equation}
+%\text{the mapping Log is a group isomorphism of }1+A\text{ (under
+%multiplication) onto }A\text{ under }\star,\text{ and Exp is the
+%inverse isomorphism}. \label{eq5.3-3-28-07}
+%\end{equation}
+
+From the definition of $g^r$ for a rational number $r$ and an
+element $g$ of a $\mathbb{Q}$-powered group and from \eqref{eq3.7},
+we obtain
+\begin{equation}
+\Log\(g^r\)=r\Log(g),\qquad
+\Exp\(rx\)=\(\Exp(x)\)^r,\label{eq5.4-3-38-07}
+\end{equation}
+for $g$ in $1+A$ and $r$ in $\mathbb{Q}$.
+
+Recall from Proposition \ref{prop3.4} that $F^\star=e^{\mathbb{Q}
+L}$.  For $g$ in $K_I$, $\Log(g)$ lies in $I$ because it is a linear
+combination over $\mathbb{Q}$ of positive powers of $g-1$.
+Similarly, for $x$ in $\mathbb{Q}L\cap I$, $\Exp(x)$ lies in $K_I$
+because it is a polynomial in $x$ over $\mathbb{Q}$ with constant
+term 1.  Thus, by \eqref{eq5.3-3-28-07},
+
+\bigskip
+\qquad the mapping Log induces a group isomorphism of $K_I$ (under
+multiplication) onto $\mathbb{Q}L\cap I$ under $\star$.
+\vspace{-1.02cm}
+\begin{equation}\label{eq5.5-3-28-07}
+\end{equation}
+\smallskip
+
+
+%\begin{equation}
+%\text{the mapping Log induces a group isomorphism of }K_I\text{
+%(under multiplication) onto }\mathbb{Q}L\cap I\text{ under
+%}\star.\label{eq5.5-3-28-07}
+%\end{equation}
+
+Since $I$ is a $\mathbb{Q}-$algebra ideal of $B$, $\mathbb{Q}L\cap
+I$ is closed under multiplication from $\mathbb{Q}$.  By
+\eqref{eq5.3-3-28-07},\eqref{eq5.4-3-38-07}, and
+\eqref{eq5.5-3-28-07}, $\mathbb{Q}L\cap I$ is a $\mathbb{Q}$-powered
+group under $\star$ and $K_I$ is a $\mathbb{Q}$-powered group under
+multiplication.
+
+A similar argument shows that the factor groups
+$\mathbb{Q}L/\(\mathbb{Q}L\cap I\)$ under $\star$ and $F^\star/K_I$
+(under multiplication) are isomorphic $\mathbb{Q}$-powered groups.
+\end{proof}
+
+Suppose $1\leq i\leq n$.  Recall that $f_i=e^{x_i}$ is a polynomial
+in $x_i$ with constant term 1, and that, for every $k$, $C_{ik}$ is
+an ideal of $A$ and of $B$.  %Therefore, by \eqref{eq5.2-3-28-07} and
+%Lemma \ref{lemma5.1-3-28-07},
+%\begin{equation}
+%K_{I_{i_1}}\text{ is a }\mathbb{Q}\text{-powered normal subgroup of
+%}F^\star\text{ that contains }f_i.\label{eq5.6-3-28-07}
+%\end{equation}
+
+\begin{lemma}\label{lemma5.2-3-28-07}
+Suppose $1\leq i\leq n$, $k$ is a positive integer, $g$ is an
+element of the set $1+C_{ik}$, and $f$ is an element of the set
+$1+C_{i1}$.  Let
+$$
+h=(g,f)=g^{-1}f^{-1}gf.
+$$
+Then $h-1$ lies in $C_{i,k+1}$.
+\end{lemma}
+
+\begin{proof}
+Let $u=g-1$, and $v=h-1$.  Then $u$ lies in $C_{ik}$ and
+$$
+fg+fgv=fgh=fgg^{-1}f^{-1}gf=gf.
+$$
+
+So
+\begin{equation}\label{eq5.7-3-28-07}
+fgv=gf-fg=f+uf-f-fu=uf-fu=u(f-1)-(f-1)u.
+\end{equation}
+Since $f-1$ lies in $C_{i1}$ and $u$ lies in $C_{ik}$,
+\eqref{eq5.7-3-28-07} shows that $fgv$ lies in $C_{i,k+1}$.  Since
+$C_{i,k+1}$ is an ideal of $B$ and $v=g^{-1}f^{-1}(fgv)$, it follows
+that $v$ in $C_{i,k+1}$, as desired.
+\end{proof}
+
+\begin{proposition}\label{prop5.3-3-28-7}
+Suppose $1\leq i\leq n$, $k$ is a positive integer, and $g$ lies in
+$\gamma_k\(N_i\)$.  Then $g-1$ lies in $C_{ik}$.
+\end{proposition}
+
+\begin{proof}
+For each positive integer $k$, let
+$$
+H_k=F\cap K_{C_{ik}}=\left\{g\in F\,|\,g-1\in C_{ik}\right\}.
+$$
+By Lemma \ref{lemma5.1-3-28-07}, $K_{C_{ik}}$ is a normal subgroup
+of $F^\star$.  Hence $H_k$ is a normal subgroup of $F$.
+
+We prove the conclusion by induction on $k$.
+
+By \eqref{eq5.1-3-28-07}, $f_i$ lies in $H_1$.  Since $N_i$ is the
+normal closure of $f_i$ in $F$ (by \eqref{eq5.2-3-28-07}) and $H_1$
+is normal in $F$, it follows that $H_1$ contains $N_i$.  This proves
+the conclusion for $k=1$.
+
+Now, assume $k\geq 1$ and $\gamma_k\(N_i\)\leq H_k$.  Let
+$M=H_{k+1}$.  Since $N_i\leq H_1$, Lemma \ref{lemma5.2-3-28-07}
+gives
+$$
+\gamma_{k+1}\(N_i\)=\(\gamma_k\(N_i\),\,N_i\)\leq H_{k+1}.
+$$
+This proves the result by induction.
+\end{proof}
+
+\begin{proposition}\label{prop5.4-3-28-07}
+We have $\gamma_{nd+1}\(F^\star\)\leq K_d.$
+\end{proposition}
+
+\begin{proof}
+Let $b=nd$.  Recall that $F^\star/K_d$ is isomorphic to the image of
+the multiplicative subgroup $F^\star$ of $1+A$ under the algebra
+homomorphism of $B$ onto $B/I_d$.  Clearly, each monomial in
+$x_1,\,\dots,\,x_n$ of degree at least $b+1$ must have degree at
+least $d+1$ in $x_i$ for some $i$, and hence must lie in $I_d$.
+Therefore, $B/I_d$ is a homomorphic image of the
+$\mathbb{Q}$-algebra $\mathbb{Q}1\oplus \hat A$ for the free
+nilpotent associative algebra $\hat A$ of class $b$ over
+$\mathbb{Q}$ on $n$ generators $z_1,\,\dots,\,z_n$, with $z_i$
+mapping to $x_i+I_d$ for each $i$.  This shows that $F^\star/K_d$ is
+a homomorphic image of the corresponding multiplicative subgroup
+$$
+\sqrt{\left\langle e^{z_1},\,\dots,\,e^{z_n}\right\rangle}
+$$
+of $1+\hat A$.
+
+By Remark \ref{rem3.3} with $b$ in place of $c$, this subgroup has
+class at most $b$. Therefore, $F^\star/K_d$ is nilpotent of class at
+most $b$, and $\gamma_{b+1}\(F^\star/K_d\)=1$.  Hence,
+$$
+\gamma_{nd+1}\(F^\star\)=\gamma_{b+1}\(F^\star\)\leq K_d,
+$$\
+as desired.
+\end{proof}
+
+\begin{lemma}\label{lemma5.5-3-28-07}
+We have
+\begin{enumerate}
+\item[(a)] $F^\star/K_d$ is a $\mathbb{Q}$-powered group, and
+\item[(b)] $F_\pi/\(F_\pi\cap K_d\)$ is a $\mathbb{Q}_\pi$-powered
+group.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+By Theorem \ref{theo3.5}, $F_\pi$ is a nilpotent
+$\mathbb{Q}_\pi$-powered, hence $\pi$-divisible, group.  Therefore,
+\begin{equation}\label{eq5.8-3-28-07}
+F_\pi/\(F_\pi\cap K_d\)\text{ is }\pi\text{-divisible.}
+\end{equation}
+
+By definition, $I_d$ is an ideal of $B$ contained in $A$. Therefore,
+(a) follows from Lemma \ref{lemma5.1-3-28-07}.  In particular,
+$F^\star/K_d$ is torsion-free.
+
+Since
+$$
+F_\pi/\(F_\pi\cap K_d\)\simeq F_\pi K_d/K_d\leq F^\star/K_d,
+$$
+$F_\pi/\(F_\pi\cap K_d\)$ is also torsion-free and hence
+$\pi$-torsion-free.  Therefore, by \eqref{eq5.8-3-28-07},
+$F_\pi/\(F_\pi\cap K_d\)$ is $\mathbb{Q}_\pi$-powered.
+\end{proof}
+
+\begin{theorem}\label{theo5.6-3-28-07}
+Suppose $nd\leq c$.  Let
+$$M_0=\left\langle
+\,\gamma_{d+1}\(N_i\)\,|\,i=1,\,\dots,\,n\,\right\rangle
+$$
+and
+$$
+M=_{F_\pi}\hspace*{-0.2cm}\sqrt[\pi]{M_0}=\left\{g\in
+F_\pi\,|\,g^k\in M_0\text{ for some }\pi\text{-number }k\right\}.
+$$
+Then:
+\begin{enumerate}
+\item[(a)] $M$ is a normal subgroup of $F_\pi$,
+\item[(b)] $M=F_\pi\cap K_d$, and
+\item[(c)] $F_\pi/M$ has multiplicative class exactly $nd$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Recall from Section \ref{sec4} that $A$ was defined to be the free
+non-associative $\mathbb{Q}$-algebra of nilpotency class $c$ with
+free (non-commuting) generators $x_1,\,\dots,\,x_n$.  Thus, we can
+calculate in $A$ by setting every monomial of total degree at least
+$c+1$ to zero.  Since $c+1\geq nd+1$, each such monomial has degree
+at least $d+1$ in $x_i$ for some $i$, and hence lies in $I_d$.
+Therefore, up to isomorphism; $A/I_d$ is independent of the choice
+of $c$, as long as $c\geq nd$.  Moreover,
+
+\bigskip
+\qquad the distinct monomials in $x_1,\,\dots,\,x_n$ having degree
+at most $d$ in $x_i$ for every $i=1,\,\dots,\,n$ form a basis of
+$A$, modulo $I_d$,  i.e., map to a basis of $A/I_d$ in the canonical
+homomorphism of $A$ onto $A/I_d$. \vspace{-1.45cm}
+\begin{equation}\label{eq5.9-3-28-07}
+\end{equation}
+\bigskip
+
+
+%\begin{equation}\label{eq5.9-3-28-07}
+%\text{the distinct monomials in }x_1,\,\dots,\,x_n\text{ having
+%degree at most }d\text{ in }x_i\text{ for every
+%}i=1,\,dots,\,n\text{ form a basis of }A,\text{ modulo }I_d,\text{
+%i.e., map to a basis of }A/I_d\text{ in the canonical homomorphism
+%of }A\text{ onto }A/I_d.
+%\end{equation}
+
+\bigskip We defined $F_\pi$ just before Theorem \ref{theo3.5} by
+\begin{equation}\label{eq5.10-3-28-07}
+F_\pi=_{F^\star}\hspace*{-0.2cm}\sqrt[\pi]F=\left\{g\in
+F^\star\,|\,g^k\in F\text{ for some }\pi\text{-number }k\right\}.
+\end{equation}
+Let $G=F_\pi$.
+
+\bigskip \noindent(a) For each $i$, $N_i$ is a normal subgroup of
+$F$, and $\gamma_{d+1}\(N_i\)$ is a characteristic subgroup of $N_i$
+and hence a normal subgroup of $F$.  Therefore, $M_0$ is normal in
+$F$. By \eqref{eq5.10-3-28-07} and Lemma \ref{lemma2.3-3-24},
+$$
+M=_G\hspace*{-0.2cm}\sqrt[\pi]{M_0}\lhd
+_G\hspace*{-0.2cm}\sqrt[\pi]F=F_\pi=G.
+$$
+
+\bigskip\noindent(b)  By Proposition \ref{prop5.3-3-28-7}, $g-1$ lies
+in $C_{i,d+1}$ (hence in $I_d$) for every $i=1,\dots,n$ and every
+element $g$ of $\gamma_{d+1}\(N_i\)$.  Therefore, $M_0\leq K_d$, and
+since $M=_G\hspace*{-0.2cm}\sqrt[\pi]{M_0},$
+$$
+MK_d/K_d\text{ is a }\pi\text{-group.}
+$$
+However, $F^\star/K_d$ is a $\mathbb{Q}$-powered group by Lemma
+\ref{lemma5.5-3-28-07}, and hence is torsion-free.  Consequently,
+$$
+MK_d/K_d=1,\qquad M\leq K_d,\text{ and}
+$$
+\begin{equation}\label{eq5.11-3-28-07}
+M\text{ is contained in }G\cap K_d.
+\end{equation}
+
+We wish to show that $M=G\cap K_d$ .  We will show first that $F\cap
+K_d\leq M_0$.
+
+Take any element $h$ of $F$ that lies outside $M_0$.  We must show
+that $h$ lies outside $K_d$, i.e., $h\not\equiv 1\smod{I_d}$. By
+Theorem \ref{theo3.2}, $F$ is a free nilpotent group of class $c$
+with free generators $f_1,\,\dots,f_n$. Therefore, by \cite{M.Hall},
+Theorem 11.2.4, p. 175, $h$ may be uniquely expressed in the form
+$$
+h=c_1^{e_1}c_2^{e_2}\cdots c_r^{e_r},
+$$
+where $c_1,\,c_2,\,\dots,\,c_r$ are the basic commutators of weight
+at most $c$ in $f_1,\,\dots,\,f_n,$ and $e_1,\,e_2,\,\dots,\,e_r$
+are integers.
+
+Any basic commutator in $f_1,\,\dots,\,f_n$ of weight at least $d+1$
+in $f_i$ for some $i$ must lie in $\gamma_{d+1}\(N_i\)$ and thus in
+$M_0$.  Therefore,
+
+\begin{equation}\label{eq5.12-3-28-07}
+h\equiv \prod_{j\in S} c_j^{e_j},\quad \text{modulo }M_0,
+\end{equation}
+where $j$ ranges over the set $S$ of all subscripts for which
+$e_j\neq 0$ and $c_j$ has weight at most $d$ in $f_i$ for
+$i=1,\,\dots,\,n$ (and hence has total weight at most $nd$).  Since
+$h$ lies outside $M_0$, the set $S$ is not empty.
+
+Let $d'$ be the minimal total weight of $c_j$ for $j$ ranging over
+$S$.  Then
+\begin{equation}\label{eq5.13-3-28-07}
+d'\leq nd\leq c.
+\end{equation}
+We may assume that the basic commutators $c_j$ in $S$ are numbered
+so that, for some positive integer $k$,
+
+\begin{center}
+$c_1,\,\dots,\,c_k$ have total weight $d'$, and $c_j$ has total
+weight greater than $d'$ whenever $j\in S$ and $j>k$.
+\end{center}
+Then, by \eqref{eq5.12-3-28-07}, there exists an element $h'$ in
+$\gamma_{d'+1}(F)$ such that
+$$
+h\equiv c_1^{e_1}c_2^{e_2}\dots,\,c_k^{e_k}h',\quad \text{modulo
+}M_0.
+$$
+Moreover, $e_j\neq 0$ for every $j=1,\,\dots,\,k$.
+
+By \eqref{eq5.11-3-28-07}, $M_0\leq M\leq K_d$.  So $g\equiv
+1\smod{I_d}$ for each element $g$ of $M_0$.  Therefore,
+\begin{equation}\label{eq5.14-3-28-07}
+h\equiv c_1^{e_1}c_2^{e_2}\dots c_k^{e_k}h',\quad\text{modulo }I_d.
+\end{equation}
+For each $j$, let $u_j$ be the Lie ring commutator in
+$x_1,\,\dots,\,x_n$ (in $A^-$) that corresponds to the group
+commutator $c_j$ in $F$, so that $u_j$ has weight at most $d$ in
+$x_i$ for every $i$ and total weight $d'$.  By
+\eqref{eq5.13-3-28-07} and \eqref{eq4.1-3-28}, $u_1,\,\dots,\,u_k$
+are linearly independent elements of degree $d'$ over $\mathbb{Q}$.
+By Lemma \ref{lemma3.1},
+\begin{equation}\label{eq5.15-3-28-07}
+c_1^{e_1}\dots c_k^{e_k} h' =1+\sum_{j=1}^ke_ju_j+\lambda,
+\end{equation}
+where $\lambda$ lies in $A^{d'+1}$.
+
+By \eqref{eq5.14-3-28-07} and \eqref{eq5.15-3-28-07},
+$$
+h\equiv 1+\sum_{j=1}^ke_ju_j+\lambda,\quad\text{modulo }I_d.
+$$
+However, by \eqref{eq5.9-3-28-07}, $u_1,\,\dots,\,u_k$ are linearly
+independent modulo $\(A^{d'+1}+I_d\)$. Therefore, $h-1$ does not lie
+in $I_d$, and $h$ does not lie in $K_d$, as desired.  This proves
+$F\cap K_d \leq M_0$.
+
+Suppose $g\in G\cap K_d=F_\pi \cap K_d$.  By \eqref{eq5.10-3-28-07},
+there exists a $\pi$-number $k$ such that $g^k\in F$.  Then
+$$
+g^k\in F\cap K_d\leq M_0,
+$$
+and $g\in _{F_\pi}\hspace*{-0.2cm}\sqrt[\pi]{M_0}=M$.  Thus, $G\cap
+K_d\leq M.$ By \eqref{eq5.11-3-28-07}, $G\cap K_d=M$, as desired.
+
+\item[(c)] By Proposition \ref{prop5.4-3-28-07},
+$\gamma_{nd+1}(G)\leq \gamma_{nd+1}\(F^\star\)\leq K_d$.  Therefore,
+$G/\(G\cap K_d\)=G/M$ has nilpotence class at most $nd$.  We show
+that the class is exactly $nd$ by exhibiting a commutator $g$ of
+weight $nd$ that lies outside $M$.
+
+Let $g=\(c_1,\,c_2,\,\dots,\,c_{nd}\),$ where $c_1=f_2$ and
+$$
+c_2=c_3=\cdots =c_{d+1}=f_1,\qquad
+c_{d+2}=c_{d+3}=\cdots=c_{2d}=f_2,
+$$
+and, if $n>2$,
+$$
+c_{kd+1}=c_{kd+2}=\cdots=c_{(k+1)d}=f_{k+1},\text{ for
+}k=2,\,3,\,\dots,\,n-1.
+$$
+Then $g$ has weight $d$ in each $f_i$ and total weight  $nd$.
+
+By Lemma \ref{lemma3.1},
+$$
+g=1+u+\lambda\quad\text{for}\quad
+u=\left[y_1,\,y_2,\,\dots,\,y_{nd}\right],
+$$
+where $\lambda$ lies in $A^{nd+1}$ and we have $y_j=x_i$ whenever
+$c_j=f_i$.  Then $u$ is a $\mathbb{Z}$-linear combination of
+monomials of degree $d$ in each $x_i$ and total degree $nd$.  By
+\eqref{eq5.9-3-28-07}, these monomials are linearly independent over
+$\mathbb{Q}$ modulo $\(A^{nd+1}+I_d\)$.  Moreover, it is easy to see
+that the monomial $x_1^dx_2^d\cdots x_n^d$ appears in $u$ with
+coefficient $\pm 1$. Therefore, modulo $\(A^{nd+1}+I_d\)$,
+$$
+u\not\equiv 0\text{ and }g\equiv 1+u+\lambda \equiv 1+u\not\equiv 1.
+$$
+Thus, $g-1$ does not lie in $I_d$ and $g$ does not lie in $K_d$, as
+desired.
+\end{proof}
+
+In the next result, we show that $F_\pi/(F_\pi\cap K_d)$ is a
+``free" group with respect to certain constraints.
+
+\begin{theorem}\label{theo5.7-3-30-07}
+Suppose $nd\leq c$.  Assume $G$ is a nilpotent
+$\mathbb{Q}_\pi$-powered group and $g_1,\,\dots,\,g_n$ lie in $G$.
+For each $i$, assume that the normal closure $\left\langle
+g_i^G\right\rangle$ of $g_i$ in $G$ has nilpotence class at most
+$d$.  Then
+\begin{enumerate}
+\item[(a)] there exists a unique homomorphism $\psi$ of $F_\pi$ into
+$G$ such that $\psi\(f_i\)=g_i$ for all $i$,
+\item[(b)] for $\psi$ as in (a), the kernel of $\psi$ contains
+$F_\pi\cap K_d$, and
+\item[(c)] for $\psi$ as in (a), the image of $\psi$ is nilpotent of
+class at most $nd$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+For each $i$, let $H_i=\left\langle g_i^G\right\rangle$, and let
+$H=H_1H_2\cdots H_n$.  Let
+$$
+H_\pi=_G\hspace*{-0.2cm}\sqrt[\pi]{H}=\left\{g\in G\,|\,g^k\in
+H\text{ for some }\pi\text{-number }k\right\}.
+$$
+Since $H_i$ is a normal subgroup of $G$ of class at most $d$ for
+each $i$, $H$ is a subgroup of class at most $nd$ (from Fitting's
+Theorem in \cite{Hup}, p. 276, and induction).  By Lemma
+\ref{lemma2.2-3-24}, $H_\pi$ is a $\mathbb{Q}_\pi$-powered subgroup
+of $G$ of nilpotence class at most $nd$.
+
+By Theorem \ref{theo3.5}, $F_\pi$ is the free nilpotent
+$\mathbb{Q}_\pi$-powered group of class $c$ freely generated by
+$f_1,\,\dots,\,f_n$.  Since $nd\leq c$, there exists a unique
+homomorphism $\psi$ of $F_\pi$ into $H_\pi$ such that
+$\psi\(f_i\)=g_i$ for all $i$.  Furthermore, any homomorphism of
+$F_\pi$ into $G$ that takes $f_i$ to $g_i$ for all $i$ must take $F$
+into $H$ and then (because
+$F_\pi=_{F^\star}\hspace*{-0.2cm}\sqrt[\pi]{F}$ by
+\eqref{eq5.10-3-28-07}) take $F_\pi$ into $H_\pi$, and so must
+coincide with $\psi$. This proves (a).
+
+Let $K$ be the kernel of $\psi$.  It is easy to see that, for each
+$i$,
+$$
+\psi\(N_i\)=\psi\(\left\langle f_i^F\right\rangle\)\leq\left\langle
+\(\psi\(f_i\)\)^G\right\rangle =\left\langle g_i^G\right\rangle =
+H_i
+$$
+and
+$$
+\psi\(\gamma_{d+1}\(N_i\)\)=\gamma_{d+1}\(\psi\(N_i\)\)\leq
+\gamma_{d+1}\(H_i\)=1,
+$$
+whence $\gamma_{d+1}\(N_i\)\leq K$.  Take $M_0$ and $M$ as in
+Theorem \ref{theo5.6-3-28-07}, so that
+
+$$
+M_0=\left\langle \gamma_{d+1}\(N_i\)\,|\,i=1,\,\cdots,\,
+n\right\rangle
+$$
+and $M=_{F_\pi}\hspace*{-0.2cm}\sqrt[\pi]{M_0}$. %=\left\{\,g\in
+%F_\pi\,|\, g^k\in M_0\text{ for some }\pi\text{-number }k\right\}.$$
+Then
+\begin{equation}\label{eq5.16-3-30}
+M_0\leq K
+\end{equation}
+and by Theorem \ref{theo5.6-3-28-07},
+\begin{equation}\label{eq5.17-3-30}
+M=F_\pi\cap K_d\text{ and }F_\pi/M\text{ has nilpotence class }nd.
+\end{equation}
+
+From \eqref{eq5.16-3-30} and the definition of $M$, it follows that
+$M/\(M\cap K\)$ is a $\pi$-group.  However,
+$$
+M/\(M\cap K\)\simeq MK/K\leq F_\pi/K\simeq \psi\(F_\pi\)\leq G,
+$$
+and $G$ is $\pi$-torsion-free.  Therefore, $M/\(M\cap K\)=1$, and
+$M=M\cap K\leq K$.  This proves (b).  Then (b) and
+\eqref{eq5.17-3-30} yield (c).
+\end{proof}
+
+Recall that $\tau$ is the set of all primes $p$ such that $p\leq d$.
+
+\begin{theorem}\label{theo5.8-3-30}
+Suppose $nd\leq c$ and $\pi$ contains $\tau$.  Let $\overline
+B=B/I_d$ and, for every element $x$ and subset $T$ of $B$, let
+$$
+\overline x=x+I_d\text{ and }\overline T=\left\{\overline x \, |\,
+x\text{ in }T\right\}.
+$$
+
+Define operations $+$ and $\left[~,~\right]$ on $\overline{F^\star}$
+by the Lazard correspondence.  Define a mapping $\delta$ on
+$\overline{F^\star}$ by
+$$
+\delta(x)=\(\bar f_2^{-1}x\bar{f}_2\)+\(x^{-1}\),\text{ for all
+}x\text{ in }\overline {F^\star}.
+$$
+
+Let $L=_{\overline F_\pi}\hspace*{-0.2cm}\sqrt[\pi]{\overline N_1}$
+and $e(i)=(-1)^{i+1}/i$ for $i=1,\,\dots,\,d$.  Then:
+\begin{enumerate}
+\item[(a)] $L$ is a $\mathbb{Q}_\pi$-powered normal subgroup of
+$\overline F_\pi$ of class at most $d$;
+\item[(b)] $L$ is closed under $+$ and $\left[~,~\right]$;
+\item[(c)] $\delta^{d+1}=0$ and $L$ contains $\left[\bar
+f_1,\bar f_2\right]$ and $\(\delta^i\(\bar{f_1}\)\)^{e(i)}$ for
+$i=1,\,\dots,\,d$;
+\item[(d)] $\left[\overline f_1,\overline
+f_2\right]=\(\delta\(\overline f_1\)\)^{e(1)}+\cdots +
+\(\delta^d\(\overline f_1\)\)^{e(d)}$; and
+\item[(e)]$h_2\(f_1,\,f_2\)$ is equal to $\left[f_1,\,f_2\right]$
+and lies in $F_\pi K_d$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remarknn}%\label{rem5.10-3-30}
+The proof shows that $\overline{F^\star}$ is isomorphic to
+$F^\star/K_d$, which is a $\mathbb{Q}$-powered group by Lemma
+\ref{lemma5.5-3-28-07}.  Therefore, we may use the Lazard (or
+Mal'cev) correspondence to define operations $+$ and $[~,~]$ on
+$\overline{F^\star}$.  We write $+$ and $[~,~]$ instead of $\hat +$
+and $\hat[~,~\hat]$ (used in Remark \ref{rem4.5-3-28}) for
+$\overline{F^\star}$, and likewise for $F$, because we will not need
+the natural Lie ring operations on $\overline B$ and $B$.
+\end{remarknn}
+
+\begin{proof}
+Recall that
+$$
+K_d=\left\{ g\in F^\star\,|\,g\equiv1 \smod {I_d}\right\}.
+$$
+
+Therefore, the natural algebra homomorphism $\psi$ of $B$ onto
+$\overline B$ given by $x\mapsto \overline x$ induces a group
+homomorphism of $F^\star$ onto $\overline{F^\star}$ with kernel
+$K_d$.  Thus, $\overline{F^\star}\simeq F^\star/K_d$.
+
+As mentioned in the Remark above (and Remark \ref{rem3.3}),
+$\overline{F^\star}$ and $F^\star$ are $\mathbb{Q}$-powered groups
+and hence admit operations defined by the Lazard correspondence,
+i.e., for $u$ and $v$ both in $\overline {F^\star}$ or both in
+$F^\star$,
+\begin{equation}\label{eq5.18-3-30}
+u+v=h_1\(u,\,v\)\text{ and }[u,\,v]=h_2\(u,\,v\).
+\end{equation}
+
+For $u$ and $v$ in $F^\star$, $\psi$ takes the ``word''
+$h_j\(u,\,v\)$ to the ``word'' $h_j\(\psi(u),\,\psi(v)\)$ for
+$j=1,\,2$.  Thus,
+\begin{equation}\label{eq5.19-3-30}
+\text{for }u\text{ and }v\text{ in
+}F^\star,\,\overline{u+v}=\overline u+\overline v\text{ and
+}\overline{[u,\,v]}=[\overline u,\,\overline v].
+\end{equation}
+
+Let $G=\overline{F_\pi}$.  Then $G\simeq F_\pi K_d/K_d\simeq
+F_\pi/\(F_\pi\cap K_d\)$.  By Lemma \ref{lemma5.5-3-28-07},
+\begin{equation}\label{eq5.20-3-30}
+G\text{ is a }\mathbb{Q}_\pi\text{-powered group}.
+\end{equation}
+Recall that $N_1=\left\langle f_i^F\right\rangle$, so that $N_1\lhd
+F$.  For $M_0$ and $M$ as in Theorem \ref{theo5.6-3-28-07},
+$\gamma_{d+1}\(N_1\)\leq M_0\leq M\leq K_d$.  Therefore,
+\begin{equation}\label{eq5.21-3-30}
+\overline N_1\lhd \overline F \text{ and }\overline N_1\text{ has
+nilpotence class at most }d.
+\end{equation}
+
+Since $F_\pi=_{F^\star}\hspace*{-0.2cm}\sqrt[\pi]{F}$, we have
+$G=\overline{F_\pi}=_G\hspace*{-0.2cm}\sqrt[\pi]{\ol F}$.  Take $L$
+as in the statement of the theorem.  By \eqref{eq5.21-3-30} and
+Lemma \ref{lemma2.3-3-24},
+$$
+L=_G\hspace*{-0.2cm}\sqrt[\pi]{\overline {N_1}} \lhd
+_G\hspace*{-0.2cm}\sqrt[\pi]{\overline F}=G.
+$$
+Then by \eqref{eq5.20-3-30},\eqref{eq5.21-3-30} and Lemma
+\ref{lemma2.2-3-24}, we obtain (a).
+
+By (a) and the Lazard correspondence, we may define $+$ and $[~,~]$
+on $L$ by \eqref{eq5.18-3-30}.  Since we used \eqref{eq5.18-3-30} to
+define $+$ and $[~,~]$ on the entire group $\overline{F^\star}$, we
+see that $L$ is closed under $+$ and $[~,~]$, which gives (b).
+
+Since $f_1$ lies in $N_1$, we have $\overline f_1\in
+\overline{N_1}\leq \overline L$.  As $L$ is normal in $G$ and is a
+$\mathbb{Q}_\pi$-powered group, $L$ is closed under $\delta$ and all
+of its powers, and
+
+\begin{equation}\label{eq5.22-3-30}
+L\text{ contains }\(\delta^i\(\overline{f_1}\)\)^{e(i)},\text{ for
+}i=1,\,2,\,\dots,\,d.
+\end{equation}
+Now we check the hypothesis of Proposition \ref{prop3.9} with $\pi$
+chosen to be the set of all primes; $A^\star$ and $B^\star$ to be
+$\overline A$ and $\overline B$; and $g$ and $u$ to be $\overline
+f_2$ and $\overline x_2$ respectively.  Note that the hypothesis of
+Corollary \ref{cor3.7} is satisfied, that $u=\Log g$ because
+$f_2=e^{x_2}$, and that $d\leq nd\leq c$.  Moreover, for all $b$ in
+$B$ and $i=1,\,\dots,\,d$,
+$$
+x_2^ibx_2^{d+1-i}\in C_{2,d+1}\subseteq I_d,\text{ so that
+}u^i\overline b u ^{d+1-i}=0.
+$$
+In addition, the definition of $\delta$ on $\overline{F^\star}$ in
+this theorem agrees with the definition in Proposition
+\ref{prop3.9}.  Thus, the hypothesis of the proposition is
+satisfied, and the proposition, \eqref{eq5.22-3-30}, and part (b) of
+this theorem give parts (c) and (d) of this theorem.
+
+By \eqref{eq5.18-3-30},\eqref{eq5.19-3-30}, and (c),
+$$
+\psi\(h_2\(f_1,\,f_2\)\)=h_2\(\overline{f_1},\,\overline{f_2}\)=\left[\overline{f_1},\,\overline{f_2}\right],
+$$
+which lies in $L$ and thus in $G$.  Since $G=\overline{F_\pi}\simeq
+F_\pi K_d/K_d$ and $K_d$ is the kernel of the restriction of $\psi$
+to $F^\star$, $h_2\(f_1,\,f_2\)$ lies in $F_\pi K_d$.  As
+$h_2\(f_1,\,f_2\)=\left[f_1,\,f_2\right]$, we obtain (e).  This
+completes the proof of the theorem.
+\end{proof}
+
+\begin{remark}\label{rem5.11-3-30}
+Let $n=2$. Assume $2d\leq c$. By Theorem \ref{theo5.8-3-30} for the
+case in which $\pi=\tau$, there exists an element
+$h_2'\(f_1,\,f_2\)$ of $F_\tau$ such that
+\begin{equation}\label{eq5.23-3-30}
+h_2'\(f_1,\,f_2\)\equiv h_2\(f_1,\,f_2\)\smod{K_d}
+\end{equation}
+Here, $h_2'\(f_1,\,f_2\)$ is a ``word'' in $f_1$ and $f_2$ obtained
+by taking inverses, products, and rational powers $g^{m/k}$ for
+which $k=1$ or $k$ is a product of powers of primes in $\tau$.
+
+Now suppose $\pi$ is any set of primes containing $\tau$ and $G$ is
+any nilpotent $\mathbb{Q}_\pi$-powered group.  Assume $g_1$ and
+$g_2$ are elements of $G$ contained in (possibly different) normal
+subgroups of $G$ having nilpotence class at most $d$.  By Theorem
+\ref{theo5.7-3-30-07} (for $n=2$), there exists a unique
+homomorphism $\psi$ of $F_\pi$ into $G$ such that
+\begin{equation}\label{eq5.24-3-30}
+\psi\(f_1\)=g_1,\,\psi\(f_2\)=g_2,\text{ and }F_\pi\cap K_d\text{ is
+contained in the kernel of }\psi.
+\end{equation}
+
+%By \eqref{eq5.23-3-30},
+%$h_2(f_1,\,f_2)=h_2'(f_1,\,f_2)h_2''(f_1,\,f_2)$ for an element
+%$h_2''(f_1,\,f_2)$ in $K_d.$ One may show by a proof similar to that
+%of Theorem $\ref{theo5.6-3-28-07}$ that $h_2''(f_1,\,f_2)$ is a
+%product of rational powers $c^r$ of basic commutators lying in
+%$M_0$, and thus is $K_d.$ For each such commutator $c$, $\psi(c)=1$
+%by \eqref{eq5.24-3-30}. The reason that we use the ``word" $h_2'$
+%rather than $h_2$ is that the exponents $r$ in the rational powers
+%$c^r$ may have determinants divisible by powers outside $\pi$, so
+%that $\(\psi(c)\)^r$ may not be defined.
+
+Since $\pi$ contains $\tau,\, h_2'\(f_1,\,f_2\)\in F_\tau\leq
+F_\pi$.  If we evaluate the ``word'' $h_2'$ on $g_1$ and $g_2$ by
+replacing $f_i$ by $g_i$ for each $i$, we obtain
+\begin{equation}\label{eq5.25-3-30}
+h_2'\(g_1,\,g_2\)=\psi\(h_2'\(f_1,\,f_2\)\).
+\end{equation}
+
+By \eqref{eq5.23-3-30},
+$h_2(f_1,\,f_2)=h_2'(f_1,\,f_2)h_2''(f_1,\,f_2)$ for an element
+$h_2''(f_1,\,f_2)$ in $K_d$. One may show by a proof similar to that
+of Theorem \ref{theo5.6-3-28-07} that $h_2''(f_1,\,f_2)$ is a
+product of of basic commutators in $M_0$ (and thus in $K_d)$ raised
+to rational powers $c^r$. For each such commutator $c$, $\psi(c)=1$
+by \eqref{eq5.24-3-30}. The reason that we use the ``word" $h_2'$
+rather than $h_2$ is that the exponents $r$ in the rational powers
+$c^r$ in $h_2''$ may have denominators divisible by primes outside
+$\pi$, so that $(\psi(c))^r$ may not be defined.
+
+Now we adopt the bar notation of Theorem \ref{theo5.8-3-30}, so that
+the natural homomorphism of $B$ onto $\overline B$ induces an
+isomorphism $\overline {F_\pi}\simeq F_\pi K_d/K_d$.  As $F_\pi\cap
+K_d$ is contained in the kernel of $\psi$, it follows that $\psi$
+induces a well defined homomorphism $\phi$ from $\overline{F_\pi}$
+to $G$ given by
+$$
+\phi\(\bar x\)=\psi(x),\qquad\text{for all }x\text{ in }F_\pi.
+$$
+
+Let $h=h_2'\(f_1,\,f_2\)$.  By \eqref{eq5.25-3-30} and Theorem
+\ref{theo5.8-3-30}, $\phi$ is the unique homomorphism of
+$\overline{F_\pi}$ to $G$ taking $\bar{f_1}$ to $g_1$ and $\bar f_2$
+to $g_2$, and
+$$
+h_2'\(g_1,\,g_2\)=\psi(h)=\phi\(\bar
+h\)=\phi\(\left[\bar{f_1},\,\bar{f_2}\right]\).
+$$
+Thus, $h_2'\(g_1,\,g_2\)$ is independent of the original choice of
+$h_2'\(f_1,\,f_2\)$, and we may define unambiguously
+
+\bigskip\qquad
+$h_2'\(g_1,\,g_2\)=\phi\(\left[\bar{f_1},\,\bar{f_2}\right]\)$ for
+the unique homomorphism $\phi$ of $\overline{F_\pi}$ into $G$ such
+that $\phi\(\bar{f_1}\)=g_1$, and
+$\phi\(\bar{f_2}\)=g_2$.\vspace{-1.02cm}
+\begin{equation}\label{eq5.26-3-30}
+\end{equation}
+\end{remark}
+%\bigskip
+%\qquad the mapping Log is a group isomorphism of $1+A$ (under
+%multiplication) onto $A$ under $\star$, and $\Exp$ is the inverse
+%isomorphism. \vspace{-1.02cm}
+%\begin{equation}\label{eq5.3-3-28-07}
+%\end{equation}
+
+\bigskip In the next section, we will define $\left[g_1,\,g_2\right]$
+to be $h_2'\(g_1,\,g_2\)$ in this situation.
+
+\begin{lemma}\label{lemma5.10}
+Suppose $G$ is a nilpotent $\Q_\pi$-powered group and $N$ is a
+normal subgroup of $G.$ Then $\sqrt[\pi]{N}$ is a $\Q_\pi$-powered
+normal subgroup of $G$ that contains $N$ and has the same nilpotence
+class as $N$.
+\end{lemma}
+
+\begin{proof}
+Obviously, $\sqrt[\pi]{N}$ contains $N$ and has the same or larger
+nilpotence class. By Lemma \ref{lemma2.2-3-24} (with $d$ in place of
+$c$), $\sqrt[\pi]{N}$ is a $\Q_\pi$-powered subgroup of $G$ of the
+same class as $N$. By Lemma \ref{lemma2.3-3-24},
+$$\sqrt[\pi]{N}\lhd\sqrt[\pi]{G}=G.$$
+\end{proof}
+
+\begin{center}
+\section{The main results}
+\label{sec6}
+\end{center}
+
+In this section, we obtain our main results. We continue to assume
+the hypothesis and notation of Section \ref{sec4}, except that after
+Theorem \ref{theo6.1-4-2} we no longer need the algebras $A$ and
+$B$, since we deal only with groups. However, here we take $d$ to be
+an arbitrary positive integer and choose $c$ to be $3d$. As in
+Section \ref{sec5-3-28-07}, we let $\pi$ be an arbitrary set of
+primes %$d$ be a positive integer such that $d\leq c$,
+and $\tau$ be the set of all primes $p$ such that $p\leq d.$
+\\
+
+\begin{theorem}\label{theo6.1-4-2}
+The function $h_2'(u,\,v)$ given in Remark \ref{rem5.11-3-30}
+satisfies the following conditions:
+
+Suppose $\pi$ contains $\tau$, $G$ is a nilpotent $\Q_\pi$-powered
+group, and $g_1$ and $g_2$ are elements of $G$ lying in normal
+subgroups $G_1$ and $G_2$ of $G$ having nilpotence class at most
+$d$. Let $H=_G\hspace*{-0.2cm}\sqrt[\pi]{G_1}.$ Assume the bar
+notation of Theorem \ref{theo5.8-3-30} and let $e(i)=(-1)^{i+1}/i$
+for $i=1,\cdots,d.$ Then:
+\begin{enumerate}
+\item[(a)] for $n=2$ and $\psi$ as in Theorem \ref{theo5.7-3-30-07}, $\psi$
+induces a homomorphism of $\overline{F}_\pi$ into $G$ that takes
+$\[\bar f_1,\,\bar f_2\]$ to $h_2'(g_1,\,g_2)$,
+\item[(b)] $h_2'(g_2,\,g_1)=\(h_2'(g_1,\,g_2)\)^{-1}$,
+\item[(c)] $h_2'(g_1,\,g_2)=h_2(g_1,\,g_2)=[g_1,\,g_2]$, if $G$ has
+nilpotence class at most $d$,
+\item[(d)] $H$ is a $\Q_\pi$-powered normal subgroup of $G$ having nilpotence
+class at most $d$,
+\item[(e)]  $H$ is endowed with an operation + by the Lazard
+Correspondence,
+\item[(f)] there exists a well-defined endomorphism $\delta$ of $H$
+under + given by $\delta(x)=\(g_2^{-1}xg_2\)+\(x^{-1}\)$,
+\item[(g)] $\delta^{d+1}=0,$
+\item[(h)] $H$ contains $h_2'(g_1,\,g_2)$ and
+$\(\delta^i\(g_1\)\)^{e(i)}$ for $i=1,\cdots,d$, and
+\item[(j)] $h_2'(g_1,\,g_2)=\(\delta(g_1)\)^{e(1)}+\cdots+
+\(\delta^d(g_1)\)^{e(d)}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+For every element $x$ and subset $T$ of $B$, the bar notation of
+Theorem \ref{theo5.8-3-30} gives
+$$\bar x=x+I_d\quad\text{ and }\quad\overline{T}=\{\bar x\,|\,x\in T\}.$$
+Then $\ol{F_\pi}\cong F_\pi K_d/K_d.$
+
+Assume $n=2$ and take $\psi$ as in Theorem \ref{theo5.7-3-30-07}. By
+Theorem \ref{theo5.7-3-30-07} (b), the kernel of $\psi$ contains
+$F_\pi\cap K_d$. Therefore $\psi$ induces a well-defined
+homomorphism $\phi$ from $\ol{F}_\pi$ into $G$ given by
+$$\phi(\bar x)=\psi(x),\quad\text{for all $x$ in $F_\pi.$}$$
+
+Let $h=h_2'(f_1,\,f_2)$. By \eqref{eq5.26-3-30} (in Remark
+\ref{rem5.11-3-30}), %and Theorem \ref{theo5.8-3-30},
+
+
+\bigskip\qquad $\phi$ is the unique homomorphism of $\ol{F}_\pi$
+taking $\bar f_1$ to $g_1$ and $\bar f_2$ to $g_2$, and
+$h_2'(g_1,\,g_2)=\psi(h)=\phi(\bar h)=\phi\(\[\bar f_1,\,\bar
+f_2\]\)$.\vspace{-1.02cm}
+\begin{equation}\label{eq6.1-4-2}
+\end{equation}
+\bigskip
+
+This proves (a) and shows that, for $g_1$ and $g_2$ as in the
+hypothesis, $h_2'(g_1,\,g_2)$ is independent of the original choice
+of $h_2'(f_1,\,f_2).$
+
+Since the roles of $f_1$ and $f_2$ are symmetric, as are those of
+$g_1$ and $g_2$, we have
+$$h_2'(g_2,\,g_1)=\psi\(\[\bar f_2,\,\bar f_1\]\)$$
+because by \eqref{eq6.1-4-2}, $\phi$ is the unique homomorphism of
+$\ol{F}_\pi$ taking $\bar f_2$ to $g_2$ and $\bar f_1$ to $g_1.$
+However, $\[\bar f_2,\, \bar f_1\]$ and $\[\bar f_1,\, \bar f_2\]$
+are negatives of each other as Lie ring elements of $\ol{F^\star}.$
+Therefore, by \eqref{eq6.1-4-2},
+$$h_2'(g_1,\,g_2)=\phi\(\[\bar f_1,\,\bar f_2\]\)=\phi\(\[\bar f_2,\,\bar f_1\]^{-1}\)
+=\phi\(\[\bar f_2,\,\bar f_1\]\)^{-1}=\(h_2'(g_2,\,g_1)\)^{-1}.$$
+This proves (b).
+
+%By Lemma \ref{lemma2.2-3-24} (with $d$ in place of $c$), $H$ is a
+%$\Q_\pi$-powered subgroup of $G$ of nilpotence class at most $d$.
+%Since $G_1\lhd G$, Lemma \ref{lemma2.3-3-24} yields
+%$$H=\sqrt[\pi]{G_1}\lhd\sqrt[\pi]{G}=G.$$
+By Lemma \ref{lemma5.10} we obtain (d). Then (e) follows from the
+Lazard correspondence.
+
+Since $H$ is a normal subgroup of $G$, it is closed under
+conjugation and under inverses. Hence, (f) follows from (e) and (g)
+follows from Theorem \ref{theo5.8-3-30} (c).
+
+Now consider the subgroup $L$ of $\ol{F}_\pi$ given in Theorem
+\ref{theo5.8-3-30}; recall that
+$$N_1=\langle f_1^x\,|\,x\in F\rangle\leq F\leq F_\pi$$
+and $L=_{F_\pi}\hspace*{-0.2cm}\sqrt[\pi]{\ol{N}_1}.$ Then
+$$\phi(\ol{N}_1)=\langle\(\phi\(\bar f_1\)\)^{\phi(y)}\,|\,y\in\ol{F}\rangle\leq \langle g_1^z\,|\,z\in G\rangle\leq G_1$$
+and
+\begin{equation}\label{eq6.2-4-2}
+\phi(L)\leq\, _{G}\hspace*{-0.1cm}\sqrt[\pi]{G_1}=H
+\end{equation}
+
+Let $D$ be the mapping on $\ol{F^\star}$ that was denoted by
+$\delta$ in Theorem \ref{theo5.8-3-30}:
+$$D(x)=\(\bar f_2^{-1}x\bar f_2\)+\(x^{-1}\)\quad\text{for all $x$ in $\ol{F^\star}.$}$$
+Recall that $\bar f_2$ lies in $\ol{F_\pi}$ and $\phi\(\bar
+f_2\)=g_2$. As $L$ is a $\Q_\pi$-powered normal subgroup of
+$\ol{F_\pi}$ of class at most $d$, addition on $L$ is given by the
+Lazard correspondence by
+$$x+y=h_1(x,\,y),$$
+and $L$ is closed under conjugation and under $D$, and under taking
+powers in $\Q_\pi$; likewise for $H$, with $g_2$ and $\delta$ in
+place of $\bar f_2$ and $D$. Thus, by \eqref{eq6.2-4-2},
+$$\phi(x+y)=\phi\(h_1(x,\,y)\)=h_1\(\phi(x),\,\phi(y)\)=\phi(x)+\phi(y).$$
+for all $x,\,y$ in $L$. Similarly, for all $x$ in $L$,
+\begin{equation}\label{eq6.3-4-2}
+\begin{aligned}
+\phi\(D(x)\) &= \phi(\bar f_2^{-1}x\bar f_2)+\phi\(x^{-1}\)=
+\phi\(\bar f_2\)^{-1}\phi(x)\phi(\bar f_2)+\phi\(x\)^{-1}\\
+&=\(g_2^{-1}\phi(x)g_2\)+\phi(x)^{-1}=\delta\(\phi(x)\).
+\end{aligned}
+\end{equation}
+
+By Theorem \ref{eq5.9-3-28-07}, $L$ contains $\[\bar f_1,\,\bar
+f_2\]$ and $\(D^i\(\bar f_1\)\)^{e(i)}$, for $i=1,\cdots, d$, and
+\begin{equation}\label{eq6.4-4-2}
+\[\bar f_1,\,\bar f_2\]=\(D^1\(\bar f_1\)\)^{e(1)}+\cdots+\(D^d\(\bar
+f_1\)\)^{e(d)}.
+\end{equation}
+
+Clearly, $\phi\(x^r\)=\(\phi(x)\)^r$ for all $x$ in $L$ and $r$ in
+$\Q_\pi$. Therefore, by \eqref{eq6.3-4-2},
+$$\phi\(\(D^i\(\bar f_1\)\)^{e(i)}\)=\(\delta^i\(\phi\(\bar f_1\)\)\)^{e(i)}=\(\delta^i\(g_1\)\)^{e(i)},\quad\text{for }i=1,\cdots,d.$$
+Now (h) and (j) follow from \eqref{eq6.1-4-2}, \eqref{eq6.2-4-2},
+\eqref{eq6.4-4-2}, and Theorem \ref{theo5.8-3-30}(c).
+
+To prove part (c), suppose $G$ has nilpotence class at most $d$.
+Then we may define + and $[\ ,\ ]$ on $G$ by the functions $h_1$ and
+$h_2$ in Lazard's correspondence, and \eqref{eq6.1-4-2} gives
+
+\begin{equation*}
+\begin{aligned}
+h_2'(g_1,\, g_2)&= \phi\(\[\bar f_1,\bar f_2\]\)=\phi\(h_2\(\bar
+f_1,\,\bar f_2\)\)=h_2\(\phi\(\bar f_1\),\,\phi\(\bar f_2\)\)\\
+&=h_2(g_1,\,g_2)=\[g_1,\,g_2\].
+\end{aligned}
+\end{equation*}
+\end{proof}
+
+\begin{corollary}\label{cor6.2-4-2}
+Suppose $\pi$ contains $\tau$ and $G$ is a nilpotent
+$\Q_\pi$-powered subgroup of class at most $d$. Define operations +
+and $[\ ,\ ]$ on $G$ as in the Lazard correspondence.
+
+Take $v$ in $G$ and define a mapping $\delta$ on $G$ by
+$$\delta(u)=\(v^{-1}uv\)+\(u^{-1}\),\quad\text{for every $u$ in $G$.}$$
+Define powers of $\delta$ by composition. Let $e(i)=(-1)^{i+1}/i$
+for $i=1,2,\cdots,c$.
+
+Then $\delta^{c+1}=0$ and, for every $u$ in $G$,
+$$[u,\,v]=\(\delta(u)\)^{e(1)}+\(\delta^2(u)\)^{e(2)}+\cdots+\(\delta^c(u)\)^{e(c)}.$$
+\end{corollary}
+
+\begin{remark}\label{rem6.3-4-2}
+ This corollary shows that the formula for $h_2'(g_1,\,g_2)$ in part
+ (j) of Theorem \ref{theo6.1-4-2} also gives $[g_1,\,g_2]$ in the
+ situation of the Lazard correspondence. Thus, Lazard's definition
+ of bracket multiplication in $G$ is determined by conjugation in
+ $G$ and Lazard's definition of addition in $G.$ For this reason, we
+ often denote $h_2'(g_1,\,g_2)$ by $[g_1,\,g_2]$ in the situation
+ of Theorem \ref{theo6.1-4-2}.
+ \end{remark}
+
+Recall from Section \ref{sec1} that we have defined iterated
+commutators in groups and Lie rings to be left normed, i.e. for
+$r\geq2$,
+$$\(x_1,\,x_2,\,\cdots,\,x_r,\,x_{r+1}\)=\(\(x_1,\,x_2,\,\cdots,\,x_r\),\,x_{r+1}\)$$
+and
+$$\[x_1,\,x_2,\,\cdots,\,x_r,\,x_{r+1}\]=\[\[x_1,\,x_2,\,\cdots,\,x_r\],\,x_{r+1}\].$$
+
+\begin{theorem}\label{theo6.4-4-2}
+Suppose $\pi$ contains $\tau$, $G$ is a nilpotent $\Q_\pi$-powered
+group, and $G_1,\,G_2$ and $G_3$ are normal subgroups of $G$ that
+have nilpotence class at most $d$. Define + on every
+$\Q_\pi$-powered normal subgroup of $G$ of class at most $d$ by the
+Lazard correspondence. Define $[x,\,y]$ as in Remark
+\ref{rem6.3-4-2} whenever $x$ and $y$ lie in normal subgroups of $G$
+having nilpotence class at most $d$.
+
+Take $u$ in $G_1$ and $v$ in $G_2$. Then $G$ satisfies the following
+conditions (and all terms in the conditions are well defined):
+
+\begin{enumerate}
+\item[(a)] For $u'$ in $G_1$ and $r$ in $\Q_\pi$,
+$$[ru,\,v]=r[u,\,v],\ [u+u',\,v]=[u,\,v]+[u',\,v]\ \text{and}\ \[[u,\,u'],\,v\]=\[[u,\,v],\,u'\]+\[u,\,[u',\,v]\].$$
+\item[(b)] For $w$ in $G_3$,
+$$[u,\,v,\,w]+[v,\,w,\,u]+[w,\,u,\,v]=1.$$
+\item[(c)] If $G_1$ and $G_2$ are $\Q_\pi$-powered, then
+$[u,\,v]\equiv(u,\,v)$, modulo $(G_1,\,G_2,\,G_1G_2)$, and
+$[u,\,v]\in(G_1,\,G_2).$
+\end{enumerate}
+\end{theorem}
+
+\begin{remarknn}
+For (b), recall that the identity element of $G$ is the zero element
+of any subgroup of $G$ that forms a Lie algebra under the Lazard
+correspondence.
+\end{remarknn}
+
+\begin{proof}
+Take $u'$ and $w$ in $G$ as in (a) and (b). As in Theorem
+\ref{theo6.1-4-2}, let $H=_{G}\hspace*{-0.2cm}\sqrt[\pi]{G_1}.$
+
+By Theorem \ref{theo6.1-4-2}, $H$ is a $\Q_\pi$-powered normal
+subgroup of $G$ of class at most $d$ (so that we may define + and
+scalar multiplication from $\Q_\pi$ on $H$), and $[x,\,y]$
+($=h_2'(x,\,y)$) is well defined and lies in $H$ whenever $x$ lies
+in $G_1$ (or $H$) and $y$ lies in a normal subgroup of $G$ of class
+at most $d$ (e.g., $G_2$ or $G_3$). This shows that the elements
+$$u+u';\,[u,\,v];\,[u',\,v];\,\text{and }[w,\,u];\,$$
+are well defined and lie in $H$ , as do the elements $[u+u',\,v]$
+and $[u,\,v,\,w]$ and $[w,\,u,\,v]$.
+
+By the symmetry of $G_1,\,G_2$ and $G_3$, the element $[v,\,w]$ is
+well defined and lies in a $\Q_\pi$-powered normal subgroup of $G$
+of class at most $d$. Therefore, $[v,\,w,\,u]$ is well defined and
+lies in $H$.
+
+Recall that for $x$ in $H$ and $r$ in $\Q_\pi$, the group power
+$h^r$ coincides with the scalar product $r\cdot h$ for $H$
+considered as a $\Q_\pi$-module. Therefore, for $g_1$ in $G_1$ and
+$g_2$ in $G_2$ and $\delta$ as in Theorem \ref{theo6.1-4-2}, part
+(j) of Theorem \ref{theo6.1-4-2} gives
+$$\[g_1,\,g_2\]=h_2'\(g_1,\,g_2\)=e(1)\delta\(g_1\)+\cdots+e(d)\delta^d\(g_1\).$$
+Since $\delta$ is an endomorphism of $H$ under +, this shows that
+the mapping on $H$ given by $x\mapsto\[x,\,v\]$ is a $\Q_\pi$-module
+endomorphism of $H$. In particular,
+\begin{equation}\label{eq6.5-4-2}
+[ru,\,v]=r[u,\,v]\quad\text{ and }\quad[u+u',\,v]=[u,\,v]+[u',\,v].
+\end{equation}
+
+Next we prove (b). The proof is similar to the proof of the
+corresponding statement (i.e., the Jacobi identity) for the Lazard
+correspondence, which we summarized in Remark \ref{rem4.5-3-28}. We
+assume $n=3$ and adopt the notation of Theorem \ref{theo5.8-3-30}.
+It is easy to see that the group $L$ in Theorem \ref{theo5.8-3-30}
+contains $\[f_i,\,f_j,\,f_k\]$ whenever
+$\{i,\,j,\,k\}=\{1,\,2,\,3\}$, and satisfies
+\begin{equation}\label{eq6.6-4-2}
+\[f_1,\,f_2,\,f_3\]+\[f_2,\,f_3,\,f_1\]+\[f_3,\,f_1,\,f_2\]=1.
+\end{equation}
+
+By Theorem \ref{theo5.7-3-30-07}, there exists a unique homomorphism
+$\psi$ of $F_\pi$ into $G$ such that
+$$\psi\(f_1\)=u,\quad\psi\(f_2\)=v,\quad\text{and}\quad\psi\(f_3\)=w,$$
+and $F_\pi\cap K_d$ is contained in the kernel of $\psi.$ Therefore,
+$\psi$ induces an homomorphism $\phi$ of $\ol{F_\pi}$ into $G$ such
+that
+$$\phi\(\bar f_1\)=u,\quad\phi\(\bar f_2\)=v,\quad\text{and}\quad\phi\(\bar f_3\)=w.$$
+
+By \eqref{eq5.26-3-30} (in Remark \ref{rem5.11-3-30}) and its proof,
+we have whenever $\{i,\,j,\,k\}=\{1,\,2,\,3\}$,
+
+$$\phi\(\[f_i,\,f_j,\,f_k\]\)=\[\phi\(\[f_i,\,f_j\]\),\,\phi\(f_k\)\]=\[\phi\(f_i\),\,\phi\(f_j\),\,\phi\(f_k\)\].$$
+Therefore, \eqref{eq6.6-4-2}
+ yields (b).
+
+By (b) and Theorem \ref{theo6.1-4-2} (b),
+$$\[u,\,v,\,w\]+\[u,\,\[w,\,v\]\]=\[u,\,w,\,v\].$$
+By considering the special case in which $G_3=G_1$ and $w=u'$, we
+obtain
+$$[u,\,u',\,v]=[u,\,v,\,u']+[u,\,[u',\,v]]$$
+This and \eqref{eq6.5-4-2} yield (a).
+
+To prove (c), assume $G_1$ and $G_2$ are $\Q_\pi$-powered. Then
+$H=_{G}\hspace*{-0.2cm}\sqrt[\pi]{G_1}=G_1$. We apply Theorem
+\ref{theo6.1-4-2} with $g_1=u$ and $g_2=v$, so that
+\begin{equation}\label{eq6.7-4-2}
+\delta(x)=\(v^{-1}xv\)+\(x^{-1}\)=\(x^{-1}\)+\(v^{-1}xv\),\quad\text{for
+all }x\in G_1.
+\end{equation}
+
+Let $L=\(G_1,\,G_2\)$ and $M=\(L,\,G_1G_2\).$ Since
+$G_1,\,G_2\normal G$, we have $L,\,M\normal G$ and $M\leq L\leq
+G_1\cap G_2$. Moreover, by Lemma \ref{lemma2.4-3-24} and Proposition
+\ref{prop2.6-3.24},
+\begin{equation}\label{eq6.8-4-2}
+\text{$L$ and $M$ are $\pi$-divisible.}
+\end{equation}
+
+Let $\ol G=G/M$ and let $\ol X=XM/M$ and $\bar g=gM$ for every
+subgroup $X$ and element $g$ of $G$. Since $M=\(L,\,G_1G_2\)$,
+
+\begin{equation}\label{eq6.9-4-2}
+\ol L\leq Z\(\ol{G_1}\ol{G_2}\).
+\end{equation}
+
+Now take $x\in G_1$. Let $x'=v^{-1}xv$. Then $(x,\,v)\in L$ and
+$x(x,\,v)=xx^{-1}v^{-1}xv=x'$. Hence,
+\begin{equation}\label{eq6.10-4-2}
+\(\bar x,\,\bar v\)\in \ol L\leq
+Z\(\ol{G_1}\ol{G_2}\)\quad\text{and}\quad \bar x(\bar x,\,\bar
+v)=\bar{x'}.
+\end{equation}
+Therefore, the elements $\bar x$ and $\bar{x'}$ commute. By
+\eqref{eq6.8-4-2}, $L$ and $M$ are both $\pi$-divisible, which
+forces $\ol L$ to be $\Q_\pi$-powered. Thus, by \eqref{eq6.7-4-2},
+\eqref{eq6.10-4-2}, and \eqref{eq3.10},
+$$\ol{\delta(x)}=\ol{\(x^{-1}\)+x'}=\ol{x^{-1}}+\ol{x'}=
+\ol{(x^{-1})}\,\ol{x'}=\ol{x^{-1}x'}=\ol{\(x,\,v\)}.$$ Similarly, by
+\eqref{eq6.7-4-2} and \eqref{eq6.9-4-2}, $\ol{\delta(x)}=1$ for all
+$x$ in $L$. Therefore, $\ol{\delta^i(x)}=1$ for all $i\geq2$. By
+Theorem \ref{theo6.1-4-2},
+$$\ol{[x,\,v]}=\ol{\delta(x)}=\ol{(x,\,v)}.$$
+By taking $x=u$, we obtain (c).
+\end{proof}
+
+\begin{corollary}\label{cor6.5-4-2}
+Assume the hypothesis and notation of Theorem \ref{theo6.4-4-2}.
+\begin{enumerate}
+\item[(a)] Suppose $u\in\gamma_i(G)$ and $v\in\gamma_j(G)$ for some
+positive integers $i,\,j$. Then
+$$[u,\,v]\in\gamma_{i+j}(G)\quad\text{and}\quad[u,\,v]\equiv(u,\,v)\quad(\text{mod $\gamma_{i+j+1}(G)$}).$$
+\item[(b)] Suppose $u_i\in\gamma_{k_i}(G)$ for $i=1,\cdots,r$ and
+some positive integers $k_i$. Let $k=k_1+\cdots+k_r$. Then
+$$[u_1,\,u_2,\,\cdots u_r]\in\gamma_k(G)\quad\text{and}\quad[u_1,\,u_2,\,\cdots u_r]\equiv(u_1,\,u_2,\,\cdots u_r)
+\quad(\text{mod $\gamma_{k+1}(G)$}).$$
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+(a) By Corollary \ref{cor2.5-3-24}, $\gamma_k(G)$ is
+$\Q_\pi$-powered for every positive integer $k$. By Corollary 3.5 of
+\cite{Kh},
+$$\(\gamma_i(G),\,\gamma_j(G),\,\gamma_i(G)\gamma_j(G)\)\leq\gamma_{i+j+1}(G)
+\text{ and }(u,\,v)\text{ lies in }\gamma_{i+j}(G).$$ Then
+$[u,\,v]\equiv(u,\,v)$ (mod $\gamma_{i+j+1}(G)$) by part (c) of
+Theorem \ref{theo6.4-4-2}. Therefore, $[u,\,v]$ lies in
+$\gamma_{i+j}(G).$
+
+(b) We use induction on $r$. The result is trivial for $r=1$, and
+follows immediately from (a) for $r=2$.
+
+Now assume $r\geq3$ and the result is true for  $r-1$. Let
+$$u'=[u_1,\,\cdots u_{r-1}],\,u''=(u_1,\,\cdots u_{r-1}),\,\text{ and }
+k'=k_1+k_2+\cdots+k_{r-1}.$$ Then $k=k'+k_r$. By induction,
+\begin{equation}\label{eq6.11-4-2}
+u'\in\gamma_{k'}(G)\quad\text{and}\quad u'\equiv u''\smod
+{\gamma_{k'+1}(G)}).
+\end{equation}
+By (a), $[u',\,u_r]\equiv(u',\,u_r)$ (mod $\gamma_{k+1}(G)$). By
+\eqref{eq6.11-4-2} and Theorem 6.2 of \cite{Kh},
+$$(u',\,u_r)\equiv(u'',\,u_r)\quad\text{(mod $\gamma_{k+1}(G)$}).$$
+Therefore, $[u',\,u_r]\equiv(u'',\,u_r)$ (mod $\gamma_{k+1}(G)$), as
+desired.
+\end{proof}
+
+\begin{theorem}\label{theo6.6}
+Assume $\pi$ is a set of primes containing $\tau$, $G$ is a
+nilpotent $\Q_\pi$-powered group, $\mathcal{N}$ is the set of all
+$\Q_\pi$-powered normal subgroups of $G$ of nilpotence class at most
+$d$, and $\S$ is a subset of $\mathcal{N}$. Let $U(\mathcal{N})$ and
+$U(\S)$ be the set-theoretic unions of the elements of $\mathcal{N}$
+and of the elements of $S.$
+
+For each $N$ in $\mathcal{N}$, define + on $N$ by the Lazard
+correspondence. For each $u,\,v$ in $U(\mathcal{N})$, define
+$[u,\,v]$ as in Remark \ref{rem6.3-4-2}. Let $E(\S)$ be the set of
+all mappings $\phi$ on $U(\S)$ such that, for each $N$ in $S$,
+
+$\phi$ maps $N$ into $N$ and induces an endomorphism of $N$ under +.
+
+Define addition and multiplication on $E(\S)$ by
+$$(\phi+\phi')(x)=\phi(x)+\phi'(x)\quad\text{and}\quad
+\phi\phi'(x)=\phi(\phi'(x)).$$ For each $v$ in $U(\mathcal{N})$,
+define a mapping $ad\ v$ on $U(\S)$ by
+$$(ad\ v)(u)=[u,\,v].$$
+
+Then
+\begin{enumerate}
+\item[(a)] $E(\S)$ forms an associative algebra over $\Q_\pi$, and
+also forms a Lie algebra $E(\S)^-$ over $\Q_\pi$ under the bracket
+multiplication given by
+$$[\phi,\,\phi']=\phi\phi'-\phi'\phi;$$
+\item[(b)] for each $v$ in $U(\mathcal{N})$ and $r$ in $\Q_\pi$,
+$$ad\ v\text{ lies in }E(\S)\text{ and }ad(rv)=r(ad\ v);$$
+\item[(c)] for each $N$ in $\mathcal{N}$ and each $v,\,w$ in $N$,
+$$ad(v+w)=ad\ v+ad\ w;$$
+\item[(d)] for $v,\,w$ in $U(\mathcal{N})$,
+$$[ad\ v,\,ad\ w]=ad\ [w,\,v]=-ad\ [v,\,w];$$
+\item[(e)] the additive subgroup $L(\S)$ of $E(\S)$ spanned by the
+mappings $ad\ v$ for $v$ in $U(\S)$ is a Lie $\Q_\pi$-subalgebra of
+$E(\S)^-$; and
+\item[(f)] for $L(\S)$ as in (e), each element $\phi$ of $L(\S)$
+satisfies
+$$\phi\([u,\,v]\)=[\phi(u),\,v]+[u,\,\phi(v)],\text{ for every $u,\,v$ in }U(S).$$
+\end{enumerate}
+\end{theorem}
+
+\begin{remarknn}
+Part (a) of Theorem \ref{theo6.4-4-2} shows that, for each $v$ in
+$U(\mathcal{N})$ and $N$ in $\mathcal{N}$, $ad\ v$ induces a
+derivation of $N$, for $N$ regarded as a Lie algebra over $\Q_\pi$
+by Lazard's correspondence. Part (f) of this theorem extends this.
+\end{remarknn}
+
+\begin{proof}
+Note that, by Theorem \ref{theo6.1-4-2} (b),
+\begin{equation}\label{eq6.12}
+[v,\,u]=[v,\,u]^{-1}=-[u,\,v],\text{ for all }u,\,v\text{ in }
+U(\S).
+\end{equation}
+
+(a) This follows directly from the definitions of addition,
+multiplication, bracket multiplication, and scalar multiplication
+from $\Q_\pi.$
+
+(b) This follows from Theorem \ref{theo6.4-4-2}.
+
+(c) Take $v$ and $w$ as in (c) and $u$ in $U(\S)$. By (b) and
+\eqref{eq6.12},
+$$[u,\,v+w]=-[v+w,\,u]=-[v,\,u]-[w,\,u]=[u,\,v]+[u,\,w],$$
+as desired.
+
+(d) Take $u$ in $U(\S)$ and $v,\,w$ in $U(\mathcal{N})$. Then
+\begin{align*}[ad\ v,\,ad\
+w](u)&=(ad\ v)(ad\ w)(u)-(ad\ w)(ad\ v)(u)\\
+&= [[u,\,w],\,v]- [[u,\,v],\,w]\\&=-[[w,\,u],\,v]-
+[[u,\,v],\,w]&&\text{by \eqref{eq6.12}}\\
+&=[[v,\,w],\,u]&&\text{by Theorem \ref{theo6.4-4-2}}\\
+&=-[u,\,[v,\,w]]=[u,\,[w,\,v]]&&\text{by \eqref{eq6.12}}.\\
+\end{align*}
+
+(e) This follows from (d) and (b).
+
+(f) First, consider the case in which $\phi=ad\ w$ for some $w$ in
+$U(\S):$ by \eqref{eq6.12} and Theorem \ref{theo6.4-4-2},
+\begin{multline*}
+[\phi(u),\,v]+[u,\,\phi(v)]=[[u,\,w],\,v]+[[u,\,v],\,w]\\
+=-[[w,\,u],\,v]-[[v,\,w],\,u]=[[u,\,v],\,w]=\phi([u,\,v]).
+\end{multline*}
+Since this is a linear condition on $\phi$, it remains valid for all
+the elements in the linear span $L(\S)$ of all the mappings $ad\ w.$
+\end{proof}
+
+\begin{theorem}\label{theo6.7}
+Assume the hypothesis and notation of Theorem \ref{theo6.6}. Let
+$G^\star$ be the subgroup of $G$ generated by $\S$ and $k$ be the
+nilpotence class of $G^\star$. Then:
+\begin{enumerate}
+\item[(a)] each normal subgroup of $G$ of nilpotence class at most
+$d$ is contained in some normal $\Q_\pi$-powered subgroup of
+nilpotence class at most $d$;
+\item[(b)] $G^\star$ is a normal $\Q_\pi$-powered subgroup of $G$;
+\item[(c)] for every $v_1,\dots, v_k$ in $U(\S)$,
+$$(ad\ v_1)(ad\ v_2)\cdots(ad\ v_k)=0;$$
+\item[(d)] for $v$ in $U(\mathcal{N})$, $(ad\ v)^{d+1}=0$;
+\item[(e)] the Lie $\Q_\pi$-algebra $L(\S)$ is nilpotent of class at
+most $k-1.$
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) Apply Lemma \ref{lemma5.10}.
+
+(b) Each element of $\S$ is a normal $\Q_\pi$-powered subgroup of
+$G$. Therefore, $G^\star\lhd G$, and $G^\star$ is $\pi$-divisible by
+Proposition \ref{prop2.6-3.24}. Since $G^\star$ is nilpotent and $G$
+(and hence $G^\star$) are $\pi$-torsion-free, $G^\star$ is
+$\Q_\pi$-powered.
+
+(c) Take $u,\,v_1,\,v_2,\dots,v_k$ in $U(\S)$. Let
+$$w=(ad\ v_1)(ad\ v_2)\cdots,(ad\ v_k)(u)=[u,\,v_k,\,v_{k-1},\dots,v_1].$$
+By Corollary \ref{cor6.5-4-2} applied to $G^\star$ in place of $G$,
+we have $w\in\gamma_{k+1}(G^\star)=1.$
+
+(d) Take $u$ and $v$ in $U(\mathcal{N})$. Take $v$ lies in some
+element $N$ of $\mathcal{N}$. By Theorem \ref{theo6.4-4-2} and
+induction,
+$$(ad\ v)^i(u)\in\gamma_i(N),\text{ for every natural number }i.$$
+Therefore,
+$$(ad\ v)^{d+1}(u)\in\gamma_{d+1}(N)=1.$$
+
+(e) Since $L(\S)$ is spanned by the mappings $ad\ v$ for all $v$ in
+$U(\S)$, every Lie commutator in $L(\S)$ of weight at least $k$ is
+zero, by (c) and the definition of bracket multiplication in
+$E(\S)^-.$
+\end{proof}
+
+\begin{lemma}\label{lemma6.8}
+Assume the hypothesis and notation of Theorem \ref{theo6.6}. Let
+$G^\star$ be the subgroup of $G$ generated by $\S$ and $H$ be a
+subgroup of $G^\star$ generated by a subset $T$ of $U(\S)$. Let $d'$
+be the nilpotence class of $H/(H\cap Z(G^\star)).$
+
+Then $d'$ is the nilpotence class of the Lie $\Q_\pi$-subalgebra
+$L^\star(T)$ of $L(\S)$ generated by the elements $ad\ x$ for all
+$x$ in $T.$
+\end{lemma}
+
+\begin{proof}
+Here,
+\begin{equation}\label{eq6.13}
+Z(G^\star)\text{ contains }\gamma_{d'+1}(H),\text{ but not
+}\gamma_{d'}(H).
+\end{equation}
+
+Take any positive integer $r$ and any elements $x_1,\dots,x_r$ of
+$T$. By Corollary \ref{cor6.5-4-2},
+\begin{equation}\label{eq6.14}
+[x_1,\dots,x_r]\equiv(x_1,\dots,x_r)\smod{\gamma_{r+1}(H)}.
+\end{equation}
+By Theorem \ref{theo6.6}(d) and induction,
+\begin{equation}\label{eq6.15}
+[ad\ x_1,\dots,ad\ x_r]=(-1)^rad\ [x_1,\,x_2\dots,x_r].
+\end{equation}
+
+First, consider the case in which $r=d'+1$. Then, for any choice of
+$x_1,\dots,x_{d'+1}$, we see from \eqref{eq6.13}, \eqref{eq6.14},
+and \eqref{eq6.15} that
+$$[x_1,\dots x_{d'+1}]\in H\cap Z(G^\star)\text{ and }[ad\ x_1,\dots,ad\ x_{d'+1}]=0.$$
+
+Next, consider the case in which $r=d'$. By \eqref{eq6.13} and
+Theorem 3.12 of \cite{Kh} applied to $H/(H\cap Z(G^\star))$, there
+exists a choice of $x_1,\dots,x_{d'}$ in $T$ such that
+$(x_1,\dots,x_{d'})$ lies outside of $H\cap Z(G^\star)$. By
+\eqref{eq6.13} and \eqref{eq6.14},
+$$[x_1,\dots,x_{d'}]\equiv(x_1,\dots,x_{d'})\not\equiv1\smod{H\cap Z(G^\star)}.$$
+Therefore by \eqref{eq6.15}, $[ad\ x_1,\dots,ad\ x_{d'}]\neq0$.
+Consequently, the previous paragraph shows that $L^\star(T)$ has
+nilpotence class precisely $d'.$
+\end{proof}
+
+\begin{remark}\label{rem6.9}
+For the next result, consider an element $x$ of $G$ in the situation
+of Theorem \ref{theo6.6}. The inner automorphism $i(x)$ of $G$ given
+by $i(x)(g)=x^{-1}gx$ for each $g$ in $G$ preserves every normal
+subgroup of $G$. In particular, for every $N$ in $\S$, $i(x)$
+induces a group automorphism on $N$ and hence an automorphism  of
+$N$ as a Lie algebra under Lazard's definition. Thus, $i(x)$ induces
+an element of $E(\S)$ that we will denote by $\gamma(x).$
+\end{remark}
+
+%In the special case that $x$ lies in a normal subgroup of $G$ of
+%nilpotence class at most $d$, Remark \ref{rem6.3-4-2} shows that we
+%may define $[u,\,x]$ for each $u$ in $U(\S)$, and then Theorems
+%\ref{theo6.7}(a) and \ref{theo6.4-4-2}(c) show that $[u,\,x]$ lies
+%in $U(\S)$. We denote by $ad\ x$ the mapping on $U(\S)$ given by
+%$(ad\ x)(u)=[u,\,x]$. Of course, this agrees with the definition of
+%$ad\ x$ in Theorem \ref{theo6.6} if $x$ lies in $U(\S)$. By Theorem
+%\ref{theo6.4-4-2}, $ad\ x$ lies in $U(\S).$
+
+\begin{theorem}\label{theo6.10}
+Assume the hypothesis and notation of Theorem \ref{theo6.6}, and
+assume that $\S$ generates $G$. For each $x$ in $G$, define
+$\gamma(x)$ as in Remark \ref{rem6.9}. Then:
+\begin{enumerate}
+\item[(a)] for each $x$ in $G$, $\gamma(x)$ is an invertible
+element of $E(\S);$
+\item[(b)] for each $v$ in $U\(\mathcal{N}\)$,
+$$\gamma(v)=\Exp(ad\ v)=1+(ad\ v)+\frac{(ad\ v)^2}{2!}+\cdots+\frac{(ad\ v)^d}{d!}
+\text{ and }ad\ v=\Log(\gamma(v));$$
+\item[(c)] for $v$ and $w$ in $U(\mathcal{N})$, $ad\ v=ad\ w$ if and only if
+$v\equiv w \pmod{Z(G)}$;
+\item[(d)] the multiplicative group generated by the elements
+$\gamma(v)$ for all $v$ in $U(\S)$ is the group $\{\gamma(x)\ |\
+x\in G\}$; and
+\item[(e)] the inner automorphism group of $G$ acts faithfully on
+$U(\S)$ by restriction and induces the group $\{\gamma(x)\ |\ x\in
+G\}$ on $U(\S)$.
+\item[(f)] Moreover, suppose $H$ is a subgroup of $G$ generated by a
+subset $\S'$ of $\S$, and $v$ is an element of $H$ that lies in
+$U(\mathcal{N})$. % is contained in a normal subgroup of $G$ of
+%nilpotence class at most $d$. Define $ad\ v$ as in Remark
+%\ref{rem6.9}.
+Then $ad\ v$ is contained in the associative $\Q_\pi$-subalgebra
+$E'$ of $E(\S)$ generated by 1 and the elements $ad\ u$ as $u$
+ranges over the elements of the subgroups in $\S'.$
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Note that for $u$ in $U(\S)$ and $x,\,y$ in $G$,
+$$\gamma(x)\gamma(y)(u)=x^{-1}\(y^{-1}uy\)x=(yx)^{-1}u(yx),$$
+so that
+\begin{equation}\label{eq6.16}
+\gamma(x)\gamma(y)=\gamma(yx)\quad\text{for $x,\,y$ in $G.$}
+\end{equation}
+
+Part (a) follows from Remark \ref{rem6.9}.
+
+For (b), take any $v$ in $U(\mathcal{N})$ and $H$ in $\S$. Note that
+$H=\sqrt[\pi]{H}$ because $H$ is $\Q_\pi$-powered. Moreover, the
+element $\gamma(v)-1$ of $E(\S)$ induces on $H$ (under +) the
+endomorphism $\delta$ of Theorem \ref{theo6.1-4-2}, with $g_2=v.$
+Then Theorem \ref{theo6.1-4-2} yields that $\delta^{d+1}=0$ and that
+the mapping $\beta$ given by
+$$\beta=\delta-\delta^2/2+\cdots+(-1)^{d+1}\delta^d/d$$
+coincides with the restriction of $ad\ v$ to $H$.
+
+From Section \ref{sec3},
+$$\beta=\Log(1+\delta),\ \beta^{d+1}=0,\text{ and }1+\delta=\Exp(\beta)=
+1+\beta+\frac{\beta}2+\cdots+\frac{\beta^d}{d!}.$$ Since this is
+valid for every $H$ in $\S,$
+\begin{equation}\label{eq6.17}
+ad\ v=\Log \gamma(v)\quad\text{ and }\quad\gamma(v)=\Exp(ad\ v),
+\end{equation}
+which gives (b).
+
+Take $w$ in $U(\mathcal{N})$. Then $v\equiv w\pmod{Z(G)}$ if and
+only if $vw^{-1}$ lies in $Z(G)$. Since $\S$ generates $G$, this
+occurs if and only if $\gamma(v)=\gamma(w)$. From \eqref{eq6.17} and
+the analogous result for $w$, this occurs if and only if $ad\ v=ad\
+w.$ So we obtain (c).
+
+Since $\S$ generates $G$, (d) and (e) follow from \eqref{eq6.16}.
+
+Finally, assume the hypothesis of (f) and define $E'$ as in (f). For
+each element $u$ in each subgroup in $\S',$ $\gamma(u)=\Exp(ad\ u)$
+by \eqref{eq6.17}, so that $\gamma(u)$ lies in $E'$. Since these
+elements $u$ generate $H$, \eqref{eq6.16} shows that $E'$ contains
+$\gamma(x)$ for every element $x$ of $H$, including $\gamma(v)$. By
+\eqref{eq6.17}, $ad\ v$ is equal to $\Log\gamma(v)$, and hence lies
+in $E'$. This proves (f).
+\end{proof}
+
+\begin{remark}\label{rem6.11}
+Assume $\S$ generates $G$ in Theorem \ref{theo6.6}. Theorem
+\ref{theo6.10} shows that one may determine the structure of the
+inner automorphism group of $G$, and thus of $G/Z(G)$, from $\S$ and
+$L(\S)$. We do not know whether one may determine the structure of
+$G$. In (f), we do not know whether $ad\ v$ lies in $L(\S).$
+
+Assume in addition that $\S$ is strictly smaller than $\mathcal{N}$.
+Then $\mathcal{N}$ generates $G$ and we may define $E(\mathcal{N})$
+and $L(\mathcal{N})$ as in Theorem \ref{theo6.6}. They act on all
+the elements of $\mathcal{N}$, including the elements of $\S$. By
+taking $G$ to be elementary of order $p^2$, we can easily see that
+$E(\mathcal{N})$ need not act faithfully  on the set of all elements
+of $\S$. But we do not know whether $L(\mathcal{N})$ acts faithfully
+on this set in general.
+\end{remark}
+
+\begin{lemma}\label{lemma6.12}
+Assume the hypothesis and notation of Theorem \ref{theo6.6}, and
+suppose $T$ is a subset of $U(\S)$ that generates a normal subgroup
+$M_0$ of $G$ of nilpotence class at most $d.$ Let
+$$M=\sqrt[\pi]{M_0},\quad ad\ T=\{ad\ x\ |\ x\in T\},\quad \text{and}\quad ad\ M=\{ad\ x\ |\ x\in M\}.$$
+Then
+\begin{enumerate}
+\item[(a)] $M$ is a normal $\Q_\pi$-powered subgroup of $G$ of the
+same nilpotence class as $M_0$;
+\item[(b)] $ad\ M$ is the Lie $\Q_\pi$-subalgebra of $L(\S)$
+generated by $ad\ T$;
+\item[(c)] $ad\ M$ is an ideal of $L(\S)$; and
+\item[(d)] if $\S$ generates $G$ and $T$ has the form $\{w^g\ |\ g\in
+G\}$ for some element $w$ of $\S$, then $ad\ M$ is the smallest
+ideal of $L(\S)$ that contains $ad\ w.$
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) This follows from Lemma \ref{lemma5.10}.
+
+(b) Note that (a) shows that we may define $ad\ x$ for each $x$ in
+$M$ and that we may view $M$ as a Lie $\Q_\pi$-algebra. Let $I=ad\
+M.$
+
+From the definitions, $M$ is the smallest $\Q_\pi$-powered subgroup
+of $G$ containing $T.$ Therefore, by the Lazard correspondence, $M$
+is generated by $T$ under the Lie algebra operations on $M$. Hence,
+by Theorem \ref{theo6.6}, $I$ is likewise generated by $ad\ T$, as
+desired.
+
+(c) Take any $x$ in $M$ and $v$ in $U(\S)$. By Theorem
+\ref{theo6.6},
+$$[ad\ x,\,ad\ v]=-ad\ [x,\,v].$$
+By (a) and Theorem \ref{theo6.4-4-2}(c), $[x,\,v]$ lies in $M$, so
+that $ad\ [x,\,v]$ lies in $I$. As $L(\S)$ is spanned by the
+elements $ad\ v$ for all $v$ in $U(\S)$, $I$ is an ideal of $L(\S).$
+
+(d) Let $I'$ be the smallest ideal of $L(\S)$ that contains $ad\ w$.
+By (c), $I'$ is contained in $ad\ M$. Let $T^\star$ be the set of
+all elements $x$ of $M$ such that $ad\ x$ lies in $I'.$ Then
+$T^\star$ contains $w$. Since $I'$ is a subalgebra of $L(\S)$,
+Theorem \ref{theo6.6} shows that $T^\star$ is a subgroup of $M$ that
+contains $w$.
+
+Suppose $t$ lies in $T^\star$ and $u$ lies in $U(\S)$. We claim that
+$t^u$ lies in $T^\star$. First, by Lemma 10.12(d) in \cite{Kh}, the
+group commutator $(t,\,u)$ can be expressed as a sum of $[t,\,u]$
+and Lie ring commutators in $t$ and $u$ of weight at least 3.
+Therefore, by Theorem \ref{theo6.6}, $ad\ (t,\,u)$ is a sum of $[ad\
+u,\,ad\ t]$ and other Lie ring commutators in $ad\ t$ and $ad\ u$.
+Hence, $ad\ (t,\,u)$ lies in $I'$ and $(t,\,u)$ lies in $T^\star.$
+As $T^\star$ is a subgroup of $M$ and
+$$t^u=u^{-1}tu=t(t,\,u),$$
+$T^\star$ contains $t^u$, as claimed.
+
+This shows that $T^\star$ is closed under conjugation from $U(\S).$
+As $\S$ generates $G$ and $T^\star$ contains $w$, $T^\star$ contains
+$w^g$ for every $g$ in $G$. Thus, $I'$ contains $ad\ T$. By (b),
+$I'$ contains $ad\ M$. Since $I'$ is contained in $ad\ M$, they are
+equal.
+\end{proof}
+
+In some applications of the Lazard correspondence, $G$ is a finite
+$p$-group and one seeks a subgroup $A^\star$ of $G$ with special
+properties. Representing $G$ as a Lie algebra helps to find
+$A^\star$ as a subalgebra, and hence  as a subgroup (e.g., in
+\cite{GG-FLA}, Section 3).
+
+If $G$ is instead a product of normal subgroups of class less than
+$p$, one cannot generally represent $G$ as a Lie algebra, but one
+can associate to $G$ a Lie algebra $L(\S)$ as in Theorem
+\ref{theo6.6}. In this case, a subalgebra may contain elements that
+are not of the form $ad\ x$ for $x$ in $G$, or that may lack other
+desired properties. The following two results help in this
+situation. For example, in some cases they show that an abelian
+subalgebra of $L(\S)$ comes from an abelian subgroup of $G.$
+
+Recall that $G'$ denotes the commutator subgroup of $G$,
+$$G'=(G,\,G)=\langle(x,\,y)\ |\ x,\,y\text{ in }G\rangle.$$
+
+\begin{theorem}\label{theo6.13}
+Assume the hypothesis and notation of Theorem \ref{theo6.6}. Suppose
+$G'$ has nilpotence class at most $d$.
+
+Then $G'$ is a $\Q_\pi$-powered normal subgroup of $G$ and we may
+regard $G'$ as a Lie $\Q_\pi$-algebra under the Lazard
+correspondence. Moreover:
+\begin{enumerate}
+\item[(a)] There exists a unique $\Q_\pi$-bilinear mapping $\psi$ of
+$L(\S)\times L(\S)$ into $G'$ such that
+$$\psi(ad\ v,\,ad\ w)=[v,\,w],\text{ for all $v,\,w$ in $U(\S)$}.$$
+\hspace{-1.3cm} For $\psi$ as in (a),
+\item[(b)] $\psi(\alpha,\,\beta)=-\psi(\beta,\,\alpha)$ for all
+$\alpha,\,\beta$ in $L(\S)$, and
+\item[(c)] $[\psi(ad\ u,\,ad\ v),\,w]+[\psi(ad\ v,\,ad\ w),\,u]+[\psi(ad\ w,\,ad\ u),\,v]=0,$
+for all $u,\,v,\,w$ in $U(\S).$
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Let $R=\Q_\pi$. By Corollary \ref{cor2.5-3-24}, $G'$ is
+$\pi$-divisible. Since $G$ is nilpotent and $\pi$-torsion-free, $G'$
+is $R$-powered (of nilpotence class at most $d$). Therefore we may
+view $G'$ as a Lie $R$-algebra.
+
+Since $(ad\ v)(w)=[w,\,v]$ for every $v,\,w$ in $U(\S),$ and
+$[w,\,v]$ lies in $(G,\,G)$ by Corollary \ref{cor6.5-4-2} , we see
+that $L(\S)$ maps $U(\S)$ into $G'.$
+
+For each element $v$ of $U(\S)$, define a mapping $\theta_v$ from
+$L(\S)$ into $G'$ by
+$$\theta_v(\phi)=\phi(v).$$
+Then $\theta_v$ is an $R$-module homomorphism of $L(\S)$ into $G'$,
+and, for $w$ in $U(\S),$
+\begin{equation}\label{eq6.18}
+\theta_v(ad\ w)=(ad\ w)(v)=[v,\,w]=-[w,\,v]=(ad\ v)(-w).
+\end{equation}
+Let $Hom(L(\S),\,G')$ be the $R$-module of all $R$-module
+homomorphisms of $L(\S)$ into $G'.$
+
+Suppose we are given elements $a_v$ in $R$ for finitely many
+elements $v$ of $U(\S)$ such that
+$$\sum a_v(ad\ v)=0.$$
+Then \eqref{eq6.18} shows that $\sum a_v\theta_v$ vanishes on $ad\
+w$ for every $w$ in $U(\S)$. Since the elements $ad\ w$ span
+$L(\S)$, it follows that $\sum a_v\theta_v=0$. Thus we obtain an
+$R$-module homomorphism $\psi^\star$ of $L(\S)$ into
+$Hom(L(\S),\,G')$ determined by
+$$\psi^\star(ad\ v)=\theta_v,\quad\text{for each $v$ in }U(\S).$$
+
+Let $\psi(\phi,\,\phi')=\psi^\star(\phi)(\phi'),$ for all
+$\phi,\,\phi'$ in $L(\S).$ Then $\psi$ is an $R$-bilinear mapping of
+$L(\S)\times L(\S)$ into $G'$. Since the mappings  $ad\ v$ span
+$L(\S)$ as a $R$-module, $\psi$ is determined by the condition
+$$\psi(ad\ v,\,ad\ w)=\psi^\star(ad\ v)(ad\ w)=\theta_v(ad\ w)=(ad\ w)(v)=[v,\,w],$$
+for all $v,\,w$ in $U(\S)$, which proves (a).
+
+Now (b) and (c) follow from Theorem \ref{theo6.1-4-2}(b) and Theorem
+\ref{theo6.4-4-2}(b).
+\end{proof}
+
+\begin{theorem}\label{theo6.14}
+Assume the hypothesis and notation of Theorem \ref{theo6.6}. Suppose
+$\S$ generates $G$, $v$ and $w$ are elements of $U(\S),$
+$$\alpha=ad\ v+ad\ w,$$
+and $b$ is the nilpotence class of the group $\langle v^G\rangle
+Z(G)/Z(G)$. Assume $b\leq d-1$ and $\alpha$ is contained in an ideal
+of $L(\S)$ of nilpotence class at most $d-1-b$.
+
+Then there exists $y$ in $U(\mathcal{N})$ such that $ad\ y=\alpha.$
+\end{theorem}
+
+\begin{proof}
+Let
+$$Z=Z(G),\ N_1=\langle v^G\rangle,\ N_2=\sqrt[\pi]{N_1},\ \text{and}\ I_2=\{ad\ x\ |\ x\in N_2\}.$$
+Then $N_2Z/Z=\sqrt{N_1Z/Z}$. By Lemma \ref{lemma2.2-3-24}, $N_2Z/Z$
+has nilpotence class $b$. By Lemma \ref{lemma6.12} with $T=\{v^g\ |\
+g\in G\},$ $I_2$ is an ideal of $L(\S)$ and is the Lie subalgebra of
+$L(\S)$ generated by the set
+$$\{ad\ v^x\ |\ x\in G\}.$$
+Therefore, by Lemma \ref{lemma6.8},
+\begin{equation}\label{eq6.19}
+I_2\text{ has nilpotence class at most }b.
+\end{equation}
+
+Let $I_1$ be the smallest ideal of $L(\S)$ containing $\alpha.$ By
+hypothesis, $I_1$ has class at most $d-1-b$. Moreover, $I_1+I_2$ is
+an ideal of $L(\S).$ Since $(d-1-b)+b=d-1$, \eqref{eq6.19} and a
+theorem of Fitting yield
+\begin{equation}\label{eq6.20}
+I_1+I_2\text{ has class at most }d-1.
+\end{equation}
+(Fitting's Theorem follows from a slight variation in the proof of
+Proposition I.6 in page 25 of \cite{Jac}.)
+
+Since $ad\ v$ lies in $I_2,$ $\alpha$ lies in $I_1$, and $ad\
+w=\alpha-ad\ v$, we see that $ad\ w$ lies in $I_1+I_2$. By Lemma
+\ref{lemma6.12}(d),
+\begin{equation}\label{eq6.21}
+I_1+I_2\text{ contains }ad\ w^g\text{ for every $g$ in } G.
+\end{equation}
+
+Now let $T$ be the subset of $G$ given by
+$$T=\{v^g,\,w^g\ |\ g\in G\}.$$
+Then $T$ generates a normal subgroup $M_0$ of $G$. By construction,
+$I_2$ contains $ad\ v^g$ for every $g$ in $G$. Hence, by
+\eqref{eq6.21}, $I_1+I_2$ contains $ad\ x$ for every $x$ in $T$, and
+contains the subalgebra of $L(\S)$ that they generate, which we
+denote by $L^\star(T)$ as in Lemma \ref{lemma6.8}.
+
+By \eqref{eq6.20}, $L^\star(T)$ has class at most $d-1.$ By Lemma
+\ref{lemma6.8}, $M_0/(M_0\cap Z(G))$ has class at most $d-1$, so
+$M_0$ has class at most $d$. Let $M=\sqrt[\pi]{M_0}$.
+
+Since $\alpha=ad\ v+ad\ w$, $\alpha$ lies in $L^\star(T)$. By Lemma
+\ref{lemma6.12}, $M$ is a normal subgroup of $G$ of class at most
+$d$, and
+$$L^\star(T)=ad\ M=\{ad\ x\ |\ x\in M\}.$$
+So $\alpha=ad\ y$ for some $y$ in $M$, as desired.
+\end{proof}
+
+\section{Acknowledgments}
+
+It is a pleasure to dedicate this article to Professor Avinoam Mann
+for many years of friendship, help, and encouragement.
+
+We also thank the National Security Agency (USA) for its support
+through a grant.
+
+\begin{thebibliography}{14}
+
+\bibitem{Baer} R. Baer, Groups with abelian central quotient group,
+Trans. Amer. Math. Soc., 44(1938), 357-386.
+
+\bibitem{JAGG} J. Alperin, G. Glauberman, Limits of abelian subgroups in finite $p$-groups,
+J. Algebra 203 (1998) 533-566.
+
+\bibitem{Carter} R.W. Carter, Simple Groups of Lie Type,
+Wiley-Interscience, New York, 1972.
+
+\bibitem{Ddms} J.D Dixon, M.P.F du Sautoy, A. Mann,
+ D. Segal, Analytic Pro-$p$ Groups. Second edition.
+Cambridge University Press, Cambridge, 1999.
+
+\bibitem{East} T. E. Easterfield,  The orders of products and commutators in
+prime-power groups. Proc. Cambridge Philos. Soc. 36 (1940), 14-26.
+
+\bibitem{GG-FLA} G. Glauberman, An extension of Thompson's replacement
+theorem by algebraic group methods. Finite groups 2003, pp. 105-110,
+de Gruyter, Berlin, 2004.
+
+\bibitem{GG-CL} G. Glauberman, Centrally large subgroups of finite $p$-groups.
+J. Algebra 300 (2006), 480-508.
+
+\bibitem{GG-SMI} G Glauberman, Abelian subgroups of small index in finite
+$p$-groups, J. Group Theory 8  (2005), 539-560.
+
+\bibitem{Gor} D. Gorenstein, Finite Groups, Second edition, Chelsea, New York, 1980.
+
+\bibitem{M.Hall} M. Hall, The Theory of Groups, Macmillan, New York, 1959
+
+\bibitem{Hup} B. Huppert, Endliche Gruppen I, Springer-Verlag, Berlin, 1967.
+
+\bibitem{Jac} N. Jacobson, Lie Algebras. Dover, New York, 1979.
+
+\bibitem{Kh} E.I. Khukhro, $p$-Automorphisms of Finite
+$p$-Groups, London Math. Soc. Lecture Note Ser., Vol. 246, Cambridge
+University Press, Cambridge, 1998.
+
+\bibitem{Lazard} M. Lazard, Sur les groupes nilpotents et les anneaux de Lie, Ann.
+Sci. \'Ecole Norm. Sup. (3) 71 (1954) 101-190.
+
+\end{thebibliography}
+
+
+\end{document}

@@ -1,0 +1,462 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Monday November 25: Stochastic matrices}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+22 people took this 10-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of 4: 2 people
+\item Score of 5: 2 people
+\item Score of 6: 5 people
+\item Score of 7: 4 people
+\item Score of 8: 5 people
+\item Score of 9: 1 person
+\item Score of 10: 3 people
+\end{itemize}
+
+The mean score was about 7.05.
+
+The question-wise answers and performance review were as follows:
+
+\begin{enumerate}
+\item Option (C): 11 people%$14$ people
+\item Option (C): 13 people%$12$ people
+\item Option (C): 18 people%$11$ people
+\item Option (E): 20 people%$19$ people
+\item Option (B): 21 people%$15$ people
+\item Option (D): 11 people%$9$ people
+\item Option (A): 16 people%$7$ people
+\item Option (C): 19 people%$18$ people
+\item Option (B): 15 people%$8$ people
+\item Option (B): 11 people%$3$ people
+\end{enumerate}
+
+\section{Solutions}
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+This quiz can be viewed as a continuation of the quiz on linear
+dynamical systems. The book defines column-stochastic matrices using
+the jargon ``transition matrix'' on Page 53 (Definition 2.1.4) and
+uses them throughout the text when describing (a simplified version
+of) Google's PageRank algorithm. The quiz questions are self-contained
+and do not require you to read the book, but you may benefit from
+skimming through the book's discussion of PageRank to complement these
+questions. Note that the 4th Edition does not include the discussion
+of transition matrices and PageRank.
+
+In this quiz, we discuss the dynamics of a very special type of linear
+transformation. A $n \times n$ matrix $A$ is termed a {\em
+  row-stochastic matrix} if all its entries are in the interval
+$[0,1]$ and all the row sums are equal to $1$. A $n \times n$ matrix
+is termed a {\em column-stochastic matrix} if all its entries are in
+the interval $[0,1]$ and all the column sums are equal to $1$. A $n
+\times n$ matrix $A$ is termed a {\em doubly stochastic matrix} if it
+is both row-stochastic and column-stochastic, i.e., all the entries
+are in the interval $[0,1]$, all the row sums are equal to $1$, and
+all the column sums are equal to $1$.
+
+\begin{enumerate}
+
+\item Suppose $A$ and $B$ are two $n \times n$ row-stochastic
+  matrices. Which of the following is {\em guaranteed} to be
+  row-stochastic? Please see Options (D) and (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $A + B$
+  \item $A - B$
+  \item $AB$
+  \item All of the above
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Suppose we are trying to compute the $(ik)^{th}$
+  entry of $AB$. This is the sum:
+
+  $$\sum_{j=1}^n a_{ij}b_{jk}$$
+
+  We now want to sum up all such entries in the $i^{th}$ row of
+  $AB$. Thus, the sum is:
+
+  $$\sum_{k=1}^n \sum_{j=1}^n a_{ij}b_{jk}$$
+
+  The sum can be rearranged as:
+
+  $$\sum_{j=1}^n \left(a_{ij} \sum_{k=1}^n b_{jk}\right)$$
+
+  Each of the inner sums is $1$, on account of being a row sum of
+  $B$. Thus, the sum simplifies to:
+
+  $$\sum_{j=1}^n a_{ij}$$
+
+  This is $1$, on account of being a row sum of $A$.
+
+  Thus, every row sum of $AB$ is $1$. Further, because of the way we
+  define matrix multiplication, all the entries of $AB$ are
+  nonnegative. Combined with the condition on sums, we get that all
+  entries are in $[0,1]$ with all row sums $1$. Thus, the matrix $AB$
+  is row-stochastic.
+
+  As for Options (A) and (B), note that for Option (A), the row sums
+  will become $2$ and for Option (B), the row sums will become $0$.
+
+  {\em Performance review}: 11 out of 22 got this. 10 chose (E), 1 chose (A).
+
+  {\em Historical note (last time)}: $14$ out of $24$ got this. $9$ chose (E),
+  $1$ chose (D).
+
+\item Suppose $A$ and $B$ are two $n \times n$ column-stochastic
+  matrices. Which of the following is {\em guaranteed} to be
+  column-stochastic? Please see Options (D) and (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $A + B$
+  \item $A - B$
+  \item $AB$
+  \item All of the above
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Suppose we are trying to compute the $(ik)^{th}$
+  entry of $AB$. This is the sum:
+
+  $$\sum_{j=1}^n a_{ij}b_{jk}$$
+
+  We now want to sum up all such entries in the $k^{th}$ column of
+  $AB$. Thus, the sum is:
+
+  $$\sum_{i=1}^n \sum_{j=1}^n a_{ij}b_{jk}$$
+
+  The sum can be rearranged as:
+
+  $$\sum_{j=1}^n \left(b_{jk} \sum_{i=1}^n a_{ij}\right)$$
+
+  Each of the inner sums is $1$, on account of being a row sum of
+  $A$. Thus, the sum simplifies to:
+
+  $$\sum_{j=1}^n b_{jk}$$
+
+  This is $1$, on account of being a column sum of $B$.
+
+  Thus, every column sum of $AB$ is $1$. Further, because of the way we
+  define matrix multiplication, all the entries of $AB$ are
+  nonnegative. Combined with the condition on sums, we get that all
+  entries are in $[0,1]$ with all row sums $1$. Thus, the matrix $AB$
+  is column-stochastic.
+
+  As for Options (A) and (B), note that for Option (A), the column sums
+  will become $2$ and for Option (B), the column sums will become $0$.
+
+  {\em Performance review}: 13 out of 22 got this. 8 chose (E), 1 chose (A).
+
+  {\em Historical note (last time)}: $12$ out of $24$ got this. $11$ chose (E),
+  $1$ chose (A).
+
+\item Suppose $A$ and $B$ are two $n \times n$ doubly stochastic
+  matrices. Which of the following is {\em guaranteed} to be
+  doubly stochastic? Please see Options (D) and (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $A + B$
+  \item $A - B$
+  \item $AB$
+  \item All of the above
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: This follows by combining the two preceding questions.
+
+  {\em Performance review}: 18 out of 22 got this. 3 chose (E), 1 chose (A).
+ 
+  {\em Historical note (last time)}: $11$ out of $24$ got this. $8$ chose (D),
+  $4$ chose (E), $1$ chose (A).
+
+  \vspace{0.6in}
+
+  We now consider the case $n = 2$. In this case, the doubly
+  stochastic matrices have the form:
+
+  $$\left[ \begin{matrix} a & 1 - a \\ 1 - a & a \\\end{matrix}\right]$$
+
+  where $a \in [0,1]$. Denote this matrix by $D(a)$ for short.
+
+\item Suppose $a,b \in [0,1]$ (they are allowed to be equal). The
+  product $D(a)D(b)$ equals $D(c)$ for some $c \in [0,1]$. What is
+  that value of $c$?
+
+  \begin{enumerate}[(A)]
+  \item $a + b$
+  \item $ab$
+  \item $2ab + a + b$
+  \item $(1 - a)(1 - b)$
+  \item $1 - a - b + 2ab$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: We carry out the multiplication:
+
+  $$\left[\begin{matrix} a & 1 - a \\ 1 - a & a \\\end{matrix}\right]\left[\begin{matrix} b & 1 - b \\ 1 - b & b \\\end{matrix}\right] = \left[ \begin{matrix} ab + (1 - a)(1 - b) & a(1 - b) + (1 - a)b \\ a(1- b) + (1 - a)b & ab + (1 - a)(1 - b)\\\end{matrix}\right] = D(ab + (1 - a)(1 - b)) = D(1 - a - b + 2ab)$$
+
+  {\em Performance review}: 20 out of 22 got this. 1 each chose (A) and (D).
+
+  {\em Historical note (last time)}: $19$ out of $24$ got this. $2$ chose (B),
+  $1$ each chose (A), (C), and (D).
+
+\item For what value(s) of $a$ is the matrix $D(a)$ non-invertible?
+  Note that when judging invertibility, we do not insist that the
+  inverse matrix also be doubly stochastic.
+
+  \begin{enumerate}[(A)]
+  \item $a = 0$ only
+  \item $a = 1/2$ only
+  \item $a = 1$ only
+  \item $0 < a < 1$ (i.e., $D(a)$ is invertible only at $a = 0$ and $a
+    = 1$)
+  \item $a \ne 1/2$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: For the matrix to be non-invertible, we need the
+  rows to be scalar multiples of each other. Since both row sums are
+  $1$, this can happen only if the rows are identical, which happens
+  iff $a = 1/2$. Equivalently, we can note that invertibility requires
+  a nonzero determinant, and the determinant is $a^2 - (1 - a)^2 = 2a -
+  1$, which is $0$ iff $a = 1/2$.
+
+  {\em Performance review}: 21 out of 22 got this. 1 chose (A).
+
+  {\em Historical note (last time)}: $15$ out of $24$ got this. $4$ chose (A),
+  $2$ each chose (C) and (D), $1$ chose (E).
+
+
+\item For what value(s) of $a$ is it true that the matrix $D(a)$ does
+  not have an inverse that is a doubly stochastic matrix? In other
+  words, either $D(a)$ should be non-invertible or it should be
+  invertible but the inverse is not a doubly stochastic matrix.
+
+  \begin{enumerate}[(A)]
+  \item $a = 0$ only
+  \item $a = 1/2$ only
+  \item $a = 1$ only
+  \item $0 < a < 1$ (i.e., $D(a)$ has an inverse that is also doubly
+    stochastic only if $a = 0$ or $a = 1$)
+  \item $a \ne 1/2$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: The inverse of $D(a)$, for $a \ne 1/2$, is:
+
+  $$\left[\begin{matrix} a/(2a - 1) & (a - 1)/(2a - 1)\\ (a - 1)/(2a - 1) & a/(2a - 1)\\\end{matrix}\right]$$
+
+  For this to be doubly stochastic, we need that $0 \le a/(2a - 1) \le
+  1$. We make cases:
+
+  \begin{itemize}
+  \item $a = 0$: In this case, $D(a)$ is its own inverse.
+  \item $a \ne 0$ (excluding $a = 1/2$): In this case, since $0 \le
+    a/(2a - 1)$, we obtain that $2a - 1 > 0$. So, starting with $a/(2a
+    - 1) \le 1$ we get $a \le 2a - 1$, which simplifies to $1 \le a$,
+    forcing $a = 1$ (since we are constrained by $0 \le a \le 1$). The
+    choice $a = 1$ works (in the sense that $D(1)$ is its own
+    inverse).
+  \end{itemize}
+
+  The upshot is that the only cases where the inverse is doubly
+  stochastic are the cases $a = 0$ and $a = 1$. Otherwise, the inverse
+  either does not exist (case $a = 1/2$) or exists but is not doubly
+  stochastic.
+
+  {\em Performance review}: 11 out of 22 got this. 9 chose (B), 2 chose (C).
+
+  {\em Historical note (last time)}: $9$ out of $24$ got this. $9$ chose (A),
+  $2$ each chose (B), (C), and (E).
+
+  \vspace{0.6in}
+
+  For the next few questions, denote by $T_a$ the linear
+  transformation whose matrix is $D(a)$. For any vector $\vec{x} \in
+  \R^2$, we can consider the sequence:
+
+  $$\vec{x}, T_a(\vec{x}), T_a^2(\vec{x}), \dots$$
+
+  Note that if we were to start with a vector $\vec{x} \in \R^2$ with
+  both coordinates equal, it would be invariant under $T_a$.
+
+  Thus, for the questions below, assume that we start with a nonzero
+  vector $\vec{x} \in \R^2$ for which the two coordinates are not
+  equal to each other.
+
+\item For what value of $a$ is it the case that $\lim_{r \to \infty}
+  T_a^r(\vec{x})$ does {\em not} exist?
+
+  \begin{enumerate}[(A)]
+  \item $a = 0$ only
+  \item $a = 1/2$ only
+  \item $a = 1$ only
+  \item $0 < a < 1$
+  \item $a \ne 1/2$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: In this case, applying $T_a$ interchanges the
+  coordinates. A second application interchanges them back. The
+  sequence thus cycles between the vector $\vec{x}$ and the vector
+  obtained by interchanging its coordinates.
+
+  The failure of the remaining options will become clear from the
+  answers to the rest of the questions.
+
+  {\em Performance review}: 16 out of 22 got this. 2 chose (B), 1 each
+  chose (C), (D), and (E). 1 left the question blank.
+
+  {\em Historical note (last time)}: $7$ out of $24$ got this. $11$ chose (B),
+  $4$ chose (C), $1$ each chose (D) and (E).
+
+
+\item For what value of $a$ is it the case that the sequence
+
+  $$\vec{x}, T_a(\vec{x}), T_a^2(\vec{x}), \dots$$
+
+  is a constant sequence?
+
+  \begin{enumerate}[(A)]
+  \item $a = 0$ only
+  \item $a = 1/2$ only
+  \item $a = 1$ only
+  \item $0 < a < 1$
+  \item $a \ne 1/2$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: $a = 1$ gives the identity transformation. Any
+  other choice of $a$ replaces the first coordinate by a combination
+  of the two coordinates that cannot be equal to it unless the two
+  coordinates were equal to begin with. Explicitly:
+
+  $$D(a)\left[\begin{matrix} x_1 \\ x_2 \\\end{matrix}\right] = \left[ \begin{matrix}ax_1 + (1 - a)x_2 \\ (1 - a)x_1 + ax_2 \\\end{matrix}\right]$$
+
+  For the output to equal the input, we need that:
+
+  \begin{eqnarray*}
+    x_1 & = & ax_1 + (1 - a)x_2\\
+    x_2 & = & (1 - a)x_1 + ax_2 \\
+  \end{eqnarray*}
+
+  Solving the first equation alone gives $x_1 = x_2$ or $a = 1$. By
+  assumption, $x_1 \ne x_2$, so we get $a = 1$. Note that the second
+  equation yields a similar conclusion.
+
+  {\em Performance review}: 19 out of 22 got this. 2 chose (B), 1 chose (A).
+
+  {\em Historical note (last time)}: $18$ out of $24$ got this. $3$ chose (D),
+  $2$ chose (E), $1$ chose (B).
+
+\item For what value of $a$ is it the case that the sequence
+
+  $$\vec{x}, T_a(\vec{x}), T_a^2(\vec{x}), \dots$$
+
+  is not a constant sequence but becomes constant from $T_a(\vec{x})$
+  onward?
+
+  \begin{enumerate}[(A)]
+  \item $a = 0$ only
+  \item $a = 1/2$ only
+  \item $a = 1$ only
+  \item $0 < a < 1$ 
+  \item $a \ne 1/2$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: If the sequence is not constant, then $a \ne
+  1$. However, it becomes constant from $T_a(\vec{x})$ onward. Thus,
+  $T_a(\vec{x})$ has both coordinates equal by the previous
+  question. Hence, we get that:
+
+  $$ax_1 + (1 - a)x_2 = (1 - a)x_1 + ax_2$$
+
+  This simplifies to:
+
+  $$(2a - 1)(x_1 - x_2) = 0$$
+
+  Thus, either $a = 1/2$ or $x_1 = x_2$. Since $x_1 \ne x_2$ by
+  assumption, we get $a = 1/2$.
+
+  {\em Performance review}: 15 out of 22 got this. 3 chose (A), 2 each
+  chose (C) and (D).
+
+  {\em Historical note (last time)}: $8$ out of $24$ got this. $10$ chose (A),
+  $4$ chose (C), $1$ each chose (D) and (E).
+
+\item For $a$ other than $0$, $1/2$, or $1$, what is the limit
+  $\lim_{r \to \infty} (D(a))^r$? Here, when we talk of taking the
+  limit of a sequence of matrices, we are taking the limit entry-wise.
+
+  \begin{enumerate}[(A)]
+  \item The matrix $D(0)$
+  \item The matrix $D(1/2)$
+  \item The matrix $D(1)$
+  \item The matrix $D(a)$
+  \item The matrix $D(1 - a)$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Intuitively, what's happening is that we start
+  off with the point:
+
+  $$\left[\begin{matrix} x_1 \\ x_2 \\\end{matrix}\right]$$
+  
+  We now make the coordinates ``come closer to each other'' by converting to:
+
+  $$\left[\begin{matrix} ax_1 + (1 - a)x_2 \\ (1 - a)x_1 + ax_2 \\\end{matrix}\right]$$
+
+  We then iterate. Each time, the coordinates are coming closer to
+  each other, but note also that the sum of the coordinates remains
+  fixed. Thus, we hope to eventually converge to the vector with both
+  coordinates $(x_1 + x_2)/2$. This is $D(1/2)\left[\begin{matrix} x_1
+      \\ x_2 \\\end{matrix}\right]$.
+
+  Here is a more formal demonstration: By one of the previous
+  questions, we can verify that if $D(a)D(b) = D(c)$, then $(2a -
+  1)(2b - 1) = 2c - 1$. An immediate corollary is that if $(D(a))^r =
+  D(u)$, then $(2a - 1)^r = 2u - 1$. As a result, if $\lim_{r \to
+    \infty} (D(a))^r = D(u)$, then $2u - 1 = \lim_{r \to \infty} (2a -
+  1)^r =0$, forcing $u = 1/2$.
+
+  The geometric intuition for why we look at $2a - 1$ is because that
+  is the ratio of the signed difference between the output coordinates
+  to the signed difference between the input coordinates. It describes
+  an contraction factor, and the contraction factors multiply when we
+  compose.
+
+  {\em Performance review}: 11 out of 22 got this. 5 chose (A), 4
+  chose (E), 1 each chose (C) and (D).
+
+  {\em Historical note (last time)}: $3$ out of $24$ got this. $10$ chose (D),
+  $7$ chose (E), $2$ each chose (A) and (C).
+
+\end{enumerate}
+\end{document}

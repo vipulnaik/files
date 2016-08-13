@@ -1,0 +1,231 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul}
+
+%Title details
+\title{Division by primes: research plan}
+\author{Vipul Naik (with John Wiltshire-Gordon)}
+
+%List of new commands
+\newcommand{\Skew}{\operatorname{Skew}}
+
+\makeindex
+
+\begin{document}
+\maketitle
+%\tableofcontents
+
+This document gives a brief description of the key strands of some of
+our ``division by prime'' research.
+
+\section*{Broad goals and motivation}
+Consider power series and similar formulas interpreted over fields and
+rings of finite characteristic. Examples of power series:
+
+\begin{eqnarray*}
+  \exp(x) & = & \sum_{n=0}^\infty \frac{x^n}{n!}\\
+  \log(1 + x) & = & \sum_{n=1}^\infty \frac{(-1)^{n-1}x^n}{n}\\
+\end{eqnarray*}
+
+A related example (not quite a power series, but similar in spirit) is
+the Baker-Campbell-Hausdorff formula and its inverse formula, which
+basically tells us how to pull back the multiplication in a Lie group
+back to its corresponding Lie ring.
+
+Although these formulas were originally designed/discovered in the
+context of the topological/analytic structure of the real numbers and
+complex numbers, many proofs of properties of these formulas are
+purely algebraic, at least in cases where the formulas terminate in
+finitely many steps due to suitable nilpotency conditions. We broadly
+refer to this as the {\em nilpotent situation}.
+
+Our goal is to interpret these formulas in cases where the underlying
+ring has finite characteristic. The chief problem arises with
+interpreting terms of the formula where we are dividing by primes that
+are involved in the characteristic of the ring. Because of the Chinese
+remainder theorem/Sylow's theorem and similar results, we can split
+our rings up into $p$-Sylow subrings (so to speak) and can thus
+restrict attention to rings of characteristic $p^n$. In other words,
+we can focus attention on just one prime.
+
+Thus, the chief problem is as follows: for a ring of characteristic
+$p^n$, where, in particular, the ``multiplication by $p$'' map is
+neither injective nor surjective, how do we make sense of terms in
+power series and other series that involve division by $p$?
+
+For instance, at the fifth term in the exponential formula, we must
+``divide'' by $5$, but if the ring has characteristic $5^3$, then
+there are two problems: (i) the multiplication by five map is not
+injective, so some elements can be divided by $5$ in multiple ways,
+and (ii) the multiplication by five map is not surjective, so some
+elements cannot be divided by $5$ at all. [Note: there is nothing
+special about $5$ -- it is used only for concreteness].
+
+To our knowledge, the main approach used in the past has been to
+simply restrict attention to those cases where the formula terminates
+before division troubles arise. For instance, in the power series for
+the exponential, the first time we divide by $p$ is in the term
+$x^p/p!$. If the elements $x$ we are dealing with all satisfy the
+property that $x^p = 0$ (or even better, $x^{p-1} = 0$) then we have
+already reached $0$ by the time we encounter trouble. If we are
+comfortable saying that $0$ divided by anything is $0$, then we can
+truncate the exponential series and simply work with the truncated
+series. More to the point, suitable variants of these nilpotency
+conditions guarantee many identities that coincide with or are similar
+to those in the characteristic zero nilpotent case.
+
+This approach has yielded a number of powerful results. For instance,
+there is a correspondence (known as the Lazard correspondence) between
+Lie rings of order a power of $p$ with ($3$-local) nilpotency class
+less than $p$ and finite $p$-groups with ($3$-local) nilpotency class
+less than $p$. The correspondence makes use of the
+Baker-Campbell-Hausdorff formula and notes that the terms in the
+formula become zero before we need to start dividing by $p$. On a
+related note, the exponential map provides a correspondence between
+certain kinds of nilpotent derivations and certain kinds of unipotent
+automorphisms of a Lie ring, as explored by Alperin and Glauberman.
+
+Our key idea is to extend this correspondence a little further to some
+cases where the series terminates finitely (so that we are still in a
+nilpotent situation) but not before we need to divide by $p$. Thus, we
+{\em do} face a problem of division by $p$. We will consider two
+variants of this kind of problem:
+
+\begin{itemize}
+\item A variant where we do need to divide by $p$, and where the term
+  that we need to divide by $p$ {\em is} divisible by $p$, but
+  division by $p$ is not unique. For instance, we need to divide the
+  element $10$ of $\Z/25\Z$ by $5$ (the answer could be $2$, $7$,
+  $12$, $17$, or $22$). We believe that there is a general theory
+  underlying this, and that it has a close relationship with the study
+  of the $p$-adics.
+\item A variant where we do need to divide by $p$, but cannot. In this
+  case, we need to think of some alternative operation to division by
+  $p$ that serves the same purpose. An example of this is when we have
+  to divide an alternating bilinear form $\lambda$ by $2$. It turns
+  out that, in some important cases, it suffices to find a $2$-cocycle
+  $f$ such that $\Skew f = \lambda$. Thus, in this case, we replace
+  doubling by the skew map. Something similar may also be true for
+  higher primes, though we have not yet been able to uncover specific
+  ideas in this direction.
+\end{itemize}
+
+\section*{Division locally and globally}
+
+Suppose we have an abelian group $A$ with exponent $p^n$. Consider an
+element $y \in pA$ (which is denoted $\mho^1(A)$ in $p$-group
+terminology). The set of numbers $x$ satisfying $px = y$ is a coset of
+$\Omega_1(A)$ -- the set of elements whose order divides $p$.
+
+In most of the situations we will encounter, though, we don't just
+have to divide a single element of $A$ by $p$. Rather, we have a
+function (usually a group homomorphism) $f$ from some set $G$ that
+takes values in $A$. The question is whether, given that the range of
+$f$ lies in $pA$, we can get a new function $g$ to $A$ such that: (i)
+$pg = f$ and (ii) $g$ continues to satisfy some nice properties that
+we know $f$ to satisfy. 
+
+The nice properties in (ii) should be of the kind that would be
+automatically guaranteed in the case that we were working with
+uniquely $p$-divisible groups. However, it is still a challenge to
+figure out which of the properties that $f$ automatically satisfies
+are crucial to carry over to $g$. The fewer properties we require $g$
+to have, the more likely we are to find a $g$ that works.
+
+Two broad classes of examples are stated below:
+
+\begin{enumerate}
+\item The Baer correspondence between class two $p$-groups and class
+  two $p$-Lie rings relies on a formula that requires the halving of
+  the commutator map. We can think of this as halving an alternating
+  biadditive map $\lambda:G \times G \to A$. In the case that $p \ne
+  2$, we can find a half that is also an alternating biadditive
+  map. For $p = 2$, we can, under suitable conditions, find a ``half''
+  that works.
+\item The exponentiation map from some nilpotent derivations to some
+  unipotent automorphisms requires dividing the additive endomorphism
+  $d^p$ by $p$. The existence of a suitable group endomorphism $\ell$
+  satisfying $p\ell = d^p$ as well as an additional condition allows
+  us to carry forward some of the results.
+\end{enumerate}
+
+The most powerful results within this domain would be results of the
+form that guarantee that if all the {\em values} that the function $f$
+takes are in $pA$ (i.e., every particular value of the function can be
+divided by $p$) then we can find a suitable function $g$ satisfying
+$pg = f$ and satisfying some additional conditions. We thus need to
+choose these additional conditions as weak enough for such a
+local-global result to hold, but strong enough that we can draw
+meaningful algebraic conclusions from them.
+
+\section*{Repeated division and relationship with the $p$-adics}
+
+The $p$-adic integers $\Z_{(p)}$ are obtained by taking the inverse
+limit of the system of quotient maps for the groups/rings $\Z/p^n\Z$,
+with $n \to \infty$. The $p$-adic integers have characteristic
+zero. Multiplication by $p$ in this ring is injective but not
+surjective. In particular, if an element is in $p\Z_{(p)}$, there is a
+unique thing we get upon dividing it by $p$.
+
+However, if we consider any finite stage, the number of solutions to
+$px = y$ for $y$ a multiple of $p$ is exactly $p$. What's happening?
+Each time we lift an element $y$ from $\Z/p^{n-1}\Z$ to $\Z/p^n\Z$,
+all but one of the solutions to $px = y$ fail to extend. The one
+solution that extends branches out into $p$ different solutions. This
+means that if we consider solutions are keep lifting them, there is
+only one infinite path. This infinite path is the answer to division
+by $p$ in the $p$-adics.
+
+Nonetheless, many important ideas related to $p$-adics have a close
+bearing on what we want to do. Specifically, consider the exponential
+function. For $p > 2$, this converges for any input in
+$p\Z_{(p)}$. For $p = 2$, it converges for any input in
+$4\Z_{(2)}$. The key idea is that under these conditions, the power of
+$p$ in the numerator grows faster than that in the denominator.
+
+This same observation is relevant in the finite case. If we start with
+an element that is a multiple of $p$ (for $p > 2$) or a multiple of
+$4$ (for $p = 2$) then the power of $p$ in the numerator grows much
+faster than that in the denominator. This means that, roughly
+speaking, if the element we start with is a multiple of $p$, and the
+characteristic/exponent is $p^n$, then at some stage, the power of $p$
+in the numerator exceeds that in the denominator by more than $n$, and
+we can then safely declare that the power series {\em can be} terminated. 
+
+The main question of choice arises for those terms intermediately
+where the power of $p$ in the numerator is $\ge$ the power of $p$ in
+the denominator, but the difference is less than $n$. Consider, for
+instance, modulo $5^7$:
+
+$$\exp(5) = 1 + 5 + \frac{5^2}{2!} + \frac{5^3}{3!} + \frac{5^4}{4!} + \frac{5^5}{5!} + \frac{5^6}{6!} + \frac{5^7}{7!} + \frac{5^8}{8!} + \frac{5^9}{9!} + \dots$$
+
+At the $5^8/8!$ stage, the power of $5$ in the numerator exceeds that
+in the denominator by $7$, so we could declare that term to be
+$0$. This would allow us to concentrate on a finite chunk:
+
+$$\exp(5) = 1 + 5 + \frac{5^2}{2!} + \frac{5^3}{3!} + \frac{5^4}{4!} + \frac{5^5}{5!} + \frac{5^6}{6!} + \frac{5^7}{7!}$$
+
+Now, we need to make sense of the last three terms $5^5/5!$, $5^6/6!$,
+and $5^7/7!$. Note that the real issue here is choosing a sound
+candidate for $5^5/5$ and hoping that that choice gives consistent
+results. One choice is $5^4$, but other possible choices include $5^4
++ k \cdot 5^7$ with $k = 1,2,3,4$. Choose $\ell$ to be any of
+these. Note that the exponential now depends on both $5$ and $\ell$, and we get:
+
+$$\exp(\{5, \ell \}) = 1 + 5 + \frac{5^2}{2!} + \frac{5^3}{3!} + \frac{5^4}{4!}  + \frac{\ell}{4!} + \frac{5^5}{4! \cdot 6} + \frac{5^6}{4! \cdot 6 \cdot 7}$$
+
+(This baby situation is a somewhat special case where the choice of
+$\ell$ does not affect the later terms. In general, it could affect
+later terms).
+
+We can now calculate the value of the exponential.
+
+The situation becomes more complex if the term $d$ that we are
+exponentiating is nilpotent but has very high nilpotency. Thus, we are
+forced, not just to choose $d^p/p$, but also divide $d^{p^2}$ by
+$(p^2)^{th}$, and so on. We believe that we have a general approach
+and list of conditions for this more general requirement, and that
+this can be generalized to power series in one variable other than the
+exponential series.
+\end{document}

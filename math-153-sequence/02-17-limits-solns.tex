@@ -1,0 +1,282 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: February 17: Limit, order of zero, LH rule}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $0$: $1$ person
+\item Score of $1$: $1$ person
+\item Score of $2$: $1$ person
+\item Score of $3$: $1$ person
+\item Score of $4$: $2$ people
+\item Score of $5$: $3$ people
+\item Score of $6$: $2$ people
+\end{itemize}
+
+The mean score was $3.73$. The question wise answers and performance
+review are below:
+
+\begin{enumerate}
+\item Option (C): $6$ people
+\item Option (C): $5$ people
+\item Option (B): $6$ people
+\item Option (D): $8$ people
+\item Option (E): $9$ people
+\item Option (A): $7$ people
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+
+\item Suppose $g:\R \to \R$ is a continuous function such that
+  $\lim_{x \to 0} g(x)/x = A$ for some constant $A \ne 0$. What is
+  $\lim_{x \to 0} g(g(x))/x$? 
+
+  \begin{enumerate}[(A)]
+  \item $0$
+  \item $A$
+  \item $A^2$
+  \item $g(A)$
+  \item $g(A)/A$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: We have $\lim_{x \to 0} g(x) = \lim_{x \to 0}
+  (g(x)/x) \lim_{x \to 0} x = A \cdot 0 = 0$.
+
+  Also, we have:
+
+  $$\lim_{x \to 0} \frac{g(g(x))}{x} = \lim_{x \to 0} \frac{g(g(x))}{g(x)} \lim_{x \to 0} \frac{g(x)}{x}$$
+
+  The second limit is $A$. For the first limit, note that as $x \to
+  0$, we also have $g(x) \to 0$, so the first limit can be rewritten
+  as $\lim_{y \to 0} g(y)/y$, which is also equal to $A$. Hence, the
+  overall limit is the product $A^2$.
+
+  {\em Performance review}: $6$ out of $11$ got this. $3$ chose (B)
+  and $2$ chose (D).
+
+  {\em Historical note (last quarter)}: $4$ out of $12$ go this
+  correct. $3$ each chose (A) and (E), $2$ chose (D).
+
+  {\em Historical note (last year)}: $1$ out of $12$ people got this
+  correct. $5$ people chose (D), $2$ people each chose (B) and (E),
+  $1$ person chose (A), and $1$ person left the question blank.
+
+
+\item Suppose $g:\R \to \R$ is a continuous function such that
+  $\lim_{x \to 0} g(x)/x^2 = A$ for some constant $A \ne 0$. What is
+  $\lim_{x \to 0} g(g(x))/x^4$? 
+
+  \begin{enumerate}[(A)]
+  \item $A$
+  \item $A^2$
+  \item $A^3$
+  \item $A^2g(A)$
+  \item $g(A)/A^2$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: First, note that since $g(x)/x^2 \to A$ as $x \to
+  0$, we must have $g(x) \to 0$ as $x \to 0$. In particular, $g(0) =
+  0$.
+
+  Now, consider:
+
+  $$\lim_{x \to 0} \frac{g(g(x))}{x^4} = \lim_{x \to 0} \frac{g(g(x))}{(g(x))^2} \cdot \frac{(g(x))^2}{x^4}$$
+
+  Splitting the limit, we get:
+
+  $$\lim_{x \to 0} \frac{g(g(x))}{(g(x))^2} \lim_{x \to 0} \left(\frac{g(x)}{x^2}\right)^2$$
+
+  Setting $u = g(x)$ for the first limit, and using the fact that as
+  $x \to 0$, $u \to 0$ we see that the first limit is $A$. For the
+  second limit, pulling the square out yields that the second limit is
+  $A^2$. The overall limit is thus $A \cdot A^2 = A^3$.
+
+  We can also use an actual example to solve this problem. For
+  instance, consider the extreme case where $g(x) = Ax^2$ (identically). In
+  this case, $g(g(x)) = A(Ax^2)^2 = A^3x^4$. Thus, $g(g(x))/x^4 =
+  A^3$, and the limit is thus $A^3$.
+
+  Even more generally, if $\lim_{x \to 0} g(x)/x^n = A$, then $\lim_{x
+  \to 0} g(g(x))/x^{n^2} = A^{n + 1}$.
+
+  {\em Performance review}: $5$ out of $11$ got this. $3$ chose (D),
+  $2$ chose (E) $1$ chose (B).
+
+  {\em Historical note (last quarter)}: $3$ out of $12$ got this correct. $7$
+  chose (D), $1$ chose (B), $1$ chose (E).
+
+  {\em Historical note (last year)}: $4$ out of $16$ people got this
+  correct. $5$ people chose (A), $4$ people chose (B), $2$ people
+  chose (D), and $1$ person chose (E).
+
+  For the remaining questions, keep in mind that the {\em order of a
+  zero} for a function $f$ at a point $c$ in its domain (where it's
+  continuous) such that $f(c) = 0$ is defined as the lub of the set $\{
+  \beta \ge 0 \mid \lim_{x \to c} |f(x)|/|x - c|^\beta = 0 \}$.
+
+  If $f$ is an infinitely differentiable function at $c$, then the
+  order, if finite, must be a positive integer. If the order is a
+  positive integer $r$, then the first $r - 1$ derivatives of $f$ at
+  $c$ equal zero and the $r^{th}$ derivative at $c$ is nonzero
+  (assuming $f$ to be infinitely differentiable).
+
+  For convenience, we take $c = 0$ in the next three questions, i.e.,
+  all limits are being taken as $x \to 0$.
+
+\item If $f$ has a zero of order $2$ and $g$ has a zero of order $3$
+  at the point $0$, what is the order of zero for the pointwise sum $f
+  + g$ at zero?  (Example: $f(x) = \sin^2x$ and $g(x) = \ln(1 +
+  x^3)$).
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $5$
+  \item $6$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The general rule is that when $f$ and $g$ both
+  have zeros of {\em different} orders at a point, the order of zero
+  of their sum is the minimum of the orders of zeros for the individual
+  functions. We can interpret this result in terms of the limit
+  definitions, or in terms of what's the first iterated derivative to
+  take a nonzero value.
+
+  {\em Performance review}: $6$ out of $11$ got this. $4$ chose (C),
+  $1$ chose (A).
+\item If $f$ has a zero of order $2$ and $g$ has a zero of order $3$
+  at the point $0$, what is the order of zero for the pointwise
+  product $fg$ at zero?  (Example: $f(x) = \sin^2x$ and $g(x) = \ln(1
+  + x^3)$).
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $5$
+  \item $6$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: The order of zero for a product of two function
+  is the sum of the orders of zeros for the two functions. This can be
+  seen by thinking of the limit definition of order of zero.
+
+  {\em Performance review}: $8$ out of $11$ got this. $2$ chose (E),
+  $1$ chose (C).
+\item If $f$ has a zero of order $2$ and $g$ has a zero of order $3$
+  at the point $0$, what is the order of zero for the composite
+  function $f \circ g$ at zero?  (Example: $f(x) = \sin^2x$ and $g(x) =
+  \ln(1 + x^3)$).
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $5$
+  \item $6$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Roughly speaking, the order of zero of the
+  composite function is the product of the orders of zeros. This is
+  valid when $c = 0$, i.e., we are taking the order of zero at
+  zero. Otherwise, the statement needs to be modified somewhat.
+
+  {\em Performance review}: $9$ out of $11$ got this. $1$ each chose
+  (C) and (D).
+\item The L'Hopital rule can be related with order of zero in the
+  following manner: Every time the rule is applied to a $(\to 0)/(\to
+  0)$ form, the order of zero of the numerator and denominator go {\em
+    down by one}. Repeated application hopefully yields a situation
+  where either the numerator or the denominator has a nonzero value.
+
+  Assume that we start with a limit $\lim_{x \to c} f(x)/g(x)$ where
+  both $f$ and $g$ are infinitely differentiable at $c$, and further,
+  that $f(c) = g(c) = 0$. If the order of zero of $f$ is $d_f$ and the
+  order of zero of $g$ is $d_g$, which of the
+  following is true?
+
+  \begin{enumerate}[(A)]
+  \item If $d_f = d_g$, then we need to apply the LH rule $d_f$ times
+    and we will then get a nonzero numerator and nonzero denominator,
+    that we can evaluate to get the limit. If $d_f < d_g$, then we
+    apply the LH rule $d_f$ times to get a nonzero numerator and zero
+    denominator, so the limit is undefined. If $d_g < d_f$, then we
+    apply the LH rule $d_g$ times to get a zero numerator and nonzero
+    denominator, so the limit is zero.
+  \item If $d_f = d_g$, then we need to apply the LH rule $d_f$ times
+    and we will then get a nonzero numerator and nonzero denominator,
+    that we can evaluate to get the limit. If $d_f < d_g$, then we
+    apply the LH rule $d_f$ times to get a zero numerator and nonzero
+    denominator, so the limit is undefined. If $d_g < d_f$, then we
+    apply the LH rule $d_g$ times to get a nonzero numerator and zero
+    denominator, so the limit is zero.
+  \item If $d_f = d_g$, then we need to apply the LH rule $d_f$ times
+    and we will then get a nonzero numerator and nonzero denominator,
+    that we can evaluate to get the limit. If $d_f < d_g$, then we
+    apply the LH rule $d_f$ times to get a nonzero numerator and zero
+    denominator, so the limit is zero. If $d_g < d_f$, then we
+    apply the LH rule $d_g$ times to get a zero numerator and nonzero
+    denominator, so the limit is undefined.
+  \item If $d_f = d_g$, then we need to apply the LH rule $d_f$ times
+    and we will then get a nonzero numerator and nonzero denominator,
+    that we can evaluate to get the limit. If $d_f < d_g$, then we
+    apply the LH rule $d_f$ times to get a zero numerator and nonzero
+    denominator, so the limit is zero. If $d_g < d_f$, then we
+    apply the LH rule $d_g$ times to get a nonzero numerator and zero
+    denominator, so the limit is undefined.
+  \item In all cases, we perform the LH rule $\min \{ d_f, d_g \}$
+    times and obtain a nonzero numerator and nonzero denominator.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Each time the LH rule is applied, the order of
+  zero on the numerator goes down by one and the order of zero on the
+  denominator goes down by one. Thus, we need to perform the LH rule
+  $\min \{ d_f, d_g \}$ times to reach a situation where either the
+  numerator or the denominator gets a zero order of zero, which means
+  (from the information we have) that it evaluates to something
+  nonzero.
+
+  If $d_f = d_g$, then applying the LH rule $d_f$ times yields a
+  situation where both the numerator and denominator become nonzero.
+
+  If $d_f < d_g$ then we need to apply the LH rule $d_f$ times. The
+  denominator in this case still has a zero of order $d_g - d_f$,
+  hence evaluates to zero. The numerator has a zero of order zero,
+  i.e., it evaluates to something nonzero. The (nonzero)/(zero) form means that the limit is undefined.
+
+  If $d_g < d_f$, then we need to apply the LH rule $d_g$ times. The
+  numerator in this case still has a zero of order $d_f - d_g$, so is
+  zero, whereas the denominator is nonzero. The (zero)/(nonzero) form
+  means that the limit is zero.
+
+  {\em Performance review}: $7$ out of $11$ got this. $3$ chose (D),
+  $1$ chose (B).
+\end{enumerate}
+\end{document}

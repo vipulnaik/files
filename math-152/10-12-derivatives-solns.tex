@@ -1,0 +1,207 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: October 12: Derivatives}
+\author{Math 152, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$12$ people took this quiz. The score distribution is as follows:
+
+\begin{itemize}
+\item Score of $1$: $6$ people.
+\item Score of $2$: $5$ people.
+\item Score of $3$: $1$ person.
+\end{itemize}
+
+The mean score was $1.58$.
+
+Here are the problem-wise answers and scores:
+
+\begin{enumerate}
+\item Option (C): $0$ people
+\item Option (A): $4$ people
+\item Option (E): $12$ people. {\em Everybody got this correct!}
+\item Option (C): $3$ people
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+
+\item (**) Suppose $f$ is a differentiable function on $\R$. Which of
+  the following implications is {\bf false}?
+
+  \begin{enumerate}[(A)]
+  \item If $f$ is even, then $f'$ is odd.
+  \item If $f$ is odd, then $f'$ is even.
+  \item If $f'$ is even, then $f$ is odd.
+  \item If $f'$ is odd, then $f$ is even.
+  \item None of the above, i.e., they are all true.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The function $f(x) := 3x + 1$ has derivative
+  $f'(x) = 3$, which is even, but the original function $f$ is not
+  odd.
+
+  The key idea is that being an odd function has an additional
+  condition, namely, that $f(0) = 0$, and the derivative provides no
+  control over the value at a point, because we ca nadd a constant to
+  a function and still retain the same derivative.
+
+  {\em Performance review}: {\em Nobody} got this correct. $7$ chose
+  (E), $3$ chose (A), $1$ chose (B), $1$ chose (D).
+
+  {\em Historical note (last year)}: {\em Nobody} got this correct. $11$
+  people chose (E), $2$ people chose (A), and $1$ person chose (D).
+
+  {\em Action point}: This is a tricky problem. The reason why you
+  were all led astray is that you were simply using examples, but did
+  not have a wide enough repertoire of examples. You needed to think
+  of examples of functions $f$ where $f(0) \ne 0$ -- examples as given
+  above. Alternatively, you can try to do the theoretical derivation
+  and stumble on the key insight that way.
+
+  The problem will probably become easier to think about when we reach
+  indefinite integration.
+
+\item (*) A function $f$ on $\R$ is said to satisfy the {\em intermediate
+  value property} if, for any $a < b \in \R$, and any $d$ between
+  $f(a)$ and $f(b)$, there exists $c \in [a,b]$ such that $f(c) =
+  d$. Which (one or more) of the following functions satisfies the
+  intermediate value property?
+
+  \begin{enumerate}[(A)]
+
+  \item $f(x) := \lbrace\begin{array}{rl} \sin(1/x), & x \ne 0\\ 0, & x = 0 \\\end{array}$
+  \item $f(x) := \lbrace\begin{array}{rl} 1, & x \text{ rational} \\0, & x \text{ irrational}\\\end{array}$
+  \item $f(x) := \lbrace\begin{array}{rl} x, & x \text{ rational} \\0, & x \text{ irrational}\\\end{array}$
+  \item All of the above
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: The crucial thing we use is that the range of $f$
+  is $[-1,1]$, and it takes all values in the range on any nonempty
+  open interval. From this, it is easy to see that $f$ satisfies the
+  intermediate value property.
+
+  {\em The other choices}:
+
+  Option (B): This is not correct. The function takes the values $0$
+  and $1$ only. In particular, it does not take any of the
+  intermediate values between $0$ and $1$.
+
+  Option (C): This is not correct. For instance, suppose $a =
+  \sqrt{2}$ and $b = 1.44$. Then $f(a) = 0$ and $f(b) = 1.44$. The
+  value $0.264$ lies between $f(a)$ and $f(b)$. But there is nothing
+  between $a$ and $b$ to which applying $f$ gives $0.264$.
+
+  {\em Remark}: The intermediate value theorem can be interpreted as
+  the statement that any continuous function (on an interval)
+  satisfies the intermediate value property. The example (A), however,
+  illustrates that the converse to the intermediate value theorem does
+  not hold, i.e., that there are functions that satisfy the
+  intermediate value property but are not continuous.
+
+  {\em Performance review}: $4$ out of $12$ people got this
+  correct. $4$ chose (D), $3$ chose (E), $1$ chose (C).
+
+  {\em Historical note (last year)}: $7$ out of $14$ people got this
+  correct. $4$ people chose (D) and $3$ people chose (E). It is likely
+  that the people who chose (D) first tried and found that (A) works,
+  and assumed (incorrectly) that the other options work similarly.
+
+\item Which (one or more) of the following functions have a period of
+  $\pi$?
+
+  \begin{enumerate}[(A)]
+  \item $x \mapsto \sin^2 x$
+  \item $x \mapsto |\sin x|$
+  \item $x \mapsto \cos^2 x$
+  \item $x \mapsto |\cos x|$
+  \item All of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: We have $\sin(x + \pi) = -\sin x$ and $\cos(x +
+  \pi) = \cos x$. Thus, when we square or take the absolute value, we
+  see that the function value repeats after an interval of $\pi$. It
+  is also clear from the graph or by inspection that no smaller thing
+  works as the period.
+
+  {\em Performance review}: {\em Everybody} got this correct.
+
+  {\em Historical note (last year)}: $12$ out of $14$ people got this
+  correct. $1$ person chose (B) and (D) and $1$ person chose (A).
+
+\item Suppose $f$ is a function defined on all of $\R$ such that $f'$
+  is a periodic function defined on all of $\R$. What can we conclude
+  is {\bf definitely true} about $f$?
+
+  \begin{enumerate}[(A)]
+
+  \item $f$ must be a linear function.
+  \item $f$ must be a periodic function.
+  \item $f$ can be expressed as the sum of a linear and a periodic
+    function, but $f$ need not be either linear or periodic.
+  \item $f$ can be expressed as the product of a linear and periodic
+    function, but $f$ need not be either linear or periodic.
+  \item $f$ can be expressed as a composite of a linear and a periodic
+    function, but $f$ need not be either linear or periodic.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The function $x + \sin x$ provides an example for
+  option (C) that does not satisfy any of the descriptions of the
+  other options. Thus, by eliminating other choices, we see that (C)
+  is correct. A more formal explanation of why (C) works will have to
+  wait till we reach the material leading up to indefinite
+  integration.
+
+  {\em Remark}: Graphically, a sum of a linear function and a periodic
+  function has a graph that repeats itself, but shifted over both
+  vertically and horizontally. We'll talk quite a bit about such
+  functions when we study graphing techniques. Another way of thinking
+  of it is that the linear function represents the {\em secular trend}
+  and the periodic function represents the {\em seasonal
+  variation}. For instance, a graph of the daily sales revenue at a
+  supermarket will have a secular trend (increasing, if the
+  supermarket and its customer base are expanding over time, and
+  decreasing if the customer base is shrinking) and a seasonal
+  variation (spikes during Black Friday and Christmas season, lows at
+  some times of the year). If the secular trend is linear, and the
+  secular and seasonal trend interact additively, then the sales
+  revenues are approximately represented as the sum of a linear and a
+  periodic function. If they interact multiplicatively, then the sales
+  revenues are approximately represented as the product of a linear
+  and a periodic function.
+
+  {\em Performance review}: $3$ out of $12$ people got this
+  correct. $9$ chose (B).
+
+  {\em Historical note (last year)}: $8$ out of $14$ people got this
+  correct. $5$ people chose (B), and $1$ person chose (E).
+
+  {\em Action point}: It {\em is} true that if $f$ is a periodic
+  differentiable function, then $f'$ is also periodic. However, that's
+  not what the question is asking for. The question is asking for the
+  reverse: if $f'$ is a periodic function, what can we conclude about
+  $f$? Is $f$ also periodic? In fact, as the answer above makes clear,
+  it is possible for a non-periodic function to have a periodic
+  derivative.
+\end{enumerate}
+
+\end{document}

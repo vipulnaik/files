@@ -1,0 +1,125 @@
+\section{Show off your mathematical literacy!}
+
+Ideas and terminology from differential calculus have a healthy
+interaction with popular culture. In particular, the study of {\em
+trends over time} uses a lot of the terminology and notions of
+derivatives. Even though most people studying these trends don't need
+to differentiate rational functions in $15$ seconds, they do need to
+have a fairly thorough grasp of various concepts.
+
+\subsection{Exhibit one of popular culture: kinematics}
+
+For those of you who have seen some mechanics in physics, the Leibniz
+notation can be used to describe velocity, acceleration, etc. in terms
+of position for motion in one dimension.
+
+If we consider the position $x$ as a function of time $t$, then:
+
+\begin{enumerate}
+\item The velocity $v$ is defined by $v := dx/dt$. In other words, the
+  velocity $v$ at time $t_0$ is $\frac{dx}{dt}|_{t = t_0}$. The
+  magnitude of $v$ is sometimes called the {\em speed}.
+\item The acceleration $a$ is given by $a := dv/dt$. Thus, $a =
+  d^2x/dt^2$.
+\end{enumerate}
+
+If you have driven or seen driven a car, you may have noticed that
+there's an {\em accelerator} pedal. Pressing the accelerator pedal
+basically accelerates, or increases the speed (I'll assume you're
+going in the forward direction). If you leave the accelerator pedal,
+then your car will not be accelerating, which means it will go at a
+constant speed. Actually, what happens is that due to what's called
+rolling resistance or rolling friction, your car will actually have
+negative acceleration and will stop after some time.
+
+Now, you may ask -- {\em how does the acceleration change with time}?
+If you start out from a car at rest, that's not moving, acceleration
+till you press the pedal is zero. If you press the accelerator pedal
+sudddenly, the car {\em jerks} forward, which is bad, so you probably
+press the accelerator pedal gradually. So, you might be interested in
+$da/dt$ -- how your acceleration changes with time. This is the {\em
+third derivative} $d^3x/dt^3$, and is called the {\em jerk}.
+
+Now, here are some points worth noting:
+
+\begin{enumerate}
+\item Position $x$ being continuous in $t$ simply means that the car
+  does not teleport from one point to another. This is expected.
+\item Velocity $v$ being continuous in $t$ means that the car does not
+  {\em suddenly} brake or start moving. In particular, the velocity,
+  when changing, must go through all intermediate values. You cannot
+  go from a speed of $5$ to a speed of $50$ without going through all
+  intermediate speeds. This need not always be true, but it should be
+  true for good driving.
+\item Acceleration being continuous in $t$ means that you change speed
+  very gradually and smoothly.
+\end{enumerate}
+
+Basically, we see that making higher derivatives exist and be
+continuous in $t$ corresponds to having a progressively smoother ride.
+
+\subsection{Instantaneous rules: what do they mean in science?}
+
+There are two broad kinds of mathematical laws and rules you're like
+to see inthe physical sciences:
+
+\begin{itemize}
+\item Laws that operate at an instantaneous level, i.e., they relate
+  various quantities that all operate at an instant or point in
+  time. For instance, Newton's second law relates the instantaneous
+  force at a point in time to the acceleration at that same point in
+  time. These laws typically involve derivatives.
+\item Laws that operate across a time interval. These are usually
+  conservation laws, which state something like: the total energy in
+  the system remains the same over a time interval, or the loss in
+  total energy over a time interval equals the net energy exchanged
+  with the environment, and so on.
+\end{itemize}
+
+These two kinds of laws are typically related in the following way:
+for every law that operates across a time interval, there is a
+corresponding instantaneous law that is obtained by differentiating
+the relevant quantities with respect to time. For instance, Newton's
+laws are the instantaneous counterparts (and hence obtained by
+differentiation) of the conservation of momentum and momentum-impulse
+laws.
+
+Conversely, the laws over a time interval are obtained by a process
+called (definite) integration from the instantaneous laws. Integration
+is the reverse of differentiation.
+
+It's a moot point whether instantaneous laws or laws operating over
+time intervals (i.e., conservation laws) are more fundamental. In many
+cases, both formulations are roughly. For less fundamental physics and
+chemistry laws, however, the instantaneous version of the law is more
+basic and fundamental than the version of the law that operates across
+a time interval. We turn to some examples of this in the next
+subsection.
+
+\subsection{Exhibit two from popular culture: kinetics}
+
+A chemical reaction takes some input chemicals (called reactants) and
+gives some output chemicals (called products). A typical chemical
+reaction may look like:
+
+$$A + B \to C + D$$
+
+where $A$ and $B$ are reactants and $C$ and $D$ are products. The
+number of reactants and products may vary, and we may put nonnegative
+integer coefficients to balance the reaction equation stoichiometrically.
+
+Assuming that the reaction occurs in the forward direction, the
+quantity of $A$ (which is typically measured using concentration when
+the reaction is in an aqueous or other liquid solution) decreases with
+time. In fact, the quantity of each reactant decreases with time. The
+rate of change of the concentration of $A$ is written as $d[A]/dt$,
+and this is negative. On the other hand, $d[C]/dt$ is positive.
+
+Kinetics is the branch of chemistry that tries to express these rates
+$d[A]/dt$, $d[B]/dt$, etc. as functions of $t$. An unholy alliance
+between kinetics and the theory of integration/differential equations
+(depending on the complexity of the situation) then allows us to
+predict what happens to the concentrations of the reactants and
+products over time.
+
+\subsection{Exhibit three from popular culture: supply and demand}

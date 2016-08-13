@@ -1,0 +1,468 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz: due Monday December 2: Similarity of linear transformations (applied)}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+Your name (print clearly in capital letters): $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+This quiz corresponds to material discussed in the lecture notes
+titled {\tt Coordinates}. It also corresponds to Section 3.4 of the
+text.
+
+Recall that $n \times n$ matrices $A$ and $B$ are termed {\em similar}
+if there exists an invertible $n \times n$ matrix $S$ such that $A =
+SBS^{-1}$. The relation of matrices being similar is an {\em
+  equivalence relation}.
+
+Recall that $n \times n$ matrices $A$ and $B$ are termed {\em
+  quasi-similar} if there exist $n \times n$ matrices $C$ and $D$ such
+that $A = CD$ and $B = DC$. Recall that similar matrices are always
+quasi-similar, but quasi-similar matrices need not be
+similar. However, for {\em invertible} matrices, similarity and
+quasi-similarity are equivalent.
+
+Also, note that if $A$ and $B$ are quasi-similar matrices, then $A$
+and $B$ have the same trace. However, the converse is not true: it is
+possible to have two matrices $A$ and $B$ that have the same trace but
+are not quasi-similar.
+
+For these questions, assume $n > 1$, because a lot of phenomena are
+much simpler in the case $n = 1$ and you may be misled if you look
+only at that case.
+
+Note also that the trace of a square matrix is defined as the sum of
+its diagonal entries.
+
+The {\em determinant} of a $2 \times 2$ matrix, denoted $\det$, is
+defined as follows:
+
+$$\det \left[\begin{matrix} a & b \\ c & d \\\end{matrix}\right] = ad - bc$$
+
+The following are some important facts about the determinant:
+
+\begin{itemize}
+\item The determinant of a $2 \times 2$ diagonal matrix is the product
+  of the diagonal entries.
+\item The determinant of a $2 \times 2$ matrix is zero if and only
+  if the matrix is non-invertible.
+\item The determinant of the product of two $2 \times 2$ matrices is
+  the product of the determinants.
+\item The determinant of the inverse of an invertible $2 \times 2$
+  matrix is the reciprocal of the determinant.
+\item If $A$ and $B$ are similar $2 \times 2$ matrices, they have
+  the same determinant.
+\item If $A$ and $B$ are quasi-similar $2 \times 2$ matrices, they
+  have the same determinant.
+\item If the determinant of $A$ is positive, then the linear
+  transformation given by $A$ is an orientation-preserving linear
+  automorphism of $\R^2$.
+\item If the determinant of $A$ is negative, then the linear
+  transformation given by $A$ is an orientation-reversing linear
+  automorphism of $\R^2$.
+\end{itemize}
+
+
+\begin{enumerate}
+
+\item Suppose $A$ and $B$ are both $n \times n$ matrices (but they are
+  not given to be similar). Denote by $I_n$ the $n \times n$ identity
+  matrix. Which of the following holds?
+
+  \begin{enumerate}[(A)]
+  \item $A$ is similar to $B$ if and only if $A - I_n$ is similar to
+    $B - I_n$.
+  \item If $A$ is similar to $B$, then $A - I_n$ is similar to $B -
+    I_n$. However, $A - I_n$ being similar to $B - I_n$ does not imply
+    that $A$ is similar to $B$.
+  \item If $A - I_n$ is similar to $B - I_n$, then $A$ is similar to
+    $B$. However, $A$ being similar to $B$ does not imply that $A -
+    I_n$ is similar to $B - I_n$.
+  \item $A$ being similar to $B$ does not imply that $A - I_n$ is
+    similar to $B - I_n$. Also, $A - I_n$ being similar to $B - I_n$
+    does not imply that $A$ is similar to $B$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+  Suppose $f$ is a polynomial of degree $r$ in one variable with real
+  coefficients. For a $n \times n$ matrix $X$, we denote by $f(X)$ we
+  mean the matrix we get by applying the polynomial to $f$, where
+  constant terms are interpreted as scalar matrices. For instance, if
+  $f(x) = x^2 + 3x + 5$, then $f(X) = X^2 + 3X + 5I_n$.
+
+\item Suppose $A$ and $B$ are both $n \times n$ matrices (but they are
+  not given to be similar). Suppose $f$ is a polynomial of degree $r$
+  in one variable, where $r \ge 2$. Which of the following holds?
+
+  \begin{enumerate}[(A)]
+  \item $A$ is similar to $B$ if and only if $f(A)$ is similar to
+    $f(B)$.
+  \item If $A$ is similar to $B$, then $f(A)$ is similar to
+    $f(B)$. However, $f(A)$ being similar to $f(B)$ does not
+    imply that $A$ is similar to $B$.
+  \item If $f(A)$ is similar to $f(B)$, then $A$ is similar to
+    $B$. However, $A$ being similar to $B$ does not imply that $f(A)$
+    is similar to $f(B)$.
+  \item $A$ being similar to $B$ does not imply that $f(A)$ is
+    similar to $f(B)$. Also, $f(A)$ being similar to $f(B)$
+    does not imply that $A$ is similar to $B$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $A$ and $B$ are both $n \times n$ matrices (but they are
+  not given to be similar). Suppose $f$ is a polynomial of degree $r$
+  in one variable, where $r = 1$. Which of the following holds?
+
+  \begin{enumerate}[(A)]
+  \item $A$ is similar to $B$ if and only if $f(A)$ is similar to
+    $f(B)$.
+  \item If $A$ is similar to $B$, then $f(A)$ is similar to
+    $f(B)$. However, $f(A)$ being similar to $f(B)$ does not
+    imply that $A$ is similar to $B$.
+  \item If $f(A)$ is similar to $f(B)$, then $A$ is similar to
+    $B$. However, $A$ being similar to $B$ does not imply that $f(A)$
+    is similar to $f(B)$.
+  \item $A$ being similar to $B$ does not imply that $f(A)$ is
+    similar to $f(B)$. Also, $f(A)$ being similar to $f(B)$
+    does not imply that $A$ is similar to $B$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+Suppose $p$ and $q$ are real numbers (possibly equal, possibly distinct). The diagonal matrices:
+
+$$A = \left[\begin{matrix} p & 0 \\ 0 & q \\\end{matrix}\right]$$
+
+and
+
+$$B = \left[\begin{matrix} q & 0 \\ 0 & p \\\end{matrix}\right]$$
+
+are similar. Explicitly, the two matrices are similar under the
+change-of-basis transformation that interchanges the coordinates,
+i.e., if we set:
+
+$$S = \left[\begin{matrix} 0 & 1 \\ 1 & 0 \\\end{matrix}\right]$$
+
+then:
+
+$$S = S^{-1}$$
+
+and we have:
+
+$$B = S^{-1}AS$$
+
+Moreover, the only diagonal matrices similar to $A$ are $A$ and $B$
+(in the special case that $p = q$, we get $A = B$ is a scalar matrix,
+so $A$ is the only diagonal matrix similar to $A$).
+
+\item What is the necessary and sufficient condition on $p$ and $q$
+  such that the matrix $A = \left[\begin{matrix} p & 0 \\ 0 & q
+      \\\end{matrix}\right]$ is similar to $-A$?
+
+  \begin{enumerate}[(A)]
+  \item $p = q$
+  \item $p = -q$
+  \item $p = 1/q$
+  \item $p = -1/q$
+  \item $p + q = 1$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Which of the following is a necessary and sufficient condition
+  on $p$ and $q$ so that the matrix $A = \left[\begin{matrix} p & 0
+      \\ 0 & q \\\end{matrix}\right]$ is invertible and similar to
+  $-A^{-1}$?
+
+  \begin{enumerate}[(A)]
+  \item $p = q$
+  \item $p = -q$
+  \item $p = 1/q$
+  \item $p = -1/q$
+  \item $p + q = 1$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.5in}
+
+  Consider the matrix:
+
+  $$S = \left[\begin{matrix} 0 & 1 \\ 1 & 0 \\\end{matrix}\right]$$
+
+  used above. We have $S = S^{-1}$. For a general matrix:
+
+  $$A = \left[\begin{matrix} a & b \\ c & d \\\end{matrix}\right]$$
+
+  we have:
+
+  $$S^{-1}AS = \left[\begin{matrix} d & c \\ b & a \\\end{matrix}\right]$$
+
+  In other words, it swaps the rows {\em and} swaps the columns. This
+  observation may be useful for some of the following questions.
+
+\item For an angle $\theta$ with $-\pi \le \theta \le \pi$, the rotation
+  matrix for $\theta$ is given as:
+
+  $$R(\theta) = \left[\begin{matrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \\\end{matrix}\right]$$
+
+  Note that $R(-\pi) = R(\pi)$, but other than that equality, all the
+  $R(\theta)$s are distinct.
+
+  Which of these describes the relation between the rotation matrices
+  for different values of $\theta$?
+
+  \begin{enumerate}[(A)]
+  \item All the rotation matrices $R(\theta)$, $-\pi < \theta \le
+    \pi$, are similar to each other.
+  \item The rotation matrix $R(\theta)$ is similar to itself and to
+    the rotation matrix $R(-\theta)$. However, it is not in general
+    similar to any other rotation matrix.
+  \item No two different rotation matrices are similar.
+  \item The rotation matrix $R(\theta)$ is similar to itself and to
+    the rotation matrix $R(\pi -\theta)$ (or $R(-\pi - \theta)$,
+    depending on which of the two angles lies within the specified
+    range). However, it is not in general similar to any other
+    rotation matrix.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Consider the linear automorphisms of $\R^2$ that are given as
+  {\em reflections} about lines in $\R^2$ through the origin. (Note
+  that we need the line of reflection to pass through the origin for
+  the automorphism to be {\em linear} rather than merely being {\em
+    affine linear}). Which of these describes the relation between
+  reflection matrices for different possible lines of reflection
+  through the origin?
+
+  \begin{enumerate}[(A)]
+  \item All the reflection matrices are similar to each other.
+  \item No two reflection matrices for different lines of reflection are similar.
+  \item The reflection matrices for two different lines of reflection
+    are similar if and only if the lines of reflection are
+    perpendicular.
+  \item The reflection matrices for two different lines of reflection
+    are similar if and only if the lines are reflection make an angle
+    that is a rational multiple of $\pi$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $m$ and $n$ are positive integers with $m < n$. Denote
+  by $P_m$ the ``orthogonal projection onto the first $m$
+  coordinates'' linear transformation from $\R^n$ to $\R^n$, defined
+  as follows. This takes as input a $n$-dimensional vector, sends
+  each of the first $m$ coordinates to itself, and sends the remaining
+  coordinates to zero. What is the trace of the matrix of $P_m$?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $m$
+  \item $n$
+  \item $n - m$
+  \item $m - n$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item It is a fact that if $A,B$ are $n \times n$ matrices that
+  describe orthogonal projections onto (possibly different)
+  $m$-dimensional subspaces of $\R^n$, then $A$ and $B$ are
+  similar. What can we say must be the trace of an orthogonal
+  projection onto any $m$-dimensional subspace of $\R^n$?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $m$
+  \item $n$
+  \item $n - m$
+  \item $m - n$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $A$, $B$ and $C$ are $n \times n$ matrices. Which of the
+  following matrices is {\em not} guaranteed (based on the given
+  information) to have the same trace as the product $ABC$? Please see
+  (and read carefully) Options (D) and (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $BCA$
+  \item $CBA$
+  \item $CAB$
+  \item None the above, i.e., they are all guaranteed to have the same
+    trace as $ABC$.
+  \item All of the above, i.e., none of them is guaranteed to have the
+    same trace as $ABC$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+
+\item Which of the following gives a pair of matrices $A$ and $B$ that
+  have the same trace as each other {\em and} the same determinant as
+  each other, but that are {\em not} similar to each other?
+
+  \begin{enumerate}[(A)]
+  \item $A = \left[\begin{matrix} 1 & 0 \\ 0 & 2 \\\end{matrix}\right], B = \left[\begin{matrix} 2 & 0 \\ 0 & 1 \\\end{matrix}\right]$
+  \item $A = \left[\begin{matrix} 1 & 0 \\ 0 & -1 \\\end{matrix}\right], B = \left[\begin{matrix} 0 & 1 \\ 1 & 0 \\\end{matrix}\right]$
+  \item $A = \left[\begin{matrix} 1 & 0 \\ 0 & 1 \\\end{matrix}\right], B = \left[\begin{matrix} 1 & 1 \\ 0 & 1 \\\end{matrix}\right]$
+  \item $A = \left[\begin{matrix} 1 & 1 \\ 0 & 1 \\\end{matrix}\right], B = \left[\begin{matrix} 1 & 0 \\ 1 & 1 \\\end{matrix}\right]$
+  \item $A = \left[\begin{matrix} 1 & 1 \\ 0 & 1 \\\end{matrix}\right], B = \left[\begin{matrix} 1 & 2 \\ 0 & 1 \\\end{matrix}\right]$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Suppose $A$ and $B$ are $2 \times 2$ matrices. Which of the
+  following correctly describes the relation between $\det A$, $\det
+  B$, and $\det (A + B)$? Please see Option (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $\det(A + B) = \det A + \det B$
+  \item $\det(A + B) \le \det A + \det B$, but equality need not
+    necessarily hold.
+  \item $\det(A + B) \ge \det A + \det B$, but equality need not
+    necessarily hold.
+  \item $|\det(A + B)| \le |\det A| + |\det B|$, but equality need not
+    necessarily hold.
+  \item None of the above.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+  Let $n$ be a natural number greater than $1$. Suppose $f: \{
+  0,1,2,\dots,n\} \to \{ 0,1,2,\dots,n\}$ is a function satisfying $f(0)
+  = 0$. Let $T_f$ denote the linear transformation from $\R^n$ to $\R^n$
+  satisfying the following for all $i \in \{ 1,2,\dots,n\}$:
+  
+  $$T_f(\vec{e}_i) = \left \lbrace \begin{array}{rl} \vec{e}_{f(i)}, & f(i) \ne 0\\ \vec{0}, & f(i) = 0\\\end{array}\right.$$
+    
+    Let $M_f$ denote the matrix for the linear transformation $T_f$. $M_f$
+    can be described explicitly as follows: the $i^{th}$ column of $M_f$
+    is $\vec{0}$ if $f(i) = 0$ and is $\vec{e}_{f(i)}$ if $f(i) \ne 0$.
+    
+    Note that if $f,g: \{ 0,1,2,\dots,n \} \to \{ 0,1,2,\dots,n\}$ are
+    functions with $f(0)= g(0) = 0$, then $M_{f \circ g} = M_fM_g$ and
+    $T_{f \circ g} = T_f \circ T_g$.
+
+    For the following questions, the discussion prior to Question 3
+    might be helpful. Note, however, that while that discussion gives
+    one possible candidate for the matrix $S$ of the similarity
+    transformation, it is not the only possible candidate. For some
+    but not all of the following questions, in the case that two
+    matrices are similar, the matrix $S$ described there works. In the
+    case that they are not similar, the lack of similarity can be
+    inferred from the traces not being equal, or from the determinants
+    not being equal.
+    
+\item $n = 2$ for this question. For the following three functions
+  $f$, $g$, and $h$, consider the corresponding matrices
+  $M_f,M_g,M_h$. Either two of them are similar and the third is not
+  similar to either (in which case, select the matrix that is not
+  similar to the other two), or all three are similar (if so, select
+  Option (D)), or no two are similar (if so, select Option (E)).
+
+  \begin{enumerate}[(A)]
+  \item $f(0) = 0, f(1) = 1, f(2) = 0$
+  \item $g(0) = 0, g(1) = 0, g(2) = 2$
+  \item $h(0) = 0, h(1) = 1, h(2) = 1$
+  \item All the above give similar matrices.
+  \item No two of the corresponding matrices are similar.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item $n = 2$ for this question. For the following three functions
+  $f$, $g$, and $h$, consider the corresponding matrices
+  $M_f,M_g,M_h$. Either two of them are similar and the third is not
+  similar to either (in which case, select the matrix that is not
+  similar to the other two), or all three are similar (if so, select
+  Option (D)), or no two are similar (if so, select Option (E)).
+
+  \begin{enumerate}[(A)]
+  \item $f(0) = 0, f(1) = 0, f(2) = 1$
+  \item $g(0) = 0, g(1) = 2, g(2) = 0$
+  \item $h(0) = 0, h(1) = 2, h(2) = 1$
+  \item All the above give similar matrices.
+  \item No two of the corresponding matrices are similar.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item $n = 3$ for this question. For the following three functions
+  $f$, $g$, and $h$, consider the corresponding matrices
+  $M_f,M_g,M_h$. Either two of them are similar and the third is not
+  similar to either (in which case, select the matrix that is not
+  similar to the other two), or all three are similar (if so, select
+  Option (D)), or no two are similar (if so, select Option (E)).
+
+  \begin{enumerate}[(A)]
+  \item $f(0) = 0, f(1) = 2, f(2) = 1, f(3) = 3$
+  \item $g(0) = 0, g(1) = 1, g(2) = 3, g(3) = 2$
+  \item $h(0) = 0, h(1) = 3, h(2) = 2, h(3) = 1$
+  \item All the above give similar matrices.
+  \item No two of the corresponding matrices are similar.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item $n = 3$ for this question. For the following three functions
+  $f$, $g$, and $h$, consider the corresponding matrices
+  $M_f,M_g,M_h$. Either two of them are similar and the third is not
+  similar to either (in which case, select the matrix that is not
+  similar to the other two), or all three are similar (if so, select
+  Option (D)), or no two are similar (if so, select Option (E)).
+
+  \begin{enumerate}[(A)]
+  \item $f(0) = 0, f(1) = 1, f(2) = 2, f(3) = 3$
+  \item $g(0) = 0, g(1) = 2, g(2) = 3, g(3) = 1$
+  \item $h(0) = 0, h(1) = 3, h(2) = 1, h(3) = 2$
+  \item All the above give similar matrices.
+  \item No two of the corresponding matrices are similar.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+\end{enumerate}
+\end{document}

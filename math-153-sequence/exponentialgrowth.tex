@@ -1,0 +1,610 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Exponential growth and decay}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 7.6.
+
+{\bf What students should definitely get}: The definition of
+exponential growth and exponential decay, how this is used.
+
+{\bf What students should hopefully get}: The intuition of exponential
+growth and decay, how it is used in trend prediction, the discrete
+versus continuous aspects of exponential growth and decay.
+
+\section*{Note to newcomers}
+
+The lecture notes cover the material that was intended for the
+lecture, but may not correspond precisely with what is covered during
+the lecture. In some cases, the lecture notes may have more details
+about an example that was sketched quickly during lecture due to time
+constraints.
+
+Each lecture notes file begins with an ``executive summary'' which is
+a useful way of reviewing the lecture {\em after} you have already
+understood the material, and is not designed for people learning the
+material the first time.
+
+\section*{Executive summary}
+
+\subsection{Basics of exponential growth and decay}
+
+Words ...
+
+\begin{enumerate}
+\item A function $f$ is said to have exponential growth if $f'(t) =
+  kf(t)$ for all $t$. Such a function must be of the form $f(t) :=
+  Ce^{kt}$. Here, $C = f(0)$, and can be thought of as the initial
+  value. $k$ is a parameter controlling the {\em rate of growth}. When
+  $k > 0$, we have growth, and when $k < 0$, we have {\em decay}. When
+  $k = 0$, there's no growth or decay.
+\item For a function with exponential growth and growth rate $k$, the
+  time taken for the function value to multiply by a number $q > 0$
+  depends only on $q$ and $k$. Specifically, the time interval is
+  $(\ln q)/k$. In particular, for growth, the doubling time is $(\ln
+  2)/k$. Note that if $\ln q$ and $k$ have opposite signs, the time
+  taken is negative -- which means that we need to go {\em back} in
+  time to multiply by a factor of $q$.
+\item If a function takes a time interval $t_{d1}$ to multiply by a
+  factor of $q_1$ and a time interval $t_{d2}$ to multiply by a factor
+  of $q_2$, we have the relation: $\ln(q_1)/t_{d1} =
+  \ln(q_2)/t_{d2}$. Thus, given three of these quantities, we can
+  calculate the fourth.
+\item Exponential functions grow faster than all positive power
+  functions (and hence all polynomial functions) while logarithmic
+  functions grow slower than all positive power functions.
+\item Exponential functions {\em decay} slower than linear
+  functions. In other words, the time taken for the ``first'' $1/n$ of
+  a material to decay is less than the time taken for the ``second''
+  $1/n$ to decay, and so on.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item Suppose we know that $f$ is a function of the form $f(t) :=
+  Ce^{kt}$, but we do not know the values of the constants $C$ and
+  $k$. One way of determining these values is to determine the value
+  of $f$ and $f'$ at some point $t_0$. We can then get $k$ as
+  $f'(t_0)/f(t_0)$ and then solve to get $C = f(t_0)/e^{kt_0}$. This
+  type of specification is termed an {\em initial value specification}
+  and a problem with such a specification is termed an {\em initial
+  value problem}.
+\item Another way we can determine $C$ and $k$ is if we are given the
+  value of $f$ at two points $t_1$ and $t_2$. In this case, we solve
+  to obtain that $k = \frac{1}{t_2 - t_1} \ln[f(t_2)/f(t_1)]$, and we
+  can plug back to get $C = f(t_1)/e^{kt_1}$. Note that this is a
+  reformulation of the formula that the time taken to multiply by a
+  factor of $q$ is $(\ln(q))/k$. This kind of specification is
+  somewhat related to the notion of {\em boundary value
+  specification}.
+\item But in many real-world situations, we do not need to actually
+  determine the constants $C$ and $k$. Rather, we use the fact that
+  $\ln(q_1)/t_{d1} =\ln(q_2)/t_{d2}$ to compare the rates of growth in
+  two intervals.
+\item Even nicer, in many cases, we do not need to know the actual
+  values of $\ln(q_1)$ and $\ln(q_2)$, because the only thing that
+  matters is their {\em quotient} $\ln(q_2)/\ln(q_1)$, which can also
+  be viewed as the relative logarithm $\log_{q_1}(q_2)$. Thus, for
+  instance, if $q_2$ is a rational power of $q_1$, we know the
+  quotient precisely even though we may not know $\ln(q_1)$ and
+  $\ln(q_2)$. For instance, $\ln(8)/\ln(4) = 3/2$.
+\end{enumerate}
+
+\subsection{Compound interest}
+
+\begin{enumerate}
+\item Compound interest: This is written as $A(t) = A_0 e^{rt}$ where
+  $r$ is the {\em continuously compounded interest rate}, $A_0$ is the
+  initial principal or initial amount, and $A(t)$ is the amount at
+  time $t$. The corresponding differential equation is $A'(t) =
+  rA(t)$. Continuously compounded interest differs from simple interest,
+  where $A(t) = A_0(1 + rt)$ and from discretely compounded interest,
+  where the interest earned is added to the principal at periodic
+  intervals.
+\item The time taken for the amount to double under continuously
+  compounded interest with rate $r$ is $(\ln 2)/r$, which is
+  approximately $0.7/r$. When $r$ is expressed as a percentage, we
+  need to divide $70$ by that percentage to get the doubling
+  time. (Times here are typically measured in years). This is called
+  the {\em rule of 70}. {\em Note}: The rule of 70 also applies to
+  discretely compounded interest rates when $r$ is very small, but
+  that is a topic for next quarter.
+\end{enumerate}
+
+
+\subsection{Radioactive decay}
+
+\begin{enumerate}
+\item A radioactive material undergoes {\em decay}, i.e., its quantity
+  goes {\em down} with time. The constant $k$ in the expression
+  $Ce^{kt}$ is thus a negative number.
+\item The fraction that remains is $1$ minus the fraction that
+  decays. Thus, if $1/3$ of the material decays, then the relevant $q$
+  to plug into formulas is $q = 2/3$, {\em not} $1/3$.
+\item The rate of decay of radioactive materials is typically measured
+  by their half-life, which is the time taken for half the material to
+  decay and half to remain. ($1/2$ is the only number that is equal to
+  $1$ minus itself). We have the formula $k = (-\ln
+  2)/\text{half-life}$.
+\end{enumerate}
+
+\section{Discrete exponential growth}
+
+\subsection{Multiplication by division}
+
+Suppose you know that a given unicellular organism divides into two
+organisms precisely one hour after its ``birth''. This kind of
+reproduction is called {\em binary fission}, and is observed, for
+instance, in the amoeba. Suppose that, at time $0$, God (or Craig
+Venter!) creates $N$ such unicellular organisms. Then, one hour down
+the line, there will be $2N$ unicellular organisms (because each one
+splits into two at that time). One more hour down the line, there will
+be $4N$ organisms. More generally, $k$ hours from the time God/Venter
+created the first bunch of organisms, the number of organisms will be
+$2^kN$.
+
+This is a kind of exponential growth, and it is an example of {\em
+discrete} exponential growth. Incidentally, we see here that the base
+of the exponent is $2$, because the discrete action is a division into
+two organisms. Similarly, if instead we had {\em ternary fission},
+where an organism splits into three distinct organisms, the natural
+base of the exponent would be $3$.
+
+As a more complicated example, suppose, in a society, every pair of
+parents chooses to have three children and then dies. Then, with every
+passage from one generation to the next, the population increases by a
+factor of $3/2$. Thus, after $k$ generations, the new total population
+is the original population times a factor of $(3/2)^k$. \footnote{We
+are assuming here that in each generation, there is an exact balance
+between males and females, that they all get paired into couples, and
+that they are all able to fulfil their desired fertility, and that
+there are no such complications as divorces, out-of-wedlock children, etc.}
+
+The hallmark of such discrete processes, we see, is exponentiation,
+where the base of exponentiation is a positive integer or, at worst, a
+rational number (usually something simple such as $2$, $3$, or $3/2$),
+and the exponent is also a positive integer.
+
+\subsection{Approximating by continuous processes}
+
+Even though a given unicellular organism may split in two after a
+precise one hour, a huge collection of unicellular organisms may be
+increasing continuously in population. Why? Because their births may
+not all have been synchronized. Similarly, when dealing with human
+populations, even though no single woman continuously gives birth to
+children, births are happening across the world to women. There are
+multiple issues:
+
+\begin{enumerate}
+\item Lack of synchronizations of starting times.
+\item Tempo and quantity difference: Some amoeba may tend to split
+  slightly faster than others. Some women may choose to have kids
+  earlier than others, and some may choose to have more.
+\item Other factors: Some amoeba may burst and die and hence not be
+  able to undergo binary fission. Some women may die before giving
+  birth to children, or may choose not to have children, or may be
+  unable to have children.
+\end{enumerate}
+
+When all these factors are taken into account, it may turn out that
+using discrete rates and natural numbers creates a model that is too
+complicated for suitable analyses. A simple {\em continuous model} may
+thus be more tractable. Note that {\em the use of continuous models to
+track human or amoeba populations is only an approximation, and a
+shaky one}. It works only when we are working with large and uniform
+samples. But before discussing the drawbacks of continuous
+approximations, let us appreciate their virtue.
+
+\section{Continuous growth: an introduction}
+
+\subsection{Proportional growth and exponential growth}
+
+Recall that if $f(t) := Ce^{kt}$, then $f'(t) = Cke^{kt} = kf(t)$. In
+other words, the derivative of an exponential function is the
+coefficient in the exponent times the function itself. The fascinating
+thing is that the {\em converse also holds}, i.e., the only solutions
+to the functional equation $f'(t) = kf(t)$ are function of the form
+$f(t) = Ce^{kt}$. For this lecture, we use the letter $t$ for the
+domain variable because we are studying situations where the input
+parameter is a time parameter.
+
+This is an example of a {\em linear differential equation} (in fact,
+it's a very special case). We will skip over the proof for now. It is
+there in the book. In any case, we will return to this idea later in
+greater generality when covering linear differential equations. 
+
+The value $C$ can be determined as the value $f(0)$. In other words,
+given the values $f(0)$ and the factor of proportionality $k$, the
+function $f$ is uniquely determined. Specifying $f$ in such a way
+corresponds to an {\em initial value problem} -- i.e., a problem where
+a law governing the derivative is combined with the value of the
+function at one point.
+
+\subsection{Proportional growth laws}
+
+We now explore the possible justifications for proportional growth
+laws, i.e., laws where the growth rate is proportional to the current
+quantity. One justification was encountered from the discrete
+situation of reproduction rates: reproduction with a fixed number of
+offspring after a fixed time period gives discrete exponential laws,
+but various averaging effects may allow us to approximate them by
+continuous proportional growth laws. In other words, it may be
+reasonable to assume, at least in the short run, that if $P$ denotes
+the population function, then $P$ is of the form:
+
+$$P'(t) = kP(t)$$
+
+which gives:
+
+$$P(t) := P(0)e^{kt}$$
+
+where $k$ is an exogenous parameter\footnote{``exogenous'' is jargon
+for a parameter whose value is determined by things that are outside
+of the current model} that measures the ratio of the instantaneous rate
+of change in the population to the total population. Note that the
+assumption here is that $k$ itself does not change with time. Is the
+assumption reasonable?
+
+For a colony of bacteria or amoebae growing in a large and sustaining
+environment with no binding resource constraints, there may be so few
+premature deaths and so little fighting for resources that the growth
+rate remains constant even as the population grows. However, once the
+population becomes very large, and the available resources in the
+region start getting strained, the growth rate may fall -- or even
+become negative. More generally, the growth rate may be constant or
+near constant for a long time and then start a decline.
+
+In the case of humans, the greater degree of human agency and the
+existence of complex societal influences complicate matters. For
+instance, the two main factors that affect world population growth
+rates are {\em birth rates} and {\em death rates}. Within a subregion
+of the world that is not closed to the outside world, {\em migration
+rates} also play a role. Also, birth rates are determined by such
+factors as {\em desired fertility for females}, {\em proportion of the
+population comprising females of birth-giving ages}, while death rates
+are also affected by population composition, access to nutrition,
+sanitation, and health care, incidence of wars and tribal in-fighting,
+and natural disasters. All the aforementioned factors exhibit not only
+random fluctuations but systemic changes from one generation to the
+next. To take an example, until the nineteenth century, European
+nations lost significant fractions of their male populations in wars
+-- and these fractions varied from generation to generation in each
+country depending on the war/peace situation. So the idea of a
+constant $k$ is nothing more than a polite fiction.
+
+Nonetheless, one idea remains important: whatever role exogeneous
+parameters play is played out through their effect on $k$, and the
+effect is a proportional effect. If country $A$ and country $B$ are
+similar in all relevant demographic characteristics (hence have the
+same $k$) except that country $A$ has twice the population of country
+$B$, the rate of population growth in country $A$ will be twice that
+of country $B$.
+
+Exponential growth is also sometimes called {\em geometric growth}
+because if you measure population at discrete intervals and look at
+the time series, you get a {\em geometric progression}. Geometric or
+exponential growth is faster than {\em linear growth} or {\em
+arithmetic growth}, where the rate of growth is constant and does not
+depend on the current level. This is basically the fact that $e^x$
+eventually grows faster and way way faster than any linear function.
+
+Malthus was worried about the idea that population grows geometrically
+while resource supplies will grow at a linear rate (what he called
+{\em arithmetic growth}) ultimately leading to a severely
+resource-constrained world with mass starvation and the end of human
+civlization as we know it. Although Malthus's pessimistic predictions
+did not come to bear in the human realm, the interplay between the
+natural tendency for exponential growth and the finiteness of various
+kinds of resource constraints is a theme that recurs in understanding
+many ecological and biological phenomena. We may return to some of
+these topics at a later stage.
+
+\section{More arithmetic and computation with exponential growth}
+
+\subsection{Using two observations to determine growth rates}
+
+Suppose we have strong reason to believe that a particular growth is
+exponential (based on our theoretical model for how such growth
+occurs) but we do not have any theoretical way of determining the {\em
+constant of proportionality} $k$. Then, what we do is to use {\em two
+observation points}. Basically, we know that the function $f$ is of
+the form:
+
+$$f(t) := Ce^{kt}$$
+
+where both $C$ and $k$ are unknown constants. Given the value of $f$
+at two points, we can find both $C$ and $k$. Specifically, if $f(t_1)
+= a_1$ and $f(t_2) = a_2$, then:
+
+$$\frac{f(t_2)}{f(t_1)} = e^{k(t_2 - t_1)}$$
+
+Taking logarithms both sides, we obtain:
+
+$$k = \frac{1}{t_2 - t_1} \ln\left[\frac{f(t_2)}{f(t_1)}\right]$$
+
+Once we know $k$ we can determine $C$.
+
+Sometimes, there is no known reference point from which to measure
+times. In this case, we can simply pick the first observation as the
+time point $t = 0$ and measure times forward from there.
+
+\subsection{Time taken to multiply by a fixed proportion}
+
+For a growth function $f(t) := Ce^{kt}$, the time taken to multiply by
+a factor of $q$ is given by:
+
+$$\frac{\ln (q)}{k}$$
+
+This is just a reformulation of the result derived previously.
+
+In particular, the time taken to multiply by a fixed proportion is
+independent of the original value. Thus, if the quantity doubles from
+time $t = 1$ to time $t = 6$, it also doubles from time $t = 13$ to $t
+= 18$. What matters is the {\em length of time interval}. 
+
+\subsection{Exponential decay}
+
+\includegraphics[width=3in]{exponentialdecay.png}
+
+Mathematically, exponential decay is just like exponential growth. The
+main difference is that in the case of growth, the constant of
+proportionality $k$ is positive, so the function grows. With decay,
+the constant of proportionality is negative. We now call $k$ the {\em
+decay constant} and it is negative. A function undergoing exponential
+decay has the $t$-axis (what we usually call the $x$-axis, but we're
+dealing with functions of time) as a horizontal asymtptote, i.e., it
+goes to zero as $t \to \infty$.
+
+With exponential growth, the limit $\lim_{t \to \infty} f(t) =
+\infty$. In a finite resource-constrained world, exponential growth
+must stop at some stage simply because we run out of resources. With
+exponential decay, the limit is zero. Thus, exponential decay will not
+stop due to resource constraints.
+
+\subsection{Taking logarithms}
+
+A useful way of studying exponential growth with time is to plot the
+graph of the {\em logarithm} of the function in terms of time. Some observations:
+
+\begin{itemize}
+\item The logarithm of an exponential function is a linear
+  function. Specifically, the logarithm of $Ce^{kt}$ is $kt + \ln C$.
+\item In particular, the {\em slope} of the linear function thus
+  obtained is the growth rate $k$ and the {\em intercept} is the logarithm of the initial value.
+\item If $k > 0$, we have growth, which corresponds to a positive
+  slope or increasing linear function.
+\item If $k < 0$, we have decay, which corresponds to a negative slope
+  or linear decreasing function.
+\item The fact that we can use two observations to find $C$ and $k$
+  corresponds to the fact that after taking logarithms, knowing two
+  points on a line determines the line.
+\item In particular, given {\em more than two} observations, one way
+  to {\em test} whether they do fit a pattern of exponential
+  growth/decay is to take logarithms and test whether the observation
+  points thus obtained are collinear.
+\end{itemize}
+
+Some of you may recall the concept of {\em logarithmic
+differentiation}. The logarithmic derivative of a function $f$ is
+defined as the derivative of $\ln|f|$, and is also defined as:
+
+$$\frac{f'(x)}{f(x)}$$
+
+In fact, exponential growth corresponds {\em precisely} to the
+situation where the logarithmic derivative is a {\em constant
+function}, or equivalently, the derivative is {\em proportional} to
+the original function.
+
+\subsection{Comparative analysis with different growth rates}
+
+\begin{itemize}
+\item If two quantities are growing exponentially with the {\em same
+  exponential growth rate}, the quantity that starts out bigger stays
+  bigger. In fact, the ratio of the two quantities remains constant as
+  a function of time. Taking logarithms, we get a pair of parallel
+  lines. Here's how the picture looks before taking logarithms:
+
+  \includegraphics[width=3in]{samerateexpgrowth.png}
+\item If two quantities are growing exponentially, the quantity with
+  the faster growth rate, if {\em originally bigger, stays bigger},
+  and if {\em originally smaller, overtakes the other quantity just
+  once and after that stays bigger}. Below is a pictorial example
+  where they start at the same point initially and the one with the
+  faster growth rate becomes bigger:
+
+  \includegraphics[width=3in]{samestartexpgrowth.png}
+\end{itemize}
+
+\section{Real world examples}
+
+\subsection{Radioactive decay}
+
+The standard example of exponential decay is radioactive decay. With
+radioactive decay, the rate at which decay occurs is proportional to
+the amount of undecayed stuff. Here, instead of doubling, we foresee
+halving. A common measure of how quickly radioactive stuff decays is
+given by its {\em half-life}, i.e., the amount of time taken for it to
+become half of its original value. By the formula above, the half-life
+is related to $k$ by the formula:
+
+$$k = \frac{- \ln 2}{\text{Half-life}}$$
+
+Again, the amount of time taken to decay by a factor of $q$ is
+independent of the original mass.
+
+A little further note on radioactive decay. At heart, radioactive
+decay is a probabilistic process. The correct model to keep in mind
+for radioactive decay is that any given nucleus has a fixed
+probability of decaying per unit time. {\em This probability does not
+depend on the number of other nuclei or how many nuclei have decayed
+so far.} It is {\em not the case} that as less and less of the
+substance is left, individual nuclei choose to decay slower and
+slower. Rather, since the {\em number of nuclei left} is fewer, the
+overall rate of decay declines.
+
+Although radioactive decay is probabilistic, the {\em very large}
+number of nuclei in a given sample makes the macroscopic measurements
+qusai-deterministic. This is again a phenomenon that will appear
+repeatedly: {\em randomness at the individual level appears
+deterministic at the aggregate level.}
+
+\subsection{Slowing down}
+
+This is an important feature of exponential decay. With exponential
+decay, the rate of decay is proportional to the amount that is
+decaying. This exponential decay is {\em slower} than linear
+decay. Thus, the time taken for $2/3$ of a material to decay is {\em
+more than twice} the time taken for $1/3$ of the material taken to
+decay. In other words, the time taken for the first $1/3$ of the
+material to decay is less than the time taken for the next $1/3$ to
+decay, because the next $1/3$ forms a larger fraction of the material
+left over after $1/3$ has already decayed.
+
+\subsection{Dating fossils}
+
+Here, {\em dating} refers to determining how old a fossil is. The most
+common tool for dating is carbon-14 dating. The idea is as follows:
+the ratio of the unstable carbon-14 isotopes (6 protons, 8 neutrons)
+to the stable carbon-12 isotope (6 protons, 6 neutrons) in most living
+organisms is almost fixed. We assume that this ratio was the same in
+the prehistoric time when the fossil lived. After death and
+fossilization, there was no exchange of carbon with the surroundings,
+so the carbon-12 remained the same, but carbon-14 underwent
+radioactive decay, turning into the stable nitrogen-14. By determining
+the current ratio in the fossil, it is possible to determine (under
+all these assumptions) when the corresponding living organism lived.
+
+The half-life of C-14 is about 5730 years, and carbon-14 dating has
+been used to claim that some fossils are millions of years
+old.\footnote{If the Young Earth Creationist claim that the earth is
+only a few thousand years old is true, then at least one of the
+assumptions/claims made in the preceding two paragraphs must be false.}
+
+\subsection{Continuously compounded interest rate}
+
+{\em Compound interest} is a form of interest earned where past
+interest earned is added to the principal for future interest
+computations. Compound interest as given by banks is usually done on a
+discrete basis: the interest may be added to the principal every
+month, in which case we say that the interest is {\em compounded
+monthly}. Note that the same annual interest rate gives a higher {\em
+effective} annual interest rate if the compounding is done more
+frequently.
+
+For instance, an annual interest rate of 100\% compounded every six
+months effectively gives an annual interest rate of 125\%, because
+after the first six months, the principal becomes $1.5$ times its
+original value, and in the next six months, it becomes $1.5$ times
+that value again, thus becoming $2.25$ times its original value.
+
+{\em Continuously compounded interest} means that the interest is
+compounded continuously. if the interest rate is $r$ (expressed as a
+raw number, not a percentage), this means that the rate of change of
+the principal is $r$ times the principal. We thus get exponential growth:
+
+$$A = A_0e^{rt}$$
+
+where $A_0$ is the initial principal and $A$ is the total amomunt
+accumulated after time $t$.
+
+Also, note that the doubling time for continuously compounded interest
+is given by:
+
+$$\frac{\ln 2}{r} \approx \frac{0.7}{r}$$
+
+When the interest rate is expressed as a percentage, we get that the
+doubling time is $70$ divided by the interest rate. This is the famous
+rule of 70. Note that our derivation of this formula assumes {\em
+continuously compounded interest}, which is not usually the way
+interest rates are specified or calculated. To show that this formula
+is also reasonably valid for interest rates that are compounded
+annually, we need a further approximation result that we shall see
+later in the course.
+
+\subsection{Interest rates, present value, and discount rates}
+
+[May not get time to cover this in class.]
+
+When we say that ``the present value of such-and-such three years from
+now is this much'' what we mean is, roughly, that in order to have
+such-and-such three years from now, we need to invest this much. For
+instance, at an interest rate of $10\%$ per annum (compounded
+annually), the present value of 1100 dollars a year from now.
+
+The concept of present value is used in more complicated contexts as
+well. For instance, what is the present value of 1200 dollars next
+year {\em plus} 1100 dollars two years from now? With an interest rate
+of $10\%$ per annum compounded annually, the answer is 2000
+dollars. If we start with 2000 dollars, this becomes 2200 dollars
+after a year. Withdrawing 1200 of these dollars leaves 1000 dollars,
+which in turn becomes 1100 dollars the year after that. This kind of
+concept is useful if you are planning on drawing upon savings to pay
+for your living after retirement.
+
+Interest rates occur in a different guise as {\em discount rates}. For
+instance, a discount rate of $1\%$ per annum means that we value the
+same thing a year from now at only $99\%$ of how much we value it
+right now. With a discount rate of $1\%$, you would be indifferent
+between receiving a hundred dollars a year from now and $99$ dollars
+today. A discount rate is related to an interest rate, because if your
+money can earn $1\%$ interest in a year by being placed in the bank,
+then that explains your $1\%$ discount rate.\footnote{There is
+technical issue here, which is that discount rates are measured
+negatively and interest rates are measured positively. For small
+discount rates/interest rates, this is not a big issue in the discrete
+situation. In the continuous version, it is a complete non-issue. This
+subtlety will be discussed later.}
+
+The concept of discounting is also used in policy analysis. When
+comparing different ``costs'' and ``benefits'' to society that occur
+over a long period of time, it is customary to specify a discount rate
+used for making an overall judgment. A zero discount rate would mean
+that a poicy that saves one life today is no more or less preferable
+than an identical policy that saves one life five years from now. A
+higher discount rate would mean that the former policy is preferable.
+
+\subsection{Predicting the future: noise}
+
+[May not get time to cover this in class.]
+
+In situations such as radioactive decay, there are strong theoretical
+grounds for the claim that the decay is, at the macroscopic level, an
+exponential decay. The situation is less clear in other
+cases. However, in many cases, there are reasonable grounds for a
+claim that growth is approximately exponential.
+
+However, the {\em secular exponential trend} needs to often be sorted
+out from {\em periodic seasonal fluctuation} and {\em random
+fluctuation}. In the context of US retail sales, if sales at a store
+go up by a factor of $3$ from October to December, that does not mean
+that they will triple every two months to reach $729$ times their
+original volume by next October. Part of the explanation for the jump
+may be seasonal patterns in consumer shopping (spurred on by discount
+sales).
+
+There are a number of ways to tease out the secular trends from the
+seasonal trends and random fluctuations. We will not go into these in
+detail, but here are some obvious things:
+
+\begin{itemize}
+\item Compare apples to apples: Choose the same day of the week and
+  the same time of the year as far as possible. This helps overcome
+  seasonal trends.
+\item Use {\em moving averages} (for instance, average over the last
+  364 days) rather than single data points. Take the base of the
+  moving average as the ``period'' for any periodic trend, e.g., 364
+  days works well because it is almost a year and is also a multiple
+  of $7$. This handles both seasonal trend issues and random
+  fluctuations.
+\item When taking two data points to determine the rate of growth, do
+  not take points that are spaced too closely, because even a small
+  fluctuation can lead to a spurious high growth rate.
+\end{itemize}
+
+A deeper understanding of the methods used would require us to go into
+statistical methods, which we are not equipped for.
+\end{document}

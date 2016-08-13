@@ -1,0 +1,799 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Double integrals and iterated integrals}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 15.2, 15.3. {\em
+Note: We are omitting the question types from the book that require
+three-dimensional visualization, i.e., those that require sketching
+figures in three dimensions to compute volumes}.
+
+{\bf What students should definitely get}: The procedure for computing
+double integrals over rectangles using iterated integrals, the
+procedure for computing double integrals over other regions using
+iterated integrals, the idea of Fubini's theorem and its use in
+interchanging the order of integration. Use of symmetry and
+inequality-based bounding/estimation techniques.
+
+{\bf What students should hopefully get}: Relation between single and
+double integrals, dealing with piecewise cases, breaking up domain
+into smaller pieces when direct integration over entire domain is
+infeasible.
+
+{\em Note}: The lecture notes contain only a few examples. For more
+examples, please refer to worked examples in Sections 15.2 and 15.3.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item The double integral of a function $f$ of two variables, over a
+  domain $D$ in $\R^2$, is denoted $\int \int_D f(x,y) \, dA$ and
+  measures an infinite analogue of the sum of $f$-values at all points
+  in $D$.
+\item Fubini's theorem for rectangles states that if $F$ is a function
+  of two variables on a rectangle $R = [a,b] \times [p,q]$, such that
+  $F$ is continuous except possibly at the union of finitely many
+  smooth curves, then the integral equals either of these iterated
+  integrals:
+
+  $$\int \int_R F(x,y) \, dA = \int_a^b \int_p^q F(x,y) \, dy \, dx = \int_p^q \int_a^b F(x,y) \, dx \, dy$$
+
+\item For a function $f$ defined on a closed connected bounded domain
+  $D$ with a smooth boundary, we can make sense of $\int \int_D f(x,y)
+  \, dA$ as being $\int \int_R F(x,y) \, dA$ where $R$ is a
+  rectangular region containing $D$ and $F$ is a function that equals
+  $f$ on $D$ and is $0$ on the rest of $R$.
+\item Suppose $D$ is a Type I region, i.e., its intersection with
+  every vertical line is either empty or a point or a line
+  segment. Then, we can describe $D$ as $a \le x \le b$, $g_1(x) \le y
+  \le g_2(x)$, where $g_1$ and $g_2$ are continuous functions. The
+  integral $\int \int_D f(x,y) \, dA$ becomes:
+
+  $$\int_a^b \int_{g_1(x)}^{g_2(x)} f(x,y) \, dy \, dx$$
+
+\item Suppose $D$ is a Type II region, i.e., its intersection with
+  every horizontal line is either empty or a point or a line
+  segment. Then, we can describe $D$ as $p \le y \le q$, $g_1(y) \le x
+  \le g_2(y)$, where $g_1$ and $g_2$ are continuous functions. The
+  integral $\int \int_D f(x,y) \, dA$ becomes:
+
+  $$\int_p^q \int_{g_1(y)}^{g_2(y)} f(x,y) \, dx \, dy$$
+
+\item The double integral of $f + g$ over $D$ is the sum of the double
+  integral of $f$ over $D$ and the double integral of $g$ over
+  $D$. Similarly, scalars can be pulled out of double integrals.
+\item The integral of the function $1$ over a domain is the area of
+  the domain.
+\item If $f(x,y) \ge 0$ on a domain $D$, the integral of $f$ over $D$
+  is also $\ge 0$.
+\item If $f(x,y) \ge g(x,y)$ on a domain $D$, the integral of $f$ over
+  $D$ is $\ge$ the integral of $g$ over $D$.
+\item If $m \le f(x,y) \le M$ over a domain $D$, then $\int \int_D
+  f(x,y) \, dA$ is betweem $mA$ and $MA$ where $A$ is the area of $D$.
+\item If $f(x,y)$ is odd in $x$ and the domain of integration is
+  symmetric about the $y$-axis, the integral is zero. If $f(x,y)$ is
+  odd in $y$ and the domain is symmetric about the $x$-axis, the
+  integral is zero.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item To compute a double integral, compute it as an iterated
+  integral. For a rectangle, we can choose either order of
+  integration, as long as the integration is feasible. For other types
+  of regions, we need to first determine whether the region is Type I
+  or Type II, and break it up into pieces of those types.
+\item For a multiplicatively separable function over a rectangular
+  region (or for a sum of such multiplicatively separable functions),
+  things are particularly easy.
+\item Sometimes, an integral cannot be computed using a particular
+  order of integration -- we might get stuck on the inner or the outer
+  stage. However, it may be computable using the other order of
+  integration.
+\item We can often use symmetry-based techniques to argue that certain
+  parts of the integrand integrate to zero.
+\item Even in cases where the integral cannot be computed, we can
+  bound it between limits using maximum or minimum values of function
+  and/or using bigger or smaller regions on which the integral can be
+  computed.
+\end{enumerate}
+
+\section{Double integral and iterated integral}
+
+\subsection{What's a double integral?}
+
+We will study the theory of double integrals (Section 16.1 of the
+book) a little later in the course. For now, we provide an intuitive
+idea of a double integral. Suppose $f$ is a function of two variables
+$(x,y)$. The {\em double integral} of $f$ over a subset $D$ of $\R^2$
+on which $f$ is defined is the {\em total contribution} of the
+$f$-values at all points in the domain. One way of thinking of it is
+as follows: we divide $D$ up into a lot of small regions, we pick a
+point in each region, multiply the $f$-value at that point with the
+area of the region and add up. This total gives the integral of $f$
+over the region $D$.
+
+The notation for the double integral of a function $f$ over a region
+$D$ is:
+
+$$\int \int_D f(x,y) \, dA$$
+
+The $dA$ here represents an area element or area differential, and is
+the two-dimensional analogue of $dx$ in one dimension. A detailed
+exploration of the meaning is possible, but beyond our current scope.
+
+The double integral does integration over a {\em region} in the same
+way that the ordinary (single) integral does integration over an {\em
+interval}. The region over which integration is being done is termed
+the {\em region of integration} or {\em domain of integration} and the
+function being integrated is termed the {\em integrand}.
+
+For a function with nonnegative values, the double integral over a
+region can also be interpreted as a volume. We will see this
+interpretation a little later here.
+
+\subsection{Linearity}
+
+The double integral of a sum of two functions is the sum of their
+double integrals:
+
+$$\int \int_D [f(x,y) + g(x,y)] \, dA = \int \int_D f(x,y) \, dA + \int \int_D g(x,y) \, dA$$
+
+Also, scalars can be pulled out of double integrals:
+
+$$\int \int_D cf(x,y) \, dA = c \int \int_D f(x,y) \, dA$$
+
+\subsection{What's an iterated integral?}
+
+An iterated integral is an expression that involves an integral inside
+another integral (and possibly even more integrals. For instance:
+
+$$\int_a^b \left(\int_{p(x)}^{q(x)} f(x,y) \, dy\right) \, dx$$
+
+What this means is:
+
+\begin{itemize}
+\item We first compute the inner integral by integrating with respect
+  to $y$, treating $x$ as a constant. If $F(x,y)$ is an
+  antiderivative, then the definite integral is $F(x,q(x)) -
+  F(x,p(x))$.
+\item The final answer computed above now depends only on $x$, the
+  variable $y$ has been integrated over and thus discarded. We now
+  integrate this function of $x$ between the limits $a$ and $b$.
+\end{itemize}
+
+A special case of this kind of iterated integral is one where the
+limits for the inner function do not depend on the outer variable,
+i.e., an integration of the form:
+
+$$\int_a^b \left(\int_p^q F(x,y) \, dy \right) \, dx$$
+
+Note that we could also consider an iterated integral where the inner
+variable of integration is $x$ and the outer variable of integration
+is $y$.
+
+When things are reasonably clear, we can drop the parenthesization for
+iterated integrals, so the above can be written as:
+
+$$\int_a^b \int_p^q F(x,y) \, dy \, dx$$
+
+\subsection{Fubini's theorem relating double and iterated integrals on rectangles}
+
+Consider the filled rectangle $R = [a,b] \times [p,q]$ in the
+$xy$-plane. This is a rectangle with vertices $(a,p)$, $(b,p)$,
+$(a,q)$, and $(b,q)$. The region can be described as $\{ (x,y) : x \in
+[a,b], y \in [p,q] \}$. Fubini's theorem for rectangles says that if
+$F$ is a continuous function of two variables defined on this filled
+rectangle, then:
+
+$$\int \int_R F(x,y) dA = \int_a^b \int_p^q F(x,y) \, dy \, dx = \int_p^q \int_a^b F(x,y) \, dx \, dy$$
+
+In other words, the double integral equals the iterated integral
+computed in either order.
+
+The assumption of continuity can be weakened somewhat: we only need to
+assume that $f$ is bounded on $R$, and the set of points where it is
+discontinuous is contained in a union of a finite number of smooth
+curves. This generalization will help us deduce an important corollary
+for functions whose domains are not rectangular.
+
+\subsection{Intuitive explanation of Fubini's theorem}
+
+Recall that the double integral of a function $F(x,y)$ can be thought
+of as follows: $F(x,y)$ denotes the value at point $(x,y)$, and the
+double integral is the total contribution of all points. For instance,
+$F(x,y)$ could denote the pressure at the point $(x,y)$, and the
+double integral over the rectangle/region is the total force exerted
+on the region.
+
+Iterated integration serves to break this integration up by {\em
+slicing} horizontally or vertically. Let's be more specific:
+
+\begin{itemize}
+\item The iterated integral $\int_a^b \left(\int_p^q F(x,y) \,
+  dy\right) \, dx$ can be interpreted as follows: the inner integral
+  $\int_p^q F(x,y) \, dy$ is integrating {\em along a vertical slice}
+  for a fixed value of $x$ (i.e., along a line parallel to the
+  $y$-axis). The outer integral is then adding up the contributions of
+  all the vertical slices.
+\item The iterated integral $\int_p^q \left(\int_a^b F(x,y) \,
+  dx\right) \, dy$ can be interpreted as follows: the inner integral
+  $\int_a^b F(x,y) \, dx$ is integrating {\em along a horizontal
+  slice} for a fixed value of $y$ (i.e., along a line parallel to the
+  $x$-axis). The outer integral is then adding up the contributions of
+  all the horizontal slices.
+\end{itemize}
+
+That all these values are the same is some infinite version of the
+idea that addition is commutative and associative, i.e., we can
+regroup summations by collecting all things with one common coordinate
+and then adding up over that coordinate.
+
+\subsection{The special case of multiplicatively separable functions}
+
+A case worth noting is where $F(x,y)$ is of the form $F(x,y) =
+f(x)g(y)$, i.e., we can separate it as the product of a function
+purely of $x$ and a function purely of $y$.
+
+Using the notation established above, if $f$ is continuous on $[a,b]$
+and $g$ is continuous on $[p,q]$, then $F$ is continuous on $R = [a,b]
+\times [p,q]$ and:
+
+$$\int \int_R F(x,y) \, dA = \left(\int_a^b f(x) \, dx \right) \left(\int_p^q g(y) \, dy \right)$$
+
+This is a corollary of Fubini's theorem, and can be deduced by using
+either of the iterated integrals.
+
+In particular, this means that if $F$ can be written as a {\em sum} of
+multiplicatively separable functions, then its integral is a sum of
+the products of integrals of these functions. In fancy notation, if $f
+= \langle f_1, f_2, \dots, f_n \rangle$ and $g = \langle
+g_1,g_2,\dots, g_n \rangle$, with all the $f_i$s continuous on $[a,b]$
+and all the $g_i$s continuous on $[p,q]$, and if $F(x,y) =
+\sum_{i=1}^n f_i(x)g_i(y)$, then:
+
+$$\int \int_R F(x,y) \, dA = \sum_{i=1}^n \left[\left(\int_a^b f_i(x) \, dx \right) \left(\int_p^q g_i(y) \, dy \right)\right]$$
+
+Note also that when calculating the integral of a multiplicatively
+separable function, if either of the integrals of the pieces is zero,
+the other one does not need to be computed and the product is zero. We
+will see related ideas a little later when we cover symmetry.
+\subsection{A concept of antiderivative}
+
+Suppose $G$ is a function with the property that $G_{xy} = F$, i.e.,
+$F$ is the mixed second-order partial derivative of $G$. Then, the
+integral of $F$ over a rectangle $[a,b] \times [p,q]$ is:
+
+$$G(b,q) - G(a,q) - G(b,p) + G(a,p)$$
+
+Basically, the top right and bottom left values get added and the
+bottom right and top left values get subtracted.
+
+This is sort of like an antiderivative. But the approach is rarely
+used for explicit computations and we usually try to find definite
+integrals.
+\section{Double integrals over regions other than rectangles}
+
+\subsection{Defining such a double integral using a rectangle}
+
+Suppose $D$ is a closed bounded region in the plane. In
+particular, this means that $D$ can be enclosed inside a
+rectangular region. Suppose $R$ is such a rectangular region. Then, we
+define the double integral $\int \int_D f(x,y) \, dA$ as $\int
+\int_R F(x,y) \, dA$ where $F(x,y)$ is defined as:
+
+$$F(x,y) := \lbrace\begin{array}{rl} f(x,y), & (x,y) \in D\\ 0, & (x,y) \notin D \end{array}$$
+
+In other words, we integrate the function that's $f$ on $D$ and $0$
+outside. Note that $F$ need not be continuous, even if $f$ is. So, we
+might be skeptical of applying results such as Fubini's theorem to
+$F$. If, however, the boundary of $D$ is a piecewise smooth curve,
+then by the slightly more general formulation of Fubini's theorem, it
+turns out that the continuity of $f$ within $D$ allows us to apply
+Fubini's theorem to $F$. This is great news because it means that we
+can compute double integrals as iterated integrals.
+
+\subsection{Type I and Type II regions}
+
+For simplicity, we assume that the regions we are dealing with are all
+connected, closed, bounded regions and their boundary curves are
+piecewise smooth.
+
+We call a region $D$ in the $xy$-plane a {\em Type I region} if its
+intersection with every line parallel to the $y$-axis is either empty,
+or a point, or a line segment, i.e., the intersection is always
+connected. Such a region can be described as the region enclosed by
+the graphs of two continuous functions $y = g_1(x)$ and $y = g_2(x)$,
+with $g_1(x) \le g_2(x)$, for $x$ in an interval $[a,b]$. The function
+$g_2$ is simply the $y$-coordinate value of the upper endpoint of the
+line segment and the function $g_1$ is the $y$-coordinate value of the
+lower endpoint of the line segnment. In other words:
+
+$$D = \{ (x,y) : a \le x \le b, g_1(x) \le y \le g_2(x)\}$$
+
+We can compute double integrals over Type I regions using iterated
+integration. To integrate $f(x,y)$ over the Type I region of the kind
+given above:
+
+$$\int \int_D f(x,y) \, dA = \int_a^b \int_{g_1(x)}^{g_2(x)} f(x,y) \, dy \, dx$$
+
+A {\em Type II region} is a region whose intersection with every
+horizontal line is either empty or a point or a line segment. Such a
+region can be described as the region enclosed by the the graphs of
+continuous functions with $x$ expressed in terms of $y$, i.e., something of the form:
+
+$$D = \{ (x,y) : p \le y \le q, g_1(y) \le x \le g_2(y) \}$$
+
+To integrate over the Type II region of the kind given above, we can
+do the integration:
+
+$$\int \int_D f(x,y) \, dA = \int_p^q \int_{g_1(y)}^{g_2(y)} f(x,y) \, dx \, dy$$
+
+Note that both these results follow from the general version of
+Fubini's theorem for rectangles, using the trick of transitioning to
+$F(x,y)$ from $f(x,y)$.
+
+\subsection{Convex regions}
+
+A {\em convex region} is a region with the property that for any two
+points in the region, the line segment joining those two points lies
+completely inside the region. Convex regions are both Type I and Type
+II. In particular, this means we can use either of the integration
+methods to compute integrals over convex regions.
+
+Circular disks, triangular regions, and rectangular regions are all
+examples of convex regions. A heart-shaped region is {\em not} a
+convex region.
+
+\subsection{Breaking up a region into Type I and Type II regions}
+
+If a region $D$ is closed, connected, and bounded with a smooth
+bounding curve, and $f$ is a continuous function of $D$, it may still
+happen that $D$ is neither Type I nor Type II. There are still some
+ways out. The first is to partition $D$ into finitely many pieces (chambers) such
+that:
+
+\begin{itemize}
+\item Each piece is Type I or Type II
+\item The intersection of any two of the pieces is one-dimensional and
+  hence the restriction of the double integral over that intersection
+  is zero.
+\item The double integral on $D$ is now the sum of the values of
+  double integrals on each piece, and each of the individual double
+  integrals can be computed as an iterated integral by Fubini's
+  theorem.
+\end{itemize}
+
+This is a two-dimensional analogue of chopping up an interval into
+sub-intervals using a partition. Here, instead of sub-intervals, we
+use subregions.
+
+In the one-dimensional case, the slight overlap (isolated points)
+between the partitioned pieces does not result in any double-counting,
+i.e., the integral on the whole interval is the sum of the integrals
+on the parts. In the two-dimensional cases, the slight overlap at
+boundary curves (which are one-dimensional) does not result in any
+double-counting, because the boundary curves are
+infinitesimal/negligible.
+
+\section{In practice: computing iterated and double integrals}
+
+\subsection{Theory versus practice: the one-variable nightmare}
+
+Let's recall the situation in one variable first and then we'll
+discuss how the situation changes with more variables. We know that
+any continuous function in one variable is integrable. This knowledge
+does not always translate to actually being able to find expressions
+for the integrals. There are three levels of difficulty:
+
+\begin{itemize}
+\item First, there are many functions expressible in terms of
+  elementary functions but which do not have antiderivatives
+  expressible in terms of elementary functions. To give names to the
+  antiderivatives, we need to invent new branches of mathematics. For
+  instance, logarithms were invented to integrate $1/x$, and
+  trigonometry was invented to integrate $1/(x^2 + 1)$. But there's a
+  lot more work to do -- some functions slip through the cracks and
+  integrating them requires us to invent more branches of mathematics.
+
+  Examples of elementarily expressible functions that do not have
+  elementarily expressible antiderivatives are $e^{-x^2}$,
+  $\sin(x^2)$, $(\sin x)/x$, $(e^x - 1)/x$, $1/\sqrt{x^4 + 1}$, and
+  many others.
+\item Second, the procedure for integrating a function does not break
+  down into a bunch of deterministic rules. This is in sharp contrast
+  with differentiation, where if we know how to differentiate a bunch
+  of functions, we know how to differentiate all functions generated
+  from them using the processes of pointwise combination, composition,
+  inverses, and piecewise combination. For integration, all we have
+  are heuristics. Thus, even if a neat antiderivative does exist, it
+  can be hard to find.
+\item Third, even if we are able to find antiderivatives, computing
+  their values between limits can be difficult. Even to integrate a
+  rational function, we need $\ln$ and $\arctan$ and computing the
+  values of these is hard.
+\end{itemize}
+
+Each of these challenges continues to operate in many variables. With
+multiple variables, there is some further bad news and some mitigating
+good news. We turn to these.
+
+\subsection{The further bad news}
+
+The inner-most step of an iterated integral is something like:
+
+$$\int_a^b f(x,y) \, dx$$
+
+Here, we are treating $y$ as a constant temporarily while doing this
+integration. However, we cannot put an actual value on $y$ -- it's an
+{\em unknown known} for now, and in fact, when we have completed this
+integration and are willing to move on outward, it will become a
+variable again. Thus, this integration really is not integrating a
+plain vanilla function but rather trying to do a large number of
+integrations -- one for each fixed value of $y$ -- {\em
+simultaneously} by getting a generic expression.
+
+Now, it may turn out that there is no uniform general expression for
+$y$. Consider the example:
+
+$$\int_2^3 \frac{dx}{x^2 + \sin y}$$
+
+When $\sin y > 0$, the integral becomes:
+
+$$\frac{1}{\sqrt{\sin y}} \left[\arctan(x/\sqrt{\sin y})\right]_2^3$$
+
+When $\sin y = 0$, the integral becomes:
+
+$$[-1/x]_2^3 = (1/2) - (1/3) = 1/6$$
+
+When $\sin y < 0$, the integral becomes:
+
+$$\frac{1}{2\sqrt{-\sin y}}\left[\ln((x - \sqrt{-\sin y})/(x + \sqrt{-\sin y}))\right]_2^3$$
+
+So, even though the original function had a single piece description,
+the new function we get after integrating has a {\em piecewise
+description}.
+
+This will occur only rarely, and not in the routine examples that we
+will see. Also, although it complicates matters, it does not make the
+task any more impossible. To perform the outer integration for the
+resultant piecewise function, we simply break the domain (for the
+outer integration) into the various pieces and perform the integration
+separately in each piece.
+
+\subsection{More bad news for non-rectangular regions}
+
+Another piece of bad news, that applies particularly to
+non-rectangular regions, is that complications could arise not only
+from the nature of the integrand, but also from the shape of the
+region. For Type I or Type II regions, the nature of the bounding
+functions that determine how the inner variable varies in terms of the
+outer variable determine the expression to be integrated on the
+outside. Thus, even for very easy functions $f(x,y)$, the actual
+integration procedure may become difficult because of the complexity
+arising from the shape of the region.
+
+\subsection{The good news: use Fubini's to change order of integration}
+
+The good news is that sometimes, an integral is impossible to do when
+written as an iterated integral with a particular ordering of $x$ and
+$y$, but can be done if the ordering of $x$ and $y$ were
+reversed. Luckily, by Fubini's theorem, the answers have the same
+value.
+
+Let's consider a couple of examples.
+
+Our first example is the function $x^y$ on the interval $[0,1] \times
+[0,1]$. The domain is a square region with vertices $(0,0)$, $(0,1)$,
+$(1,0)$ and $(1,1)$. Note that the function is undefined at the bottom
+left vertex $(0,0)$. It takes the value $1$ on the lower edge, $0$ on
+the left edge, $1$ on the right edge, and is equal to the function $x$
+on the top edge. Note that everywhere in the square where it is
+defined, the function takes a value in $[0,1]$. We want to integrate
+it over the square.
+
+We could set up the integral as an iterated integral in either of
+these two ways:
+
+$$\int_0^1 \int_0^1 x^y \, dy \, dx, \qquad \int_0^1 \int_0^1 x^y \, dx \, dy$$
+
+Let's consider the first formulation of the integral:
+
+$$\int_0^1 \int_0^1 x^y \, dy \, dx$$
+
+The inner integral is:
+
+$$\int_0^1 x^y \, dy$$
+
+This simplifies to:
+
+$$\left[\frac{x^y}{\ln x}\right]_0^1 = \frac{x - 1}{\ln x}$$
+
+The new integral that we need to compute is thus:
+
+$$\int_0^1 \frac{x - 1}{\ln x} \, dx$$
+
+The {\em indefinite integral} of the integrand is not possible to
+compute. So we're basically stuck.
+
+On the other hand, if we use the other formulation ({\em FIXED ERROR
+  BELOW!}:
+
+$$\int_0^1 \int_0^1 x^y \, dx \, dy$$
+
+The inner integral is:
+
+$$\int_0^1 x^y \, dx$$
+
+This simplifies to:
+
+$$\left[\frac{x^{y+1}}{y + 1}\right]_0^1 = \frac{1}{y + 1}$$
+
+We can now integrate this:
+
+$$\int_0^1 \frac{1}{y + 1} \, dy = [\ln(y + 1)]_0^1 = \ln 2$$
+
+Note that in this example, integrating in the wrong order got us into
+problems at the {\em outer stage}, not at the inner stage. In some
+cases, integrating in the wrong order can prevent us from getting
+started. Here is an example:
+
+$$\int_0^1 \int_x^1 \exp(-y^2) \, dy \, dx$$
+
+This is the integral of the function $\exp(-y^2)$ over the triangular
+region for the triangle with vertices $(0,0)$, $(1,1)$, and $(0,1)$,
+i.e., the upper left half triangle in the unit square $[0,1] \times
+[0,1]$. Unfortunately, as written here, the inner integral cannot be
+computed in elementary terms.
+
+Note that the region here is both a Type I and a Type II
+region. This means that it can be sliced either vertically or
+horizontally. If we slice horizontally instead, then for any fixed
+$y$, the constraint on $x$ is $0 \le x \le y$, and we get:
+
+$$\int_0^1 \int_0^y \exp(-y^2) \, dx \, dy$$
+
+The inner integral is now:
+
+$$\int_0^y \exp(-y^2) \, dx = y\exp(-y^2)$$
+
+The outer integral now becomes:
+
+$$\int_0^1 y \exp(-y^2) \, dy = \left[\frac{-1}{2}\exp(-y^2)\right]_0^1 = \frac{1}{2}\left(1 - \frac{1}{e}\right)$$
+
+This is similar to Example 3 in the book.
+
+\subsection{Integrating polynomials}
+
+Polynomials are very easy to integrate {\em over rectangular regions}
+because every polynomial is a sum of monomials, every monomial is
+multiplicatively separable as a product of power functions, and each
+power function can be integrated.
+
+For instance, to integrate the polynomial $xy + 2x^5y^3$ over the
+interval $[1,3] \times [4,6]$, we do:
+
+$$\int_1^3 x \, dx \int_4^6 y \, dy + 2 \int_1^3 x^5 \, dx \int_4^6 y^3 \, dy$$
+
+In other words, it is a sum of products of integrals of power
+functions of one variable. The rest is just straightforward arithmetic.
+
+To integrate a polynomial over a non-rectangular region is a little
+trickier, and may not be feasible for all regions. First, note that we
+can still additively separate the polynomial as a sum of monomials, so
+it suffices to integrate each monomial, i.e., each expression of the
+form $x^ay^b$. However, because the region is no longer rectangular,
+we cannot use multiplicative separability.
+
+Here's an example. Consider integrating $x^2y^2$ on the circular disk
+$x^2 + y^2 \le 1$. This is both Type I and Type II. If we go for
+horizontal slicing, then for $x \in [-1,1]$, we have $-\sqrt{1 - x^2}
+\le y \le \sqrt{1 - x^2}$. The integral thus becomes:
+
+$$\int_{-1}^1 \int_{-\sqrt{1 - x^2}}^{\sqrt{1 - x^2}} x^2y^2 \, dy \, dx$$
+
+The inner integral becomes $x^2y^3/3$ which between limits is $2x^2(1
+- x^2)^{3/2}/3$. This needs to be integrated on $[-1,1]$. Note how,
+even though we started only with polynomials, the integrand for the
+outer integration involves fractional powers. The fractional powers
+are arising from the shape of the domain of integration.
+
+{\em It is possible to complete the question in the case of circular
+disks, but this is best done using double integrals in polar
+coordinates, covered in Section 16.4 of the book. We will, however,
+not cover this topic formally as part of the syllabus, although I will
+explain it in class and give a few examples.}
+\subsection{Integrating rational functions}
+
+We first consider integrating rational functions over rectangular
+regions. If the denominator of the rational function is of the form
+$cx^ay^b$ (i.e., it is a monomial) then the rational function is a sum
+of multiplicatively separable functions and can be integrated using the
+same idea discussed above for polynomials.
+
+More generally, if the denominator of the rational function can be
+factorized as the product of a polynomial in $x$ and a polynomial in
+$y$, we can use the multiplicatively separable approach.
+
+For instance, for the rational function:
+
+$$\frac{x^2 + y^2 - 2xy + 3}{x^2y^2 + 2x^2 + y^2 + 2}$$
+
+The denominator can be factored as $(x^2 + 1)(y^2 + 2)$ and hence the rational function can be written as:
+
+$$\frac{x^2}{x^2 + 1}\frac{1}{y^2 + 1} + \frac{1}{x^2 + 1}\frac{y^2}{y^2 + 2} - 2 \frac{x}{x^2 + 1}\frac{y}{y^2 + 2} + 3\frac{1}{x^2 + 1}\frac{1}{y^2 + 2}$$
+
+This is a multiplicatively separable form, and can be integrated over
+a rectangular region. Note: We are assuming knowledge of how to
+integrate rational functions of one variable, something you saw in one
+variable calculus.
+
+In other cases, it is not completely obvious how to do the
+integration, so we just try iterated integration and see how it works
+out. For instance, consider:
+
+$$\int_1^2 \int_1^2 \frac{1}{x + y} \, dy \, dx$$
+
+The inner integral is $\ln(x + 2) - \ln(x + 1)$. The outer integral thus becomes:
+
+$$\int_1^2 \ln(x + 2) - \ln(x + 1) \, dx$$
+
+After some integration by parts (we skip steps) this becomes:
+
+$$[(x + 2)\ln(x + 2) - (x + 1)\ln(x + 1)]_1^2 = 4\ln 4 - 3 \ln 3 - 3 \ln 3 + 2 \ln 2 = 10 \ln 2 - 6 \ln 3$$
+
+In fact, it is possible to give a sketch for why this kind of
+integration procedure will work for a wide variety of (all?) rational
+functions.
+
+\subsection{Exponential and trigonometric functions}
+
+Again, for these, one thing to look for is multiplicative
+separability, or expressibility as a sum of multiplicatively separable
+functions, and hope that each of the constituent functions of one
+variable can be integrated.
+
+Consider $f(x,y) = \sin(x + y)$. We want to calculate:
+
+$$\int_a^b \int_p^q \sin(x + y) \, dy \, dx$$
+
+We could do this directly, integrating first with respect to $y$, to
+get $-\cos(x + q) + \cos(x + p)$ and then integrating with respect to
+$x$ to get $-\sin(b + q) + \sin(a + q) + \sin(b + p) - \sin(a + p)$.
+
+Alternatively, we could rewrite $\sin (x + y) = \sin x \cos y + \cos x
+\sin y$ and integrate by additively and then multiplicatively
+splitting, to get:
+
+$$(\cos a - \cos b)(\sin q - \sin p) + (\sin b - \sin a)(\cos p - \cos q)$$
+
+It's possible to work out that both of these are the same. (Note: This
+is easier to see if we use the ``antiderivative'' concept mentioned
+earlier: the antiderivative by iterated integration is $-\sin(x + y)$
+and the antiderivative by multiplicative separation is $-\cos x \sin y
+- \sin x \cos y$ which becomes the same thing.
+
+For exponential functions, note that $\exp(f(x) + g(y)) =
+\exp(f(x))\exp(g(y))$ and is hence multiplicatively separable.
+
+
+\section{Area and volume interpretations}
+
+To make this course simpler, we will refrain from complicated volume
+computations for the surfaces that are graphs of functions, but we
+will go over the theoretical facts just in case you need them for the
+future.
+
+\subsection{Double integral equals volume}
+
+Consider a function $z = f(x,y)$ on a closed connected bounded domain
+$D$ such that $z \ge 0$ for all $(x,y) \in D$. Then, the integral
+$\int \int_D f(x,y) \, dA$ equals the volume of the region between the
+surface $z = f(x,y)$, the $xy$-plane. On the sides, this region is
+bounded by line segments joining points in the boundary of $D$ and the
+corresponding points on the graph of the surface above them.
+
+The three-dimensional region can also be described as follows: it is
+the union of all the line segments obtained by joining each point
+$(x,y,0)$ with the point $(x,y,f(x,y))$ where $(x,y) \in D$. 
+
+The fact that the double integral value equals the volume is the
+three-dimensional analogue of the fact that the single integral value
+equals the area under the graph of the function.
+
+\subsection{Interpretation of slicing and iterated integration}
+
+We can now interpret the horizontal and vertical slicing.
+
+Computing the integral along a horizontal slice, i.e., a line parallel
+to the $xy$-plane, correspondings to computing the area of the
+intersection of the region with a plane parallel to the $xz$-plane
+through that line. Specifically, computing the integral:
+
+$$\int_a^b f(x,y_0) \, dx$$
+
+means computing the area of the intersection of the region with the
+plane $y = y_0$, or equivalently, computing the area under the graph
+of the function $x \mapsto f(x,y_0)$ between $x = a$ and $x = b$.
+
+The outer part of the integration then integrates this area function
+along the other axis, to give the total volume.
+
+If we perform the integration in the other order, we are computing the
+areas of intersection with planes parallel to the $yz$-plane, and then
+integrating this area function along the $x$-axis.
+
+Note that all this fits in with the cross sectional method of
+determining volume as the integral of the areas of the cross sections
+along planes as we move along an axis perpendicular to these planes.
+
+\section{Properties of double integrals}
+
+\subsection{Inequalities that can be used for estimation}
+
+These inequalities are a lot like those of single integrals:
+
+\begin{itemize}
+\item If $f(x,y) \ge 0$ on a domain $D$, then $\int \int_D f(x,y) \,
+  dA \ge 0$.
+\item If $f(x,y) \ge g(x,y)$ on a domain $D$, then $\int \int_D f(x,y)
+  \, dA \ge \int \int_D g(x,y) \, dA$.
+\item If $D_1 \subseteq D_2$, and $f$ is a {\em nonnegative function}
+  defined on $D_2$, then $\int \int_{D_1} f(x,y) \, dA \le \int
+  \int_{D_2} f(x,y) \, dA$: This last one is important because it
+  means that to calculate integrals over an irregularly shaped region,
+  we can bound from above and below by calculating integrals over a
+  region contained inside it and over a region containing it.
+\item If $D = D_1 \cup D_2$ and $D_1 \cap D_2$ is one-dimensional,
+  then $\int \int_D f(x,y) dA = \int \int_{D_1} f(x,y) \, dA +
+  \int \int_{D_2} f(x,y) \, dA$ (this was already discussed earlier).
+\item The integral of the function $1$ over a domain $D$ is the area of $D$.
+\item If $f(x,y)$ on a domain $D$ is bounded from above and below by
+  $M$ and $m$ respectively, and $D$ has area $A$, then the integral of
+  $f(x,y)$ over $D$ is between $mA$ and $MA$.
+\end{itemize}
+
+\subsection{Symmetry-based ideas}
+
+These all build on the corresponding symmetry-based ideas for
+functions of one variable:
+
+\begin{itemize}
+\item If $f$ is odd in the variable $x$, and the domain of integration
+  is symmetric about the $y$-axis, then the integral is zero: If we do
+  integration using horizontal slices, we see that each horizontal
+  slice integrates to zero, so the overall integral is zero.
+
+  Note that for a multiplicatively separable function, what matters is
+  that the part depending on $x$ be odd, and the part depending on $y$
+  does not matter.
+\item If $f$ is odd in the variable $y$, and the domain of integration
+  is symmetric about the $x$-axis, then the integral is zero: If we do
+  integration using vertical slices, we see that each vertical slice
+  integrates to zero, so the overall integral is zero.
+
+  Note that for a multiplicatively separable function, what matters is
+  that the part depending on $y$ be odd, and the part depending on $x$
+  does not matter.
+\end{itemize}
+
+Often, a given function can be expressed as a sum of functions some of
+which are odd in $x$ or in $y$, and hence, using symmetry of domain,
+can be declared to be zero. Others may need to be computed.
+
+Consider, for instance, the case $f(x,y) = x^3y^2 + \ln(x^2 + x +
+1)\sin(y^3)$, being integrated over the circular disk $x^2 + y^2 \le
+1$. Note that $f$ as given is not odd in either variable. However, it
+is the sum of the functions $x^3y^2$ (which is odd in $x$) and
+$\ln(x^2 + x + 1)\sin(y^3)$ (which is odd in $y$). Moreover, the
+domain is symmetric about both axes. Thus, the integral for both these
+functions is zero, hence the overall integral for $f$ is zero.
+
+
+\end{document}

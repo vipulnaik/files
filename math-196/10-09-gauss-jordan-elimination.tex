@@ -1,0 +1,194 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Diagnostic in-class quiz: due Friday October 11: Gauss-Jordan elimination (originally due Wednesday October 9, but postponed)}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+Your name (print clearly in capital letters): $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+
+{\bf PLEASE DO {\em NOT} DISCUSS ANY QUESTIONS}
+
+The quiz covers basics related to Gauss-Jordan elimination (notes
+titled {\tt Gauss-Jordan elimination}, corresponding section in the
+book Section 1.2). Explicitly, the quiz covers:
+
+\begin{itemize}
+\item Setting up linear systems and interpreting the coefficient
+  matrix in terms of the setup.
+\item Knowledge of the permissible rules for manipulating linear
+  systems.
+\item Metacognition of the process of Gauss-Jordan elimination and its
+  eventual result, the reduced row-echelon form, as well as the
+  interpretation in terms of the solution set.
+\end{itemize}
+
+The questions are fairly easy questions if you understand the
+material. But it's important that you be able to answer them,
+otherwise what we study later will not make much sense.
+
+\begin{enumerate}
+\item {\em Do not discuss this!}: The row operations that we can
+  perform on the augmented matrix of a linear system include adding or
+  subtracting another row. However, they do not include multiplying
+  another row. In other words, suppose we start with:
+
+  $$\left[\begin{matrix} 1 & 2 & | & 5\\ 2 & 7 & \mid & 6 \\\end{matrix}\right]$$
+
+  What we're not allowed to do is multiply row 2 by row 1 and obtain:
+
+  $$\left[\begin{matrix} 1 & 2 & | & 5\\ 2 & 14 & \mid & 30 \\\end{matrix}\right]$$
+
+  What's the most compelling reason for our not being allowed to
+  perform this operation?
+  \begin{enumerate}[(A)]
+  \item The row operations arise from the corresponding operations on
+    equations. For the ``multiplication of rows'' operation to be
+    legitimate, it must correspond to multiplication of the
+    corresponding equations, and multiplying equations is not a
+    legitimate operation.
+  \item The row operations arise from the corresponding operations on
+    equations. However, the ``multiplication of rows'' operation does
+    not correspond to any legitimate operation on equations. Note that
+    it does not correspond to multiplying the equations, because that
+    is not how multiplication of linear polynomials work (in fact, if
+    we multiplied the equations, we would end up with an equation that
+    is not linear).
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item {\em Do not discuss this!}: Consider a model where the
+  functional form is linear in the parameters (though not necessarily
+  in the inputs). We can use (input, output) pairs to set up a system
+  of linear equations in the parameters. Given enough such equations,
+  we can determine the values of the parameters.
+
+  What is the relation between the coefficient matrix and the
+  parameters and (input, output) pairs?
+
+  \begin{enumerate}[(A)]
+  \item The columns of the coefficient matrix correspond to the
+    (input, output) pairs and the rows correspond to the parameters.
+  \item The rows of the coefficient matrix correspond to the
+    (input, output) pairs and the columns correspond to the parameters.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item {\em Do not discuss this!}: Consider a model where the
+  functional form is linear in the parameters (though not necessarily
+  in the inputs). We can use (input, output) pairs to set up a system
+  of linear equations in the parameters. Given enough such equations,
+  we can determine the values of the parameters.
+
+  What is the relation between the inputs, the outputs, the
+  coefficient matrix, and the augmenting column?
+
+  \begin{enumerate}[(A)]
+  \item The inputs correspond to the coefficient matrix and the
+    outputs correspond to the augmenting column. In other words,
+    knowing the values of the inputs allows us to write down the
+    coefficient matrix. Knowing the values of the outputs allows us to
+    write down the augmenting column.
+  \item The outputs correspond to the coefficient matrix and the
+    inputs correspond to the augment column. In other words, knowing
+    the values of the outputs allows us to write down the coefficient
+    matrix. Knowing the values of the inputs allows us to write down
+    the augmenting column.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item {\em Do not discuss this!}: Consider the following rule to check
+  for consistency using the augmented matrix: the system is
+  inconsistent if and only if there is a zero row of the coefficient
+  matrix with a nonzero value for that row in the augmenting
+  column. In what sense does this rule work?
+
+  \begin{enumerate}[(A)]
+  \item The rule can be applied to the augmented matrix directly in
+    both the {\em if} and the {\em only if} direction.
+  \item The rule can be applied to the augmented matrix only in the
+    {\em if} direction in general. In the {\em only if} direction, the
+    rule can be applied to the augmented matrix {\em after} we have
+    reduced the system to a situation where the coefficient matrix is
+    in row-echelon form (note: it's not necessary to reach reduced
+    row-echelon form).
+  \item The rule can be applied to the augmented matrix only in the
+    {\em only if} direction in general. In the {\em if} direction, the
+    rule can be applied to the augmented matrix {\em after} we have
+    reduced the system to a situation where the coefficient matrix is
+    in row-echelon form (note: it's not necessary to reach reduced
+    row-echelon form).
+  \item The rule can be applied in either direction only {\em after}
+    we have reduced the system to a situation where the coefficient
+    matrix is in row-echelon form (note: it's not necessary to reach
+    reduced row-echelon form).
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item {\em Do not discuss this!}: Which of the following is {\em not} a
+  possibility for the number of solutions to a system of simultaneous
+  linear equations? Please see Options (D) and (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $0$
+  \item $1$
+  \item $2$
+  \item All of the above, i.e., none of them is a possibility
+  \item None of the above, i.e., they are all possibilities
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item {\em Do not discuss this!}: Which of the following describes the
+  situation for a consistent system of simultaneous linear equations?
+
+  \begin{enumerate}[(A)]
+  \item The leading variables are the parameters used to describe the
+    general solution, and the number of leading variables equals the
+    number of nonzero equations in the reduced row-echelon form (here
+    nonzero equation makes an equation that does not have a zero row
+    in the augmented matrix).
+  \item The non-leading variables are the parameters used to describe the
+    general solution, and the number of non-leading variables equals the
+    number of nonzero equations in the reduced row-echelon form (here
+    nonzero equation makes an equation that does not have a zero row
+    in the augmented matrix).
+  \item The leading variables are the parameters used to describe the
+    general solution, and the number of leading variables equals the
+    value (number of variables) - (number of nonzero equations in the
+    reduced row-echelon form) (here nonzero equation makes an equation
+    that does not have a zero row in the augmented matrix).
+  \item The non-leading variables are the parameters used to describe
+    the general solution, and the number of non-leading variables
+    equals the value (number of variables) - (number of nonzero equations
+    in the reduced row-echelon form) (here nonzero equation makes an
+    equation that does not have a zero row in the augmented matrix).
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\end{enumerate}
+
+\end{document}

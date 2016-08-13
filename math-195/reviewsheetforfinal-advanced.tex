@@ -1,0 +1,126 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Review sheet for final: advanced}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf To maximize efficiency, please bring a copy (print or readable
+electronic) of this review sheet to all review sessions.}
+
+\section{Directional derivatives and gradient vectors}
+
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em Partials don't tell the whole story}: Consider the function
+  $f(x,y) := (xy)^{1/5}$. We note that $f$ takes the value $0$
+  identically both on the $x$-axis and the $y$-axis, thus, $f_x(0,0) =
+  0$ and $f_y(0,0) = 0$. Hence, the gradient of $f$ at $(0,0)$ is the
+  zero vector.
+\item {\em Directional derivatives don't tell the whole story either}: Let
+
+  $$f(x,y) := \left \lbrace\begin{array}{rl} 0 & \text{if } y \le 0 \text{ or } y \ge x^4 \\ 1 & \text{if } 0 < y < x^4 \\\end{array}\right.$$
+
+  We note that on any line approaching $(0,0)$, $f$ becomes constant
+  at $0$ close enough to $(0,0)$. Hence, the directional derivative of
+  $f$ in every direction is $0$. Thus, the gradient vector of $f$ is $0$.
+\item {\em Orthogonal to nothing}: Consider the function $f(x,y) :=
+  \sin(xy)$ at the point $(\pi,1/2)$. At this point, we have $f_x(x,y)
+  = y\cos(xy) = (1/2)\cos(\pi/2) = 0$. Thus, the gradient of $f$ is in
+  the $y$-direction, so the tangent line to the level curve of $f$ for
+  this function is parallel to the $x$-axis.
+\item {\em Zero gradient, level curve not smooth?}: Consider the
+  function $f(x,y) := (x - y)^3$. At the point $(1,1)$, both
+  $f_x(x,y)$ and $f_y(x,y)$ take the value $0$, so the gradient vector
+  is $0$. Thus, the level curve of $f$ passing through the point
+  $(1,1)$ does not have a well defined normal direction at $(1,1)$.
+\item {\em Misquare}: The maximum magnitude of directional derivative
+  for a function $f$ with a nonzero gradient at a point occurs in the
+  direction of the gradient vector $\nabla f$, and its value is
+  $\nabla f \cdot \nabla f = |\nabla f|^2$.
+\item {\em False addition}: The directional derivative along the
+  direction of the vector $a + b$ is the sum of the directional
+  derivatives along the direction of $a$ and the direction of $b$.
+\end{enumerate}
+\section{Max-min values}
+
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em Separate versus joint}: Suppose $F$ is a function of two
+  variables denoted $x$ and $y$, and $(x_0,y_0)$ is a point in the
+  interior of the domain of $F$. If $F$ has a local maximum at
+  $(x_0,y_0)$ with respect to both the $x$- and the $y$-directions,
+  then $F$ must have a local maximum.
+\item {\em Saddled with wrong ideas}: Suppose $F$ is a function of two
+  variables denoted $x$ and $y$, and $(x_0,y_0)$ is a point in the
+  interior of the domain of $F$. If $F$ has a saddle point at
+  $(x_0,y_0)$, then that means it must have a local maximum from one
+  of the $x$- and $y$-directions and a local minimum from the other.
+\item {\em Hessian as second derivative}: The second derivative test
+  for a function $f$ of two variables says the following: define the
+  Hessian determinant $D(a,b)$ at a point as $f_{xx}(a,b)f_{yy}(a,b) -
+  [f_{xy}(a,b)]^2$. If $D(a,b) > 0$, this means that $f$ has a local
+  minimum at $(a,b)$. If $D(a,b) < 0$, this means that $f$ has a local
+  maximum at $(a,b)$. If $D(a,b) = 0$, the second derivative test is
+  inconclusive.
+\end{enumerate}
+\section{Lagrange multipliers}
+
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em Local maximum, minimum}: To determine whether a point on a
+  level curve of $g$ satisfying the Lagrange condition on $f$ (i.e.,
+  $\nabla f = \lambda \nabla g$) gives a local maximum or a local
+  minimum for $f$, we simply need to check whether $\lambda > 0$ or
+  $\lambda < 0$. If $\lambda > 0$, we have a local minimum, and if
+  $\lambda < 0$, we have a local maximum.
+\item {\em Hessian confusion}: Consider a function $f$ of two
+  variables. Let $D$ denote the Hessian determinant. To maximize $f$
+  along the constraint curve $g(x,y) = k$, we first find points on the
+  constraint curve where $\nabla f = \lambda \nabla g$ for some
+  suitable choice of $\lambda$, i.e., points satisfying the Lagrange
+  condition. At any such point, if $D < 0$, then we have neither a
+  local maximum nor a local minimum with respect to the curve. If $D >
+  0$ and $f_{xx} > 0$, then we have a local minimum with respect to
+  the curve. If $D > 0$ and $f_{xx} < 0$, then we have a local maximum
+  with respect to the curve.
+\end{enumerate}
+\section{Max-min values: examples}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em Absolute maximum folly, thinking in the box}: Suppose
+  $F(x,y) := f(x) + g(y)$ and we want to maximize $F$ over the domain
+  $|x| + |y| \le 1$. We note that in the domain $|x| + |y| \le 1$, we
+  have the constraints $-1 \le x \le 1$ and $-1 \le y \le 1$. Thus, to
+  find the absolute maximum for $F$, we do the following: maximize $f$
+  on the interval $[-1,1]$ (say at $x_0$ with value $a$), maximize $g$
+  on the interval $[-1,1]$ (say at $y_0$ with value $b$), and then
+  take the combined point $(x_0,y_0)$ and get value $a + b$.
+\item {\em Critical missed types}: Suppose $F(x,y) := f(x)g(y)$. Then,
+  $(x_0,y_0)$ gives a critical point for $F$ if and only if $x_0$
+  gives a critical point for $f$ and $y_0$ gives a critical point for
+  $g$.
+\item {\em Ignoring the signs of a pessimistic world}: Suppose $F(x,y)
+  := f(x)g(y)$. If $f$ attains a local maximum value at $x_0$ and $g$
+  attains a local maximum value at $y_0$, then $F$ attains a local
+  maximum value at $(x_0,y_0)$.
+\item {\em Maximum, minimum}: Suppose $f$ is a continuous quasiconvex
+  function defined on the set $|x| + |y| \le 1$. We know by the
+  definition of quasiconvex that $f$ must attain both its absolute
+  maximum and its absolute minimum at one of its extreme points, i.e.,
+  at one of the points $(1,0)$, $(0,1)$, $(-1,0)$, and $(0,-1)$.
+\item {\em Pointy circles}: Suppose $f$ is a strictly convex function
+  defined on the circular disk $x^2 + y^2 \le 1$. Then, $f$ can attain
+  its absolute maximum only at one of the four extreme points:
+  $(1,0)$, $(0,1)$, $(-1,0)$, and $(0,-1)$.
+\end{enumerate}
+\end{document}

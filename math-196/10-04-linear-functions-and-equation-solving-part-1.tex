@@ -1,0 +1,242 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz: due Friday October 4: Linear functions and equation-solving (part 1)}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+Your name (print clearly in capital letters): $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+
+{\bf PLEASE DO {\em NOT} DISCUSS ANY QUESTIONS EXCEPT THE STARRED OR DOUBLE-STARRED QUESTIONS. YOU CAN DISCUSS THE STARRED AND DOUBLE-STARRED QUESTIONS.}
+
+This quiz covers some basics involving linear functions and
+equation-solving (notes at {\tt Linear functions: a primer} and {\tt
+  Equation-solving with a special focus on the linear case}). The quiz
+tests for the following:
+
+\begin{itemize}
+\item What it means to be (affine) linear, and in particular, the
+  significance of the intercept as an additional parameter to track.
+\item The distinction between behavior relative to the variables (the
+  inputs) and behavior relative to the parameters.
+\item Using the linear paradigm to study functional forms that are not
+  themselves linear.
+\item A small taste of dealing with measurement uncertainty to obtain
+  upper and lower bounds (not covered in the notes, so this is where
+  your famed ability to think out of the box should manifest).
+\item Solving ``triangular'' systems of equations.
+\end{itemize}
+
+\begin{enumerate}
+\item (*) A function $f$ of $3$ variables $x$, $y$, $z$ defined
+  everywhere is (affine) linear in the variables. (The ``affine'' is
+  to indicate that the intercept may be nonzero). Based on the above
+  information and some input-output pairs for $f$, we would like to
+  determine $f$ uniquely. What is the minimum number of input-output
+  pairs that we would need in order to achieve this?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $5$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+\item {\em Do not discuss this!}: Which of the following gives an
+  example of a function $F$ of three variables $x,y,z$ whose
+  third-order mixed partial derivative $F_{xyz}$ is zero everywhere,
+  but for which none of the second-order mixed partial derivatives
+  $F_{xy}$, $F_{xz}$, $F_{yz}$ is zero everywhere?
+
+  \begin{enumerate}[(A)]
+  \item $\sin(xy) - z^2$
+  \item $\cos(x^2 + y^2) - \sin(y^2 + z^2)$
+  \item $e^{xy} + (y - z)^2 + 3xz$
+  \item $x^2 + y^2 + z^2$
+  \item $xyz$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+\item {\em Do not discuss this!}: Consider a function of the form
+  $F(x,y) := Ca^xb^y$ where $C,a,b$ are all positive reals that serve
+  as parameters and $x,y$ are restricted to the positive reals. We
+  wish to study $F$ using the paradigm of linear functions. What is
+  the best way of doing this?
+
+  \begin{enumerate}[(A)]
+  \item Express $\ln(F(x,y))$ in terms of $\ln x$ and $\ln y$
+  \item Express $\ln(F(x,y))$ in terms of $x$ and $y$
+  \item Express $F(x,y)$ in terms of $\ln x$ and $\ln y$
+  \item Express $\ln(F(x,y))$ in terms of $a^x$ and $b^y$
+  \item Express $F(x,y)$ in terms of $a^x$ and $b^y$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+\item {\em Do not discuss this!}: Consider a function of the form
+  $F(x,y) := Cx^ay^b$ where $C,a,b$ are all positive reals that serve
+  as parameters and $x,y$ are restricted to the positive reals. We
+  wish to study $F$ using the paradigm of linear functions. What is
+  the best way of doing this?
+
+  \begin{enumerate}[(A)]
+  \item Express $\ln(F(x,y))$ in terms of $\ln x$ and $\ln y$
+  \item Express $\ln(F(x,y))$ in terms of $x$ and $y$
+  \item Express $F(x,y)$ in terms of $\ln x$ and $\ln y$
+  \item Express $\ln(F(x,y))$ in terms of $x^a$ and $y^b$
+  \item Express $F(x,y)$ in terms of $x^a$ and $y^b$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+\item (**) {\em This is a hard question!} The population in the island
+  of Andrognesia as a function of time is believed to be an
+  exponential function. On January 1, 1984, the population was
+  measured to be $3 * 10^5$ with a measurement error of up to $10^5$
+  on either side, i.e., the population was measured to be between $2*
+  10^5$ and $4 * 10^5$. On January 1, 1998, the population was
+  measured to be $1.2 * 10^6$ with a measurememt error of up to $4 *
+  10^5$ on either side, i.e., the population was measured to be
+  between $8 * 10^5$ and $1.6 * 10^6$. If the population is an
+  exponential function of time (i.e., the increment in population per
+  year is a fixed proportion of the population that year), what is the
+  {\bf range of possible values} of the population measured on January
+  1, 2012? {\em Hint: Think of the umbral versus penumbral region for
+    an eclipse}
+
+  \begin{enumerate}[(A)]
+  \item Between $3.2 * 10^6$ and $6.4 * 10^6$
+  \item Between $3.2 * 10^6$ and $1.28 * 10^7$
+  \item Between $1.6 * 10^6$ and $3.2 * 10^6$
+  \item Between $1.6 * 10^6$ and $6.4 * 10^6$
+  \item Between $1.6 * 10^6$ and $1.28 * 10^7$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+\item {\em Do not discuss this!}: Suppose, according to our model, a
+  particular function $f(x,y)$ is of the form $f(x,y) = a_1 + a_2x +
+  a_3y + a_4x^2y^2$ where $a_1,a_2,a_3,a_4$ are parameters. Our goal
+  is to determine the values of the parameters $a_1,a_2,a_3,a_4$. We
+  do this by collecting a number of (input,output) pairs for the
+  function $f$ and then setting up equations in terms of the
+  parameters using the (input,output) pairs. What can we say about the
+  nature of $f$ and the nature of the system of equations that we will
+  need to solve?  {\em Note that ``nonlinear'' as used here simply
+    means that the expression is not guaranteed to be linear, though
+    it may turn out to be linear in some cases. Similarly,
+    ``non-polynomial'' means not guaranteed to be polynomial, though
+    it may turn out to be polynomial in some cases.}
+
+  \begin{enumerate}[(A)]
+  \item $f$ is a linear function of $x$ and $y$, hence we need to
+    solve a linear system of equations to determine the parameters
+    $a_1,a_2,a_3,a_4$.
+  \item $f$ is a nonlinear polynomial function of $x$ and $y$, hence
+    we need to solve a nonlinear polynomial system of equations to
+    determine the parameters $a_1,a_2,a_3,a_4$.
+  \item $f$ is a linear function of $x$ and $y$. However, we need to
+    solve a nonlinear polynomial system of equations to determine the
+    parameters $a_1,a_2,a_3,a_4$.
+  \item $f$ is a nonlinear polynomial function of $x$ and
+    $y$. However, we need to solve a linear system of equations to
+    determine the parameters $a_1,a_2,a_3,a_4$.
+  \item $f$ is a nonlinear polynomial function of $x$ and
+    $y$. However, we need to solve a non-polynomial system of
+    equations to determine the parameters $a_1,a_2,a_3,a_4$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+\item {\em Do not discuss this!}: Consider the system of equations:
+
+  \begin{eqnarray*}
+    x^2 - x & = & 2 \\
+    y^2 + xy & = & x + 13 \\
+  \end{eqnarray*}
+
+  What is the number of solutions to this system for real $x$ and $y$?
+
+  \begin{enumerate}[(A)]
+  \item $0$
+  \item $2$
+  \item $4$
+  \item $6$
+  \item $8$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+\item {\em Do not discuss this!}: Consider the system of equations:
+
+  \begin{eqnarray*}
+    x^2 - x & = & 2 \\
+    y^2 + xy & = & x + 13 \\
+    z^2 & = & xy \\
+  \end{eqnarray*}
+
+  What is the number of solutions to this system for real $x$, $y$,
+  and $z$?
+
+  \begin{enumerate}[(A)]
+  \item $0$
+  \item $2$
+  \item $4$
+  \item $6$
+  \item $8$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+\item {\em Do not discuss this!}: Consider the system of equations:
+
+  \begin{eqnarray*}
+    x^2 - x & = & 2 \\
+    y^2 + xy & = & x + 13 \\
+    z^2 & = & x^2 - y^2 \\
+  \end{eqnarray*}
+
+  What is the number of solutions to this system for real $x$, $y$,
+  and $z$?
+
+  \begin{enumerate}[(A)]
+  \item $0$
+  \item $2$
+  \item $4$
+  \item $6$
+  \item $8$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.6in}
+
+\end{enumerate}
+
+\end{document}

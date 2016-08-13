@@ -1,0 +1,254 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul}
+
+%Title details
+\title{Division by primes: chain map formulation}
+\author{Vipul Naik}
+
+%List of new commands
+\newcommand{\Skew}{\operatorname{Skew}}
+
+\makeindex
+
+\begin{document}
+\maketitle
+
+This article discusses a general formulation of the ``division by
+primes'' problem that I'm working on with John Wiltshire-Gordon. I
+begin by giving the general formulation, then proceeding to the
+specific cases of interest.
+
+\section{The chain map formulation}
+
+\subsection{Cochain complex: definition}
+Suppose $C^*$ is a cochain complex of abelian groups (or more
+generally $R$-modules for a commutative unital ring $R$), starting at
+$0$, with $\partial_i$ the boundary map from $C^i$ to $C^{i+1}$. Each
+$\partial_i$ is a group (respectively, $R$-module) homomorphism, and
+$\partial_i\partial_{i-1} = 0$ for all $i$. The cochain complex thus
+looks as follows:
+
+$$C^0 \stackrel{\partial_0}{\to} C^1 \stackrel{\partial_1}{\to} C^2\stackrel{\partial_2}{\to} \dots$$
+
+We denote the coboundary group $\operatorname{Im} \partial_{i-1}$ as
+$B^i$, and the cocycle group $\operatorname{Ker} \partial_i$ as
+$Z^i$. By the definition of cochain complex, $B^i$ is a subgroup of
+$Z^i$. Each coset of $B^i$ in $Z^i$ is termed a {\em cohomology class}
+and the group $Z^i/B^i$ is denoted $H^i$. If $H^i$ is the zero group
+(or zero module), then we say that that cochain complex is exact at $i$.
+
+A {\em chain map} (of degree $0$) between two cochain complexes $C^*$
+and $D^*$ is a bunch $f$ of homomorphisms $f_i: C^i \to D^i$ such that
+$\partial^{(D)}_if_i = f_{i+1}\partial^{(C)}_i$, where the
+superscripts indicate the cochain complex in which we are taking the
+boundary maps.
+
+\subsection{Multiplication by ring elements is a self-chain-map}
+
+For any cochain complex $C^*$ of abelian groups, and any integer $n$,
+multiplication by $n$ is a self-chain-map of $C^*$. Here,
+``multiplication by $n$'' is the map that gives multiplication by $n$
+on each of the cochain groups $C^i$. It commutes with the boundary map
+because the boundary map is a homomorphism.
+
+More generally, for a cochain complex of $R$-modules, multiplication
+by any ring element gives a ring homomorphism.
+
+Multiplication by $n$ is an automorphism of a cochain complex of
+abelian groups iff each abelian group is uniquely $n$-divisible, or
+equivalently, uniquely $p$-divisible for every prime $p$ dividing
+$n$. In this case, the ring of coefficients of the cochain complex can
+be extended naturally from $\Z$ to $\Z[1/n]$. It is injective in each
+level if there is no $n$-torsion, or equivalently, there is no
+$p$-torsion for any prime $p$ dividing $n$. It is surjective if each
+abelian group is $n$-divisible (not necessarily uniquely).
+
+For most of our purposes, we will restrict attention to the case of
+multiplication by $p$ maps. In other words, we are interested in a
+cochain complex $C^*$, a prime $p$, and the self-chain-map induced on
+$C^*$ by multiplication by $p$.
+
+\subsection{The question of interest}
+
+We are interested in pulling back elements along the following
+commutative square:
+
+\begin{eqnarray*}
+  C^i & \stackrel{\partial_i}{\to} &C^{i+1}\\
+  \downarrow^{p} & & \downarrow^{p}\\
+  C^i & \stackrel{\partial_i}{\to} &C^{i+1}
+\end{eqnarray*}
+
+Specifically, we are interested in the following: suppose $u \in C^i$
+and $v \in C^{i+1}$ are such that $\partial_i(a) = pv$, can we find an
+element $t \in C^i$ such that $pt = a$ and $\partial_i(t) = v$? What
+are the additional conditions that we need to impose on $u$ and $v$?
+In some cases, we want $t$ to satisfy some additional conditions as
+well, and hence need more conditions on $u$ and $v$ as well.
+
+\subsection{The uniquely $p$-divisible case}
+
+We first show that the element $t$ exists and is unique in the case
+that both $C^i$ and $C^{i+1}$ are uniquely $p$-divisible:
+
+\begin{proof}
+  There is a unique $t \in C^i$ such that $pt = a$. Taking
+  $\partial_i$ on both sides, we get $p\partial_i(t) =
+  \partial_i(a)$. Since $\partial_i(a) = pv$, we get $p\partial_i(t) =
+  pv$. Since $C^{i+1}$ is uniquely $p$-divisible, $\partial_i(t) = v$.
+\end{proof}
+
+\subsection{Trying to solve the problem: local and global}
+
+We are trying to fill in the left corner value in the following square:
+\begin{eqnarray*}
+  t (?) & \stackrel{\partial_i}{\mapsto} & v\\
+  \downarrow^{p} & & \downarrow^{p}\\
+  u & \stackrel{\partial_i}{\mapsto} & \partial_i(a) = pv
+\end{eqnarray*}
+
+Obviously, we need the following two additional conditions: (i) $u$ is
+in $pC^i$, i.e., $u$ is divisible by $p$ in $C^i$, and (ii) $v$ is in
+$B^{i+1}$, i.e., $v$ is an $(i + 1)$-coboundary.
+
+If both conditions (i) and (ii) are satisfied, then the set of
+solutions to $px = a$ is a coset of the $p$-torsion subgroup of $C^i$
+and the set of solutions to $\partial_i(x) = v$ is a coset of
+$Z^i$. The question now is whether these cosets intersect. If they
+{\em do} intersect, then their intersection is a coset of the
+intersection of the corresponding subgroups, i.e., a coset of the
+intersection of $Z^i$ and the $p$-torsion.
+
+Suppose $u$ is guaranteed to be in a subgroup $U$ of $C^i$, $v$ is
+guaranteed to be in a subgroup $V$ of $C^{i+1}$, and we want $t$ to be
+in a subgroup $T$ of $C^i$. Then, the following conditions guarantee
+the existence of $t$:
+
+\begin{itemize}
+\item $U \subseteq pT$, i.e., for every $a \in A$, there exists $t \in
+  T$ such that $pt = a$.
+\item $V \subseteq \partial_i(T)$, i.e., for every $v \in V$, there
+  exists $t \in T$ such that $\partial_i(t) = v$
+\item $T$ is generated by $p^{-1}U \cap T$ and $\partial_i^{-1}V \cap
+  T$.
+\end{itemize}
+
+The uniqueness result that we hope for is uniqueness up to
+$i$-coboundaries, i.e., we want that $p^{-1}U \cap \partial_i^{-1}V
+\cap T \subseteq B^i$.
+\subsection{Nothing special about multiplication by $p$}
+
+In all the discussion so far, there has been nothing special about
+multiplication by $p$. All we need is maps $f_i:C_i \to C_i$ and
+$f_{i+1}:C_{i+1} \to C_{i+1}$ such that the diagram commutes. In fact,
+we don't even need the diagram to commute globally, we just need it to
+commute on the subgroups of interest. Each of these generalizations
+has some significance.
+
+\section{Complexes of interest}
+
+We are interested in the following two complexes:
+
+\begin{itemize}
+\item The {\em bar complex} for an action of a (possibly non-abelian)
+  group $G$ on an abelian group $A$. The $n^{th}$ cochain group,
+  denoted $C^n(G,A)$ is the group of $A$-valued functions on
+  $G^n$. The boundary maps are defined the usual way. The bar complex
+  arises naturally from the bar resolution. In most cases, we are
+  interested in the bar complex for a trivial action.
+\item An analogous notion for Lie rings.
+\end{itemize}
+
+Note that these complex constructions are functorial -- contravariant
+in the first argument (i.e., $G$) and covariant in the second argument
+(i.e., $A$).
+
+\subsection{$k$-locally zero, $k$-local cocycles and $k$-local coboundaries}
+
+We say that $f \in C^i(G,A)$ is $k$-locally zero if the restriction of
+$f$ to any subgroup generated by at most $k$ elements is the zero map.
+
+We say that $f \in C^i(G,A)$ is $k$-local cocycle if, for any subgroup
+$H$ of $G$ with a generating set of size at most $k$, the restriction
+of $f$ to $H$ is an $i$-cocycle. Note that if $k \ge i$, being a
+$k$-local $i$-cocycle is equivalent to being an $i$-cocycle. In
+general, it is weaker.
+
+Similarly, we say that $f \in C^i(G,A)$ is a $k$-local coboundary if,
+for any subgroup $H$ of $G$ with a generating set of size at most $k$,
+the restriction of $f$ to $H$ is an $i$-coboundary. Unlike the case of
+cocycles, an $i$-local $i$-coboundary need not be a coboundary (at
+least, it is not obvious).
+
+We can generalize these notions from $k$-local to $\mathcal{S}$-local
+where $\mathcal{S}$ is any collection of subgroups of $G$. We impose
+the condition on restrictions to all subgroups that are elements of
+$\mathcal{S}$. For $k$-local, $\mathcal{S}$ is the collection of
+subgroups generated by at most $k$ elements.
+
+\subsection{The Lie ring setup}
+
+A Lie ring is a Lie algebra over $\Z$. Thus, all the things we say
+about Lie rings are things that work in greater generality for Lie
+algebras, and in fact are usually discussed for Lie algebras. Note
+that we will be talking of Lie algebras where the base ring is a
+commutative unital ring. For now, we stick to the base ring $\Z$, and
+thus talk of Lie rings.
+
+Supplse $L$ is a Lie ring and $M$ is a $L$-module, i.e., an abelian
+group with a Lie ring homomorphism from $L$ to $\operatorname{End}(M)$
+where the latter's Lie ring structure is the usual one arising from an
+associative ring.
+
+Then, the group $C^1(L,M)$ is the group of all additive
+homomorphisms from $L$ to $M$ and $C^2(L,M)$ is the group of all
+additive homomorphisms from $L \times L$ to $M$.
+
+The boundary map:
+
+$$\partial_1: C^1(L,M) \to C^2(L,M)$$
+
+is given as follows:
+
+$$\partial_1(f) = (x,y) \mapsto f(x) \cdot y - f(y) \cdot x - f([x,y])$$
+
+The kernel of this action (i.e., the $1$-cocycles) is the set of
+additive maps $f:L \to M$ such that:
+
+$$f([x,y]) = f(x) \cdot y - f(y) \cdot x$$
+
+The $1$-coboundaries are trivial, so the group of $1$-cocycles is
+precisely the first cohomology group.
+
+In the special case that $L = M$ and the action is the adjoint action,
+the $1$-cocycles are precisely the derivations.
+
+A related situation is as follows. $E$ is a Lie ring with an abelian
+Lie ideal $M$ and an isomorphism from $E/M$ to $L$. In this case, $L$
+acts on $M$ by restricting the adjoint action. The action is defined
+precisely because $M$ is abelian: any two elements in the same coset
+of $M$ in $E$ have the same action on $M$.
+
+We can generalize the situation even further: $E$ is a Lie ring with
+Lie ideals $M$ and $N$ such that $M + N = E$ and $N/(M \cap N)$ is
+abelian. Then, setting $L = E/N$, we can define an action of $L$ on
+$M$ by restricting the adjoint action. Note that this generalizes both
+previous cases: the whole Lie ring case is covered by $M = E$, $N =
+0$, and the abelian ideal case is covered by $N = E$.
+
+In this general situation, the action can be thought of as Lie
+brackets in something bigger, so the $1$-cocycles can be thought of as
+(generalized versions of) derivations.
+
+Note that in the further case that $M$ is central in $E$, the action
+is trivial, and the condition for being a $1$-cocycle becomes:
+
+$$f(x) \cdot y = f(y) \cdot x$$
+
+\subsection{$i = 1$ case: interpretation}
+
+
+
+\end{document}

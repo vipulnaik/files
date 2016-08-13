@@ -1,0 +1,390 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Review sheet for final}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf To maximize efficiency, please bring a copy (print or readable
+electronic) of this review sheet to the review session on Friday, and
+also to the review session on Monday.}
+
+{\em The document does not include material that was part of the
+midterm 1 and midterm 2 review sessions. Please also bring copies of
+these review sheets to the review session on Monday}.
+
+{\em Error-spotting exercises}: Each subsection is usually followed by
+a list of error-spotting exercises. Here, some verbal or symbolic
+reasoning or arguments are given and you have to spot the errors in
+these arguments. They say, {\em it's not what you don't know that's
+the problem, it's what you know that ain't so.} The error-spotting
+exercises can help you unknow what ain't so.
+
+\section{Directional derivatives and gradient vectors}
+
+Words ...
+
+\begin{enumerate}
+\item The directional derivative of a scalar function
+  $f$ of two variables along a {\em unit} vector $\mathbf{u} =
+  a\mathbf{i} + b\mathbf{j}$ at a point $(x_0,y_0)$ is defined as the
+  following limit of difference quotient, if the limit exists:
+
+  $$\lim_{h \to 0} \frac{f(x_0 + ah, y_0 + bh) - f(x_0,y_0)}{h}$$
+
+\item The directional derivative of a differentiable scalar function
+  $f$ of two variables along a {\em unit} vector $\mathbf{u} =
+  a\mathbf{i} + b\mathbf{j}$ at a point $(x_0,y_0)$ is
+  $D_{\mathbf{u}}(f) = af_x(x_0,y_0) + bf_y(x_0,y_0)$.
+\item The gradient vector for a {\em differentiable} scalar function
+  $f$ of two variables at a point $(x_0,y_0)$ is $\nabla f(x_0,y_0) =
+  f_x(x_0,y_0)\mathbf{i} + f_y(x_0,y_0)\mathbf{j}$.
+\item The directional derivative of $f$ is the dot product of the
+  gradient vector of $\nabla f$ and the unit vector $\mathbf{u}$. 
+\item Suppose $\nabla f$ is nonzero. Then, if $\mathbf{u}$ makes an
+  angle $\theta$ with $\nabla f$, then $D_{\mathbf{u}}(f)$ is
+  $|\nabla_f|\cos \theta$. The directional derivative is maximum in
+  the direction of the gradient vector, zero in directions orthogonal
+  to the gradient vector, and minimum in the direction opposite to the
+  gradient vector.
+\item The level curves are orthogonal to the gradient vector.
+\item Similar formulas for gradient vector and directional derivative
+  work in three dimensions.
+\item The level surfaces are orthogonal to the gradient vector for a
+  function of three variables.
+\item For a surface given by $F(x,y,z) = 0$, if $(x_0,y_0,z_0)$ is a
+  point on the surface, and $F_x(x_0,y_0,z_0)$, $F_y(x_0,y_0,z_0)$,
+  and $F_z(x_0,y_0,z_0)$ all exist and are nonzero, then the normal
+  line is given by:
+
+  $$\frac{x - x_0}{F_x(x_0,y_0,z_0)} = \frac{y - y_0}{F_y(x_0,y_0,z_0)} = \frac{z - z_0}{F_z(x_0,y_0,z_0)}$$
+
+  The tangent plane is given by:
+
+  $$F_x(x_0,y_0,z_0)(x - x_0) + F_y(x_0,y_0,z_0)(y - y_0) + F_z(x_0,y_0,z_0)(z - z_0) = 0$$
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em Partials don't tell the whole story}: Consider the function
+  $f(x,y) := (xy)^{1/5}$. We note that $f$ takes the value $0$
+  identically both on the $x$-axis and the $y$-axis, thus, $f_x(0,0) =
+  0$ and $f_y(0,0) = 0$. Hence, the gradient of $f$ at $(0,0)$ is the
+  zero vector.
+\item {\em Directional derivatives don't tell the whole story either}: Let
+
+  $$f(x,y) := \lbrace\begin{array}{rl} 0 & \text{if } y \le 0 \text{ or } y \ge x^4 \\ 1 & \text{if } 0 < y < x^4 \\\end{array}$$
+
+  We note that on any line approaching $(0,0)$, $f$ becomes constant
+  at $0$ close enough to $(0,0)$. Hence, the directional derivative of
+  $f$ in every direction is $0$. Thus, the gradient vector of $f$ is $0$.
+\item {\em Orthogonal to nothing}: Consider the function $f(x,y) :=
+  \sin(xy)$ at the point $(\pi,1/2)$. At this point, we have $f_x(x,y)
+  = y\cos(xy) = (1/2)\cos(\pi/2) = 0$. Thus, the gradient of $f$ is in
+  the $y$-direction, so the tangent line to the level curve of $f$ for
+  this function is parallel to the $x$-axis.
+\item {\em Zero gradient, level curve not smooth?}: Consider the
+  function $f(x,y) := (x - y)^3$. At the point $(1,1)$, both
+  $f_x(x,y)$ and $f_y(x,y)$ take the value $0$, so the gradient vector
+  is $0$. Thus, the level curve of $f$ passing through the point
+  $(1,1)$ does not have a well defined normal direction at $(1,1)$.
+\item {\em Misquare}: The maximum magnitude of directional derivative
+  for a function $f$ with a nonzero gradient at a point occurs in the
+  direction of the gradient vector $\nabla f$, and its value is
+  $\nabla f \cdot \nabla f = |\nabla f|^2$.
+\item {\em False addition}: The directional derivative along the
+  direction of the vector $a + b$ is the sum of the directional
+  derivatives along the direction of $a$ and the direction of $b$.
+\end{enumerate}
+\section{Max-min values}
+
+Words ...
+
+\begin{enumerate}
+\item For a directional local minimum, the directional derivative (in
+  the outward direction from the point) is greater than or equal to
+  zero. For a directional local maximum, the directional derivative
+  (in the outward direction from the point) is less than or equal to
+  zero.
+
+  Note that even for {\em strict} directional local maximum or
+  minimum, the possibility of the directional derivative being zero
+  cannot be ruled out.
+\item If a point is a point of directional local minimum from two
+  opposite directions (i.e., it is a local minimum along a line
+  through the point, from both directions on the line) then the
+  directional derivative along the line, if it exists, must equal
+  zero.
+\item If a function of two variables is differentiable at a point of
+  local minimum or local maximum, then the directional derivative of
+  the function is zero at the point in every direction. Equivalently,
+  the gradient vector of the function at the point is the zero
+  vector. Equivalently, both the first partial derivatives at the
+  point are zero.
+  
+  Points where the gradient vector is zero are termed {\em critical
+  points}. 
+\item If the directional derivatives along some directions are
+  positive and the directional derivatives along other directions are
+  negative, the point is likely to be a {\em saddle point}. A saddle
+  point is a point for which the tangent plane to the surface that's
+  the graph of the function slides through the graph, i.e., it is not
+  completely on one side.
+\item For a function $f$ of two variables with continuous second
+  partials, and a critical point $(a,b)$ in the domain (so $f_x(a,b) =
+  f_y(a,b) = 0$) we compute the Hessian determinant:
+
+  $$D(a,b) = f_{xx}(a,b)f_{yy}(a,b) - [f_{xy}(a,b)]^2$$
+
+  If $D(a,b) > 0$ and $f_{xx}(a,b) > 0$, the function has a local {\em
+  minimum} at the point $(a,b)$. If $D(a,b) > 0$ and $f_{xx}(a,b) <
+  0$, the function has a local {\em maximum} at the point $(a,b)$. If
+  $D(a,b) < 0$, we get a saddle point at the point. If $D(a,b) = 0$,
+  the situation is inconclusive, i.e., the test is indecisive.
+\item For a closed bounded subset of $\R^n$ (and specifically $\R^2$)
+  any continuous function with domain that subset attains its absolute
+  maximum and minimum values. These values are attained either at
+  interior points (in which case they are local extreme values and
+  must be attained at critical points) or at boundary points.
+\item {\em Relation with level curves}: {\em Typically}, local extreme
+  values correspond to isolated single point level curves. However,
+  this is not always the case, and there are some counterexamples. To
+  be more precise, any {\em isolated} or {\em strict} local extreme
+  value corresponds to a (locally) single point level curve.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item Strategy for finding local extreme values: First, find all the
+  critical points by solving $f_x(a,b) = 0$ and $f_y(a,b) = 0$ as a
+  pair of simultaneous equations. Next, use the second derivative test
+  for each critical point, and if feasible, try to figure out if this
+  is a point of local maximum, or local minimum, or a saddle point.
+\item To find absolute extreme values of a function on a closed
+  bounded subset of $\R^2$, first find critical points, then find
+  critical points for a parameterization of the boundary, and then
+  compute values at all of these and see which is largest and
+  smallest. {\em If the list of critical points is finite, and we need
+  to find absolute maximum and minimum, it is not necessary to do the
+  second derivative test to figure out which points give local
+  maximum, local minimum, or neither, we just need to evaluate at all
+  points and find the maximum/minimum}.
+\item When the domain of the function is bounded but not closed, we
+  must consider the possibility of extreme values occurring as we
+  approach boundary points not in the domain. If the domain is not
+  bounded, we must consider directions of approach to infinity.
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em Separate versus joint}: Suppose $F$ is a function of two
+  variables denoted $x$ and $y$, and $(x_0,y_0)$ is a point in the
+  interior of the domain of $F$. If $F$ has a local maximum at
+  $(x_0,y_0)$ with respect to both the $x$- and the $y$-directions,
+  then $F$ must have a local maximum.
+\item {\em Saddled with wrong ideas}: Suppose $F$ is a function of two
+  variables denoted $x$ and $y$, and $(x_0,y_0)$ is a point in the
+  interior of the domain of $F$. If $F$ has a saddle point at
+  $(x_0,y_0)$, then that means it must have a local maximum from one
+  of the $x$- and $y$-directions and a local minimum from the other.
+\item {\em Hessian as second derivative}: The second derivative test
+  for a function $f$ of two variables says the following: define the
+  Hessian determinant $D(a,b)$ at a point as $f_{xx}(a,b)f_{yy}(a,b) -
+  [f_{xy}(a,b)]^2$. If $D(a,b) > 0$, this means that $f$ has a local
+  minimum at $(a,b)$. If $D(a,b) < 0$, this means that $f$ has a local
+  maximum at $(a,b)$. If $D(a,b) = 0$, the second derivative test is
+  inconclusive.
+\end{enumerate}
+\section{Lagrange multipliers}
+
+Words ...
+
+\begin{enumerate}
+\item Two of the reasons why the derivative of a function may be zero:
+  the function is constant around the point, or the function has a local
+  extreme value at the point.
+
+  Version for many variables: two of the reasons why the gradient
+  vector of a function of many variables may be zero: the function is
+  constant around the point, or the function has a local extreme value
+  at the point.
+
+  Version for function restricted to a subset smooth around a point:
+  two of the reasons why the gradient vector may be {\em orthogonal}
+  to the subset at the point: the function is constant on the subset
+  around the point, or the function has a local extreme value
+  (relative to the subset) at the point.
+\item For a function $f$ defined on a subset smooth around a point
+  (i.e., with a well defined tangent and normal space), if $f$ has a
+  local extreme value at the point when restricted to the subset, then
+  $\nabla f$ lives in the normal direction to the subset (this
+  includes the possibility of it being zero).
+\item For a codimension one subset of $\R^n$ defined by a condition
+  $g(x_1,x_2,\dots,x_n) = k$, if a point $(a_1,a_2,\dots,a_n)$ gives a
+  local extreme value for a function $f$ of $n$ variables, and if
+  $\nabla g$ is well defined and nonzero at the point, then there
+  exists a real number $\lambda$ such that $\nabla
+  f(a_1,a_2,\dots,a_n) = \lambda \nabla g(a_1,a_2,\dots,a_n)$. Note
+  that $\lambda$ may be zero.
+\item Suppose a codimension $r$ subset of $\R^n$ is given by $r$
+  independent constraints $g_1(x_1,x_2,\dots,x_n) = k_1$,
+  $g_2(x_1,x_2,\dots,x_n) = k_2$, and so on till
+  $g_r(x_1,x_2,\dots,x_n) = k_r$. Suppose $\nabla g_i$ are nonzero for
+  all $i$ at a point $(a_1,a_2,\dots,a_n)$ of local extreme value for
+  a function $f$ relative to this subset. Suppose further that all the
+  $\nabla g_i$ are linearly independent. Then $\nabla
+  f(a_1,a_2,\dots,a_n)$ is a linear combination of the vectors $\nabla
+  g_1(a_1,a_2,\dots,a_n)$, $\nabla g_2(a_1,a_2,\dots,a_n)$, $\dots$,
+  $\nabla g_r(a_1,a_2,\dots,a_n)$. In other words, there exist real
+  numbers $\lambda_1$, $\lambda_2$, $\dots$, $\lambda_r$ such that:
+
+  $$\nabla f(a_1,a_2,\dots,a_n) = \lambda_1\nabla g_1(a_1,a_2,\dots,a_n) + \lambda_2\nabla g_2(a_1,a_2,\dots,a_n) + \dots + \lambda_r\nabla g_r(a_1,a_2,\dots,a_n)$$
+\item The Lagrange condition may be violated at points of local
+  extremum where $\nabla g$ is zero, or more generally, where the
+  $\nabla g_i$ fail to be linearly independent. This may occur either
+  because the tangent and normal space are not well defined or because
+  the functions fail to capture it well.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item Suppose we want to maximize and minimize $f$ on the set
+  $g(x_1,x_2,\dots,x_n) = k$. Assume $\nabla g(x_1,x_2,\dots,x_n)$ is
+  defined everywhere on the set and never zero. Suppose $\nabla f$ is
+  also defined. Then, all local maxima and local minima are attained
+  at points where $\nabla f = \lambda \nabla g$ for some real number
+  $\lambda$. To find these, we solve the system of $n + 1$ equations
+  in the $n+1$ variables $x_1$, $x_2$, $\dots$, $x_n$, namely the $n$
+  scalar equations from the Lagrange condition and the equation
+  $g(x_1,x_2,\dots,x_n) = k$.
+
+  To find the actual extreme values, once we've collected all
+  candidate points from the above procedure, we evaluate the function
+  at all these and find the largest and smallest value to find the
+  absolute maximum and minimum.
+
+\item If there are points in the domain where $\nabla g$ takes the
+  value $0$, these may also be candidates for local extreme values,
+  and the function should additionally be evaluated at these as well
+  to find the absolute maximum and minimum.
+\item A similar procedure works for a subset given by $r$
+  constraints. In this case, we have the equation:
+
+  $$\nabla f(a_1,a_2,\dots,a_n) = \lambda_1\nabla g_1(a_1,a_2,\dots,a_n) + \lambda_2\nabla g_2(a_1,a_2,\dots,a_n) + \dots + \lambda_r\nabla g_r(a_1,a_2,\dots,a_n)$$
+
+  as well as the $r$ equations $g_1(x_1,x_2,\dots,x_n) = k_1$,
+  $g_2(x_1,x_2,\dots,x_n) = k_2$, and so on. In total, we have
+  $n + r$ equations in $n + r$ variables: the $x_1$, $x_2$, $\dots$,
+  $x_n$ and the $\lambda_1$, $\lambda_2$, $\dots$, $\lambda_r$.
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em Local maximum, minimum}: To determine whether a point on a
+  level curve of $g$ satisfying the Lagrange condition on $f$ (i.e.,
+  $\nabla f = \lambda \nabla g$) gives a local maximum or a local
+  minimum for $f$, we simply need to check whether $\lambda > 0$ or
+  $\lambda < 0$. If $\lambda > 0$, we have a local minimum, and if
+  $\lambda < 0$, we have a local maximum.
+\item {\em Hessian confusion}: Consider a function $f$ of two
+  variables. Let $D$ denote the Hessian determinant. To maximize $f$
+  along the constraint curve $g(x,y) = k$, we first find points on the
+  constraint curvewhere $\nabla f = \lambda \nabla g$ for some
+  suitable choice of $\lambda$, i.e., points satisfying the Lagrange
+  condition. At any such point, if $D < 0$, then we have neither a
+  local maximum nor a local minimum with respect to the curve. If $D >
+  0$ and $f_{xx} > 0$, then we have a local minimum with respect to
+  the curve. If $D > 0$ and $f_{xx} < 0$, then we have a local maximum
+  with respect to the curve.
+\end{enumerate}
+\section{Max-min values: examples}
+
+\begin{enumerate}
+\item {\em Additively separable, critical points}: For an additively
+  separable function $F(x,y) := f(x) + g(y)$, the critical points of
+  $F$ are the points whose $x$-coordinate gives a critical point for
+  $f$ and $y$-coordinate gives a critical point for $g$.
+\item {\em Additively separable, local extreme values}: The local
+  maxima occur at points whose $x$-coordinate gives a local maximum
+  for $f$ and $y$-coordinates gives a local maximum for $g$. Similarly
+  for local minima. If one coordinate gives a local maximum and the
+  other coordinate gives a local minimum, we get a saddle point.
+\item {\em Additively separable, absolute extreme values}: If the
+  domain is a rectangular region, rectangular strip, or the whole
+  plane, then the absolute maximum occurs at the point for which each
+  coordinate gives the absolute maximum for that coordinate, and
+  analogously for absolute minimum. This does {\em not} work for
+  non-rectangular regions in general.
+\item {\em Multiplicatively separable, critical points}: For a
+  multiplicatively separable function $F(x,y) := f(x)g(y)$ with $f$,
+  $g$, differentiable, there are four kinds of critical points
+  $(x_0,y_0)$: (1) $f'(x_0) = g'(y_0) = 0$, (2) $f(x_0) = f'(x_0) =
+  0$, (3) $g(y_0) = g'(y_0) = 0$, (4) $f(x_0) = g(y_0) = 0$.
+\item {\em Multiplicatively separable, local extreme values}: At a
+  critical point of Type (1), the nature of local extreme value for
+  $F$ depends on the signs of $f$ and $g$ {\em and} on the nature of
+  local extreme values for each. See the table. Critical points of
+  Type (4) alone do not give local extreme values. The situation with
+  critical points of Types (2) and (3) is more ambiguous and too
+  complicated for discussion.
+\item {\em Multiplicatively separable, absolute extreme values}:
+  Often, these don't exist, if one function takes arbitrarily large
+  magnitude values and the other one takes nonzero values (details
+  based on sign). If both functions are everywhere positive, and we
+  are on a rectangular region, then the absolute maximum/minimum for
+  the product occur at points whose coordinates give respective
+  absolute maximum/minimum for $f$ and $g$. (See notes)
+\item For a continuous quasiconvex function on a convex domain, the
+  maximum must occur at one of the extreme points, in
+  particular on the boundary. If the function is strictly quasiconvex,
+  the maximum can occur only at a boundary point.
+\item For a continuous quasiconvex function on a convex domain, the
+  minimum must occur on a convex subset. If the function is strictly
+  quasiconvex, it must occur at a unique point.
+\item Linear functions are quasiconvex but not strictly so. The
+  negative of a linear function is also quasiconvex. The maximum and
+  minimum for linear functions on convex domains must occur at extreme
+  points.
+\item To find maxima/minima on the boundary, we can use the method of
+  Lagrange multipliers.
+\end{enumerate}
+
+See also: tables, discussion for linear, quadratic, and homogeneous
+functions (hard to summarize).
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em Absolute maximum folly, thinking in the box}: Suppose
+  $F(x,y) := f(x) + g(y)$ and we want to maximize $F$ over the domain
+  $|x| + |y| \le 1$. We note that in the domain $|x| + |y| \le 1$, we
+  have the constraints $-1 \le x \le 1$ and $-1 \le y \le 1$. Thus, to
+  find the absolute maximum for $F$, we do the following: maximize $f$
+  on the interval $[-1,1]$ (say at $x_0$ with value $a$), maximize $g$
+  on the interval $[-1,1]$ (say at $y_0$ with value $b$), and then
+  take the combined point $(x_0,y_0)$ and get value $a + b$.
+\item {\em Critical missed types}: Suppose $F(x,y) := f(x)g(y)$. Then,
+  $(x_0,y_0)$ gives a critical point for $F$ if and only if $x_0$
+  gives a critical point for $f$ and $y_0$ gives a critical point for
+  $g$.
+\item {\em Ignoring the signs of a pessimistic world}: Suppose $F(x,y)
+  := f(x)g(y)$. If $f$ attains a local maximum value at $x_0$ and $g$
+  attains a local maximum value at $y_0$, then $F$ attains a local
+  maximum value at $(x_0,y_0)$.
+\item {\em Maximum, minimum}: Suppose $f$ is a continuous quasiconvex
+  function defined on the set $|x| + |y| \le 1$. We know by the
+  definition of quasiconvex that $f$ must attain both its absolute
+  maximum and its absolute minimum at one of its extreme points, i.e.,
+  at one of the points $(1,0)$, $(0,1)$, $(-1,0)$, and $(0,-1)$.
+\item {\em Pointy circles}: Suppose $f$ is a strictly convex function
+  defined on the circular disk $x^2 + y^2 \le 1$. Then, $f$ can attain
+  its absolute maximum only at one of the four extreme points:
+  $(1,0)$, $(0,1)$, $(-1,0)$, and $(0,-1)$.
+\end{enumerate}
+\end{document}

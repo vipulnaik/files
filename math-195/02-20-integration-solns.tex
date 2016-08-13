@@ -1,0 +1,768 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Wednesday February 20: Integration techniques (one variable)}
+\author{Math 195, Section 59 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$25$ people took this quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $3$: $1$ person.
+\item Score of $5$: $1$ person.
+\item Score of $6$: $1$ person.
+\item Score of $9$: $1$ person.
+\item Score of $10$: $1$ person.
+\item Score of $12$: $1$ person.
+\item Score of $15$: $1$ person.
+\item Score of $18$: $7$ people.
+\item Score of $19$: $2$ people.
+\item Score of $20$: $4$ people.
+\item Score of $21$: $5$ people.
+\end{itemize}
+Here are the question wise answers and performance review:
+
+\begin{enumerate}
+\item Option (A): $20$ people.
+\item Option (B): $22$ people.
+\item Option (A): $17$ people.
+\item Option (C): $19$ people.
+\item Option (B): $19$ people.
+\item Option (D): $21$ people.
+\item Option (B): $20$ people.
+\item Option (D): $22$ people.
+\item Option (B): $21$ people.
+\item Option (C): $21$ people.
+\item Option (C): $20$ people.
+\item Option (D): $20$ people.
+\item Option (A): $22$ people.
+\item Option (E): $21$ people.
+\item Option (D): $22$ people.
+\item Option (B): $15$ people.
+\item Option (D): $21$ people.
+\item Option (B): $17$ people.
+\item Option (E): $9$ people.
+\item Option (D): $23$ people.
+\item Option (D): $17$ people.
+\end{enumerate}
+
+\section{Solutions}
+
+In the questions below, we say that a function is {\em expressible in
+terms of elementary functions} or {\em elementarily expressible} if it
+can be expressed in terms of polynomial functions, rational functions,
+radicals, exponents, logarithms, trigonometric functions and inverse
+trigonometric functions using pointwise combinations, compositions,
+and piecewise definitions. We say that a function is {\em elementarily
+integrable} if it has an elementarily expressible antiderivative.
+
+Note that if a function is elementarily expressible, so is its
+derivative on the domain of definition.
+
+We say that a function $f$ is $k$ times elementarily integrable if
+there is an elementarily expressible function $g$ such that $f$ is the
+$k^{th}$ derivative of $g$.
+
+We say that the integrals of two functions are {\em equivalent up to
+elementary functions} if an antiderivative for one function can be
+expressed using an antiderivative for the other function and
+elementary function, again piecing them together using pointwise
+combination, composition, and piecewise definitions.
+
+\begin{enumerate}
+
+\item Suppose $F$ and $G$ are continuously differentiable functions on
+  all of $\R$ (i.e., both $F'$ and $G'$ are continuous). Which of the
+  following is {\bf not necessarily true}? Please see Option (E)
+  before answering.
+
+  \begin{enumerate}[(A)]
+  \item If $F'(x) = G'(x)$ for all integers $x$, then $F - G$ is a
+    constant function when restricted to integers, i.e., it takes the
+    same value at all integers.
+  \item If $F'(x) = G'(x)$ for all numbers $x$ that are not integers,
+    then $F - G$ is a constant function when restricted to the set of
+    numbers $x$ that are not integers.
+  \item If $F'(x) = G'(x)$ for all rational numbers $x$, then $F - G$
+    is a constant function when restricted to the set of rational
+    numbers.
+  \item If $F'(x) = G'(x)$ for all irrational numbers $x$, then $F -
+    G$ is a constant function when restricted to the set of irrational
+    numbers.
+  \item None of the above, i.e., they are all necessarily true.
+  \end{enumerate}
+
+  {\em Answer}: Option (A).
+
+  {\em Explanation}: The fact that the derivatives of two functions
+  agree at integers says nothing about how the derivatives behave
+  elsewhere -- they could differ quite a bit at other places. Hence,
+  (A) is not necessarily true, and hence must be the right option. All
+  the other options are correct as statements and hence cannot be the
+  right option. This is because in all of them, the set of points
+  where the derivatives agree is {\em dense} -- it intersects every
+  open interval. So, continuity forces the functions $F'$ and $G'$ to
+  be equal everywhere, forcing $F - G$ to be constant everywhere.
+
+  {\em Performance review}: $20$ out of $25$ people got this. $3$
+  chose (E), $1$ each chose (B) and (D).
+
+  {\em Historical note (earlier appearance this quarter)}: $15$ out of
+  $24$ got this. $6$ chose (E), $3$ chose (B).
+
+\item Suppose $F$ and $G$ are two functions defined on $\R$ and $k$ is
+  a natural number such that the $k^{th}$ derivatives of $F$ and $G$
+  exist and are equal on all of $\R$. Then, $F - G$ must be a
+  polynomial function. What is the {\bf maximum possible degree} of $F
+  - G$?  (Note: Assume constant polynomials to have degree zero)
+
+  \begin{enumerate}[(A)]
+  \item $k - 2$
+  \item $k - 1$
+  \item $k$
+  \item $k + 1$
+  \item There is no bound in terms of $k$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: $F$ and $G$ having the same $k^{th}$ derivative
+  is equivalent to requiring that $F - G$ have $k^{th}$ derivative
+  equal to zero. For $k = 1$, this gives constant functions
+  (polynomials of degree $0$). Each time we increment $k$, the degree
+  of the polynomial could potentially go up by $1$. Thus, the answer
+  is $k - 1$.
+
+  {\em Performance review}: $22$ out of $25$ people got this. $2$
+  chose (E), $1$ chose (C).
+
+  {\em Historical note (earlier appearance this quarter)}: $21$ out of
+  $24$ got this. $2$ chose (A), $1$ chose (E).
+
+\item Suppose $f$ is a continuous function on $\R$. Clearly, $f$ has
+  antiderivatives on $\R$. For all but one of the following
+  conditions, it is possible to guarantee, without any further
+  information about $f$, that there exists an antiderivative $F$
+  satisfying that condition. {\bf Identify the exceptional condition}
+  (i.e., the condition that it may not always be possible to satisfy).
+
+  \begin{enumerate}[(A)]
+  \item $F(1) = F(0)$.
+  \item $F(1) + F(0) = 0$.
+  \item $F(1) + F(0) = 1$.
+  \item $F(1) = 2F(0)$.
+  \item $F(1)F(0) = 0$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Suppose $G$ is an antiderivative for $f$. The
+  general expression for an antiderivative is $G + C$, where $C$ is
+  constant. We see that for options (b), (c), and (d), it is always
+  possible to solve the equation we obtain to get one or more real
+  values of $C$. However, (a) simplifies to $G(1) + C = G(0) + C$,
+  whereby $C$ is canceled, and we are left with the statement $G(1) =
+  G(0)$. If this statement is true, then {\em all} choices of $C$
+  work, and if it is false, then {\em none} works. Since we cannot
+  guarantee the truth of the statement, (a) is the exceptional
+  condition.
+
+  Another way of thinking about this is that $F(1) - F(0) = \int_0^1
+  f(x) \, dx$, regardless of the choice of $F$. If this integral is
+  $0$, then any antiderivative works. If it is not zero, no
+  antiderivative works.
+
+  {\em Performance review}: $17$ out of $25$ people got this. $5$
+  chose (D), $2$ chose (E), $1$ chose (B).
+
+  {\em Historical note (earlier appeance this quarter)}: $18$ out of
+  $24$ got this. $3$ chose (C), $2$ chose (E), $1$ chose (B).
+
+\item Suppose $F$ is a function defined on $\R \setminus \{ 0 \}$ such
+  that $F'(x) = -1/x^2$ for all $x \in \R \setminus \{ 0 \}$. Which of
+  the following pieces of information is/are {\bf sufficient} to determine
+  $F$ completely? Please see options (D) and (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item The value of $F$ at any two positive numbers.
+  \item The value of $F$ at any two negative numbers.
+  \item The value of $F$ at a positive number and a negative number.
+  \item Any of the above pieces of information is sufficient, i.e., we
+    need to know the value of $F$ at any two numbers.
+  \item None of the above pieces of information is sufficient.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: There are two open intervals: $(-\infty,0)$ and
+  $(0,\infty)$, on which we can look at $F$. On each of these
+  intervals, $F(x) = 1/x + $ a constant, but the constant for
+  $(-\infty,0)$ may differ from the constant for $(0,\infty)$. Thus,
+  we need the initial value information at one positive number and one
+  negative number.
+
+  {\em Performance review}: $19$ out of $25$ people got this. $6$
+  chose (D).
+
+  {\em Historical note (earlier appearance this quarter)}: $16$ out of
+  $24$ got this. $8$ chose (D).
+
+\item Suppose $F,G$ are continuously differentiable functions defined
+  on all of $\R$. Suppose $a,b$ are real numbers with $a <
+  b$. Suppose, further, that $G(x)$ is identically zero everywhere
+  except on the open interval $(a,b)$. Then, what can we say about the
+  relationship between the numbers $P = \int_a^b F(x)G'(x) \,dx$ and
+  $Q = \int_a^b F'(x)G(x) \, dx$?
+
+  \begin{enumerate}[(A)]
+  \item $P = Q$
+  \item $P = -Q$
+  \item $PQ = 0$
+  \item $P = 1 - Q$
+  \item $PQ = 1$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Integration by parts gives us that:
+
+  $$\int_a^b F(x)G'(x) \, dx = [F(x)G(x)]_a^b - \int_a^b F'(x)G(x) \, dx$$
+
+  Since $G(x) = 0$ outside $(a,b)$, we get that $G(a) = G(b) = 0$, so
+  that the evaluation of $[F(x)G(x)]_a^b$ gives $0$. We are thus left with:
+
+  $$P = -Q$$
+
+  {\em Performance review}: $19$ out of $25$ people got this. $3$
+  chose (D), $2$ chose (A), $1$ chose (C).
+
+  {\em Historical note (Math 153)}: $32$ out of $41$ got this. $5$ chose (A),
+  $2$ chose (C), $1$ chose (D), $1$ wrote multiple options.
+
+\item Consider the integration $\int p(x) q''(x) \,
+  dx$. Apply integration by parts twice, first taking
+  $p$ as the part to differentiate, and $q$ as
+  the part to integrate, and then again apply integration by parts to
+  avoid a circular trap. What can we conclude?
+
+  \begin{enumerate}[(A)]
+  \item $\int p(x) q''(x) \, dx = \int p''(x) q(x) \, dx$
+  \item $\int p(x) q''(x) \, dx = \int p'(x) q'(x) \, dx - \int p''(x) q(x) \, dx$
+  \item $\int p(x)q''(x) \,dx = p'(x)q'(x) - \int p''(x) q(x)\, dx$
+  \item $\int p(x)q''(x) \,dx = p(x)q'(x) - p'(x)q(x) + \int p''(x) q(x)\, dx$
+  \item $\int p(x)q''(x) \,dx = p(x)q'(x) - p'(x)q(x) - \int p''(x) q(x)\, dx$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Just write it out.
+
+  {\em Performance review}: $21$ out of $25$ people got this. $2$
+  chose (C), $1$ each chose (B) and (E).
+
+  {\em Historical note (Math 153)}: $35$ out of $41$ got this. $4$ chose (E)
+  (sign error, didn't notice double negative), $2$ chose (A).
+
+\item Suppose $p$ is a polynomial function. In order to
+  find the indefinite integral for a function of the form $x
+  \mapsto p(x)\exp(x)$, the general strategy, which always
+  works, is to take $p(x)$ as the part to differentiate and
+  $\exp(x)$ as the part to integrate, and keep repeating
+  the process. Which of the following is the best explanation for why
+  this strategy works?
+
+  \begin{enumerate}[(A)]
+  \item $\exp$ can be repeatedly differentiated (staying $\exp$) and
+    polynomials can be repeatedly integrated (giving polynomials all
+    the way).
+  \item $\exp$ can be repeatedly integrated (staying $\exp$) and
+    polynomials can be repeatedly differentiated, eventually becoming
+    zero.
+  \item $\exp$ and polynomials can both be repeatedly differentiated.
+  \item $\exp$ and polynomials can both be repeatedly integrated.
+  \item We need to use the recursive version of integration by parts
+    whereby the original integrand reappears after a certain number of
+    applications of integration by parts (i.e., the polynomial equals
+    one of its higher derivatives, up to sign and scaling).
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: This follows because the polynomial is the part
+  that we are choosing to differentiate.
+
+  {\em Performance review}: $20$ out of $25$ people got this. $2$ each
+  chose (C) and (E). $1$ left the question blank.
+
+  {\em Historical note (Math 153)}: All $41$ got this.
+
+\item Consider the function $x \mapsto \exp(x) \sin
+  x$. This function can be integrated using integration by
+  parts. What can we say about how integration by parts works?
+
+  \begin{enumerate}[(A)]
+  \item We choose $\exp$ as the part to integrate and $\sin$ as the
+    part to differentiate, and apply this process once to get the
+    answer directly.
+  \item We choose $\exp$ as the part to integrate and $\sin$ as the
+    part to differentiate, and apply this process once, then use a
+    {\em recursive} method (identify the integrals on the left and
+    right side) to get the answer.
+  \item We choose $\exp$ as the part to integrate and $\sin$ as the
+    part to differentiate, and apply this process twice to get the
+    answer directly.
+  \item We choose $\exp$ as the part to integrate and $\sin$ as the
+    part to differentiate, and apply this process twice, then use a
+    {\em recursive} method (identify the integrals on the left and
+    right side) to get the answer.
+  \item We choose $\exp$ as the part to integrate and $\sin$ as the
+    part to differentiate, and we apply integration by parts four
+    times to get the answer directly.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: $\sin$ is the negative of its second derivative,
+  $\exp$ equals its second antiderivative.
+
+  {\em Performance review}: $22$ out of $25$ people got this. $3$ chose (C).
+
+  {\em Historical note (Math 153)}: $38$ out of $41$ got this. $3$
+  chose (C).
+
+
+\item Suppose $f$ is a continuous function on all of $\R$ and is the
+  third derivative of an elementarily expressible function, but is not
+  the fourth derivative of any elementarily expressible function. In
+  other words, $f$ can be integrated three times but not four times
+  within the collection of elementarily expressible functions. What is
+  the {\bf largest positive integer} $k$ such that $x \mapsto x^kf(x)$
+  is {\em guaranteed to be} {\bf elementarily integrable}?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $5$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Via integration by parts, integrating $f$ $m$ times is
+  equivalent to finding antiderivatives for $f(x)$, $xf(x)$, and so on
+  till $x^{m-1}f(x)$. In our case, $f$ can be integrated $3$ times, so
+  the largest $k$ is $3 - 1 = 2$.
+
+  {\em Performance review}: $21$ out of $25$ people got this. $3$
+  chose (C), $1$ chose (D).
+
+  {\em Historical note (last time)}: $5$ out of $18$ people got this
+  correct. $6$ chose (D), $5$ chose (C), and $2$ chose (E).
+
+\item Suppose $f$ is a continuous function on $(0,\infty)$ and is the
+  third derivative of an elementarily expressible function, but is not
+  the fourth derivative of any elementarily expressible function. In
+  other words, $f$ can be integrated three times but not four times
+  within the collection of elementarily expressible functions. What is
+  the {\bf largest positive integer} $k$ such that the function $x
+  \mapsto f(x^{1/k})$ with domain $(0,\infty)$ is {\em guaranteed to
+  be} {\bf elementarily integrable}?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $5$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Via the $u$-substitution $u = x^{1/k}$, we get
+  $\int ku^{k-1}f(u) \, du$. Now using the previous question, the
+  maximum value of $k - 1$ possible is $2$, so the maximum possible
+  value is $3$.
+
+  We can also do a direct integration by parts taking $1$ as the
+  second part.
+
+  {\em Performance review}: $21$ out of $25$ people got this. $2$ each
+  chose (A) and (B).
+
+  {\em Historical note (last time)}: $8$ out of $18$ people got this
+  correct. $5$ chose (A), $3$ chose (D), and $2$ chose (B).
+  
+\item Of these five functions, four of the functions are elementarily
+  integrable and can be integrated using integration by parts. The
+  other one function is {\bf not elementarily integrable}. Identify
+  this function.
+
+  \begin{enumerate}[(A)]
+  \item $x \mapsto x \sin x$
+  \item $x \mapsto x \cos x$
+  \item $x \mapsto x \tan x$
+  \item $x \mapsto x \sin^2x$
+  \item $x \mapsto x \tan^2x$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: If $f$ is elementarily integrable, then $xf(x)$
+  is elementarily integrable iff $f$ is twice elementarily integrable;
+  this is easily seen using integration by parts. Of the function
+  options given here, $\tan$ is the only function that is not twice
+  elementarily integrable, because the first integration gives
+  $-\ln|\cos x|$ which cannot be integrated. Of the others, note that
+  $\sin$, $\cos$, and $\sin^2$ can be integrated using elementary
+  functions infinitely many times. $\tan^2$ is twice elementarily
+  integrable but no further: integrates the first time to $\tan x -
+  x$, which integrates one more time to $-\ln|cos x| - x^2/2$, which
+  cannot be integrated further.
+
+  {\em Performance review}: $20$ out of $25$ people got this. $2$ each
+  chose (D) and (E), $1$ chose (B).
+
+  {\em Historical note (last time)}: $8$ out of $18$ people got this
+  correct. $8$ people chose (E) and $2$ people chose (D).
+
+\item Consider the four functions $f_1(x) = \sqrt{\sin x}$, $f_2(x) =
+  \sin \sqrt{x}$, $f_3(x) = \sin^2 x$ and $f_4(x) = \sin(x^2)$, all
+  viewed as functions on the interval $[0,1]$ (so they are all well
+  defined). Two of these functions are elementarily integrable; the
+  other two are not. Which are {\bf the two elementarily integrable
+  functions}?
+
+  \begin{enumerate}[(A)]
+  \item $f_3$ and $f_4$.
+  \item $f_1$ and $f_3$.
+  \item $f_1$ and $f_4$. 
+  \item $f_2$ and $f_3$.
+  \item $f_2$ and $f_4$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Integration of $f_3$ is a standard procedure, so
+  we say nothing about that. As for $f_2$, recall that integrating
+  $f(x^{1/k})$ is equivalent to integrating $u^{k-1}f(u)$ where $u =
+  x^{1/k}$, which in turn is equivalent to integrating $f$ $k$
+  times. Since $\sin$ can be integrated as many times as we wish,
+  $f_2$ can be integrated.
+
+  The reason why $f_1$ and $f_4$ are not elementarily integrable is
+  subtler but it's clear that none of the obvious methods work.
+
+  {\em Performance review}: $20$ out of $25$ people got this. $2$
+  chose (B), $1$ each chose (A), (C), and (E).
+
+  {\em Historical note (last time)}: $5$ out of $18$ people got this
+  correct. $5$ people each chose (B) and (E), $2$ chose (C), $1$ chose
+  (A).
+
+
+\item Which of the following functions has an antiderivative that is
+  {\bf not equivalent} up to elementary functions to the antiderivative of
+  $x \mapsto e^{-x^2}$?
+
+  \begin{enumerate}[(A)]
+  \item $x \mapsto e^{-x^4}$
+  \item $x \mapsto e^{-x^{2/3}}$
+  \item $x \mapsto e^{-x^{2/5}}$
+  \item $x \mapsto x^2e^{-x^2}$
+  \item $x \mapsto x^4e^{-x^2}$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: We show the equivalence with the others.
+
+  Option (D): We use integration by parts, writing
+  $x^2e^{-x^2}$ as $x \cdot (xe^{-x^2})$ and taking $xe^{-x^2}$ as the
+  part to integrate, so that $x$ is the part to differentiate. An
+  antiderivative for $xe^{-x^2}$ is $(-1/2)e^{-x^2}$, so we get:
+
+  $$\frac{-x}{2}e^{-x^2} - \int \frac{-1}{2}e^{-x^2} \, dx$$
+
+  We thus see that it reduces to $\int e^{-x^2} \, dx$.
+
+  Option (E), via reduction to option (D): We use integration by
+  parts, taking $x^3$ as the part to differentiate and $xe^{-x^2}$ as
+  the part to integrate. One application of integration by parts
+  reduces this to $\int x^2e^{-x^2}$, which is option (D).
+
+  Option (B), via reduction to option (D): Start with $\int
+  e^{-x^{2/3}} \, dx$. Put $u = x^{1/3}$. The substitution gives (up to
+  scalars) $\int u^2e^{-u^2} \, du$, which is option (D).
+
+  Option (C), via reduction to option (D): Start with $\int
+  e^{-x^{2/5}} \, dx$. Put $u = x^{1/5}$. The substitution gives (up to
+  scalars) $\int u^4e^{-u^2} \, du$, which is option (E).
+
+  {\em Performance review}: $22$ out of $25$ people got this. $1$ each
+  chose (B), (D), and (E).
+
+  {\em Historical note (last time)}: $6$ out of $18$ people got this
+  correct. $6$ chose (C), $2$ each chose (B), (D), (E).
+
+
+\item Consider the statements $P$ and $Q$, where $P$ states that every
+  rational function is elementarily integrable, and $Q$ states that
+  any rational function is $k$ times elementarily integrable for all
+  positive integers $k$.
+
+  Which of the following additional observations is {\bf correct} and
+  {\bf allows us to deduce} $Q$ given $P$?
+
+  \begin{enumerate}[(A)]
+  \item There is no way of deducing $Q$ from $P$ because $P$ is true
+    and $Q$ is false.
+  \item The antiderivative of a rational function can always be chosen
+    to be a rational function, hence $Q$ follows from a repeated
+    application of $P$.
+  \item Using integration by parts, we see that repeated integration
+    of a function $f$ is equivalent to integrating $f$, $f^2$, $f^3$,
+    and higher powers of $f$ (the powers here are pointwise products,
+    not compositions). If $f$ is a rational function, each of these is
+    also a rational function. Applying $P$, each of these is
+    elementarily integrable, hence $f$ is $k$ times elementarily
+    integrable for all $k$.
+  \item Using integration by parts, we see that repeated integration
+    of a function $f$ is equivalent to integrating $f$, $f'$, $f''$,
+    and higher derivatives of $f$. If $f$ is a rational function, each
+    of these is also a rational function. Applying $P$, each of these
+    is elementarily integrable, hence $f$ is $k$ times elementarily
+    integrable for all $k$.
+  \item Using integration by parts, we see that repeated integration
+    of a function $f$ is equivalent to integrating each of the
+    functions $f(x)$, $xf(x)$, $\dots$. If $f$ is a rational function,
+    each of these is also a rational function. Applying $P$, each of
+    these is elementarily integrable, hence $f$ is $k$ times
+    elementarily integrable for all $k$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Review the material on rational function
+  integration.
+
+  {\em Performance review}: $21$ out of $25$ got this. $2$ chose (D),
+  $1$ each chose (B) and (C).
+
+  {\em Historical note (last time)}: $3$ out of $18$ people got this
+  correct. $7$ chose (C), $6$ chose (D), $1$ each chose (A) and (B).
+
+\item Which of these functions of $x$ is {\em not} elementarily
+  integrable?
+
+  \begin{enumerate}[(A)]
+  \item $x\sqrt{1 + x^2}$
+  \item $x^2\sqrt{1 + x^2}$
+  \item $x(1 + x^2)^{1/3}$
+  \item $x\sqrt{1 + x^3}$
+  \item $x^2\sqrt{1 + x^3}$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {|em Explanation}: For options (A) and (C), the substitution $u = 1
+  + x^2$ works fine. For option (E), the substitution $u = 1 + x^3$
+  works fine. For option (B), we can solve the problem using a
+  trigonometric substitution. This leaves option (D) (which,
+  incidentally, requires the use of elliptic integrals).
+
+  {\em Performance review}: $22$ out of $25$ got this. $3$ chose (C).
+
+  {\em Historical note (last time)}: $9$ out of $18$ people got this
+  correct. $4$ chose (C), $4$ chose (B), $1$ chose (A).
+
+
+\item Consider the function $f(k) := \int_1^2 \frac{dx}{\sqrt{x^2 +
+  k}}$. $f$ is defined for $k \in (-1,\infty)$. What can we say about
+  the nature of $f$ within this interval?
+
+  \begin{enumerate}[(A)]
+  \item $f$ is increasing on the interval $(-1,\infty)$.
+  \item $f$ is decreasing on the interval $(-1,\infty)$.
+  \item $f$ is increasing on $(-1,0)$ and decreasing on $(0,\infty)$.
+  \item $f$ is decreasing on $(-1,0)$ and increasing on $(0,\infty)$.
+  \item $f$ is increasing on $(-1,0)$, decreasing on $(0,2)$, and
+    increasing again on $(2,\infty)$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: For any fixed value of $x \in [1,2]$, the
+  integrand $1/\sqrt{x^2 + k}$ is a {\em decreasing} function of $k$
+  for $k \in (-1,\infty)$. Hence, the value we get upon integrating it
+  for $x \in [1,2]$ should also be a decreasing function of $k$.
+
+  {\em Performance review}: $15$ out of $25$ got this. $6$ chose (D),
+  $3$ chose (C), $1$ chose (A).
+
+  {\em Historical note (last time)}: $6$ out of $18$ people got this
+  correct. $3$ chose (A), $5$ chose (C), $2$ chose (E), $1$ chose (D),
+  $1$ left the question blank.
+
+\item For which of these functions of $x$ does the antiderivative
+  necessarily involve {\em both} $\arctan$ {\em and} $\ln$?
+
+  \begin{enumerate}[(A)]
+  \item $1/(x + 1)$
+  \item $1/(x^2 + 1)$
+  \item $x/(x^2 + 1)$
+  \item $x/(x^3 + 1)$
+  \item $x^2/(x^3 + 1)$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Option (A) integrates to $\ln|x + 1|$, option (B)
+  integrates to $\arctan x$, option (C) integrates to $(1/2) \ln(x^2 +
+  1)$, and option (E) integrates to $(1/3) \ln|x^3 + 1|$. For option
+  (D), we need to use partial fractions with denominators $x + 1$ and
+  $x^2 - x + 1$, and we end up getting nonzero coefficients on terms
+  that integrate to $\ln$ and to $\arctan$.
+
+  {\em Performance review}: $21$ out of $25$ people got this. $2$
+  chose (E), $1$ each chose (B) and (C).
+
+  {\em Historical note (last time)}: $13$ out of $18$ people got this
+  correct. $3$ chose (C), $1$ each chose (B) and (E).
+
+\item Suppose $F$ is a (not known) function defined on $\R \setminus
+  \{ -1,0,1\}$, differentiable everywhere on its domain, such that
+  $F'(x) = 1/(x^3 - x)$ everywhere on $\R \setminus \{-1,0,1\}$. For
+  which of the following sets of points is it true that knowing the
+  value of $F$ at these points {\bf uniquely} determines $F$?
+
+  \begin{enumerate}[(A)]
+  \item $\{ -\pi, -e, 1/e,1/\pi \}$
+  \item $\{ -\pi/2, -\sqrt{3}/2, 11/17,\pi^2/6 \}$
+  \item $\{ -\pi^3/7,-\pi^2/6,\sqrt{13},11/2 \}$
+  \item Knowing $F$ at any of the above determines the value of $F$
+    uniquely.
+  \item None of the above works to uniquely determine the value of
+    $F$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The domain of $F$ has four connected components:
+  the open intervals $(-\infty,-1)$, $(-1,0)$, $(0,1)$, and
+  $(1,\infty)$. We need to know the value of $F$ at one point in each
+  of these intervals. By computing values, we see that the set of
+  points in option (B) has the property that it contains one point in
+  each of these intervals, and those in options (A) and (C) do not.
+
+  {\em Performance review}: $17$ out of $25$ people got this. $4$
+  chose (A), $2$ chose (E), $1$ each chose (C) and (D).
+
+  {\em Historical note (last time)}: $8$ out of $18$ people got this
+  correct. $5$ chose (D), $3$ chose (A), $2$ left the question blank.
+
+\item Suppose $F$ is a continuously differentiable function whose
+  domain contains $(a,\infty)$ for some $a \in \R$, and $F'(x)$ is a
+  rational function $p(x)/q(x)$ on the domain of $F$. Further, suppose
+  that $p$ and $q$ are nonzero polynomials. Denote by $d_p$ the degree
+  of $p$ and by $d_q$ the degree of $q$. Which of the following is a
+  {\bf necessary and sufficient condition} to ensure that $\lim_{x \to
+  \infty} F(x)$ is finite?
+
+  \begin{enumerate}[(A)]
+  \item $d_p - d_q \ge 2$
+  \item $d_p - d_q \ge 1$
+  \item $d_p = d_q$
+  \item $d_q - d_p \ge 1$
+  \item $d_q - d_p \ge 2$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: This can be justified in terms of partial
+  fractions. Th ecase where $q$ is a product of linear factors can be
+  justified using the previous question. But that is not the most
+  elegant justification. When we cover sequences and series, we will
+  see some comparison tests that make it clear why this holds. The
+  basic example you can keep in mind is that the antiderivative of
+  $1/x^2$ is $-1/x$, which has a finite limit as $x \to \infty$.
+
+  {\em Performance review}: $9$ out of $25$ people got tihs. $13$
+  chose (D), $2$ chose (C), $1$ chose (B).
+
+  {\em Historical note (last time)}: $3$ out of $18$ people
+  got this correct. $7$ chose (D), $5$ chose (B), $2$ chose (C), $1$
+  chose (A).
+
+  Those who chose (D) had the right idea but failed to account for the
+  extra margin that needs to be maintained because an integration is
+  being performed.
+
+  For the next two questions, build on the observation: For any
+  nonconstant monic polynomial $q(x)$, there exists a finite
+  collection of transcendental functions $f_1, f_2, \dots, f_r$ such
+  that the antiderivative of any rational function $p(x)/q(x)$, on an
+  open interval where it is defined and continuous, can be expressed
+  as $g_0 + f_1g_1 + f_2g_2 + \dots + f_rg_r$ where $g_0, g_1, \dots,
+  g_r$ are rational functions.
+
+\item For the polynomial $q(x) = 1 + x^2$, what collection of $f_i$s
+  works (all are written as functions of $x$)?
+
+  \begin{enumerate}[(A)]
+  \item $\arctan x$ and $\ln|x|$
+  \item $\arctan x$ and $\arctan(1 + x^2)$
+  \item $\ln|x|$ and $\ln(1 + x^2)$ 
+  \item $\arctan x$ and $\ln(1 + x^2)$
+  \item $\ln|x|$ and $\arctan(1 + x^2)$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Follows from the standard partial fraction
+  decomposition. $2x/(1 + x^2)$ gives the $\ln$ integration and $1/(1
+  + x^2)$ gives the $\arctan$ integration.
+
+  {\em Performance review}: $23$ out of $25$ people got this. $1$ each
+  chose (A) and (C).
+
+  {\em Historical note (last time)}: $5$ out of $18$ people got this
+  correct. $4$ each chose (C) and (E), $3$ chose (A), $2$ chose (B).
+
+\item For the polynomial $q(x) := 1 + x^2 + x^4$, what is the
+  size of the smallest collection of $f_i$s that works?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $5$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: The denominator factors into $x^2 - x + 1$ and
+  $x^2 + x + 1$. Each of these contributes one $\arctan$ possibility
+  and one $\ln$ possibility. A total of $4$ possibilities is achieved.
+
+  In general, if there are no repeated factors, the smallest number of
+  pieces equals the degree of the polynomial.
+
+  {\em Performance review}: $17$ out of $25$ people got this. $8$
+  chose (B).
+
+  {\em Historical note (Math 153)}: $30$ out of $44$ got this. $8$ chose (B),
+  $5$ chose (C), $1$ chose (E).
+
+\end{enumerate}
+
+\end{document}

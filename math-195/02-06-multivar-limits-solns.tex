@@ -1,0 +1,187 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: Wednesday February 6: Multivariable limit computations}
+\author{Math 195, Section 59 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$26$ people took this quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $0$: $1$ person.
+\item Score of $1$: $2$ people.
+\item Score of $2$: $9$ people.
+\item Score of $3$: $10$ people.
+\item Score of $4$: $4$ people.
+\end{itemize}
+
+The question-wise answers and performance review were as follows:
+
+\begin{enumerate}
+\item Option (A): $18$ people
+\item Option (D): $24$ people
+\item Option (B): $9$ people
+\item Option (B): $15$ people
+\end{enumerate}
+\section{Solutions}
+
+\begin{enumerate}
+\item Consider the function $f(x,y) := x \sin(1/(x^2 + y^2))$, defined
+  on all points other than the point $(0,0)$. What is the limit of the
+  function at $(0,0)$?
+
+  \begin{enumerate}[(A)]
+  \item $0$
+  \item $1/\sqrt{2}$
+  \item $1$
+  \item The limit is undefined, because the expression becomes unbounded around $0$.
+  \item The limit is undefined, because the expression is oscillatory
+    around $0$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: We know that $\sin(1/(x^2 + y^2))$ is bounded in
+  $[-1,1]$, and $x \to 0$ as we approach the origin. We thus get the
+  product of something approaching $0$ and something bounded, which is
+  therefore $0$.
+
+  {\em Performance review}: $18$ out of $26$ got this. $7$ chose (E),
+  $1$ chose (D).
+
+  {\em Historical note (last time)}: $8$ out of $22$ people got this
+  correct. $12$ chose (E). $1$ each chose (C) and (D).
+
+ Some failed to note the $x$ on the outside. Others thought that the
+  behavior of $\sin(1/(x^2 + y^2))$ is like the behavior of $1/(x^2 +
+  y^2)$ near the origin. This is not true. Near the origin, $1/(x^2 +
+  y^2)$ approaches $\infty$ but $\sin$ of the same quantity is
+  oscillatory. Note also that $\sin$ cannot be stripped off because
+  the input to it is not going to $0$.
+\item The typical $\varepsilon-\delta$ definition of limit in two
+  dimensions makes use of open disks centered at the points on the
+  domain and range side, where the open disk is the interior region
+  bounded by a circle centered at the point. Which other geometric
+  shapes can we use instead of a circle of specified radius centered
+  at the point?
+
+  \begin{enumerate}[(A)]
+  \item A square of specified side length centered at the point
+  \item An equilateral triangle of specified side length centered at the point
+  \item A regular hexagon of specified side length centered at the point
+  \item Any of the above
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Basically, any shape that is bounded both from
+  inside and from outside by a circle will do.
+
+  {\em Performance review}: $24$ out of $26$ got this. $1$ each chose
+  (B) and (E).
+
+  {\em Historical note (last time)}: $12$ out of $22$ people got this
+  correct. $6$ chose (A), $4$ chose (E).
+
+\item Here's a quick recap of the limit definition for a function of a
+  vector variable. We say that $\displaystyle \lim_{\mathbf{x} \to \mathbf{c}}
+  f(\mathbf{x}) = L$ if for every $\varepsilon > 0$ there exists
+  $\delta > 0$ such that for all $\mathbf{x}$ satisfying $0 <
+  |\mathbf{x} - \mathbf{c}| < \delta$, we have $|f(\mathbf{x}) - L| <
+  \varepsilon$. We define $|\mathbf{x} - \mathbf{c}|$ as the Euclidean
+  norm of $\mathbf{x} - \mathbf{c}$ where the Euclidean norm of a
+  vector is the square root of the sum of the squares of its
+  coordinates.
+
+  We could replace the Euclidean norm by other measurements. For
+  instance, we could use:
+
+  (i) The {\em sum} of the absolute values of the coordinates of
+  $\mathbf{x} - \mathbf{c}$.
+
+  (ii) The {\em maximum} of the absolute values of the coordinates of
+  $\mathbf{x} - \mathbf{c}$.
+
+  (iii) The {\em minimum} of the absolute values of the coordinates of
+  $\mathbf{x} - \mathbf{c}$.
+
+  For any of (i) - (iii), we could replace $|\mathbf{x} - \mathbf{c}|$
+  in our current definition of limit with that notion. The question
+  is: for which of the replacements will our new notion of limit be
+  the same as the old one? The deeper idea here is that limit depends
+  upon a concept of what it means for two points to be close. So
+  another way of phrasing the question is: which of the notions
+  (i)-(iii) capture the same notion of closeness as the usual
+  Euclidean distance?
+
+  \begin{enumerate}[(A)]
+  \item All of (i), (ii), and (iii).
+  \item (i) and (ii) but not (iii).
+  \item (i) and (iii) but not (ii).
+  \item Only (i).
+  \item None of (i), (ii), or (iii).
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The sum of the absolute values of the coordinates
+  of a vector is small if and only if all the absolute values of the
+  coordinates are small. Similarly, the maximum of the absolute values
+  of the coordinates is small if and only if all the coordinates are
+  small. On the other hand, the minimum could be small even if some of
+  the coordinates are very large. For this reason, the minimum does
+  not capture the correct notion of ``closeness'' -- in the notion of
+  closeness it gives, very far-away points can appear close merely
+  because they are close in one coordinate.
+
+  {\em Performance review}: $9$ out of $26$ people got this. $16$
+  chose (C), $1$ chose (D).
+
+\item Suppose $f$ is a function of two variables $x,y$ and is defined
+  on the whole $xy$-plane. Consider three conditions: (i) $f$ is
+  continuous on the whole $xy$-plane, (ii) for every fixed value $x =
+  x_0$, the function $y \mapsto f(x_0,y)$ is continuous in $y$ for all
+  $y \in \R$, (iii) for every fixed value $y = y_0$, the function $x
+  \mapsto f(x,y_0)$ is continuous in $x$ for all $x \in \R$, (iv) the
+  function $t \mapsto f(p(t),q(t))$ is continuous for all $t \in \R$
+  whenever $p$ and $q$ are both constant or linear functions (in other
+  words, the restriction of $f$ to any straight line in $\R^2$ is
+  continuous).
+
+  Which of the following correctly describes the implications between
+  (i), (ii), (iii), and (iv)?
+
+  \begin{enumerate}[(A)]
+  \item (i) implies both (ii) and (iii), and (ii) and (iii) together imply (iv).
+  \item (i) implies (iv), and (iv) implies both (ii) and (iii).
+  \item (iv) implies (ii) and (iii), and (ii) and (iii) together imply (i).
+  \item (iv) implies (i), and (i) implies both (ii) and (iii).
+  \item (ii) and (iii) together imply (iv), and (iv) implies (i).
+  \end{enumerate}
+ 
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Continuous implies continuous in every direction,
+  linear and curved, hence (i) implies (iv) (we can also think of this
+  as a result of composition of continuous functions being
+  continuous). (iv) implies (ii) and (iii) because (ii) and (iii) are
+  continuous from specific linear directions, namely the directions
+  parallel to the coordinate axes.
+
+  That the reverse implicationa fail is covered in the lecture notes
+  and in videos.
+
+  {\em Performance review}: $15$ out of $26$ got this. $4$ chose (A),
+  $3$ each chose (D) and (E). $1$ left the question blank.
+\end{enumerate}
+
+\end{document}

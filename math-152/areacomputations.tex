@@ -1,0 +1,383 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Area computations using integration}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 5.5, 6.1.
+
+{\bf Difficulty level}: Moderate. The basic computational
+ideas are of easy to moderate difficulty, but some of the slicing
+ideas at the end are somewhat hard.
+
+{\bf What students should definitely get}: The application of integral
+to computing areas. The idea of slicing and integration of slice
+lengths.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+
+\item We can use integration to determine the area of the region
+  between the graph of a function $f$ and the $x$-axis from $x = a$ to
+  $x = b$: this integral is $\int_a^b f(x) \, dx$. The integral
+  measures the signed area: parts where $f \ge 0$ make positive
+  contributions and parts where $f \le 0$ make negative
+  contributions. The magnitude-only area is given as $\int_a^b |f(x)|
+  \, dx$. The best way of calculating this is to split $[a,b]$ into
+  sub-intervals such that $f$ has constant sign on each sub-interval,
+  and add up the areas on each sub-interval.
+\item Given two functions $f$ and $g$, we can measure the area between
+  $f$ and $g$ between $x = a$ and $x = b$ as $\int_a^b |f(x) - g(x)|
+  \,dx$. For practical purposes, we divide into sub-intervals so that
+  on each sub-interval one function is bigger than the other. We then
+  use integration to find the magnitude of the area on each
+  sub-interval and add up. If $f$ and $g$ are both continuous, the
+  points where the functions {\em cross} each other are points where
+  $f = g$.
+\item Sometimes, we may want to compute areas against the
+  $y$-axis. The typical strategy for doing this is to interchange the
+  roles of $x$ and $y$ in the above discussion. In particular, we try
+  to express $x$ as a function of $y$.
+\item An alternative strategy for computing areas against the $y$-axis
+  is to use formulas for computing areas against the $x$-axis, and
+  then compute differences of regions.
+\item A general approach for thinking of integration is in terms of
+  slicing and integration. Here, integration along the $x$-axis is
+  based on the following idea: divide the region into vertical slices,
+  and then integrate the lengths of these slices along the horizontal
+  dimension. Regions for which this works best are the regions called
+  {\em Type I regions}. These are the regions for which the
+  intersection with any vertical line is either empty or a point or a
+  line segment, hence it has a well-defined length.
+\item Correspondingly, integration along the $y$-axis is based on
+  dividing the region into horizontal slices, and integrating the
+  lengths of these slices along the vertical dimension. Regions for
+  which this works best are the regions called {\em Type II regions}.
+  These are the regions for which the intersection with any horizontal
+  line is either empty or a point or a line segment, hence it has a
+  well-defined length.
+\item Generalizing from both of these, we see that our general
+  strategy is to choose two perpendicular directions in the plane, one
+  being the direction of our slices and the other being the direction
+  of integration.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item In some situations we are directly given functions and/or curves
+  and are asked to find areas. In others, we are given real-world
+  situations where we need to find areas of regions. Here, we have to
+  find functions and set up the integration problem as an intermediate
+  step.
+\item In all these situations, it is important to draw the graphs in a
+  reasonably correct way. This brings us to all the ideas that are
+  contained in graph drawing. Remember, here we may be interested in
+  simultaneously graphing more than one function. Thus, in addition to
+  being careful about each function, we should also correctly estimate
+  where one function is bigger than the other, and find (approximately
+  or exactly) the intersection points. (Go over the notes on
+  graph-drawing, and some additional notes on graphing that weren't
+  completely covered in class).
+\item In some situations, we are asked to find the area(s) of
+  region(s) bounded by the graphs of one, two, three, or more
+  functions. Here, we first need to sketch the figure. Then, we need
+  to find the interval of integration, and if necessary, split this
+  interval into sub-intervals, such that on each sub-interval, we know
+  exactly what integral we need to do. For instance, consider the
+  region between the graphs of $\sin$, $\cos$, and the
+  $x$-axis. Basically, the idea is to find, for all the vertical
+  slices, the upper and lower limits of the slice.
+\end{enumerate}
+
+\section{Integral and area: against the $x$-axis}
+
+\subsection{Definite integral as the signed area between the graph and the $x$-axis}
+
+Suppose $f$ is a continuous function on a closed interval $[a,b]$. The
+graph of $f$ forms a curve in the plane $\R^2$. Consider the signed
+area between this curve and the $x$-axis. This is the area of the
+region bounded by the graph, the $x$-axis, and the vertical lines $x =
+a$ and $x = b$.
+
+\includegraphics[width=3in]{areaundergraph.png}
+
+The basic result of integration is that this area equals the definite
+integral
+
+$$\int_a^b f(x) \, dx$$
+
+If $f(x) \ge 0$ for all $x \in [a,b]$, i.e., if the graph is entirely
+in the upper half-plane (possibly hitting the boundary $x$-axis), then
+this integral is nonnegative, and its value is the magnitude of the
+area. If $f(x) \le 0$ for all $x \in [a,b]$, i.e., if the graph is
+entirely in the lower half-plane (possibly hitting the boundary
+$x$-axis), then this integral is zero or negative, and its value is
+the {\em negative} of the magnitude of the area. If the function has
+parts where it is positive and parts where it is negative, then the
+parts where it is positive make positive contributions and the parts
+where it is negative make negative contributions.
+
+For instance, consider the function $f(x) := 1 - x^2$. We want to find
+the area between the $x$-axis and the graph of the part of this
+function that is above the $x$-axis.
+
+First, note that the graph is above the $x$-axis on $(-1,1)$. Thus, in
+order to find the area, we need to perform the integration:
+
+$$\int_{-1}^1 (1 - x^2) \, dx$$
+
+\includegraphics[width=3in]{1minusxsquared.png}
+
+We can do this integration by finding an antiderivative and evaluating
+it between limits. We take $x - x^3/3$ as the
+antiderivative. Evaluating it between limits gives the value
+$4/3$. Thus, the area of the region we are interested in is $4/3$.
+
+\subsection{Measuring unsigned area}
+
+\includegraphics[width=3in]{sinefilled.png}
+
+Suppose we want to measure the total area between the graph of the
+sine curve and the $x$-axis over one period, say $[0,2\pi]$. In other
+words, we want to compute the integral
+
+$$\int_0^{2\pi} \sin x \, dx$$
+
+We know that $- \cos$, which is an antiderivative for $\sin$, also has
+a period of $2\pi$. Hence, its value between limits is zero, so the
+above integral is zero. Thus, the total {\em signed area} between the
+graph of the sine curve and the $x$-axis is zero. This makes sense
+graphically. The positive area between the sine curve and the $x$-axis
+on the interval $[0,\pi]$ is canceled by a negative area of equal
+magnitude between the $x$-axis and the sine curve on the interval
+$[\pi,2\pi]$. Why are the two areas the same? There are plenty of ways
+of seeing this geometrically. For instance, we have $\sin(\pi +
+\theta) = -\sin \theta$ for all angles $\theta$.
+
+Suppose now that, instead of measuring the signed area, we are
+interested in measuring the unsigned area. The {\em unsigned area}
+between the graph of a function $f$ and the $x$-axis on an interval
+$[a,b]$ is given by
+
+$$\int_a^b |f(x)| \, dx$$
+
+Equivalently, we break the interval $[a,b]$ into subintervals such
+that $f \ge 0$ or $f \le 0$ on each subinterval. Then we calculate the
+magnitude of the integral on each subinterval and add these
+magnitudes.
+
+In the case of the sine function, we can partition $[0,2\pi]$ at
+$\pi$, to get the subintervals $[0,\pi]$ and $[\pi,2\pi]$. On
+$[0,\pi]$, the integral is $[-\cos x]_0^\pi$, which simplifies to
+$2$. On $[\pi,2\pi]$, the integral is $-2$, and its magnitude is
+$2$. The total magnitude of the integral is thus $2 + 2$, and we know
+that $2 + 2 = 4$. Hence, the unsigned area between the graph of $\sin$
+and the $x$-axis on $[0,2\pi]$ is $4$. 
+
+\subsection{Area between two graphs}
+
+\includegraphics[width=4in]{areabetweengraphs.png}
+
+Suppose $f$ and $g$ are two continuous functions. To measure the
+signed area between the graphs of $f$ and $g$ between the points $a$
+and $b$, we compute the integral
+
+$$\int_a^b [f(x) - g(x)] \, dx$$
+
+Here, the subintervals where $f$ is bigger than $g$ make positive
+contributions and the subintervals where $g$ is bigger than $f$ make
+negative contributions. If we are interested in the unsigned area,
+whereby we want positive contributions regardless of which function is
+bigger, we consider the integral
+
+$$\int_a^b |f(x) - g(x)| \, dx$$
+
+To compute this, we break up the interval $[a,b]$ into subintervals
+based on whether $f$ or $g$ is smaller (the overtaking can happen at
+points where $f(x) = g(x)$). We then compute the integral of $f - g$
+(or $g - f$, depending on which is bigger) on each subinterval and add
+up the magnitudes.
+
+For instance, consider the unsigned area between the graphs of $f(x) =
+2x/\pi$ and $g(x) = \sin x$ on the interval $[-\pi/2,\pi/2]$. We see
+that $f(x) = g(x)$ at $-\pi/2,0,\pi/2$. On $(-\pi/2,0)$, $f(x) >
+g(x)$, and on $(0,\pi/2)$, $g(x) > f(x)$. Thus, the integral is:
+
+$$\int_{-\pi/2}^0 (2x/\pi - \sin x) \, dx + \int_0^{\pi/2} (\sin x - 2x/\pi) \, dx$$
+
+\includegraphics[width=3in]{sineandlinefilling.png}
+
+We can calculate and simplify both these integrals. Note that instead
+of computing indefinite integrals for both separately, we can note
+that the two functions are negatives of each other, so if we compute
+an antiderivative for the first, the antiderivative for the second is
+its negative. We get:
+
+$$[x^2/\pi + \cos x]_{-\pi/2}^0 + [-\cos x - x^2/\pi]_0^{\pi/2}$$
+
+Both parts are $1 - \pi/4$, and we thus get $2 - \pi/2$. Since $\pi$
+is approximately $3.14$, this is approximately $0.43$.
+
+Why are the two integrals the same? This can be seen geometrically
+from the fact that both $f$ and $g$ are odd, so the picture from
+$-\pi/2$ to $0$ is the same as the picture from $0$ to $\pi/2$,
+subjected to a half-turn about the origin. Thus, the magnitude of the
+two areas is the same.
+
+\subsection{Areas bounded by graphs of different functions}
+
+\includegraphics[width=3in]{sinecosinegraphs.png}
+
+Sometimes, the bounding curves for an area come from different
+functions. In this case, it makes sense to split up the interval of
+integration into subintervals so that we are dealing with only one
+function in each subinterval. For instance, consider computing the
+area of the region between the $x$-axis and the graphs of $\sin$ and
+$\cos$ on the interval $[0,\pi/2]$. On the interval $[0,\pi/4]$, this
+is the definite integral of the $\sin$ function, and on the interval
+$[\pi/4,\pi/2]$, this is the definite integral of the $\cos$
+function. The total area is the sum of the values of these two
+definite integrals.
+
+As we can see, both integrals are $1 - 1/\sqrt{2}$, and the total
+integral is $2 - \sqrt{2}$, which is approximately $0.59$.
+
+Why are the two integrals the same? We can see graphically that the
+two areas being measured are mirror images of each other about the
+line $x = \pi/4$. This is because for any angle $\theta$, $\cos (\pi/2
+- \theta) = \sin \theta$.
+
+{\em For the second midterm, you are responsible only for the material
+till this point.}
+
+\section{Area computations as slicing, and other methods}
+
+This way of thinking about area computations will turn out to be
+useful for the subsequent topic, which is volume computations. It also
+makes it possible to compute areas of shapes oriented somewhat
+differently from before.
+
+\subsection{Vertical slicing}
+
+So far, the situations where we've been computing areas are: area
+between the graph of a function and the $x$-axis, area bounded between
+graph of a function, the $x$-axis, and two vertical lines, area
+between the graphs of two functions, area bounded by the graphs of two
+functions and two vertical lines.
+
+In all these situations, the region $\Omega$ whose area we need to
+compute has the property that the intersection of $\Omega$ with any
+vertical line is either empty or a line segment. Regions of this kind
+are sometimes called Type I regions. For Type I regions, the general
+formula for the unsigned area is:
+
+$$\int \text{(Length of the line segment as a function of $x$)} \, dx$$
+
+This process can be thought of as {\em vertical slicing}. We are
+dividing the area that we want to measure into vertical slices, and
+then integrating the length along the perpendicular axis (which is
+horizontal).
+
+\subsection{Horizontal slicing}
+
+Horizontal slicing is a lot like vertical slicing, but works for
+regions where the role of vertical and horizontal is replaced.
+
+Horizontal slicing works for regions $\Omega$ which have the property:
+the intersection of $\Omega$ with any horizontal line is either empty
+or a line segment. Regions of this type are sometimes called Type II
+regions. The formula for the area of a Type II region is
+
+$$ \int \text{(Length of the line segment as a function of $y$)} \, dy$$
+
+This process can be thought of as {\em horizontal slicing}. We are
+dividing the area that we want to measure into horizontal slices, and
+the integrating the length along the perpendicular axis (which is
+vertical).
+
+Thus, we have seen two processes of breaking up an area into slices:
+vertical slicing (where we integrate the lengths along a horizontal
+axis) and horizontal slicing (where we integrate the lengths along a
+vertical axis).
+
+Notice that both these procedures are variants of the same basic
+procedure: choose two mutually perpendicular directions, such that all
+lines in one direction have intersection with the region that is
+either empty or a line segment. Then, integrate the length of the line
+segment along the perpendicular direction.
+
+Note also that the extreme case of both these occurs in
+rectangles. Here, whether we use horizontal or vertical slicing, we
+are integrating a constant function.
+
+\subsection{Regions whose area can be computed by integration in multiple ways}
+
+Consider the region bounded by the line $y = 4$, $y = x^2$, and the
+$y$-axis. This is both a Type I and a Type II region, so we can
+determine its area by vertical slicing as well as by horizontal
+slicing. Let's first compute the area by vertical slicing.
+
+\includegraphics[width=4in]{paraboliccup.png}
+
+By vertical slicing, the interval is $[0,2]$, and the lower and upper
+functions are $x^2$ and $4$ respectively. Thus, the length of the line
+segment in each vertical slice is $4 - x^2$. The area is thus:
+
+$$\int_0^2 (4 - x^2) \, dx = [4x - (x^3/3)]_0^2 = 8 - 8/3 = 16/3$$
+
+We could also integrate using horizontal slicing. For this, we express
+$x$ in terms of $y$. We get $x = \sqrt{y}$, with $y \in
+[0,4]$. Measuring the area between this and the $y$-axis, we get:
+
+$$\int_0^4 \sqrt{y} \, dy = [y^{3/2}/(3/2)]_0^4 = 8/(3/2) = 16/3$$
+
+When we later introduce the concept of {\em inverse function}, we will
+notice that what we've just done is moved from integrating one
+function to integrating its inverse function. We'll also see a
+relationship between this and integration by parts next quarter.
+
+\section{Areas of regions given by inequalities}
+
+Suppose a region of the plane is defined by a set of inequalities. In
+other words, the region is defined as the set of all points in the
+plane that satisfy a given system of inequalities. How do we find its area?
+
+The first step is to identify the {\em bounding} lines/curves for this
+region. The bounding lines are typically the lines given by the case
+where equality holds instead of inequality. Once we have found these
+boundary curves, we can then try to use horizontal or vertical slicing
+to determine the area. In some cases, it makes sense to divide the
+region into sub-regions so that it is easy to tackle each sub-region
+separately by slicing.
+
+Another complication is that the boundary curves may not be graphs of
+functions. Often, they may be graphs of relations, i.e., the set of
+points $(x,y)$ satisfying $F(x,y) = 0$ for some two-variable function
+$F$. In these cases, we try to break it up into functions. We consider
+some examples.
+
+\subsection{The example of the circular disk}
+
+Consider the region $1 \le x^2 + y^2 \le 2$. In other words, we are
+looking at the set of points $(x,y)$ such that $x^2 + y^2 \in
+[1,2]$. We easily see graphically that this region is bounded on the
+inside by the circle $x^2 + y^2 = 1$ and on the outside by $x^2 + y^2
+= 2$. The region is called a {\em circular annulus}. To find the area
+of the annulus, we thus need to subtract the area of the disk $x^2 +
+y^2 \le 1$ from the area of the disk $x^2 + y^2 \le 2$.
+
+Now, it so happens that we know formulas for the areas of these disks:
+they are $\pi$ and $2\pi$ respectively, so the difference of areas is
+$2\pi - \pi = \pi$. If we did not know these formulas, we would need
+to break up the circle into graphs of functions $\pm \sqrt{r^2 -
+x^2}$. Unfortunately, integrating these functions requires a
+trigonometric substitutions, so illustrating this idea would take us
+too far afield.
+
+\end{document}

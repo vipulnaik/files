@@ -1,0 +1,420 @@
+\documentclass{ucetd}
+
+%Packages in use
+%\usepackage{fullpage}
+%\usepackage{hyperref}
+\usepackage{vipul}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{setspace, enumerate}
+\usepackage{appendix}
+
+%Title details
+\title{Lazard correspondence up to isoclinism}
+\author{Vipul Naik}
+\department{Mathematics}
+\division{The Physical Sciences}
+\degree{Doctor of Philosophy}
+\date{December 2013}
+
+%% Use these commands to set a dedication and epigraph text
+%\dedication{God}
+%\epigraph{Something cheesy}
+
+
+%List of new commands
+\newcommand{\Skew}{\operatorname{Skew}}
+\newcommand{\ad}{\operatorname{ad}}
+\newcommand{\url}[1]{#1}
+\newcommand{\urlfake}[1]{}
+\begin{document}
+%% Basic setup commands
+% If you don't want a title page comment out the next line and uncomment the line after it:
+\maketitle
+%\omittitle
+
+% These lines can be commented out to disable the copyright/dedication/epigraph pages
+%\makecopyright
+%\makededication
+%\makeepigraph
+
+
+%% Make the various tables of contents
+\tableofcontents
+%\listoffigures
+\listoftables
+
+\abstract
+
+In this thesis we generalize the Lazard correspondence, introduced by
+Lazard in \cite{Lazardsoriginal}, to a correspondence {\em up to
+  isoclinism}. The original Lazard correspondence is a correspondence
+between some groups and some Lie rings. The Lazard correspondence up
+to isoclinism is a correspondence between some equivalence classes of
+groups and some equivalence classes of Lie rings, where the
+equivalence relation on both sides is isoclinism. By relaxing the
+objects on both sides of the correspondence to equivalence classes up
+to isoclinism, we are able to generalize the domain of the
+correspondence somewhat. An overview of our proof strategy is in
+Section \ref{sec:outline}, and our final results are described in
+Section \ref{sec:lcuti}.
+
+A typical application of the original Lazard correspondence is the
+situation where, for some prime $p$, the group is a finite $p$-group
+of nilpotency class at most $p - 1$ and the Lie ring is a finite
+$p$-Lie ring\footnote{This means that the additive group of the Lie
+  ring is a finite $p$-group. In other words, the Lie ring is a Lie
+  algebra over $\Z/p^k\Z$ for some positive integer $k$.} of
+nilpotency class at most $p - 1$.
+
+A typical application of the generalization we describe is the
+situation where the group is a finite $p$-group of nilpotency class at
+most $p$ and the Lie ring is a finite $p$-Lie ring of nilpotency class
+at most $p$. Knowledge of either (the group or the Lie ring)
+determines the other only up to isoclinism and not up to
+isomorphism. Therefore, this correspondence is suited only for the
+study of attributes (of groups or Lie rings) that are invariant under
+isoclinism.
+
+In cases where the original Lazard correspondence applies, it refines
+the Lazard correspondence up to isoclinism: if a group and Lie ring
+are in Lazard correspondence, then they are also in Lazard
+correspondence up to isoclinism. The interesting case covered by our
+correspondence is the case of finite $p$-groups of nilpotency class
+exactly $p$ and finite $p$-Lie rings of nilpotency class exactly
+$p$. The original Lazard correspondence no longer applies in this
+situation,\footnote{There is a subtle distinction between the global
+  and the $3$-local Lazard correspondence that we omit for the
+  abstract, but describe in detail later} so our generalization
+adds value.
+
+\acknowledgments
+
+I would like to thank George Glauberman, my research advisor, for help
+over many years with the research underlying this thesis and for
+detailed feedback on multiple drafts of the thesis. In addition I am
+thankful to Peter May, my second adviser, for helping me out with a
+number of the proofs and some of the underlying concepts. I would also
+like to thank Professor Jonathan Alperin, who provided help in person,
+via email, and by lending books and resources. In addition, I am
+grateful to Shmuel Weinberger, the Department Chair, and Laurie Wail,
+the Graduate Student Administrator, for being very accommodating in
+helping me finish my thesis and arranging for financial support.
+
+I am grateful to many mathematicians, both within and outside the
+University of Chicago, for answering my many queries related to group
+theory and mathematics. A partial list includes Max Horn of Justus
+Liebig University Giessen, I. Martin Isaacs of the University of
+Wisconsin-Madison, Ronald Solomon of Ohio State University, and Justin
+Lynd, an assistant professor at Rutgers University. I am thankful to
+Anton Geraschenko and StackExchange for collaborating to create the
+mathematics question-and-answer website
+MathOverflow,\footnote{\url{http://www.mathoverflow.net}} and to the
+numerous mathematicians who volunteered their time to answering
+questions of mine on MathOverflow, some of which have influenced
+proofs that appear in this thesis. In addition, I am grateful to the
+creators of GAP\footnote{Full list of authors at
+  \url{http://www.gap-system.org/Contacts/People/authors.html}} for
+providing a software that around with and better understand groups,
+which are the central actors of my thesis.
+
+I would also like to thank John Wiltshire-Gordon, who, while an
+undergraduate at the University of Chicago, worked with me on related
+problems. Some of the work we did together was the basis of Section
+\ref{sec:bcuti}.
+
+I also greatly enjoyed and benefited from reading the work of the many
+mathematicians who are cited in this thesis, including Baer, Lazard,
+Hall and Senior, Isaacs, Glauberman, Ellis, Khukhro, and many others
+listed in the bibliography.
+
+\mainmatter
+
+\chapter{Introduction, outline, and preliminaries}
+
+\input{thesis-intro.tex}
+
+\chapter{Isoclinism and homoclinism: basic theory}
+
+\input{thesis-isoclinism.tex}
+
+\chapter{Extension theory}
+
+\input{thesis-extension-theory.tex}
+
+\chapter{Powering over sets of primes}
+
+\input{thesis-powering.tex}
+
+\chapter{Baer correspondence}
+
+\input{thesis-baer.tex}
+
+\chapter{The Malcev and Lazard correspondences}
+
+\input{thesis-lazard-background.tex}
+
+\chapter{Generalizing the Lazard correspondence to a correspondence up to isoclinism}
+
+\input{thesis-main-proofs.tex}
+
+\chapter{Applications and possible extensions}
+
+\input{thesis-possible-extensions.tex}
+
+\newpage
+
+\begin{appendices}
+
+\appendixpage
+\addappheadtotoc
+
+\chapter{Background material}
+
+\input{thesis-appendix-part-1.tex}
+
+\chapter{Supplementary proofs}
+
+\input{thesis-appendix-part-2.tex}
+
+\end{appendices}
+\makebibliography
+
+\begin{thebibliography}{99}
+
+\singlespacing
+
+\bibitem{AG98}{Jonathan L. Alperin and George Glauberman. {\em Limits
+    of Abelian Subgroups of Finite $p$-Groups}. {\em Journal of
+    Algebra}, Vol. 203 (1998), Page 533--566.}
+
+\bibitem{Asch2004}{Michael Aschbacher. {\em The Status of the
+    Classification of the Finite Simple Groups}. {\em Notices of the
+    American Mathematical Society}, Vol. 51, No. 7
+  (2004), Page 736--740. Available online at
+  \url{http://www.ams.org/notices/200407/fea-aschbacher.pdf}}
+
+\bibitem{Baer38} {Reinhold Baer. {\em Groups with Abelian Central
+    Quotient Group}. {\em Transactions of the American Mathematical
+    Society}, Vol. 44, No. 3 (November
+  1938), Page 357--386. Available online at
+  \url{http://www.jstor.org/stable/1989886}}
+
+\bibitem{homologyofmultiplicativeLierings}{A. Bak, G. Donadze and
+  N. Inassaridze. {\em Homology of multiplicative Lie rings}. {\em
+    Journal of Pure and Applied Algebra}, Vol. 208
+  (2007), Page 761--777. %Available online at
+  \urlfake{http://www.math.uni-bielefeld.de/~bak/multliering.pdf}}
+
+\bibitem{Baumslagunique}{Gilbert Baumslag. {\em Some aspects of groups
+    with unique roots}. {\em Acta mathematica}, Vol. 104 (1960), Page
+  217--303. %Available online at
+%  \urlfake{http://eretrandre.org/rb/files/Baumslag1960_236.pdf}
+}
+
+\bibitem{BeylIsoclinisms}{F. R. Beyl. {\em Isoclinisms of group
+    extensions and the Schur multiplicator}. {\em Groups St. Andrews
+  1981}. {\em London Mathematical Society Lecture Note Series}, Vol. 71, Page
+  169--185.}
+
+\bibitem{BoyarchenkoSabitova}{Mitya Boyarchenko and Maria
+  Sabitova. {\em The orbit method for profinite groups and a p-adic
+    analogue of Brown's theorem}.  {\em Israel Journal of Math},
+  Vol. 165 (2008), Page 67--91. Available on the ArXiV at
+  \url{http://arxiv.org/abs/math/0608126}}
+
+\bibitem{BrownLoday}{Ronald Brown and Jean-Louis Loday. {\em Van
+    Kampen theorems for diagrams of spaces}. {\em Topology}, Vol. 26,
+  No. 3 (1987), Page 311--335.} %Decomment after fixing hyperref:
+                                    %Available online at
+                                    %\urlfake{http://www-irma.u-strasbg.fr/~loday/PAPERS/87BrownLoday%28vanKampen%29.pdf}
+
+\bibitem{Lazardeffective}{Serena Cicalo, Willem A. de Graaf and
+  M. R. Vaughan-Lee. {\em An effective version of the Lazard
+    correspondence}. {\em Journal of Algebra},  Vol. 352 (2012), Page
+  430--450. Available online at
+  \url{http://dx.doi.org/10.1016/j.jalgebra.2011.11.031}}
+
+\bibitem{DummitFoote}{David S. Dummit and Richard M. Foote. {\em Abstract Algebra}. {\em John Wiley \& Sons} (2003). ISBN 0471433349}
+
+\bibitem{Easterfield}{Timothy E. Easterfield. {\em The orders of
+    products and commutators in prime-power groups}. {\em Cambridge
+    Philosophical Society}, Vol. 36 (1940), Page 14--26. %Available
+  %online at 
+\urlfake{http://dx.doi.org/10.1017/S0305004100016960}}
+
+\bibitem{EckmannHiltonStammbach}{Beno Eckmann, Peter J. Hilton, and
+  Urs Stammbach. {\em On the homology theory of central group
+    extensions: I - The commutator map and stem extensions}. {\em
+    Commentarii Mathematici Helvetici}, Vol. 47, No. 1 (1972), Page 102--122. } %Decomment after fixing hyperref: Available online at
+%  \urlfake{http://dx.doi.org/10.1007%2FBF02566792}
+
+\bibitem{SchurmultiplierandLazard}{Bettina Eick, Max Horn, and Seiran
+  Zandi. {\em Schur multipliers and the Lazard correspondence}. {\em
+    Archiv der Mathematik}, Vol. 99 (2012), Page 217--226. Available
+  online at \url{http://dx.doi.org/10.1007/s00013-012-0426-7}}
+
+\bibitem{enumeratingpgroups}{Bettina Eick and E. A. O'Brien. {\em
+    Enumerating p-groups}. {\em Journal of the Australian Mathematical
+    Society}, Vol. 67 (1999), Page 191--205. %Available online at
+  \urlfake{http://maths.auckland.ac.nz/~obrien/research/count-pgroups.pdf}}
+
+\bibitem{Ellis87}{Graham Ellis. {\em The non-abelian tensor product of
+    finite groups is finite}. {\em Journal of Algebra}, Vol. 111
+  (1987), Page 203--205. Available online at
+  \url{http://dx.doi.org/10.1016/0021-8693(87)90249-3}}
+
+\bibitem{EllisLie}{Graham Ellis. {\em A non-abelian tensor product of
+    Lie algebras}. {\em Glasgow Journal of Math}, Vol. 33 (1991), Page
+  101--120.}
+
+\bibitem{Ellis93}{Graham Ellis. {\em On five well-known commutator
+    identities}. {\em Journal of the Australian Mathematical Society},
+  Vol. 54 (1993), Page 1--19.}
+
+\bibitem{Foguelinv}{Tuval Foguel and Abraham A. Ungar. {\em Involutory
+    Decomposition of Groups Into Twisted Subgroups and
+    Subgroups}. Available online at
+  \url{http://paws.wcu.edu/tsfoguel/inv.pdf}}
+
+\bibitem{Partialextensions}{George Glauberman. {\em A partial
+    extension of Lazard's correspondence for finite $p$-groups}.{\em
+    Groups, Geometry, and Dynamics}, Vol. 1, Issue 4 (2007). Available
+  online at \url{http://dx.doi.org/10.4171/GGD/21}}
+
+\bibitem{GG08}{George Glauberman, {\em Abelian subgroups of small
+    index in finite $p$-groups}. {\em Journal of Group Theory}, Vol.
+  8 (2005), Page 539--560. Available online at
+  \url{http://dx.doi.org/10.1515/jgth.2005.8.5.539} }
+
+\bibitem{GonzalezSanchez}{Jon Gonzalez-Sanchez. {\em Kirillov's orbit
+    method for p-groups and pro-p-groups}. {\em Commutative Algebra}, Vol. 37, No. 12 (2009), Page 4476--4488.%Available online at \urlfake{http://www.uam.es/personal_pdi/ciencias/jgosanch/Publications/Kirillov_saturable_final.pdf}
+}
+
+\bibitem {HallSenior}{Marshall Hall and James Kuhn Senior. {\em The
+    groups of order $2^n$ ($n \le 6$)}. %Reviewed on MathSciNet at
+  \urlfake{http://www.ams.org/mathscinet-getitem?mr=168631}}
+
+\bibitem {Hall37} {Philip Hall. {\em The classification of prime-power
+    groups}. {\em Journal fur die reine und angewandte Mathematik},
+  Vol. 69 (1937). Available online at
+  \url{http://dx.doi.org/10.1515/crll.1940.182.130}}
+  
+\bibitem {Hekster}{N. S. Hekster. {\em On the structure of
+    n-isoclinism classes of groups}, Vol. 40
+  (1986), Page 63--85. Available online at
+  \url{http://dx.doi.org/10.1016/0022-4049(86)90030-7}}
+
+\bibitem{HiltonMislinRoitberg}{Peter Hilton, Guido Mislin, and Joe
+  Roitberg. {\em Localization of Nilpotent Groups and Spaces}.
+  {\em North-Holland Mathematics Studies} (55). {\em American Elsevier}
+  (1975). ISBN 0444107762}
+
+\bibitem{IsaacsCT}{I. Martin Isaacs. {\em Character Theory of Finite
+    Groups}. {\em Dover} (2012). ISBN 0486680142}
+
+\bibitem {Order128} {Rodney James, M. F. Newman, and
+  E. A. O'Brien. {\em The groups of order 128}. {\em Journal of
+    Algebra}, Vol. 129, No. 1
+  (February 1990), Page 136--158. Available online at 
+  \url{http://dx.doi.org/10.1016/0021-8693(90)90244-I}.}
+
+\bibitem{Karpilovsky}{Gregory Karpilovsky. {\em The Schur
+    Multiplier}. {\em Oxford University Press} (1987). ISBN 0198535546}
+
+\bibitem{Khukhro}{Evgenii I. Khukhro. {\em $p$-Automorphisms of
+    Finite $p$-groups}. {\em Cambridge University Press} (1998). ISBN
+  052159717X}
+
+\bibitem{Lazardsoriginal}{Michel Lazard. {\em Sur les groupes
+    nilpotents et les anneaux de Lie}. {\em Annales scientifiques de
+    l'E.N.S.} Third Series, Vol. 71, No. 2 (1954), Page 101--190.}
+
+\bibitem{Baerinvariantsandisolosigms}{C. R. Leedham-Green and Susan
+  McKay. {\em Baer-invariants, isologism, varietal laws and homology}.
+  {\em Acta Mathematica}, Vol. 137, Issue 1 (1976), Page
+  99--150. Available online at
+  \url{http://dx.doi.org/10.1007/BF02392415}}
+
+\bibitem{Mann99}{Avinoam Mann. {\em Some questions about
+    $p$-groups}. {\em Journal of the Australian Mathematical Society},
+  Vol. 67 (1999), Page 356--379. %Available online at \urlfake{http://journals.cambridge.org/download.php?file=%2FJAZ%2FJAZ1_67_03%2FS1446788700002068a.pdf}
+}
+
+\bibitem{enumeratingcharacters}{E. A. O'Brien and C. Voll. {\em
+    Enumerating classes and characters of $p$-groups}. Available on the
+  ArXiV at \url{http://arxiv.org/abs/1203.3050}}
+
+\bibitem{ConciseII}{J. Peter May and Kate Ponto. {\em More Concise
+    Algebraic Topology: Localization, Completion and Model
+    Categories}. {\em University of Chicago Press} (2012). ISBN
+  0226511782}
+
+\bibitem{McDermottThesis}{Aidan McDermott. {\em The non-abelian tensor
+    product of groups: computations and structural
+    results}. Ph. D. thesis at National University of Ireland, Galway,
+  under the supervision of Dr. Graham J. Ellis (February
+  1998). Available online at
+  \url{http://web.math.unifi.it/users/fumagal/articles/McDermott.pdf}}
+
+\bibitem{Miller52} {Clair Miller. {\em The second homology group of a
+    group; relations among commutators}. {\em Proceedings of the
+    American Mathematical Society}, Vol. 3 (1952), Page
+  588--595. Available online at
+  \url{http://www.ams.org/journals/proc/1952-003-04/S0002-9939-1952-0049191-5/S0002-9939-1952-0049191-5.pdf}}
+
+\bibitem{MilnorKTheory}{John Willard Milnor. {\em Introduction to
+    algebraic K-theory}. {\em Annals of Mathematics Studies}
+  (72), {\em Princeton University Press} (1971). ISBN 0691081018}
+
+\bibitem{Moneyhun} {Kay Moneyhun. {\em Isoclinisms in Lie
+    Algebras}. {\em Algebras Groups Geom.}, Vol. 11 (1994), Page 9--22.}
+
+\bibitem {Order256}{E. A. O'Brien. {\em The groups of order
+    256}. {\em Journal of Algebra}, Vol. 143 (1991), Page
+  219--235. Available online at 
+  \url{http://dx.doi.org/10.1016/0021-8693(91)90261-6}}
+
+\bibitem{Moghaddametal}{Foroud Parvaneh, Mohammad Reza R. Moghaddam,
+  A. Khaksar. {\em Some Properties of $n$-Isoclinism in Lie
+    Algebras}. {\em Italian Journal of Pure and Applied
+    Mathematics}, Vol. 28 (2011), Page 165--176. %Available online at
+%\urlfake{http://ijpam.uniud.it/online_issue/201128/18-ParvaneMoghadKhaksar%20n-isoclinism.pdf}
+}
+
+\bibitem{Pilgrim}{Donald H. Pilgrim. {\em Engel conditions on
+    groups}. {\em Proceedings of the Iowa Academy of Sciences}, Vol.
+  71 (1964), Page 377--383. %Reviewed on MathSciNet at
+  %\urlfake{http://www.ams.org/mathscinet-getitem?mr=0232851}
+}
+
+\bibitem{Plotkin}{B. I. Plotkin. {\em On some criteria of locally
+    nilpotent groups}. {\em Uspekhi Mat. Nauk}, 9:3 (61) (1954), Page 181--186. %Available online at
+  \urlfake{http://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=rm&paperid=8095&option_lang=eng}}
+
+\bibitem{RotmanGT}{Joseph J. Rotman. {\em An Introduction to the
+    Theory of Groups}. {\em Springer Graduate Texts in Mathematics}
+  (1999). ISBN 0387942858}
+
+\bibitem{Stallings}{John Stallings. {\em Homology and central series
+    of groups}. {\em Journal of Algebra}, Vol. 2 (1965), Page 170--181}.
+
+\bibitem {SuzukiII}{Michio Suzuki. {\em Group Theory II}. {\em
+    Springer} (1986). ISBN 0387109161}
+
+\bibitem{vsv}{Veeravalli S. Varadarajan. {\em The Lie group-Lie
+    algebra correspondence}. Lecture notes on Lie theory, Chapter
+  9. %Available online at
+  \urlfake{http://www.math.ucla.edu/~vsv/liegroups2007/9.pdf}}
+
+\bibitem{Weibel}{Charles Weibel. {\em An Introduction to Homological
+    Algebra}. {\em Cambridge University Press} (1995). ISBN
+  0521559871}
+
+\bibitem{Weigel}{Thomas S. Weigel. {\em Exp and log functors for the
+    categories of powerful $p$-central groups and Lie
+    algebras}. Habilitationsschrift (Ph.D. thesis) at Freiburg im
+  Breisgau (1994).}
+
+\end{thebibliography}
+
+\end{document}

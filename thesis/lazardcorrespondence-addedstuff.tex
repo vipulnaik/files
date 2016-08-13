@@ -1,0 +1,114 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, amssymb}
+
+%Title details
+\title{Lazard correspondence: stuff to be added}
+\author{Vipul Naik}
+
+%List of new commands
+\newcommand{\Skew}{\operatorname{Skew}}
+\newcommand{\ad}{\operatorname{ad}}
+\begin{document}
+\maketitle
+
+The current version of the Lazard correspondence document is very
+messy, with some portions and references confused. So I have prepared
+a summary document below of the key changes that I had planned to make
+and will hopefully complete making in a few days.
+
+\begin{itemize}
+
+\item Add the result that if $G$ is a nilpotent group such that $G/G'$
+  is powered over a prime $p$, then $G$ is also powered over $p$ (this
+  is only a slight modification of the existing proof that the derived
+  subgroup is closed under divisibility relations by primes).
+
+\item Introduce (with references if available?) the notion of a free
+  $\pi$-powered class $c$ nilpotent group with $d$ generators. Note
+  that these are ``generators'' in the $\pi$-powered group sense, and
+  they will not usually generate $G$ as an abstract group. This is
+  analogous to the free class $c$ nilpotent group with $d$
+  generators. In the free class $c$ nilpotent group with $d$
+  generators, we start off with an abelianization that is a free
+  abelian group of rank $d$. In the free $\pi$-powered case, the
+  abelianization is a free module of rank $d$ over the ring
+  $\mathbb{Z}[\pi^{-1}]$, i.e., $\mathbb{Z}$ localized at the set of
+  all $\pi$-numbers.
+
+  We can think of the process of going from the free nilpotent class
+  $c$ group with $d$ generators to the corresponding $\pi$-powered
+  group as tensoring the ``base ring'' with $\mathbb{Z}[\pi^{-1}]$. If
+  $\pi$ is the set of all primes, we have tensored the base ring with
+  $\mathbb{Q}$.
+
+\item Completely analogous observations hold for Lie rings. Note that
+  in the Lie ring case, the tensoring of the base ring agrees with our
+  usual concept of tensoring base rings.
+
+\item Suppose $G$ is a $\pi$-powered nilpotent group of class $c$ and
+  has a generating set of size $d$ as a $\pi$-powered group. We will
+  show we can write $G$ as $F/R$ where $F$ is a free $\pi$-powered
+  nilpotent group of class $c + 1$ on $d$ generators, and $R$ is a
+  $\pi$-powered normal subgroup of $F$. We will then show the following:
+
+  \begin{itemize}
+  \item $G \wedge G$ can be canonically identified with the quotient group
+  $[F,F]/[F,R]$.
+  \item $[G,G]$ can be canonically identified with the quotient group
+    $[F,F]/(R \cap [F,F])$.
+  \item The Schur multiplier of $G$, which is defined as the kernel of
+  the natural map $G \wedge G \to [G,G]$, can be identified with the
+  quotient group $(R \cap [F,F])/[F,R]$.
+  \end{itemize}
+
+  {\em How this stands relative to the existing literature}: Similar
+  facts to the above are well known when $F$ is actually a free group,
+  rather than being free relative to a nilpotency class and
+  powering. The result for the Schur multiplier is called the ``Hopf
+  formula'' in the literature. Our statement easily follows from that,
+  once you note that we can transition to the free group of class $c +
+  1$ and with $\pi$-powering without changing any of the quotients of
+  interest.
+
+  A little note as to why we use class $c + 1$ instead of class
+  $c$. We're starting with an actual free group $F$, and looking at
+  $[F,F]/[F,R]$. We want to replace $F$ by $F/\gamma_{c+2}(F)$, i.e.,
+  we declare trivial anything in $\gamma_{c+2}(F)$. We know that $G
+  \cong F/R$ has class $c$, so $\gamma_{c+1}(F) \le R$. Thus,
+  $\gamma_{c + 2}(F) \le [F,R]$, hence is contained in the denominator
+  group of the $[F,F]/[F,R]$ quotient. Thus, quotienting out by this
+  does not lead to any loss of information.
+
+  There is also a direct interpretation in terms of extension theory
+  (basically, the central extensions of a class $c$ group are class at
+  most $c + 1$, so we do not need to look deeper when calculating
+  these groups that classify the extensions).
+
+\item We will demonstrate a similar result for Lie rings: if $L$ is a
+  $\pi$-powered nilpotent Lie ring of class $c$ that has a generating
+  set of size $d$ as a $\pi$-powered Lie ring, there exists a free
+  $\pi$-powered nilpotent Lie ring $U$ of class $c + 1$ on $d$
+  generators and a $\pi$-powered ideal $I$ in $U$, such that $L \cong
+  U/I$. We will then show that the exterior square $L \wedge L$ can be
+  identified with the quotient $[U,U]/[U,I]$.
+
+\item The Lazard correspondence need not work on class $c + 1$ even if
+  it worked on class $c$ (this is the edge case where $c + 1$ is a
+  prime not in $\pi$).
+
+  If the Lazard correspondence did work, we could do a Lazard
+  correspondence to correspond $F \leftrightarrow U$, $R
+  \leftrightarrow I$, and thus get isomorphisms at all levels.
+
+  Since the Lazard correspondence need not work, we need to work
+  around this difficulty. Imagine that we were working with
+  $\mathbb{Q}$. Then, the problem would not exist. We need to show
+  that under the relevant formulas as they happen over $\mathbb{Q}$,
+  the free $\pi$-powered Lie ring and the free $\pi$-powered group get
+  mapped within each other.
+
+\end{itemize}
+
+\end{document}

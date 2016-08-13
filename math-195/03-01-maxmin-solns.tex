@@ -1,0 +1,301 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Friday March 1: Max-min values: one-variable recall} 
+\author{Math 195, Section 59 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$25$ people took this $6$-question quiz. The score distribution was as
+follows:
+
+\begin{itemize}
+\item Score of $2$: $2$ people
+\item Score of $3$: $4$ people
+\item Score of $4$: $7$ people
+\item Score of $5$: $8$ people
+\item Score of $6$: $4$ people
+\end{itemize}
+
+The question wise answers and performance review were as follows:
+
+\begin{enumerate}
+\item Option (D): $18$ people
+\item Option (B): $10$ people
+\item Option (B): $25$ people
+\item Option (B): $15$ people
+\item Option (D): $24$ people
+\item Option (A): $16$ people
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+
+\item Suppose $f$ is a function defined on a closed interval
+  $[a,c]$. Suppose that the left-hand derivative of $f$ at $c$ exists
+  and equals $\ell$. Which of the following implications is {\bf true
+  in general}?
+
+  \begin{enumerate}[(A)]
+  \item If $f(x) < f(c)$ for all $a \le x < c$, then $\ell < 0$.
+  \item If $f(x) \le f(c)$ for all $a \le x < c$, then $\ell \le 0$.
+  \item If $f(x) < f(c)$ for all $a \le x < c$, then $\ell > 0$.
+  \item If $f(x) \le f(c)$ for all $a \le x < c$, then $\ell \ge 0$.
+  \item None of the above is true in general.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: If $f(x) \le f(c)$ for all $a \le x < c$, then
+  all difference quotients from the left are nonnegative. The limiting
+  value, which is the left-hand derivative, is thus also
+  nonnegative. See the lecture notes for more details.
+
+  {\em The other choices}: Options (A) and (B) predict the wrong
+  sign. Option (C) is incorrect because even though the difference
+  quotients are all strictly positive, their limiting value could be
+  $0$. For instance, $\sin x$ on $[0,\pi/2]$ or $x^3$ on $[-1,0]$.
+
+  {\em Performance review}: $18$ out of $25$ got this. $4$ chose (E),
+  $3$ chose (C).
+
+  {\em Historical note 1}: $10$ out of $18$ people got this. $4$
+  chose (E), $3$ chose (B), $1$ chose (C).
+
+  {\em Historical note 2}: This question appeared in a 152 quiz, which
+  $15$ people took. At the time, $8$ people got this correct. $5$
+  people chose option (B) and $2$ people chose option (E). It is
+  likely that the people who chose option (B) made a sign computation
+  error.
+
+\item Suppose $f$ is a continuous function defined on an open interval
+  $(a,b)$ and $c$ is a point in $(a,b)$. Which of the following
+  implications is {\bf true}?
+  \begin{enumerate}[(A)]
+
+  \item If $c$ is a point of local minimum for $f$, then there is a
+    value $\delta > 0$ and an open interval $(c - \delta, c + \delta)
+    \subseteq (a,b)$ such that $f$ is non-increasing on $(c -
+    \delta,c)$ and non-decreasing on $(c,c+\delta)$.
+  \item If there is a value $\delta > 0$ and an open interval $(c -
+    \delta, c + \delta) \subseteq (a,b)$ such that $f$ is
+    non-increasing on $(c - \delta,c)$ and non-decreasing on
+    $(c,c+\delta)$, then $c$ is a point of local minimum for $f$.
+  \item If $c$ is a point of local minimum for $f$, then there is a
+    value $\delta > 0$ and an open interval $(c - \delta, c + \delta)
+    \subseteq (a,b)$ such that $f$ is non-decreasing on $(c -
+    \delta,c)$ and non-increasing on $(c,c+\delta)$.
+  \item If there is a value $\delta > 0$ and an open interval $(c -
+    \delta, c + \delta) \subseteq (a,b)$ such that $f$ is
+    non-decreasing on $(c - \delta,c)$ and non-increasing on
+    $(c,c+\delta)$, then $c$ is a point of local minimum for $f$.
+  \item All of the above are true.
+  \end{enumerate}
+
+  {\em Answer}: Option (B).
+
+  {\em Explanation}: Since $f$ is continuous, being non-increasing on
+  $(c - \delta, c)$ implies being non-increasing on $(c -
+  \delta,c]$. Similarly on the right side. In particular, this means
+  that $f(c) \le f(x)$ for all $x \in (c - \delta, c + \delta)$,
+  establishing $c$ as a point of local minimum.
+
+  {\em Performance review}: $10$ out of $25$ got this. $12$ chose (A),
+  $2$ chose (E), $1$ chose (D).
+
+  {\em Historical note 1}: $7$ out of $18$ people got this
+  correct. $5$ chose (A), $3$ each chose (C) and (D).
+
+  {\em The other choices}: Options (C) and (D)
+  have the wrong kind of increase/decrease. Option (A) is wrong,
+  though counterexamples are hard to come by. The reason Option (A) is
+  wrong is the core of the reason that the first-derivative test does
+  not always work: the function could be oscillatory very close to the
+  point $c$, so that even though $c$ is a point of local minimum, the
+  function does not steadily become non-increasing to the left of
+  $c$. The example discussed in the lecture notes is $|x|(2 +
+  \sin(1/x))$.
+
+  {\em Historical note 2}: This question appeared in a Math 152 quiz. At
+  the time, $5$ out of $15$ people got this correct. $5$ people chose
+  (A), which is the converse of the statement. $2$ people chose (D)
+  and $1$ person each chose (C) and (E). Thus, most people got the
+  sign/direction part correct but messed up on which way the
+  implication goes.
+
+\item Consider all the rectangles with perimeter equal to a fixed
+  length $p > 0$. Which of the following {\bf is true} for the unique
+  rectangle which is a square, compared to the other rectangles?
+
+  \begin{enumerate}[(A)]
+  \item It has the largest area and the largest length of diagonal.
+  \item It has the largest area and the smallest length of diagonal.
+  \item It has the smallest area and the largest length of diagonal.
+  \item It has the smallest area and the smallest length of diagonal.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: We can see this easily by doing calculus, but it
+  can also be deduced purely by thinking about how a square and a long
+  thin rectangle of the same perimeter compare in terms of area and
+  diagonal length.
+
+  {\em Performance review}: All $25$ got this.
+
+  {\em Historical note 1}: $13$ out of $18$ people got this
+  correct. $3$ chose (E) and $2$ chose (A).
+
+  {\em Historical note 2}: This question appeared in a past 152 quiz,
+  and everybody got this correct.
+
+  {\em Historical note3}: This question appeared in an earlier 151
+  final, and $31$ out of $33$ people got it correct.
+
+\item Suppose the total perimeter of a square and an equilateral
+  triangle is $L$. (We can choose to allocate all of $L$ to the
+  square, in which case the equilateral triangle has side zero, and we
+  can choose to allocate all of $L$ to the equilateral triangle, in
+  which case the square has side zero). Which of the following
+  statements {\bf is true} for the sum of the areas of the square and
+  the equilateral triangle? (The area of an equilateral triangle is
+  $\sqrt{3}/4$ times the square of the length of its side).
+  \begin{enumerate}[(A)]
+  \item The sum is minimum when all of $L$ is allocated to the square.
+  \item The sum is maximum when all of $L$ is allocated to the square.
+  \item The sum is minimum when all of $L$ is allocated to the
+    equilateral triangle.
+  \item The sum is maximum when all of $L$ is allocated to the
+    equilateral triangle.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Quick explanation}: The problem can also be solved
+  using the rough heuristic that works for these kinds of problems:
+  the maximum occurs when everything is allocated to the most
+  efficient use, but the minimum typically occurs somewhere in
+  between.
+
+  {\em Full explanation}: Suppose $x$ is the part allocated to the
+  square. Then $L - x$ is the part allocated to the equilateral
+  triangle. The total area is:
+
+  $$A(x) = x^2/16 + (\sqrt{3}/4)(L - x)^2/9$$
+
+  Differentiating, we obtain:
+
+  $$A'(x) = \frac{x}{8} - \frac{\sqrt{3}}{18} (L - x) = x \left(\frac{1}{8} + \frac{\sqrt{3}}{18} \right) - \frac{\sqrt{3}}{18}L$$
+
+  We see that $A'(x) = 0$ at
+
+  $$x = \frac{L(\sqrt{3}/18)}{(1/8) + (\sqrt{3}/18)}$$
+
+  This number is indeed within the range of possible values of $x$.
+
+  Further, $A'(x) > 0$ for $x$ greater than this and $A'(x) < 0$ for
+  $x$ less than this. Thus, this point is a local minimum and the
+  maximum must occur at one of the endpoints. We plug in $x = 0$ to
+  get $(\sqrt{3}/36)L^2$ and we plug in $x = L$ to get $L^2/16$. Since
+  $1/16 > \sqrt{3}/36$, we obtain the the maximum occurs when $x = L$,
+  which means that all the perimeter goes to the square.
+
+  {\em Performance review}: $15$ out of $25$ got this. $6$ chose (C),
+  $2$ each chose (D) and (E).
+
+  {\em Historical note 1}: $7$ out of $18$ people got this
+  correct. $7$ chose (E), $2$ each chose (C) and (D).
+
+  {\em Historical note 2}: This question appeared in a Math 152 quiz,
+  and at the time $9$ out of $15$ people got this correct. $2$ people
+  each chose (E) and (C), $1$ person chose (D), and $1$ person left
+  the question blank.
+
+  {\em Historical note 3}: This question appeared in a 152 midterm
+  last year, and $20$ of $29$ people got it correct. In that midterm,
+  option (E) wasn't there, so things became a little easier.
+
+
+\item Suppose $x$ and $y$ are positive numbers such as $x + y =
+  12$. For {\bf what values} of $x$ and $y$ is $x^2y$ maximum?
+
+  \begin{enumerate}[(A)]
+  \item $x = 3$, $y = 9$
+  \item $x = 4$, $y = 8$
+  \item $x = 6$, $y = 6$
+  \item $x = 8$, $y = 4$
+  \item $x = 9$, $y = 3$
+  \end{enumerate}
+
+  {\em Answer}: Option (D).
+
+  {\em Quick explanation}: This is a special case of the general
+  Cobb-Douglas situation where we want to maximize $x^a(C - x)^b$. The
+  general solution is to take $x = Ca/(a + b)$, i.e., to take $x$ and
+  $C - x$ in the proportion of $a$ to $b$.
+
+  {\em Full explanation}: We need to maximize $f(x) := x^2(12 - x)$,
+  subject to $0 < x < 12$. Differentiating, we get $f'(x) = 3x(8 -
+  x)$, so $8$ is a critical point. Further, we see that $f'$ is
+  positive on $(0,8)$ and negative on $(8,12)$, so $f$ attains its
+  maximum (in the interval $(0,12)$) at $8$.
+
+  {\em Performance review}: $24$ out of $25$ got this. $1$ chose (E).
+
+  {\em Historical note 1}: $11$ out of $18$ people got this
+  correct. $5$ chose (E), $2$ chose (C).
+
+  {\em Historical note 2}: This question appeared in a Math 152 quiz. At
+  the time, $12$ out of $15$ people got this correct. $2$ people chose
+  (E) and $1$ person chose (B). Of the people who got this correct,
+  some seem to have computed the numerical values and others seem to
+  have used calculus. Some who did not show any work may have used the
+  general result of the Cobb-Douglas situation.
+
+\item Consider the function $p(x) := x^2 + bx + c$, with $x$
+  restricted to integer inputs. Suppose $b$ and $c$ are integers. The
+  minimum value of $p$ is attained either at a single integer or at
+  two consecutive integers. Which of the following is a {\bf
+  sufficient condition} for the minimum to occur at two consecutive
+  integers?
+
+  \begin{enumerate}[(A)]
+  \item $b$ is odd
+  \item $b$ is even
+  \item $c$ is odd
+  \item $c$ is even
+  \item None of these conditions is sufficient.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: The graph of $f$ is symmetric about the
+  half-integer axis value $-b/2$. It is an upward-facing parabola. For
+  odd $b$, it attains its minimum among integers at the two
+  consecutive integers $-b/2 + 1/2$ and $-b/2 - 1/2$. When $b$ is
+  even, the minimum is attained uniquely at $-b/2$, which is itself an
+  integer. $c$ being odd or even tells us nothing.
+
+  {\em Performance review}: $16$ out of $25$ got this. $4$ chose (E),
+  $2$ each chose (B) and (D), $1$ chose (C).
+
+  {\em Historical note 1}: $2$ out of $18$ people got this
+  correct. $8$ chose (E), $5$ chose (B), $3$ chose (C).
+
+ {\em Historical note 2}: This question appeared in a Math 152 quiz. At
+  the time, $4$ out of $15$ people got this correct. $8$ people chose
+  (E) and $3$ people chose (B).
+
+\end{enumerate}
+
+\end{document}

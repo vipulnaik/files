@@ -1,0 +1,1527 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul}
+
+%Title details
+\title{Lie cring theory}
+\author{Vipul Naik}
+
+%List of new commands
+\newcommand{\Skew}{\operatorname{Skew}}
+
+\begin{document}
+\maketitle
+
+\section*{Motivational note}
+
+There are two broad ways of motivating crings. First, they
+generalize from the very strong assumption of distributivity to the
+somewhat weaker assumption of $2$-cocycles, and hence are a natural
+generalization.
+
+Second, there are many cases where we have Lie rings or associative
+rings or Jordan rings where we want to ``half'' the multiplication,
+but there is no way of doing this halving while still remaining a Lie
+ring or associative ring or Jordan ring. Cring theory gives us a
+larger space in which to search for halves, and its advantages are
+most notable in the case of $2$-torsion. Even though the halves
+arising thus are not unique, they are unique up to coboundary, i.e.,
+they are homologous.
+
+Cring theory thus provides one special case of the approach of
+managing division by $p$ when such division is not possible --
+specifically, it is tailored to the case $p = 2$.
+\section{Crings: basics}
+
+\subsection{Ring recall}
+
+We will use the term {\em ring} for a set with an abelian group
+structure denoted additively and a binary operation, denoted
+multiplicatively, that distributes both ways over the addition. Thus,
+a ring need not be commutative, associative, or unital. Of particular
+interest is a {\em Lie ring}, where the multiplication, denoted by a
+Lie bracket, is alternating and satisfies the Jacobi identity.
+
+\subsection{Cring: definition}
+
+A {\em cring} is a set $L$ endowed with the structure of an abelian
+group denoted additively, and a binary operation $*: L \times L \to L$
+satisfying the following two conditions:
+
+\begin{enumerate}
+\item The zero condition: $x * 0 = 0 * x = 0$ for all $x$.
+\item The $2$-cocycle condition with respect to addition, given below.
+\end{enumerate}
+
+\begin{equation}
+  (x * (y + z)) + (y * z) = ((x + y) * z) + (x * y)
+\end{equation}
+
+Equivalently the cocycle condition can be written as:
+
+\begin{equation}
+  (x * (y + z)) - (x * y) = ((x + y) * z) - (y * z)
+\end{equation}
+
+Any ring is a cring.
+
+We define the following useful triple operation:
+
+\begin{equation}\label{eq:starone}
+  x *_y z := (x * (y + z)) - (x * y)
+\end{equation}
+
+By the cocycle condition, we also have:
+
+\begin{equation}\label{eq:startwo}
+  x *_y z = ((x + y) * z) - (y * z)
+\end{equation}
+
+By the zero condition, we have $x *_0 z = x * z$ for all $x$, $z$.
+
+For three elements $x$, $y$, and $z$, we define the {\em triple
+  distributor} as:
+
+\begin{equation}\label{eq:tripledistributordef}
+  \delta(x,y,z) := ((x + y) * z) - (x * z) - (y * z) = (x * (y + z)) - (x * z) - (y * z)
+\end{equation}
+The equivalence of these again follows from the cocycle condition.
+
+It can also be characterized as $x *_y z - x * z$.
+
+Thus, we can also write:
+
+\begin{equation}
+  x *_y z = (x * z) + \delta(x,y,z)
+\end{equation}
+We say that $(x,y,z)$ is a {\em distributive triple} if its triple
+distributor is zero.
+\subsection{Lemmas}
+
+\begin{lemma}[Triple distributor]
+  In any cring, the triple distributor of three elements is symmetric
+  in all variables. In other words, $\delta(x,y,z)$ equals
+  $\delta(x,z,y)$, $\delta(y,x,z)$, $\delta(y,z,x)$, $\delta(z,x,y)$,
+  and $\delta(z,y,x)$.
+\end{lemma}
+
+\begin{proof}
+  It suffices to show that the triple distributor remains invariant
+  under a change of the second and third coordinate, and also under a
+  change of the first and second coordinate. But these follow
+  respectively from the first and second definitions of triple
+  distributor.
+\end{proof}
+
+Here is another useful identity:
+
+\begin{lemma}[Shift identity]\label{lemma:shift}
+  If $L$ is a cring, then for $x_1,x_2,y,z \in L$, we
+  have:
+
+  $$(x_1 + x_2) *_y z = x_1 *_{x_2 + y} z + x_2 *_y z$$
+\end{lemma}
+
+\begin{lemma}[Shear property of twisted product]\label{lemma:sheartwisted}
+  $(-x) *_y z = -(x *_{y - x} z)$. 
+\end{lemma}
+
+\begin{proof}
+  Set $y' = y - x$, so $y = y' + x$. We have, by equation
+  \ref{eq:startwo}, that:
+
+  $$(-x) *_y z = (y - x) * z - (y * z)$$
+
+  Using the substitution, we get:
+
+  $$(-x) *_y z = (y' * z) - ((x + y') * z)$$
+
+  The right side is the negative of $x *_{y'} z$, as required.
+\end{proof}
+
+The next fact is crucial to much that will follow.
+
+\begin{theorem}[Skew of cring is ring]\label{thm:skewofcringisring}
+  If $L$ is a cring, and we define a new operation $\cdot$ by:
+
+  $$x \cdot y = (x * y) - (y * x)$$
+
+  Then $L$ is an alternating ring with the multiplication $\cdot$.
+\end{theorem}
+
+This is related to the fact that the skew of any $2$-cocycle is an
+alternating biadditive map.
+
+\subsection{Centralizing and distributing}
+
+We say that two elements $x$, $z$ in a cring $L$
+{\em centralize} each other if we have:
+
+\begin{equation}
+  x *_y z = z *_y x = 0 \ \forall \ y \in L
+\end{equation}
+
+We denote this by $x \perp z$.  
+
+For a subset $S$ of $L$, define the {\em centralizer}:
+
+\begin{equation}
+  C_L(S) := \{ x \in L \mid x \perp z \ \forall \ z \in S \}
+\end{equation}
+
+We say that $x$ and $z$ form a {\em distributive pair} if:
+
+\begin{equation}
+  \delta(x,y,z) = 0 \ \forall \ y \in L
+\end{equation}
+
+Note that since $\delta$ is symmetric in all three inputs, $x$ and $z$
+form a distributive pair if and only if $z$ and $x$ form a
+distributive pair.
+
+For a subset $S$ of $L$, we define the {\em distributor} $D_L(S)$ as:
+
+\begin{equation}
+  D_L(S) := \{ x \in L \mid \delta(x,y,z) = 0 \ \forall \ z \in S,y \in L \}
+\end{equation}
+
+We now state an important lemma:
+
+\begin{lemma}[Centralizer is additive subgroup]
+  Suppose $L$ is a cring. Then, for any subset $S$ of $L$,
+  $C_L(S)$ is an additive subgroup of $L$.
+\end{lemma}
+
+\begin{proof}
+  By the zero condition, $0 \in C_L(S)$. Thus, we need to show
+  that $C_L(S)$ is closed under negation and under addition. Let's
+  deal with negation first.
+
+  {\em To prove}: $(-x) *_y z = z*_y (-x) = 0$ for all $x \in C_L(S)$,
+  $y \in L$, $z \in S$.
+
+  {\em Proof}: By lemma \ref{lemma:sheartwisted}, we have $(-x) *_y z
+  = -(x *_{y-x} z)$, and the latter is $0$, hence so is the
+  former. Thus, $(-x) *_y z = 0$. The proof that $z *_y (-x) = 0$ is
+  analogous.
+
+  We now deal with addition.
+
+  {\em To prove}: If $x_1, x_2 \in C_L(S)$, then $(x_1 + x_2) *_y z =
+  0$ and $z *_y (x_1 + x_2) = 0$ for all $y \in L$, $z \in S$.
+
+  {\em Proof}: By lemma \ref{lemma:shift}, $(x_1 + x_2) *_y z = x_1 *_{x_2 +
+    y} z + x_2 *_y z$. Both the quantities being added on the right
+  side are zero, hence the left side is also zero.
+
+  The proof for $z *_y (x_1 + x_2)$ is analogous.
+\end{proof}
+
+The next lemma is fairly similar:
+
+\begin{lemma}[Distributor is additive subgroup]
+  Suppose $L$ is a cring. Then, for any subset $S$ of $L$,
+  $D_L(S)$ is an additive subgroup of $L$.
+\end{lemma}
+
+\begin{proof}
+ By the zero condition, $0 \in D_L(S)$. Thus, we need to show
+  that $D_L(S)$ is closed under negation and under addition. Let's
+  deal with negation first.
+
+  {\em To prove}: $(-x) *_y z = (-x) * z$ for $x \in D_L(S)$, $y \in
+  L$ and $z \in S$.
+
+  {\em Proof}: From lemma \ref{lemma:sheartwisted}, we have $(-x) *_y
+  z = -(x *_{y-x} z)$, and the latter is $0$. 
+
+  We now deal with addition.
+
+  {\em To prove}: If $x_1, x_2 \in D_L(S)$, $(x_1 + x_2) *_y z = (x_1
+  + x_2) * z$.
+
+  {\em Proof}: By lemma \ref{lemma:shift}, $(x_1 + x_2) *_y z = x_1
+  *_{x_2 + y} z + x_2 *_y z$. From the given condition, the right side
+  becomes $(x_1 * z) + (x_2 * z)$. In particular, the right side is
+  independent of $y$, hence is the same as the right side when $y =
+  0$, which is precisely $(x_1 + x_2) * z$.
+\end{proof}
+
+\subsection{Distributor and center}
+
+For a cring $L$, we define two important subsets.
+
+The {\em distributive kernel} of $L$, which we denote by $\Delta(L)$,
+is defined as the set:
+
+\begin{equation}
+  \Delta(L) := \{ x \in L \mid \delta(x,y,z) = 0 \ \forall y,z \in L \}
+\end{equation}
+
+In other words, $\Delta(L) = D_L(L)$ by the previous notation.
+
+The {\em center} of $L$, which we denote by $Z(L)$, is defined as the set:
+
+\begin{equation}
+  Z(L) := \{ x \in L \mid x \perp z \ \forall \ z \in L \}
+\end{equation}
+
+The center can also be defined as:
+
+\begin{equation}
+  Z(L) := \{ x \in L \mid x * z = z * x = 0 \ \forall \ z \in L \}
+\end{equation}
+
+In other words, $Z(L) = C_L(L)$. Note that $Z(L)$ is a subset of
+$\Delta(L)$.
+
+\begin{lemma}
+  $Z(L)$ and $\Delta(L)$ are additive subgroups of $L$.
+\end{lemma}
+
+Although the next lemma says nothing new per se, the results in it
+are crucial to building our intuition about manipulating expressions
+in crings.
+
+\begin{lemma}
+  Let $L$ be a cring. The following hold:
+
+  \begin{enumerate}
+  \item If $x \in Z(L)$ and $y,z \in L$, then $(x + y) * z = y * z$
+    and $x * y = x * z = 0$. 
+  \item As a corollary to (1), the product of two elements in $L$
+    depends only on the cosets of $Z(L)$ in which they land (we'll 
+    make this more precise when we introduce ideals and quotients).
+  \item if $x \in \Delta(L)$ and $y,z \in L$ then $(x + y) * z = (x *
+    z) + (y * z)$ and $x * (y + z) = (x * y) + (x * z)$.
+  \item If $x_1,x_2 \in \Delta(L)$, then $(x_1 + y_1) * (x_2 + y_2)$
+    can be distributed out completely (using FOIL, for instance).
+  \end{enumerate}
+\end{lemma}
+
+\subsection{Definition of ideal}
+
+In a cring $L$, a {\em left ideal} is a subset $I$ that is an
+abelian subgroup of $L$ under addition and such that $x * z \in I$ for
+all $x \in L$ and $z \in I$. Note that this is equivalent to requiring
+that $x *_y z \in I$ for all $x \in I$ and $y,z \in L$. This is
+because $x *_y z = ((x + y) * z) - (y * z)$, and both of them are
+guaranteed to be in $I$, hence, since $I$ is an additive subgroup of
+$L$, their difference is also guaranteed to be in $I$.
+
+A {\em right ideal} is a subset $J$ that is an abelian subgroup of $L$
+under addition and such that $x * z \in J$ for all $x \in J$ and $z
+\in L$. This is equivalent to requiring that $x *_y z \in J$ for all
+$x \in J$ and $y,z \in L$.
+
+A {\em two-sided ideal} is a subset that is both a left
+ideal and a right ideal.
+
+If $I$ is a two-sided ideal in a cring $L$, then $L/I$ has the
+natural quotient cring structure. Many of the basic isomorphism
+theorem results hold.
+
+In particular, we note the following.
+
+\begin{lemma}
+  In any cring $L$, the center $Z(L)$ is a characteristic two-sided
+  ideal.
+\end{lemma}
+
+\subsection{Subcrings and strong subcrings}
+
+A {\em subcring} of a cring $L$ is a subset $S$ that is a
+subgroup of $S$ under addition and that is also closed under $*$.
+
+A {\em strong subcring} of a Lie ring $L$ is a subset $S$ that is a
+subgroup of $S$ under addition and that is also closed under $*_y$ for
+any $y \in L$.
+
+Note that any left ideal or right ideal is a strong subcring.
+
+\section{Alternating, skew-symmetric, and near-alternating crings}
+
+\subsection{Definitions}
+
+A cring $L$ is termed:
+
+\begin{itemize}
+\item {\em skew symmetric} if $(x * y) + (y * x) = 0$ for all $x,y \in
+L$.
+\item {\em near-alternating} if $x * y = 0$ whenever $x$ and $y$
+  generate (additively) a cyclic subgroup of $L$. In particular $x *
+  x$, and $x * (-x)$, are all $0$ for all $x \in L$.
+\item {\em alternating} if it is both skew symmetric and
+  near-alternating.
+\end{itemize}
+
+\subsection{Attempted generalization: didn't quite work}
+
+Define a {\em $2$-form} in two variables $x$ and $y$ to be a formal
+expression obtained by taking the sum of expressions of the form $(ax
++ by) * (cx + dy)$ where $a$, $b$, $c$ and $d$ are integers. Define a
+{\em pointed $2$-form} as a $2$-form expressible as a sum of
+expressions $(ax) * (bx)$, $(ay) * (by)$, $(ax) * (by)$, and $(ay) *
+(bx)$, where $a$, $b$ are both integers. A pointed $2$-form is termed
+symmetric if interchanging the variables $x$ and $y$ gives the same
+pointed $2$-form.
+
+A cring is alternating if and only if 
+\subsection{Basic lemmas}
+
+\begin{lemma}[Alternation of twisted product]
+  If $L$ is a skew symmetric cring, then $z *_y x = -(x *_y z)$ for
+  all $x,y,z \in L$. Also, as an easy corollary, $2\delta(x,y,z) = 0$.
+\end{lemma}
+
+\begin{proof}
+  By the first interpretation (equation \ref{eq:starone}), we have
+
+  \begin{equation*}
+    z *_y x = (z * (y + x)) - (z * y)
+  \end{equation*}
+
+  We now use the commutativity of addition and skew symmetry to write:
+
+  \begin{equation*}
+    z *_y x = -[((x + y) * z) - (y * z)]
+  \end{equation*}
+
+  Now using the second interpretation (equation \ref{eq:startwo}) on
+  the right side, we get the result. Note that switching between the
+  interpretations corresponds to using the cocycle condition.
+\end{proof}
+
+\begin{lemma}[Shear property of product]\label{lemma:shear}
+  In a near-alternating cring $L$, if $x + y + z = 0$, then $x * y = y
+  * z = z * x$.
+\end{lemma}
+
+\begin{proof}
+  We apply the cocycle condition on $x$, $y$, $z$:
+
+  $$(x * (y + z)) + (y * z) = ((x + y) * z) + (x * y)$$
+
+  Since $y + z = -x$ and $x + y = -z$, the near-alternating condition
+  causes the products $x * (y + z)$ and $(x + y) * z$ to become
+  $0$. We thus get:
+
+  $$y * z = x * y$$
+
+  Because of the cyclic symmetry in $x$, $y$, and $z$ of the
+  statement, we can now deduce the full result
+\end{proof}
+
+
+\subsection{Ideals and centralizers in alternating crings}
+
+In an alternating cring, the following additional features are observed:
+
+\begin{itemize}
+\item To check if $x \perp z$, it suffices to check that $x *_y z =
+  0$; the other condition follows automatically.
+\item Left ideals, right ideals, and two-sided ideals coincide.
+\item It is still {\em not} necessarily true that every element
+  centralizes itself. This is because even though $x * x = 0$ always,
+  we do not have $x *_y x = 0$ for all $x$.
+\end{itemize}
+
+\section{Other interesting conditions on crings}
+
+\subsection{Higher additivity}
+
+A cring $L$ with multiplication $*$ is termed:
+
+\begin{itemize}
+\item {\em outer 3-additive} if it satisfies:
+
+  \begin{equation}
+    (x_1 + x_2) * (y * z) = (x_1 * (y * z)) + (x_2 * (y * z))
+  \end{equation}
+
+  This is equivalent to:
+
+  \begin{equation}
+    (x * y) * (z_1 + z_2) = ((x * y) * z_1) + ((x * y) * z_2)
+  \end{equation}
+
+  It is also equivalent to the assertion that any element obtained as
+  a product of two elements is in $\Delta(L)$.
+\item {\em inner 3-additive} if it satisfies:
+
+  \begin{eqnarray*}
+    x * ((y_1 + y_2) * z) & = & (x * (y_1 * z)) + (x * (y_2 * z))\\
+    x * (y * (z_1 + z_2)) & = & (x * (y * z_1)) + (x * (y * z_2))\\
+    ((x_1 + x_2) * y) * z & = & ((x_1 * y) * z) + ((x_2 * y) * z)\\
+    (x * (y_1 + y_2)) * z & = & ((x * y_1) * z) + ((x * y_2) * z)
+  \end{eqnarray*}
+\item {\em 3-additive} if it is both outer and inner 3-additive.
+\end{itemize}
+
+When combined with the various shift identities, 3-additivity is a
+powerful restriction. We summarize some obvious conclusions here:
+
+\begin{lemma}
+  The following hold for any outer 3-additive cring:
+
+  \begin{enumerate}
+  \item Any product of two elements of $L$ is also in $D_L(L)$.
+  \item Suppose $L$ is alternating. Then, if $S$ is a two-sided ideal
+    in $L$, so is $D_L(S)$.
+  \item $\Delta(L)$ is a two-sided ideal in $L$.
+  \end{enumerate}
+\end{lemma}
+
+\subsection{$3$-skew symmetry and flip-flop symmetry}
+
+We say that a cring $L$ has:
+
+\begin{itemize}
+\item {\em inner $3$-skew symmetry} if we have:
+
+  \begin{eqnarray*}
+    x * (y * z) & = & -(x * (z * y))\\
+    (x * y) * z & = & - ((y * x) * z)
+  \end{eqnarray*}
+\item {\em outer $3$-skew symmetry} if we have:
+  
+  $$x * (y * z) = -((y * z) * x)$$
+\item {\em flip-flop symmetry} if we have:
+
+  $$x * (y * z) = (z * y) * x$$
+\end{itemize}
+
+Any two of these three kinds of symmmetry together imply the third. If
+all conditions hold, we say that the cring has {$3$-skew symmetry}.
+
+Skew symmetry implies outer $3$-skew symmetry, and if combined with
+$3$-additivity, also implies inner $3$-skew symmetry.
+
+\section{Nilpotent and solvable crings, derived and central series}
+
+Suppose $L$ is a cring. We say that $L$ is an {\em abelian cring} if
+$x * y = 0$ for all $x,y \in L$. Note that an abelian cring is
+completely determined by its additive group.
+
+\subsection{Derived and lower central series}
+
+The {\em derived subcring} of $L$ is defined as the additive subgroup
+generated by all elements of the form $x * y$, where $x,y \in
+L$. Further, we define the {\em derived series} and {\em lower central
+series} as follows:
+
+\begin{itemize}
+\item The $k^{th}$ member of the derived series ($k \ge 0$) is defined
+  inductively as the derived subcring of the $(k - 1)^{th}$
+  member. The $0^{th}$ member is taken to be the whole cring.
+\item The $k^{th}$ member of the {\em all-parenthesization lower
+  central series} is defined as the additive subgroup generated by all
+  products of length $k$ of elements in $L$, where the products could
+  be parenthesized in any manner whatsoever. In particular, the first
+  member of the lower central series is the whole cring, and the
+  second member is the derived subcring.
+\item We can also define the {\em inner-to-outer-parenthesized lower
+  central series}, which is obtained by building parentheses from the
+  inside to the outside, though each new term being multipled may be
+  added on the left or the right.
+\end{itemize}
+
+We note that all members of the derived series and of the lower
+central series are characteristic two-sided ideals. Further, we define:
+
+\begin{itemize}
+\item A cring $L$ is {\em nilpotent} (in the all-parenthesization
+  sense) of class $c$ if any product (however parenthesized) of length
+  $c + 1$ in $L$ is zero. A cring is nilpotent if it is nilpotent of
+  class $c$ for some positive $c$. The {\em nilpotency class} of a
+  nilpotent cring is the smallest $c$ such that the cring has class
+  $c$.
+\item A cring $L$ is {\em nilpotent} (in the inner-to-outer-parenthesization
+  sense) of class $c$ if any inner-to-outer parenthesized product of length
+  $c + 1$ in $L$ is zero. 
+
+  Note that although the two definitions of nilpotency class given
+  here differ, the underlying notions of nilpotency itself are the
+  same. Specifically, if a cring has class $c$ in the
+  all-parenthesization sense, it has class $c$ in the inner-to-outer
+  parenthesization sense as well. Conversely, if it has class $c$ in
+  the inner-to-outer parenthesization sense, then the class in the
+  all-parenthesization sense is at most $2^c$.
+
+  For Lie crings, not only do the two notions of nilpotency coincide,
+  the two notions of nilpotency class also coincide. This is because
+  of the alternating nature {\em and} the Jacobi identity.
+\item A cring $L$ is {\em solvable} of length $l$ if the $l^{th}$
+  member of its derived series is zero. A cring is solvable if it is
+  solvable of length $l$ for some positive $l$. The {\em derived
+  length} of a solvable cring is the smallest $l$ such that the cring
+  has class $l$.
+\end{itemize}
+
+Note that for the definition of lower central series, we allow {\em
+all possible parenthesizations}, rather than restricting to left
+normed or right normed parenthesizations. For Lie crings, it is
+possible to restrict attention to left normed parenthesizations.
+
+\section{Lie crings: basics}
+
+\subsection{Definition}
+
+We define a {\em near-Lie cring} as a near-alternating cring that
+satisfies the following two additional conditions, which are known as
+the {\em Jacobi identities}:
+
+\begin{eqnarray*}
+  ((x * y) * z) + ((y * z)* x) + ((z * x) * y) & = & 0\\
+  (x * (y * z)) + (y * (z * x)) + (z * (x * y)) & = & 0
+\end{eqnarray*}
+
+A {\em Lie cring} is a near-Lie cring that is also skew
+symmetric. Note that under skew symmetry, and more generally, under
+flip-flop symmetry, the two Jacobi identities are equivalent.
+
+\subsection{Proving that things are ideals}
+
+We prove some important lemmas.
+
+\begin{lemma}
+  If $S$ is an ideal in a $3$-additive Lie cring $L$, then
+  $D_L(S)$ and $C_L(S)$ are ideals.
+\end{lemma}
+
+(Do we really need $3$-additivity? Probably not, but the proof becomes
+a little worse).
+
+\begin{proof}
+  We've already proved that $D_L(S)$ is an additive subgroup. The fact
+  that it is an ideal follows from the trivial observation that, by
+  $3$-additivity, any expression of the form $x * y$ is in $D_L(L)$,
+  and hence in $D_L(S)$.
+  
+  We've already proved that $C_L(S)$ is an additive subgroup. Thus, we
+  only want to establish that $C_L(S)$ satisfies the additional
+  condition: if $x \in C_L(S)$ and $y \in L$, then $x * y \in
+  C_L(S)$. For this, we need to show that if $w \in L$, and $z \in S$,
+  then $(x * y) *_w z = 0$. Because of $3$-additivity, it suffices to
+  prove that $(x * y) * z = 0$. We note that by the Jacobi identity, we
+  have:
+
+  $$((x * y) * z) + ((y * z) * x) + ((z * x) * y)  =  0$$
+
+  Since $z \in S$ and $x \in C_L(S)$, $z * x = 0$, so $((z * x) * y =
+  0$. Also, since $S$ is an ideal, and $z \in S$, we have $y * z \in
+  S$. Since $x \in C_L(S)$, we get $(y * z) * x = 0$. Thus, the second
+  and thir terms in the Jacobi identity are zero, and we thus get $(x
+  * y) * z= 0$, completing the proof.
+\end{proof}
+
+\section{Relationship with Lie ring theory}
+
+\subsection{The double Lie ring of a Lie cring}
+
+Given any near-Lie cring $L$, we can define a
+corresponding Lie ring $\stackrel{\Skew}{L}$ by the operation:
+
+$$[x,y] := (x * y) - (y * x)$$
+
+In other words, the new operation is obtained as the skew of the old
+operation. That this is a Lie ring basically follows from Theorem
+\ref{thm:skewofcringisring}, which asserts that the skew of any cring
+is an alternating ring.
+
+In particular, if $L$ is a Lie cring, we define the {\em double Lie
+ring} $\stackrel{2}{L}$ as the following Lie ring: the additive
+structure is the same as that of $L$, and the multiplication is
+defined as:
+
+$$[x,y] := 2(x * y)$$
+
+\subsection{Homologous crings}
+
+Suppose $L$ is an abelian group and $*$ and $\cdot$ define two Lie
+cring operations on $L$. We say that $*$ and $\cdot$ are {\em
+homologous} if $* - \cdot$ is a coboundary, i.e., there exists a
+function $q:L \to L$ such that, for all $x,y \in L$, we have:
+
+$$q(x + y) - q(x) - q(y) = (x * y) - (x \cdot y)$$
+
+In particular, a cring is {\em nullhomologous} if its multiplication
+is a coboundary.
+
+\subsection{Cring halves of a Lie ring}
+
+We can reverse the question now as follows: given a Lie ring $L$, can
+we define a Lie cring structure $*$ such that the double of $*$ is
+the Lie bracket? Or more generally, can we find a near-Lie cring
+structure $*$ whose skew is the Lie bracket? We have a uniqueness
+theorem in this regard:
+
+\begin{theorem}
+  Two near-Lie cring structures on a finitely generated abelian group
+  have the same skew if and only if they are homologous. %this needs
+  %to be strengthened. In particular, what is key is how deeply they
+  %are homologous, i.e., what is the image of the gauge function whose
+  %coboundary they are?
+\end{theorem}
+
+The result probably also holds for arbitrary abelian groups, but the
+construction of the homology is probably trickier, so we restrict to
+the finitely generated case.
+
+\begin{proof}
+  By basic group theory, this is equivalent to the assertion that a
+  Lie cring has skew zero if and only if it is nullhomologous. In
+  other words, for a Lie cring $L$ with multiplication $*$, we want to
+  show that:
+
+  $$x * y = y * x \ \forall \ x,y \in L \iff \exists q:L \to L \text{ s.t. } x * y = q(x + y) - q(x) - q(y) \ \forall x,y \in L$$
+
+  The $\Leftarrow$ direction: If a function $q$ exists with the desired
+  properties, then we have:
+
+  \begin{eqnarray*}
+    x * y & = & q(x + y) - q(x) - q(y) \\
+    y * x & = & q(y + x) - q(y) - q(x)
+  \end{eqnarray*}
+
+  The right sides are equal because addition is commutative, so we get
+  $x * y = y * x$ for all $x,y \in L$.
+
+  The $\implies$ direction: Here, we need to use the additional
+  information that we have a near-Lie cring. In particular, we have
+  the near-alternating condition: $x * y = 0$ whenever $x$ and $y$
+  generate a cyclic subgroup of $L$. Also, we have the symmetry
+  condition: $x * y = y * x$ for all $x,y \in L$.
+
+  We consider an extension of $L$ by itself with respect to the
+  $2$-cocycle $*$. We get an extension $M$ with base $L$ and quotient
+  $L$. Showing that $*$ is nillhomologous is equivalent to showing
+  that this extension is congruent to the direct product extension $L
+  \times L$. We now use that $L$ is the direct product of finitely
+  many cyclic subgroups. (Rest of the proof is basically a copy of the
+  proof of the uniqueness theorem found in the baer2cocycles file,
+  need to adjust notation).
+\end{proof}
+
+\section{Nilpotent Lie crings and their exponential groups}
+
+\subsection{Class two near-Lie crings}
+
+A {\em class two near-Lie cring} is a near-Lie cring $(L,*)$ of
+nilpotency class two. In other words, it has the property that $(x *
+y) * z = 0$ for all $x,y,z \in L$. 
+
+Note first that a class two near-alternating cring is
+automatically near-Lie, because the Jacobi identity provides no
+additional information. Further, it is automatically $3$-additive.
+
+\subsection{Exponential group of a near-Lie cring}
+
+For a class two near-Lie cring $(L,*)$, we can define the corresponding
+{\em exponential group} by the following multiplication $\cdot$:
+
+$$x \cdot y = x + y + (x * y)$$
+
+\begin{lemma}
+  The operation $\cdot$ above defines a group structure on $L$, such
+  that:
+
+  \begin{enumerate}
+  \item The identity and inverse operations are the same as for the
+    additive group of $L$. In fact, on any cyclic subgroup of $L$,
+    $\cdot$ coincides with $+$. Hence, the group is $1$-isomorphic to
+    the additive group of $L$.
+  \item The group has nilpotency class two. The commutator map in the
+    group is the same as the Lie bracket in $\stackrel{Skew}{L}$,
+    i.e., it is the skew of $*$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  {\em Identity element}: We want to show that $x \cdot 0 = 0 \cdot x = 0$ for
+  all $x$. We do this by computing explicitly:
+
+  $$x \cdot 0 = x + 0 + (x * 0) = x + 0 + 0 = x$$
+
+  Similarly, $0 \cdot x = x$.
+
+  {\em Inverses and cyclic subgroups}: This is easy, because $x * y =
+  0$ forces $x \cdot y = x + y$.
+
+  {\em Associativity}: We finally need to prove that $x \cdot (y \cdot
+  z) = (x \cdot y) \cdot z$. We first simplify the left side:
+
+  $$x \cdot (y \cdot z) = x  + (y + z + (y * z)) + (x * (y + z + (y * z)))$$
+
+  Now, note that since the cring has class two, $y * z$ is in the
+  center. Thus, $x *_{y + z} (y * z) = 0$ (note: we're jugging between
+  the two definitions of center here, which implicitly uses the
+  cocycle condition). We thus obtain that $x * (y + z + (y * z)) = x *
+  (y + z)$. Thus, we get:
+
+  $$x \cdot (y \cdot z) = x + y + z + (y * z) + (x * (y + z))$$
+
+  Similarly, we obtain that:
+
+  $$(x \cdot y) \cdot z = x + y + z + (x * y) + ((x + y) * z)$$
+
+  The cocycle condition on $*$ now tells us that the right sides are
+  equal, and we are done.
+
+  Next, we need to show that the commutator for the group operation is
+  $(x * y) - (y * x)$. We do the calculation:
+
+  $$[x,y] = (x \cdot y) \cdot (y \cdot x)^{-1} = (x \cdot y) + [- (y \cdot x)] + (x \cdot y) * (-(y \cdot x))$$
+
+  Expanding each of the $\cdot$ expressions on the right, we get:
+
+  $$[x,y] = (x + y + (x * y)) - (y + x + (y * x)) + ((x + y + (x * y)) * (-y - x - (y * x)))$$
+
+  When we open parentheses, and note that the $x * y$ and $y * x$
+  terms can be dropped since the terms are central, a lot of
+  cancellation occurs and we are left with:
+
+  $$[x,y] = (x * y) - (y * x)$$
+
+\end{proof}
+
+These facts are closely connected with the way we use cocycles and
+second cohomology to classify group extensions, and we will explore
+this connection later. The key idea will be to view $*$, not as a
+cocycle from $L \times L$ to $L$, but as a coycle from the quotient of
+$L$ by a central subgroup to that same central subgroup. This cocycle
+is then closely related to the defining cocycle for the corresponding
+extension group, with the difference of the two cocycles being a
+cocycle defining the abelian group extension part.
+
+\subsection{Uniqueness theorem in class two}
+
+We currently have the following scenario in class two:
+
+$$\text{Lie ring obtained by Skew} \leftarrow \text{near-Lie cring}
+\rightarrow \text{Group obtained by exponential map}$$
+
+We would like to reverse these arrows. The key result here is a
+uniqueness theorem, which asserts that distinct near-Lie cring
+structures on the same abelian group give rise to the same Lie ring
+iff they are homologous. A similar result holds for the groups side:
+distinct near-Lie cring structures on the same abelian group give
+rise to isomorphic groups iff they are homologous.
+
+Note that in the case that $L$ is uniquely $2$-divisible, any homology
+class of near-Lie crings has a unique representative that is a {\em
+Lie ring}, namely the representative we get by halving the skew of
+that cohomology class. Thus, the uniqueness theorem goes a lot farther
+in the uniquely 2-divisible case. In the $2$-torsion case, however:
+(i) there exist cohomology classes of near-Lie crings that do not
+contain any Lie cring, and (ii) those that do may contain multiple Lie
+crings. Hence, the uniqueness theorem is only {\em up to} the
+cohomology class relationship.
+
+\subsection{Class three $3$-additive Lie crings and exponential group}
+
+We understand what it means to be a class three Lie cring. In
+particular, it means that any left-normed or right-normed (or
+otherwise parenthesized) product of four elements is zero. For this,
+we make the further assumption of $3$-additivity.
+
+We now try to define an exponential group.
+
+Our take-off point is the class three truncation of the
+Baker-Campell-Hausdorff formula:
+
+$$x \cdot y = x + y + \frac{1}{2}[x,y] + \frac{1}{12}[x,[x,y]] - \frac{1}{12}[y,[x,y]]$$
+
+We want to replace the occurrence of $\frac{1}{2}[x,y]$ with the Lie
+cring operation $x * y$. Thus, our proposed new formula is:
+
+$$x \cdot y = x + y + (x * y) + \frac{1}{3}(x * (x * y)) - \frac{1}{3}(y * (x * y))$$
+
+Note that this formula assumes that $L$ is uniquely $3$-divisible. In
+general, the cring setup is ideally geeared to handling $2$-torsion,
+so we assume $p$-divisibility for all other primes $p$. There are
+other very similar generalizations that work to tackle the issue of
+non-unique $p$-divisibility for higher $p$.
+
+For simplicity, we define $t_3(x,y) = \frac{1}{3}(x * (x * y)) -
+\frac{1}{3}(y * (x * y))$.
+
+Question: Does this define an associative group operation? The answer
+is {\em yes assuming 3-additivity}, but we need some computational
+machinery in order to arrive at it.
+
+\begin{lemma}[Distribution of product terms]\label{lemma:distprod}
+  Assume $L$ is an outer $3$-additive Lie cring. If $p,q,r,s \in L$, then
+  $(p + (q * r)) * s = (p * s) + ((q * r) * s)$. A similar identity
+  holds on the right. In other words, we can use distributivity when
+  one of the terms involved is a product.
+\end{lemma}
+
+\begin{proof}
+  Applying the cocycle condition on $(q * r)$, $p$, and $s$, we see
+  that:
+
+  $$(((q * r) + p) * s) - (p * s) = ((q * r) * (p + s)) -  ((q * r) * p)$$
+
+  By $3$-additivity, the right side becomes $(q * r) * s$, and hence
+  we get the desired inequality.
+\end{proof}
+
+Based on this lemma, we note that the following hold in class three
+(note that some terms become zero, hence are not written in the
+expressions on the right side):
+
+\begin{align*}
+  (x + y + (x * y) + t_3(x,y)) * z & = ((x + y) * z) + ((x * y) * z) \tag{T1}\\
+  t_3(x + y + (x * y) + t_3(x,y),z) & = t_3(x + y,z) \tag{T2}\\
+  x * (y + z + (y * z) + t_3(y,z)) & = (x * (y + z)) + (x * (y * z)) \tag{T3}\\
+  t_3(x,y + z + (y * z) + t_3(y,z)) & = t_3(x,y + z) \tag{T4}
+\end{align*}
+
+We now prove another minor computational lemma.
+
+\begin{lemma}
+  Suppose $L$ is a $3$-additive Lie cring. Consider $t_3$ as a
+  $2$-cochain from $L$ to $L$. Then $\partial t_3$ is the function
+  $(x,y,z) \mapsto (y * (z * x))$.
+\end{lemma}
+
+\begin{proof}
+  The boundary of the function $(x,y) \mapsto x * (x * y)$ is $(x,y,z)
+  \mapsto -((x * (y * z)) + (y * (x * z))$. The boundary of the
+  function $(x,y) \mapsto y * (x * y)$ is $(x,y,z) \mapsto (y * (x *
+  z)) + (z * (x * y))$. Combining these, using the Jacobi identity and
+  skew symmetry, and dividing by $3$, gives the final result.
+\end{proof}
+
+We can now prove the main lemma.
+
+\begin{lemma}\label{3additiveclass3expoisgroup}
+  The operation $\cdot$ defined above gives a group operation on $L$,
+  satisfying the following:
+
+  \begin{enumerate}
+  \item The identity element is the $0$ of $L$. The restriction to
+    cyclic subgroups of $L$ coincides with the addition operation on
+    $L$. In particular, the group is $1$-isomorphic to $L$.
+  \item If $x * y = 0$ for a particular choice of $x,y \in L$, then
+    $x$, $y$ commute in the group.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  (1) and (2) are direct; the main challenge is showing
+  associativity. For this, we compute the expressions for $(x \cdot y)
+  \cdot z$ and $x \cdot (y \cdot z)$.
+
+  By using the equations (T1)-(T4) given above, we can obtain the following simplified expressions:
+ 
+  \begin{align*}
+    (x \cdot y) \cdot z & = x + y + z + (x * y) + ((x + y) * z) + ((x * y) * z) + t_3(x,y) + t_3(x + y,z) \tag{T5}\\
+    x \cdot (y \cdot z) & = x + y + z + (x * (y + z)) + (y * z) + (x * (y * z)) + t_3(y,z) + t_3(x,y + z) \tag{T6}
+  \end{align*}
+
+  Subtracting (T6) - (T5) and using the cocycle condition on $*$ to
+  cancel terms, we obtain that:
+
+  $$(x \cdot (y \cdot z)) - ((x \cdot y) \cdot z) = (x * (y * z)) - ((x * y) * z) + (\partial t_3)(x,y,z)$$
+
+  By the lemma calculating $\partial t_3$, we get:
+
+  $$(x \cdot (y \cdot z)) - ((x \cdot y) \cdot z) = (x * (y * z)) - ((x * y) * z) + (y * (z * x))$$
+
+  The Jacobi identity and skew symmetry now make the right side zero,
+  completing the proof.
+\end{proof}
+
+We can generalize {\em somewhat} from $3$-additive Lie crings to
+$3$-additive near-Lie crings that have $3$-skew symmetry:
+
+\begin{lemma}
+  The previous three lemmas hold with the weaker hypothesis that $L$
+  is a $3$-additive near-Lie cring with $3$-skew symmetry.
+\end{lemma}
+
+\subsection{$3$-additive and higher class}
+
+Let's now consider the situation of $3$-additive nilpotent Lie
+crings of higher class. To construct the exponential group, here is
+the approximate recipe that seems likely to work:
+
+\begin{itemize}
+\item Start with the Baker-Campbell-Hausdorff formula for that class.
+\item Replace all the Lie bracket operations in that formula by the
+  cring operation, and multiply the denominator for any $k$-fold
+  product by $2^{k-1}$ (because that is the number of bracket pairings
+  used).
+\end{itemize}
+
+The first thing we hope for is that in the Baker-Campbell-Hausdorff
+formula, the largest power of $2$ dividing the denominator of the
+coefficient of any $k$-fold product is at most $2^{k-1}$. This is
+true, and is part of a more general statement for primes $p$. The
+statement/observation probably originates with Lazard, and the author
+learned of the proof from Anton Alekseev via email.
+
+\begin{lemma}
+  For a prime $p$ and a natural number $n$, denote by $f(p,n)$ the
+  largest $k$ such that, if we truncate the Baker-Campbell-Hausdorff
+  formula to terms that involve products of length at most $n$, then
+  one or more of the denominators is divisible by $p^k$. Then, we have:
+
+  $$f(p,n) \le \left[\frac{n - 1}{p - 1}\right]$$
+
+  where $[]$ denotes the greatest integer function.
+\end{lemma}
+
+(Currently, the proof is copy-and-paste from Alekseev's email, it
+needs to be tidied up with adequate explanations)
+
+\begin{proof}
+  Assign the $p$-adic valuation $1/(p-1)$ to formal variables $x$ and
+  $y$. Then,
+
+  $$v_p(x^n/n!)=n/(p-1) - v_p(n!) \geq 1/(p-1)$$
+
+  where we have used that $v_p(n!) \leq (n-1)/(p-1)$. Then,
+  $v_p(e^x-1)\geq 1/(p-1)$. Denote $w=e^xe^y-1$. It is easy to see
+  that $v_p(w) \geq 1/(p-1)$. Consider
+
+  $$ch(x,y)=\ln(e^xe^y)=\ln(1+w)$$
+
+  Note that $v_p(w^n/n)=nv_p(w)-v_p(n)\geq n/(p-1) - v_p(n!) \geq
+  1/(p-1)$. That is, $v_p(ch(x,y))\geq 1/(p-1)$. For coefficients in
+  degree n, we obtain
+
+  $$v_p(\text{coeff in degree n}) \geq 1/(p-1) - n/(p-1)=-(n-1)/(p-1)$$
+
+\end{proof}
+
+The next step is to argue that the formal manipulation needed to prove
+that the Baker-Campbell-Hausdorff formula works continues to apply in
+this situation. The crucial ingredient is lemma \ref{lemma:distprod},
+which guarantees that we can distribute almost everything, with the
+only things we cannot distribute being those where the inner terms are
+all of degree $1$ (i.e., don't involve products). In other words, when
+proving associativity, we are ultimately left with expressions of the
+form $t_i(x,y)$, $t_i(x + y,z)$, $t_i(y,z)$, and $t_i(x + y,z)$. The
+cocycle condition plus explicit computations of the boundaries of
+$t_i$ now do our work for us.
+
+{\em How can this be made formal?}
+
+\subsection*{Crings: the tip of an iceberg}
+
+We can think of cring theory as particularly useful for taking care
+of $2$-torsion. A similar approach may be used to take care of
+$p$-torsion for odd primes $p$. Here, however, we keep the Lie bracket
+as an actual Lie bracket and instead provide new interpretations for
+expressions where we have to divide an iterated Lie bracket by a
+forbidden prime.
+
+\section{Class two groups and Lie rings: a more detailed understanding}
+
+We begin with the direction going from Lie rings to groups. In the
+class two case, things are about the same level of difficulty both
+ways. For higher class, it is somewhat easier to start from the Lie
+ring side because the addition is commutative and is neatly separated
+from the Lie bracket. 
+
+Suppose $L$ is a Lie ring of nilpotency class two. We are interested
+in finding a Lie cring, or near-Lie cring structure on $L$ whose
+double (respectively, skew) is the Lie bracket. Recall that a Lie
+cring structure whose double gives the Lie bracket means a skew
+symmetric $2$-cocycle $*$ with the property that $x * y = 0$ for all
+$x,y \in L$ that generate a cyclic subgroup, such that $*$ satisfies
+the Jacobi identity and $2(x * y) = [x,y]$ for all $x,y \in L$. A
+near-Lie cring structure whose skew gives the Lie bracket means a
+$2$-cocycle $*$ with the property that $x * y = 0$ for all $x,y \in L$
+that generate a cyclic subgroup, such that $*$ satisfies the Jacobi
+identity and $(x * y) - (y * x) = [x,y]$ for all $x,y \in L$.
+
+Now, note that there are three broad kinds of possibilities:
+
+\begin{itemize}
+\item We obtain a Lie cring structure, or near-Lie cring
+  structure, that also has class two, i.e., $x * (y * z) = 0$ and $(x
+  * y) * z = 0$ for all $x,y,z$. In this case, we can define a group
+  multiplication by:
+
+  $$x \cdot y := x + y + (x * y)$$
+
+  The group thus defined has class two and the commutator map in this
+  group coincides with the Lie bracket in the original Lie ring.
+
+  Note that in some cases, we can even manage to get $*$ to give a Lie
+  {\em ring} structure, which can be thought of as an added
+  bonus. However, nothing in the proof requires a Lie ring structure
+  on $*$.
+\item We obtain a Lie cring structure that is nilpotent but has
+  class more than two. For instance, it might have class three. In the
+  class three case, we can define a group multiplication by:
+
+  $$x \cdot y := x + y + (x * y) + (1/3)(x * (x * y)) - (1/3)(y * (x * y))$$
+
+  Clearly, the group we thus obtain has class at most three. But does
+  it have class two? Suspect so, but don't see an easy justification yet.
+\item We obtain a Lie cring structure that is not nilpotent, and
+  does not even satisfy an Engel condition. Thus, the
+  Baker-Campbell-Hausdorff formula becomes useless. In these kinds of
+  situations, there {\em is} a group lurking somewhere (hopefully of
+  class two), but there is no element-to-element bijection between the
+  group and the Lie ring.
+\end{itemize}
+
+\subsection{When the cring has class two}
+
+We first consider the simplest and most interesting case: when the
+cring also has class two. In our initial analysis, we deal with the
+whole Lie ring/group/near-Lie cring at once. Then, we introduce the
+notion of extensions.
+
+Suppose we denote by $L$ the class two near-Lie cring, with $*$ the
+cring multiplication, $[ \ , \ ]$ the Lie bracket obtained as its
+skew, and $ \cdot$ the corresponding group multiplication. Explicitly,
+we have:
+
+\begin{eqnarray*}
+  [x,y] & = & (x * y) - (y * x)\\
+  x \cdot y & = & x + y + (x * y)
+\end{eqnarray*}
+
+Further, we have the identity $x * (y * z) = (x * y) * z = 0$ for all
+$x,y,z \in L$, to indicate class two, as well as the zero identity,
+cocycle identity, and the identity $x * y = 0$ whenever $\langle x,y
+\rangle$ is cyclic.
+
+We now have {\em two} notions of center and {\em two} notions of
+derived series. Specifically:
+
+\begin{enumerate}
+\item The center as a {\em group} and as a {\em Lie ring} coincide. We
+  denote this as $Z_{\text{Lie}}(L)$.
+\item The center as a {\em cring}, while contained in this center,
+  could potentially be smaller. We denote this as
+  $Z_{\text{cring}}(L)$.
+\item The derived subgroup as a group coincides with the derived
+  subring as a Lie ring, and we denote this by $L'_{\text{Lie}}$.
+\item The derived subcring contains this derived subgroup, but could
+  be strictly larger. We denote this by $L'_{\text{cring}}$.
+\end{enumerate}
+
+The chain of containments for a class two cring is thus:
+
+$$0 \le L'_{\text{Lie}} \le L'_{\text{cring}} \le Z_{\text{cring}}(L) \le Z_{\text{Lie}}(L) \le L$$
+
+\subsection{Necessary and sufficient conditions}
+
+In the special case that the near-Lie cring is actually a Lie cring, we have that:
+
+$$L'_{\text{Lie}} = 2L'_{\text{cring}}$$
+
+Here, the $2$ means that it comprises doubles (multiplicatively,
+squares) of elements in the group on the right side.
+
+In particular, a necessary condition for a class two group or Lie ring
+$L$ to admit a Lie cring is that:
+
+$$L'_{\text{Lie}} \le 2Z_{\text{Lie}}(L)$$
+
+The converse is sort of true. Specifically, what's true is that if the
+above condition holds, then we can always obtain a {\em near}-Lie
+cring, but not necessarily a Lie cring.
+
+\subsection{Class two: Lie cring, Lie ring, and near-Lie ring}
+
+We now build intuition for the case of $2$-groups (note: all the
+interesting behavior happens in the $2$-torsion part, so we can
+concentrate on $2$-groups). We list key examples:
+
+\begin{enumerate}
+\item For order $8$, there are no examples of non-abelian groups
+  arising as exponentials of class two Lie crings.
+\item For order $16$, the groups $M_{16}$ and $D_8 * \Z_4$ arise as
+  exponentials of class two Lie crings. The corresponding additive
+  groups are $\Z_8 \times \Z_2$ and $\Z_4 \times V_4$
+  respectively. These are the only cases of a $1$-isomorphism between
+  a non-abelian group and an abelian group at that order.
+\item For order $32$, there are six isomorphism classes non-abelian
+  groups arising as exponentials of class two Lie crings. None of the
+  Lie crings thus obtained is actually a Lie {\em ring}. There is one
+  isomorphism class of non-abelian groups arising as the exponential
+  of a near-Lie cring but inexpressible as the exponential of a Lie
+  cring. Finally, there is one example of a class two group arising as
+  the exponential of a class {\em three} Lie cring but not of any
+  class two Lie cring -- a subject we'll study later.
+\item For order $64$, there are numerous examples of all sorts,
+  including a few cases where the base Lie cring is itself a Lie
+  ring. More details to be filled in later.
+\end{enumerate}
+
+The case of the unique group of order $32$ that arises as the
+exponential of a near-Lie cring but not a Lie cring is
+interesting. This group has GAP ID (32,2). It is defined by the
+presentation:
+
+$$G := \langle a,b,c \mid a^2 = b^4 = c^4 = 1, ab = ba, ac = ca, cbc^{-1} = ab \rangle$$
+
+The center is elementary abelian of order $8$ and the derived subgroup
+has order $2$. The inner automorphism group is a Klein four-group and
+the abelianization is isomorphic to $\Z_4 \times \Z_4$. The additive
+group of the Lie cring is $\Z_4 \times \Z_4 \times \Z_2$. %The
+%existence of the necessary $2$-cocycle seems to be an accident and has
+%not been explained in other terms.
+
+\subsection{The full theorem}
+
+The following theorem describes a necessary and sufficient condition
+for a group to arise as the exponential of a class two near-Lie cring.
+
+\begin{theorem}
+  \begin{enumerate}
+  \item {\em Necessary and sufficient: Lie ring as skew of a class two
+    near-Lie cring}: Suppose $L$ is a finite Lie ring of nilpotency class
+    two. Then, $L$ arises as the skew of a class two near-Lie cring if
+    and only if there is a subring $S$ of $L$ such that $[L,L] \le S
+    \le Z(L)$, and the following holds for every $x,y \in L$: either
+    $[x,y]$ is twice an element of $S$, or $dx \notin S$ and $dy
+    \notin S$ where $d$ is the order of $[x,y]$.
+  \item {\em Necessary and sufficient: Group as exponential of a class
+    two near-Lie cring}: Suppose $G$ is a finite group of nilpotency
+    class two. Then, $G$ arises as the exponential of a class two
+    near-Lie cring if and only if there is a subgroup $H$ such that
+    $[G,G] \le H \le Z(G)$, and the following holds for every $x,y \in
+    G$: either $[x,y]$ is the square of an element in $H$, or $x^d
+    \notin H$ and $y^d \notin H$ where $d$ is the order of $[x,y]$.
+  \item {\em Necessary and sufficient: Lie ring as double of a class
+    two Lie cring}: Suppose $L$ is a finite Lie ring of nilpotency class
+    two. Then, $L$ arises as the double of a class two Lie cring if
+    and only if there is a subring $S$ of $L$ such that $[L,L] \le S
+    \le Z(L)$, and the following holds for every $x,y \in L$: either
+    $[x,y]$ is twice an element of $S$ {\em and} the 2-torsion part of
+    the order of $[x,y]$ is at most $4$, or $dx \notin H$ and $dy
+    \notin H$ where $d$ is the order of $[x,y]$.
+  \item {\em Necessary and sufficient: Group as exponential of a class
+    two Lie cring}: Suppose $G$ is a finite group of nilpotency class
+    two. Then, $G$ arises as the exponential of a class two near-Lie
+    cring if and only if there is a subgroup $H$ such that $[G,G] \le
+    H \le Z(G)$, and the following holds for every $x,y \in G$: either
+    $[x,y]$ is the square of an element in $H$ {\and} the $2$-torsion
+    part of the order of $[x,y]$ is divisible by $4$, or $x^d \notin
+    H$ and $y^d \notin H$ where $d$ is the order of $[x,y]$.
+  \item {\em Necessary and sufficient: Lie ring as double of a class
+    two Lie ring}: Suppose $L$ is a finite Lie ring of nilpotency class
+    two. Then, $L$ arises as the double of a class two Lie cring if
+    and only if, for every $x,y \in L$, $[x,y]$ is twice an element of
+    $Z(L)$ {\em and} (either the order of $x$ is relatively prime to
+    $2$ or the order of $[x,y]$ divides half the order of $x$).
+  \item {\em Necessary and sufficient: group as exponential of a class
+    two Lie ring}: Suppose $G$ is a group of nilpotency class
+    two. Then, $L$ arises as the exponential of a class two Lie ring
+    if and only if, for every $x,y \in G$, $[x,y]$ is the square of
+    $Z(L)$ {\em and} (either the order of $x$ is relatively prime to
+    $2$ or the order of $[x,y]$ divides half the order of $x$).
+  \end{enumerate}
+\end{theorem}
+
+Note that, for finite Lie rings of $2$-power order, a particular case
+of (1) is where $[L,L]$ is contained in $\mho^1(Z(L))$, the set of
+squares of elements of $Z(L)$. Similarly, for finite $2$-groups, a
+particular case of $2$ is where $[G,G]$, is contained in $\mho^1(Z(G))$.
+
+\subsection{Proof of theorems using iterated cocycle construction}
+
+The heart of the proof of both the theorems lies in constructing a
+cocycle that skews to a given alternating bilinear map. {\em This is
+the proof involving the iterative construction where we first fill in
+the elements of order two, then the elements of order four, wherein at
+each stage we are solving a congruence equation that can be
+solved. The details haven't been put in the document yet.}
+
+\subsection{When the cring has higher class}
+
+We next consider the case that the cring has higher class. Question:
+If we start with a class two group and find a $3$-additive Lie cring
+for it that has class three or higher, does doubling that give us a
+class {\em two} Lie ring?
+
+The answer is {\em yes}. However, unlike the class two {\em cring}
+case, it is no longer necessary that the commutator and Lie bracket
+coincide.
+
+It's easier to understand the Lie ring to group version of this
+question, which we now do. We restrict attention to Lie crings, rather
+than the more general case of near-Lie crings.
+
+Suppose $L$ is a $3$-additive class three Lie cring such that
+$\stackrel{2}{L}$ is of class two. This translates to:
+
+$$2((2(x * y)) * z) = 0 \ \forall x,y,z \in L$$
+
+Note that by $3$-additivity, $x * y \in \Delta(L)$, so the inside can
+be distributed, and we get an equivalent formulation:
+
+$$4((x * y) * z) = 0 \ \forall \ x,y,z \in L$$
+
+We now consider the group multiplication.
+
+$$x \cdot y = x + y + (x * y) + \frac{1}{3}[(x * (x * y)) - (y * (x * y))]$$
+
+We also get:
+
+$$y \cdot x = y + x + (y * x) + \frac{1}{3}[(y * (y * x)) - (x * (y * x))]$$
+
+Subtracting, we get:
+
+$$(x \cdot y) - (y \cdot x) = [x,y]$$
+
+Also, we have:
+
+$$(x \cdot y) * (-(y \cdot x)) = 2(x * (x * y)) + 2(y * (x * y))$$
+
+Now, the {\em group} commutator is:
+
+$$(x \cdot y) \cdot (y \cdot x)^{-1} = (x \cdot y) \cdot (-(y \cdot x))$$
+
+That simplifies to:
+
+$$[x,y]_{\text{group}} = (x \cdot y) - (y \cdot x) + (x \cdot y) * (-(y \cdot x))$$
+ 
+From the previous calculations, we get:
+
+$$[x,y]_{\text{group}} = [x,y] +  2(x * (x * y)) + 2(y * (x * y))$$
+
+It's now a fairly straightforward calculation to show that:
+
+$$[[x,y]_{\text{group}},z]_{\text{group}} = 0$$
+
+We now briefly sketch the qualitative reason why this proof should
+continue to work in higher class. {\em Fill this in later}.
+
+\section{Class three or higher and not $3$-additive}
+\subsection{Conjectures on general formulations}
+
+We make the following very general sketchy claim:
+
+\begin{quote}
+  Suppose $G$ is a finite $2$-group. Suppose we can find a descending series:
+
+  $$G = G_1 \ge G_2 \ge G_3 \ge \dots \ge G_{n+1} = 1$$
+
+  with the property that $[G_1,G_i] \le \mho^1(G_{i+1})$. We call such
+  a series an {\em agemo-central series} for the prime $2$ of length $n$.
+
+  Then, if there is an agemo-central series of length $n$, we should
+  be able to find an intermediate structure (an enhanced cring of some
+  sort) and a Lie ring on the other side.
+\end{quote}
+
+Note that this sketchy claim is true in a very precise and well
+understood sense for the case $n = 2$. In fact, in that case, it
+simply translates to the assumption that $[G,G] \le \mho^1(Z(G))$,
+which, as we saw, is a sufficient condition for the existence of a
+near-Lie cring.
+
+\subsection{Tackling non-$3$-additivity in class three}
+
+We've already noted that for the $3$-additive case, everything
+proceeds smoothly for higher class, once we modify the
+Baker-Campbell-Hausdorff formula appropriately. Unfortunately, if
+we're interested in all the possible interesting examples of groups
+covered by the general sketchy claim above, then it's not good enough
+to restrict to the $3$-additive case. Specifically, there are examples
+of groups where we get a Lie cring, or near-Lie cring, of class three,
+{\em and that has a corresponding Lie ring, but the Lie cring is not
+$3$-additive}.
+
+The smallest such example is to be found with groups of order $64$. In
+fact, the smallest examples that {\em violate} $3$-additivity are at
+order $64$, whereas the smallest examples that {\em satisfy}
+$3$-additivity (but are not cring class two) are to be found only at
+order $256$.
+
+To understand this situation, let's look more closely at the
+exponential formula for class three:
+
+$$x \cdot y = x + y + (x * y) + t_3(x,y)$$
+
+where, assuming $3$-additivity, $3$-skew-symmetry, and the Jacobi
+identity, we find that the following works:
+
+$$t_3(x,y) = \frac{1}{3}(x * (x * y)) - \frac{1}{3}(y * (x * y))$$
+
+In the absence of $3$-additivity (even when the other conditions of
+$3$-skew-symmetry and Jacobi are met), {\em this explicit formula for
+$t_3$ does not work, even though the formula makes sense}. However, we
+are still open to the possibility of another {\em non-formulaic}
+$t_3$, i.e., some function $t_3$ that manages to work without being
+given by an explicit formula.
+
+Specifically, we want $t_3$ to satisfy the following conditions:
+
+\begin{itemize}
+\item The {\em boundary condition}: $\partial t_3$ is the function
+  $(x,y,z) \mapsto ((x * y) * z) - (x * (y * z)) + \delta(x + y, x *
+  y,z) - \delta(x, y + z, y * z)$. In the special case that the cring
+  is outer $3$-additive, both the $\delta$ (distributor) terms vanish
+  and we are left with the boundary condition that $\partial t_3$ is
+  the function $(x,y,z) \mapsto ((x * y) * z) - (x * (y * z))$.
+\item The {\em class three conditions}: $t_3(x,y) * z = z * t_3(x,y) =
+  0$ for all $x$, $y$, and $z$; $t_3(t_3(x,y),z) = t_3(x,t_3(y,z)) =
+  0$ for all $x$, $y$, and $z$; and $t_3(x*y,z) = 0$ for all $x$, $y$,
+  and $z$.
+\item The {\em cyclicity-preserving condition}: If $x,y$ generate a
+  cyclic subgroup of $L$, then $t_3(x,y) = 0$.
+\end{itemize}
+
+We now have the following analogue of
+\ref{3additiveclass3expoisgroup}:
+
+\begin{lemma}\label{3additivet3chosenexpoisgroup}
+  Suppose $L$ is a class three (near-)Lie cring
+  with cring operation $*$ and $t_3$ is a $2$-cochain $L \times L \to
+  L$ satisfying the boundary condition, the class three conditions,
+  and the faithfulness conditions. Define an operation $\cdot$ as
+  follows:
+
+  $$x \cdot y := x + y + (x * y) + t_3(x,y)$$
+
+  The operation $\cdot$ defined above gives a group
+  operation on $L$, satisfying the following:
+
+  The identity element is the $0$ of $L$. The restriction to
+  cyclic subgroups of $L$ coincides with the addition operation on
+  $L$. In particular, the group is $1$-isomorphic to $L$.
+\end{lemma}
+
+We define an {\em enhanced class three near-Lie cring} as a class
+three near-Lie cring equipped with a choice of $t_3$ that works in the
+above sense. Note that any $3$-additive $3$-skew-symmetric near-Lie
+cring has a natural enhanced structure using the formulaic $t_3$.
+
+Note that we can in fact drop the Jacobi identity assumption as far as
+this theorem is concerned, as long as we make sure that our definition
+of {\em class three} includes {\em all products} of length four being
+equal to zero, including products of the form $(x * y) * (z * w)$.
+
+\subsection{Enhanced strongly central series for enhanced crings}
+
+Given an enhanced class three near-Lie cring $L$, we can construct a filtration as follows:
+
+$$L = L_1 \ge L_2 \ge L_3 \ge L_4 = 0 = L_n, n \ge 4$$
+
+where all the $L_i$s are subcrings of $L$, and such that:
+
+\begin{itemize}
+\item $L_i * L_j$ is contained in $L_{i+j}$ for all $i,j \ge 1$.
+\item $t_3(L_i,L_j)$ is contained in $L_{i + j + \min \{ i,j \}}$ for all $i,j \ge 1$.
+\end{itemize}
+
+A filtration of this kind is termed an {\em enhanced strongly central
+series} for the enhanced cring.
+
+Starting with an enhanced class three near-Lie cring $L$, we can
+obtain the {\em enhanced lower central series} which is an example of
+an enhanced strongly central series: define $L_1 = L$, $L_2 = L * L$,
+and $L_3$ as the subring generated by $L_1 * L_2$, $L_2 * L_1$, and
+$t_3(L_1,L_1)$. The class three condition on $*$, as well as the
+various class three conditions imposed on $t_3$, now guarantee the
+above list of conditions.
+
+It may be more helpful to think of an enhanced class three near-Lie
+cring {\em in terms of a specific choice of enhanced strongly central
+series}.
+
+We note the following about enhanced strongly central series:
+
+\begin{lemma}
+  \begin{enumerate}
+  \item $*$ descends to an operation $L_1/L_3 \times L_1/L_3 \to L_2$,
+    because $L_3$ is in the center.
+  \item If $*$ is outer $3$-additive, then $t_3$ descends to an
+  operation $L_1/L_2 \times L_1/L_2 \to L_3$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  (1) is direct from the observation that $L_3$ is in the center for
+  $*$, and from the two equivalent definitions of the center.
+
+  For (2), we need to show two things:
+
+  (a) If $z \in L_2$ and $x,y \in L$, then:
+
+  $$t_3(x,y) = t_3(x,y + z)$$
+
+  We show this as follows.
+
+  $$(\partial t_3)(x,y,z) = ((x * y) * z) - (x * (y * z))$$
+
+  Rearranging, we see that:
+
+  $$t_3(x,y + z) - t_3(x,y) = ((x * y) * z) - (x * (y * z)) + t_3(x + y,z) - t_3(y,z)$$
+
+  We argue that since $z \in L_2$, then the right side is zero. For
+  this, note that the triple products are $0$ by the class three
+  condition on $*$ and the $t_3$ terms are zero by the class three
+  conditions on $t_3$.
+
+  Thus, the right side is zero, hence so is the left side, and we get:
+
+  $$t_3(x,y + z) = t_3(x,y)$$
+
+  (b) If $x \in L_2$ and $y,z \in L$, then:
+
+  $$t_3(x + y,z) = t_3(y,z)$$
+
+  We show this as follows.
+
+  $$(\partial t_3)(x,y,z) = (x * y) * z - x * (y * z)$$
+
+  Rearranging, we see that:
+
+  $$t_3(x + y,z) - t_3(y,z) = (x * y) * z - x * (y * z) + t_3(x,y) - t_3(x,y + z)$$
+
+  Since $x \in L_2$, all terms on the right side are zero, hence the
+  left side is zero, and we get:
+
+  $$t_3(x + y,z) = t_3(y,z)$$
+\end{proof}
+
+\subsection{Enhanced near-Lie crings}
+
+An enhanced near-Lie cring of nilpotency class $c$ is defined as an
+abelian group $L$ with a bunch of operations $t_2,t_3,t_4,\dots,t_c: L
+\times L \to L$, such that:
+
+\begin{itemize}
+\item $t_2$, denoted by an infix operator $*$, gives $L$ a near-Lie
+  cring structure. In particular, $\partial t_2 = 0$, $t_2(x,y) = 0$
+  when $\langle x,y \rangle$ is cyclic, and $t_2$ satisfies both the
+  left and right Jacobi identities.
+\item $t_3$ satisfies the boundary condition $\partial t_3(x,y,z) = y
+  * (z * x)$.
+\item $t_4$, $t_5$, etc. each satisfy a specific boundary condition
+  where the boundary is expressed in terms of the lower $t_i$s.
+\item We have degree conditions that guarantee that sufficiently
+  iterated terms are zero. The basic idea being that something should
+  be zero if actual replacement taking the terms as the BCH terms
+  gives a sum of products, each of length at least $c + 1$.
+\end{itemize}
+
+If this is too constrained, we can relax the near-Lie condition to a
+near-alternating condition by dropping the Jacobi identity assumptions
+on $t_2$. We then get an {\em enhanced near-alternating cring} of
+nilpotency class $c$.
+
+It is helpful to think in terms of a filtration:
+
+$$L = L_1 \ge L_2 \ge L_3 \ge \dots \ge L_c \ge L_{c+1} = 0$$
+
+and reframe the degree conditions in terms of conditions of the form
+$t_i(L_j,L_k) \le L_{f(i,j,k)}$ where $f$ is a specified function.
+
+We can also consider the {\em residually nilpotent} case where there
+is no finite nilpotency class but all products eventually become zero.
+\end{document}

@@ -1,0 +1,648 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Taylor polynomials and Taylor series}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 12.6, 12.7.
+
+{\bf What students should definitely get}: The definition of Taylor
+polynomial, the definition of Taylor series, the definition of
+remainder. The notion of convergence for a given value of $x$. The
+statement of Taylor's theorem, the Lagrange formula for remainder, and
+the max-estimate.
+
+{\bf What students should hopefully get}: The connection with earlier
+ideas of order of zero and approximation by polynomials.
+
+\section*{Executive summary}
+
+\subsection{Taylor series at $0$}
+
+Words ...
+
+\begin{enumerate}
+\item Suppose $f$ is a function defined and $n$ times differentiable
+  at $0$. Then, the $n^{th}$ Taylor polynomial of $f$ is:
+
+  $$P_n(x) = \sum_{k=0}^n f^{(k)}(0) \frac{x^k}{k!}$$
+
+\item The degree of the $n^{th}$ Taylor polynomial is $\le n$. Note
+  that it is exactly $n$ if and only if $f^{(n)}(0) \ne 0$.
+\item The number of nonzero terms in the $n^{th}$ Taylor polynomial is
+  at most $n + 1$, but it could be substantially less, depending on
+  how many of the $n + 1$ numbers $f(0)$, $f'(0)$, $\dots, f^{(n)}(0)$
+  are nonzero.
+\item For $m < n$, the $m^{th}$ Taylor polynomial is the truncation to
+  terms of degree $\le m$ of the $n^{th}$ Taylor polynomial.
+\item The Taylor series is the infinite sum:
+
+  $$\sum_{k=0}^\infty f^{(k)}(0) \frac{x^k}{k!}$$
+
+  The Taylor polynomials are thus truncations of the Taylor series.
+\item The Taylor series for $\exp$, $\sin$, $\cos$, $\sinh$, and
+  $\cosh$ are particularly easy to write down because the sequence of
+  derivatives of these functions is periodic, hence so is the sequence
+  of derivative values at $0$. [Review the formulas]
+\item The Taylor series of a polynomial is the same polynomial.
+\item For $\exp$, $\sin$, $\cos$, $\sinh$, $\cosh$, and polynomials,
+  the Taylor series converges to the function everywhere.
+\item The Taylor series for an even function has nonzero coefficients
+  only for even powers of $x$. In other words, the Taylor series for
+  an even function is an even power series. Similarly, the Taylor
+  series for an odd function has nonzero coefficients only for odd
+  powers of $x$.
+\item The Taylor series of the derivative is the derivative (via term
+  wise differentiation) of the Taylor series.
+\item The Taylor series operator is linear and multiplicative: the
+  Taylor series for $f + g$ is the sum of the Taylor series for $f$
+  and $g$, and the Taylor series for $f \cdot g$ is the product for
+  the Taylor series for $f$ and $g$. [Note: Multiplying two Taylor
+  series is a pain in general. Howveer, if one of the functions is a
+  polynomial, it is not too hard. For instance, $xe^x$, $x^2 \sin
+  (x^2)$, $(2x + 1)\cos x$]
+\item Suppose $g$ is a polynomial with zero constant term. Then, the
+  Taylor series for $f \circ g$ can be obtained by taking the Taylor
+  series for $f$, replacing $x$ by $g(x)$ throughout, and
+  simplifying. Consider, for instance, the Taylor series for
+  $\sin(x^2)$ and $e^{-x^2/2}$.
+\item The $n^{th}$ (Taylor) {\em remainder} $R_n$ for a function $f$
+  is defined as $f - P_n$, where $P_n$ is the $n^{th}$ Taylor
+  polynomial for $f$. Taylor's theorem states that if $f$ is at least
+  $(n + 1)$ times differentiable, the remainder $R_n$ is given by
+  $R_n(x) = \frac{1}{n!} \int_0^x f^{(n +1)}(t) (x - t)^n \, dt$.
+\item The Lagrange formula is a corollary of Taylor's theorem, and it
+  states that there exists $c$ between $0$ and $x$ such that $R_n(x) =
+  f^{(n + 1)}(c)x^{n+1}/(n + 1)!$. Here, $c$ between $0$ and $x$ means
+  $c \in [0,x]$ if $x > 0$ and $c \in [x,0]$ if $x < 0$.
+\item A further corollary of the Lagrange formula (that we call the
+  max-estimate here) states that $|R_n(x)|$ is at most $|x|^{n+1}/(n +
+  1)!$ times the maximum value of $|f^{(n + 1)}(t)|$ for $t$ between
+  $0$ and $x$.
+\item The max-estimate can be used to justify that the Taylor series
+  for $\exp$, $\sin$, and $\cos$ actually converge to the respective
+  functions. This is done by showing that for any $x \in \R$, we have
+  $\lim_{n \to \infty} R_n(x) = 0$.
+\item The zeroth Taylor polynomial for a function $f$ is the constant
+  function $f(0)$. The first Taylor polynomial is the constant/linear
+  function $f(0) + f'(0)x$. This describes the tangent line to the
+  function, and is the {\em best straight line approximation} to the
+  function locally around $0$. More generally, the $n^{th}$ Taylor
+  polynomial is the best approximation to the function around $0$
+  among the polnyomials of degree $\le n$.
+\end{enumerate}
+
+\subsection{Taylor series in $x - a$}
+
+It is an instructive exercise (and I urge you to do this) to translate
+all the statements about Taylor series around $0$ to the corresponding
+statements about Taylor series around an arbitrary $a \in \R$. In
+particular, see if you can correctly translate (pun intended) Taylor's
+theorem, the Lagrange formula, and its max-estimate corollary. We will
+go over this further in the review session.
+
+\section{Taylor polynomials: Definition and basic computation}
+
+\subsection{The definition of Taylor polynomial}
+
+Suppose $f$ is a function that is $n$ times differentiable at $0$. The
+$n^{th}$ Taylor polynomial of $f$ at $0$, sometimes denoted $P_n$, is
+defined as:
+
+$$P_n(x) := \sum_{k=0}^n \frac{f^{(k)}(0)}{k!} x^k$$
+
+Here, $f^{(k)}(0)$ denotes the $k^{th}$ derivative of $f$ at $0$. In
+particular, $f^{(0)}(0)$ is simply the value of $f$ at
+$0$. Explicitly, we have:
+
+$$P_n(x) = f(0) + f'(0)x + \frac{f''(0)x^2}{2} + \frac{f'''(0)x^3}{6} + \dots + \frac{f^{(n)}(0)x^n}{n!}$$
+
+Note that unlike the typical way we write polynomials with the highest
+powers first, Taylor polynomials are typically written with the lowest
+powers first. There are good reasons for this, which will become
+clearer later. For now, the main justification that you can remember
+for this is that the Taylor polynomial $P_n$ is evaluated for $x$
+close to $0$. For such $x$, it is the smaller powers of $x$ that are
+numerically larger. 
+
+Also note that if $m < n$, then the Taylor polynomial $P_m$ for a
+function $f$ is an initial segment of the Taylor polynomial $P_n$ for
+$f$.
+
+\subsection{The definition of Taylor series}
+
+The Taylor series is an analogue of the Taylor polynomial where we
+just go off to infinity. In symbols, if $f$ is a function infinitely
+differentiable at $0$, the Taylor series of $f$ (also sometimes called
+the Maclaurin series or the Taylor-Maclaurin series) is:
+
+$$\sum_{k=0}^\infty \frac{f^{(k)}(0)x^k}{k!}$$
+
+The {\em hope} is that for a nice enough function $f$ and for $x$ close
+enough to $0$, the Taylor series evaluated at $x$ actually converges
+to $f(x)$.
+
+{\em Note: Right now it is just a hope!}
+
+Note that truncating the Taylor series at any given $n$ gives the
+Taylor polynomial $P_n$.
+
+Let's first do some computational practice to see what the Taylor
+series look like, and then we shall proceed to understand what they
+mean.
+
+\subsection{Taylor series for pedestrian functions}
+
+For any function $f$ for which we need to compute the Taylor series,
+we first compute the derivatives of $f$ and get a sequence of
+functions. Next, we evaluate each of the derivatives at $0$ to get a
+sequence of numbers. Next, we plug the elements of this sequence into
+the Taylor series.
+
+First, let's consider a polynomial. The Taylor polynomials of a
+polynomial are really simple to understand: the $n^{th}$ Taylor
+polynomial of a polynomial of degree $m$ is the whole polynomial if $n
+\ge m$, and is the truncation of the polynomial to terms of degree $\le
+n$ if $n < m$.
+
+Let's now consider things more complicated than polynomials. For
+instance, consider the function $\exp$.
+
+The sequence of derivatives looks like:
+
+$$\exp, \exp, \exp, \exp, \dots$$
+
+It is a {\em constant sequence of functions}. Evaluating at $0$, we
+get the sequence:
+
+$$1,1,1,1,\dots$$
+
+And plugging into the Taylor series expression, we get:
+
+$$\sum_{k=0}^\infty \frac{x^k}{k!}$$
+
+which looks like:
+
+$$1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \dots$$
+
+As we'll {\em see later}, it {\em turns out} that for the $\exp$ function,
+the Taylor series converges to $\exp(x)$ for any choice of $x$. In
+particular:
+
+$$e = 1 + 1 + \frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \frac{1}{120} + \dots$$
+
+and:
+
+$$2 = 1 + (\ln 2) + \frac{(\ln 2)^2}{2} + \frac{(\ln 2)^3}{6} + \dots$$
+
+and so on.
+
+Similarly, we can determine the Taylor series for $\sin$ and
+$\cos$. The sequence of derivatives for $\sin$, starting from the
+$0^{th}$ derivative, is:
+
+$$\sin, \cos, -\sin, -\cos, \sin, \cos, -\sin, -\cos, \dots$$
+
+The sequence of values at $0$ is:
+
+$$0, 1, 0, -1, 0, 1, 0, -1, \dots$$
+
+Because the sequence of functions has a period of $4$, so does the
+sequence of values. The Taylor series thus turns out to be:
+
+$$x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \dots$$
+
+which is more compactly written as:
+
+$$\sum_{k=0}^\infty \frac{(-1)^kx^{2k + 1}}{(2k + 1)!}$$
+
+Similarly, the Taylor series for $\cos$ turns out to be:
+
+$$1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \dots$$
+
+which is more compactly written as:
+
+$$\sum_{k=0}^\infty \frac{(-1)^kx^{2k}}{(2k)!}$$
+
+It {\em turns out} that the series obtained above for $\sin$ and $\cos$
+converge for all $x$ to the function values. In particular, setting $x
+= \pi/2$ for the $\cos$ function:
+
+$$0 = 1 - \frac{(\pi/2)^2}{2!} + \frac{(\pi/2)^4}{4!} - \dots$$
+
+This can be useful for computing the value of $0$ using the value of
+$\pi$.
+
+\subsection{Some easy observations}
+
+The big question that we have not yet tackled is whether the Taylor
+series converges, and if it does, whether it converges to the
+function. For each point that we make here, there is one justification
+using the formal definition (without assuming that the Taylor series
+converges to the original function) and another justification assuming
+that convergence actually occurs.
+
+\begin{enumerate}
+\item For an even function, the Taylor series has nonzero coefficients
+  only for even degree terms. For an odd function, the Taylor series
+  has nonzero coefficients only for odd degree terms.
+
+  {\em Justification in formal terms}: Recall that the derivative of
+  an even function is odd and the derivative of an odd function is
+  even. Also, the value of an odd function at $0$ is $0$.
+
+  Thus, if $f$ is even, the derivatives of $f$ alternate between even
+  and odd. Thus, all $f^{(k)}$ are odd for odd $k$, and thus
+  $f^{(k)}(0) = 0$ for odd $k$. Hence, only the even degree terms of
+  the Taylor series of $f$ could potentially have nonzero
+  coefficients.
+
+  Similarly, if $f$ is odd, the derivatives of $f$ alternate between
+  even and odd. Thus, all $f^{(k)}$ are odd for even $k$, and thus
+  $f^{(k)}(0) = 0$ for even $k$. Hence, only the odd degree terms of
+  the Taylor series of $f$ could potentially have nonzero
+  coefficients.
+
+  {\em Justification assuming convergence}: If $f$ is even, then $f(x)
+  = f(-x)$. The same must be true of the Taylor series. Plugging in
+  $-x$ in place of $x$, we see that the coefficients of odd degree
+  terms must vanish. A similar argument works for $f$ odd. This is
+  similar to the argument that a polynomial is an even function if and
+  only if it has only even degree terms.
+\item Suppose $f$ is an infinitely differentiable function. The Taylor
+  series for $f'$ can be obtained through term wise differentiation on
+  the Taylor series of $f$.
+
+  {\em Justification in formal terms}: The $k^{th}$ term in the Taylor
+  series expansion of $f$ is:
+
+  $$f^{(k)}(0)x^k/k!$$
+
+  Differentiating this, we get:
+
+  $$f^{(k)}(0)kx^{k-1}/k!$$
+
+  Cancel the $k$ and $k!$ to get:
+
+  $$f^{(k)}(0)x^{k-1}/(k-1)!$$
+
+  If $g = f'$, then $f^{(k)} = g^{(k-1)}$, so we obtain that the
+  coefficient of $x^{k-1}$ after term wise differentiation is:
+
+  $$g^{(k-1)}(0)/(k-1)!$$
+
+  which is the same as the coefficient in the Taylor series for
+  $g^{(k-1)}$. Thus, the Taylor series for the derivative is obtained
+  through term wise differentiation of the Taylor series for the
+  function.
+
+  {\em Justification assuming convergence}: In this case, since the
+  Taylor series converges to the function, differentiating the Taylor
+  series is equivalent to differentiating the function. This isn't
+  quite a complete and coherent argument, because we are
+  differentiating an {\em infinite sum}, and we need to worry about
+  additional convergence issues. But it gives the core reason.
+
+\item The Taylor series of the sum of two infinitely differentiable
+  function is the term wise sum of their Taylor series. Analogous
+  statements hold for the difference and the product.
+
+  {\em Justification in formal terms}: The statements for sums and
+  differences follow from the fact that taking the $k^{th}$ derivative
+  is a linear operator, i.e., $(f + g)^{(k)}(0) = f^{(k)}(0) + g^{(k)}(0)$.
+  The formulation for the product involves the use of the product rule.
+
+  {\em Justification assuming convergence}: Sums are sums, differences
+  are differences, and products are products. Basically, if the series
+  converges to the function, it makes sense that whatever operations
+  we do to the functions, we need to do the same operations to the
+  series.
+\item Suppose $g$ is a polynomial function with zero constant
+  term. The Taylor series for $f \circ g$ is the same as the series
+  obtained by replacing $x$ with $g(x)$ in the Taylor series of $f$.
+
+  For instance, if $g(x) = x^2$, then the Taylor series for $f(x^2)$
+  is the same as what we'd get by replacing $x$ with $x^2$ in the
+  Taylor series for $f$.
+
+  Thus, we get, for instance:
+
+  $$e^{-x^2} = 1 - \frac{x^2}{1!} + \frac{x^4}{2!} - \frac{x^6}{3!} + \dots$$
+
+  and:
+
+  $$\cos(ax) = 1 - \frac{a^2x^2}{2!} + \frac{a^4x^4}{4!} - \dots$$
+
+  Note that it is important that $g$ have zero constant term, so that
+  $g(0) = 0$.
+
+  {\em Justification using formal definition}: This arises from an
+  irksome application of the chain rule and product rule for
+  differentiation.
+
+  {\em Justification assuming convergence}: Assuming convergence, the
+  Taylor series for $f \circ g$ should be the Taylor series for $f$,
+  composed with $g$.
+\end{enumerate}
+
+\subsection{Taylor polynomials and Taylor series: more observations}
+
+\begin{itemize}
+\item The $n^{th}$ Taylor polynomial of a function is of degree {\em
+  at most} $n$, but the degree could be strictly less than $n$. That
+  could happen if $f^{(n)}$ takes the value $0$ at $0$.
+\item The number of nonzero terms in the $n^{th}$ Taylor polynomial is
+  at most $n + 1$, but it could be strictly less depending on which of
+  the numbers $f(0)$, $f'(0)$, and so on till $f^{(n)}(0)$ are zero.
+\item We already computed the Taylor series for $\exp$, $\sin$,
+  $\cos$, and polynomials. The observations made above can now allow
+  us to use these to compute the Taylor series for composites of these
+  with polynomials, such as $\exp(-x^2)$, $\sin(x^2)$, as well as
+  quotients of these by polynomials, for instance, $(\sin x)/x$.
+\item {\em Even and odd part}: Recall from long ago that for a
+  continuous function $f$ defined on all of $\R$, we can break $f$ up
+  in a unique manner as the sum of an even function $f_e$ (called the
+  {\em even part} of $f$) and an odd function $f_o$ (called the {\em
+  odd part} of $f$). In concrete terms, we define:
+
+  $$f_e(x) := \frac{f(x) + f(-x)}{2}$$
+
+  and:
+
+  $$f_o(x) := \frac{f(x) - f(-x)}{2}$$
+
+  The corresponding operation in terms of Taylor series is as follows:
+  the Taylor series of the even part of a function is just the even
+  degree terms (i.e., the even part) of the Taylor series, and the
+  Taylor series of the odd part of a function is just the odd degree
+  terms (i.e., the odd part) of the Taylor series.
+
+  Recall that $\cosh$ is the even part of $\exp$ and $\sinh$ is the
+  odd part of $\exp$. Thus, the Taylor series for $\cosh$ is the even
+  psrt of the Taylor series for $\exp$, and the Taylor series for
+  $\sinh$ is the odd part of the Taylor series for $\exp$. Explicitly,
+  the Taylor series for $\cosh x$ is $\sum_{n=0}^\infty x^{2n}/(2n)!$
+  and the Taylor series for $\sinh x$ is $\sum_{n=0}^\infty x^{(2n +
+  1)}/(2n + 1)!$.
+\end{itemize}
+
+\subsection*{Aside: A linear operator from functions to series}
+
+[May not cover in class. Recommended for review time reading.]
+
+This may (or may not!) clarify matters. Suppose we denote by
+$C^\infty(\R)$ the set of all infinitely differentiable functions on
+$\R$. This set of functions is particularly nice: it is closed under
+pointwise addition, subtraction, and multiplication, as well as under
+scalar multiplication. It is also closed under differentiation. The
+closure under pointwise addition, subtraction, and scalar
+multiplication makes it a vector space over $\R$. Putting the
+multiplicative structure makes it an algebra over $\R$. Putting the
+differentiation in there as well, we get that $C^\infty(\R)$ is an
+{\em algebra} over $\R$ equipped with a chosen differential operator.
+
+Define $TS(\R)$ as the set of all possible series of the form:
+
+$$\sum_{k=0}^\infty a_kx^k$$
+
+We can define on $TS(\R)$ term wise addition and subtraction, term
+wise differentiation, and multiplication in a manner similar to
+polynomials. The addition, subtraction, and scalar multiplication
+makes $TS(\R)$ a $\R$-vector space. Tacking on the multiplicative
+structure makes $TS(\R)$ a $\R$-algebra. Tacking on the
+differentiation operator makes $TS(\R)$ a $\R$-algebra with a chosen
+differential operator.
+
+What we have done is given a mapping:
+
+$$C^\infty(\R) \to TS(\R)$$
+
+which sends a given function $f$ to its Taylor series.
+
+The points above show that this mapping preserves sums, differences,
+products, and even derivatives. The fact that it preserves sums,
+differences, and scalar multiples makes it a {\em linear operator}
+between $C^\infty(\R)$ and $TS(\R)$. The fact that it preserves
+multiplication as well makes it an {\em algebra mapping} between
+$C^\infty(\R)$ and $TS(\R)$. The fact that it preserves the
+differentiation operator makes it an mapping of algebras with chosen
+differential operator.
+
+In this sense, it is a very nice mapping. However, these points
+together do not mean that an element $f$ in $C^\infty(\R)$ goes to an
+element in $TS(\R)$ that ``means the same thing'' as $f$. In
+particular, we don't know if the mapping described here is
+one-to-one. Can two different functions give rise to the same Taylor
+series? In linear algebra terms, what is the kernel of the mapping?
+It turns out, unfortunately, that the answer is that the function is
+{\em not one-to-one}, or has {\em nontrivial kernel}, which means that
+{\em different functions can have the same Taylor series}. Since a
+Taylor series can converge to only one function, it is {\em very much
+possible to have an infinitely differentiable function with a Taylor
+series that does not converge to it}. We deal with these issues in the
+coming sections.
+
+\section{Dealing with convergence}
+
+\subsection{Taylor polynomials}
+
+We return for now to Taylor polynomials. Recall that the $n^{th}$
+Taylor polynomial $P_n$ is a truncation of the Taylor series to a
+polynomial of degree $n$. We want to figure out, for a given function
+$f$ with $n^{th}$ Taylor polynomial $P_n$, how large is the gap:
+
+$$|f(x) - P_n(x)|$$
+
+Taylor's theorem answers this question, and we turn to it after a
+brief digression into approximation.
+
+Although we will not prove the theorem in class, you are invited to
+look through the proof in the book (um, yeah, as if that ever
+worked!). You had a very similar question as one of your advanced
+problems earlier in this course.
+
+\subsection{Linear fitting and curve fitting}
+
+In this course, we defined the tangent line to a curve at a point as
+the {\em best linear approximation} to the curve at the point. This is
+because, if the curve has a particular slope (value of derivative of
+the function if the curve is the graph of the function), the tangent
+line with the same slope through that point comes closest to
+approximating the curve. If the curve is the graph of $f$ and the
+point is $(0,f(0))$, we see that the equation of the tangent line is:
+
+$$y = f(0) + f'(0)x$$
+
+It is no coincidence that this is the first Taylor polynomial. Thus,
+the first Taylor polynomial is the {\em best linear approximation} to
+the graph of a function. This means that if we consider:
+
+$$R_1(x) := f(x) - (f(0) + f'(0)x)$$
+
+this difference is sub-linear, in the sense that it grows slower than
+linear. Another way of putting this is that $R_1$ has a zero at $0$ of
+order {\em strictly greater than} $1$. In other words, not only is
+$R_1(0)$ equal to zero, it changes very slowly around $0$.
+
+Taylor polynomials can be thought of as higher order generalizations
+of the tangent line. Basically, the $n^{th}$ Taylor polynomial's task
+is to be the {\em best approximation by a polynomial of degree $n$} of
+the function $f$ {\em near $0$}. Remember that for $x$ close to $0$,
+$x^n$ gets smaller and smaller. Thus, the larger we allow $n$ to be,
+the finer the precision we can aim for.
+
+\subsection*{Aside: Two meanings of best fit}
+
+The notion of {\em best fit} that we are using here is that of best
+fit to a function in terms of {\em local} behavior very close to a
+{\em particular point} (though that fit might also work far away, just
+by chance). It is a highly {\em local} notion of best fit.
+
+Another notion of best fit, that is useful for capturing secular
+trends, is one of {\em global} best fit. For instance, we have a
+function with peroidic derivative, and we know it can be written as a
+linear part plus a periodic part. We then select the linear part in
+such a manner that it most closely approximates the curve. More
+generally, there are techniques such as {\em Ordinary Least Squares}
+regression that allow one to find the best linear approximation to a
+bunch of scattered data.
+
+Keep in mind that the notion of best fit for Taylor series is the
+local version, as opposed to the global version described in the
+previous paragraph.
+
+\subsection{The remainder and Taylor's theorem}
+
+For a function $f$ that is (at least) $n + 1$ times differentiable at $0$,
+let $P_n$ be the $n^{th}$ Taylor polynomial about $0$. We define the
+{\em remainder} as the following function:
+
+$$R_n(x) := f(x) - P_n(x)$$
+
+The remainder is thus what remains after we take out the $n^{th}$
+Taylor polynomial. Clearly, $R_n(0) = 0$. 
+
+Taylor's theorem states that, if $f$ is $(n+1)$ times differentiable
+not just at $0$ but in the interval from $0$ to $x$, then:
+
+$$R_n(x) = \frac{1}{n!} \int_0^x f^{(n+1)}(t)(x - t)^n \, dt$$
+
+\subsection{The Lagrange formula and a max-estimate version} 
+
+The Lagrange formula is a corollary of Taylor's theorem, and it states
+that for any $x$, there exists $c$ between $0$ and $x$ (so $c \in
+[0,x]$ if $x \ge 0$ and $c \in [x,0]$ if $x \le 0$) such that:
+
+$$R_n(x) = \frac{f^{(n+1)}(c)}{(n + 1)!}x^{n+1}$$
+
+This follows from Taylor's theorem and the mean value theorem.
+
+The following max-estimate version is sometimes useful:
+
+$$|R_n(x)| \le \left( \max_{t \in J} |f^{(n+1)}(t)|\right) \frac{|x|^{n+1}}{(n+1)!}$$
+
+where $J$ is the interval joining $0$ to $x$.
+
+\subsection{Order interpretation}
+
+The Lagrange formula implies that $R_n$ has a zero of order at least
+$n + 1$ at $0$. In other words, it requires eyes of sensitively
+greater than $n$ to see that $R_n$ is not zero.
+
+Recall that the order of a zero is the matching power of $x$ at which
+the limit of the quotient breaks from zero to undefined. Also recall
+that the larger the order of zero, the more zeroish the zero.
+
+\subsection{The convergence of Taylor series}
+
+If we can show, for a given function $f$, that the remainder functions
+go to $0$, i.e., that, for a given $x_0$:
+
+$$\lim_{n \to \infty} R_n(x_0) = 0$$
+
+then the Taylor series for $f$, evaluated at $x_0$, converges to $x_0$.
+
+We can use this idea to show the statements I earlier asked you to
+take on faith: the Taylor series for $\exp$, $\cos$, and $\sin$
+converge to the respective functions for all $x$. The chief reason for
+this is that $\exp$, $\cos$, and $\sin$ have the property that {\em
+the sequence of derivatives at any particular point is uniformly
+bounded}.
+
+Let's illustrate with the example of $\sin$. We have:
+
+$$|R_n(x)| \le \left( \max_{t \in J} |\sin^{(n+1)}(t)|\right) \frac{|x|^{n+1}}{(n+1)!}$$
+
+where $J$ is the interval between $0$ and $x$.
+
+Now, we know that any iterated derivative of $\sin$ is one of the four
+functions $\sin$, $\cos$, $-\sin$, and $-\cos$, and all of these have
+range $[-1,1]$. Thus, the max-expression is at most $1$. We thus get:
+
+$$|R_n(x)| \le \frac{|x|^{n+1}}{(n + 1)!}$$
+
+As $n \to \infty$, the right side approaches $0$, because the
+denominator, being factorial, grows faster than the numerator, which
+is exponential in $n$. Thus, $|R_n(x)| \to 0$.
+
+The same logic applies for $\cos$. For $\exp$, the logic is fairly similar:
+
+$$|R_n(x)| \le \left( \max_{t \in J} |\exp^{(n+1)}(t)|\right) \frac{|x|^{n+1}}{(n+1)!}$$
+
+Any iterated derivative of $\exp$ is $\exp$, so the max-expression is
+just $\max_{t \in J} |\exp(t)|$. This is either $1$ or $\exp(x)$,
+depending on whether $x < 0$ or $x > 0$. In either case, it is {\em
+independent of $n$}. Thus, when we are taking the limit as $n \to
+\infty$, it pulls out of the limit and we effectively take the limit
+of $|x|^{n+1}/(n+1)!$, which still tends to $0$.
+
+In the next lecture, we will introduce some terminology and concepts
+that will help us consider the collection of functions for which the
+power series does converge to the original function. The upshot will
+be that this collection is itself closed under addition, subtraction,
+multiplication, scalar multiplication, and differentiation.
+
+\subsection{The problems that could occur in general}
+
+In general (i.e., for functions other than $\exp$, $\cos$, and
+$\sin$), two problems could happen:
+
+\begin{enumerate}
+\item The Taylor series does not converge: Sometimes, it does not
+  converge for any $x$. Sometimes it converges for some $x$ and not others.
+\item The Taylor series converges but the sum of the Taylor series is
+  not the original function: This is rare, but it does happen for some
+  artificially concocted functions. It does not, however, happen for
+  most of the simplest functions we will be dealing with.
+\end{enumerate}
+
+We will tackle both these problems later.
+
+\section{Taylor series in $x - a$}
+
+So far, we have been interested in the local behavior near zero, and
+hence, we have been handling Taylor series about $0$. The more general
+version involves Taylor series about some arbitrary point $a \in \R$,
+such that the function is defined and infinitely differentiable about
+$a$. The series is:
+
+$$\sum_{k=0}^\infty f^{(k)}(a)\frac{(x - a)^k}{k!}$$
+
+The evaluation point now becomes $0$ instead of $a$ and we replace $x$
+by $x - a$. We thus get a series where each term is a multiple of a
+power of $x - a$.
+
+The truncation of these to degree $n$ polynomials are called the
+Taylor polynomials.
+
+There is nothing really new here -- we can achieve everything by
+considering a new function that arises as the old function shifted by
+$a$. So, Taylor's theorem and the Lagrange formula all have analogues
+in this context, which you can read from the book (12.7.1 --
+12.7.3). It might, however, be an instructive exercise for you to
+first try to guess at the general statement by looking at the
+statement in the special case $a = 0$, and then confirm your guess
+against the book.
+\end{document}

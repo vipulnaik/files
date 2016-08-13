@@ -1,0 +1,303 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Friday November 1: Matrix multiplication and inversion: abstract behavior prediction}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+26 people took this 6-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of 0: 1 person
+\item Score of 1: 3 people
+\item Score of 2: 3 people
+\item Score of 3: 7 people
+\item Score of 4: 5 people
+\item Score of 5: 6 people
+\item Score of 6: 1 person
+\end{itemize}
+
+The mean score was 3.3.
+
+The question-wise answers and performance review are as follows:
+
+\begin{enumerate}
+\item Option (B): 12 people
+\item Option (C): 12 people
+\item Option (E): 21 people
+\item Option (E): 19 people
+\item Option (A): 16 people
+\item Option (E): 6 people
+\end{enumerate}
+
+{\em Note}: Question 6 erroneously had ``5 points'' printed in front
+of it in the print copy handed out to students. That was because the
+question was copy-pasted to the quiz from a previous year's test. We
+are not giving it additional weight.
+
+{\em Note on comparison with last time}: Last time, I gave these
+questions (all except Question 6) {\em before} I gave the ``linear
+transformations and finite state automata'' questions. This might
+explain why the overall performance was somewhat worse last time
+compared to this time.
+
+\section{Solutions}
+
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+This quiz tests for {\em abstract behavior prediction} related to the
+structure of matrices defined based on the operations of matrix
+multiplication and inversion. It is based on part of the {\tt Matrix
+  multiplication and inversion} notes and is related to Sections 2.3
+and 2.4. It does not, however, test all aspects of that material.
+
+To understand this abstract behavior, we will consider {\em
+  nilpotent}, {\em invertible}, and {\em idempotent} matrices.
+
+\begin{enumerate}
+
+\item Suppose $A$ and $B$ are $n \times n$ matrices such that $B$ is
+  invertible. Suppose $r$ is a positive integer. What can we say that
+  $(BAB^{-1})^r$ definitely equals?
+
+  \begin{enumerate}[(A)]
+  \item $A^r$
+  \item $BA^rB^{-1}$
+  \item $B^rA^rB^{-r}$
+  \item $B^rAB^{-r}$
+  \item $BAB^{-1-r}$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Write:
+
+  $$BAB^{-1}BAB^{-1} \dots BAB^{-1}$$
+
+  Each $B^{-1}$ and subsequent $B$ multiply to the identity matrix,
+  which disappears. So, we are left with:
+
+  $$BAA\dots AB^{-1}$$
+
+  where $A$ appears $r$ times. We thus get $BA^rB^{-1}$.
+
+  This is related to some deep facts about group structure. We will
+  hint at these later in the course, but will not be able to
+  appreciate the full depth of these.
+  
+  {\em Performance review}: 12 out of 26 got this. 10 chose (A), 4 chose (C).
+
+  {\em Historical note (last time)}: $8$ out of $26$ got this. $13$ chose (A),
+  $5$ chose (C).
+\item Suppose $A$ and $B$ are $n \times n$ matrices ($n$ not too
+  small) such that $(AB)^2 = 0$. What is the smallest $r$ for which we
+  can conclude that $(BA)^r$ is definitely $0$?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $5$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: We have:
+
+  $$(BA)^3 = BABABA = B(ABAB)A = B(AB)^2A = B(0)A = 0$$
+
+  Thus, $(BA)^3$ is definitely $0$. There are examples of matrices $A$
+  and $B$ such that $(AB)^2 = 0$ but $(BA)^2 \ne 0$. The smallest
+  examples are $3 \times 3$. For instance:
+
+  $$A = \left[\begin{matrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \\\end{matrix}\right], B = \left[\begin{matrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \\\end{matrix}\right]$$
+
+  We obtain:
+
+  $$AB = \left[\begin{matrix} 0 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \\\end{matrix}\right], BA = \left[\begin{matrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \\\end{matrix}\right]$$
+
+  We have $(AB)^2 = 0$ but $(BA)^2 \ne 0$. However, $(BA)^3 = 0$.
+
+  {\em How did we construct this example?}: Building on the ``linear
+  transformations and finite state automata'' framework, the idea is
+  to choose $f,g: \{ 0,1,2,3 \} \to \{ 0,1,2,3 \}$ (with $f(0) = g(0)
+  = 0$) such that $f \circ g$ is a function whose composite with itself
+  sends everything to zero, whereas $g \circ f$ is a function whose
+  composite with itself does not send everything to zero. The above
+  matrices arise from one such example:
+
+  $$f(0) = 0, f(1) = 0, f(2) = 1, f(3) = 2, \qquad g(0) = 0, g(1) = 1, g(2) = 2, g(3) = 0$$
+
+  The composites are:
+
+  $$(f \circ g)(0) = 0, (f \circ g)(1) = 0, (f \circ g)(2) = 1, (f \circ g)(3) = 0$$
+
+  and:
+
+  $$(g \circ f)(0) = 0, (g \circ f)(1) = 0, (g \circ f)(2) = 1, (g \circ f)(3) = 2$$
+
+  Notice that $f \circ g$ sends $2$ to $1$ and everything else to $0$,
+  hence its composite with itself sends everything to zero. On the
+  other hand, the composite of $g \circ f$ with itself sends $3$ to
+  $1$, and therefore does not send everything to zero.
+
+  In symbols, $A = M_f$, $B = M_g$, $AB = M_{f \circ g}$, and $BA =
+  M_{g \circ f}$.
+
+  {\em Performance review}: 12 out of 26 got this. 12 chose (B), 1
+  each chose (A) and (E).
+
+  {\em Historical note (last time)}: $6$ out of $26$ got this. $16$
+  chose (B), $3$ chose (A), $1$ chose (E).
+\item Suppose $n > 1$. A $n \times n$ matrix $A$ is termed {\em
+  nilpotent} if there exists a positive integer $r$ such that $A^r$ is
+  the zero matrix. It turns out that if $A$ is nilpotent, then $A^n =
+  0$. Which of the following describes correctly the relationship
+  between being invertible and being nilpotent for $n \times n$
+  matrices?
+
+  \begin{enumerate}[(A)]
+  \item A matrix is nilpotent if and only if it is invertible.
+  \item Every nilpotent matrix is invertible, but not every invertible matrix is nilpotent.
+  \item Every invertible matrix is nilpotent, but not every nilpotent matrix is invertible.
+  \item An invertible matrix may or may not be nilpotent, and a
+    nilpotent matrix may or may not be invertible.
+  \item A matrix cannot be both nilpotent and invertible.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Suppose $A^r = 0$ and $A$ has inverse
+  $A^{-1}$. We have $(A^{-1})^rA^r = I_n$ (where $I_n$ denotes the $n
+  \times n$ identity matrix), but it also equals $(A^{-1})^r0 = 0$, so
+  $I_n = 0$ is a contradiction.
+
+  {\em Performance review}: 21 out of 26 got this. 3 chose (B), 1 each
+  chose (A) and (D).
+
+  {\em Historical note (last time)}: $9$ out of $26$
+  got this. $9$ chose (C), $6$ chose (B), $2$ chose (D).
+\item Suppose $A$ and $B$ are $n \times n$ matrices. Which of the
+  following is true? Please see Option (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $AB$ is nilpotent if and only if $A$ and $B$ are both nilpotent.
+  \item $AB$ is nilpotent if and only if at least one of $A$ and $B$ is nilpotent.
+  \item If both $A$ and $B$ are nilpotent, then $AB$ is nilpotent, but
+    $AB$ being nilpotent does not imply that both $A$ and $B$ are
+    nilpotent.
+  \item If $AB$ is nilpotent, then both $A$ and $B$ are
+    nilpotent. However, both $A$ and $B$ being nilpotent does not
+    imply that $AB$ is nilpotent.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Here is an example where $A$ and $B$ are both
+  nilpotent but $AB$ is not:
+
+  $$A = \left[ \begin{matrix} 0 & 1 \\ 0 & 0 \\\end{matrix}\right], B = \left[ \begin{matrix} 0 & 0 \\ 1 & 0 \\\end{matrix}\right], AB = \left[ \begin{matrix} 1 & 0 \\ 0 & 0 \\\end{matrix}\right]$$
+
+  Here is an example where neither $A$ nor $B$ is nilpotent but $AB$
+  is the zero matrix, and therefore, is nilpotent:
+
+  $$A = \left[ \begin{matrix} 1 & 0 \\ 0 & 0 \\\end{matrix}\right], B = \left[ \begin{matrix} 0 & 0 \\ 0 & 1 \\\end{matrix}\right]$$
+
+  {\em How did we construct these examples}: These examples fall out
+  of the ``linear transformations and finite state automata''
+  framework. In fact, there are questions on that quiz that directly
+  correspond to the construction of examples for this situation. Can
+  you locate them?
+
+  {\em Performance review}: 19 out of 26 got this. 5 chose (C), 1 each
+  chose (A) and (B).
+
+  {\em Historical note (last time)}: $6$ out of $26$ got this. $9$
+  chose (D), $5$ each chose (B) and (C), $1$ chose (A).
+\item Suppose $A$ and $B$ are $n \times n$ matrices. Which of the
+  following is true? Please see Option (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $AB$ is invertible if and only if $A$ and $B$ are both invertible.
+  \item $AB$ is invertible if and only if at least one of $A$ and $B$ is invertible.
+  \item If both $A$ and $B$ are invertible, then $AB$ is invertible, but
+    $AB$ being invertible does not imply that both $A$ and $B$ are
+    invertible.
+  \item If $AB$ is invertible, then both $A$ and $B$ are
+    invertible. However, both $A$ and $B$ being invertible does not
+    imply that $AB$ is invertible.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: If $A$ and $B$ are both invertible, then
+  $(AB)^{-1} = B^{-1}A^{-1}$. if $AB$ is invertible with inverse $C$,
+  then $C(AB) = I_n$, so $CA$ is an inverse for $B$, and $(AB)C =
+  I_n$, so $BC$ is an inverse for $A$. We are using the (somewhat
+  nontrivial fact) that if a square matrix has a one-sided inverse,
+  that inverse is actually a two-sided inverse.
+
+  {\em Performance review}: 16 out of 26 got this. 5 each chose (C)
+  and (D).
+
+  {\em Historical note (last time)}: $11$ out of $26$ got this. $8$
+  chose (D), $3$ each chose (C) and (E), $1$ chose (B).
+
+\item Suppose $A$ and $B$ are $n \times n$ matrices. Which of the
+  following is true? We call a $n \times n$ matrix {\em idempotent} if
+  it equals its own square. Please see Option (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $AB$ is idempotent if and only if $A$ and $B$ are both idempotent.
+  \item $AB$ is idempotent if and only if at least one of $A$ and $B$ is idempotent.
+  \item If both $A$ and $B$ are idempotent, then $AB$ is idempotent, but
+    $AB$ being idempotent does not imply that both $A$ and $B$ are
+    idempotent.
+  \item If $AB$ is idempotent, then both $A$ and $B$ are
+    idempotent. However, both $A$ and $B$ being idempotent does not
+    imply that $AB$ is idempotent.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: The following is an example where both $A$ and
+  $B$ are idempotent but $AB$ is not idempotent:
+
+  $$A = \left[\begin{matrix} 1 & 1 \\ 0 & 0 \\\end{matrix}\right], B = \left[ \begin{matrix} 0 & 0 \\ 0 & 1 \\\end{matrix}\right]$$
+
+  The product is:
+
+  $$AB = \left[\begin{matrix} 0 & 1 \\ 0 & 0 \\\end{matrix}\right]$$
+
+  The following is an example where neither $A$ nor $B$ is idempotent
+  but $AB$ is idempotent:
+
+  $$A= \left[\begin{matrix} 0 & 1 \\ 0 & 0 \\\end{matrix}\right], B = \left[\begin{matrix} 0 & 0 \\ 1 & 0 \\\end{matrix}\right]$$
+
+  The product matrix is:
+
+  $$AB = \left[\begin{matrix} 1 & 0 \\ 0 & 0 \\\end{matrix}\right]$$
+
+  {\em Performance review}: 6 out of 26 got this. 8 each chose (C) and
+  (D), 3 chose (A), and 1 chose (B).
+
+  {\em Historical note (last time: {\bf final})}: This question
+  appeared in last year's final. 9 out of 30 got it correct at the
+  time (note that students had significantly more exposure to the
+  concepts by the time of the final). 12 chose (C), 4 each chose (A)
+  and (D), 1 chose (B).
+\end{enumerate}
+\end{document}

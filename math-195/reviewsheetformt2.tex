@@ -1,0 +1,729 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Review sheet for midterm 2}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf To maximize efficiency, please bring a copy (print or readable
+electronic) of this review sheet to the review session.}
+
+{\em The document does not include material that was part of the
+midterm 1 syllabus. Very little of that material will appear directly
+in midterm 2; however, you should have reasonable familiarity with the
+material}.
+
+The document is arranged as follows. The first section contains a
+``Formula summary'' of the key formulas that you have seen in this
+class. The remaining sections/subsections correspond to topics covered
+in the lectures. Each subsection has two sets of points, ``Words''
+which includes basic theory and definitions, and ``Actions'' which
+provides information on strategies for specific problem types. In some
+cases, there are additional points. The lists of points are largely
+the same as the executive summaries at the beginning of the lecture
+notes. Sometimes, I missed out some points in the original executive
+summaries and have added them, clearly indicating that the point has
+been added.
+
+{\em Error-spotting exercises}: Each subsection is usually followed by
+a list of error-spotting exercises. Here, some verbal or symbolic
+reasoning or arguments are given and you have to spot the errors in
+these arguments. They say, {\em it's not what you don't know that's
+the problem, it's what you know that ain't so.} The error-spotting
+exercises can help you unknow what ain't so.
+
+\section{Formula summary}
+
+\subsection{Formula formulas}
+
+\begin{enumerate}
+
+\item Unit vectors parallel to a vector $v$ are $v/|v|$ and $-v/|v|$.
+\item Coordinates of the unit vector are the direction cosines. If
+  $v/|v| = \langle \ell,m,n\rangle$, these are the direction
+  cosines. If $\cos \alpha = \ell$, $\cos \beta = m$, $\cos \gamma =
+  n$, those are the direction angles.
+\item Parametric equation of line in $\R^3$: $\mathbf{r} =
+  \mathbf{r_0} + t\mathbf{v}$, $\mathbf{r_0}$ is the radial vector for
+  a point in the line, $\mathbf{v}$ is the difference vector between
+  two points in the line. In scalar terms, $x = x_0 + ta$, $y = y_0 +
+  tb$, $z = z_0 + tc$, where $\mathbf{r} = \langle x,y,z \rangle$,
+  $\mathbf{r_0} = \langle x_0,y_0,z_0 \rangle$, and $\mathbf{v} =
+  \langle a,b,c \rangle$. (See also two-point form parametric equation).
+\item Symmetric equation of line in $\R^3$ not parallel to any
+  coordinate plane (i.e., $abc \ne 0$ case):
+
+  $$\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}$$
+
+  with same notation as for parametric equation. (See also cases of
+  parallel to coordinate plane).
+\item Equation of plane: vector equation $\mathbf{n} \cdot \mathbf{r}
+  = \mathbf{n} \cdot \mathbf{r_0}$ where $\mathbf{n}$ is a nonzero
+  normal vector, $\mathbf{r_0}$ is a fixed point in the plane. If
+  $\mathbf{n} = \langle a,b,c \rangle$, $\mathbf{r_0} = \langle x_0,
+  y_0, z_0 \rangle$, and $\mathbf{r} = \langle x,y,z \rangle$, we get:
+
+  $$ax + by + cz = ax_0 + by_0 + cz_0$$
+\item For a function $z = f(x,y)$, the tangent plane to the graph of
+  this function (a surface in $\R^3$) at the point
+  $(x_0,y_0,f(x_0,y_0))$ {\em such that $f$ is differentiable at the
+    point $(x_0,y_0)$} is the plane:
+
+  $$z - f(x_0,y_0) = f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0)$$
+
+  The corresponding linear function we get is:
+
+  $$L(x,y) = f(x_0,y_0) + f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0)$$
+
+  This provides a linear approximation to the function near the point
+  where we are computing the tangent plane.
+\end{enumerate}
+
+\subsection{Artistic formulas}
+
+\begin{enumerate}
+\item Partial differentiation, multiplicatively separable --
+  differentiate each piece in the corresponding variable the
+  corresponding number of times.
+\item Partial differentiation, additively separable -- pure partials,
+  just care about function of that variable, mixed partials are zero.
+\item Integration along rectangular region, multiplicatively
+  separable -- product of integrals for function of each variable.
+\item Integration along non-rectangular region, multiplicatively
+  separable -- outer variable function can be pulled to outer integral.
+\end{enumerate}
+\section{Equations of lines and planes}
+\subsection{Direction cosines}
+
+\begin{enumerate}
+\item For a nonzero vector $v$, there are two unit vectors parallel to
+  $v$, namely $v/|v|$ and $-v/|v|$.
+\item The direction cosines of $v$ are the coordinates of $v/|v|$. if
+  $v/|v| = \langle \ell,m,n \rangle$, then the direction cosines are
+  $\ell$, $m$, and $n$. We have the relation $\ell^2 + m^2 + n^2 =
+  1$. Further, if $\alpha$, $\beta$, and $\gamma$ are the angles made
+  by $v$ with the positive $x$, $y$, and $z$ axes, then $\ell = \cos
+  \alpha$, $m = \cos \beta$, and $n = \cos \gamma$.
+\end{enumerate}
+
+\subsection{Lines}
+Words ...
+
+\begin{enumerate}
+\item A line in $\R^3$ has dimension $1$ and codimension $2$. A
+  parametric description of a line thus requires $1$ parameter. A
+  top-down equational description requires two equations.
+\item Given a point with radial vector $\mathbf{r}_0$ and a direction
+  vector $\mathbf{v}$ along a line, the parametric description of the
+  line is given by $\mathbf{r}(t) = \mathbf{r}_0 + t\mathbf{v}$. If
+  $\mathbf{r}_0 = \langle x_0, y_0,z_0 \rangle$ and $\mathbf{v} =
+  \langle a,b,c \rangle$, this is more explicitly described as $x =
+  x_0 + ta$, $y = y_0 + tb$, $z = z_0 + tc$.
+\item Given two points with radial vectors $\mathbf{r_0}$ and
+  $\mathbf{r_1}$, we obtain a vector equation for the line as
+  $\mathbf{r}(t) = t\mathbf{r_1} + (1 - t)\mathbf{r_0}$. If we
+  restrict $t$ to the interval $[0,1]$, then we get the line segment
+  joining the points with these radial vectors.
+\item If the line is not parallel to any of the coordinate planes,
+  this parametric description can be converted to symmetric equations
+  by eliminating the parameter $t$. With the above notation, we get:
+
+  $$\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}$$
+
+  This is actually {\em two} equations rolled into one.
+
+\item If $c = 0$ and $ab \ne 0$, the line is parallel to
+  the $xy$-plane, and we get the equations:
+
+  $$\frac{x - x_0}{a} = \frac{y - y_0}{b}, \qquad z = z_0$$
+
+  Similarly for the other cases where precisely one coordinate is zero.
+\item If $a = b = 0$ and $c \ne 0$, the line is parallel to the
+  $z$-axis, and we get the equations:
+
+  $$x = x_0, \qquad y = y_0$$
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item To intersect two lines both given parametrically: Choose
+  different letters for parameters, equate coordinates, solve $3$
+  equations in $2$ variables. {\em Note: Expected dimension of
+  solution space is $2 - 3 = -1$}.
+\item To intersect a line given parametrically and a line given by
+  equations: Plug in the coordinates as functions of parameters into
+  both equations, solve. Solve $2$ equations in $1$ variable. {\em
+  Note: Expected dimension of solution space is $1 - 2 = -1$}.
+\item To intersect two lines given by equations: Combine equations,
+  solve $4$ equations in $3$ variables. {\em Note: Expected dimension
+  of solution space is $3 - 4 = -1$}.
+\end{enumerate}
+
+Error-spotting exercise ...
+
+\begin{enumerate}
+\item {\em Counting issues}: They say that to describe a line in
+  $\R^3$, we need $3 - 1 = 2$ equations in a top down
+  description. However, the symmetric equation of a line:
+
+  $$\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}$$
+
+  is a {\em single} equation that describes the line.
+\item {\em Unparalleled lines}: By definition, if two lines do not
+  intersect, they are parallel. Thus, the $x$-axis is parallel to the
+  line $x = 1 + u$, $y = 2 + u$, $z = 3 + u$.
+\item {\em And and/or or}: Consider the planes $x + y + z = 0$ and $2x
+  + 3y + 4z = 0$. Their intersection is a line given by the equation
+  $(x + y +z)(2x + 3y + 4z) = 0$.
+\end{enumerate}
+
+\subsection{Planes}
+
+Words ...
+
+\begin{enumerate}
+\item Vector equation of a plane (for the radial vector) is
+  $\mathbf{n} \cdot (\mathbf{r} - \mathbf{r_0}) = 0$ where
+  $\mathbf{n}$ is a normal vector to the plane and $\mathbf{r_0}$ is
+  the radial vector of any fixed point in the plane. This can be
+  rewritten as $\mathbf{n} \cdot \mathbf{r} = \mathbf{n} \cdot
+  \mathbf{r_0}$. Using $\mathbf{n} = \langle a,b,c \rangle$,
+  $\mathbf{r} = \langle x,y,z \rangle$, and $\mathbf{r}_0 = \langle
+  x_0,y_0,z_0 \rangle$, we get the corresponding scalar equation $ax +
+  by + cz = ax_0 + by_0 + cz_0$. Set $d = -(ax_0 + by_0 + cz_0)$ and
+  we get $ax + by + cz + d = 0$.
+\item The ``direction'' or ``parallel family'' of a plane is
+  determined by its normal vector. The angle between planes is the
+  angle between their normal vectors. Two planes are parallel if their
+  normal vecors are parallel. And so on.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item Given three non-collinear points, we find the equation of the
+  unique plane containing them as follows: first we find a normal
+  vector by taking the cross product of two of the difference
+  vectors. Then we use any of the three points to calculate the dot
+  product with the normal vector in the above vector equation or the
+  corresponding scalar equation.
+
+  Note that if the points are collinear, there is no unique plane
+  through them -- any plane containing their line is a plane
+  containing them.
+\item We can compute the angle of intersection of two planes by
+  computing the angle of intersection of their normal vectors.
+\item The line of intersection of two planes that are not parallel can
+  be computed by simply taking the equations for {\em both}
+  planes. This, however, is not a standard form for a line in
+  $\R^3$. To find a standard form, either find two points by
+  inspection and join them, or find one point by inspection and
+  another point by taking the cross product of the normal vectors to
+  the plane.
+\item To intersect a plane and a line, plug in parametric expressions
+  for the coordinates arising from the line into the equation of the
+  plane. We get one equation in the one parameter variable. In
+  general, this is expected to have a unique solution for the
+  parameter. Plug in the value of the parameter into the parametric
+  expressions for the line and get the coordinates of the point of
+  intersection.
+\item For a point with coordinates $(x_1,y_1,z_1)$ and a plane $ax +
+  by + cz + d = 0$, the distance of the point from the plane is given
+  by $|ax_1 + by_1 + cz_1 + d|/\sqrt{a^2 + b^2 + c^2}$.
+\end{enumerate}
+
+\section{Functions of several variables}
+
+\subsection{Introduction}
+
+Words ...
+
+\begin{enumerate}
+\item A function of $n$ variables is a function on a subset of
+  $\R^n$. We can think of it in three ways: as a function with $n$
+  real inputs, as a function with input a point in (a subset of)
+  $\R^n$, and as a function with $n$-dimensional vector inputs. We
+  often write the inputs with numerical subscripts, so a function $f$
+  of $n$ inputs is written as $f(x_1,x_2,\dots,x_n)$.
+\item In the case $n = 2$, we often write the inputs as $x,y$ so we
+  write $f(x,y)$. This may be concretely described as an expression in
+  terms of $x$ and $y$.
+\item The graph of a function $f(x,y)$ of the two variables $x$ and
+  $y$ is the surface $z = f(x,y)$. The $xy$-plane plays the role of
+  the independent variable plane and the $z$-axis is the dependent
+  variable axis. Any such graph satisfies the ``vertical'' line test
+  where vertical means parallel to the $z$-axis.
+\item The level curves of a function $f(x,y)$ are curves satisfying
+  $f(x,y) = z_0$ for some fixed $z_0$. These are curves in the
+  $xy$-plane.
+\item The level surfaces of a function $f(x,y,z)$ of three variables
+  are the surfaces satisfying $f(x,y,z) = c$ for some fixed $c$.
+\item Domain convention: If nothing else is specified, the domain of a
+  function in $n$ variables given by an expression is defined as the
+  largest subset of $\R^n$ on which that expression makes sense.
+\item We can also define vector-valued functions of many variables,
+  e.g., a function from a subset of $\R^m$ to a subset of $\R^n$.
+\item We can do various pointwise combination operations on functions
+  of many variables, similar to what we do for functions of one variable
+  (both the scalar and vector cases).
+\item To compose functions, we need that the number of outputs of the
+  inner/right function equals the number of inputs of the outer/left
+  function.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item To find the domain, we first apply the usual conditions on
+  denominators, things under square roots, and inputs to logarithms
+  and inverse trigonometric functions. For functions of two variables,
+  each such condition usually gives a region of $\R^2$ bounded by a
+  line or curve.
+\item After getting a bunch of conditions that need to be satisfied,
+  we try to find the common solution set for all of these. This
+  involves intersecting the regions in $\R^2$ obtained previously.
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em One-point curves}: Consider the function $f(x,y) := (x -
+  1)^2 + (y + 1)^2 - 3$. The level ``curve'' for the value $-3$ is the
+  single point $(1,-1)$. This is a point, not a curve at all. So, the
+  claim that level curves are one-dimensional is wrong, and the term
+  ``curve'' itself is a misnomer.
+\item {\em Count issues again}: Consider the function $f(x,y) := x^2 -
+  y^2$. The level ``curve'' for the value $1$ is a union of two
+  curves, one on the positive $x$-axis side and the other on the
+  negative $x$-axis side. The level curve thus isn't a curve at all,
+  it is a union of multiple curves.
+\item {\em A new unparalleled level}: Consider the function $f(x,y,z) :=
+  ax + by + cz$ of three variables. The level curves of this function
+  are the lines parallel to the vector $\langle a,b,c \rangle$.
+\end{enumerate}
+
+\subsection{Limits and continuity}
+
+Words ...
+
+\begin{enumerate}
+\item Conceptual definition of limit $\lim_{x \to c} f(x) = L$: For
+  any neighborhood of $L$, however small, there exists a neighborhood
+  of $c$ such that for all $x \ne c$ in that neighborhood of $c$,
+  $f(x)$ is in the original neighborhood of $L$.
+\item Other conceptual definition of limit $\lim_{x \to c} f(x) = L$:
+  For any open ball centered at $L$, however small, there exists an
+  open ball centered at $c$ such that for all $x \ne c$ in that open
+  ball, $f(x)$ lies in the original open ball centered at $L$.
+\item $\epsilon-\delta$ definition of limit $\lim_{x \to c} f(x) = L$:
+  For any $\epsilon > 0$, there exists $\delta > 0$ such that for all
+  $x = \langle x_1,x_2,\dots,x_n \rangle$ satisfying $0 < |x - c| <
+  \delta$, we have $|f(x) - L| < \epsilon$. The definition is the same
+  for vector inputs and vector outputs, but we interpret subtraction
+  as vector subtraction and we interpret $| \cdot |$ as length/norm of
+  a vector rather than absolute value if dealing with vectors instead
+  of scalars.
+\item On the range/image side, it is possible to break down continuity
+  into continuity of each component, i.e., a vector-valued function is
+  continuous if each component scalar function is continuous. This
+  cannot be done on the domain side.
+\item We can use the above definition of limit to define a notion of
+  continuity. The usual limit theorems and continuity theorems apply.
+\item The above definition of continuity, when applied to functions of
+  many variables, is termed {\em joint continuity}. For a jointly
+  continuous function, the restriction to any continuous curve is
+  continuous with respect to the parameterization.
+\item We can define a function of many variables to be a continuous in
+  a particular variable if it is continuous in that variable when we
+  fix the values of all other variables. A function continuous in each
+  of its variables is termed {\em separately continuous}. Any jointly
+  continuous function is separately continuous, but the converse is
+  not necessarily true.
+\item Geometrically, separate continuity means continuity along
+  directions parallel to the coordinate axes.
+\item For homogeneous functions, we can talk of the order of a zero at
+  the origin by converting to radial/polar coordinates and then seeing
+  the order of the zero in terms of $r$.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item Polynomials and $\sin$ and $\cos$ are continuous, and things
+  obtained by composing/combining these are continuous. Rational
+  functions are continuous wherever the denominator does not blow
+  up. The usual {\em plug in to find the limit} rule, as well as the
+  usual list of indeterminate forms, applies.
+\item Unlike the case of functions of one variable, the strategy of
+  canceling common factors is not sufficient to calculate all limits
+  for rational functions. When this fails, and we need to compute a
+  limit at the origin, try doing a polar coordinates substitution,
+  i.e., $x = r\cos \theta$, $y = r \sin \theta$, $r > 0$. Now try to
+  find the limit as $r \to 0$. If you get an answer independent of
+  $\theta$ in a strong sense, then that's the limit. This method works
+  best for homogeneous functions.
+\item For limit computations, we can use the usual chaining and
+  stripping techniques developed for functions of one variable.
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em Zero ain't infinity}: Consider the limit $\lim_{(x,y) \to
+  (0,0)} (x^4 + y^4)/(x^2 + y^2)^2$. We see that the numerator and
+  denominator are both homogeneous polynomials of degree four, and so
+  the limit of the quotient is the quotient of the leading
+  coefficients, which are both $1$. So the limit of the quotient is
+  $1$. We can verify this by noting that the limit for approach along
+  the $x$-axis as well as the $y$-axis are both equal to $1$.
+\item {\em Curvophobia} or {\em straightonormativity}: To verify that
+  the limit of a function at the origin equals a particular value, we
+  need to compute the limit along the $x$-axis, along the $y$-axis,
+  and along the line $y = mx$ for $m$ fixed but arbitrary. If all the
+  three answers are a constant independent of $m$, then that is the
+  limit.
+\end{enumerate}
+
+\subsection{Partial derivatives}
+
+Words ...
+
+\begin{enumerate}
+\item The partial derivative of a function of many variables with
+  respect to any one variable is the derivative with respect to that
+  variable, keeping others constant. It can be written as a limit of a
+  difference quotient, using variable letter subscript (such as
+  $f_x(x,y)$), numerical subscript based on input position (such as
+  $f_2(x_1,x_2,x_3)$), Leibniz notation (such as $\partial/\partial x$).
+\item In the separate continuity-joint continuity paradigm, partial
+  derivatives correspond to the ``separate'' side. The corresponding
+  ``joint'' side notion requires linear algebra and we will therefore
+  defer it.
+\item The expression for the partial derivative of a function of many
+  variables with respect to any one of them involves all the
+  variables, not just the one being differentiated against (the
+  exception is additively separable functions). In particular, the
+  {\em value} of the partial derivative (as a number) depends on the
+  values of all the inputs.
+\item The procedure for partial derivatives differs from the procedure
+  used for implicit differentiation: in partial derivatives, we assume
+  that the other variable is independent and constant, while in
+  implicit differentiation, we treat the other variable as an unknown
+  (implicit) function of the variable.
+\item We can combine partial derivatives and implicit differentiation,
+  for instance, $G(x,y,z) = 0$ may be a description of $z$ as an
+  implicit function of $x$ and $y$, and we can compute $\partial
+  z/\partial x$ by implicit differentiation, differentiate $G$, treat
+  $z$ as an implicit function of $x$ and treat $y$ as a constant.
+\item By iterating partial differentiation, we can define higher order
+  partial derivatives. For instance $f_{xx}$ is the derivative of
+  $f_x$ with respect to $x$. For a function of two variables $x$ and
+  $y$, we have four second order partials: $f_{xx}$, $f_{yy}$,
+  $f_{xy}$ and $f_{yx}$. 
+\item Clairaut's theorem states that if $f$ is defined in an open disk
+  surrounding a point, and both mixed partials $f_{xy}$ and $f_{yx}$
+  are jointly continuous in the open disk, then $f_{xy} = f_{yx}$ at
+  the point.
+\item We can take higher order partial derivatives. By iterated
+  application of Clairaut's theorem, we can conclude that under
+  suitable continuity assumptions, the mixed partials having the same
+  number of differentiations with respect to each variable are equal
+  in value.
+\item We can consider a partial differential equation for functions of
+  many variables. This is an equation involving the function and its
+  partial derivatives (first or higher order) all at one point. A
+  solution is a function of many variables that, when plugged in,
+  satisfies the partial differential equation.
+\item Unlike the case of ordinary differential equations, the solution
+  spaces to partial differential equations are huge, usually
+  infinite-dimensional, and there is often no neat description of the
+  general solution.
+\end{enumerate}
+
+Pictures ...
+
+\begin{enumerate}
+\item The partial derivatives can be interpreted as slopes of tangent
+  lines to graphs of functions of the one variable being
+  differentiated with respect to, once we fix the value of the other
+  variable.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item To compute the first partials, differentiate with respect to the
+  relevant variable, treating other variables as constants.
+\item Implicit differentiation for first partial of implicit function
+  of two variables, e.g., $z$ as a function of $x$ and $y$ given via
+  $G(x,y,z) = 0$.
+\item In cases where differentiation formulas do not apply directly,
+  use the limit of difference quotient idea.
+\item To calculate partial derivative at a point, it may be helpful to
+  first fix the values of the other coordinates and then differentiate
+  the function of one variable rather than trying to compute the
+  general expression for the derivative using partial differentiation
+  and then plugging in values. On the other hand, it might not.
+\item Two cases of particular note for computing partial derivatives
+  are the cases of additively and multiplicatively separable functions.
+\item To find whether a function satisfies a partial differential
+  equation, plug it in and check. Don't try to find a general solution
+  to the partial differential equation.
+\end{enumerate}
+
+Econ-speak ...
+
+\begin{enumerate}
+\item Partial derivatives = marginal analysis. Positive = increasing,
+  negative = decreasing
+\item Second partial derivatives = nature of returns to
+  scale. Positive = increasing returns (concave up), zero = constant
+  returns (linear), negative = decreasing returns (concave down)
+\item Mixed partial derivatives = interaction analysis; positive mixed
+  partial derivative means complementary, negative mixed partial
+  derivative means substitution
+\item The signs of the first partials are invariant under monotone
+  transformations, not true for signs of second partials, pure or
+  mixed.
+\item Examples of quantity demanded, production functions.
+\item Cobb-Douglas production functions (see section of lecture notes
+  and corresponding discussion in the book)
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em Mixed up partials}: To differentiate a multiplicatively
+  separable function, we differentiate the function of $x$ with
+  respect to $x$ the required number of times and the function of $y$
+  with respect to $y$ the required number of times, and then
+  multiply. Thus, if $f(x,y) := \sin(x^2\sin y)$, we get $f_{xy}(x,y)
+  = \cos(2x\cos y)$.
+\item {\em Slaving for joy}: My happiness is proportional to the
+  logarithm of my income; every time my income doubles, my happiness
+  goes up $0.3$ units. I have observed that my income obeys increasing
+  returns to effort, and empirically I find that my total income is
+  proportional to the $(4/3)^{th}$ power of the number of hours I
+  work. Therefore, my happiness also obeys increasing returns to
+  effort.
+\item {\em Futility personified}: Consider a production function
+  $f(L,K) = (\min \{ L, K \})^2$. We know that if $L > K$, then
+  $f_L(L,K) = 0$. This means that reducing the value of $L$ has no
+  impact on the output. But if that's true, then $L$ can be reduced to
+  $0$, and output would be unaffected. Similarly, $K$ can be reduced
+  to zero, and output would be unaffected. But that's nonsense.
+\item {\em Mixed up partials -- something doesn't add up}: Suppose
+  $F(x,y) := f(x) + g(y)$. Then $F_{xy}(x,y) = f'(x) + g'(y)$.
+\item {\em Mixed up partials -- shut up and multiply}: Suppose $F(x,y)
+  := f(x)g(y)$. We know that the mixed partial $F_{xy}(x,y) =
+  f'(x)g'(y)$. But this is in contradiction with the product rule,
+  which states that the derivative of the product is {\em not} the
+  product of the derivatives. Shouldn't the answer be $f'(x)g(y) +
+  f(x)g'(y)$?
+\end{enumerate}
+\subsection{Tangent planes and linear approximations}
+
+Words ...
+
+\begin{enumerate}
+\item For a $d$-dimensional subset of $\R^n$, it (occasionally) makes
+  sense to talk of the tangent space and the normal space at a
+  point. The tangent space is a linear/affine $d$-dimensional space
+  and the normal space is a linear/affine $(n - d)$-dimensional
+  space. Both pass through the point and are mutually orthogonal.
+\item For a function $z = f(x,y)$, the tangent plane to the graph of
+  this function (a surface in $\R^3$) at the point
+  $(x_0,y_0,f(x_0,y_0))$ {\em such that $f$ is differentiable at the
+    point $(x_0,y_0)$} is the plane:
+
+  $$z - f(x_0,y_0) = f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0)$$
+
+  The corresponding linear function we get is:
+
+  $$L(x,y) = f(x_0,y_0) + f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0)$$
+
+  This provides a linear approximation to the function near the point
+  where we are computing the tangent plane.
+\item It may be the case that a function $f$ of two variables is not
+  differentiable at a point in its domain but the partial derivatives
+  exist. In this case, although the {\em above formula makes sense as
+    a formula}, the plane it gives {\em is not the tangent plane} --
+  in fact, {\em no tangent plane exists}. Similarly, {\em no
+    linearization exists}, and the linear function given by the above
+  formula {\em is not a close approximation to the function near the
+    point}.
+\end{enumerate}
+
+\subsection{Chain rule}
+
+Words ...
+
+\begin{enumerate}
+\item The general formulation of chain rule: consider a function with
+  $m$ inputs and $n$ outputs, and another function with $n$ inputs and
+  $p$ outputs. Composing these, we get a function with $m$ inputs and
+  $p$ outputs. The $m$ original inputs are termed {\em independent
+  variables}, the $n$ in-between things are termed {\em intermediate
+  variables}, and the $p$ final outputs are termed {\em dependent
+  variables}.
+
+  For a given triple of independent variable $t$, intermediate
+  variable $x$, and dependent variable $u$, the partial derivative of
+  $u$ with respect to $t$ via $x$ is defined as:
+
+  $$\frac{\partial u}{\partial x} \frac{\partial x}{\partial t}$$
+
+  The chain rule says that the partial derivative of $u$ with respect
+  to $t$ is the sum, over all intermediate variables, over the partial
+  derivatives via each intermediate variable.
+\item The $1 \to 2 \to 1$ and $2 \to 2 \to 1$ versions (see the
+  lecture notes or the book).
+\item There is also a tree interpretation of this, where we make
+  pathways based on the directions/paths of dependence. This is
+  discussed in the book, not the lecture notes.
+\item The product rule for scalar functions can be proved using the
+  chain rule. Other variants of the product rule can be proved using
+  generalized formulations of the chain rule, which are beyond our
+  current scope.
+\item Implicit differentiation can be understood in terms of the chain
+  rule and partial derivatives.
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em $x$, $tx$, it's all the same}: Suppose $f(x,y)$ is a
+  function of two variables. Then, we have:
+
+  $$f_x(tx,ty) = \frac{\partial}{\partial x}[f(tx,ty)]$$
+
+  {\em Note: The underlying issue here affected some people's attempts
+  at advanced HW 6 question 5}.
+\item {\em Functions are born free, yet everywhere they are in
+  chains}: Suppose $f$ and $g$ are functions of one variable. Then, we
+  know that:
+
+  $$(f \circ g)'(t) = f'(g(t))g'(t)$$
+
+  by the chain rule. Differentiating both sides with respect to $t$
+  again, and using the product rule, we get:
+
+  $$(f \circ g)''(t) = \frac{d}{dt}(f'(g(t))g'(t) + f'(g(t))g''(t) = f''(g(t))g'(t) + f'(g(t))g''(t)$$
+
+\item {\em On the other hand}: Suppse $z = f(x,y)$ where $x = g(t)$ and
+$y = h(t)$. Then, we have:
+
+  $$\frac{\partial f_x}{\partial t} = \frac{\partial f_x}{\partial x}\frac{\partial x}{\partial t}$$
+\end{enumerate}
+
+\section{Double and iterated integrals}
+
+Words ...
+
+\begin{enumerate}
+\item The double integral of a function $f$ of two variables, over a
+  domain $D$ in $\R^2$, is denoted $\int \int_D f(x,y) \, dA$ and
+  measures an infinite analogue of the sum of $f$-values at all points
+  in $D$.
+\item Fubini's theorem for rectangles states that if $F$ is a function
+  of two variables on a rectangle $R = [a,b] \times [p,q]$, such that
+  $F$ is continuous except possibly at the union of finitely many
+  smooth curves, then the integral equals either of these iterated
+  integrals:
+
+  $$\int \int_R F(x,y) \, dA = \int_a^b \int_p^q F(x,y) \, dy \, dx = \int_p^q \int_a^b F(x,y) \, dx \, dy$$
+
+\item For a function $f$ defined on a closed connected bounded domain
+  $D$ with a smooth boundary, we can make sense of $\int \int_D f(x,y)
+  \, dA$ as being $\int \int_R F(x,y) \, dA$ where $R$ is a
+  rectangular region containing $D$ and $F$ is a function that equals
+  $f$ on $D$ and is $0$ on the rest of $R$.
+\item Suppose $D$ is a Type I region, i.e., its intersection with
+  every vertical line is either empty or a point or a line
+  segment. Then, we can describe $D$ as $a \le x \le b$, $g_1(x) \le y
+  \le g_2(x)$, where $g_1$ and $g_2$ are continuous functions. The
+  integral $\int \int_D f(x,y) \, dA$ becomes:
+
+  $$\int_a^b \int_{g_1(x)}^{g_2(x)} f(x,y) \, dy \, dx$$
+
+\item Suppose $D$ is a Type II region, i.e., its intersection with
+  every horizontal line is either empty or a point or a line
+  segment. Then, we can describe $D$ as $p \le y \le q$, $g_1(y) \le x
+  \le g_2(y)$, where $g_1$ and $g_2$ are continuous functions. The
+  integral $\int \int_D f(x,y) \, dA$ becomes:
+
+  $$\int_p^q \int_{g_1(y)}^{g_2(y)} f(x,y) \, dx \, dy$$
+
+\item The double integral of $f + g$ over $D$ is the sum of the double
+  integral of $f$ over $D$ and the double integral of $g$ over
+  $D$. Similarly, scalars can be pulled out of double integrals.
+\item The integral of the function $1$ over a domain is the area of
+  the domain.
+\item If $f(x,y) \ge 0$ on a domain $D$, the integral of $f$ over $D$
+  is also $\ge 0$.
+\item If $f(x,y) \ge g(x,y)$ on a domain $D$, the integral of $f$ over
+  $D$ is $\ge$ the integral of $g$ over $D$.
+\item If $m \le f(x,y) \le M$ over a domain $D$, then $\int \int_D
+  f(x,y) \, dA$ is betweem $mA$ and $MA$ where $A$ is the area of $D$.
+\item If $f(x,y)$ is odd in $x$ and the domain of integration is
+  symmetric about the $y$-axis, the integral is zero. If $f(x,y)$ is
+  odd in $y$ and the domain is symmetric about the $x$-axis, the
+  integral is zero.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item To compute a double integral, compute it as an iterated
+  integral. For a rectangle, we can choose either order of
+  integration, as long as the integration is feasible. For other types
+  of regions, we need to first determine whether the region is Type I
+  or Type II, and break it up into pieces of those types.
+\item For a multiplicatively separable function over a rectangular
+  region (or for a sum of such multiplicatively separable functions),
+  things are particularly easy.
+\item Sometimes, an integral cannot be computed using a particular
+  order of integration -- we might get stuck on the inner or the outer
+  stage. However, it may be computable using the other order of
+  integration.
+\item We can often use symmetry-based techniques to argue that certain
+  parts of the integrand integrate to zero.
+\item Even in cases where the integral cannot be computed, we can
+  bound it between limits using maximum or minimum values of function
+  and/or using bigger or smaller regions on which the integral can be
+  computed.
+\end{enumerate}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item {\em Fundamental theorem of miscalculus}: Suppose we are
+  integrating a continuous function $g(x,y)$ of two variables over a
+  rectangular region $[a,b] \times [p,q]$. Then, if $G_{xy} = g$, the
+  value of the integral is $G(b,q) - G(a,p)$. This is just like the
+  fundamental theorem of calculus.
+\item {\em Separation of abscissa and ordinate}: Suppose $F(x,y) :=
+  f(x)g(y)$. We want to integrate $F$ on the region $0 \le x \le 5$,
+  $0 \le y \le x^2$. Since $F$ is multiplicatively separable, we don't
+  need to compute this as an iterated integral, and instead, we can
+  compute it as a product:
+
+  $$\left(\int_0^5 f(x) \, dx\right)\left(\int_0^{x^2} g(y) \, dy \right)$$
+\item {\em Dissolving the bonds of addition}: Suppose $F(x,y) := f(x)
+  + g(y)$, and we need to integrate $F$ on $[a,b] \times [p,q]$. The
+  integral is:
+
+  $$\int_a^b f(x) \, dx + \int_p^q g(y) \, dy$$
+\item {\em Argument from personal incredulity}: The double integral for
+  a function $F$ on a domain $D$ exists only if $D$ is a Type I or
+  Type II region.
+\item {\em Another argument from personal incredulity}: $e^{-x^2}$ is
+  not an integrable function of one variable, i.e., it does not have
+  an antiderivative.
+\item {\em Straightonormativity yet again}: If $F(x,y) = f(x)g(y)$ and
+  we have antiderivatives available for $f$ and $g$, we can use these
+  to successfully integrate $F$ over any closed bounded convex region.
+\end{enumerate}
+\end{document}

@@ -1,0 +1,590 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Friday November 8: Linear transformations: seeds for reaping later}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+25 people took this 13-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of 4: 3 people
+\item Score of 5: 1 person
+\item Score of 6: 4 people
+\item Score of 7: 3 people
+\item Score of 8: 2 people
+\item Score of 9: 4 people
+\item Score of 10: 3 people
+\item Score of 11: 5 people
+\end{itemize}
+
+The question-wise answers and performance review are below:
+
+\begin{enumerate}
+\item Option (E): 21 people
+\item Option (D): 15 people
+\item Option (D): 14 people
+\item Option (C): 18 people
+\item Option (D): 23 people
+\item Option (B): 21 people
+\item Option (E): 14 people
+\item Option (C): 5 people
+\item Option (A): 16 people
+\item Option (A): 15 people
+\item Option (B): 17 people
+\item Option (E): 4 people
+\item Option (E): 16 people
+\end{enumerate}
+
+\section{Solutions}
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+In this quiz, we will sow the seeds of ideas that we will reap
+later. There are two broad classes of ideas that we touch upon here:
+
+\begin{itemize}
+\item Conjugation, similarity transformations, and products of
+  matrices: This will be of relevance later when we discuss change of
+  coordinates. We cover change of coordinates in more detail in
+  Section 3.4 of the text.
+\item Kernel and image for linear transformations arising from
+  calculus, typically for infinite-dimensional spaces: This will be
+  helpful in understanding linear transformations in an {\em abstract}
+  sense, a topic that we cover in more detail in Chapter 4 of the text.
+\end{itemize}
+
+\begin{enumerate}
+
+\item Suppose $A$ and $B$ are (possibly equal, possibly distinct) $n
+  \times n$ matrices for some $n > 1$. Recall that the {\em trace} of
+  a matrix is defined as the sum of its diagonal entries. Suppose $C =
+  AB$ and $D = BA$. Which of the following is true?
+
+  \begin{enumerate}[(A)]
+  \item It must be the case that $C = D$
+  \item The {\em set} of entry values in $C$ is the same as the set of
+    entry values in $D$, but they may appear in a different order.
+  \item $C$ and $D$ need not be equal, but the sum of all the matrix
+    entries of $C$ must equal the sum of all the matrix entries of
+    $D$.
+  \item $C$ and $D$ need not be equal, but they have the same
+    diagonal, i.e., every diagonal entry of $C$ equals the
+    corresponding diagonal entry of $D$.
+  \item $C$ and $D$ need not be equal and they need not even have the
+    same diagonal. However, they must have the same trace, i.e., the
+    sum of the diagonal entries of $C$ equals the sum of the diagonal
+    entries of $D$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: We have the following formula for the $i^{th}$ diagonal
+  entry of the product:
+
+  $$c_{ii} = \sum_{j=1}^n a_{ij}b_{ji}$$
+
+  The sum of the diagonal entries of $C$ is thus:
+
+  $$\sum_{i=1}^n c_{ii} = \sum_{i=1}^n \sum_{j=1}^n a_{ij}b_{ji}$$
+
+  The $j^{th}$ diagonal entry of $D$ is:
+
+  $$d_{jj} = \sum_{i=1}^n b_{ji}a_{ij}$$
+
+  The sum of the diagonal entries of $D$ is thus:
+
+  $$\sum_{j=1}^n d_{jj} = \sum_{j=1}^n \sum_{i=1}^n b_{ji}a_{ij}$$
+
+  Thus, the sum of the diagonal entries of $C$ is the same as the sum
+  of the diagonal entries of $D$.
+
+  {\em Performance review}: 21 out of 25 got this. 2 chose (C), 1 each
+  chose (B) and (D).
+
+  {\em Historical note (last time)}: $23$ out of $26$ got this. $1$ each chose
+  (B), (C), and (D).
+
+  \vspace{0.5in}
+
+  Suppose $A$ is an invertible $n \times n$ matrix. The {\em
+    conjugation operation} corresponding to $A$ is the map that sends
+  any $n \times n$ matrix $X$ to $AXA^{-1}$. We can verify that the
+  following hold for any two (possibly equal, possibly distinct) $n
+  \times n$ matrices $X$ and $Y$:
+
+  \begin{eqnarray*}
+    A(X + Y)A^{-1} & = &  AXA^{-1} + AYA^{-1}\\
+    A(XY)A^{-1} & = & (AXA^{-1})(AYA^{-1})\\
+    AX^rA^{-1} & = & (AXA^{-1})^r\\
+  \end{eqnarray*}
+
+  The conceptual significance of this will (hopefully!) become clearer
+  as we proceed. 
+
+\item Which of the following is guaranteed to be the same for $X$ and
+  $AXA^{-1}$?
+
+  \begin{enumerate}[(A)]
+  \item The sum of all entries
+  \item The sum of squares of all entries
+  \item The product of all entries
+  \item The sum of all diagonal entries (i.e., the trace)
+  \item The sum of squares of all diagonal entries
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We can write $X = A^{-1}(AX)$, whereas $AXA^{-1}
+  = (AX)A^{-1}$. Thus, both $X$ and $AXA^{-1}$ are products of two
+  matrices $A^{-1}$ and $AX$ but in opposite orders. Hence, by the
+  preceding question, they have the same trace.
+
+  {\em Performance review}: 15 out of 25 got this. 3 each chose (A)
+  and (C), 2 each chose (B) and (E).
+
+  {\em Historical note (last time)}: $20$ out of $26$ got this. $5$ chose (A),
+  $1$ chose (C).
+
+\item $A$ and $X$ are $n \times n$ matrices, with $A$
+  invertible. Which of the following is/are true? Please see Options
+  (D) and (E) before answering, and select a single option that best
+  reflects your view.
+
+  \begin{enumerate}[(A)]
+  \item $X$ is invertible if and only if $AXA^{-1}$ is invertible.
+  \item $X$ is nilpotent if and only if $AXA^{-1}$ is nilpotent.
+  \item $X$ is idempotent if and only if $AXA^{-1}$ is idempotent.
+  \item All of the above.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Essentially, the conjugation operation preserves
+  all aspects of the multiplicative structure, hence it preserves the
+  properties of being invertible, nilpotent, and idempotent.
+
+  Let us illustrate this with idempotent. We have that:
+
+  $$AX^2A^{-1} = (AXA^{-1})^2$$
+
+  If $X^2 = X$, we get:
+
+  $$AXA^{-1} = (AXA^{-1})^2$$
+
+  showing that $AXA^{-1}$ is also idempotent. We can work backwards to
+  show that the reverse implication also holds.
+
+  {\em Performance review}: 14 out of 25 got this. 4 chose (B), 3
+  chose (A), 2 chose (D), 1 chose (C), and 1 left the question blank.
+
+  {\em Historical note (last time)}: $18$ out of $26$ got this. $3$ each chose
+  (A) and (B), $2$ chose (C).
+
+\item $A$ and $X$ are $n \times n$ matrices, with $A$
+  invertible. Which of the following is equivalent to the condition
+  that $AXA^{-1} = X$?
+
+  \begin{enumerate}[(A)]
+  \item $A + X = X + A$
+  \item $A - X = X - A$
+  \item $AX = XA$
+  \item $XA^{-1} = AX^{-1}$
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Start with:
+
+  $$AXA^{-1} = X$$
+
+  Multiply both sides of the equation on the {\em right} with the
+  matrix $A$. We get:
+
+  $$AX = XA$$
+
+  Note that the algebraic manipulation is reversible: starting from
+  $AX = XA$ and multiplying both sides by $A^{-1}$ on the right gives
+  the original relation.
+
+  {\em Performance review}: 18 out of 25 got this. 4 chose (E), 1 each
+  chose (A), (B), and (D).
+
+  {\em Historical note (last time)}: $18$ out of $26$ got this. $4$ chose (D)
+  $2$ chose (A), $1$ each chose (B) and (E).
+
+  \vspace{0.5in}
+
+  Let's look at a computational application of matrix conjugation.
+
+  One computational application is power computation. Suppose we have
+  a $n \times n$ matrix $B$ and we need to compute $B^r$ for a very
+  large $r$. This requires $O(\log_2r)$ multiplications, but note that
+  each multiplication, if done naively, takes time $O(n^3)$ for a
+  generic matrix. Suppose, however, that there exists a matrix $A$
+  such that the matrix $C = ABA^{-1}$ is diagonal. If we can find $A$
+  (and hence $C$) efficiently, then we can compute $C^r = (ABA^{-1})^r
+  = AB^rA^{-1}$, and therefore $B^r = A^{-1}C^rA$. Note that each
+  multiplication of diagonal matrices takes $O(n)$ multiplications, so
+  this reduces the overall arithmetic complexity from $O(n^3\log_2r)$
+  to $O(n\log_2r)$. Note, however, that this is contingent on our
+  being able to find the matrices $A$ and $C$ first. We will later see
+  a method for finding $A$ and $C$. Unfortunately, this method relies
+  on finding the set of solutions to a polynomial equation of degree
+  $n$, which requires operations that go beyond ordinary arithmetic
+  operations of addition, subtraction, multiplication, and
+  division. Even in the case $n = 2$, it requires solving a quadratic
+  equation. We do have the formula for that.
+
+\item Consider the following example of the above general setup with $n = 2$:
+
+  $$B = \left[ \begin{matrix} 1 & -1 \\ 0 & 2 \\\end{matrix}\right]$$
+
+  We can choose:
+
+  $$A = \left[ \begin{matrix} 1 & 1 \\ 0 & 1 \\\end{matrix}\right]$$
+
+  The matrix $C = ABA^{-1}$ is a diagonal matrix. What diagonal matrix
+  is it?
+
+  \begin{enumerate}[(A)]
+  \item $\left[\begin{matrix} 1 & 0 \\ 0 & -2 \\\end{matrix}\right]$
+  \item $\left[\begin{matrix} -1 & 0 \\ 0 & 2 \\\end{matrix}\right]$
+  \item $\left[\begin{matrix} 2 & 0 \\ 0 & -1 \\\end{matrix}\right]$
+  \item $\left[\begin{matrix} 1 & 0 \\ 0 & 2 \\\end{matrix}\right]$
+  \item $\left[\begin{matrix} -1 & 0 \\ 0 & -2 \\\end{matrix}\right]$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We can just carry out the matrix
+  multiplication. Note that:
+
+  $$A^{-1} = \left[\begin{matrix} 1 & -1 \\ 0 & 1 \\\end{matrix}\right]$$
+
+  A {\em sanity check} is that the new matrix $C$ should have the same
+  trace as the original matrix $B$, because the trace is invariant
+  under conjugation. Among the options, the only matrix with the
+  correct trace ($3$) is Option (D).
+
+  {\em Performance review}: 23 out of 25 got this. 2 chose (B).
+
+  {\em Historical note (last time)}: $23$ out of $26$ got this. $2$ chose (B),
+  $1$ chose (C).
+
+\item With $A$, $B$, and $C$ as in the preceding question, what is the
+  value of $B^8$? Use that $2^8 = 256$.
+
+  \begin{enumerate}[(A)]
+  \item $\left[ \begin{matrix} 1 & -1 \\ 0 & 256 \\\end{matrix}\right]$
+  \item $\left[ \begin{matrix} 1 & -255 \\ 0 & 256 \\\end{matrix}\right]$
+  \item $\left[ \begin{matrix} 1 & 253 \\ 0 & 256 \\\end{matrix}\right]$
+  \item $\left[ \begin{matrix} 1 & 253 \\ 254 & 256 \\\end{matrix}\right]$
+  \item $\left[ \begin{matrix} 16 & -8 \\ 0 & 256 \\\end{matrix}\right]$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: We calculate:
+
+  $$C^8 = \left[\begin{matrix} 1 & 0 \\ 0 & 256 \\\end{matrix}\right]$$
+
+  We now recover $B^8$ as $A^{-1}C^8A$.
+
+  {\em Performance review}: 21 out of 25 got this. 2 chose (A), 1 each
+  chose (C) and (E).
+
+  {\em Historical note (last time)}: $22$ out of $26$ got this. $3$ chose (C),
+  $1$ chose (E).
+
+\item Suppose $n > 1$. Let $A$ be a $n \times n$ matrix such that the
+  linear transformation corresponding to $A$ is a self-isometry of
+  $\R^n$, i.e., it preserves distances. Which of the following must
+  necessarily be true? You can use the case $n = 2$ and the example of
+  rotations to guide your thinking.
+
+  \begin{enumerate}[(A)]
+  \item The trace of $A$ (i.e., the sum of the diagonal entries of
+    $A$) must be equal to $0$
+  \item The trace of $A$ (i.e., the sum of the diagonal entries of
+    $A$) must be equal to $1$
+  \item The sum of the entries in each column of $A$ must be equal to
+    $1$
+  \item The sum of the absolute values of the entries in each column
+    of $A$ must be equal to $1$
+  \item The sum of the squares of the entries in each column of $A$
+    must be equal to $1$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: The linear transformation corresponding to $A$
+  preserves lengths of vectors. Thus, the images of the standard basis
+  vectors are all unit vectors. Recall that the images of the standard
+  basis vectors under the linear transformation corresponding to a
+  matrix are the columns of that matrix. Therefore, each column of the
+  matrix is a unit vector, i.e., the sum of the squares of the
+  coordinates there is $1$.
+
+  As an illustration, consider the case of a rotation matrix in two dimensions:
+
+  $$\left[ \begin{matrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \\\end{matrix}\right]$$
+
+  {\em Performance review}: 14 out of 25 got this. 6 chose (B), 3
+  chose (A), 2 chose (D).
+
+  {\em Historical note (last time)} :$12$ out of $26$ got this. $4$ each chose
+  (A), (C), and (D). $1$ chose (B). $1$ left the question blank.
+
+  \vspace{1in}
+
+  A {\em real vector space} (just called {\em vector space} for short)
+  is a set $V$ equipped with the following structures:
+
+  \begin{itemize}
+  \item A binary operation $+$ on $V$ called addition that is
+    commutative and associative.
+  \item A special element $0 \in V$ that is an identity for addition.
+  \item A scalar multiplication operation $\R \times V \to V$ denoted
+    by concatenation such that:
+    \begin{itemize}
+    \item $0\vec{v} = 0$ (the $0$ on the right side being the vector
+      $0$) for all $\vec{v} \in V$.
+    \item $1\vec{v} = \vec{v}$ for all $\vec{v} \in V$.
+    \item $a(b\vec{v}) = (ab)\vec{v}$ for all $a,b \in \R$ and
+      $\vec{v} \in V$.
+    \item $a(\vec{v} + \vec{w}) = a\vec{v} + a\vec{w}$ for all $a \in
+      \R$ and $\vec{v},\vec{w} \in V$.
+    \item $(a + b)\vec{v} = a\vec{v} + b\vec{v}$ for all $a,b \in \R$,
+      $\vec{v} \in V$.
+    \end{itemize}
+  \end{itemize}
+
+  A {\em subspace} of a vector space is defined as a nonempty subset
+  that is closed under addition and scalar multiplication. In
+  particular, any subspace must contain the zero vector. A subspace of
+  a vector space can be viewed as being a vector space in its own
+  right.
+
+  Suppose $V$ and $W$ are vector spaces. A function $T: V \to W$ is
+  termed a {\em linear transformation} if $T$ preserves addition and
+  scalar multiplication, i.e., we have the following two conditions:
+
+  \begin{itemize}
+  \item $T(\vec{v_1} + \vec{v_2}) = T(\vec{v_1}) + T(\vec{v_2})$ for
+    all vectors $\vec{v_1},\vec{v_2} \in V$.
+  \item $T(a\vec{v}) = aT(\vec{v})$ for all $a \in \R$, $\vec{v} \in
+    V$.
+  \end{itemize}
+
+  The {\em kernel} of a linear transformation $T$ is defined as the
+  set of all vectors $\vec{v}$ such that $T(\vec{v})$ is the zero
+  vector. The {\em image} of a linear transformation $T$ is defined as
+  its range as a set map.
+
+  Denote by $C(\R)$ (or alternatively by $C^0(\R)$) the vector space
+  of all continuous functions from $\R$ to $\R$, with pointwise
+  addition and scalar multiplication. Note that the elements of this
+  vector space, which we would ordinarily call ``vectors'', are now
+  {\em functions}.
+
+  For $k$ a positive integer, denote by $C^k(\R)$ the subspace of
+  $C(\R)$ comprising those continuous functions that are at least $k$
+  times {\em continuously} differentiable. Note that $C^{k+1}(\R)$ is
+  a subspace of $C^k(\R)$, so we have a descending chain of subspaces:
+
+  $$C(\R) = C^0(\R) \supseteq C^1(\R) \supseteq C^2(\R) \supseteq \dots $$
+
+  The intersection of these spaces is the vector space $C^\infty(\R)$,
+  defined as the subspace of $C(\R)$ comprising those functions that
+  are {\em infinitely} differentiable.
+
+\item We can think of differentiation as a linear transformation. Of
+  the following options, which is the broadest way of viewing
+  differentiation as a linear transformation? By ``broadest'' we mean
+  ``with the largest domain that makes sense among the given options.''
+
+  \begin{enumerate}[(A)]
+  \item From $C^\infty(\R)$ to $C^\infty(\R)$
+  \item From $C^0(\R)$ to $C^1(\R)$
+  \item From $C^1(\R)$ to $C^0(\R)$
+  \item From $C^1(\R)$ to $C^2(\R)$
+  \item From $C^2(\R)$ to $C^1(\R)$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: $C^1(\R)$ is the space of continuously
+  differentiable functions, and differentiating any continuously
+  differentiable function gives rise to a continuous function. We
+  cannot go as broad as $C^0(\R)$ because not all functions in
+  $C^0(\R)$ are differentiable. For instance, the absolute value
+  function is not differentiable at $0$.
+
+  Note that everything in $C^0(\R)$ does get hit, because every
+  continuous function is the derivative of its antiderivative.
+
+  {\em Performance review}: 5 out of 25 got this. 8 chose (A), 6 chose
+  (B), 5 chose (E), 1 chose (D).
+
+  {\em Historical note (last time)}: $18$ out of $26$ got this. $4$
+  chose (A), $2$ each chose (B) and (E).
+
+
+\item Under the differentiation linear transformation, what is the
+  image of $C^k(\R)$ for a positive integer $k$?
+
+  \begin{enumerate}[(A)]
+  \item $C^{k-1}(\R)$
+  \item $C^k(\R)$
+  \item $C^{k+1}(\R)$
+  \item $C^1(\R)$
+  \item $C^\infty(\R)$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: $C^k(\R)$ is the space of functions that are at
+  least $k$ times continuously differentiable. Thus, the derivative of
+  any function here is at least $(k - 1)$ times continuously
+  differentiable. Thus, the iamge is in $C^{k-1}(\R)$. The image is
+  the whole of $C^{k-1}(\R)$ because any function in $C^{k-1}(\R)$ can
+  be integrated to get a function in $C^k(\R)$.
+
+  {\em Performance review}: 16 out of 25 got this. 9 chose (C).
+
+  {\em Historical note (last time)}: $20$ out of $26$ got this. $2$ each chose
+  (C) and (D). $1$ each chose (B) and (E).
+
+\item What is the kernel of differentiation?
+
+  \begin{enumerate}[(A)]
+  \item The vector space of all constant functions
+  \item The vector space of all linear functions (i.e., functions of
+    the form $x \mapsto mx + c$ with $m,c \in \R$)
+  \item The vector space of all polynomial functions
+  \item $C^\infty(\R)$
+  \item $C^1(\R)$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: The derivative of a function on $\R$ is zero if
+  and only if the function is a constant function.
+
+  {\em Performance review}: 15 out of 25 got this. 7 chose (E), 2
+  chose (B), 1 chose (D).
+
+  {\em Historical note (last time)}: $11$ out of $26$ got this. $8$ chose (B),
+  $4$ chose (C), $2$ chose (E), and $1$ left the question blank.
+
+\item Suppose $k$ is a positive integer greater than $2$. Consider the
+  operation of ``differentiating $k$ times.'' This is a linear
+  transformation that can be defined as the $k$-fold composite of
+  differentiation with itself. Viewed most generally, this is a linear
+  transformation from $C^k(\R)$ to $C(\R)$. What is the kernel of this
+  linear transformation?
+
+  \begin{enumerate}[(A)]
+  \item The set of all constant functions
+  \item The set of all polynomial functions of degree at most $k - 1$
+  \item The set of all polynomial functions of degree at most $k$
+  \item The set of all polynomial functions of degree at most $k + 1$
+  \item The set of all polynomial functions
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Each differentiation reduces the degree of the
+  polynomial by $1$, unless we are already at a constant, in which
+  case we differentiate to $0$. So, if the degree of the polynomial is
+  at most $k - 1$, differentiating $k$ times gives $0$. Conversely, if
+  differentating $k$ times gives zero, then repeated integration gives
+  a generic polynomial of degree at most $k - 1$.
+
+  {\em Performance review}: 17 out of 25 got this. 4 chose (D), 3
+  chose (C), 1 chose (E).
+
+  {\em Historical note (last time)}: $17$ out of $26$ got this. $3$ each chose
+  (A) and (D), $2$ chose (C), and $1$ left the question blank.
+
+\item Suppose $k$ is a positive integer greater than $2$. Consider the
+  set $P_k$ of all polynomial functions of degree at most $k$. This
+  set is a vector subspace of $C(\R)$. Of the following subspaces of
+  $C(\R)$, which is the {\em smallest} subspace of which $P_k$ is a
+  subspace?
+
+  \begin{enumerate}[(A)]
+  \item $C^1(\R)$
+  \item $C^{k-1}(\R)$
+  \item $C^k(\R)$
+  \item $C^{k+1}(\R)$
+  \item $C^\infty(\R)$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: {\em All} polynomials are infinitely
+  differentiable, so they are all in $C^\infty(\R)$, the smallest of
+  the spaces listed.
+
+  {\em Performance review}: 4 out of 25 got this. 11 chose (D), 7
+  chose (C), 2 chose (B), 1 left the question blank.
+
+  {\em Historical note (last time)}: $7$ out of $26$ got this. $11$ chose (D),
+  $6$ chose (C), $1$ chose (B), and $1$ left the question blank.
+
+  \vspace{1in}
+
+  Two more definitions of use. A {\em linear functional} on a vector
+  space $V$ is a linear transformation from $V$ to $\R$, where $\R$ is
+  viewed as a one-dimensional vector space over itself in the obvious way.
+
+  We define $C([0,1])$ as the set of all continuous functions from
+  $[0,1]$ to $\R$ with pointwise addition and scalar multiplication.
+
+\item Which of the following is {\em not} a linear functional on
+  $C([0,1])$?
+
+  \begin{enumerate}[(A)]
+  \item $f \mapsto f(0)$
+  \item $f \mapsto f(1)$
+  \item $f \mapsto \int_0^1 f(x) \, dx$
+  \item $f \mapsto \int_0^1 f(x^2) \, dx$
+  \item $f \mapsto \int_0^1 (f(x))^2 \, dx$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: This is easy to see from the description. The key
+  point here is that if we square {\em after} evaluation, then that is
+  not linear. Squaring prior to evaluation is fine. Explicitly, the
+  point is that:
+
+  $$(f + g)(x^2) = f(x^2) + g(x^2)$$
+
+  But the following is {\em not} true generally:
+
+  $$((f + g)(x))^2 = (f(x))^2 + (g(x))^2$$
+
+  In fact, the left side simplifies to $(f(x))^2 + (g(x))^2 +
+  2f(x)g(x)$.
+
+  {\em Performance review}: 16 out of 25 got this. 6 chose (D), 1 each
+  chose (A), (B), and (C).
+
+  {\em Historical note (last time)}: $15$ out of $26$ got this. $8$
+  chose (D), $1$ each chose (B) and (C), and $1$ left the question
+  blank.
+\end{enumerate}
+\end{document}

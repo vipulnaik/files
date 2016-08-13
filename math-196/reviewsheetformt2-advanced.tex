@@ -1,0 +1,176 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Review sheet for midterm 2: advanced}
+\author{Math 196, Section 57 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Please bring a copy (print or readable electronic) of this sheet
+  to the review session.}
+
+There is also a basic review sheet that contains executive summaries
+of the lecture notes. You should review that on your own time.
+
+I've kept the error-spotting exercises brief, because I intend to
+concentrate more on reviewing some of the techniques covered in the
+quizzes.
+\section{Matrix multiplication and inversion}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item Suppose $A$ and $B$ are $n \times n$ matrices, with $B$
+  invertible. Suppose $r$ is a positive integer. Then, $(BAB^{-1})^r =
+  B^rA^r(B^{-1})^r = B^rA^rB^{-r}$. Note that since $A$ and $B$ do not
+  in general commute, we must write the terms in precisely this order.
+\item Suppose $A$ and $B$ are $n \times n$ matrices and $r$ is a
+  positive integer such that $(AB)^r = 0$. Then, we can conclude that
+  $(BA)^r = 0$ as follows: we can write $(BA)^r = (BA)^rBB^{-1} = BABA
+  \dots BABB^{-1} = B(AB)^rB^{-1} = B(0)B^{-1} = 0$.
+\item Suppose $A$ and $B$ are $n \times n$ matrices. Then, $AB$ is
+  nilpotent if and only if at least one of the matrices $A$ or $B$ is
+  nilpotent. To see this, suppose $r$ is a positive integer such that
+  $(AB)^r = 0$. Then, we know that $(AB)^r = A^rB^r$, so $A^rB^r = 0$,
+  forcing that either $A^r = 0$ or $B^r = 0$. The argument also works
+  in reverse: if either of the matrices is nilpotent, there exists $r$
+  such that one of the matrices $A^r$ and $B^r$ is $0$. Thus, $A^rB^r
+  = 0$, so $(AB)^r = 0$, so $AB$ is nilpotent.
+\item Suppose $A$ and $B$ are invertible $n \times n$ matrices. Then,
+  the sum $A + B$ is also an invertible $n \times n$ matrix, and $(A +
+  B)^{-1} = A^{-1} + B^{-1}$.
+\item Suppose $A$ and $B$ are invertible $n \times n$ matrices. Then,
+  the product $AB$ is also an invertible $n \times n$ matrix, and
+  $(AB)^{-1} = A^{-1}B^{-1}$.
+\item Suppose $A$ and $B$ are matrices with real entries, with $A$ a
+  single row matrix and $B$ a single column matrix. Then, $AB$ makes
+  sense if and only if $BA$ makes sense, and if so, we must have that
+  $AB = BA$.
+\item Suppose $A$ is a $m \times n$ matrix and $B$ is a $n \times p$
+  matrix. The product $C = AB$ is a $m \times p$ matrix. For $1 \le i
+  \le m$ and $1 \le k \le p$, the value $c_{ik}$ is the product
+  $a_{ij}b_{jk}$, with $1 \le j \le n$.
+\end{enumerate}
+
+\section{Geometry of linear transformations}
+
+Error-spotting exercises ... (this section is not too important, so we
+will probably do it last)
+
+\begin{enumerate}
+\item Suppose $D$ is a $2 \times 2$ diagonal matrix and $T$ is the
+  linear transformation corresponding to $D$. Let's say the two
+  diagonal entries of $D$ are $a$ and $d$. The necessary and
+  sufficient condition for $T$ to be area-preserving is that the total
+  effect on the $x$ and $y$ directions add up to $1$ (the ratio of
+  change of areas). Thus, $T$ is area-preserving if and only if $a + d = 1$.
+\item The composite of the reflection maps about two lines through the
+  origin that make an angle of $\theta$ with each other is the
+  rotation map by the angle of $\theta$. Moreover, the order of
+  composition does not matter, i.e., the composite for both orders of
+  composition is the same.
+\item The composite of two rotations in $\R^2$ is always a rotation,
+  even if the centers of rotation differ.
+\item A bijective function $f:\R^n \to \R^n$ is an affine linear
+  automorphism of $\R^n$ if and only if it sends lines to lines.
+\end{enumerate}
+
+\section{Image and kernel}
+
+\subsection{Injectivity, surjectivity, and bijectivity}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+\item Suppose $f_1,f_2,f_3: A \to A$ are set maps. Suppose the
+  composite $f_1 \circ f_2 \circ f_3$ is bijective. Then, $f_1$ must
+  be injective (because it's the one done first, so it cannot create
+  any collision), $f_2$ must be bijective, and $f_3$ must be
+  surjective (because it's the one done last, so it must hit
+  everything).
+\item Suppose $f:\R \to \R$ is a polynomial of degree equal to the
+  natural number $n \ge 3$. If $n$ is even, $f$ is surjective but not
+  injective (e.g., $f(x) = x^4$). If $n$ is odd, $f$ is injective but
+  not surjective (e.g., $f(x) = x^3$).
+\item Suppose $f$ is a function from $\R$ to $\R$. Suppose that the
+  restriction of $f$ to $\Z$ maps $\Z$ to inside $\Z$ (i.e., $f$ takes
+  integer values at integer inputs). Let $g:\Z \to \Z$ be the function
+  obtained by restricting $f$ to $\Z$. Then:
+
+  \begin{enumerate}
+  \item $f$ is injective if and only if $g$ is injective.
+  \item $f$ is surjective if and only if $g$ is surjective.
+  \item $f$ is bijective if and only if $g$ is bijective.
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{Linear transformation and rank}
+
+Error-spotting exercises ...
+
+\begin{enumerate}
+
+\item If $T_1$ and $T_2$ are linear transformations from $\R^2$ to
+  $\R^2$, then the kernel of $T_1 + T_2$ equals the intersection of
+  the kernels of $T_1$ and $T_2$. Here's a proof. Suppose a vector
+  $\vec{u}$ is in the kernel of $T_1$ as well as the kernel of
+  $T_2$. Then, $T_1(\vec{u}) = T_2(\vec{u}) = 0$. Thus, $(T_1 +
+  T_2)(\vec{u}) = T_1(\vec{u}) + T_2(\vec{u}) = 0 + 0 = 0$.
+
+  In particular, this means that if both $T_1$ and $T_2$ are
+  invertible, then $T_1 + T_2$ is invertible.
+\item Suppose $T_1: \R^a \to \R^b$ and $T_2:\R^b \to \R^c$ are linear
+  transformations. Then, the composite $T_1 \circ T_2$ is a linear
+  transformation from $\R^a$ to $\R^c$. In terms of matrices, the
+  matrix for $T_1$ is an $a \times b$ matrix and the matrix for $T_2$
+  is a $b \times c$ matrix. So the matrix for $T_1 \circ T_2$ is an $a
+  \times c$ matrix, and is given by the matrix product of those two
+  matrices.
+
+  Suppose the kernel of $T_1$ has dimension $m$ and the kernel of
+  $T_2$ has dimension $n$. A vector is in the kernel of $T_1 \circ
+  T_2$ if and only if it is in the kernel of either $T_1$ or
+  $T_2$. Thus, the dimension of the kernel of $T_1 \circ T_2$ is the
+  maximum of the dimensions of the kernels of $T_1$ and $T_2$, which
+  is $\max \{ m,n \}$.
+\item Suppose $T:\R^m \to \R^n$ is a linear transformation with matrix
+  $A$. Then $A$ is a $m \times n$ matrix and the following are true:
+
+  \begin{enumerate}
+  \item The rows of $A$ form a spanning set for the image of $T$.
+  \item The columns of $A$ form a spanning set for the kernel of $T$.
+  \end{enumerate}
+\item Consider the linear transformation:
+
+  $$\nu = \left[ \begin{matrix} x \\ y \\ z \\ \end{matrix}\right] \mapsto \left[ \begin{matrix} (y + z)/2 \\ (z + x)/2 \\ (x + y)/2 \\ \end{matrix} \right]$$
+
+  The kernel of $T$ is precisely those vectors where $x = -y = z$,
+  i.e., each coordinate is the negative of the next one. The image of
+  $T$ is the set where $x = y = z$.
+\end{enumerate}
+
+\subsection{The linear operation of differentiation}
+
+Error-spotting exercises ...
+
+We will get to this only if we have enough time, since we will not see
+these topics outside the MCQs on the test.
+\begin{enumerate}
+\item Denote by $C(\R)$ the vector space of all continuous functions
+  with the usual addition and scalar multiplication of
+  functions. Denote by $C^1(\R)$ the vector space of all continuously
+  differentiable functions with the usual addition and scalar
+  multiplication of functions. Differentiation defines a linear
+  transformation from $C(\R)$ to $C^1(\R)$. The image of this linear
+  transformation is precisely the set of constant functions.
+\item For every positive integer $k$, denote by $C^k(\R)$ the subspace
+  of $C(\R)$ comprising those polynomials that are at least $k$ times
+  continuously differentiable. Then, $C^k(\R) \subseteq C^{k+1}(\R)$
+  and the union of all the spaces $C^k(\R)$ for $k$ varying over the
+  positive integers is the space $C^\infty(\R)$ of infinitely
+  differentiable functions.
+\item The set of polynomials of degree at most $k$ form a vector
+  subspace of $C^k(\R)$ but not of $C^{k+1}(\R)$. 
+\end{enumerate}
+
+\end{document}

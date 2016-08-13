@@ -1,0 +1,352 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Proofs and other ideas of mathematics}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+\section{General ideas related to proofs}
+
+\subsection{The idea of models and proof}
+
+The main idea behind the concept of proof is to establish something
+clearly, give a fool-proof, error-free explanation of {\em why}
+something is true. That means that all cases must be covered, every
+step of the argument should be justified, and there shouldn't be any
+hidden assumptions that aren't true. We'll go over some of these in
+detail, but the first question you might be wondering is: {\em why
+proof}?
+
+So the one thing you have to remember about mathematics is that the
+world of mathematics is a world of its own creation. It's true that
+mathematical ideas and formalisms are applied a lot to real-world
+settings, but often the mathematical ideas go far beyond what we can
+determine or verify through real-world observation. In other words,
+for a lot of the things we want to do in the mathematical world, it is
+hard to be sure of them simply by looking around at the real
+world. So, in mathematics, it is important to develop a way of being
+sure of things that depends purely on internal reasoning. In fact,
+this concept of internal reasoning, or {\em reasoning within the
+framework of rules of the system}, is what defines mathematics.
+
+If you think about mathematics as a system of rules-based internal
+reasoning, your most significant introduction to mathematics isn't
+when you learn numbers, it is when you learn how to play games, and
+how to deploy strategies within games.
+
+And it so happens that most systems of rules that we deal with involve
+the concepts of numbers, many of them involve some geometric ideas,
+and some of them need the tools of algebra and trigonometry and
+calculus. But you shouldn't think of mathematics as being the same as
+algebra or trigonometry or calculus. These are just tools. The main
+feature of mathematics is that in mathematics, there is a strong place
+for {\em internal reasoning} -- reasoning within the system to try to
+determine what is true and what is false.
+
+And, if you look at major developments in a number of academic
+disciplines, you see that mathematics is seeping into most of
+them. And I don't just mean that they are getting more quantitative,
+though that's part of the story. Those who've seen Newton's laws and
+classical mechanics know that there's a specific model (which, it
+turns out, isn't exactly how the real world operates) and we can
+predict how things will behave in that model. Nowadays, many papers in
+the social sciences also start by creating some artificial model that
+has a reasonable resemblance to reality, and then try to derive
+formally what happens in that model. And the main difference between
+mathematicians and those in other sciences is that for people in the
+other sciences, they need to justify that their model has some kind of
+resemblance with, or explanatory power about, the real world. But
+mathematicians aren't subject to that constraint.
+
+So think of mathematical rigor as something that allows mathematicians
+to explore things where intuition, or real-world checks and balances,
+are hard to find.
+
+\subsection{Proof by example isn't; cover your bases, consider all cases}
+
+So one of the things people often do in the real world is when they
+want to know if something is true they take some example and check
+it. And you see the media and politicians do that kind of thing
+everyday. So whenever somebody wants to prove that some thing works,
+they'll find one person to give a testimonial for it.
+
+But in mathematics, we don't consider a few isolated examples to be
+proof. And the reason is simple: different cases behave differently,
+so the examples we choose are probably not representative. That's true
+in the real world, but it is often even more true in mathematics,
+where things aren't constrained to be realistic.
+
+So mathematicians try to {\em cover all cases} in proofs. What does
+this mean? If you want to prove a statement for all real numbers, it
+isn't enough to prove it for all rational numbers. After all, there
+are real numbers that aren't rational. So you need to prove the
+statement for all rational numbers {\em and} all irrational numbers.
+
+Now, {\em how} we choose to break down the problem into cases is up to
+us. For some problems, the natural way of breaking up the problem may
+be to first consider rational numbers and then consider irrational
+numbers. Sometimes, it may be helpful to first consider positive
+numbers and then consider negative numbers. If you have to prove a
+statement for all numbers in a finite set, the ultimate break-up would
+be to check it separately for every element of the finite set.
+
+The thing you should remember is that {\em if you are breaking things
+up into cases}, you should {\em remember to cover all cases}. And one
+way to remember this is to think of mathematics as just about the
+smartest adversary you can find in the battlefield. If you don't cover
+every possible line of attack on your adversary, your adversary will
+hide in the one place you forgot to cover.
+
+\subsection{Conditional implication}
+
+In mathematics, we often consider statements of the form:
+
+``If $A$, then $B$''
+
+Now, these kinds of statements can sometimes be confusing, so let's
+try to understand what exactly this means. This roughly means that,
+assuming that $A$ is given to be true, $B$ is true. For instance, ``if
+I don't oversleep, I will attend the calculus lecture on
+Friday''. That is a conditional statement.
+
+There are a lot of subtleties about conditional implications that we
+need to understand. The first is that ``If $A$, then $B$'' only means
+that $A$ is {\em sufficient} for $B$. It doesn't mean that $A$ is
+necessary for $B$. There may be other ways that $B$ could become true,
+even if $A$ were false. For instance, you may say ``If I have enough
+money, I'll eat lunch''. But you may be able to eat lunch even though
+you don't have enough money -- by going to one of U of C's Free Food
+events.
+
+So ``if $A$, then $B$'' means that if, somehow, one could guarantee
+$A$ to be true, $B$ would follow -- but there may be other ways to
+guarantee $B$. In particular, if you prove a statement ``if $A$ then
+$B$'' and then you separately prove that $A$ is true, then you would
+have proved that $B$ is true.
+
+\subsection{Rough work and fair work}
+
+In many situations where we need to do a proof, there are two parts to
+doing the proof. The first is the exploratory phase, or the discovery
+phase, where we need to find a strategy that works for the proof. For
+instance, in the case of $\epsilon-\delta$ proofs, the exploratory
+phase involved coming up with a winning strategy for the prover or the
+skeptic as the case may be. In this exploratory phase, we may do some
+rough calculations, make some wild guesses, check out our intuition on
+examples, etc. The exploratory phase may involve {\em working
+backwards}, {\em splitting into cases}, etc. At the end of exploratory
+phase, we have an overall proof strategy.
+
+At the end of the exploratory phase, we hopefully have a clear proof
+strategy. The next phase is that of clearly expressing the strategy
+and showing that it works. When writing this final stategy and the
+proof, you do not need to cover everything you went through in the
+exploratory phase. Stick only to that which is more relevant to the
+final proof strategy. Also, state the strategy right upfront and
+proceed, to the extent possible, starting from what you know and
+proceeding towards what you need to show.
+
+\subsection{Opposite statement}
+
+Another concept that I should mention, and that you've had a bit of
+past experience with, is the {\em opposite} of a statement. This is
+related to the question: {\em how do I prove that $A$ is not true}?
+Well, in order to prove that, you first need a clear formulation of
+what it means for $A$ to {\em not} be true. This new statement is
+sometimes called the {\em negation} or {\em opposite} of $A$.
+
+Now, some of you may have seen some Boolean algebra or logic, so you
+might have some idea of the formal process of negating a statement,
+but even if you haven't, most of the rules are intuitive provided you
+pause to think and don't just try to rush. Keep your cool, and it's
+not hard. I'll just mention some important ideas:
+
+\begin{enumerate}
+
+\item Negation turns {\em and} to {\em or}, and {\em or} to {\em
+  and}. For instance, the negation of the statement $x = 1$ or $x = 2$
+  is the statement $x \ne 1$ {\em and} $x \ne 2$.
+
+\item Negation on a $\forall$ quantifier gives a $\exists$ quantifier
+  and negation on a $\exists$ quantifier gives a $\forall$
+  quantifier. For instance, the negation of the statement $\forall x
+  \in \R, f(x^2) = f(x)^2$ is the statement $\exists x \in \R, f(x^2)
+  \ne f(x)$. This came up when we looked at $\epsilon-\delta$ proofs.
+
+\end{enumerate}
+
+\subsection{Proof by contradiction}
+
+One of the useful proof techniques is proof by contradiction. This
+comes up sometimes, and I'll talk more about it when it does, but the
+way it works is like this: suppose you are trying to prove $A$. So the
+first thing you may try to do is prove $A$ straightforward, but that
+may seem tricky. So what you do is this. You assume that the opposite
+of $A$ is true. So you write down the opposite of $A$, and start with
+that as given. And then, from that, you derive some statement that is
+plainly {\em not} true. Since the conclusion isn't true, the statement
+you started by assuming, namely, the opposite of $A$, couldn't have
+been true either. And since the opposite of $A$ is false, $A$ itself
+must be true.
+
+Some of you may have seen the proof that $\sqrt{2}$ is
+irrational. That proof is a classic example of proof by contradiction.
+
+\section{Specific issues}
+
+The material in the previous section is very general and I think most
+of you would lap it up pretty easily. Most of you seem to have a
+reasonable understanding of these ideas, but there are some more
+specific issues that you may have with expressing your proofs. Below
+are listed some of the specific issues that students in past years
+have had in the first two advanced homeworks.
+
+\subsection{Making your strategy and specific claims clear upfront}
+
+This issue has occurred in the past with some of the $\epsilon-\delta$
+proofs. If you're the prover, then the stategy involves finding an
+expression for $\delta$ that works in terms of $\epsilon$. If you're
+the skeptic, the strategy involves finding an $\epsilon$ for which no
+$\delta$ works, and then being able to choose a value of $x$ in $(c -
+\delta, c + \delta) \setminus \{ c\}$.
+
+In the exploratory phase, you try to figure out a strategy that
+works. Then, in the actual proof phase, you show that the strategy works.
+
+{\em When writing up the final proof, please do not show the
+exploratory phase}. Please write the final winning strategy
+upfront. Then, proceed to translate the general statement about the
+existence or non-existence of limit into a specific claim based on
+your strategy. Then, do some algebraic manipulation or case-by-case
+reasoning to prove that your strategy works.
+
+Some examples:
+
+\begin{itemize}
+\item For the homework problem $\lim_{x \to 2} x^2 = 4$, state right
+  at the beginning that the winning strategy is $\delta = \min \{1,
+  \epsilon/5\}$. Then, state the specific claim: if $0 < |x - 2| <
+  \min \{ 1, \epsilon/5 \}$, then $|x^2 - 4| < \epsilon$. Now, prove
+  the specific claim.
+
+  Some people do some algebraic manipulation to discover the $\delta$
+  that works. Others are comfortable using the general formula that
+  works for the quadratic. Whichever thing you choose to do, please
+  remember that the less of this exploratory work you show, the
+  clearer your proof is. This is because exploratory work, as a
+  general rule, is mesy, with conditionals much more complicated,
+  steps going forward and backward, etc. So please skip this and write
+  your winning strategy clearly.
+
+\item Consider problems where, for instance, we need to select a
+  $\delta$ value for a given $\epsilon$ value, and the function is
+  defined differently on rationals and irrationals. Here, we need to
+  find a $\delta_1$ that works for rationals, a $\delta_2$ that works
+  for irrationals, and then take $\delta = \min \{ \delta_1,
+  \delta_2\}$.
+
+  You should write down the strategy for choosing $\delta$ right on
+  top, {\em make the specific claim}, and split into cases {\em to
+  prove the specific claim}.
+
+  Some of you split into cases first, proved things in each case, and
+  gave the overall winning strategy at the end. {\em This is probably
+  the way that you discover things in the exploratory phase, but it's
+  not the prettiest way of presenting a final proof.}
+
+\end{itemize}
+
+{\em Caveat}: There are situations where it is advantageous to show
+your exploratory phase. For instance, if you were a teacher and were
+guiding students through a learning process, this exploratory phase
+might be helpful. If you were trying to break ground with a similar
+new problem, it might help to revisit the exploratory phase.
+
+However, you should think of showing your exploratory phase as filming
+the process of the manufacture of sausage, and the fair work proof
+phase as the phase of enjoying the final sausage.
+
+\subsection{Doing the general case clearly}
+
+This problem arose with some advanced homework solutions in Homework
+1, and a subsequent clarification was made. However, it's worth
+reiterating here.
+
+In the exploratory phase, we may use some specific numerical examples
+to check if something is true. Then, we discover that the actual steps
+work in somewhat greater generality, and we need that greater
+generality in order to do the whole proof.
+
+When writing down the final proof, jump directly to proving that the
+actual steps work in somewhat greater generality.
+
+The example from the first advanced homework was: ``Show that the
+  function $f(x) := \lbrace \begin{array}{l} 1, \ x \text{ rational }
+  \\ 0, \ x \text{ irrational }\end{array}$ is periodic but has no
+  period.''
+
+One possible discovery approach is as follows:
+
+\begin{enumerate}
+\item We notice that the number $1$ works in the sense that $f (x +
+  1) = f(x)$ for all $x \in \R$. We prove this by splitting into the
+  cases where $x$ is rational and $x$ is irrational.
+\item After finishing that proof, we notice that, in fact, the proof
+  depended only on the fact that rational + rational = rational and
+  irrational + rational = irrational. Crucially, the only thing we
+  were using about $1$ was that it is rational.
+\item We thus conclude that any rational $h > 0$ works in place of
+  $1$.
+\item Since there are arbitrarily small positive rational numbers, we
+  concluded that there is no period.
+\end{enumerate}
+
+In the final write-up of the proof, we remove steps (1) and (2) and
+directly proceed with the claim of step (3), with the proof of that
+claim basically mimicking our original proof of (1).
+
+\subsection{Meta-strategies}
+
+Some of the advanced problems involve constructing a strategy for one
+game using strategies for other games {\em as black boxes}. For
+instance, in problems 1 and 5 of advanced homework 2, you are asked
+to come up with winning strategies for the prover for $|f|$, $\max \{
+f, g\}$, and $\min \{ f, g \}$, assuming that there exist winning
+strategies for $f$ and $g$.
+
+Here, you assume that the winning strategies for $f$ and $g$ are given
+to you on a platter, but you have to treat them as black boxes. In
+other words, you assume some statement of the form:
+
+``For every $\epsilon > 0$, there exists a $\delta_1 > 0$ such that if
+$0 < |x - c| < \delta_1$, then $|f(x) - L| < \epsilon$.''
+
+and:
+
+``For every $\epsilon > 0$, there exists a $\delta_2 > 0$ such that if
+$0 < |x - c| < \delta_2$, then $|g(x) - L| < \epsilon$.''
+
+Our ``winning strategy'' for $H := \max \{ f,g \}$, is to choose, for a
+given $\epsilon > 0$, $\delta = \min \{ \delta_1, \delta_2\}$, i.e.,
+the minimum of the $\delta$s that work for $f$ and $g$.
+
+We then make the specific claim: ``If $0 < |x - c| < \min \{ \delta_1,
+\delta_2 \}$, then $|H(x) - L| < \epsilon$.''
+
+After this, we prove the specific claim by splitting into cases for
+$x$, based on whether $H(x) = f(x)$ or $H(x) = g(x)$.
+
+Meta-strategies are tricky to understand at first, because the
+strategies that we are using as black boxes are {\em unknown knowns}
+-- we can use them, but have to treat them as black boxes.
+
+\subsection{Fixed but arbitrary}
+
+Another note about the $\epsilon-\delta$ proofs. In all these proofs,
+$\epsilon$ is ``fixed but arbitrary.'' What this basically means is
+that $\epsilon$ is fixed, but it is fixed by the skeptic, so we (as
+the provers) have no control over the choice so we should be prepared
+for the worst.
+
+\end{document}

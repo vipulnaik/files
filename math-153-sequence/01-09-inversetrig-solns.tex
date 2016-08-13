@@ -1,0 +1,208 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: January 9: Inverse trigonometric functions}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$12$ people took this $5$-question quiz. The scores are as follows:
+
+\begin{itemize}
+\item Score of $2$: $3$ people
+\item Score of $3$: $6$ people
+\item Score of $4$: $1$ person
+\item Score of $5$: $2$ people
+\end{itemize}
+
+The mean score was $3.17$.
+
+Here is the question-wise performance (full solutions in the next
+section):
+
+\begin{enumerate}
+\item Option (B): $5$ people
+\item Option (B): $12$ people (everybody!)
+\item Option (C): $6$ people
+\item Option (B): $9$ people
+\item Option (A): $6$ people
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+\item What is the domain of $\arcsin \circ \arcsin$? Here, {\em
+  domain} refers to the maximal possible subset of $\R$ on which the
+  function is defined.
+
+  \begin{enumerate}[(A)]
+  \item $[-1,1]$
+  \item $[-\sin 1,\sin 1]$
+  \item $[-\arcsin 1, \arcsin 1]$
+  \item $[-\sin(2/\pi),\sin(2/\pi)]$
+  \item $[-\arcsin(2/\pi),\arcsin(2/\pi)]$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: For $x$ to be in the domain of this function, we
+  need to be able to apply $\arcsin$ twice to $x$. Thus, the result
+  obtained by applying $\arcsin$ once to $x$ must be in the domain of
+  $\arcsin$, which is $[-1,1]$. Thus, $x$ must be in the inverse image
+  of $[-1,1]$ under $\arcsin$, which is $[\sin(-1),\sin 1]$. Since
+  $\sin$ is odd, this can be rewritten as $[-\sin 1, \sin 1]$.
+
+  {\em Performance review}: $5$ out of $12$ got this. $5$ chose (A),
+  $1$ each chose (D) and (E).
+
+  {\em Historical note (last year)}: $18$ out of $28$ people got this
+  correct. $5$ people chose (A), $3$ people chose (C), $1$ person
+  chose (D), and $1$ person chose (E).
+
+\item One of these five functions has a horizontal asymptote as $x \to
+  +\infty$ and a horizontal asymptote as $x \to -\infty$, with the
+  limiting values for $+\infty$ and $-\infty$ being {\em
+  different}. Identify the function. 
+
+  \begin{enumerate}[(A)]
+  \item $f(x) := \ln|x|$.
+  \item $f(x) := \arctan x$.
+  \item $f(x) := e^{-x}$.
+  \item $f(x) := e^{-x^2}$.
+  \item $f(x) := (\sin x)/(x^2 + 1)$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: For $\arctan$, the limit as $x \to \infty$ is
+  $\pi/2$ and the limit as $x \to -\infty$ is $-\pi/2$. These are
+  finite and unequal.
+
+  $\ln|x|$ has no horizontal asymptotes, since it goes to $\infty$ as
+  $x \to \pm \infty$. $e^{-x}$ goes to $0$ as $x \to \infty$ but goes
+  to $+\infty$ as $x \to -\infty$. $e^{-x^2}$ goes to $0$ as $x \to \pm
+  \infty$. $(\sin x)/(x^2 + 1)$ also goes to $0$ as $x \to \pm
+  \infty$.
+
+  {\em Performance review}: Everybody got this correct!
+
+  {\em Historical note}: In a 153 midterm two years ago, $11$ out of
+  $15$ students got it correct. There were only four options presented
+  in that variant.
+
+\item Suppose $f$ is a polynomial with degree at least one and
+  positive leading coefficient. Consider the function $g(x) :=
+  \arctan(f(x))$. What can we say about the horizontal asymptotes of
+  the graph $y = g(x)$?
+
+  \begin{enumerate}[(A)]
+  \item The horizontal asymptote is $y = \pi/2$ both for $x \to +\infty$
+    and for $x \to -\infty$, regardless of $f$.
+  \item The horizontal asymptote is $y = \pi/2$ for $x \to +\infty$ and
+    $-\pi/2$ for $x \to -\infty$, regardless of $f$.
+  \item The horizontal asymptote is $y = \pi/2$ for $x \to +\infty$,
+    and as $x \to -\infty$, it is $y = \pi/2$ if $f$ has even degree
+    and $y = -\pi/2$ if $f$ has odd degree.
+  \item The horizontal asymptote is $y = f(\pi/2)$ both for $x \to
+    +\infty$ and for $x \to -\infty$.
+  \item The horizontal asymptote is $y = f(\pi/2)$ for $x \to +\infty$
+    and as $x \to -\infty$, it is $y = f(\pi/2)$ if $f$ has even
+    degree and $y = f(-\pi/2)$ if $f$ has odd degree.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The key observation is that as $u \to +\infty$,
+  $\arctan u \to \pi/2$, and as $u \to -\infty$, $\arctan u \to
+  -\pi/2$. The question now is what happens to $f(x)$ as $x$
+  approaches $\pm \infty$.
+
+  Since $f$ has positive degree and positive leading coefficient,
+  $f(x) \to +\infty$ as $x \to +\infty$. The behavior as $x \to
+  -\infty$ depends on whether the degree of $f$ is even or odd. If the
+  even, then it goes to $+\infty$, and if the latter, then it goes to
+  $-\infty$.
+
+  Combining these observations gives us (C).
+
+  {\em Performance review}: $6$ out of $12$ got this. $4$ chose (E),
+  $2$ chose (B).
+
+  {\em Historical note (last year)}: $22$ out of $28$ people got this
+  correct. $2$ people chose (A), $2$ people chose (B), $2$ people
+  chose (E).
+
+\item Consider the function $f(x) := \arcsin(\sin x)$ on the domain
+  $[\pi/2,3\pi/2]$. Which of the following is $f(x)$ equal to on that
+  domain?
+
+  \begin{enumerate}[(A)]
+  \item $\pi + x$
+  \item $\pi - x$
+  \item $x - \pi$
+  \item $(3\pi/2) - x$
+  \item $x - (\pi/2)$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Note that $\sin(f(x)) = \sin(\arcsin(\sin x)) =
+  \sin x$. We note that of the options given here, $\pi - x$ is the
+  only option satisfying this constraint. Additionally, we need to
+  check that $x \mapsto \pi - x$, sends the interval $[\pi/2,3\pi/2]$
+  to the interval $[-\pi/2,\pi/2]$, which it does.
+
+  {\em Performance review}: $9$ out of $12$ got this. $1$ each chose
+  (A), (D), and (E).
+
+  {\em Historical note (last year)}: $20$ out of $28$  got this correct. $5$
+  people chose (C), $1$ person chose (A), $1$ person chose (D), $1$
+  person chose (E).
+\item Consider the function $f(x) := \arccos(\sin x)$ on all of
+  $\R$. What can we say about the function $f$?
+
+  \begin{enumerate}[(A)]
+  \item $f$ is periodic, continuous, and piecewise linear.
+  \item $f$ is periodic and continuous but is not piecewise linear.
+  \item $f$ is continuous and piecewise linear but not periodic.
+  \item $f$ is periodic but not continuous.
+  \item $f$ is continuous but not periodic or piecewise linear.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: First, note that the function {\em does} make
+  sense on all of $\R$: $\sin$ is defined everywhere and has range
+  $[-1,1]$, and this is precisely the domain of $\arccos$. Since both
+  $\sin$ and $\arccos$ are continuous on their respective domains, the
+  composite function is also continuous.
+
+  Since $\sin$ has a period of $2\pi$, the composite is also
+  periodic. (In this case, the period turns out to be exactly $2\pi$,
+  though in general the period of a composite function could be
+  smaller than that of the inner function).
+
+  It remains to justify piecewise linearity.  Working out the
+  definition reveals this. On the interval $[2n\pi - \pi/2, 2n\pi +
+  \pi/2]$, the correct definition is $2n\pi + \pi/2 - x$. On an
+  interval $[2n\pi + \pi/2,2n\pi + 3\pi/2]$, the correct definition is
+  $x - 2n\pi - \pi/2$. Thus, the definition is piecewise linear on
+  intervals of length $\pi$, and each of the pieces has slope $1$. In
+  fact, the graph of the function has a sawtooth-like shape.
+
+  {\em Performance review}: $6$ out of $12$ got this. $3$ chose (B),
+  $1$ each chose (C), (D), and (E).
+
+  {\em Historical note (last year)}: $21$ out of $28$ got this
+  correct. $5$ people chose (B), $1$ person chose (C), and $1$ person
+  chose (D).
+\end{enumerate}
+
+\end{document}

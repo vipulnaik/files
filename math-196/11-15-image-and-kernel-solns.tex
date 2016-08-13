@@ -1,0 +1,893 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Friday November 15: Image and kernel}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+27 people took this 18-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of 2: 3 people
+\item Score of 5: 3 people
+\item Score of 6: 1 person
+\item Score of 7: 4 people
+\item Score of 8: 2 people
+\item Score of 9: 2 people
+\item Score of 10: 3 people
+\item Score of 12: 2 people
+\item Score of 14: 3 people
+\item Score of 15: 2 people
+\item Score of 16: 1 person
+\item Score of 18: 1 peron
+\end{itemize}
+
+The mean score was 9.22.
+
+The question-wise answers and performance review are below:
+
+\begin{enumerate}
+\item Option (E): 18 people
+\item Option (D): 22 people
+\item Option (E): 18 people
+\item Option (D): 9 people
+\item Option (E): 16 people
+\item Option (D): 23 people
+\item Option (C): 9 people
+\item Option (E): 13 people
+\item Option (D): 12 people
+\item Option (E): 18 people
+\item Option (C): 12 people
+\item Option (B): 8 people
+\item Option (E): 7 people
+\item Option (C): 11 people
+\item Option (D): 12 people
+\item Option (B): 16 people
+\item Option (D): 15 people
+\item Option (C): 10 people
+\end{enumerate}
+\section{Solutions}
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+The purpose of this quiz is to review in greater depth the ideas
+behind image and kernel. The goal of the first seven questions is to
+review the ideas of injectivity, surjectivity, and bijectivity in the
+context of arbitrary functions between sets. The purpose is two-fold:
+(i) to give a functions-based approach to justifying, intuitively and
+formally, facts about the effect of matrix multiplication on rank, and
+(ii) to hint at ways in which linear transformations behave better
+than other types of functions.
+
+The corresponding lecture notes are titled {\tt Image and kernel of a
+  linear transformation} and the corresponding section of the text is
+Section 3.1.
+
+Just as a reminder, a function $f:A \to B$ between sets $A$ and $B$ is
+said to be:
+
+\begin{itemize}
+\item {\em injective} if for every $b \in B$, there is {\em at most}
+  one value of $a$ such that $f(a) = b$. In other words, if we denote
+  by $f^{-1}(b)$ the set $\{ a \in A \mid f(a) = b \}$, then
+  $|f^{-1}(b)| \le 1$ for all $b \in B$ (here $|f^{-1}(b)|$ denotes
+  the size of the set $f^{-1}(b)$).
+\item {\em surjective} if for every $b \in B$, there is {\em at least}
+  one value of $a$ such that $f(a) = b$. In other words, if we denote
+  by $f^{-1}(b)$ the set $\{ a \in A \mid f(a) = b \}$, then
+  $|f^{-1}(b)| \ge 1$ for all $b \in B$.
+\item {\em bijective} if for every $b \in B$, there is {\em exactly}
+  one value of $a$ such that $f(a) = b$. In other words, if we denote
+  by $f^{-1}(b)$ the set $\{ a \in A \mid f(a) = b \}$, then
+  $|f^{-1}(b)| = 1$ for all $b \in B$.
+\end{itemize}
+
+\begin{enumerate}
+\item Suppose $g:A \to B$ and $f:B \to C$ are functions. The composite
+  $f \circ g$ is a function from $A$ to $C$. What can we say the
+  relationship between the injectivity of $f \circ g$, the injectivity
+  of $f$, and the injectivity of $g$?
+
+  \begin{enumerate}[(A)]
+  \item $f \circ g$ is injective if and only if $f$ and $g$ are both injective.
+  \item If $f$ and $g$ are both injective, then $f \circ g$ is
+    injective. However, $f \circ g$ being injective does not imply
+    anything about the injectivity of either $f$ or $g$.
+  \item If $f$ and $g$ are both injective, then $f \circ g$ is
+    injective. If $f \circ g$ is injective, then at least one of $f$
+    and $g$ is injective, but we cannot conclusively say for any
+    specific one of the two that it must be injective.
+  \item If $f$ and $g$ are both injective, then $f \circ g$ is
+    injective. If $f \circ g$ is injective, then $f$ is injective, but
+    we do not have enough information to deduce whether $g$ is
+    injective.
+  \item If $f$ and $g$ are both injective, then $f \circ g$ is
+    injective. If $f \circ g$ is injective, then $g$ is injective, but
+    we do not have enough information to deduce whether $f$ is
+    injective.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: See the lecture notes for more details (note that
+  the roles of $f$ and $g$ are reversed in the lecture notes). The
+  hard part is the direction from $f \circ g$ to $g$. To see this,
+  note that if $g$ has a collision $g(a_1) = g(a_2)$ (i.e., is
+  non-injective) then that collision continues for $f \circ g$, i.e,
+  we still have $f(g(a_1)) = f(g(a_2))$.
+
+  {\em Performance review}: 18 out of 27 got this. 6 chose (D), 1 each
+  chose (A), (B), and (C).
+
+  {\em Historical note (last time)}: $24$ out of $26$ got this. $1$ each chose
+  (A) and (D).
+
+\item Suppose $g:A \to B$ and $f:B \to C$ are functions. The composite
+  $f \circ g$ is a function from $A$ to $C$. What can we say the
+  relationship between the surjectivity of $f \circ g$, the surjectivity
+  of $f$, and the surjectivity of $g$?
+
+  \begin{enumerate}[(A)]
+  \item $f \circ g$ is surjective if and only if $f$ and $g$ are both
+    surjective.
+  \item If $f$ and $g$ are both surjective, then $f \circ g$ is
+    surjective. However, $f \circ g$ being surjective does not imply
+    anything about the surjectivity of either $f$ or $g$.
+  \item If $f$ and $g$ are both surjective, then $f \circ g$ is
+    surjective. If $f \circ g$ is surjective, then at least one of $f$
+    and $g$ is surjective, but we cannot conclusively say for any
+    specific one of the two that it must be surjective.
+  \item If $f$ and $g$ are both surjective, then $f \circ g$ is
+    surjective. If $f \circ g$ is surjective, then $f$ is surjective,
+    but we do not have enough information to deduce whether $g$ is
+    surjective.
+  \item If $f$ and $g$ are both surjective, then $f \circ g$ is
+    surjective. If $f \circ g$ is surjective, then $g$ is surjective,
+    but we do not have enough information to deduce whether $f$ is surjective.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: See the lecture notes for more details (note that
+  the roles of $f$ and $g$ are reversed in the lecture notes).
+
+  {\em Performance review}: 22 out of 27 got this. 3 chose (A), 1 each
+  chose (B) and (E).
+
+  {\em Historical note (last time)}: $23$ out of $26$ got this. $2$ chose (E),
+  $1$ chose (A).
+
+\item Suppose $g:A \to B$ and $f:B \to C$ are functions. The composite
+  $f \circ g$ is a function from $A$ to $C$. Suppose $f \circ g$ is
+  bijective. What can we say about $f$ and $g$ individually?
+
+  \begin{enumerate}[(A)]
+  \item Both $f$ and $g$ must be bijective.
+  \item Both $f$ and $g$ must be injective, but neither of them need be surjective.
+  \item Both $f$ and $g$ must be surjective, but neither of them need be injective.
+  \item $f$ must be injective but need not be surjective. $g$ must be
+    surjective but need not be injective.
+  \item $f$ must be surjective but need not be injective. $g$ must be
+    injective but need not be surjective.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: The composite $f \circ g$ is bijective, so it is
+  both injective and surjective. The results of the previous two
+  questions now take care of things.
+
+  {\em Performance review}: 18 out of 27 got this. 4 chose (A), 2 each
+  chose (C) and (D), 1 left the question blank.
+
+  {\em Historical note (last time)}: $23$ out of $26$ got this. $2$ chose (D),
+  $1$ chose (A).
+
+\item $g:A \to B$ and $f:B \to C$ are functions. The composite $f
+  \circ g$ is a function from $A$ to $C$. Suppose both $f$ and $g$ are
+  surjective. Further, suppose that for every $b \in B$, $g^{-1}(b)$
+  has size $m$ (for a fixed positive integer $m$) and for every $c \in
+  C$, $f^{-1}(c)$ has size $n$ (for a fixed positive integer
+  $n$). Then, what can we say about the sizes of the fibers (i.e., the
+  inverse images of points in $C$) under the composite $f \circ g$?
+
+  \begin{enumerate}[(A)]
+  \item The size is $\min \{ m,n \}$
+  \item The size is $\max \{ m,n \}$
+  \item The size is $m + n$
+  \item The size is $mn$
+  \item The size is $m^n$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: For any $c \in C$, $(f \circ g)^{-1}(c) =
+  g^{-1}(f^{-1}(c))$ is the union, for all $b \in f^{-1}(c)$, of the
+  sets $g^{-1}(b)$. Each of these sets has size $m$, and there is a
+  total of $n$ such sets, so we get a total of $mn$ elements. {\em
+    Remember, as you learned in kindergarten, that multiplication is
+    repeated addition}.
+
+  {\em Performance review}: 9 out of 27 got this. 7 chose (A), 6 chose
+  (B), 3 chose (E), 1 chose (C), 1 left the question blank.
+
+  {\em Historical note (last time)}: $21$ out of $26$ got this. $4$ chose (A),
+  $1$ chose (B).
+
+\item {\bf PLEASE READ THIS VERY CAREFULLY AND CONSIDER A WIDE VARIETY
+  OF POLYNOMIAL EXAMPLES}: Suppose $f$ is a polynomial function of
+  degree $n > 2$ from $\R$ to $\R$. What can we say about the fibers
+  of $f$, i.e., the sets of the form $f^{-1}(x)$, $x \in \R$?
+
+  {\em Hint}: At the one extreme, consider a polynomial of the form
+  $x^n$. Consider the sizes of the fibers $f^{-1}(0)$ and $f^{-1}(x)$
+  for a positive value of $x$ (the fiber size for the latter will
+  depend on whether $n$ is even or odd). Alternatively, consider a
+  polynomial of the form $(x - 1)(x - 2) \dots (x - n)$. Consider the
+  size of the fiber $f^{-1}(0)$.
+
+  \begin{enumerate}[(A)]
+  \item Every fiber has size $n$.
+  \item The minimum of the sizes of fibers is exactly $n$, but every
+    fiber need not have size $n$.
+  \item The maximum of the sizes of fibers is exactly $n$, but every
+    fiber need not have size $n$.
+  \item The minimum of the sizes of fibers is at least $n$, but need
+    not be exactly $n$.
+  \item The maximum of the sizes of fibers is at most $n$, but need not
+    be exactly $n$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Suppose we are trying to calculate the size of
+  the fiber $f^{-1}(x)$ for a particular value of $x$. This is
+  equivalent to solving the equation $f(t) = x$ in the variable
+  $t$. This is a polynomial equation of degree $n$, so it has at most
+  $n$ roots. Thus, the size of each fiber is at most $n$. Thus, the
+  maximum of the sizes of the fibers is at most $n$.
+
+  For $n = 2$, the maximum of the fiber sizes is always $2$. However,
+  for $n \ge 3$, there are examples where the maximum of the sizes of
+  the fibers is less than $n$. Specifically, consider the example of
+  $x^n$. The maximum of the fiber sizes here is $1$ if $n$ is odd and
+  $2$ if $n$ is even. In both cases, it is less than $n$ for $n \ge 3$.
+
+  {\em Performance review}: 16 out of 27 got this. 6 chose (C), 3
+  chose (B), 1 chose (A), 1 left the question blank.
+
+  {\em Historical note (last time)}: $1$ out of $26$ got this (!!!). $16$ chose
+  (C), $5$ chose (B), $3$ chose (D), $1$ chose (A).
+
+\item Suppose $f$ is a continuous injective function from $\R$ to
+  $\R$. What can we say about the nature of $f$?
+
+  \begin{enumerate}[(A)]
+  \item $f$ must be an increasing function on all of $\R$.
+  \item $f$ must be a decreasing function on all of $\R$.
+  \item $f$ must be a constant function on all of $\R$.
+  \item $f$ must be either an increasing function on all of $\R$ or a
+    decreasing function on all of $\R$, but the information presented
+    is insufficient to decide which case occurs.
+  \item $f$ must be either an increasing function or a decreasing
+    function or a constant function on all of $\R$, but the
+    information presented is insufficient for deciding anything
+    stronger.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: This is easy to see pictorially, though a
+  rigorous proof would invoke the intermediate value theorem and the
+  extreme value theorem.
+
+  {\em Performance review}: 23 out of 27 got this. 4 chose (E).
+
+  {\em Historical note (last time)}: $21$ out of $26$ got this. $5$ chose (E).
+
+\item {\bf PLEASE READ THIS CAREFULLY, MAKE CASES, AND CHECK YOUR
+  REASONING}: Suppose $f$, $g$, and $h$ are continuous bijective
+  functions from $\R$ to $\R$. What can we say about the functions $f
+  + g$, $f + h$, and $g + h$?
+
+  {\em Hint}: Based on the preceding question, you know something
+  about the nature of $f$, $g$, and $h$ individually as functions, but
+  there is some degree of ambiguity in your knowledge. Make cases
+  based on the possibilities and see what you can deduce in the best
+  and worst case.
+
+  \begin{enumerate}[(A)]
+  \item They are all continuous bijective functions from $\R$ to $\R$.
+  \item At least two of them are continuous bijective functions from
+    $\R$ to $\R$. However, we cannot say more.
+  \item At least one of them is a continuous bijective function from
+    $\R$ to $\R$. However, we cannot say more.
+  \item Either all three sums are continuous bijective functions from
+    $\R$ to $\R$, or none is.
+  \item It is possible that none of the sums is a continuous
+    bijective functions from $\R$ to $\R$; it is
+    also possible that one, two, or all the sums are continuous
+    bijective functions from $\R$ to $\R$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Since $f$, $g$, and $h$ are all continuous
+  bijective functions $\R \to \R$, each one of them is either
+  increasing or decreasing. Further, the functions that are increasing
+  must have a limit of $-\infty$ at $-\infty$ and a limit of $\infty$
+  at $\infty$, whereas the functions that are decreasing must have a
+  limit of $\infty$ at $-\infty$ and a limit of $-\infty$ at
+  $\infty$. Thus:
+
+  \begin{itemize}
+  \item A sum of two continuous increasing surjective functions is
+    also a continuous increasing surjective function, and hence is
+    bijective: To see this, use the fact that the limit of the sum is
+    the sum of the limits to deduce that for the sum, the limit at
+    $-\infty$ is $-\infty$ and the limit at $\infty$ is $\infty$, so
+    that the function must be surjective.
+  \item A sum of two continuous decreasing surjective functions is
+    also a continuous decreasing surjcetive function, hence is
+    bijective. To see this, use the fact that the limit of the sum is
+    the sum of the limits to deduce that for the sum, the limit at
+    $-\infty$ is $\infty$ and the limit at $\infty$ is $-\infty$, so
+    that the function must be surjective.
+  \end{itemize}
+
+  We consider various cases:
+
+  \begin{itemize}
+  \item If all three functions are increasing, so are all the pairwise
+    sums, and hence, all the sums $f + g$, $f + h$, and $g + h$ are
+    bijective.
+  \item If all three functions are decreasing, so are all the pairwise
+    sums, and hence, all the sums $f + g$, $f + h$, and $g + h$ are
+    decreasing.
+  \item If two of the functions are increasing and the third function
+    is decreasing, then we know for certain that the sum of the two
+    increasing functions is bijective. But the sum of either of the
+    increasing functions with the decreasing function may be
+    increasing, decreasing, or neither. For instance, if $f(x) = g(x)
+    = x$ and $h(x) = -x$, then $f + h$ and $g + h$ are both the zero
+    function, which is neither increasing nor decreasing, and hence
+    not one-to-one.
+  \item If two of the functions are decreasing and the third function
+    is increasing, then we know for certain that the sum of the two
+    dcereasing functions is bijective. We cannot say anything for sure
+    about the other two sums, for the same reasons as in the previous
+    case (specifically, we can just use the negatives of the functions
+    in the preceding example).
+  \end{itemize}
+
+  It's clear from all these that (C) is the
+  right option.
+
+  {\em Performance review}: 9 out of 27 got this. 10 chose (E), 4
+  chose (B), 3 chose (A), 1 chose (D).
+
+  {\em Historical note (last time)}: $1$ out of $26$ got this. $15$ chose
+  (E), $8$ chose (A), $2$ chose (D).
+
+  \vspace{0.5in}
+
+  The questions that follow tripped up students quite a bit last time,
+  so I urge you to proceed with caution. You can do each of these
+  questions in either of two ways:
+
+  \begin{itemize}
+  \item Using abstract, general reasoning.
+  \item Constructing concrete examples.
+  \end{itemize}
+
+  While the former approach is one you should eventually be able to
+  embrace without trepidation, feel free to rely on the latter
+  approach for now. For this, consider matrices describing the linear
+  transformations and use matrix multiplication to compute the
+  composite where needed. Compute the kernel, image, and rank using
+  the methods known to you. Take matrices such as those arising from
+  finite state automata (as described in the ``linear transformations
+  and finite state automata'' quiz) or their generalizations to
+  rectangular matrices.
+
+  For instance, you might try taking a matrix such as
+  $\left[ \begin{matrix} 1 & 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 & 0\\ 0 &
+      0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 \\\end{matrix}\right]$. This
+  describes a linear transformation $\R^5 \to \R^4$ and has rank
+  three. The dimension of the kernel (inside $\R^5$) is 2 (explicitly,
+  the kernel is precisely the set of vectors in $\R^5$ whose first
+  three coordinates are zero) and the dimension of the image (inside
+  $\R^4$) is 3 (explicitly, the image is precisely the set of vectors
+  in $\R^4$ whose fourth coordinate is $0$).
+
+\item {\em This is the analogue for linear transformations of Question
+  1}: Suppose $m,n,p$ are positive integers. Suppose $A$ is a $m
+  \times n$ matrix and $B$ is a $n \times p$ matrix. The product $AB$
+  is a $m \times p$ matrix. Denote by $T_A$, $T_B$, and $T_{AB}$
+  respectively the linear transformations corresponding to $A$, $B$,
+  and $AB$. We have $T_A:\R^n \to \R^m$, $T_B: \R^p \to \R^n$, and
+  $T_{AB}: \R^p \to \R^m$. Note that $T_{AB} = T_A \circ T_B$.
+
+  Recall that a matrix has full column rank if and only if the
+  corresponding linear transformation is injective.
+
+  Which of the following describes correctly the relationship between
+  $A$ having full column rank (i.e., rank $n$), $B$ having full column
+  rank (i.e., rank $p$), and $AB$ having full column rank (i.e., rank
+  $p$)?
+
+  \begin{enumerate}[(A)]
+  \item $AB$ has full column rank (i.e., rank $p$) if and only if $A$
+    and $B$ both have full column rank (ranks $n$ and $p$
+    respectively).
+  \item If $A$ and $B$ both have full column rank, then $AB$ has full
+    column rank. However, $AB$ having full column rank does not imply
+    anything (separately or jointly) regarding whether $A$ or $B$ has
+    full column rank.
+  \item If $A$ and $B$ both have full column rank, then $AB$ has full
+    column rank. If $AB$ has full column rank, then at least one of
+    $A$ and $B$ has full column rank, but we cannot definitively say
+    for any particular one of $A$ and $B$ that it must have full column
+    rank.
+  \item If $A$ and $B$ both have full column rank, then $AB$ has full
+    column rank. $AB$ having full column rank implies that $A$ has
+    full column rank, but it does not tell us for sure that $B$ has
+    full column rank.
+  \item If $A$ and $B$ both have full column rank, then $AB$ has full
+    column rank. $AB$ having full column rank implies that $B$ has
+    full column rank, but it does not tell us for sure that $A$ has
+    full column rank.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: This is a special case of Question 1 (note that
+  the letters do not match). Essentially, $T_A$ plays the role of $f$
+  and $T_B$ plays the role of $g$.
+
+  An alternative way of thinking of this is that the rank of a product
+  is less than or equal to the rank of each of the matrices being
+  multiplied. If the rank of $AB$ is $p$ (full column rank), then that
+  means that the rank of $B$ is at least $p$. Since the number of
+  columns of $B$ equals $p$, this forces $B$ to have full column rank
+  $p$.
+
+  Note that $A$ need not have full column rank. For instance, consider:
+
+  $$A = \left[ \begin{matrix} 1 & 0 \\\end{matrix}\right], B = \left[\begin{matrix} 1 \\ 0 \\\end{matrix}\right]$$
+
+  {\em Performance review}: 13 out of 27 got this. 6 chose (D), 3 each
+  chose (B) and (C), 2 chose (A).
+
+\item {\em This is the analogue for linear transformations of Question
+  2}: Suppose $m,n,p$ are positive integers. Suppose $A$ is a $m
+  \times n$ matrix and $B$ is a $n \times p$ matrix. The product $AB$
+  is a $m \times p$ matrix. Denote by $T_A$, $T_B$, and $T_{AB}$
+  respectively the linear transformations corresponding to $A$, $B$,
+  and $AB$. We have $T_A:\R^n \to \R^m$, $T_B: \R^p \to \R^n$, and
+  $T_{AB}: \R^p \to \R^m$. Note that $T_{AB} = T_A \circ T_B$.
+
+  Recall that a matrix has full row rank if and only if the
+  corresponding linear transformation is surjective.
+
+  Which of the following describes correctly the relationship between
+  $A$ having full row rank (i.e., rank $m$), $B$ having full row rank
+  (i.e., rank $n$), and $AB$ having full row rank (i.e., rank $m$)?
+
+  \begin{enumerate}[(A)]
+  \item $AB$ has full row rank if and only if $A$ and $B$ both have
+    full row rank.
+  \item If $A$ and $B$ both have full row rank, then $AB$ has full row
+    rank. However, $AB$ having full row rank does not imply anything
+    (separately or jointly) regarding whether $A$ or $B$ has full row
+    rank.
+  \item If $A$ and $B$ both have full row rank, then $AB$ has full
+    row rank. If $AB$ has full row rank, then at least one of
+    $A$ and $B$ has full row rank, but we cannot definitively say
+    for any particular one of $A$ and $B$ that it must have full row
+    rank.
+  \item If $A$ and $B$ both have full row rank, then $AB$ has full
+    row rank. $AB$ having full row rank implies that $A$ has
+    full row rank, but it does not tell us for sure that $B$ has
+    full row rank.
+  \item If $A$ and $B$ both have full row rank, then $AB$ has full
+    row rank. $AB$ having full row rank implies that $B$ has
+    full row rank, but it does not tell us for sure that $A$ has
+    full row rank.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: This follows from Question 2. We can also think
+  of it in terms of the rank of a product being less than or equal to
+  the ranks of the individual matrices. This forces the rank of $A$ to
+  be at least $m$, and therefore exactly $m$.
+
+  Also, for an example of a situation where $B$ does not have full row
+  rank, we can use the same example as in the preceding question.
+
+  {\em Performance review}: 12 out of 27 got this. 6 chose (E), 4
+  chose (A), 3 chose (B), 2 chose (C).
+\item {\em This is the analogue for linear transformations of Question
+  3}: Suppose $m$ and $n$ are positive integers. Suppose $A$ is a $m
+  \times n$ matrix and $B$ is a $n \times m$ matrix. The product $AB$
+  is a $m \times m$ matrix. The corresponding linear transformations
+  are $T_A: \R^n \to \R^m$, $T_B: \R^m \to \R^n$, and $T_{AB}: \R^m
+  \to \R^m$. 
+
+  Suppose the square matrix $AB$ has full rank $m$. What can we deduce
+  about the ranks of $A$ and $B$?
+
+  \begin{enumerate}[(A)]
+  \item Both $A$ and $B$ have full row rank, {\em and} both $A$ and
+    $B$ have full column rank.
+  \item Both $A$ and $B$ have full column rank, but neither of them
+    need have full row rank.
+  \item Both $A$ and $B$ have full row rank, but neither of them need
+    have full column rank.
+  \item $A$ must have full column rank but need not have full row
+    rank. $B$ must have full row rank but need not have full column
+    rank.
+  \item $A$ must have full row rank but need not have full column
+    rank. $B$ must have full column rank but need not have full row
+    rank.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Follows from Question 3. We can use the same
+  example as for the preceding two questions.
+
+  Also note that in this case, we must have $m \le n$, and therefore,
+  the rank of both $A$ and $B$, since it's $\le \min \{ m, n \}$ but
+  also $\ge m$, must equal $m$. This means full row rank in the case
+  of $A$, and full column rank in the case of $B$.
+  
+  {\em Performance review}: 18 out of 27 got this. 5 chose (D), 2
+  chose (A), 1 each chose (B) and (C).
+
+  \vspace{0.3in}
+
+  For the coming questions, we will denote vector spaces by letters
+  such as $U$, $V$, and $W$. You can, however, consider them to be
+  finite-dimensional vector spaces of the form $\R^n$. However, you
+  should take care not to use a letter for the dimension of a vector
+  space if the letter is already in use elsewhere in the
+  question. Also, you should take care to use different letters for
+  the dimensions of different vector spaces, unless it is given to you
+  that the vector spaces have the same dimension. The results also
+  hold for infinite-dimensional vector spaces, but you can work on all
+  the problems assuming you are working in the finite-dimensional
+  setting.
+
+\item {\em This is an analogue for linear transformations of Question
+  4}: Suppose $T_1: U \to V$ and $T_2:V \to W$ are linear
+  transformations. The composite $T_2 \circ T_1$ is also a linear
+  transformation, this time from $U$ to $W$. Suppose the kernel of
+  $T_1$ has dimension $m$ and the kernel of $T_2$ has dimension
+  $n$. Suppose both $T_1$ and $T_2$ are surjective. What can you say
+  about the dimension of the kernel of $T_2 \circ T_1$?
+
+  {\em Please note this carefully}: Although this question is
+  analogous to Question 4, the correct answer options differ for the
+  two questions. Here is an intuitive explanation for the relationship
+  between the questions. Question 4 asked about the {\em sizes} of the
+  fibers. This question asks about the dimensions of the kernels. The
+  fibers do correspond to the kernels. But the relationship between
+  dimension and size is of a {\em logarithmic nature}. What we mean is
+  that the dimension can be thought of as the logarithm of the
+  size. This isn't literally true, because the size is infinite. But
+  metaphorically, it makes sense, because, for instance, the dimension
+  of $\R^p$ is the exponent $p$, and that comports with the laws of
+  logarithms (similar to how the $\log_2(2^p) = p$).
+
+  \begin{enumerate}[(A)]
+  \item The dimension is $\min \{ m,n \}$.
+  \item The dimension is $\max \{ m,n \}$.
+  \item The dimension is $m + n$.
+  \item The dimension is $mn$.
+  \item The dimension is $m^n$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: See the lecture notes for more.
+
+  {\em Performance review}: 12 out of 27 got this. 5 chose (D), 4
+  chose (A), 3 chose (B), 2 chose (E), 1 left the question blank.
+
+  {\em Historical note (last time)}: $3$ out of $26$ got this. $13$ chose (B),
+  $7$ chose (A), $3$ chose (D).
+
+\item Suppose $T_1: U \to V$ and $T_2:V \to W$ are linear
+  transformations. The composite $T_2 \circ T_1$ is also a linear
+  transformation, this time from $U$ to $W$. Suppose the kernel of
+  $T_1$ has dimension $m$ and the kernel of $T_2$ has dimension
+  $n$. However, unlike the preceding question, we are not given any
+  information about the surjectivity of either $T_1$ or $T_2$. The
+  answer to the preceding question gives an (inclusive) {\em upper}
+  bound on the dimension of the kernel of $T_2 \circ T_1$. Which of
+  the following is the best {\em lower} bound we can manage in
+  general?
+
+  \begin{enumerate}[(A)]
+  \item $|m - n|$
+  \item $m$
+  \item $n$
+  \item $m + n$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The kernel of $T_2 \circ T_1$ contains the kernel
+  of $T_1$, so $m$ is a lower bound on the dimension.
+
+  {\em Performance review}: 8 out of 27 got this. 11 chose (A), 4
+  chose (C), 3 chose (D), 1 left the question blank.
+
+  {\em Historical note (last time)}: $11$ out of $26$ got this. $10$ chose (A),
+  $4$ chose (C), $1$ chose (D).
+
+\item Suppose $T_1,T_2:U \to V$ are linear transformations. Which of
+  the following is true? Please see Options (D) and (E) before
+  answering and select the single option that best reflects your view.
+
+  \begin{enumerate}[(A)]
+  \item If both $T_1$ and $T_2$ are injective, then $T_1 + T_2$ is injective.
+  \item If both $T_1$ and $T_2$ are surjective, then $T_1 + T_2$ is surjective.
+  \item If both $T_1$ and $T_2$ are bijective, then $T_1 + T_2$ is bijective.
+  \item All of the above
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: We can get counterexamples in one dimension:
+  consider the situation where $T_1$ has matrix $[1]$ and $T_2$ has
+  matrix $[-1]$. Then, both $T_1$ and $T_2$ are bijective (hence also
+  injective and surjective) but the sum $T_1 + T_2$, which is the zero
+  map, is neither injective nor surjective.
+
+  {\em Performance review}: 7 out of 27 got this. 13 chose (D), 4
+  chose (B), 2 chose (C), 1 left the question blank.
+
+  {\em Historical note (last time)}: $6$ out of $26$ got this. $19$ chose (D),
+  $1$ chose (C).
+
+\item Suppose $T_1, T_2: U \to V$ are linear transformations. Which of
+  the following best describes the relation between the kernels of
+  $T_1$, $T_2$, and $T_1 + T_2$?
+
+  \begin{enumerate}[(A)]
+  \item The kernel of $T_1 + T_2$ equals the intersection of the
+    kernel of $T_1$ and the kernel of $T_2$.
+  \item The kernel of $T_1 + T_2$ is contained inside the intersection
+    of the kernel of $T_1$ and the kernel of $T_2$, but need not be
+    equal to the intersection.
+  \item The kernel of $T_1 + T_2$ contains the intersection of the
+    kernel of $T_1$ and the kernel of $T_2$, but need not be equal to
+    the intersection.
+  \item The kernel of $T_1 + T_2$ is contained inside the sum of the
+    kernel of $T_1$ and the kernel of $T_2$, but need not be equal to
+    the sum.
+  \item The kernel of $T_1 + T_2$ contains the sum of the kernel of
+    $T_1$ and the kernel of $T_2$, but need not be equal to the sum.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: We will show this in steps:
+
+  \begin{itemize}
+  \item Suppose $\vec{u}$ is in the intersection of the kernel of
+    $T_1$ and the kernel of $T_2$. Then, $\vec{u}$ is in the kernel of
+    $T_1 + T_2$: This is easy to see: $(T_1 + T_2)(\vec{u}) =
+    T_1(\vec{u}) + T_2(\vec{u}) = 0 + 0 = 0$.
+  \item It is possible to have a situation where the kernel of $T_1 +
+    T_2$ does not contain the sum of the kernels of $T_1$ and
+    $T_2$. For instance, consider the case that $T_1$ has matrix $[0]$
+    and $T_2$ has matrix $[1]$.
+  \item It is possible to have a situation where the kernel of $T_1 +
+    T_2$ is not even contained inside the sum of the kernels of $T_1$
+    and $T_2$, let alone the intersection: Consider $T_1$ to be the
+    linear transformation with matrix $[1]$ and $T_2$ to be the linear
+    transformation with matrix $[-1]$. Both have zero kernels, so the
+    sum of the kernels is also zero. But the sum $T_1 + T_2$ is a
+    linear transformation with matrix $[0]$, so its kernel is all of $\R$.
+  \end{itemize}
+
+  {\em Performance review}: 11 out of 27 got this. 6 chose (A), 4 each
+  chose (B) and (D), 1 chose (E), 1 left the question blank.
+
+  {\em Historical note (last time)}: $3$ out of $26$ got this. $10$ chose (B),
+  $6$ each chose (A) and (D), $1$ chose (E).
+
+\item Suppose $T_1, T_2: U \to V$ are linear transformations. Which of
+  the following best describes the relation between the images of
+  $T_1$, $T_2$, and $T_1 + T_2$?
+
+  \begin{enumerate}[(A)]
+  \item The image of $T_1 + T_2$ equals the intersection of the
+    image of $T_1$ and the image of $T_2$.
+  \item The image of $T_1 + T_2$ is contained inside the intersection
+    of the image of $T_1$ and the image of $T_2$, but need not be
+    equal to the intersection.
+  \item The image of $T_1 + T_2$ contains the intersection of the
+    image of $T_1$ and the image of $T_2$, but need not be equal to
+    the intersection.
+  \item The image of $T_1 + T_2$ is contained inside the sum of the
+    image of $T_1$ and the image of $T_2$, but need not be equal to
+    the sum.
+  \item The image of $T_1 + T_2$ contains the sum of the image of
+    $T_1$ and the image of $T_2$, but need not be equal to the sum.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We show the following:
+
+  \begin{itemize}
+  \item Any vector in the image of $T_1 + T_2$ can be expressed as the
+    sum of a vector in the image of $T_1$ and a vector in the image of
+    $T_2$: Suppose $\vec{v}$ is in the image of $T_1 + T_2$. Thus,
+    $\vec{v} = (T_1 + T_2)(\vec{u})$ which simplifies to $T_1(\vec{u})
+    + T_2(\vec{u})$, thus it is in the sum of the images.
+  \item The image of $T_1 + T_2$ need not contain the intersection of
+    the images of $T_1$ and $T_2$: We can again use the example of
+    linear transformations with matrices $[1]$ and $[-1]$
+    respectively.
+  \item The image of $T_1 + T_2$ need not be contained in the
+    intersection of the images of $T_1$ and $T_2$: We can again use
+    the example of linear transformations with matrices $[1]$ and
+    $[0]$. 
+  \end{itemize}
+
+  {\em Performance review}: 12 out of 27 got this. 8 chose (B), 4
+  chose (C), 2 chose (E), 1 left the question blank.
+
+  {\em Historical note (last time)}: $11$ out of $26$ got this. $11$ chose (B),
+  $2$ chose (C), $1$ each chose (A) and (E).
+
+\item Suppose $T$ is a linear transformation from a vector space $V$
+  to itself. Note that $V$ may be an infinite-dimensional space, such
+  as $C^\infty(\R)$ (with $T$ being differentiation), but for
+  convenience, you can imagine $V$ to be finite-dimensional (we will
+  not reference the dimension of $V$ in this question,
+  however). Suppose the kernel of $T$ has dimension $n$. What can you
+  say from this information about the dimension of the kernel of $T^r$
+  for a positive integer $r$?
+
+  \begin{enumerate}[(A)]
+  \item It is at least $n$ and at most $n + r$.
+  \item It is at least $n$ and at most $nr$.
+  \item It is at least $n + r$ and at most $nr$.
+  \item It is at least $n + r$ and at most $n^r$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: We know the kernel of a composite contains the
+  kernel of the very first operation, so the dimension is at least
+  $n$. But it could be bigger. Recall that the dimensions of the
+  kernels could at worst add up, so the worst case scenario (which
+  occurs if each time the kernel is also contained in the image) is
+  that the total dimension is $nr$.
+
+  {\em Performance review}: 16 out of 27 got this. 9 chose (A), 1
+  chose (C), 1 left the question blank.
+ 
+  {\em Historical note (last time)}: $13$ out of $26$ got this. $7$ chose (A),
+  $5$ chose (C), $1$ chose (D).
+
+  \vspace{0.4in}
+
+  The next few questions deal with the relationship between the rows
+  and columns of the matrix on the one hand, and the image and kernel
+  of the linear transformation on the other hand.
+
+\item Suppose $A$ is a $n \times m$ matrix and $T_A: \R^m \to \R^n$ is
+  the corresponding linear transformation. Which of the following
+  correctly describes the relationship between the rows and columns of
+  $A$ and the image and kernel of $T_A$?
+
+  \begin{enumerate}[(A)]
+  \item The kernel of $T_A$ is precisely the subspace of $\R^m$
+    spanned by the rows of $A$. The image of $T_A$ is precisely the
+    subspace of $\R^n$ spanned by the columns of $A$.
+  \item The kernel of $T_A$ is precisely the subspace of $\R^m$
+    spanned by the columns of $A$. The image of $T_A$ is precisely the
+    subspace of $\R^n$ spanned by the rows of $A$.
+  \item The kernel of $T_A$ is precisely the subspace of $\R^m$
+    comprising the vectors that are {\em orthogonal} to the rows of
+    $A$. The image of $T_A$ is precisely the subspace of $\R^n$
+    comprising the vectors that are {\em orthogonal} to the columns of
+    $A$.
+  \item The kernel of $T_A$ is precisely the subspace of $\R^m$
+    comprising the vectors that are {\em orthogonal} to the rows of
+    $A$. The image of $T_A$ is the subspace of $\R^n$ spanned by the
+    columns of $A$.
+  \item The kernel of $T_A$ is precisely the subspace of $\R^m$
+    spanned by the rows of $A$. The image of $T_A$ is precisely the
+    subspace of $\R^n$ comprising the vectors that are {\em
+      orthogonal} to the columns of $A$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+  
+  {\em Explanation}: The kernel is the set of vectors $\vec{x} \in
+  \R^m$ such that $A\vec{x} = \vec{0}$. The entries of $A\vec{x}$ are
+  the dot products of the rows of $A$ with $\vec{x}$. Therefore, a
+  particular entry is zero if and only if the corresponding dot
+  product is zero, i.e., $\vec{x}$ is orthogonal to the corresponding
+  row of $A$. Thus, all the entries of the output vector are zero iff
+  $\vec{x}$ is orthogonal to all rows of $A$ (there were also similar
+  questions in the preceding quiz).
+
+  The part of the statement about the image is a standard fact about
+  the image that you have seen in lecture.
+
+  {\em Performance review}: 15 out of 27 got this. 5 chose (B), 4
+  chose (C), 2 chose (A), 1 left the question blank.
+
+\item Suppose $A$ and $B$ are $n \times m$ matrices, $T_A:\R^m \to
+  \R^n$ is the linear transformation corresponding to $A$, and
+  $T_B:\R^m \to \R^n$ is the linear transformation corresponding to
+  $B$. Which of the following correctly describes the relation between
+  the rows, columns, image and kernel? Please see Option (E) before
+  answering.
+
+  \begin{enumerate}[(A)]
+  \item If $B$ can be obtained from $A$ by a sequence of row
+    interchange operations, then $T_A$ and $T_B$ have the same kernel
+    as each other and also the same image as each other.
+  \item If $B$ can be obtained from $A$ by a sequence of column
+    interchange operations, then $T_A$ and $T_B$ have the same kernel
+    as each other and also the same image as each other.
+  \item If $B$ can be obtained from $A$ by a sequence of row
+    interchange operations, then $T_A$ and $T_B$ have the same kernel
+    as each other. If $B$ can be obtained from $A$ by a sequence of
+    column interchange operations, then $T_A$ and $T_B$ have the same
+    image as each other.
+  \item If $B$ can be obtained from $A$ by a sequence of row
+    interchange operations, then $T_A$ and $T_B$ have the same image
+    as each other. If $B$ can be obtained from $A$ by a sequence of
+    column interchange operations, then $T_A$ and $T_B$ have the same
+    kernel as each other.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Interchanging the rows is a legitimate operation
+  for computing the reduced row-echelon form, and the process does not
+  affect the solution set for the system of linear equations, aka the
+  kernel.
+
+  Also, the columns of the matrix are a spanning set for the image, so
+  interchanging the columns should not affect the image.
+
+  However, interchanging the rows can alter the image. For instance:
+
+  $$A = \left[\begin{matrix} 1 & 1 \\ 0 & 0 \\\end{matrix}\right], B = \left[\begin{matrix} 0 & 0 \\ 1 & 1 \\\end{matrix}\right]$$
+
+  have the same set of rows, but different images.
+
+  Similarly, interchanging the columns can alter the kernel. For
+  instance:
+
+  $$A = \left[\begin{matrix} 1 & 0 \\ 1 & 0 \\\end{matrix}\right], B = \left[\begin{matrix} 0 & 1 \\ 0 & 1 \\\end{matrix}\right]$$
+
+  have the same set of columns (interchanged) but different kernels.
+
+  {\em Performance review}: 10 out of 27 got this. 6 each chose (D)
+  and (E), 3 chose (B), 1 chose (A), 1 left the question blank.
+\end{enumerate}
+\end{document}

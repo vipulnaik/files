@@ -1,0 +1,413 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: February 29: Series}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$11$ people took this $10$-question quiz. The score distribution was
+as follows:
+
+\begin{itemize}
+\item Score of $3$: $2$ people
+\item Score of $4$: $1$ person
+\item Score of $5$: $4$ people
+\item Score of $6$: $2$ people
+\item Score of $7$: $2$ people
+\end{itemize}
+
+
+Below are the question wise answers and performance review:
+
+\begin{enumerate}
+\item Option (C): $9$ people
+\item Option (B): $3$ people
+\item Option (E): $5$ people
+\item Option (B): $10$ people
+\item Option (A): $7$ people
+\item Option (D): $5$ people
+\item Option (E): $3$ people
+\item Option (D): $3$ people
+\item Option (E): $5$ people
+\item Option (C): $6$ people
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+
+\item Suppose $p$ is a polynomial that take positive values on all
+  nonnegative integers. Consider the summation $\sum_{k=1}^\infty
+  \frac{(k^2 + 1)^{2/3}}{p(k)}$. Under what conditions does the
+  summation converge? Note that the degree of $p$ must be a
+  nonnegative integer.
+
+  \begin{enumerate}[(A)]
+  \item The summation converges if and only if the degree of $p$ is
+    {\em at least} one
+  \item The summation converges if and only if the degree of $p$ is
+    {\em at least} two
+  \item The summation converges if and only if the degree of $p$ is
+    {\em at least} three
+  \item The summation converges if and only if the degree of $p$ is
+    {\em at most} two
+  \item The summation converges if and only if the degree of $p$ is
+    {\em at most} one
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: This is a straightforward application of the
+  degree difference rule in its more general form. The numerator has
+  degre $4/3$, so the degree difference is $\operatorname{deg}(p) -
+  (4/3)$. This difference needs to be greater than $1$ for the series
+  to converge, so we need that the degree of the denominator is
+  strictly greater than $7/3$. The smallest integer greater than $7/3$
+  is $3$, so that is the answer.
+
+  {\em Performance review}: $9$ out of $11$ got this. $2$ chose (B).
+
+\item Suppose $p$ is a polynomial that take positive values on all
+  nonnegative integers. Consider the summation $\sum_{k=1}^\infty
+  \frac{(-1)^k(k^2 + 1)^{2/3}}{p(k)}$. Under what conditions does the
+  summation converge? Note that the degree of $p$ must be a
+  nonnegative integer.
+
+  \begin{enumerate}[(A)]
+  \item The summation converges if and only if the degree of $p$ is
+    {\em at least} one
+  \item The summation converges if and only if the degree of $p$ is
+    {\em at least} two
+  \item The summation converges if and only if the degree of $p$ is
+    {\em at least} three
+  \item The summation converges if and only if the degree of $p$ is
+    {\em at most} two
+  \item The summation converges if and only if the degree of $p$ is
+    {\em at most} one
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The previous question tells us that if the degree
+  of $p$ is at least three, then the series of absolutely convergent.
+
+  If the degree of $p$ is two, then the series is conditionally
+  convergent. To see this, note that $p(k)$ is always positive, so the
+  summation is an alternating series summation. Also, the terms are
+  eventually decreasing in magnitude, and they go to zero. Thus, by
+  the alternating series theorem, the series converges. On the other
+  hand, the degree difference rule tells us that it does not converge
+  absolutely.
+
+  If the degree of $p$ is one or zero, then the terms of the series do
+  not approach zero, so the series does not converge.
+
+  {\em Performance review}: $3$ out of $11$ got this. $7$ chose (C),
+  $1$ chose (E).
+
+\item Which of the following series converges? Assume for all
+  series that the starting point of summation is large enough that the
+  terms are well defined.
+
+  \begin{enumerate}[(A)]
+  \item $\sum 1/(k \ln (\ln k))$
+  \item $\sum 1/(k \ln k)$
+  \item $\sum 1/(k (\ln (\ln k))^2)$
+  \item $\sum 1/(k (\ln k)(\ln (\ln k)))$
+  \item $\sum 1/(k (\ln k)(\ln (\ln k))^2)$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Options (B) and (D) diverge by the integral
+  test. As for options (A) and (C), these have smaller denominators,
+  hence larger terms, than option (B), hence, by basic comparison,
+  these diverge too. This leaves option (E), which converges by the
+  integral test.
+
+  {\em Performance review}: $5$ out of $11$ got this. $4$ chose (B),
+  $2$ chose (D).
+
+  {\em Historical note (last year)}: $11$ out of $25$
+  people got this correct. $7$ chose (C), $3$ each chose (A) and (B),
+  and $1$ left the question blank.
+
+  The main attraction of (C) seems to have been its superficial
+  resemblance to $1/(k(\ln k)^2)$ which does converge.
+
+\item Which of the following series converges?
+
+  \begin{enumerate}[(A)]
+  \item $\sum \frac{k + \sin k}{k^2 + 1}$
+  \item $\sum \frac{k + \cos k}{k^3 + 1}$
+  \item $\sum \frac{k^2 - \sin k}{k + 1}$
+  \item $\sum \frac{k^3 + \cos k}{k^2 + 1}$
+  \item $\sum \frac{k}{\sin(k^3 + 1)}$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: We can use a comparison test, either rigorously
+  or in the form of a heuristic of looking at degree of denominator
+  minus degree of numerator. Note that for (A), the degree difference
+  is $1$, so it diverges. For (C) and (D), the numerator actually has
+  larger degree than the denominator, so it diverges. For (E), the
+  denominator is bounded in $[-1,1]$, and the numerator goes to
+  $\infty$, so it diverges. This leaves (B), which converges because
+  the degree of denominator minus degree of numerator equals $2$.
+
+  {\em Performance review}: $10$ out of $11$ got this. $1$ chose (A).
+
+  {\em Historical note (last year)}: $23$ out of $25$ people got this
+  correct. $1$ person chose (C) and $1$ person chose (D).
+
+\item Consider the series $\sum_{k=0}^\infty \frac{1}{2^{2^k}}$. What
+  can we say about the sum of this series?
+
+  \begin{enumerate}[(A)]
+  \item It is finite and strictly between $0$ and $1$.
+  \item It is finite and equal to $1$.
+  \item It is finite and strictly between $1$ and $2$.
+  \item It is finite and equal to $2$.
+  \item It is infinite.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: The summation goes like:
+
+  $$\frac{1}{2} + \frac{1}{4} + \frac{1}{16} + \frac{1}{256} + \dots$$
+
+  Notice that the series being summed is a subseries of the series:
+
+  $$\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \dots$$
+
+  In particular, the sum of the former is less than the sum of the
+  latter. The latter sums up to $1$, so the sum of the former is less
+  than $1$. Also, since the first term is $1/2$, it must be greater
+  than $1/2$. Thus, the series sum is between $1/2$ and $1$. Option
+  (A) is the best fit.
+
+  {\em Performance review}: $7$ out of $11$ got this. $3$ chose (C),
+  $1$ chose (B).
+
+  {\em Historical note (last year)}: $14$ out of $26$ people got this
+  correct. $9$ chose (C) (possibly because of getting the first term
+  wrong?), $2$ chose (E), $1$ chose (B).
+
+\item For one of the following functions $f$ on $(0,\infty)$, the
+  integral $\int_0^\infty f(x) \, dx$ converges but $\int_0^\infty
+  |f(x)| \, dx$ does not converge. What is that function $f$? (Note
+  that this is similar to, but not quite the same as, the absolute
+  versus conditional convergence notion for series).
+
+  \begin{enumerate}[(A)]
+  \item $f(x) = \sin x$
+  \item $f(x) = \sin(\sin x)$
+  \item $f(x) = (\sin \sqrt{x})/\sqrt{x}$
+  \item $f(x) = (\sin x)/x$
+  \item $f(x) = (\sin^3x)/x^3$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: For options (A) and (B), the integral
+  $\int_0^\infty f(x) \, dx$ does not converge. The reason is simple:
+  in neither case is it true that $\lim_{x \to \infty} f(x) = 0$. The
+  function itself going to zero is a necessary (but not sufficient)
+  condition for the integral to converge.
+
+  For option (C), the antiderivative for $f$ is $-2\cos\sqrt{x}$,
+  evaluated between limits $0$ and $\infty$. However, the limit for
+  the antiderivative at $\infty$ does not exist, hence the integral
+  does not converge. 
+
+  This leaves options (D) and (E). For option (D), it is a well known (?) fact that:
+
+  $$\int_0^\infty \frac{\sin x \, dx}{x} = \frac{\pi}{2}$$
+
+  Hence, the integral does converge. However, if we consider the integral:
+
+  $$\int_0^\infty \frac{|\sin x| \, dx}{|x|}$$
+
+  This integral does not converge, a fact that we can prove by
+  bounding it in terms of the summation $\sum_{n=1}^\infty 1/n$, which
+  diverges.
+
+  Finally, for option (E), both $\int_0^\infty f(x) \, dx$ and
+  $\int_0^\infty |f(x)| \, dx$ converge. To see this, first split the
+  integral as $\int_0^1 + \int_1^\infty$. The former integral is
+  finite because it is integrating a bounded function over a bounded
+  interval (note that the limit of the function at $0$ is $1$). The
+  latter integral is finite because we can compare it to $1/x^3$ which
+  has a finite integral. The reasoning works for both $f$ and $|f|$,
+  so we are done.
+
+  {\em Performance review}: $5$ out of $11$ got this. $4$ chose (C),
+  $2$ chose (D).
+
+\item Consider the function $F(x,p) := \sum_{n=1}^\infty
+  \frac{x^n}{n^p}$ with $x$ and $p$ both real numbers. For what values
+  of $x$ and what values of $p$ does this summation converge?
+  \begin{enumerate}[(A)]
+  \item For $|x| < 1$, it converges for all $p \in \R$. For $|x| \ge
+    1$, it does not converge for any $p$.
+  \item For $|x| \le 1$, it converges for all $p \in \R$. For $|x| >
+    1$, it does not converge for any $p$.
+  \item For $|x| < 1$, it converges for all $p \in \R$. For $|x| > 1$,
+    it does not converge for any $p$. For $|x| = 1$, it converges if
+    and only if $p > 1$.
+  \item For $|x| < 1$, it converges for all $p \in \R$. For $|x| > 1$,
+    it does not converge for any $p$. For $x = 1$, it converges
+    if and only if $p > 0$. For $x = -1$, it converges if and only if
+    $p > 1$.
+  \item For $|x| < 1$, it converges for all $p \in \R$. For $|x| > 1$,
+    it does not converge for any $p \in \R$. For $x = 1$, it converges
+    if and only if $p > 1$. For $x = -1$, it converges if and only if
+    $p > 0$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: When $|x| < 1$, then the series is absolutely
+  convergent and when $|x| > 1$ it diverges, as we can see by the root
+  test or ratio test. What's happening is that $(1/n^p)^{1/n} \to 1$
+  (regardless of $p$), so the radius of convergence is $1$.
+
+  This leaves the case $|x| = 1$. If $x = 1$, then we get the usual
+  $p$-series, which we know converges iff $p > 1$. If $x = -1$, then
+  the terms have alternating signs. Obviously, the series cannot
+  converge for $p \le 0$ because the terms do not tend to $0$. For $p
+  > 0$, on the other hand, the terms are alternating in sign and
+  decrease monotonically, tending to $0$. Thus, by the alternating
+  series theorem, it converges for $p > 0$.
+
+  {\em Performance review}: $3$ out of $11$ got this. $4$ chose (C),
+  $2$ each chose (B) and (D).
+
+  {\em Historical note (last year)}: $7$ out of $26$ people got this
+  correct. $10$ chose (C), $4$ chose (D), $3$ chose (A), $2$ chose
+  (B). The large vote for (C) indicates that many people did not
+  notice the special application of the alternating series theorem to
+  the case of $x = -1$.
+
+  {\em Action point}: Please review what happens in the case $x =
+  -1$. This will be covered in more detail in class when we study the
+  notion of interval of convergence of a power series.
+
+  There is a result of calculus which states that, under suitable
+  conditions, if $f_1, f_2, \dots, f_n, \dots$ are all functions, and
+  we define $f(x) := \sum_{n=1}^\infty f_n(x)$, then $f'(x) =
+  \sum_{n=1}^\infty f_n'(x)$. In other words, under suitable
+  assumptions, we can differentiate a sum of countably many functions
+  by differentiating each of them and adding up the derivatives.
+
+  We will not be going into what those assumptions are, but will
+  consider some applications where you are explicitly told that these
+  assumptions are satisfied.
+
+
+\item Consider the summation $\zeta(p) := \sum_{n=1}^\infty
+  \frac{1}{n^p}$ for $p > 1$. Assume that the required assumptions are
+  valid for this summation, so that $\zeta'(p)$ is the sum of the
+  derivatives of each of the terms (summands) with respect to
+  $p$. What is the correct expression for $\zeta'(p)$?
+  
+  \begin{enumerate}[(A)]
+  \item $\sum_{n=1}^\infty \frac{-p}{n^{p+1}}$
+  \item $\sum_{n=1}^\infty \frac{-1}{(p+1)n^{p+1}}$
+  \item $\sum_{n=1}^\infty \frac{p}{n^{p-1}}$
+  \item $\sum_{n=1}^\infty \frac{-\ln n}{n^p}$
+  \item $\sum_{n=1}^\infty \frac{-\ln n}{n^{p+1}}$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We need to differentiate $(1/n)^p$ with respect
+  to $p$. This is the same as differentiating $a^x$ with respect to
+  $x$, which gives $a^x \ln a$. In our case, we get $(1/n)^p \ln(1/n)$
+  which is $(-\ln n)/n^p$.
+
+  Note that Option (A) arises if we try to differentiate formally with
+  respect to $n$, which is not the correct operation at all. $n$ is a
+  dummy variable and the expression should be differentiated with
+  respect to $p$.
+
+  {\em Performance review}: $3$ out of $11$ got this. $8$ chose
+  (A). This indicates that many people differentiated with respect to
+  the wrong variable.
+
+  {\em Historical note (last year)}: $8$ out of $26$ people got this
+  correct. $13$ chose (A), $3$ chose (B), $1$ chose (C), and $1$ left
+  the question blank. The most commonly chosen wrong option, (A),
+  indicates that many people differentiated with respect to the wrong
+  variable.
+
+\item Going back to question 2, recall that we defined $F(x,p) :=
+  \sum_{n=1}^\infty \frac{x^n}{n^p}$ with $x$ and $p$ both real
+  numbers. Assume that, for a particular fixed value of $p$, the
+  summation satisfies the conditions as a function of $x$ for $|x| <
+  1$. What is its derivative with respect to $x$, keeping $p$
+  constant?
+  \begin{enumerate}[(A)]
+  \item $\sum_{n=1}^\infty \frac{x^{n+1}}{n^{p+1}}$
+  \item $\sum_{n=1}^\infty \frac{x^{n+1}}{n^{p-1}}$
+  \item $\sum_{n=1}^\infty \frac{x^{n-1}}{n^{p+1}}$
+  \item $\sum_{n=1}^\infty \frac{x^{n-1}\ln n}{n^{p+1}}$
+  \item $\sum_{n=1}^\infty \frac{x^{n-1}}{n^{p-1}}$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: We need to differentiate each term with respect
+  to $x$. Differentiating $x^n/n^p$ with respect to $x$ gives
+  $nx^{n-1}/n^p$, which, upon rearrangement, gives $x^{n-1}/n^{p-1}$.
+
+  {\em Performance review}: $5$ out of $11$ got this correct. $3$ each
+  chose (C) and (D).
+
+ {\em Historical note (last year)}: $14$ out of $26$ got this
+  correct. $4$ each chose (B), (C), (D), possibly indicating minor
+  computational errors.
+
+\item The series $\sum_{n=1}^\infty \frac{1}{n}$ diverges. Since it is
+  a series of positive terms, this means that the partial sums get
+  arbitrarily large. What is the approximate smallest value of $N$
+  such that $\sum_{n=1}^N \frac{1}{n} > 100$?
+  \begin{enumerate}[(A)]
+  \item Between $90$ and $110$
+  \item Between $2000$ and $3000$
+  \item Between $10^{40}$ and $10^{50}$
+  \item Between $10^{90}$ and $10^{110}$
+  \item Between $10^{220}$ and $10^{250}$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: We can see that $\sum_{n=1}^N 1/n$ is
+  approximately $\ln N$. More precisely, we can use the standard
+  methods for comparising integrals and summations and obtain that the
+  finite sum is between $\ln N$ and $1 + \ln N$. In particular, the
+  $N$ that works must have $\ln N$ between $99$ and $100$. Thus,
+  $\log_{10}N$ is between $99/(\ln 10)$ and $100/(\ln 10)$. Both these
+  numbers are between $40$ and $50$, so Option (C) is the correct
+  choice.
+
+  {\em Performance review}: $6$ out of $11$ got this correct. $2$ each
+  chose (D) and (E), $1$ chose (A).
+
+  {\em Historical note (last year)}: $14$ out of $26$ got this correct. $6$
+  chose (D), $2$ chose (B), $2$ chose (E), $1$ chose (A), and $1$ left
+  the question blank.
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,371 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due February 8: Limits at infinity and improper integral}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$11$ people took this $11$-question quiz. The score distribution was
+as follows:
+
+\begin{itemize}
+\item Score of $2$: $1$ person
+\item Score of $4$: $1$ person
+\item Score of $6$: $2$ people
+\item Score of $7$: $1$ person
+\item Score of $8$: $1$ person
+\item Score of $9$: $1$ person
+\item Score of $10$: $1$ person
+\item Score of $11$: $3$ people
+\end{itemize}
+
+The mean score was about $7.7$.
+
+The question wise answers and performance were as follows:
+
+\begin{enumerate}
+\item Option (B): $10$ people
+\item Option (B): $10$ people
+\item Option (E): $7$ people
+\item Option (D): $6$ people
+\item Option (B): $5$ people
+\item Option (D): $8$ people
+\item Option (C): $10$ people
+\item Option (A): $11$ people
+\item Option (C): $7$ people
+\item Option (D): $7$ people
+\item Option (A): $4$ people
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+\item If $\lim_{x \to \infty} f(x) = L$ for some finite $L$, this tells
+  us that the graph of $f$ has a:
+
+  \begin{enumerate}[(A)]
+  \item vertical asymptote
+  \item horizontal asymptote
+  \item vertical tangent
+  \item horizontal tangent
+  \item vertical cusp
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Just by definition.
+
+  {\em Performance review}: $10$ out of $11$ got this correct. $1$
+  chose (D).
+
+  {\em Historical note (last year)}: $23$ out of $26$ people got this
+  correct. $1$ person each chose (A), (C), and (D).
+
+  {\em Action point}: Everybody should get this correct!
+\item If $\lim_{x \to \infty} f(x) = L$ and $\lim_{x \to \infty} f'(x)
+  = M$, where both $L$ and $M$ are finite, then:
+
+  \begin{enumerate}[(A)]
+  \item $L = 0$ but $M$ need not be zero
+  \item $M = 0$ but $L$ need not be zero
+  \item Both $L$ and $M$ must be zero.
+  \item Neither $L$ nor $M$ need be zero.
+  \item At least one of $L$ and $M$ must be zero, but it could be
+    either one.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: If $M$ were finite and nonzero, $f$ would have to
+  go to $+\infty$ if $M$ were positive and to $-\infty$ if $M$ were
+  negative, because $f$ would be growing/decaying at a rate that was
+  bounded from both above and below by linear functions.
+
+  Consider the following $\epsilon-\delta$ definition of limit at
+  $\infty$: $\lim_{x \to \infty} f(x) = L$ if for all $\epsilon > 0$,
+  there exists $a \in \R$ such that for all $x > a$, $|f(x) - L| <
+  \epsilon$. 
+
+  {\em Performance review}: $10$ out of $11$ got this correct. $1$
+  chose (D).
+
+  {\em Historical note (last year)}: $17$ out of $26$ people got this
+  correct. $6$ people chose (D), $2$ people chose (E), and $1$ person
+  chose (C).
+\item What is the smallest $a$ that can be picked for the function $f
+  = \arctan$ with $L$ being its limit at $\infty$ and $\epsilon =
+  \pi$?
+  \begin{enumerate}[(A)]
+  \item $\sqrt{3}$
+  \item $1$
+  \item $0$
+  \item $-1$
+  \item There is no smallest $a$. Any $a \in \R$ will do.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: The function $\arctan$ has range
+  $(-\pi/2,\pi/2)$, which is within the interval $(\pi/2 - \pi, \pi/2
+  + \pi)$. Thus, for all real numbers, the value of the $\arctan$
+  function is within the specified range.
+
+  {\em Performance review}: $7$ out of $11$ got this correct. $2$
+  chose (B), $1$ chose (C) and $1$ chose (D).
+
+  {\em Historical note (last year)}: $14$ out of $26$ people got this
+  correct. $5$ people chose (B), $3$ chose (C), $2$ each chose (A) and
+  (D).
+
+\item What is the smallest $a$ that can be picked for the function $f
+  = \arctan$ with $L$ being its limit at $\infty$ and $\epsilon =
+  \pi/6$?
+  \begin{enumerate}[(A)]
+  \item $1/2$
+  \item $1/\sqrt{3}$
+  \item $1$
+  \item $\sqrt{3}$
+  \item $2$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We need $a$ such that for $x > a$, $\arctan x \in
+  (\pi/2 - \pi/6, \pi/2 + \pi/6) = (\pi/3,2\pi/3)$. The right value of
+  $a$ is thus $\tan(\pi/3) = \sqrt{3}$.
+
+  {\em Performance review}: $6$ out of $11$ got this correct. $2$
+  chose (E), $1$ each chose (A), (B), and (C).
+
+  {\em Historical note (last year)}: $10$ out of $26$ people got this
+  correct. $11$ people chose (B), indicating that either they took
+  $\tan(\pi/3)$ wrong, or they computed $\tan(\pi/6)$ and did not
+  perform the subtraction step $\pi/2 - \pi/6$. $4$ people chose (A),
+  $1$ person chose (C), and $1$ person left the question blank.
+\item Suppose $f(x) := p(x)/q(x)$ is a rational function in reduced form
+  (i.e., the numerator and denominator are relatively prime) and
+  $\lim_{x \to c} f(x) = \infty$. Which of the following can you
+  conclude about $f$?
+  \begin{enumerate}[(A)]
+  \item $x - c$ divides $p(x)$, and the largest $r$ such that $(x -
+    c)^r$ divides $p(x)$ is even.
+  \item $x - c$ divides $q(x)$, and the largest $r$ such that $(x -
+    c)^r$ divides $q(x)$ is even.
+  \item $x - c$ divides $p(x)$, and the largest $r$ such that $(x -
+    c)^r$ divides $p(x)$ is odd.
+  \item $x - c$ divides $q(x)$, and the largest $r$ such that $(x -
+    c)^r$ divides $q(x)$ is odd.
+  \item $x - c$ does not divide either $p(x)$ or $q(x)$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: We need $x - c$ to divide $q(x)$ for the
+  denominator to blow up as $x \to c$. The power needs to be even to
+  get the {\em same} sign of infinity for both left-sided and
+  right-sided approach. $1/x^2$ at $c = 0$ is one example.
+
+  {\em Performance review}: $5$ out of $11$ got this correct. $5$
+  chose (C), $1$ chose (A).
+
+  {\em Historical note (last year)}: $9$ out of $26$ people got this
+  correct. $7$ chose (A), $4$ chose (C), $3$ chose (D), $2$ chose (E),
+  and $1$ left the question blank.
+
+  {\em Action point}: Please review this solution, make sure you
+  understand it, and if you were convinced of another answer, debug
+  the reasoning or examples that misled you.
+
+\item Suppose $f(x) := p(x)/q(x)$ is a rational function in reduced
+  form (i.e., the numerator and denominator are relatively prime) and
+  $\lim_{x \to c^-} f(x) = \infty$ and $\lim_{x \to c^+} f(x) =
+  -\infty$. Which of the following can you conclude about $f$?
+  \begin{enumerate}[(A)]
+  \item $x - c$ divides $p(x)$, and the largest $r$ such that $(x -
+    c)^r$ divides $p(x)$ is even.
+  \item $x - c$ divides $q(x)$, and the largest $r$ such that $(x -
+    c)^r$ divides $q(x)$ is even.
+  \item $x - c$ divides $p(x)$, and the largest $r$ such that $(x -
+    c)^r$ divides $p(x)$ is odd.
+  \item $x - c$ divides $q(x)$, and the largest $r$ such that $(x -
+    c)^r$ divides $q(x)$ is odd.
+  \item $x - c$ does not divide either $p(x)$ or $q(x)$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We need $x - c$ to divide $q(x)$ for the
+  denominator to blow up as $x \to c$. The power needs to be even to
+  get {\em opposite} signs of infinity for left-sided and
+  right-sided approach. $-1/x$ at $c = 0$ is one example.
+
+  {\em Performance review}: $8$ out of $11$ got this correct. $1$ each
+  chose (A), (C), and (E).
+
+  {\em Historical note (last year)}: $9$ out of $26$ people got this
+  correct. $8$ people chose (C), $5$ people chose (E), $2$ people
+  chose (A), $1$ chose (B), and $1$ left the question blank.
+
+  {\em Action point}: Please review this solution, make sure you
+  understand it, and if you were convinced of another answer, debug
+  the reasoning or examples that misled you.
+
+  Suppose $F$ is a function of two real variables, say $x$
+  and $t$, so $F(x,t)$ is a real number for $x$ and $t$ restricted to
+  suitable open intervals in the real number. Suppose, further, that
+  $F$ is jointly continuous (whatever that means) in $x$ and $t$.
+
+  Define $f(t) := \int_0^\infty F(x,t) \, dx$. Here, while doing the
+  integration, $t$ is treated as a constant. $x$, the variable of
+  integration, is being integrated on $[0,\infty)$.
+    
+  Suppose further that $f$ is defined and continuous for $t$ in
+  $(0,\infty)$. {\em Note that similar computations we did in the
+    midterm review session involved integration from $-\infty$ to
+    $\infty$}.
+
+  In the next few questions, you are asked to compute the function $f$
+  explicitly given the function $F$, for $t \in (0,\infty)$.
+
+\item $F(x,t) := e^{-tx}$. Find $f$.
+
+  \begin{enumerate}[(A)]
+  \item $f(t) = e^{-t}/t$
+  \item $f(t) = e^t/t$
+  \item $f(t) = 1/t$
+  \item $f(t) = -1/t$
+  \item $f(t) = -t$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The integral becomes
+  $[-e^{-tx}/t]_0^\infty$. Plugging in at $\infty$ gives $0$ and
+  plugging in at $0$ gives $-1/t$. Since the value at $0$ is being
+  subtracted, we eventually get $1/t$.
+
+  Note that the answer must be positive for the simple reason that we
+  are integrating a positive function from left to right across an
+  interval.
+
+  {\em Performance review}: $10$ out of $11$ got this correct. $1$
+  chose (A).
+
+  {\em Historical note (last year)}: $17$ out of $25$ people got this
+  correct. $4$ chose (A), $3$ chose (D), and $1$ chose (E).
+
+\item $F(x,t) := 1/(t^2 + x^2)$. Find $f$.
+
+  \begin{enumerate}[(A)]
+  \item $f(t) = \pi/(2t)$
+  \item $f(t) = \pi/t$
+  \item $f(t) = 2\pi/t$
+  \item $f(t) = \pi t$
+  \item $f(t) = 2\pi t$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: We get $[(1/t)\arctan(x/t)]_0^\infty$. The
+  evaluation at $\infty$ gives $\pi/(2t)$ and the evaluation at $0$
+  gives $0$. Subtracting, we get $\pi/(2t)$.
+
+  {\em Performance review}: Everybody got this correct.
+
+  {\em Historical note (last year)}: $17$ out of $25$ got this correct. $5$
+  chose (B), $2$ chose (D), $1$ chose (C).
+
+\item $F(x,t) := 1/(t^2 + x^2)^2$. Find $f$.
+
+  \begin{enumerate}[(A)]
+  \item $f(t) = \pi/t^3$
+  \item $f(t) = \pi/(2t^3)$
+  \item $f(t) = \pi/(4t^3)$
+  \item $f(t) = \pi/(8t^3)$
+  \item $f(t) = 3\pi/(8t^3)$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Put in $\theta = \arctan(x/t)$. Substitute, and
+  we get $(1/t^3) \int_0^{\pi/2} \cos^2\theta \,
+  d\theta$. Integrating, we get $[\theta/2t^3 +
+  \sin(2\theta)/4t^3]_0^{\pi/2}$. The trigonometric part vanishes
+  between limits, and we are left with $\pi/(4t^3)$
+
+  {\em Performance review}: $7$ out of $11$ got this correct. $3$
+  chose (B), $1$ chose (D).
+
+  {\em Historical note (last year)}: $15$ out of $25$ people got this
+  correct. $5$ chose (B), $2$ chose (A), $1$ each chose (D) and (E),
+  $1$ left the question blank.
+\item $F(x,t) = \exp(-(tx)^2)$. Use that $\int_0^\infty \exp(-x^2) \, dx=
+  \sqrt{\pi}/2$. Find $f$.
+
+  \begin{enumerate}[(A)]
+  \item $f(t) = t^2\sqrt{\pi}/2$
+  \item $f(t) = t\sqrt{\pi}/2$
+  \item $f(t) = \sqrt{\pi}/2$
+  \item $f(t) = \sqrt{\pi}/(2t)$
+  \item $f(t) = \sqrt{\pi}/(2t^2)$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Put $u = tx$, get a $1/t$ on the outside, giving
+  $(1/t) \int_0^\infty \exp(-u^2) \, du$.
+
+  {\em Performance review}: $7$ out of $11$ got this correct. $2$
+  chose (A), $2$ chose (E).
+
+  {\em Historical note (last year)}: $12$ out of $25$ people got the question
+  correct. $6$ chose (E), $3$ chose (C), $2$ each chose (A) and (B).
+
+\item In the same general setup as above (but with none of these
+  specific $F$s), which of the following is a {\em sufficient}
+  condition for $f$ to be an increasing function of $t$?
+
+  \begin{enumerate}[(A)]
+  \item $t \mapsto F(x_0,t)$ is an increasing function of $t$ for
+    every choice of $x_0 \ge 0$.
+  \item $x \mapsto F(x,t_0)$ is an increasing function of $x$ for
+    every choice of $t_0 \in (0,\infty)$.
+  \item $t \mapsto F(x_0,t)$ is a decreasing function of $t$ for
+    every choice of $x_0 \ge 0$.
+  \item $x \mapsto F(x,t_0)$ is a decreasing function of $x$ for
+  every choice of $t_0 \in (0,\infty)$.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: If $F$ is increasing in $t$ for every value of
+  $x_0$, then that means that as $t$ gets bigger, the function $F$
+  being integrated gets bigger everywhere in $x$, i.e., if $t_1 <
+  t_2$, then $F(t_1,x_0) < F(t_2,x_0)$ for every $x_0 \ge 0$. The
+  integral for the larger value $t_2$ must therefore also be
+  bigger. (We looked at this stuff in Section 5.8 of the book).
+
+  {\em Performance review}: $4$ out of $11$ got this correct. $4$
+  chose (B), $1$ each chose (C), (D), and (E).
+
+  {\em Historical note (last year)}: $4$ out of $25$ got the question
+  correct. $10$ chose (B), $5$ chose (E), $3$ chose (C), $2$ chose
+  (D), and $1$ left the question blank.
+
+  (A) was the ``obvious'' choice -- people may have tried to seek more
+  subtletly in the question than it had.
+
+  {\em Action point}: This should not trip {\em anybody} in the future.
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,221 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Hyperbolic functions: an introduction}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\newcommand{\arccot}{\operatorname{arccot}}
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 7.8.
+
+{\bf What students should already know}: The definition of the
+exponential function, the graphs of $e^x$ and $e^{-x}$, the derivative
+and antiderivative of the exponential.
+
+{\bf What students should definitely get}: The definitions of
+hyperbolic sine and hyperbolic cosine, the fact that these are
+derivatives of each other, the graphs of these functions, the key
+identities involving hyperbolic sine and cosine and the general
+procedure of proving them.
+
+{\bf What students should hopefully get}: The analogy between
+sine/cosine and hyperbolic sine/cosine, a general comprehension of
+Osborne's rule.
+
+{\bf Important note}: We are skipping, for now, the material in the
+book titled ``Catenary'' and ``Relation to the hyperbola $x^2 - y^2 =
+1$'' -- though we might talk about it later. You are encouraged to
+read this material for your own curiosity.
+
+\section*{Executive summary}
+
+\begin{enumerate}
+\item We define {\em hyperbolic cosine} $\cosh x := (e^x + e^{-x})/2$
+  and {\em hyperbolic sine} $\sinh x := (e^x - e^{-x})/2$. $\cosh$ is
+  the {\em even part} of the exponentiation function (and in
+  particular, is an even function) while $\sinh$ is the {\em odd part}
+  of the exponentiation function (and in particular, is an odd
+  function).
+\item $\cosh$ and $\sinh$ are derivatives of each other, and hence
+  also antiderivatives of each other.
+\item $\cosh$ is even and positive, decreasing on $(-\infty,0)$ and
+  increasing on $(0,\infty)$, concave up throughout, goes to $\infty$
+  as $x \to \pm \infty$, and its local and absolute minimum value of
+  $1$ are attained at $0$.
+\item $\sinh$ is odd, increasing on all of $\R$, negative and concave
+  down on $(-\infty,0)$, and positive and concave up on
+  $(0,\infty)$. It passes through $(0,0)$ where it has its unique
+  point of inflection. Note that at $(0,0)$, the derivative takes its
+  minimum value, which is $1$. In this important respect, the graph
+  does {\em not} look like $x^3$, where we have a horizontal tangent
+  at $x = 0$.
+\item $\cosh^2 x - \sinh^2 x = 1$. A lot of the identities involving
+  hyperbolic sine and hyperbolic cosine look very similar to the
+  corresponding identities involving the trigonometric (circular) sine
+  and cosine. In fact, we can move back and forth between the circular
+  and the hyperbolic using the following rule: change the sign in
+  front of any term that involves a product of two sine terms. This
+  rule is termed {\em Osborne's rule}.
+\end{enumerate}
+
+\section{The hyperbolic sine and cosine}
+
+\subsection{Definition and the key derivative property}
+
+We define the following two functions from $\R$ to $\R$.
+
+The {\em hyperbolic cosine}, denoted $\cosh$, is defined as:
+
+$$\cosh (x) := \frac{e^x + e^{-x}}{2}$$
+
+The {\em hyperbolic sine}, denoted $\sinh$, is defined as:
+
+$$\sinh(x) := \frac{e^x - e^{-x}}{2}$$
+
+The key facts about these two functions are:
+
+\begin{enumerate}
+\item $\cosh' = \sinh$. In other words, $\int \sinh(x) \, dx = \cosh x +
+  C$.
+\item $\sinh' = \cosh$. In other words, $\int \cosh(x) \, dx = \sinh x + C$.
+\item $\cosh'' = \cosh$ and $\sinh'' = \sinh$: These follow from the
+  above two.
+\end{enumerate}
+
+\subsection{Even and odd}
+
+Hyperbolic cosine is an {\em even} function, i.e., $\cosh(-x) =
+\cosh(x)$. This is because it is obtained by {\em averaging} the value
+of $e^x$ and $e^{-x}$. Similarly, hyperbolic sine is an {\em odd}
+function, i.e., $\sinh(-x) = -\sinh x$.
+
+In this respect, hyperbolic cosine behaves like cosine, and hyperbolic
+sine behaves like sine.
+
+Recall, from a long time ago, that for any function $f$ defined on
+$\R$, we can write $f$ as the sum of an even function $f_e$ and an odd
+function $f_o$ in a {\em unique} way. Here, we define:
+
+$$f_e(x) := \frac{f(x) + f(-x)}{2}$$
+
+and
+
+$$f_o(x) := \frac{f(x) - f(-x)}{2}$$
+
+The even function $f_e$ is termed the {\em even part} of $f$ and the
+function $f_o$ is termed the {\em odd part} of $f$. Further:
+
+$$f(x) = f_e(x) + f_o(x), \qquad f(-x) = f_e(x) - f_o(x)$$
+
+How does this relate to $\cosh$ and $\sinh$? If we take $f = \exp$,
+i.e., $f(x) := e^x$, then the even part of $f$ is $\cosh$ and the odd
+part of $f$ is $\sinh$. What we have done essentially is to split the
+exponentiation function additively into its even and odd parts. In
+particular, $\exp(x) = \cosh(x) + \sinh(x)$ and $\exp(-x) = \cosh(x) -
+\sinh(x)$.
+
+\subsection{Graphing the functions}
+
+We make the following observations in sequence:
+
+\begin{enumerate}
+\item $\cosh$ is always positive, while $\sinh$ is positive for $x >
+  0$, negative for $x < 0$, and zero at $x = 0$. Thus, while the graph
+  of $\cosh$ is completely above the $x$-axis, the graph of $\sinh$ is
+  above the $x$-axis for $x > 0$ and below the $x$-axis for $x <
+  0$. Also, it passes through the origin.
+\item The derivative of $\cosh$ is $\sinh$, which is positive for $x >
+  0$ and negative for $x < 0$. Thus, the graph of $\cosh$ is
+  decreasing on $(-\infty,0)$ and increasing on $(0,\infty)$. The
+  derivative of $\sinh$ is $\cosh$, which is always positive. Thus the
+  graph of $\sinh$ is increasing on all of $\R$.
+\item The second derivative of $\cosh$ is $\cosh$, which is always
+  positive. Thus, the graph of $\cosh$ is concave up on all of
+  $\R$. The second derivative of $\sinh$ is $\sinh$, which is positive
+  on $x > 0$ and negative on $x < 0$. Thus, the graph of $\sinh$ is
+  concave down on $x < 0$ and concave up on $x > 0$.
+\item The summary: $\cosh$ is an even function that approaches
+  $+\infty$ as $x \to \pm \infty$, is concave up throughout, decreases
+  on $(-\infty,0)$, increases on $(0,\infty)$, and has a unique local
+  and absolute minimum at $0$ with value $1$. $\sinh$ is an odd
+  function that approaches $-\infty$ at $-\infty$ and $+\infty$ at
+  $+\infty$, increases throughout, is concave down on $(-\infty,0)$,
+  is concave up on $(0,\infty)$, and has a unique point of inflection
+  at $0$ with value $0$. Note that this is {\em not} a horizontal
+  tangent-type point of inflection of the $x^3$ creed. Rather, the
+  tangent line to this is $y = x$. The {\em minimum value} of the
+  derivative of $\sinh$ is $1$, attained at $0$.
+\end{enumerate}
+
+Here are the graphs of the two functions:
+
+\includegraphics[width=3in]{hyperbolicsineandcosine.png}
+
+In addition to everything we've noted so far, it's also true that the
+graphs of $\cosh$ and $\sinh$ are asymptotic to each other as $x \to
++\infty$ but {\em not} as $x \to -\infty$. To see this, note that
+$\cosh x - \sin h = \exp(-x)$, which tends to $0$ as $x \to +\infty$
+and tends to $+\infty$ as $x \to -\infty$.
+\subsection{Basic identities}
+
+\begin{eqnarray*}
+  \cosh^2 x - \sinh^2 x & = & 1\\
+  \cosh(x + y) & = & \cosh x \cosh y + \sinh x \sinh y\\
+  \sinh(x + y) & = & \sinh x \cosh y + \cosh x \sinh y \\
+  \cosh(x - y) & = & \cosh x \cosh y - \sinh x \sinh y \\
+  \sinh(x - y) & = & \sinh x \cosh y - \cosh x \sinh y \\
+  \sinh(2x) & = & 2 \sinh x \cosh x\\
+  \cosh(2x) & = & 2\cosh^2 x - 1 = 2\sinh^2 x + 1 = \cosh^2 x + \sinh^2 x
+\end{eqnarray*}
+
+All of these identities can be proved by plugging in the definitions
+of $\cosh$ and $\sinh$ in terms of $\exp$ and then using the
+properties of $\exp$ to simplify the expression on both sides. For instance:
+
+$$\cosh^2 x - \sinh^2 x = \left[\frac{e^x + e^{-x}}{2}\right]^2 - \left[\frac{e^x - e^{-x}}{2}\right]^2 = \frac{e^{2x} + 2 + e^{-2x}}{4} - \frac{e^{2x} - 2 + e^{-2x}}{4} = \frac{2 + 2}{4} = 1$$
+
+\section{Relating the hyperbolic sine and cosine to the circular sine and cosine}
+
+In this section, we use the term {\em circular} sine and cosine to
+refer to the usual sine and cosine.
+
+The hyperbolic sine and cosine have very similar behavior to the
+circular sine and cosine in the following important respects:
+
+\begin{enumerate}
+\item {\em The mutual derivative relationship, along with the even-odd
+  nexus}: The hyperbolic sine and cosine are derivatives of each
+  other, with the former being even and the latter being odd. The
+  circular cosine is the derivative of the circular sine and the
+  circular sine is the {\em negative} derivative of the circular
+  cosine.
+\item {\em Very similar identities} such as $\cos^2 + \sin^2 = 1$
+  being replaced by $\cosh^2 - \sinh^2 = 1$, as well as similar
+  identities for sums and doubles.
+\end{enumerate}
+
+On the other hand, the graphs of the functions look very
+different. $\sin$ and $\cos$ are periodic functions with a period of
+$2\pi$, while $\sinh$ and $\cosh$ barely repeat ($\sinh$ is one-to-one
+and $\cosh$ restricts to a one-to-one function on the nonnegative
+reals). So what is really going on?
+
+The answer to this is beyond our current scope, but it in fact has
+something to do with complex numbers. It turns out that we can extend
+all these definitions to complex inputs, and with that extended
+definition, we have $\cos(x) = \cosh(ix)$ and $\sin(x) = \sinh(ix)/i$,
+where $i$ is a non-real squareroot of $-1$. The fact that $i^2 = -1$
+is the key reason for both the similarities and differences.
+
+This gives rise to a rule called {\em Osborne's rule}: To convert an
+identity involving the circular sine and cosine to a corresponding
+identity involving hyperbolic sine and cosine, change the sign on all
+terms that involve the product of two sines. For instance, in the
+identity $\cos^2 x + \sin^2 x = 1$, the $\sin^2$ term is the product
+of two $\sin$ terms, so the sign on this is changed. (The precise rule
+is more sophisticated, but this is good enough). It is a good exercise
+to use this rule to relate each of the hyperbolic sine/cosine
+identities and the corresponding circular sine/cosine identity.
+
+\end{document}

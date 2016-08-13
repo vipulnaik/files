@@ -1,0 +1,576 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Equations of lines and planes}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 12.5.
+
+{\bf What students should definitely get}: Parametric equation of line
+given in point-direction and two-point form, symmetric equations of
+line, degenerate cases where direction vector has one or more
+coordinate zero, intersecting lines, equation of plane, angle between
+planes, line of intersection of planes, distance of point and plane.
+
+{\bf What students should hopefully get}: How the equation setup
+relates to the general setup for curves and surfaces. Understanding of
+the degenerate cases. Role of parameter restrictions in defining a
+line segment. Deeper understanding of relationship of direction vector
+and direction cosines.
+
+
+\section*{Executive summary}
+
+\subsection{Direction cosines}
+
+\begin{enumerate}
+\item For a nonzero vector $v$, there are two unit vectors parallel to
+  $v$, namely $v/|v|$ and $-v/|v|$.
+\item The direction cosines of $v$ are the coordinates of $v/|v|$. if
+  $v/|v| = \langle \ell,m,n \rangle$, then the direction cosines are
+  $\ell$, $m$, and $n$. We have the relation $\ell^2 + m^2 + n^2 =
+  1$. Further, if $\alpha$, $\beta$, and $\gamma$ are the angles made
+  by $v$ with the positive $x$, $y$, and $z$ axes, then $\ell = \cos
+  \alpha$, $m = \cos \beta$, and $n = \cos \gamma$.
+\end{enumerate}
+
+\subsection{Lines}
+Words ...
+
+\begin{enumerate}
+\item A line in $\R^3$ has dimension $1$ and codimension $2$. A
+  parametric description of a line thus requires $1$ parameter. A
+  top-down equational description requires two equations.
+\item Given a point with radial vector $\mathbf{r}_0$ and a direction
+  vector $\mathbf{v}$ along a line, the parametric description of the
+  line is given by $\mathbf{r}(t) = \mathbf{r}_0 + t\mathbf{v}$. If
+  $\mathbf{r}_0 = \langle x_0, y_0,z_0 \rangle$ and $\mathbf{v} =
+  \langle a,b,c \rangle$, this is more explicitly described as $x =
+  x_0 + ta$, $y = y_0 + tb$, $z = z_0 + tc$.
+\item Given two points with radial vectors $\mathbf{r_0}$ and
+  $\mathbf{r_1}$, we obtain a vector equation for the line as
+  $\mathbf{r}(t) = t\mathbf{r_1} + (1 - t)\mathbf{r_0}$. If we
+  restrict $t$ to the interval $[0,1]$, then we get the line segment
+  joining the points with these radial vectors.
+\item If the line is not parallel to any of the coordinate planes,
+  this parametric description can be converted to symmetric equations
+  by eliminating the parameter $t$. With the above notation, we get:
+
+  $$\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}$$
+
+  This is actually {\em two} equations rolled into one.
+
+\item If $c = 0$ and $ab \ne 0$, the line is parallel to
+  the $xy$-plane, and we get the equations:
+
+  $$\frac{x - x_0}{a} = \frac{y - y_0}{b}, \qquad z = z_0$$
+
+  Similarly for the other cases where precisely one coordinate is zero.
+\item If $a = b = 0$ and $c \ne 0$, the line is parallel to the
+  $z$-axis, and we get the equations:
+
+  $$x = x_0, \qquad y = y_0$$
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item To intersect two lines both given parametrically: Choose
+  different letters for parameters, equate coordinates, solve $3$
+  equations in $2$ variables. {\em Note: Expected dimension of
+  solution space is $2 - 3 = -1$}.
+\item To intersect a line given parametrically and a line given by
+  equations: Plug in the coordinates as functions of parameters into
+  both equations, solve. Solve $2$ equations in $1$ variable. {\em
+  Note: Expected dimension of solution space is $1 - 2 = -1$}.
+\item To intersect two lines given by equations: Combine equations,
+  solve $4$ equations in $3$ variables. {\em Note: Expected dimension
+  of solution space is $3 - 4 = -1$}.
+\end{enumerate}
+
+\subsection{Planes}
+
+Words ...
+
+\begin{enumerate}
+\item Vector equation of a plane (for the radial vector) is
+  $\mathbf{n} \cdot (\mathbf{r} - \mathbf{r_0}) = 0$ where
+  $\mathbf{n}$ is a normal vector to the plane and $\mathbf{r_0}$ is
+  the radial vector of any fixed point in the plane. This can be
+  rewritten as $\mathbf{n} \cdot \mathbf{r} = \mathbf{n} \cdot
+  \mathbf{r_0}$. Using $\mathbf{n} = \langle a,b,c \rangle$,
+  $\mathbf{r} = \langle x,y,z \rangle$, and $\mathbf{r}_0 = \langle
+  x_0,y_0,z_0 \rangle$, we get the corresponding scalar equation $ax +
+  by + cz = ax_0 + by_0 + cz_0$. Set $d = -(ax_0 + by_0 + cz_0)$ and
+  we get $ax + by + cz + d = 0$.
+\item The ``direction'' or ``parallel family'' of a plane is
+  determined by its normal vector. The angle between planes is the
+  angle between their normal vectors. Two planes are parallel if their
+  normal vecors are parallel. And so on.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item Given three non-collinear points, we find the equation of the
+  unique plane containing them as follows: first we find a normal
+  vector by taking the cross product of two of the difference
+  vectors. Then we use any of the three points to calculate the dot
+  product with the normal vector in the above vector equation or the
+  corresponding scalar equation.
+
+  Note that if the points are collinear, there is no unique plane
+  through them -- any plane containing their line is a plane
+  containing them.
+\item We can compute the angle of intersection of two planes by
+  computing the angle of intersection of their normal vectors.
+\item The line of intersection of two planes that are not parallel can
+  be computed by simply taking the equations for {\em both}
+  planes. This, however, is not a standard form for a line in
+  $\R^3$. To find a standard form, either find two points by
+  inspection and join them, or find one point by inspection and
+  another point by taking the cross product of the normal vectors to
+  the plane.
+\item To intersect a plane and a line, plug in parametric expressions
+  for the coordinates arising from the line into the equation of the
+  plane. We get one equation in the one parameter variable. In
+  general, this is expected to have a unique solution for the
+  parameter. Plug in the value of the parameter into the parametric
+  expressions for the line and get the coordinates of the point of
+  intersection.
+\item For a point with coordinates $(x_1,y_1,z_1)$ and a plane $ax +
+  by + cz + d = 0$, the distance of the point from the plane is given
+  by $|ax_1 + by_1 + cz_1 + d|/\sqrt{a^2 + b^2 + c^2}$.
+\end{enumerate}
+\section{Lines and planes}
+
+\subsection{Lines: dimension and codimension}
+
+A line in $\R^n$ has dimension one and codimension $n - 1$. In
+particular, a line in Euclidean space $\R^3$ has dimension $1$ and
+codimension $3 - 1 =2$. In particular, based on what we know of
+dimension and codimension, we expect that:
+
+\begin{itemize}
+\item In a top-down or relational description, we should need {\em
+  two} independent equations to define a line.
+\item In a bottom-up or parametric description, we should need {\em
+  one} parameter to define a line.
+\end{itemize}
+
+\subsection{Planes: dimension and codimension}
+
+A plane in $\R^3$ is $2$-dimensional, and it has codimension $3 - 2 =
+1$. In particular, based on what we know of dimension and codimension,
+we expect that:
+
+\begin{itemize}
+\item In a top-down or relational description, we should need {\em
+  one} equation to define a plane.
+\item In a bottom-up or parametric description, we should need {\em
+  two} parameters to define a plane. {\em This gets into the realm of
+  functions of two variables, so we will defer the actual
+  $2$-parameter description of planes for now}.
+\end{itemize}
+
+\subsection{Intersection theory}
+
+We have the following basic intersection facts:
+
+\begin{tabular}{|l|l|l|l|l|}
+  \hline
+  Intersect & Generic case & Special case 1 & Special case 2 & Special case 3 \\
+  \hline
+  Plane, plane & Line & Empty (parallel planes) & Plane (equal planes) & \\
+  \hline
+  Plane, line & Point & Empty (line parallel to, not on plane) & Line (line on plane) & \\
+  \hline
+  Line, line & Empty (skew lines) & Point (intersecting lines) & Empty (parallel lines) & Line (equal lines) \\
+  \hline
+\end{tabular}
+
+The {\em generic case} here represents the case that is most likely,
+i.e., the case that would arise if the things being intersected were
+chosen randomly. There are mathematical ways of making this precise,
+but these are beyond the current scope.
+
+In particular, it is worth pointing out that the generic case is
+exactly as intersection theory predicts. Let's consider the three
+generic cases:
+
+\begin{itemize}
+\item {\em Generic intersection of plane and plane}: A plane has
+  codimension $1$, so the intersection of two planes (generically) has
+  codimension $1 + 1 = 2$. We know that a line has codimension $2$, so
+  this makes sense.
+\item {\em Generic intersection of plane and line}: A plane has
+  codimension $1$ and a line has codimension $2$, so the intersection
+  of a plane and a line (generically) has codimension $1 + 2 = 3$, so
+  it is zero-dimensional. A point is zero-dimensional.
+\item {\em Generic intersection of line and line}: A line has
+  codimension $2$, so the intersection of two lines (generically) has
+  codimension $2 + 2 = 4$, so it has dimension $3 - 4 = -1$. Negative
+  dimension indicates that the intersection is generically empty.
+\end{itemize}
+
+After we study the intersection theory in detail for lines and planes,
+we will be in a position to acquire a better understanding of the {\em
+general principles} of intersection theory. Specifically, we will
+acquire a better grasp of the {\em non-generic} cases where the
+intersections don't work out as they generically do.
+
+\section{Equations of lines}
+
+\subsection{The point-direction form}
+
+The general principle behind this is the same as it is with the {\em
+point-slope form}. Basically, to describe a line, it suffices to
+specify a point on the line, and the {\em direction} of the line.
+
+The {\em direction} is specified by specifying any vector parallel to
+the line. Specifically, given a line with points $A$ and $B$ on it,
+the direction of the line is given by taking the vector $AB$. Note
+that any two vectors that are scalar multiples of each other (i.e.,
+parallel to each other) specify the same direction.
+
+Suppose $\mathbf{r_0}$ is the radial vector for one point on the line,
+and $\mathbf{v}$ is any nonzero vector along the line. Then the radial
+vector (i.e., vector from the origin to a point) for points on the
+line can be defined by the parametric equation:
+
+$$\mathbf{r}(t) = \mathbf{r_0} + t\mathbf{v}$$
+
+where $t$ varies over the real numbers. For each value of $t$, we get
+a radial vector for some point on the line, and every point on the
+line is covered this way.
+
+Suppose $\mathbf{r_0} = \langle x_0, y_0, z_0 \rangle$ and $\mathbf{v} =
+\langle a,b,c \rangle$. Then $\mathbf{r_0} + t\mathbf{v}$ is the
+vector:
+
+$$\langle x_0 + ta, y_0 + tb, z_0 + tc \rangle$$
+
+The corresponding parametric description of a curve is:
+
+$$\{ (x_0 + ta, y_0 + tb, z_0 + tc) : t \in \R \}$$
+
+Note that the {\em choice} of parametric description depends on the
+choice of basepoint in the line and the choice of vector (which can be
+varied up to scalar multiples).
+
+By the way, here is some terminology (which we overlooked
+earlier). The {\em direction cosines} for a particular direction are
+defined as the coordinates of the {\em unit vector} in that
+direction. The direction cosines of a particular direction are denoted
+$\ell$, $m$, and $n$. For instance, if a direction vector is $\langle
+1,2,3 \rangle$, then the corresponding unit vector is $\langle
+1/\sqrt{14}, 2/\sqrt{14}, 3/\sqrt{14} \rangle$, so the direction
+cosines are $\ell = 1/\sqrt{14}$, $m = 2/\sqrt{14}$, and $n =
+3/\sqrt{14}$.
+
+The direction cosines are also the cosines of the angles made by the
+vectors with the $x$-axis, $y$-axis, and $z$-axis. They satisfy the
+relation:
+
+$$\ell^2 + m^2 + n^2 = 1$$
+
+\subsection{The two-point form}
+
+Suppose $\mathbf{r_0}$ and $\mathbf{r_1}$ are the radial vectors of two
+points on a line. Then, we can get a line in the point-direction form
+by setting $\mathbf{v} = \mathbf{r_1} - \mathbf{r_0}$. We thus get the form:
+
+$$\mathbf{r}(t) = \mathbf{r_0} + t(\mathbf{r_1} - \mathbf{r_0})$$
+
+This simplifies to:
+
+$$\mathbf{r}(t) = t\mathbf{r_1} + (1 - t)\mathbf{r_0}$$
+
+As $t$ varies over all of $\R$, this gives the whole line. When $t =
+0$, we get the point with radial vector $\mathbf{r_0}$ and when $t = 1$,
+we get the point with radial vector $\mathbf{r_1}$. If we allow only $0
+\le t \le 1$, we get the {\em line segment} joining the two points.
+
+\subsection{Top-down description: symmmetric equations}
+
+To obtain the symmetric equations, we start with the parametric
+equations and then eliminate the parameter. In other words, with the
+parametric description:
+
+$$\{ (x_0 + ta, y_0 + tb, z_0 + tc) : t \in \R \}$$
+
+We note that:
+
+$$x = x_0 + ta, \qquad \implies \qquad t = \frac{x - x_0}{a}$$
+
+Similarly, we get $t = (y - y_0)/b$ and $t = (z - z_0)/c$. Eliminating
+$t$, we get:
+
+$$\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}$$
+
+Note that while this looks like a single long equation, it is actually
+{\em two} equations:
+
+$$\frac{x - x_0}{a} = \frac{y - y_0}{b}$$
+
+and
+
+$$\frac{y - y_0}{b} = \frac{z - z_0}{c}$$
+
+This is in keeping with what we expect/hope -- that to describe a
+$1$-dimensional subset in $3$-dimensional space, we need $3 - 1 = 2$
+equations.
+
+Intuitively, what these equations are saying is that the coordinate
+changes are in the ratio $a:b:c$.
+
+\subsection{Exceptional case of lines parallel to one of the coordinate planes}
+
+The symmetric equations formulation breaks down if one of the
+coordinates of the direction vector $\langle a,b,c \rangle$ is
+zero. In this case, the line is parallel to one of the three
+coordinate planes, with the third coordinate being unchanged (e.g., if
+$c = 0$, then the line is parallel to the $xy$-plane, because its
+$z$-coordinate is unchanged).
+
+They break down even more when two coordinates of the direction vector
+are zero, which means that the line is parallel to one of the axes.
+
+In this case, the symmetric equations given above do not work, and we
+instead do the following.
+
+\begin{itemize}
+\item If only one coordinate of the direction vector is zero: If $c =
+  0$ and $a,b \ne 0$, then we get the two equations:
+
+  $$\frac{x - x_0}{a} = \frac{y - y_0}{b}, \qquad z = z_0$$
+
+  Similarly for the other cases.
+\item If two coordinates are zero: If, say $a = b = 0$, then we get
+  the two equations:
+
+  $$x = x_0, \qquad y = y_0$$
+
+  $z$ does not appear in the equations because it can vary
+  freely. This line is parallel to the $z$-axis.
+\end{itemize}
+
+\subsection{Pairs of lines: questions about intersection}
+
+As we noted earlier, lines in $\R^3$ have codimension $2$, so the
+intersection of two lines is expected to be empty. There are
+qualitatively four possibilities:
+
+\begin{enumerate}
+\item The lines are skew lines: This is the most ``independent'' case
+  possible. Here, the equations describing the two lines are as
+  independent of each other as possible and the two lines thus do not
+  lie in the same plane. They do not intersect.
+\item The lines are intersecting lines in the same plane: This is a
+  somewhat less independent case. Here, there is a plane (not
+  necessarily containing the origin) that contains both lines, and the
+  lines are not parallel, so they intersect at a point.
+\item The lines are parallel lines in the same plane: Here, the
+  equations for the line are inconsistent in a specific way, so they
+  lie in the same plane but are parallel. They do not intersect. {\em
+  Although the conclusion about intersection is the same both for
+  pairs of parallel lines and for pairs of skew lines, the reasons
+  behind this conclusion are different.}
+\item The two lines are actually the same line: In this case, their
+  intersection is the same line. This is the most dependent case
+  possible.
+\end{enumerate}
+
+We now examine how to find the intersection of two lines. The approach
+is simply a special case of finding the intersection of two
+curves. Since the equations are all linear, we can actually devise
+specific procedures to solve the equations.
+
+\begin{itemize}
+\item {\em Both lines are given parametrically}: In this case, we
+  first make sure we have different letters for the parameters for
+  each line. Then we equate coordinate-wise and solve the system of
+  $3$ linear equations in $2$ variables (the parameter variables for
+  the two lines). Note that the number of equations is more than the
+  number of variables -- unsurprising since the generic case is one of
+  skew lines.
+
+  After finding solutions for the two parameters, plug back to find
+  the points.
+\item {\em One line is given parametrically in terms of $t$, the other
+  using symmetric equations}: We substitute the parametric expressions
+  into the values of $x$, $y$, and $z$ in the symmetric equations and
+  solve the system of two equations in the one (parameter) variable
+  $t$. After finding solutions for $t$, plug back to find the points.
+\item {\em Both lines are given by symmetric equations}: We solve all
+  the four symmetric equations.
+\end{itemize}
+
+\section{Planes}
+
+\subsection{Vector description in terms of dot product}
+
+For a given plane in $\R^3$, it either already passes through the
+origin, or there is a unique plane parallel to it that passes through
+the origin. We say that two planes are {\em parallel} if they either
+coincide or they do not intersect -- equivalently, if for every line
+in one plane, there is a line in the other plane parallel to it.
+
+A family of parallel planes can be thought of as sharing a
+direction. But how do we specify the direction of a plane, which is a
+two-dimensional object? The idea is to look at the {\em complement},
+or the {\em codimension}, of the plane. Specifically, we look at the
+direction that is {\em orthogonal} to the plane.
+
+There is a unique direction vector (up to scalar multiples) orthogonal
+to a family of parallel planes. Further, the dot product of this
+vector with the radial vector in any fixed plane in the family is a
+constant, and this constant differs for each plane in the family. This
+allows us to give equations for planes as follows.
+
+Let $\mathbf{n}$ be a normal vector (orthogonal vector) to a plane and
+let $\mathbf{r_0}$ be the radial vector for a fixed point in the
+plane. Then, if $\mathbf{r}$ is the radial vector for an arbitrary
+point in the plane, we have:
+
+$$\mathbf{n} \cdot (\mathbf{r} - \mathbf{r_0}) = 0$$
+
+Rearranging, we get:
+
+$$\mathbf{n} \cdot \mathbf{r} = \mathbf{n} \cdot \mathbf{r_0}$$
+
+Note that the right side is an actual real number.
+
+If $\mathbf{n} = \langle a,b,c \rangle$ and $\mathbf{r_0} = \langle
+x_0,y_0,z_0 \rangle$, we get the scalar equation:
+
+$$ax + by + cz = ax_0 + by_0 + cz_0$$
+
+If we define $d = -(ax_0 + by_0 + cz_0)$, we can rewrite the above as:
+
+$$ax + by + cz + d = 0$$
+
+Conversely, any equation of the above sort, where at least one of the
+numbers $a$, $b$, and $c$ is nonzero, gives a plane.
+
+\subsection{Plane parallel to the coordinate axes and planes}
+
+We say that a plane and a line are parallel if either the line lies on
+the plane or they do not intersect at all.
+
+If $a = 0$, the plane is parallel to the $x$-axis. If $b = 0$, the
+plane is parallel to the $y$-axis. If $c = 0$, the plane is parallel
+to the $z$-axis.
+
+If $a = b = 0$, the plane is parallel to the $xy$-plane. If $b = c =
+0$, the plane is parallel to the $yz$-plane. If $a = c = 0$, the plane
+is parallel to the $xz$-plane.
+
+\subsection{Finding the equation of a plane given three points}
+
+To specify a plane, we need to provide at least three points on the
+plane. Given these three points, we can find the equation of the plane
+as follows:
+
+\begin{itemize}
+\item We first take two difference vectors and take their cross
+  product to find a normal vector to the plane: If the points are $P$,
+  $Q$, and $R$, we take the difference vectors $PQ$ and $PR$ and
+  compute their cross product.
+\item We now use the vector equation, and hence from that the scalar
+  equation, taking any of of the three points $P$, $Q$, or $R$ as the
+  basepoint.
+\end{itemize}
+
+Note that if the three points given are {\em collinear}, then they do
+not define a unique plane. Rather, any plane through the line joining
+these three points works. It is no surprise that the above procedure
+fails at the stage where we need to take cross product, because the
+cross product turns out to be the zero vector.
+\subsection{Intersecting two planes: line of intersection}
+
+Given two planes, the typical case is that they intersect in a
+line. If we have scalar equations for both planes, then the
+intersection line can be described by taking the two equations
+together.
+
+Unfortunately, this pair of two equations together, while it does
+define a line, is not directly one of the {\em standard} descriptions
+of a line.
+
+There are many ways of obtaining the line in standard form. One of
+these is as follows: first, find normal vectors to the planes. For
+instance, if the equations for the planes are:
+
+\begin{eqnarray*}
+  a_1x + b_1y + c_1z + d_1 & = & 0\\
+  a_2x + b_2y + c_2z + d_2 & = & 0\\
+\end{eqnarray*}
+
+Then the normal vectors to these planes are $\langle
+a_1,b_1,c_1\rangle$ and $\langle a_2,b_2,c_2\rangle$. A direction
+vector along the line of intersection must be perpendicular to {\em
+both} these normal vectors, hence, it must be in the line of the {\em
+cross product}. Hence, we take the cross product $\langle a_1,b_1,c_1
+\rangle \times \langle a_2,b_2,c_2 \rangle$.
+
+Now that we've found the direction vector along the intersection of
+these planes, we need to find just one point along the intersection
+and we can then use the point-direction form. One way of finding a
+point is to set $z = 0$ in both equations and solve the system for $x$
+and $y$ (this is assuming that neither is parallel to the $xy$-plane;
+otherwise choose some other coordinate).
+
+Note that if the planes are parallel or coincide, then their normal
+vectors are parallel and thus the cross product of the normal vectors
+becomes zero. Conversely, the cross product becoming zero means the
+planes are parallel, so there is a good reason for the line of
+intersection to not make sense.
+
+\subsection{Intersecting two planes: angle of intersection}
+
+The {\em angle of intersection} between two planes is the angle of
+intersection between their normal vectors. As for the line of
+intersection, we can extract the normal vector from the scalar
+equation of the planes. To compute the angle of intersection, we use
+the formula as arc cosine of the quotient of the dot product by the
+product of the lengths.
+
+\subsection{Intersecting a plane and a line}
+
+Given a plane and a line, we can intersect them as follows: If the
+plane is given by a scalar equation and the line is given
+parametrically using a parameter $t$, then to compute the
+intersection, we plug in all coordinates as functions of the parameter
+into the scalar equation for the plane, and solve one equation in the
+one variable $t$. After finding the solution $t$, we plug this into
+the parametric equation of the line to find the coordinates of the
+point of intersection.
+
+There are three possibilities:
+
+\begin{itemize}
+\item The typical case is that we have a linear equation in one
+  variable, and it has a unique solution. In other words, the plane
+  and line intersect at a point.
+\item Another case is that the equation simplifies to something
+  nonsensical, such as $0 = 1$. In this case, there is no
+  intersection. Geometrically, this means the line is parallel to but
+  not on the plane.
+\item The final case is that the equation simplifies to a tautology,
+  such as $0 = 0$. In this case, all real $t$ give
+  solutions. Geometrically, this means that the line is on the plane.
+\end{itemize}
+
+\subsection{Distance of a point from a plane}
+
+We will not have much occasion to use this formula, but we note it
+briefly nonetheless. Given a point with coordinates $(x_1,y_1,z_1)$
+and a plane $ax + by + cz + d = 0$, the distance from the point to the
+plane is given by the formula:
+
+$$\frac{|ax_1 + by_1 + cz_1 + d|}{\sqrt{a^2 + b^2 + c^2}}$$
+
+\end{document}

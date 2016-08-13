@@ -1,0 +1,979 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Summation notation, series, and convergence basics}
+\author{Math 153, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 12.1, 12.2, 12.3.
+
+{\bf What students should definitely get}: The summation notation and
+how it works, series, concepts of convergence. The use of telescoping
+and forward difference operator ideas to sum up series. The use of the
+integral test and other tests to determine whether a series converges
+and obtain numerical estimates. Convergence rules for rational
+functions.
+
+{\bf What students should hopefully get}: How the summation notation
+is similar to the integral notation, how the parallels can be worked
+out better.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item {\em Not for discussion}: The $\sum$ summation notation is used
+  to compactly express a sum of many (finitely or infinitely many)
+  terms. The terms of the summation are called {\em summands} and the
+  variable that changes value across summands is termed the {\em
+  variable of summation} or {\em index of summation}, and is a {\em
+  dummy variable}. Some variants include: (i) writing the start of
+  summation at the bottom and the end of summation at the top, (ii)
+  writing the set constraint at the bottom, (iii) doing (i) or (ii)
+  but omitting the index of summation.
+\item {\em Not for discussion}: The infinite sum $\sum_{k=1}^\infty
+  f(k)$ is defined as the limit $\lim_{n \to \infty} \sum_{k=1}^n
+  f(k)$. The sums $\sum_{k=1}^n f(k)$ are termed the {\em partial
+  sums}. We use the term {\em series} for a sequence to be summed
+  up. The sum of a series is the limit of the sequence of partial
+  sums. The summands are called the {\em terms} of the series.
+\item For a series of nonnegative terms, the sum is independent of the
+  ordering of the terms. It can also be determined by grouping
+  together the terms in any manner whatsoever. Thus, sums of
+  nonnegative terms are commutative and associative in a strong sense.
+\item Summation is linear: it is additive and scalar multiples can be
+  pulled out. In other words, $\sum (f(k) + g(k)) = \sum f(k) + \sum
+  g(k)$. On the other hand, summation is {\em not} multiplicative. In
+  other words, $\sum f(k)g(k)$ is not the same thing as $(\sum
+  f(k))(\sum g(k))$.
+\item If $g = \Delta f$ where $\Delta$ is the forward difference
+  operator, then $\sum_{k=a}^b g(k) = f(b + 1) - f(a)$. This has a
+  more general version called telescoping. Telescoping can be thought
+  of as the discrete analogue of the fundamental theorem of calculus.
+\item There are four kinds of things we can do concretely for a series
+  of nonnegative terms: (i) show that the series diverges, (ii) show
+  that the series converges, and find its sum, (iii) show that the
+  series converges, and find bounds on its sum, without finding an
+  explicit summation-free expression for the sum, (iv) show that the
+  series converges, without any explicit bounds on its sum.
+\item A series of nonnegative terms converges to the least upper bound
+  of its sequence of partial sums. Note that the sequence of partial
+  sums is a non-decreasing sequence precisely because the terms of the
+  series (i.e., the summands) are nonnegative.
+\item If a series of (possibly mixed sign) terms converges, the
+  magnitudes of the terms must go to $0$. The contrapositive is that
+  if the terms of a series do not go to $0$, the series does not
+  converge. This establishes a {\em necessary but not sufficient
+  condition} for the convergence of a series.
+\item Left shifts and/or changing finitely many terms does not change
+  the convergence of a series though it may change the value of the
+  sum of the series. This result holds for a series with mixed sign
+  terms.
+\item A geometric series is a series where the quotient of successive
+  terms is constant. The constant (successor term over current term)
+  is termed the {\em common ratio}. A geometric series of possibly
+  mixed sign terms converges if and only if the common ratio has
+  absolute value strictly less than $1$. If the first term is $a$ and
+  the common ratio is $r$, the geometric series converges to $a/(1 -
+  r)$.
+\item The sum of a {\em finite} segment of a geometric series with $n$
+  terms, first term $a$, and common ratio $r$, is $a(1 - r^n)/(1 - r)$
+  if $r \ne 1$, and $na$ if $r = 1$.
+\item The integral test gives both a computational estimate for the
+  sum of a series and a conditional test for whether the series
+  converges. In particular, it states that for a (eventually)
+  nonnegative, (eventually) continuous, (eventually) decreasing
+  function, the integral is finite if and only if the sum is. (See the
+  class notes for the details on the computational estimate; the book
+  concentrates on the conditionality aspect).
+\item The basic comparison test states that if $0 \le a_k \le b_k$ for
+  all sufficiently large $k$, and $\sum b_k$ converges, so does $\sum
+  a_k$. Similarly, if $\sum a_k$ diverges, so does $\sum b_k$.
+\item The limit comparison test states that if $\lim_{k \to \infty}
+  a_k/b_k$ is finite and positive, then both series have the same
+  convergence/divergence behavior.
+\item For $p > 0$, consider the $p$-series $\sum_{k=1}^\infty
+  k^{-p}$. This series diverges for $p \le 1$ and converges for $p >
+  1$. We define the zeta function $\zeta(p)$ as the sum of the
+  series. We note that $\max \{ 1, 1/(p-1) \} \le \zeta(p) \le
+  p/(p-1)$ for all $p$, by the integral test. [Review how this is
+  derived]. $\zeta$ is a continuous decreasing function on
+  $(1,\infty)$ with $\lim_{p \to 1^+} \zeta(p) = \infty$ and $\lim_{p
+  \to \infty} \zeta(p) = 1$. Also, $\zeta(2) = \pi^2/6$ and $\zeta(4)
+  = \pi^4/90$. [Note: We have {\em not} seen how to derive these values.]
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item Telescoping is a powerful tool. It allows us to use partial
+  fractions to sum up various kinds of sums with quadratic
+  denominatorics. In particular, if $g(k) = f(k) - f(k + m)$, with
+  $f(k) \to 0$ as $n \to \infty$, then $\sum g(k) = f(1) + f(2) +
+  \dots + f(m)$.
+\item We can also use the known formulas for summing up $\sum 1$,
+  $\sum k$, $\sum k^2$ and $\sum k^3$ along with linearity to
+  calculate summations where the summands are polynomials of degree at
+  most $3$ in $k$.
+\item We can sum up an {\em eventually} geometric series by summing up
+  the eventual geometric part of the series and separately handling
+  the first few anomalous terms. {\em It often happens in real world
+  series that the series is eventually geometric but the first few
+  terms are anomalous. This is due to boundary effects/startup
+  issues.} [For instance, the bouncing ball distance traveled problem.]
+\item For a series with alternating common ratios, we can sum up by
+  splitting into two geometric series. (see example from class notes).
+\item The geometric series can be interpreted as an expansion for $1/(1 - x)$:
+
+  $$\frac{1}{1 - x} = 1 + x + x^2 + \dots, |x| < 1$$
+
+  As we see later, this is the Taylor series for the function $1/(1 - x)$.
+\item As a corollary of the convergence results on $p$-series and the
+  basic comparison test, we have the following rule: for a rational
+  function $f$, the series $\sum f(k)$ converges if the degree of the
+  denominator exceeds the degree of the numerator by at least $2$, and
+  diverges otherwise.
+\item More generally, for series involving polynomial-like things, if
+  the degree of the denominator (possibly fractional) exceeds the
+  degree of the numerator by something strictly greater than $1$, the
+  series converges, otherwise it diverges.
+\item Things get a little trickier when $\ln k$ appears in the
+  terms. $\ln$ can be thought of as being a polynomial in $k$ of
+  degree $0^+$ -- slightly greater than $0$ but less than any positive
+  number. If, in the given setup, the degree of the denominator minus
+  the degree of the numerator is strictly less than $1$, $1^-$ or $1$,
+  the series diverges. If it is strictly greater than $1$, the series
+  converges. If it is $1^+$, then the situation is indeterminate, and
+  we may need to use the integral test. For instance, $\sum (\ln k)/k$
+  clearly diverges, because the difference is $1^-$. On the other hand
+  $\sum 1/(k \ln (k+1))$ and $1/(k[(\ln k)^2 + 1])$ are ambigious,
+  because we get $1^+$ in both cases. In fact, the series diverges in
+  the former case and converges in the latter case, as we can see
+  using the integral test.
+\item $\sin$ and $\cos$ are bounded between $-1$ and $1$, and this,
+  along with the basic comparison test, can often be used to ascertain
+  behavior about these functions. For instance, consider $\sum (2 +
+  \sin k)/k^2$.
+\end{enumerate}
+
+\section{The summation notation: review}
+
+Suppose we want to write:
+
+$$1^2 + 2^2 + 3^2 + \dots + n^2$$
+
+The ``...'' (ellipses) in between are somewhat ambiguous. Since we're
+good mind readers, we know what is meant. However, it would be better
+to have a notation that allows us to compactify this while removing
+the ambiguity. More generally, for a function $f$ defined on $\{
+1,2,3, \dots, n\}$, we want a shorthand notation for:
+
+$$f(1) + f(2) + \dots + f(n)$$
+
+The shorthand notation is:
+
+$$\sum_{k=1}^n f(k)$$
+
+Here, $k$ is a {\em dummy variable} called the {\em index of
+summation}. The expression $k = 1$ written under the $\sum$ symbol
+tells us where we start $k$ off. The $n$ on top of the $\sum$ symbol
+tells us the {\em last} value of $k$ that we use. The default
+increment is $1$.
+
+Similarly, the summation:
+
+$$\sum_{k=5}^8 2^k$$
+
+is shorthand for the summation:
+
+$$2^5 + 2^6 + 2^7 + 2^8$$
+
+The $k = $ is sometimes eliminated, when there is clearly only one
+dummy variable and there is no scope for confusion. So, we can write
+the above summation as:
+
+$$\sum_5^8 2^k$$
+
+We can also start the summation from $0$; for instance:
+
+$$\sum_{k=0}^6 k^3$$
+
+\subsection*{Aside: For loops}
+
+For those of you who have dealt with for loops in the context of
+computer programming, the summation notation is a lot like a for
+loop. The expression below the $\sum$ sign is the initial condition
+for the dummy variable in the for loop, the default increment is $+1$,
+and the expression above the $\sum$ sign is the value at the {\em last
+iteration} -- once we cross this value, we exit the summation.
+
+\subsection{Slightly different notation for summation}
+
+A slightly different summation notation is where we describe the
+entire set of summation below the $\sum$ sign. {\em Unless otherwise
+specified or clear from context, the index of summation takes integer
+values only}. For instance:
+
+$$\sum_{1 \le k \le 5} (2^k - k + 1)$$
+
+means that we sum up the expression $2^k -k + 1$ for $k$ in the set
+$\{ 1,2,3,4,5\}$. This is thus:
+
+$$(2^1 - 1 + 1) + (2^2 - 2 + 1) + (2^3 - 3 + 1) + (2^4 - 4 + 1) + (2^5 - 5 + 1)$$
+
+We can also specify the set of values of $k$; for instance:
+
+$$\sum_{k \in \{ 1,4,6 \}} k^3$$
+
+This is shorthand for $1^3 + 4^3 + 6^3$.
+
+We can shorten the above even further, by writing it as:
+
+$$\sum_{\{ 1,4,6 \}} k^3$$
+
+\subsection{The parallel with integration notation}
+
+The summation notation is similar to the integration
+notation. Consider for a function $f$:
+
+$$\sum_{k = a}^b f(k)$$
+
+versus the integral:
+
+$$\int_a^b f(x) \, dx$$
+
+In the former, we literally add up the values of $f(k)$ for $k = a,
+a+1, a+2, \dots, b$. In the latter, we are integrating a continuous
+function over the closed interval $[a,b]$. The former is a discrete
+summation of finitely many values. The latter is a continuous
+summation. Integration is continuous summation and summation is
+discrete integration.
+
+There are, however, a few crucial differences between summation and
+integration. Most importantly, integration is insensitive to a change
+in the function value at one point, because we are adding up
+infinitely many values. Summation, on the other hand, is sensitive to
+each value.
+
+\subsection{Good notation tip}
+
+An integral sign $\int$ is like an opening parentheses, and its
+corresponding closing parentheses is a $dx$ (or $d$-whatever dummy
+variable we have). The part between these is the integrand.
+
+A summation $\sum$ is also an opening parenthesis, but it has no
+corresponding closing parenthesis. In other words, there is no
+standard convention to denote where the expression being summed
+(called the {\em summand}) ends. It is thus good practice to put the
+entire summand in parentheses if there is some additional content that
+appears after the summand ends. For instance:
+
+$$\sum_{k=1}^n k^2 + n^2$$
+
+could mean:
+
+$$\left[\sum_{k=1}^n k^2 \right] + n^2$$
+
+but it could also mean:
+
+$$\sum_{k=1}^n (k^2 + n^2)$$
+
+\subsection{The forward difference operator and summation}
+
+Recall that for a function $f$ on $\N$, the forward difference
+operator $\Delta$ gives the function $\Delta f$ defined by $(\Delta
+f)(n) = f(n + 1) - f(n)$. Given $\Delta f = g$, what is $f$? It turns out
+that an analogue of the fundamental theorem of calculus holds:
+
+$$f(n) = f(1) + \sum_{k=1}^{n-1} g(k)$$
+
+So $f$ is the summation of its difference operator. Just like the
+integral of its derivative.
+
+\section{Infinite sums}
+
+An infinite sum is defined as a limit of the corresponding finite
+sums. Thus, the infinite sum:
+
+$$\sum_{k=1}^\infty f(k)$$
+
+is defined as:
+
+$$\lim_{n \to \infty} \sum_{k=1}^n f(k)$$
+
+if the limit exists. In other words, the infinite sum here is the
+limit of the finite sums. These finite sums are sometimes called the
+corresponding {\em partial sums}. 
+
+If the infinite sum exists, then we say tat the series {\em converges}.
+
+For a sequence $a_1, a_2, \dots$, we write the following {\em series} as:
+
+$$\sum_{n=1}^\infty a_n = a_1 + a_2 + a_3 + \dots + a_n + \dots$$
+
+The $n^{th}$ {\em partial sum} of the series is the sum of the first
+$n$ terms of the series. The {\em sum} of the series is the limit of
+the partial sums. In fact, studying the convergence of a series is
+equivalent to studying the convergence of the {\em sequence of
+its partial sums}. Explicitly, we define the sequence $(s_n)$ of
+partial sums, where:
+
+$$s_n = \sum_{k=1}^n a_k$$
+
+\subsection{Is the sum just the sum?}
+
+Is the sum of a series just our intuitive notion for the total value
+of all the elements of the series? Let us poke our intuitions to
+figure out what we intuitively think of as the total. One thing we
+certainly expect about the total is that it is commutative and
+associative: it is independent of the ordering of terms and the
+groupings we use for the terms. This means that if we just permute the
+terms, the sum should be invariant if it means what we think it means.
+
+It is possible to have series that do not satisfy this
+property. However, if all the terms of the series are nonnegative,
+then the sum is invariant under rearrangements. This result is the
+{\em rearrangement theorem}, that we shall talk about a little later.
+
+\section{Some examples of finite and infinite sums and the methods used}
+
+\subsection{Telescoping}
+
+Suppose we want to find:
+
+$$\sum_{k=a}^b g(k)$$
+
+{\em Additive telescoping} involves finding a function $f$ such that
+$\Delta f = g$. In other words, we find a function $f$ such that:
+
+$$g(k) = f(k + 1) - f(k)$$
+
+We can thus write the summation as:
+
+$$[f(a + 1) - f(a)] + [f(a + 2) - f(a + 1)] + \dots + [f(b + 1) - f(b)]$$
+
+This simplifies to:
+
+$$f(b + 1) - f(a)$$
+
+The explanation is that, apart from the $-f(a)$ in the first term and
+the $f(b + 1)$ at the end, everything cancels out.
+
+This is {\em just like} the fundamental theorem of calculus. Here, $f$
+is the discrete analogue of an {\em antiderivative} for $g$, and to
+add the $g$-values over an interval, we evaluate $f$ at the endpoints
+and take the difference. However, the {\em discrete nature of the
+situation} makes things slightly different: instead of $f(b) - f(a)$,
+we get $f(b + 1) - f(a)$.
+
+For instance, consider $g(k) = \frac{1}{k(k + 1)}$.
+
+Then, we have:
+
+$$g(k) = \frac{1}{k} - \frac{1}{k + 1}$$
+
+Here, $f(k) = -1/k$, and we get that the summation from $a$ to $b$ is
+$(1/a) - (1/(b + 1))$.
+
+Similarly, consider:
+
+$$g(k) = 2k + 1$$
+
+We note that $g(k) = (k + 1)^2 - k^2$, so we get $f(k) = k^2$, and we get:
+
+$$(b + 1)^2 - a^2$$
+
+Thus, to carry out summations in general, we need to find these
+discrete antiderivatives. This is generally a hard task.
+
+The term {\em telescoping} is sometimes used in a looser sense, where
+we try to find $f$ such that $g(k) = f(k) - f(k + m)$ for some
+$m$. For instance, consider:
+
+$$\sum_{k = 1}^{10} \frac{1}{k(k + 2)}$$
+
+Using partial fractions, we can rewrite this as:
+
+$$\frac{1}{2} \sum_{k=1}^{10} \frac{1}{k} - \frac{1}{k + 2}$$
+
+Let's write the first few terms to see how the telescoping occurs:
+
+$$\frac{1}{2}[(1 - (1/3)) + ((1/2) - (1/4)) + ((1/3) - (1/5)) + \dots + ((1/9) - (1/11)) + ((1/10) - (1/12))]$$
+
+Notice what terms cancel out: everything except the $1$ and the $1/2$
+in the beinning and the $-1/11$ and $1/12$ at the end, so we get:
+
+$$\frac{1}{2} \left[ 1 + \frac{1}{2} - \frac{1}{11} - \frac{1}{12}\right]$$
+
+This simplifies to $175/264$ (?).
+
+In general, if $g(k) = f(k) - f(k + m)$, we are left with:
+
+$$\sum_{k=1}^m [f(a + k - 1) - f(b + k)]$$
+
+This is still a summation, but if $m$ is considerably smaller than $b
+- a$, then it is a summation over a much smaller collection.
+
+\subsection{Linearity}
+
+The linearity of summations allows us to split a summation of a sum of
+two functions as the sum of their respective summations. It also
+allows us to pull out constants. In symbols:
+
+\begin{eqnarray*}
+  \sum_{k=a}^b [f(k) + g(k)] & = & \sum_{k=a}^b f(k) + \sum_{k=a}^b g(k)\\
+  \sum_{k=a}^b [\lambda f(k)] & = & \lambda \sum_{k=a}^b f(k)
+\end{eqnarray*}
+
+Thus, if we know the discrete antiderivatives (i.e., summations) of
+all functions $n^r$, we can calculate summations for all polynomials.
+
+Unfortunately, these discrete antiderivatives are not as pretty as
+their continuous counterparts. There is no easy general formula. But
+we can get started:
+
+\begin{eqnarray*}
+  \sum_{k=1}^n 1 & = & n\\
+  \sum_{k=1}^n k & = & \frac{n(n + 1)}{2}\\
+  \sum_{k=1}^n k^2 & = & \frac{n(n+1)(2n+1)}{6}\\
+  \sum_{k=1}^n k^3 & = & \frac{n^2(n+1)^2}{4}
+\end{eqnarray*}
+
+We can thus do summations for polynomials of degree up to three using
+these formulas. For instance:
+
+$$\sum_{k=1}^n (k^2 + 2k + 7) = \sum_{k=1}^n k^2 + 2 \sum_{k=1}^n k + 7 \sum_{k=1}^n 1 = \frac{n(n + 1)(2n + 1)}{6} + n(n+1) + 7n$$
+
+\section{Infinite summations}
+
+\subsection{Telescoping where the one end has a finite limit}
+
+Consider the infinite series summation:
+
+$$\sum_{n=1}^\infty g(n)$$
+
+Suppose $g = \Delta f$ for some function $f$, and $\lim_{n \to \infty}
+f(n) = L$. Then the above summation is $L - f(1)$. For instance, consider:
+
+$$\sum_{n=1}^\infty \frac{1}{n(n+1)}$$
+
+As already discussed, $f(n) = -1/n$ here, and it limits to $0$, so the
+summation is $0 - (-1) = 1$.
+
+More generally:
+
+$$\sum_{n=1}^\infty \frac{1}{n(n+m)} = \frac{1}{m}\sum_{k=1}^m \frac{1}{k}$$
+
+Thus, for instance:
+
+$$\sum_{n=1}^\infty \frac{1}{n(n+3)} = \frac{1}{3}\left[1 + \frac{1}{2} + \frac{1}{3}\right] = \frac{11}{18}$$
+
+Infinite series sums are to summations of finitely many terms what
+improper integrals are to proper integrals.
+
+\subsection{When does a series converge?}
+
+For now, we restrict attention to series all of whose terms are
+nonnegative.  Thus, the sequence of partial sums is non-decreasing. We
+say that a series {\em converges} if the sum of the series is finite,
+and it {\em diverges} if the sum is $+\infty$. For series of
+nonnegative terms, these are the only possibilities.
+
+For most situations, we can do one of the following four things:
+
+\begin{enumerate}
+\item Show that the series diverges.
+\item Show that the series converges, and find its sum.
+\item Show that the series converges, and find bounds on its sum, but
+  find no summation-free expression for the infinite series sum.
+\item Show that the series converges, without any explicit bounds on
+  its sum.
+\end{enumerate}
+
+Notice that in cases (2)-(4), we have shown that the series converges,
+but our degree of understanding of the sum differs. While (2) is the
+most desirable, (3) is great too and even (4) is often good. Finite
+numbers may look very different from each other, but they're a lot
+smaller than $\infty$.
+
+We are now ready to give a bunch of results about series
+summations. Note that when I say {\em term} of a series, I mean the
+summand, and when I say {\em partial sum}, I mean the sum of an
+initial segment of the series.
+
+\begin{enumerate}
+\item A series of nonnegative terms converges to the least upper bound
+  of its sequence of partial sums (which is monotonic increasing). In
+  particular, a series converges if and only if its sequence of
+  partial sums has an upper bound, and any upper bound on the sequence
+  of partial sums also serves as an upper bound on the sum of the
+  series.
+\item If a series of nonnegative terms converges, the terms in the
+  series must tend to $0$. The contrapositive of this is: if the terms
+  in a series of nonnegative terms do not go to zero, the series
+  diverges. This criterion can be used to easily show, for many
+  series, that they diverge. However, it is a {\em necessary but not
+  sufficient} condition for convergence, and cannot be used to
+  establish that any given series converges.
+\item Permuting the terms does not change either the convergence or
+  the value of the sum of a series of nonnegative terms.
+\item Left shifts and/or changing finitely many terms does not change
+  the convergence of a series though it may change the value of the
+  sum of the series. (This last result also holds for series with
+  negative terms).
+\end{enumerate}
+
+\section{Geometric series}
+
+\subsection{Geometric series plain and simple}
+
+A {\em geometric series} with initial term $a$ and common ratio $r$ or
+{\em geometric progression} is a series described in the following
+equivalent ways:
+
+\begin{enumerate}
+\item In terms of a {\em recursive relation}, where each term is $r$
+  times the previous term. Explicitly, the relation is $a_n = ra_{n-1}$.
+\item In terms of a direct description of the $n^{th}$ term, we have
+  $a_n = r^{n-1}a$.
+\end{enumerate}
+
+To make the indexing easier for geometric series, we often start the
+terms from $0$ onward. In this case, if the $0^{th}$ term is $a =
+a_0$, then the $n^{th}$ term is $r^na_0$. To avoid degenerate cases,
+we assume $a \ne 0$ and $r \ne 0$.
+
+The formula for the finite partial sum, for $r \ne 1$, is:
+
+$$a + ar + ar^2 + \dots + ar^n = \frac{a(1 - r^{n+1})}{1 - r} = \frac{a(r^{n+1} - 1)}{r - 1}$$
+
+In the case $r = 1$, the sum is just $(n + 1)a$.
+
+The infinite series sum is given as follows:
+
+\begin{enumerate}
+\item If $|r| < 1$, the sum is $\lim_{n \to \infty} a(1 - r^{n+1})/(1
+  - r)$, which becomes $a/(1 - r)$. In the subcase $0 < r < 1$, the
+  series converges monotonically. In the subcase $-1 < r < 0$, the
+  series converges, but not monotonically, because the term signs are
+  alternating.
+\item If $r = 1$, the terms of the series are constant, and the
+  partial sums are just $(n + 1)a$, which goes to $+\infty$ or
+  $-\infty$ depending on the sign of $a$.
+\item If $r = -1$, the terms of the series oscillate between two
+  finite numbers, namely $a$ and $0$.
+\item If $r > 1$, the series diverges monotonically to $+\infty$ or
+  $-\infty$, depending on the sign of $a$.
+\item If $r < -1$, the series has oscillatory divergence -- the
+  magnitude of the terms gets larger, but the sign keeps oscillating.
+\end{enumerate}
+
+Also of interest is the notion of {\em eventually geometric
+series}. An eventually geometric series is a series whose terms
+eventually resemble those of a geometric series. The sum of an
+eventually geometric series can be computed as follows: deal with the
+initial few, anomalous terms, separately by adding them up, and use
+the series summation formula for the remaining infinitely many terms.
+
+For instance, consider the series:
+
+$$5 + 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \dots$$
+
+Here, the first term is anomalous, but we observe that the remainder
+of the series has initial term $1$ and common ratio $1/2$. The sum of
+the eventually geometric part is thus $1/(1 - (1/2)) = 2$. The total
+sum of the series is thus $5 + 2 = 7$.
+
+\subsection{Geometric series as infinite expansions}
+
+We have noted that, for $|r| < 1$, we have:
+
+$$1 + r + r^2 + r^3 + \dots = \frac{1}{1 - r}$$
+
+Replacing the variable $r$ by the letter $x$, we get:
+
+$$\frac{1}{1 - x} = 1 + x + x^2 + \dots = \sum_{k=0}^\infty x^k$$
+
+with the expansion being valid for $|x| < 1$.
+
+This allows us to expand out $1/(1 + ax)$ in terms of a geometric
+series. Specifically, for $a \ne 0$:
+
+$$\frac{1}{1 + ax} = \sum_{k=0}^\infty (-a)^kx^k$$
+
+with the expansion valid for $|x| < 1/|a|$.
+
+Similarly, we can expand:
+
+$$\frac{x}{1 + ax^2} = x \sum_{k=0}^\infty (-ax^2)^k = \sum_{k=0}^\infty (-a)^kx^{2k + 1}$$
+
+where $|x| < 1/\sqrt{|a|}$.
+
+Converting a compactly expressed rational function in terms of an
+infinite series may seem a little stupid. But there are various things
+we can do with infinite {\em power series} -- they are infinite
+analogues of polynomials. With suitable caveats, we can perform
+term-wise integration and differentiation on the series. We shall
+return to power series a little later in the course.
+
+\subsection{Like a geometric series with two common ratios}
+
+Consider the series:
+
+$$1 + \frac{1}{2} + \frac{1}{6} + \frac{1}{12} + \frac{1}{36} + \dots$$
+
+This is like a geometric series, with two common ratios -- the ratios
+alternate between $1/2$ and $1/3$. There are several ways of handling
+this. One is to group together adjacent pairs of terms, and get:
+
+$$\frac{3}{2} + \frac{1}{4} + \frac{1}{24} + \dots$$
+
+We see now that this is a genuine geometric series with initial term
+$3/2$ and common ratio $1/6$. The infinite series sum is thus $(3/2)/(1 -
+(1/6)) = 9/5$.
+
+Another way is to split the geometric series into two sub-series:
+
+$$1 + \frac{1}{6} + \frac{1}{36} + \dots$$
+
+and:
+
+$$\frac{1}{2} + \frac{1}{12} + \frac{1}{72} + \dots$$
+
+Both are geometric series, with sums $6/5$ and $3/5$ respectively, and
+the total sum is $9/5$ (we can do this splitting and rearrangement
+with impunity because we are working with a series of positive terms).
+
+\subsection{Summability versus integrability of geometric series}
+
+We noted above that a geometric series is summable to infinity if the
+common ratio is less than $1$. The analogous observation with
+integrals is that:
+
+$$\int_0^\infty a^x \, dx$$
+
+is finite if $a < 1$ and infinite if $a \ge 1$. Note that the
+indefinite integral is $a^x/(\ln a)$. If $a < 1$, then the integral
+from $0$ to $\infty$ is $-1/(\ln a)$.
+
+\section{Relating summations to integrals: the integral test}
+
+\subsection{The integral test: numerical relationship}
+
+Suppose $f$ is a continuous non-increasing nonnegative function defined on
+$[1,\infty)$ (though possibly on more real numbers). Suppose that
+$\lim_{x \to \infty} f(x) = 0$. We can consider a discrete and
+continuous integral of $f$:
+
+$$\sum_{n=1}^\infty f(n)$$
+
+versus:
+
+$$\int_1^\infty f(x) \, dx$$
+
+We can verify both geometrically and algebraically that:
+
+$$f(n) \ge \int_n^{n+1} f(x) \, dx \ge f(n + 1)$$
+
+Summing up over all $n \in \mathbb{N}$, we obtain:
+
+$$\sum_{n=1}^\infty f(n) \ge \int_1^\infty f(x) \, dx \ge \sum_{n=2}^\infty f(n)$$
+
+The last term is the full summation minus $f(1)$, and we get:
+
+$$\sum_{n=1}^\infty f(n) \ge \int_1^\infty f(x) \, dx \ge -f(1) + \sum_{n=1}^\infty f(n)$$
+
+Equivalently:
+
+$$\int_1^\infty f(x) \, dx \le \sum_{n=1}^\infty f(n) \le f(1) + \int_1^\infty f(x) \, dx$$
+
+Thus, the infinite series sum and the infinite integral are bounded in terms
+of each other in a very precise sense. In particular, this implies
+that the summation is finite if and only if the integral is
+finite. Moreover, we can use the value of one of them to estimate the
+other one.
+
+Consider, for instance:
+
+$$\sum_{n=1}^\infty \frac{1}{n^2}$$
+
+Note that $f(x) = 1/x^2$ is a continuous decreasing function with
+$\lim_{x \to \infty} f(x) = 0$. Thus, we can apply the above idea. We
+first calculate the definite integral $\int_1^\infty dx/x^2$, which
+turns out to be $1$. We thus get:
+
+$$1 \le \sum_{n=1}^\infty \frac{1}{n^2} \le 1 + 1$$
+
+Thus, the infinite series sum is finite, and between $1$ and $2$. What
+if we want a more refined estimate? There is a slight generalization
+of the above, which says that:
+
+$$\sum_{n=1}^{M-1} f(n) + \int_M^\infty f(x) \, dx \le \sum_{n=1}^\infty f(n) \le \sum_{n=1}^M f(n) + \int_M^\infty f(x) \, dx$$
+
+Setting $M = 3$ for $f(x) = 1/x^2$ gives:
+
+$$\frac{19}{12} \le \sum_{n=1}^\infty \frac{1}{n^2} \le \frac{61}{36}$$
+
+Thus, the summation is somewhere between $1.6$ and $1.7$. This already
+gives a very good bound, and we can refine the bound much further if
+we so desire.
+
+Note: The actual value of $\sum_{n=1}^\infty 1/n^2$ is $\pi^2/6$, but
+we don't have the tools to obtain that answer yet. Many other such
+summations lack simple expressions for their sums.
+
+\subsection{Eventual formulations of the integral test}
+
+The integral test can be weakened somewhat if we are interested only
+in talking about convergence and are not interested in the actual
+value of the integral.
+
+The pure form of the integral test requires $f$ to be continuous,
+nonnegative, and non-increasing. However, we can modify this to
+requiring that $f$ {\em eventually} satisfy these conditions -- the
+behavior of $f$ in the beginning does not matter. Further, we can
+calculate the integral $\int_a^\infty f(x) \, dx$ from any finite
+number $a$ beyond which $f$ starts behaving nicely. If this integral
+is bounded, then $f$ sums to a finite number. The reason is that the
+first few terms of $f$ are only finitely many, and throwing them in or
+out does not affect whether the sum is convergent.
+
+Note that when we shift to the {\em eventually} formulation, then we
+lose out on something: the concrete numerical bound. We can retrieve
+this relationship, but we need to do more work. As pointed earlier,
+though, even knowing that something converges is useful information.
+
+\subsection{$p$-series and $\zeta$-functions}
+
+For any $p > 0$ ({\em not necessarily an integer}), consider the
+following series, called the $p$-series:
+
+$$\zeta(p) := \sum_{n=1}^\infty \frac{1}{n^p}$$
+
+We apply the integral test. We see that:
+
+$$\int_1^\infty \frac{dx}{x^p} = \lbrace\begin{array}{ll}\frac{1}{p - 1}, & p > 1\\ \infty, & 0 < p \le 1\end{array}$$
+
+We thus see that the summation is infinite when $0 < p \le 1$. Let's
+consider the case that $p > 1$. In this case, we see that the
+summation is bounded between $1/(p-1)$ and $p/(p-1)$ (an interval of
+length $1$). In symbols, $\zeta$ is a function on $(1,\infty)$
+satisfying:
+
+$$\frac{1}{p-1} \le \zeta(p) \le \frac{p}{p-1}$$
+
+We can also see the following things with some reflection:
+
+\begin{enumerate}
+\item $\lim_{p \to 1^+} \zeta(p) = \infty$. We can see this from the
+  fact that $\lim_{p \to 1^+} 1/(p-1) = \infty$.
+\item $\zeta$ is a continuous decreasing function of $p$ on
+  $(1,\infty)$, and $1/(p-1) < \zeta(p) < p/(p-1)$ for all $p > 1$.
+\item $\lim_{p \to \infty} \zeta(p) = 1$. Thus, $y = 1$ is a
+  horizontal asymptote for $\zeta$.
+\end{enumerate}
+
+It turns out that $\zeta(2)$ (which, a little while ago, we bounded
+between $1.6$ and $1.7$) actually takes the value $\pi^2/6$, which is
+between $1.64$ and $1.65$. Arriving at this concrete expression
+requires plenty of effort, that we shall not undertake. In a similar
+vein, we can compute $\zeta(4)$, which turns out to be $\pi^4/90$. In
+fact, $\zeta(2n)$ is a rational multiple of $\pi^{2n}$ for any natural
+number $n$. The $\zeta$-values for odd numbers do not have known
+expressions. In 1978, somebody proved that $\zeta(3)$ is irrational,
+and many questions about $\zeta(3)$ are still unresolved.
+
+
+\section{Two other theorems}
+
+\subsection{The basic comparison theorem}
+
+This corresponds to Theorem 12.3.6. The book's formulation has a
+typographical error and the correct version is stated here.
+
+Suppose we have two series $\sum a_k$ and $\sum b_k$, both with
+nonnegative terms. Then, if there exists some $k_0$ such that:
+
+$$a_k \le b_k \ \forall k \ge k_0$$
+
+This implies that:
+
+\begin{enumerate}
+\item If $\sum b_k$ converges, so does $\sum a_k$.
+\item If $\sum a_k$ diverges, so does $\sum b_k$.
+\end{enumerate}
+
+A few comments will make clear what is happening. First, note that if
+$a_k \le b_k$ for {\em every} $k$ (i.e., $k_0 = 1$) then each partial
+sum of the $a$-series is bounded by the corresponding partial sum of
+the $b$-series. Since the latter sequence of partial sums converges,
+the former is a bounded non-decreasing sequence and hence must
+converge to its least upper bound. This explains part (1) in the case
+$k_0 = 1$.
+
+What happens if $k_0$ is something other than $1$? Essentially the
+same proof works, once we throw out the first few terms. Basically,
+what matters is not {\em complete domination}, but {\em eventual
+domination}.
+
+But we do lose something. Specifically, it is no longer true that the
+infinite series sum of the $a_k$s is smaller than the infinite series
+sum of the $b_k$s. This is because the first few values of the $a_k$s
+could be really large. Thus, we again sacrifice a {\em numerical
+relation} when we move from a universal constraint to its
+corresponding eventual constraint, while we still preserve {\em
+whether or not convergence occurs}.
+\subsection{The limit comparison theorem}
+
+This states that if we have two series $\sum a_k$ and $\sum b_k$, both
+of which have {\em positive terms only}, then if the sequence of
+quotients $a_k/b_k$ approaches a positive number $L$, we have that
+$\sum a_k$ converges if and only if $\sum b_k$ converges.
+
+What's going on here? If the quotient approaches a positive number,
+each sequence is bounded by a constant multiple of the other
+sequence. The proof, as given in the book, uses a mild
+$\epsilon$-argument, and it is worth going through.
+
+\section{Degree difference rules}
+
+\subsection{When do summations of rational function series converge?}
+
+Suppose we are given a series whose general term is a rational
+function. Assume that the denominator of the rational function does
+not blow up anywhere. How do we determine whether the series
+converges? The following simple criterion works:
+
+\begin{quote}
+  If the degree of the denominator minus the degree of the numerator
+  is {\em strictly greater} than $1$, then the series converges. If
+  the degree of the denominator minus the degree of the numerator is
+  equal to or less than $1$, then the series diverges.
+\end{quote}
+
+The key idea is as follows: if $f(x)/g(x)$ is a rational function and
+the degree of $g$ minus the degree of $f$ is $p$, then we can apply
+the limit comparison theorem between the two series $a_n = f(n)/g(n)$
+and $b_n = 1/n^p$. The quotient limits to a finite nonzero number,
+which is basically given by the quotient of the leading coefficients
+of $f$ and $g$. For the latter series, we know by the integral test
+that it converges iff $p > 1$. The result therefore extends to the
+former series as well.
+
+Note that the terms of the series for a rational function need not be
+positive from the get-go. However, they will {\em eventually} have
+constant sign. If they are eventually negative, pull out a minus sign
+and we are then in a position to use the limit comparison theorem.
+
+\subsection{An example: using integral test directly versus degree difference rule}
+ 
+For instance, consider the summation:
+
+$$\sum_{n=1}^\infty \frac{n}{n^2 + 1}$$
+
+First, we note that the series terms are continuous and nonnegative,
+and because the denominator has higher degree than the numerator, the
+terms are eventually non-increasing. In fact, in this case, they are
+non-increasing right from the beginning, but this is not obvious.
+
+We carry out the corresponding integration:
+
+$$\int_1^\infty \frac{x \, dx}{x^2 + 1}$$
+
+The integral is:
+
+$$\left[\frac{1}{2}\ln(x^2 + 1)\right]_1^\infty$$
+
+which is $\infty$. Thus the corresponding summation is infinite.
+
+We could, however, also use the degree difference rule directly to
+conclude tht the series diverges: the degree of denominator minus
+degree of numerator is equal to $1$, so the series diverges.
+
+Similarly, consider the summation:
+
+$$\sum_1^\infty \frac{1}{n^2 + 1}$$
+
+Again, the series satisfies the conditions for th integral test. Thus,
+we carry out the corresponding integration:
+
+$$\int_1^\infty \frac{dx}{x^2 + 1} = [\arctan x]_1^\infty = (\pi/2) - (\pi/4) = \pi/4$$
+
+We can use the concrete version of the integral test to show that the
+summation is thus bounded between $\pi/4$ (about $0.785$) and $(1/2) +
+(\pi/4)$ (about $1.285$).\footnote{The actual summation turns out to
+be about $1.08$.}
+
+Alternatively, instead of the integral test, we could use the degree
+difference rule directly and conclude that the summation converges.
+
+\subsection{A rough power calculation}
+
+The rule above works heuristically even when, instead of rational
+functions, we throw in fractional powers, logarithms, and other
+stuff. The general rule is that logarithms count for roughly a power
+of $0$ (so they don't affect the degree calculations for either the
+numerator or the denominator), but they could play a role of
+tie-breaker. Another way of thinking of this is that $\ln x$ is
+roughly $x^{0^+}$. Here's one way of putting it:
+
+\begin{enumerate}
+\item If the denominator degree minus the numerator degree is strictly
+  greater than $1$, the summation converges. The classic examples are
+  $p$-series.
+\item If the denominator degree minus the numerator degree is strictly
+  less than $1$, the summation diverges.
+\item If the denominator degree minus the numerator degree is exactly
+  $1$, then the series could converge or diverge. We need to use the
+  integral test to determine what is really happening. Even within
+  this, we can use the following: if the denominator degree minus the
+  numerator degree is $1^-$, then the series diverges. If it is $1^+$,
+  then we need to do more work.
+\end{enumerate}
+
+Let us elaborate on point (3) above. Consider the series:
+
+$$\sum_{n=1}^\infty \frac{\ln n}{n}$$
+
+Here, $\ln$ is roughly like $n^{0^+}$, so the degree of the
+denominator minus the degree of the numerator is like $1 - (0^+) =
+1^-$. Hence, we can be sure that this diverges. On the other hand, for
+the series $\sum_{n=1}^\infty \frac{1}{n(1 + \ln n)}$ and
+$\sum_{n=1}^\infty \frac{1}{n(1 + (\ln n)^2)}$, the rule is
+inconclusive, so we need to use the integral test.
+
+Consider:
+
+$$\sum_{n=1}^\infty \frac{1}{n(1 + \ln n)}$$
+
+This is continuous, non-negative, and non-increasing, so we can use
+the integral test. The coresponding integration is:
+
+$$\int_1^\infty \frac{dx}{x(1 + \ln x)}$$
+
+Solving the integration, we get:
+
+$$[\ln(1 + \ln x)]_1^\infty$$
+
+which diverges. Hence, so does the summation.
+
+On the other hand, for the series:
+
+$$\sum_{n=1}^\infty \frac{1}{n(1 + (\ln n)^2)}$$
+
+the corresponding integration is:
+
+$$\int_1^\infty \frac{dx}{x(1 + (\ln x)^2)}$$
+
+This simplifies to:
+
+$$[\arctan(\ln x)]_1^\infty$$
+
+which is a finite number, namely $\pi/2$.
+
+Hence, the summation converges. However, we do not know {\em a priori}
+what it converges to. With a little effort, we could try to find bound
+for the summation via the concrete version of the integral test.
+\end{document}

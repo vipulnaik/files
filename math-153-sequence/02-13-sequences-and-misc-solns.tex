@@ -1,0 +1,350 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home quiz solutions: due February 13: Sequences and miscellanea}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$11$ people took this quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $3$: $2$ people.
+\item Score of $4$: $1$ person.
+\item Score of $6$: $2$ people.
+\item Score of $7$: $1$ person.
+\item Score of $8$: $5$ people.
+\end{itemize}
+
+The mean score was $6.27$. The question wise answer choices and
+performance were as follows:
+
+\begin{enumerate}
+\item Option (E): $7$ people.
+\item Option (E): $7$ people.
+\item Option (D): $9$ people.
+\item Option (D): $9$ people.
+\item Option (C): $11$ people.
+\item Option (C): $0$ people. {\em Please review this solution!}
+\item Option (E): $1$ person.
+\item Option (B): $9$ people.
+\item Option (A): $7$ people.
+\item Option (B): $9$ people.
+\end{enumerate}
+\section{Solutions}
+
+\begin{enumerate}
+\item Consider the sequence $a_n = 2a_{n-1} - \alpha$, with $a_1 =
+  \beta$, for $\alpha, \beta$ real numbers. What can we say about this
+  sequence for sure?
+
+  \begin{enumerate}[(A)]
+  \item $(a_n)$ is eventually increasing for all values of $\alpha,
+    \beta$.
+  \item $(a_n)$ is eventually decreasing for all values of $\alpha,
+    \beta$.
+  \item $(a_n)$ is eventually constant for all values of $\alpha,
+    \beta$.
+  \item $(a_n)$ is either increasing or decreasing, and which case
+    occurs depends on the values of $\alpha$ and $\beta$.
+  \item $(a_n)$ is increasing, decreasing, or constant, and which case
+    occurs depends on the values of $\alpha$ and $\beta$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: See the answer explanation for the next
+  question. Note that the {\em constant} case could arise when $\alpha
+  = \beta = 1$.
+
+  {\em Performance review}: $7$ out of $11$ got this correct. $2$
+  chose (A), $2$ chose (D).
+
+  {\em Historical note (last year)}: $10$ out of $26$ people got this
+  correct. $13$ people chose (D), which is pretty close to correct,
+  and $3$ people chose (A).
+\item {\em This is a generalization of the preceding question}. Suppose
+  $f$ is a continuous increasing function on $\R$. Define a sequence
+  recursively by $a_n = f(a_{n-1})$, with $a_1$ chosen
+  separately. What can we say about this sequence for sure?
+  \begin{enumerate}[(A)]
+  \item $(a_n)$ is eventually increasing regardless of the choice of $a_1$.
+  \item $(a_n)$ is eventually decreasing regardless of the choice of $a_1$.
+  \item $(a_n)$ is eventually constant regardless of the choice of $a_1$.
+  \item $(a_n)$ is either increasing or decreasing, and which case
+    occurs depends on the value of $a_1$ and the nature of $f$.
+  \item $(a_n)$ is increasing, decreasing, or constant, and which case
+    occurs depends on the value of $a_1$ and the nature of $f$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Since $f$ is increasing, if $f(a_1) < a_1$, then
+  $f(f(a_1)) < f(a_1)$. we can inductively show that if $f(a_1) <
+  a_1$, then $(a_n)$ is decreasing. If $f(a_1) = a_1$, then $(a_n)$ is
+  constant. If $f(a_1) > a_1$, then $(a_n)$ is increasing. Any of these
+  cases may occur (as we can see using specific example from the
+  previous problem). So, $(a_n)$ is either increasing, decreasing or
+  constant, but which case occurs depends on the value of $a_1$ and
+  the nature of $f$.
+
+  For a function $f: \R \to \R$ and a particular element $a \in \R$,
+  define $g: \N \to \R$ by $g(n) = f(f(\dots(f(a))\dots))$ with the
+  $f$ occurring $n - 1$ times. Thus, $g(1) = a$, $g(2) = f(a)$, and so
+  on. Choose the right expression for $g$ for each of these choices of $f$.
+
+  {\em Performance review}: $7$ out of $11$ got this correct. $2$
+  chose (A), $1$ each chose (C) and (D).
+
+ {\em Historical note (last year)}: $11$ ouot of $26$ people got this
+  correct. $6$ people chose (D), $6$ people chose (A), $2$ people
+  chose (B), and $1$ person left the question blank.
+\item $f(x) := x + \pi$.
+  \begin{enumerate}[(A)]
+  \item $g(n) := a + n\pi$.
+  \item $g(n) := a + n\pi - 1$.
+  \item $g(n) := a + n(\pi - 1)$.
+  \item $g(n) := a + \pi(n - 1)$.
+  \item $g(n) := \pi + n(a - 1)$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Straightforward
+  summation/induction/observation. If you aren't able to arrive at the
+  expression, just plug in and check the values $n = 1$ and $n = 2$.
+
+  {\em Performance review}: $9$ out of $11$ got this correct. $1$ each
+  chose (B) and (C).
+
+  {\em Historical note (last year)}: $20$ out of $26$ people got this
+  correct. $3$ people chose (C), $2$ people chose (B), and $1$ person
+  chose (A).
+
+  {\em Action point}: This is the kind of question that everybody
+  should be able to get correct in the future!
+
+\item $f(x) := mx$, $m \ne 0$.
+  \begin{enumerate}
+  \item $g(n) := mna$.
+  \item $g(n) := m^na$.
+  \item $g(n) := n^ma$.
+  \item $g(n) := m^{n-1}a$.
+  \item $g(n) := n^{m-1}a$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Straightforward
+  summation/induction/observation. If you aren't able to arrive at the
+  expression, just plug in and check the values $n = 1$ and $n = 2$.
+
+  {\em Performance review}: $9$ out of $11$ got this. $2$ chose (B).
+
+  {\em Historical note (last year)}: $20$ out of $26$ people got this
+  correct. $5$ people chose (B) and $1$ person chose (A).
+
+  {\em Action point}: This is the kind of question that everybody
+  should be able to get correct in the future!
+\item $f(x) := x^2$.
+  \begin{enumerate}[(A)]
+  \item $g(n) := a^{2^n} - 1$.
+  \item $g(n) := a^{2^n - 1}$.
+  \item $g(n) := a^{2^{n-1}}$.
+  \item $g(n) := a^{2^{n^{-1}}}$.
+  \item $g(n) := (a^{2^n})^{-1}$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Each time we square, the exponent gets multiplied
+  by $2$. Thus, the exponent itself is growing like $2^{n-1}$ (it
+  starts out at $1$).
+
+  {\em Performance review}: Everybody got this correct.
+
+  {\em Historical note (last year)}: $19$ out of $26$ people got this
+  correct. $5$ people chose (B), indicating a lack of care in keeping
+  track of exponent towers. $1$ person each chose (A) and (E).
+
+  {\em Action point}: This is the kind of question that everybody
+  should be able to get correct in the future!
+
+\item One of these sequences can {\em not} be obtained using the
+  procedure described in the previous questions (i.e., iterated
+  application of a function ). Identify this sequence. Only the first
+  five terms of the sequence are presented:
+
+  \begin{enumerate}[(A)]
+  \item $1,2,3,3,3$
+  \item $1,2,3,2,3$
+  \item $1,2,3,2,1$
+  \item $1,2,3,4,5$
+  \item $1,2,3,4,3$
+  \end{enumerate}
+
+  {\em Answer}: Option (C).
+
+  {\em Explanation}: For a sequence obtained by function iteration, it
+  must be true that the successor of an element is uniquely determined
+  by that element. For the sequence with first five terms $1,2,3,2,1$,
+  we note that at one place in the sequence, $2$ is followed by $3$,
+  but at another place, $2$ is followed by one. This is not possible,
+  because $f(2)$ cannot be both $3$ and $1$.
+
+  {\em Performance review}: Nobody got this correct! $10$ chose (A),
+  $1$ chose (E).
+
+  {\em Historical note (last year)}: $6$ out of $26$ people got this
+  correct. $14$ people chose (A), $3$ people chose (B), $2$ chose (E),
+  and $1$ chose (D).
+
+\item Suppose $f:\R \to \R$ is a function. Identify which of these
+  definitions is {\em not} correct for $\lim_{x \to c} f(x) = L$,
+  where $c$ and $L$ are both finite real numbers.
+  \begin{enumerate}[(A)]
+  \item For every $\epsilon > 0$, there exists $\delta > 0$ such that
+    if $x \in (c - \delta, c + \delta) \setminus \{ c \}$, then $f(x)
+    \in (L - \epsilon, L + \epsilon)$.
+  \item For every $\epsilon_1 > 0$ and $\epsilon_2 > 0$, there exist
+    $\delta_1 > 0$ and $\delta_2 > 0$ such that if $x \in (c -
+    \delta_1,c+\delta_2)\setminus \{ c \}$, then $f(x) \in (L -
+    \epsilon_1, L + \epsilon_2)$.
+  \item For every $\epsilon_1 > 0$ and $\epsilon_2 > 0$, there exists
+    $\delta > 0$ such that if $x \in (c - \delta, c + \delta)
+    \setminus \{ c \}$, then $f(x) \in (L - \epsilon_1, L + \epsilon_2)$.
+  \item For every $\epsilon > 0$, there exist $\delta_1 > 0$ and
+    $\delta_2 > 0$ such that if $x \in (c - \delta_1, c + \delta_2)
+    \setminus \{ c \}$, then $f(x) \in (L - \epsilon, L + \epsilon)$.
+  \item None of these, i.e., all definitions are correct.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Although the usual $\epsilon-\delta$ definition
+  uses centered intervals, i.e., intervals centered at the points $c$
+  and $L$, this is not a necessary aspect of the definition. So,
+  instead of taking centered intervals $(c - \delta, c + \delta)$ or
+  $(L - \epsilon,L + \epsilon)$, we could consider open intervals that
+  have different amounts on the left and on the right. Thus, all four
+  definitions are correct.
+
+  {\em Performance review}: $1$ out of $11$ got this correct. $4$
+  chose (B), $3$ chose (A), $2$ chose (D), $1$ chose (C).
+
+  {\em Historical note (last year)}: $6$ out of $26$ people got this
+  correct. $9$ people chose (C), $4$ people each chose (A) and (D),
+  $2$ chose (B), and $1$ left the question blank.
+
+  {\em Action point}: Revisit this question at the end of the week,
+  after we have covered related ideas in class.
+\item In the usual $\epsilon-\delta$ definition of limit for a given
+  limit $\lim_{x \to c} f(x) = L$, if a given value $\delta > 0$ works
+  for a given value $\epsilon > 0$, then which of the following is
+  true?
+  \begin{enumerate}[(A)]
+  \item Every smaller positive value of $\delta$ works for the same
+    $\epsilon$. Also, the given value of $\delta$ works for every
+    smaller positive value of $\epsilon$.
+  \item Every smaller positive value of $\delta$ works for the same
+    $\epsilon$. Also, the given value of $\delta$ works for every
+    larger value of $\epsilon$.
+  \item Every larger value of $\delta$ works for the same
+    $\epsilon$. Also, the given value of $\delta$ works for every
+    smaller positive value of $\epsilon$.
+  \item Every larger value of $\delta$ works for the same
+    $\epsilon$. Also, the given value of $\delta$ works for every
+    larger value of $\epsilon$.
+  \item None of the above statements need always be true.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: This can be understood in multiple ways. One is
+  in terms of the prover-skeptic game. A particular choice of $\delta$
+  that works for a specific $\epsilon$ also works for larger
+  $\epsilon$s, because the function is already ``trapped'' in a
+  smaller region. Further, smaller choices of $\delta$ also work
+  because the skeptic has fewer values of $x$.
+
+  Rigorous proofs are being skipped here, but you can review the
+  formal definition of limit notes if this stuff confuses you.
+
+  {\em Performance review}: $9$ out of $11$ got this correct. $2$
+  chose (C).
+
+  {\em Historical note (last year)}: $17$ out of $26$ people got this
+  correct. $5$ people chose (A), $3$ chose (C), and $1$ chose (D).
+
+\item In the usual $\epsilon-\delta$ definition of limit, we find that
+  the value $\delta = 0.2$ for $\epsilon = 0.7$ for a function $f$ at
+  $0$, and the value $\delta = 0.5$ works for $\epsilon = 1.6$ for a
+  function $g$ at $0$. What value of $\delta$ {\em definitely} works
+  for $\epsilon = 2.3$ for the function $f + g$ at $0$?
+
+  \begin{enumerate}[(A)]
+  \item $0.2$
+  \item $0.3$
+  \item $0.5$
+  \item $0.7$
+  \item $0.9$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: We choose the {\em smaller} of the $\delta$s to
+  guarantee that {\em both} $f$ and $g$ are within their respective
+  $\epsilon$-distances of the targets -- $0.7$ in the case of $f$ and
+  $1.6$ in the case of $g$. Now, the triangle inequality guarantees
+  that $f + g$ is within $2.3$ of its proposed limit.
+
+  {\em Performance review}: $7$ out of $11$ got this correct. $2$
+  chose (E), $1$ each chose (C) and (D).
+
+  {\em Historical note (last year)}: $10$ out of $26$ people got this
+  correct. $9$ people chose (D) -- {\em naive addition} -- which does
+  not really make sense. $4$ chose (B), $2$ chose (E), and $1$ chose
+  (C).
+\item The sum of limits theorem states that $\lim_{x \to c} [f(x) +
+  g(x)] = \lim_{x \to c} f(x) + \lim_{x \to c} g(x)$ {\em if} the
+  right side is defined. One of the choices below gives an example
+  where the left side of the equality is defined and finite but the right side
+  makes no sense. Identify the correct choice.
+
+  \begin{enumerate}[(A)]
+  \item $f(x) := 1/x$, $g(x) := -1/(x + 1)$, $c = 0$.
+  \item $f(x) := 1/x$, $g(x) := (x - 1)/x$, $c = 0$.
+  \item $f(x) := \arcsin x$, $g(x) := \arccos x$, $c = 1/2$.
+  \item $f(x) := 1/x$, $g(x) = x$, $c = 0$.
+  \item $f(x) := \tan x$, $g(x) := \cot x$, $c = 0$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: $f + g$ is the constant function $1$, so it has a
+  limit. On the other hand, both $f$ and $g$ have one-sided limits of
+  $\pm \infty$.
+
+  For options (A), (D), and (E), one of the function $f$ and $g$ has a
+  finite limit, and the other has an infinite or undefined limit, and
+  the sum has an infinite or undefined limit. Option (C) is a case
+  where $f$, $g$, and $f + g$ all have finite limits.
+
+  {\em Performance review}: $9$ out of $11$ got this correct. $1$ each
+  chose (D) and (E).
+
+  {\em Historical note (last year)}: $13$ out of $26$ people got this
+  correct. $5$ people chose (C), $3$ chose (E), $2$ chose (A), $1$
+  chose (D), and $2$ left the question blank.
+
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,872 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Maximum and minimum values: examples}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf What students should hopefully get}: The description of critical
+points, local extreme values, and absolute extreme values for
+additively separable functions and (the more complicated version for)
+multiplicatively separable functions. The special nature of extreme
+values for quasiconvex and strictly quasiconvex functions and the
+notion of extreme points. The nature of extreme values for linear,
+quadratic, and homogeneous polynomials. The use of Lagrange
+multipliers to find extrema on the boundary.
+\section*{Executive summary}
+
+\begin{enumerate}
+\item {\em Additively separable, critical points}: For an additively
+  separable function $F(x,y) := f(x) + g(y)$, the critical points of
+  $F$ are the points whose $x$-coordinate gives a critical point for
+  $f$ and $y$-coordinate gives a critical point for $g$.
+\item {\em Additively separable, local extreme values}: The local
+  maxima occur at points whose $x$-coordinate gives a local maximum
+  for $f$ and $y$-coordinates gives a local maximum for $g$. Similarly
+  for local minima. If one coordinate gives a local maximum and the
+  other coordinate gives a local minimum, we get a saddle point.
+\item {\em Additively separable, absolute extreme values}: If the
+  domain is a rectangular region, rectangular strip, or the whole
+  plane, then the absolute maximum occurs at the point for which each
+  coordinate gives the absolute maximum for that coordinate, and
+  analogously for absolute minimum. This does {\em not} work for
+  non-rectangular regions in general.
+\item {\em Multiplicatively separable, critical points}: For a
+  multiplicatively separable function $F(x,y) := f(x)g(y)$ with $f$,
+  $g$, differentiable, there are four kinds of critical points
+  $(x_0,y_0)$: (1) $f'(x_0) = g'(y_0) = 0$, (2) $f(x_0) = f'(x_0) =
+  0$, (3) $g(y_0) = g'(y_0) = 0$, (4) $f(x_0) = g(y_0) = 0$.
+\item {\em Multiplicatively separable, local extreme values}: At a
+  critical point of Type (1), the nature of local extreme value for
+  $F$ depends on the signs of $f$ and $g$ {\em and} on the nature of
+  local extreme values for each. See the table. Critical points of
+  Type (4) alone do not give local extreme values. The situation with
+  critical points of Types (2) and (3) is more ambiguous and too
+  complicated for discussion.
+\item {\em Multiplicatively separable, absolute extreme values}:
+  Often, these don't exist, if one function takes arbitrarily large
+  magnitude values and the other one takes nonzero values (details
+  based on sign). If both functions are everywhere positive, and we
+  are on a rectangular region, then the absolute maximum/minimum for
+  the product occur at points whose coordinates give respective
+  absolute maximum/minimum for $f$ and $g$. (See notes)
+\item For a continuous quasiconvex function on a convex domain, the
+  maximum must occur at one of the extreme points, in
+  particular on the boundary. If the function is strictly quasiconvex,
+  the maximum can occur only at a boundary point.
+\item For a continuous quasiconvex function on a convex domain, the
+  minimum must occur on a convex subset. If the function is strictly
+  quasiconvex, it must occur at a unique point.
+\item Linear functions are quasiconvex but not strictly so. The
+  negative of a linear function is also quasiconvex. The maximum and
+  minimum for linear functions on convex domains must occur at extreme
+  points.
+\item To find maxima/minima on the boundary, we can use the method of
+  Lagrange multipliers.
+\end{enumerate}
+
+See also: tables, discussion for linear, quadratic, and homogeneous
+functions (hard to summarize).
+
+\section{Additively separable functions}
+
+\subsection{Partial derivatives, critical points and Hessian}
+
+Consider a function of the form $F(x,y) := f(x) + g(y)$, i.e., $F$ is
+additively separable. Then, $F_x(x,y) = f'(x)$, $F_y(x,y) = g'(y)$,
+$F_{xx}(x,y) = f''(x)$, $F_{yy}(x,y) = g''(y)$, and $F_{xy}(x,y) = 0$.
+
+Note that in this case, the Hessian (the determinant used to determine
+the nature of extreme value at a critical point) is simply the product
+$F_{xx}F_{yy} = f''(x)g''(y)$.
+
+We have the following:
+
+\begin{quote}
+  The critical points for $F$ are precisely the points whose
+  $x$-coordinate gives a critical point for $f$ and $y$-coordinate
+  gives a critical point for $g$. In other words, $(x_0,y_0)$ in the
+  domain of $F$ gives a critical point if and only if $x_0$ gives a
+  critical point for $f$ and $y_0$ gives a critical point for $g$.
+\end{quote}
+
+\subsection{Local extreme values}
+
+We can say the following about local extreme values:
+
+\begin{itemize}
+\item The points of local maximum for $F$ are precisely the points
+  whose $x$-coordinate gives a local maximum for $f$ and whose
+  $y$-coordinate gives a local maximum for $g$. In other words,
+  $(x_0,y_0)$ in the domain of $F$ gives a local maximum if and only
+  if $x_0$ gives a local maximum for $f$ and $y_0$ gives a local
+  maximum for $g$.
+\item The points of local minimum for $F$ are precisely the points
+  whose $x$-coordinate gives a local minimum for $f$ and whose
+  $y$-coordinate gives a local minimum for $g$. In other words,
+  $(x_0,y_0)$ in the domain of $F$ gives a local minimum if and only
+  if $x_0$ gives a local minimum for $f$ and $y_0$ gives a local
+  minimum for $g$.
+\item In particular, a critical point gives a saddle point if any of
+  these conditions hold: it is not a point of local extremum in one of
+  the variables (e.g., a point of inflection type), {\em or} it is a
+  point of local extrema of opposite kinds in the two variables. For
+  instance, for the function $(x - 1)^2 - (y - 2)^2$, the point
+  $(1,2)$ is a point of local minimum for the first coordinate but
+  local maximum for the second, so we get a saddle point overall.
+\item For an additively separable function, the second derivative test
+  simply boils down to checking whether $f''(x)$ and $g''(y)$ have the
+  same sign. This is because the {\em interaction term} arising as a
+  {\em mixed partial} is {\em absent}.
+\end{itemize}
+
+\subsection{Absolute extreme values}
+
+Continuing notation from above, we note that:
+
+\begin{itemize}
+\item If the domain of $F$ is rectangular (or the whole plane or a
+  rectangular infinite strip) then the absolute maximum value for $F$
+  occurs at a point whose $x$-coordinate maximizes $f$ and whose
+  $y$-coordinate maximizes $g$.
+\item If the domain of $F$ is rectangular (or the whole plane or a
+  rectangular infinite strip) then the absolute minimum value for $F$
+  occurs at a point whose $x$-coordinate minimizes $f$ and whose
+  $y$-coordinate minimizes $g$.
+\end{itemize}
+
+These results don't hold for non-rectangular domains because we cannot
+carry out separate analysis of the variables. For instance, consider
+the function $x + y$ on the circular disk $x^2 + y^2 \le 1$. The
+maximum for $x$ occurs at $x = 1$, and the maximum for $y$ occurs at
+$y = 1$. However, the point $(1,1)$ lies outside the domain of the
+function.
+
+We will deal with non-rectangular regions in more detail a little later.
+
+\subsection{Examples}
+
+Consider the function:
+
+$$F(x,y) := x^2 - 3x + \sin^2y$$
+
+This is the sum of the functions $f(x) := x^2 - 3x$ and $g(y) :=
+\sin^2y$. $f$ attains its local and absolute minimum at $x_0 = 3/2$
+with value $-9/4$, and it has no local or absolute maximum. $g$
+attains its local and absolute minima at multiples of $\pi$ with value
+$0$, and its local and absolute maxima at odd multiples of $\pi/2$,
+with value $1$.
+
+The upshot is that:
+
+\begin{itemize}
+\item $F$ attains its local and absolute minima at points of the form
+  $(3/2,n\pi)$, $n$ an integer. This is because $f$ is minimum on the
+  $x$-coordinate and $g$ is minimum on the $y$-coordinate.
+\item $F$ has saddle points at $(3/2,n\pi + \pi/2)$. This is because
+  $f$ is minimum on the $x$-coordinate and $g$ is maximum on the
+  $y$-coordinate.
+\end{itemize}
+
+\subsection{Key observation: cases where second derivative test doesn't work}
+
+Consider the additively separable function:
+
+$$F(x,y) = (x-1)^3 - (y-2)^2$$
+
+The function has a unique critical point for the point $(1,2)$ in the
+domain. If we didn't notice additive separability, and directly tried
+to compute the Hessian, we'd get $0$, indicating that the second
+derivative test is inconclusive.
+
+We note that this is the sum of the functions $f(x) := (x-1)^3$ and
+$g(y) := -(y-2)^2$. Since we are now dealing with functions of {\em one}
+variable, we have methods other than the second derivative test (for
+instance, the first derivative test or higher derivative tests) to
+find out whether a given critical point gives a local extreme value. In
+this case we figure that $x = 1$ gives a point of inflection and {\em
+not} a local extreme value for $f$, whereas $y = 2$ gives a local
+maximum for $g$. Thus, overall, we conclude that $(1,2)$ gives a
+saddle point.
+
+In other words, for additively separable functions, we can go beyond
+the second derivative test using our knowledge of functions of one
+variable, despite our ignorance of analogous results for functions of
+two variables.
+\section{Multiplicatively separable functions}
+\subsection{Partial derivatives, critical points, and Hessian}
+
+Consider a function of the form $F(x,y) := f(x)g(y)$, i.e., $F$ is
+multiplicatively separable. Then, $F_x(x,y) = f'(x)g(y)$, $F_y(x,y) =
+f(x)g'(y)$, $F_{xx}(x,y) = f''(x)g(y)$, $F_{xy}(x,y) = f'(x)g'(y)$,
+and $F_{yy}(x,y) = f(x)g''(y)$. 
+
+The Hessian determinant (used for the second derivative test) at a
+point $(x_0,y_0)$ thus becomes:
+
+$$f(x_0)g(y_0)f''(x_0)g''(y_0) - [f'(x_0)g'(y_0)]^2$$
+
+We first try to figure out the necessary and sufficient conditions for
+a point $(x_0,y_0)$ to be a critical point for $F$. This happens iff
+$f'(x_0)g(y_0) = 0$ and $f(x_0)g'(y_0) = 0$. This could occur for four
+different reasons. We provide each reason along with an
+interpretation.
+
+\begin{enumerate}
+\item $f'(x_0) = g'(y_0) = 0$: This means that $x_0$ is a critical
+  point for $f$ and $y_0$ is a critical point for $g$.
+\item $f(x_0) = f'(x_0) = 0$: Note that in this case the partial with
+  respect to $y$ is $0$ at the point, not because of $y_0$, but
+  because of $x_0$. What's happening is that on the line $x = x_0$,
+  the function is identically zero, so changes in $g$ do not matter.
+\item $g(y_0) = g'(y_0) = 0$: Note that in this case the partial with
+  respect to $x$ is $0$ at the point, not because of $x_0$, but
+  because of $y_0$. What's happening is that on the line $y = y_0$,
+  the function is identically zero, so changes in $f$ do not matter.
+\item $f(x_0) = 0$ and $g(y_0) = 0$: In this case, the function is
+  identically zero along both the vertical and the horizontal line
+  containing $(x_0,y_0)$.
+\end{enumerate}
+
+Note that any critical point that is of Type (4) above but not any of
+the preceding types must {\em fail} the second derivative test. For a
+critical point of Type (2) or (3) above, the second derivative test is
+inconclusive because we get $0$ (more is discussed in the next
+subsection). For a critical point of Type (1), the second derivative
+test is most useful. Note that for such a critical point, the Hessian
+determinant simply becomes $f(x_0)g(y_0)f''(x_0)g''(y_0)$, so its sign
+depends not only on the signs of the second derivatives of $f$ and $g$
+but {\em also} on the signs of the functions $f$ and $g$ themselves.
+
+\subsection{Local extreme values: Type 1 case}
+
+The following table gives conclusions for the nature of local extreme
+values of $F(x,y) = f(x)g(y)$ at $(x_0,y_0)$ if $x_0$ gives a local
+extreme value for $f$ and $y_0$ gives a local extreme value for $g$.
+
+\begin{tabular}{|l|l|l|l|l|}
+  \hline
+  $f(x_0)$ sign & $g(y_0)$ sign & $f(x_0)$ (local max/min) & $g(y_0)$ (local max/min) & $F(x_0,y_0)$ (local max/min/saddle)\\
+  \hline
+  positive & positive & local max & local max & local max\\
+  \hline
+  positive & positive & local max & local min & saddle point \\
+  \hline
+  positive & positive & local min & local max & saddle point \\
+  \hline
+  positive & positive & local min & local min & local min \\
+  \hline
+  positive & negative & local max & local max & saddle point\\
+  \hline
+  positive & negative & local max & local min & local min\\
+  \hline
+  positive & negative & local min & local max & local max\\
+  \hline
+  positive & negative & local min & local min & saddle point\\
+  \hline
+  negative & positive & local max & local max & saddle point\\
+  \hline
+  negative & positive & local max & local min & local max \\
+  \hline
+  negative & positive & local min & local max & local min \\
+  \hline
+  negative & positive & local min & local min & saddle point \\
+  \hline
+  negative & negative & local max & local max & local min \\
+  \hline
+  negative & negative & local max & local min & saddle point \\
+  \hline
+  negative & negative & local min & local max & saddle point \\
+  \hline
+  negative & negative & local min & local min & local max \\
+  \hline
+\end{tabular}
+
+Note that the conclusion about $F$ depends not merely on whether $f$
+and $g$ have local max/min but also on the sign of the local max/min
+for $f$. The {\em saddle point cases} arise when $f$ and $g$ are
+pulling (multiplicatively) in opposite directions. Here, the function
+is a local maximum along one of the $x$- and $y$-directions and a
+local minimum along the other.
+
+{\em In cases where the second derivative test is conclusive for both
+$f$ and $g$ as functions of one variable}, the above observations can
+be cross-checked by looking at the sign of the Hessian, which is
+$f(x_0)g(y_0)f''(x_0)g''(y_0)$, and of $F_{xx} = g(y_0)f''(x_0)$ and
+$F_{yy} = f(x_0)g''(y_0)$.
+
+We do two of the sixteen examples for illustration:
+
+\begin{itemize}
+\item If $f$ has a positive local maximum at $x_0$ and $g$ has a
+  negative local maximum at $y_0$, then $F$ has a saddle point: We get
+  $f(x_0) > 0$, $g(y_0) < 0$, $f''(x_0) < 0$, $g''(y_0) < 0$. So, the
+  Hessian is negative (product of one positive and three
+  negatives). Thus, by the second derivative test, $F$ has a saddle
+  point.
+\item If $f$ and $g$ both have negative local minima, then $F$ has a
+  local maximum. Here's how we see this: we get $f(x_0) < 0$, $g(y_0)
+  < 0$, $f''(x_0) > 0$ (local minimum), $g''(y_0) > 0$ (local
+  minimum), so multiplying all the signs, we see that the Hessian is
+  positive. Thus, the function does attain a local extreme
+  value. Next, we look at the sign of $F_{xx}(x_0,y_0)$, which is
+  $g(y_0)f''(x_0)$. This is negative, since it is the product of a
+  negative and a positive number. Thus, $F$ has a local minimum.
+\end{itemize}
+
+It's important to keep in mind that the statements in the table {\em
+are more general and apply even when the second derivative tests are
+inconclusive}. We'll be looking at some examples shortly.
+
+\subsection{Critical points of Types 2 and 3}
+
+We now turn to the situation $F(x,y) = f(x)g(y)$ where there are
+points $x_0$ satisfying $f(x_0) = f'(x_0) = 0$. In this case, the
+second derivative test is inconclusive because the Hessian determinant
+takes the value $0$.
+
+Let's try to examine what's happening near the point. On the line $x =
+x_0$, the function is constant at $0$. That explains why $F_y(x_0,y_0)
+= 0$ -- the function is not changing along the $y$-direction because
+it's the product of $f(x_0)$, which is zero, and a changing number. On
+the line $y = y_0$, the function has derivative zero because $f'(x_0)
+= 0$, so that is why $F_x(x_0,y_0) = 0$.
+
+Now, the first condition we need to obtain a local minimum is that the
+function be a local minimum under slight perturbations in the
+$x$-direction. So, we would like that the function $x \mapsto
+f(x)g(y_0)$ have a local minimum at $x_0$. If $g(y_0) > 0$, this is
+equivalent to wanting $f$ to have a local minimum at $x_0$. If $g(y_0)
+< 0$, this is equivalent to wanting $f$ to have a local maximum at
+$x_0$. In fact, as long as $g(y_0) \ne 0$, these are necessary and
+sufficient conditions to impose. Let's make this explicit in a table:
+
+\begin{tabular}{|l|l|l|l|l|}
+  \hline
+  $g(y_0)$ sign & $f(x_0)$ (local max/min) at point with $f(x_0) = f'(x_0) = 0$ & $F(x_0,y_0)$ (local max/min) \\\hline
+  positive & local max & local max\\\hline
+  negative & local max & local min \\\hline
+  positive & local min & local min \\\hline
+  negative & local min & local max \\\hline
+\end{tabular}
+
+
+\subsection{Absolute extreme values}
+
+Here are some results on the {\em non-existence} of absolute extreme
+values:
+
+\begin{itemize}
+\item If $f$ takes a positive value anywhere on its domain, and $g$
+  takes arbitrarily large positive values, then $F$ takes arbitrarily
+  large positive values, and hence has no absolute maximum. 
+\item If $f$ takes a negative value anywhere on its domain, and $g$
+  takes arbitrarily large positive values, then $F$ takes arbitrarily
+  large magnitude negative values, and hence has no absolute
+  minimum. 
+\item If $f$ takes a positive value anywhere on its domain, and $g$
+  takes arbitrarily large magntiude negative values, then $F$ takes
+  arbitrarily large magnitude negative values, and hence has no
+  absolute minimum.
+\item If $f$ takes a negative value anywhere on its domain, and $g$
+  takes arbitrarily large magnitude negative values, then $F$ takes
+  arbitrarily large positive values, and hence has no absolute
+  maximum.
+\end{itemize}
+
+To each of the above, an analogous statement holds if we interchange
+the roles of $f$ and $g$.
+
+On the other hand, the following is true: if both $f$ and $g$ are
+everywhere positive, and the domain is a rectangular region, then the
+absolute minimum for $F$ occurs at the point whose $x$-coordinate
+gives the absolute minimum for $f$ and whose $y$-coordinate gives the
+absolute minimum for $g$.
+
+\subsection{Examples (Type 1 critical points only)}
+
+Consider the function:
+
+$$F(x,y) := (x^2 - x + 2)(3 + \cos y)$$
+
+$F$ is multiplicatively separable and can be written as $f(x)g(y)$
+where $f(x) = x^2 - x + 2$ and $g(y) = 3 + \cos y$.
+
+$f$ has a unique critical point with a local and absolute {\em
+minimum} at $x = 1/2$, and the value of the minimum is $7/4$.
+
+As for $g$, it attains its local and absolute maxima at multiples of
+$2\pi$ (with value $4$) and its local and absolute minima at odd
+multiples of $\pi$ (with value $2$).
+
+Note that there are no critical points of types (2), (3), and
+(4). This is because $f$ is never $0$ and further, $g$ and $g'$ are
+never simultaneously $0$.
+
+We can see from this that:
+
+\begin{itemize}
+\item $F$ has local and absolute minimum attained at points of the
+  form $(1/2,(2n + 1)\pi)$ with value $7/2$. This is because $f$ has a
+  local and absolute {\em positive} minimum at the point $1/2$ and $g$
+  has a local and absolute {\em positive} minimum at the point $(2n +
+  1)\pi$.
+\item $F$ has saddle points at points of the form $(1/2,2n\pi)$ with
+  value $7$. This is because $f$ has a local minimum at $1/2$ and $g$
+  has a local maximum at $2n\pi$.
+\item $F$ has no absolute maximum. To see this, note that $f$ is
+  unbounded from above and $g$ takes values in $[2,4]$.
+\end{itemize}
+
+Consider a very similar example:
+
+$$F(x,y) := (x^2 - x + 2)\cos y$$
+
+This is similar to the previous example except that the $3 + \cos y$
+is replaced by $\cos y$. We take $f(x) = x^2 - x + 2$ and $g(y) = \cos
+y$. $f$ has a unique local and absolute minimum at $x_0 = 1/2$ with
+value $7/4$. $g$ has local and absolute maxima at even multiples of
+$\pi$ with value $1$, and local and absolute minima at odd multiples
+of $\pi$ with value $-1$.
+
+From this, we conclude that:
+
+\begin{itemize}
+\item $F$ has {\em no} local maxima or minima. To see this, note that
+  both the $(1/2,2n\pi)$ and the $(1/2,(2n + 1)\pi)$ cases give saddle
+  points. For $(1/2,2n\pi)$, we get minimum and maximum, all positive,
+  which gives saddle points. For $(1/2,(2n+1)\pi)$, we get minimum and
+  minimum, positive and negative respectively, which again gives
+  saddle points.
+\item There are no absolute maxima and minima either. To see this,
+  note that $f$ is unbounded from above, and $g$ takes values in
+  $[-1,1]$, so $F$ can take arbitrarily large positive and negative
+  values.
+\end{itemize}
+
+\subsection{Example (Type 1 and Type 4 critical points)}
+
+Consider the function:
+
+$$F(x,y) := (x-2)(x-4)(y+1)(y - 5)$$
+
+This is the product of the function $f(x) := (x-2)(x-4)$ and $g(y) :=
+(y+1)(y-5)$.
+
+$f$ has a unique critical point at $x_0 = 3$ and $g$ has a unique
+critical point at $y_0 = 2$. So $F$ has a unique critical point of
+Type 1 (with $f'(x_0) = g'(y_0) = 0$), namely the point $(3,2)$ in the
+domain. Since both $f$ and $g$ have {\em negative} local {\em minima}
+at the point, we conclude that $F$ has a {\em positive} local {\em
+maximum} at the point.
+
+However, there are also other kinds of critical points, specifically
+Type 4 critical points where $f(x_0) = g(y_0) = 0$. There are in fact
+four such critical points: $(2,-1)$, $(2,5)$, $(4,-1)$, and $(4,5)$.
+
+As already mentioned earlier, the critical points that are only Type 4
+critical points {\em cannot} must give saddle points, so we obtain
+saddle points at all these four points. The upshot:
+
+\begin{itemize}
+\item There is a unique positive local maximum at $(3,2)$.
+\item There are four saddle points: $(2,-1)$, $(2,5)$, $(4,-1)$, and
+  $(4,5)$.
+\item There is {\em no} absolute maximum or minimum. To see this, note
+  that $f$ takes both a positive and a negative value, and $g$ takes
+  arbitrarily large positive values, so we can arrange the product to
+  be a positive or a negative number of arbitrarily large magnitude.
+\end{itemize}
+
+\subsection{We don't need no second derivative test}
+
+Consider a function such as:
+
+$$F(x,y) := ((x-1)^4 - 1)((y+3)^6 - 2)$$
+
+If we directly tried to use the second derivative test on this at the
+unique critical point $(1,-3)$, we'd get $0$, i.e., the inconclusive
+case. However, thinking of the function as multiplicatively separable
+allows us to do a little better.
+
+We consider $F$ as a product of the function $f(x) := (x - 1)^4 - 1$
+and $g(y) := (y+3)^6 - 2$. Using the first derivative test (or the
+higher derivative tests) we can conclude that $f$ has its unique local
+and absolute minimum with value $-1$ at $x_0 = 1$. $g$ has its unique
+local and absolute minimum with value $-2$ at $y_0 = -3$. Consulting
+the table on various combinations, we note that $F$ has a local {\em
+maximum} at $(1,-3)$ with value $2$. However, $F$ has no
+absolute maxima or minima because $f$ takes both positive and negative
+values and $g$ takes arbitrarily large positive values.
+
+{\em Incidentally, this also gives an example of a function with a
+unique local maximum and no local minimum but where the local maximum
+is not an absolute maximum}.
+
+The saddle points arising as Type 4 critical points in this case are
+$(0,\pm 2^{1/6} - 3)$ and $(2, \pm 2^{1/6} - 3)$.
+
+\section{Polynomials}
+
+\subsection{Linear polynomials}
+
+A linear polynomial is a polynomial of the form:
+
+$$f(x,y) := ax + by + c$$
+
+where at least one of the values $a$ and $b$ is nonzero. For a linear
+polynomial, there are no critical points and hence no local extreme
+values. We may still have boundary extreme values, discussed later
+when we talk of maximization on closed bounded subsets.
+
+\subsection{Homogeneous quadratic case}
+
+We begin by looking at a homogeneous quadratic polynomial:
+
+$$f(x,y) := ax^2 + bxy + cy^2$$
+
+where at least one of the coefficients $a$, $b$, and $c$ is nonzero.
+
+First, we calculate the partials:
+
+\begin{eqnarray*}
+  f_x(x,y) & = & 2ax + by \\
+  f_y(x,y) & = & bx + 2cy \\
+  f_{xy}(x,y)&=& b\\
+  f_{xx}(x,y)&=& 2a \\
+  f_{yy}(x,y)&=& 2c
+\end{eqnarray*}
+
+The Hessian determinant in this case becomes the constant $4ac - b^2$,
+which is the {\em negative} of the {\em discriminant} of the quadratic
+polynomial.
+
+If $4ac - b^2 \ne 0$, then the equations $2ax + by = 0$ and $bx + 2cy
+= 0$ are independent linear equations, so their solution set is the
+unique point $(0,0)$, so this is the only critical point. We note that:
+
+\begin{itemize}
+\item If $4ac - b^2 > 0$, i.e., the discriminant is negative, then
+  this is a unique local extreme value for the function with value $0$
+  attained at the origin $(0,0)$. Whether it is a maximum or a minimum
+  depends on whether $a$ and $c$ are positive or negative. If $a > 0$,
+  then the local extreme value of $0$ at the origin is the unique
+  minimum for the function. This also turns out to be the absolute
+  maximum/minimum.
+\item If $4ac - b^2 < 0$, i.e., the discriminant is positive, then the
+  function has no local extreme values. In fact, in this case, there
+  are two lines through the origin on which the function takes the
+  value $0$. The two lines divide the plane into four regions. In two
+  of these regions, the function can take negative values of
+  arbitrarily large magnitude. In the other two regions, the function
+  can take positive values of arbitrarily large magnitude.
+\end{itemize}
+
+Finally, if $b^2 = 4ac$, then the function attains its extreme value of $0$
+along a single line through the origin, obtained as the line $2ax + by
+= 0$. This is a minimum or maximum again depending on the sign of $a$.
+
+These cases are also summarized in the table:
+
+\begin{tabular}{|l|l|l|l|l|}
+  \hline
+  $4ac - b^2$ sign & $b^2 - 4ac$ sign & Extreme value & Points where it is attained & Nature (max or min?)\\
+  \hline
+  $> 0$ & $< 0$ & $0$ & $(0,0)$ & min if $a > 0$, max if $a < 0$ \\
+  \hline
+  $< 0$ & $> 0$ & -- & -- & --\\
+  \hline
+  $= 0$ & $= 0$ & $0$ & all points on the line $2ax + by = 0$ & min if $a > 0$, max if $a < 0$\\
+  \hline
+\end{tabular}
+
+What's happening here will become clearer with our general analysis of
+homogeneous functions.
+
+\subsection{Homogeneous polynomials and functions}
+
+Suppose $F(x,y)$ is a homogeneous function of degree $d$. Then, we
+know by definition that:
+
+$$F(ax,ay) = a^dF(x,y)$$
+
+We note the following:
+
+\begin{itemize}
+\item For any line through the origin, either $F$ is identically zero
+  along the line, or the gradient of $F$ at any point on the line
+  other than the origin is a nonzero vector.
+\item In particular, this means that the only possibility for a local
+  extreme value is $0$, and this must be attained either only at the
+  origin or at a union of lines through the origin.
+\item To determine what lines through the origin work, rewrite $F(x,y)
+  = x^dg(m)$ where $m = y/x$. Now, find the values of $m$ for which
+  this function of one variable attains a local extreme value
+  of $0$. The lines $y = mx$ for these values of $m$ are the relevant
+  ones. The $y$-axis needs to be checked separately.
+
+  To check whether the origin works, check whether $g$ has a uniform
+  sign (excluding points where it is zero).
+\end{itemize}
+
+In the light of this, the discussion of quadratics makes extra
+sense. Rewriting the quadratic $ax^2 + bxy + cy^2$, we get $x^2(a + bm
++ cm^2)$. The function is $g(m) = cm^2 + bm + a$. If the discriminant
+$b^2 - 4ac$ is less than $0$, that means the quadratic has uniform
+sign, so the origin is a local extreme value, but there are no lines
+on which the function is zero.
+
+If the discriminant is positive, then the quadratic $g$ does not have
+uniform sign, and $0$ is not a local extreme value, so there are no
+local extreme values for the function $F$ of two variables.
+
+If the discriminant is zero, then the quadratic $g$ has a uniform sign
+except at an isolated point where it attains an extreme value of $0$,
+so that corresponds to a line on which $F$ attains its local extreme
+value of $0$.
+
+\subsection{Non-homogeneous quadratics: general discussion and specific example}
+
+We now turn to the situation of a non-homogeneous quadratic
+polynomial. This is of the general form:
+
+$$f(x,y) := ax^2 + bxy + cy^2 + px + qy + l$$
+
+where at least one of the $a$, $b$, and $c$ is nonzero.
+
+Note that the value of $l$ does not affect the points of local
+extrema, though it affects their values. The partial derivatives are:
+
+\begin{eqnarray*}
+  f_x(x,y) & = & 2ax + by + p \\
+  f_y(x,y) & = & bx + 2cy + q \\
+  f_{xx}(x,y)&=& 2a\\
+  f_{xy}(x,y)&=& b \\
+  f_{yy}(x,y)&=&2c\\
+\end{eqnarray*}
+
+The Hessian determinant at any point is thus $4ac - b^2$. In other
+words, it is a {\em constant independent of the point} and is the
+negative of the discriminant of the homogeneous quadratic part.
+
+Thus, we note the following cases:
+
+\begin{itemize}
+\item If $4ac - b^2 > 0$, or $b^2 - 4ac < 0$, then we get a unique
+  critical point solving the simultaneous system of linear equations
+  $f_x(x,y) = 0$ and $f_y(x,y) = 0$ and this gives a local extreme
+  value. It is a local minimum if $a > 0$ and a local maximum if $a < 0$.
+\item If $4ac - b^2 < 0$ or $b^2 - 4ac > 0$, then we get a unique
+  critical point solving the simultaneous system of linear equations
+  $f_x(x,y) = 0$ and $f_y(x,y) = 0$, but this gives a saddle point and
+  not a local extremum.
+\item If $4ac - b^2 = 0$, then, depending on the values $p$ and $q$,
+  we either have {\em no} critical points or {\em a line's worth} of
+  critical points. In the latter case, the line's worth of critical
+  points gives local extrema.
+\end{itemize}
+
+\section{Boundary issues}
+
+\subsection{The concept of a quasiconvex function}
+
+Suppose $f$ is a function defined on a domain $D$ in $\R^n$. Suppose
+the domain $D$ is a convex subset of $\R^n$, i.e., given any two
+points in $D$, the line segment joining them lies completely in $D$.
+
+We say that $f$ is a {\em quasiconvex function} if given any two
+points $P$ and $Q$ in $D$, the maximum value of $f$ on the line
+segment joining $P$ and $Q$ is attained at one (or possibly both) of
+the endpoints $P$ and $Q$. In other words, the value in the interior
+of a line segment is less than or equal to the value at one (or
+possibly both) of the endpoints.
+
+We say that $f$ is {\em strictly quasiconvex} if the maximum can occur
+{\em only} at endpoints, i.e., it is not possible for the maximum
+value to also be attained at an interior point.
+
+We note that:
+
+\begin{itemize}
+\item All linear functions are quasiconvex but not strictly quasiconvex.
+\item All convex functions are quasiconvex and all strictly convex
+  functions are strictly quasiconvex. We're not going to go into the
+  meaning of convex and strictly convex here (the definition is a
+  non-calculus definition and is fairly simple but will take us a
+  little off track). For functions of one variable, strictly convex
+  simply means {\em concave up} if the function is continuously
+  differentiable. For functions of two variables, if the Hessian
+  determinant is strictly positive everywhere (except possibly at
+  isolated points where it is zero) and the second pure
+  partials are positive everywhere, the function is strictly convex.
+\item Quadratic functions of two variables with negative discriminant
+  of the homogeneous part (i.e., positive Hessian determinant) 
+  and with positive coefficients on the square terms are
+  strictly convex and hence strictly quasiconvex.
+\end{itemize}
+
+There are two reasons quasiconvex functions are significant:
+
+\begin{itemize}
+\item The {\em maximum} of a continuous quasiconvex function on a
+  closed bounded convex domain {\em must} be attained somewhere on its
+  boundary. In fact, we can go further and note that the maximum must
+  be attained at an {\em extreme point} of the domain: a point not in
+  the interior of any line segment within the domain.
+
+  For a strictly quasiconvex function, the maximum {\em cannot} be
+  attained at any point other than an extreme point. For a function
+  that's quasiconvex but not strictly so, the maximum may also be
+  attained at other points.
+\item The {\em minimum} of a continuous quasiconvex function on a
+  closed bounded convex domain is attained either at a unique point or
+  on a convex subset of the convex domain, i.e., if the minimum occurs
+  at two distinct points in the domain, it also occurs at all points
+  in the line segment joining them.
+
+  For a strictly quasiconvex function, the minimum {\em must} be
+  attained at a {\em unique} point.
+\item For a continuous function that is the negative of a quasiconvex
+  function, the same observations as above hold but with the roles of
+  maximum and minimum interchanged.
+\end{itemize}
+
+We now consider some examples of maximization for functions that are
+strictly quasiconvex.
+
+\subsection{Linear examples}
+
+Note that {\em for linear functions}, both the function and its
+negative are quasiconvex, so both the maximum and the minimum of a
+linear function on a closed bounded convex domain must occur at
+extreme points.
+
+Consider a function $f(x,y) = 2x - 3y$ on the square region $[-1,1]
+\times [-1,1]$.
+
+Since $f$ is a linear function, it is quasiconvex (though not strictly
+so). This means that the maximum value, if it occurs, must occur at
+one of the extreme points. The extreme points of a square are its four
+vertices, i.e., the vertices $(-1,-1)$, $(-1,1)$, $(1,1)$, and
+$(1,-1)$. We simply need to evaluate $f$ at all these points and see
+which is the largest. We have $f(-1,-1) = 1$, $f(-1,1) = -5$, $f(1,1)
+= -1$, $f(1,-1) = 5$. The largest occurs at $(1,-1)$ with value $5$,
+so this is the maximum.
+
+In this case, the minimum occurs at $(-1,1)$ with value $-5$.
+
+Now consider another example:
+
+$$f(x,y) := 3x + 4y$$
+
+on the circular disk $x^2 + y^2 \le 1$.
+
+Here, the maximum and minimum both occur on the boundary circle $x^2 +
+y^2 = 1$. However, all points on the boundary circle are extreme
+points, so the minimum may be attained at any of them -- we cannot
+rule any point offhand. The problem thus reduces to maximizing a
+function on the circle. There are many ways of doing this, including
+Lagrange multipliers (which we'll see shortly) but one approach is to
+put $x = \cos \theta$, $y = \sin \theta$, and thus convert the problem
+to a maximization/minimization in one variable of the function
+$g(\theta) = 3\cos \theta + 4 \sin \theta$.
+
+\subsection{Strictly convex quadratic example}
+
+$$f(x,y) := 2x^2 - 2xy + y^2 - x + 3$$
+
+Suppose we want to calculate the maximum and minimum values of $f$ on
+the square region $[0,1] \times [0,1]$.
+
+We compute the first and second partials:
+
+\begin{eqnarray*}
+  f_x(x,y) & = & 4x - 2y - 1 \\
+  f_y(x,y) & = & 2y - 2x \\
+  f_{xx}(x,y)& = & 4\\
+  f_{yy}(x,y)& = & 2\\
+  f_{xy}(x,y)& = & -2
+\end{eqnarray*}
+
+We note that the Hessian determinant is $4$ {\em everywhere} and
+$f_{xx} = 4$ is positive everywhere. So this is an example of a
+strictly convex, and hence strictly quasiconvex, quadratic
+function. As also seen from the discussion of quadratics, we should
+get a unique critical point that gives a local extreme value. We first
+find the critical point by solving:
+
+\begin{eqnarray*}
+  4x - 2y - 1 & = & 0\\
+  2y - 2x & = & 0\\
+\end{eqnarray*}
+
+Solving, we get $x = 1/2$, $y = 1/2$. This gives the point
+$(1/2,1/2)$, which lies within the domain. Evaluating the function at
+this point gives $f(1/2,1/2) = 11/4$. This is the unique local minimum
+of the function on the whole plane and hence on the domain. In this
+case, it also turns out to be the absolute minimum. {\em Note: In
+general, there are examples of continuous functions having a unique
+local minimum that is not an absolute minimum. But those examples
+don't include strictly quasiconvex functions.}
+
+Since the function is strictly convex and hence strictly quasiconvex,
+the maximum must occur at one of the four corner points. It remains to
+evaluate $f$ at the four boundary points $(0,0)$, $(1,0)$, $(1,1)$,
+and $(0,1)$. We get $f(0,0) = 3$, $f(1,0) = 4$, $f(1,1) = 3$, $f(0,1)
+= 4$. Of these, we see that the maximum occurs at the points $(1,0)$
+and $(0,1)$, with a value of $4$.
+
+\section{Combining max-min and Lagrange}
+
+For quasiconvex functions, we already noted that the maximum must
+occur somewhere on the boundary of the domain. For strictly
+quasiconvex functions, it can occur {\em only} at boundary points.
+
+Even for functions that aren't quasiconvex, maximization over a
+certain domain requires us to find not just local maxima/minima in the
+interior but also boundary maxima/minima and then compare them
+all. Lagrange multipliers can offer a method to do so.
+
+Let's return to our earlier example:
+
+$$f(x,y) := 3x + 4y$$
+
+on the disk $x^2 + y^2 \le 1$.
+
+Since this is a linear function, both the function and its negative
+are quasiconvex, and since the domain of consideration is a convex
+domain, the maximum and minimum must both be attained at the boundary
+circle $x^2 + y^2 = 1$.
+
+We can now use the method of Lagrange multipliers to carry out the
+maximization and minimization relative to the boundary. Here, $g(x,y)
+= x^2 + y^2$, so $\nabla g(x,y) = \langle 2x,2y \rangle$. Also,
+$\nabla f(x,y) = \langle 3,4 \rangle$. We get:
+
+$$\langle 3,4 \rangle = \lambda \langle 2x, 2y \rangle, \qquad x^2 + y^2 = 1$$
+
+Simplifying, we get:
+
+\begin{eqnarray*}
+  3 & = & 2\lambda x\\
+  4 & = & 2\lambda y\\
+  x^2 + y^2 & = & 1 \\
+\end{eqnarray*}
+
+Plug in $x = 3/(2\lambda)$ and $y = 2/\lambda$ into the third equation
+and we get:
+
+$$\frac{9}{4\lambda^2} + \frac{4}{\lambda^2} = 1$$
+
+Simplifying, we get:
+
+$$\lambda = \pm 5/2$$
+
+Plugging back, we obtain that the two candidate critical points are
+$\langle 3/5,4/5 \rangle$ and $\langle -3/5,-4/5 \rangle$. In this
+case, it is easy to see from inspection that $\langle 3/5,4/5 \rangle$
+is a point of local maximum with value $5$ and $\langle -3/5,-4/5
+\rangle$ is a point of local minimum with value $-5$.
+
+\end{document}

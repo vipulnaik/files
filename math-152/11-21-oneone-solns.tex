@@ -1,0 +1,273 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: November 21: One-one functions}
+\author{Math 152, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$12$ people attempted this quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $1$: $3$ people.
+\item Score of $2$: $6$ people.
+\item Score of $3$: $3$ people.
+\end{itemize}
+
+The mean score was $2$.
+
+Here are the problem wise solutions and scores:
+
+\begin{enumerate}
+\item Option (B): $11$ people
+\item Option (C): $2$ people
+\item Option (E): $9$ people
+\item Option (C): $0$ people. {\em Whoops!}
+\item Option (E): $2$ people
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+\item For one of these function types for a continuous function from
+  $\R$ to $\R$, it is {\em possible} to also be a one-to-one
+  function. What is that function type?
+
+  \begin{enumerate}[(A)]
+  \item Function whose graph has mirror symmetry about a vertical line.
+  \item Function whose graph has half turn symmetry about a point on it.
+  \item Periodic function.
+  \item Function having a point of local minimum.
+  \item Function having a point of local maximum.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Think $f(x) = x$, $f(x) = x^3$, or $f(x) = x -
+  \sin x$.
+
+  For all the others, the violation of one-to-one is clear: periodic
+  functions repeat completely after an interval, functions whose graph
+  has mirror symmetry have the same value at equal distances from the
+  axis of mirror symmetry, and the existence of a local extremum
+  implies that values very close to that are attained both on the
+  immediate left and the immediate right of the extremum.
+
+  {\em Performance review}: $11$ out of $12$ got this correct. $1$
+  left the question blank.
+
+  {\em Historical note (last year)}: Everybody got this correct!
+
+\item (**) Suppose $f$, $g$, and $h$ are continuous one-to-one
+  functions whose domain and range are both $\R$. {\bf What can we
+    say} about the functions $f + g$, $f + h$, and $g + h$?
+
+  \begin{enumerate}[(A)]
+  \item They are all continuous one-to-one functions with domain $\R$
+    and range $\R$.
+  \item At least two of them are continuous one-to-one functions with
+    domain $\R$ and range $\R$ -- however, we cannot say more.
+  \item At least one of them is a continuous one-to-one function with
+    domain $\R$ and range $\R$ -- however, we cannot say more.
+  \item Either all three sums are continuous one-to-one functions
+    whose domain and range are both $\R$, or none is.
+  \item It is possible that none of the sums is a continuous
+    one-to-one function whose domain and range are both $\R$; it is
+    also possible that one, two, or all the sums are continuous
+    one-to-one functions whose domain and range are both $\R$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Since $f$, $g$, and $h$ are all continuous
+  one-to-one functions with domain and range $\R$, each one of them is
+  either increasing or decreasing. We consider various cases:
+
+  \begin{itemize}
+  \item If all three functions are increasing, so are all the pairwise
+    sums, and hence, all the sums $f + g$, $f + h$, and $g + h$ are
+    increasing. Further, the domain and range of all three pairwise
+    sums is $\R$.
+  \item If all three functions are decreasing, so are all the pairwise
+    sums, and hence, all the sums $f + g$, $f + h$, and $g + h$ are
+    decreasing. Further, the domain and range of all three pairwise
+    sums is $\R$
+  \item If two of the functions are increasing and the third function
+    is decreasing, then we know for certain that the sum of the two
+    increasing functions is increasing and hence one-to-one. But the
+    sum of either of the increasing functions with the decreasing
+    function may be increasing, decreasing, or neither. For instance,
+    if $f(x) = g(x) = x$ and $h(x) = -x$, then $f + h$ and $g + h$ are
+    both the zero function, which is neither increasing nor
+    decreasing, and hence not one-to-one.
+  \item If two of the functions are decreasing and the third function
+    is increasing, then we know for certain that the sum of the two
+    dcereasing functions is decreasing and hence one-to-one. We cannot
+    say anything for sure about the other two sums, for the same
+    reasons as in the previous case.
+  \end{itemize}
+
+  It's clear from all these that (C) is the right option.
+
+  {\em Performance review}: $2$ out of $12$ got this. $6$ chose (E),
+  $2$ chose (A), $1$ each chose (B) and (D).
+
+  {\em Historical note (last year)}: $2$ out of $15$ people got this
+  correct. $8$ people chose (A), $1$ person chose (B), and $4$ people
+  chose (E).
+
+  {\em Action point}: Please make sure you understand this solution
+  really well! This kind of question should not trip you in the
+  future.
+\item (**) Suppose $f$ is a one-to-one function with domain a closed
+  interval $[a,b]$ and range a closed interval $[c,d]$. Suppose $t$ is
+  a point in $(a,b)$ such that $f$ has left hand derivative $l$ and
+  right-hand derivative $r$ at $t$, with both $l$ and $r$
+  nonzero. What is the left hand derivative and right hand derivative
+  to $f^{-1}$ at $f(t)$?
+
+  \begin{enumerate}[(A)]
+  \item The left hand derivative is $1/l$ and the right hand
+    derivative is $1/r$.
+  \item The left hand derivative is $-1/l$ and the right hand
+    derivative is $-1/r$.
+  \item The left hand derivative is $1/r$ and the right hand
+    derivative is $1/l$.
+  \item The left hand derivative is $-1/r$ and the right hand
+    derivative is $-1/l$.
+  \item The left hand derivative is $1/l$ and the right hand
+    derivative is $1/r$ if $l > 0$, otherwise the left hand derivative
+    is $1/r$ and the right hand derivative is $1/l$.
+  \end{enumerate}
+  
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Although it isn't necessary to note this, a
+  one-to-one function that satisfies the intermediate value property
+  is continuous, so even though $f$ is not explicitly given to be
+  continuous, it is in fact continuous on its domain.
+
+  If $l > 0$, then, since we are dealing with a one-to-one function,
+  the function is increasing throughout, and so $r \ge 0$ as
+  well. Since we know $r \ne 0$, we conclude that $r > 0$
+  strictly. The upshot is that as $x \to t^-$, $f(x) \to f(t)^-$ and
+  as $x \to t^+$, $f(x) \to f(t)^+$. Thus, when we pass to the inverse
+  function, the roles of left and right remain the same.
+
+  On the other hand, if $l < 0$, then as $x \to t^-$, $f(x) \to
+  f(t)^+$, and hence the roles of left and right get interchanged.
+
+  {\em Performance review}: $9$ out of $12$ got this. $2$ chose (C)
+  and $1$ chose (A).
+
+  {\em Historical note (last year)}: $6$ out of $15$ people got this
+  correct. $6$ people chose (A) and $3$ people chose (C).
+
+  {\em Action point}: One-sided derivatives and increasing/decreasing
+  functions are a potent mix. We've tried and failed to understand
+  this mix many times in the past. But this might well be the time it
+  finally clicks! Here's a repetition: when we apply an increasing
+  function, {\em left remains left} and {\em right remains right}. But
+  when we apply a decreasing function, {\em left becomes right} and
+  {\em right becomes left}. Keep chanting this again and again until
+  you understand, appreciate, and {\em believe} it.
+
+
+\item (**) Which of these functions is one-to-one?
+
+  \begin{enumerate}[(A)]
+  \item $f_1(x) := \lbrace \begin{array}{rl} x, & x \text{ rational} \\ x^2, & x \text{ irrational}\\\end{array}$ 
+  \item $f_2(x) := \lbrace \begin{array}{rl} x, & x \text{ rational} \\ x^3, & x \text{ irrational}\\\end{array}$
+  \item $f_3(x) := \lbrace\begin{array}{rl} x, & x \text{ rational} \\ 1/(x - 1), & x \text{ irrational}\\\end{array}$
+  \item All of the above
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Option (A) is easy to rule out: $\sqrt{2}$ and
+  $-\sqrt{2}$ map to the same thing. Option (B) is a little harder to
+  rule out, because the function is one-to-one within each piece,
+  i.e., no two rationals map to the same thing and no two irrationals
+  map to the same thing. However, a rational and an irrational can map
+  to the same thing. For instance, $2$ and $2^{1/3}$ both map to $2$.
+
+  For option (C), note that not only is the map one-to-one in each
+  piece, but also, the image of the rationals stays inside the
+  rationals and the image of the irrationals stays inside the
+  irrationals. In particular, this means that a rational number and an
+  irrational number cannot map to the same thing, so the function is
+  globally one-to-one.
+
+  {\em Performance review}: Nobody got this correct! $10$ chose (C),
+  $2$ chose (A).
+
+  {\em Historical note (last year)}: $2$ out of $15$ people got this
+  correct. $7$ people chose (E), $4$ people chose (B), and $2$ people
+  chose (D). It is possible that some of those who chose (E) lost hope
+  after looking at (A) and (B) and concluded that checking (C) is
+  pointless too.
+
+  {\em Action point}: This one should not trip you in the future
+  either!
+
+\item (**) Consider the following function $f:[0,1] \to [0,1]$ given
+  by
+  $f(x) := \lbrace\begin{array}{rl} \sin(\pi x/2), & 0 \le x \le 1/2 \\
+    \sqrt{x}, & 1/2 < x \le 1\\\end{array}$. What is the correct
+  expression for $(f^{-1})'(1/2)$?
+
+  \begin{enumerate}[(A)]
+  \item It does not exist, since the two one-sided derivatives of $f$ at
+    $1/2$ do not match.
+  \item $\sqrt{2}$
+  \item $2\sqrt{2}/\pi$
+  \item $4/\pi$
+  \item $4/(\sqrt{3}\pi)$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: We use:
+
+  $$(f^{-1})'(1/2) = \frac{1}{f'(f^{-1}(1/2))}$$
+
+  By inspection, we see that $f^{-1}(1/2)$ must be between $0$ and
+  $1/2$. Thus, we must solve $\sin(\pi x/2) = 1/2$. This gives $\pi x
+  / 2 = \pi/6$ (considering domain restrictions) so $x = 1/3$. Thus, we get:
+
+  $$(f^{-1})'(1/2) = \frac{1}{f'(1/3)}$$
+
+  The expression for the derivative is $(\pi/2)\cos(\pi x/2)$, which
+  evaluated at $1/3$ gives $(\pi\sqrt{3})/4$. Taking the reciprocal,
+  we get $4/(\pi\sqrt{3})$.
+
+  Note that (A) is a sophisticated distractor in the sense that if you
+  naively consider:
+
+  $$(f^{-1})'(1/2) = \frac{1}{f'(1/2)}$$
+
+  You will wrongly conclude (A). (B) and (C) are the one-sided
+  derivative at $f(1/2)$, so these too are attractive propositions for
+  the naive.
+
+  {\em Performance review}: $2$ out of $12$ got this. $4$ chose (A),
+  $3$ chose (D), $2$ chose (C), $1$ chose (B).
+
+  {\em Historical note (last year)}: $1$ out of $15$ people got this
+  correct. $7$ people chose (A), $5$ people chose (C), and $2$ people
+  chose (B).
+
+  {\em Action point}: I emphasized this point in class: $(f^{-1})'(x)
+  = 1/(f'(f^{-1}(x)))$, not $1/(f'(x))$. However, the sting of getting
+  it wrong on a quiz might be a greater spur to remember this fact
+  forever. Make sure you never fall for this error again!
+\end{enumerate}
+\end{document}

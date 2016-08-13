@@ -1,0 +1,526 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: November 11: Whoppers}
+\author{Math 152, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$12$ people took this quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $1$: $2$ people
+\item Score of $2$: $3$ people
+\item Score of $3$: $3$ people
+\item Score of $4$: $2$ people
+\item Score of $8$: $2$ people
+\end{itemize}
+
+The mean score was $3.42$. Here are the problem wise answers:
+
+\begin{enumerate}
+\item Option (C): $3$ people.
+\item Option (A): $8$ people. {\em This was an exact replica, so good performance was expected.}
+\item Option (D): $3$ people.
+\item Option (C): $4$ people.
+\item Option (B): $5$ people.
+\item Option (C): $4$ people.
+\item Option (B): $7$ people. {\em This was an exact replica, so good
+  performance was expected.}
+\item Option (A): $6$ people. {\em This was an exact replica, so good
+  performance was expected.}
+\item Option (D): $1$ person.
+\end{enumerate}
+\section{Solutions}
+
+\begin{enumerate}
+\item Suppose $g:\R \to \R$ is a continuous function such that
+  $\lim_{x \to 0} g(x)/x^2 = A$ for some constant $A \ne 0$. What is
+  $\lim_{x \to 0} g(g(x))/x^4$? {\em Similar to (but trickier than)
+  October 4 Question 2: only 1 person got that right}.
+
+  \begin{enumerate}[(A)]
+  \item $A$
+  \item $A^2$
+  \item $A^3$
+  \item $A^2g(A)$
+  \item $g(A)/A^2$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: First, note that since $g(x)/x^2 \to A$ as $x \to
+  0$, we must have $g(x) \to 0$ as $x \to 0$. In particular, $g(0) =
+  0$.
+
+  Now, consider:
+
+  $$\lim_{x \to 0} \frac{g(g(x))}{x^4} = \lim_{x \to 0} \frac{g(g(x))}{(g(x))^2} \cdot \frac{(g(x))^2}{x^4}$$
+
+  Splitting the limit, we get:
+
+  $$\lim_{x \to 0} \frac{g(g(x))}{(g(x))^2} \lim_{x \to 0} \left(\frac{g(x)}{x^2}\right)^2$$
+
+  Setting $u = g(x)$ for the first limit, and using the fact that as
+  $x \to 0$, $u \to 0$ we see that the first limit is $A$. For the
+  second limit, pulling the square out yields that the second limit is
+  $A^2$. The overall limit is thus $A \cdot A^2 = A^3$.
+
+  We can also use an actual example to solve this problem. For
+  instance, consider the extreme case where $g(x) = Ax^2$ (identically). In
+  this case, $g(g(x)) = A(Ax^2)^2 = A^3x^4$. Thus, $g(g(x))/x^4 =
+  A^3$, and the limit is thus $A^3$.
+
+  Even more generally, if $\lim_{x \to 0} g(x)/x^n = A$, then $\lim_{x
+  \to 0} g(g(x))/x^{n^2} = A^{n + 1}$.
+
+  {\em Performance review}: $3$ out of $12$ got this correct. $7$
+  chose (D), $1$ chose (B), $1$ chose (E).
+
+  {\em Historical note (last year)}: $4$ out of $16$ people got this
+  correct. $5$ people chose (A), $4$ people chose (B), $2$ people
+  chose (D), and $1$ person chose (E).
+
+  Also, this appeared in one of the error-spotting exercises for
+  Midterm 1.
+\item Which of the following statements is {\bf always true}? {\em
+  Exact replica of a past question}.
+
+  \begin{enumerate}[(A)]
+
+  \item The range of a continuous nonconstant function on a closed
+    bounded interval (i.e., an interval of the form $[a,b]$) is a
+    closed bounded interval (i.e., an interval of the form $[m,M]$).
+  \item The range of a continuous nonconstant function on an open
+    bounded interval (i.e., an interval of the form $(a,b)$) is an
+    open bounded interval (i.e., an interval of the form $(m,M)$).
+  \item The range of a continuous nonconstant function on a closed
+    interval that may be bounded or unbounded (i.e., an interval of
+    the form $[a,b]$, $[a,\infty)$, $(-\infty,a]$, or
+    $(-\infty,\infty)$) is also a closed interval that may be bounded
+    or unbounded.
+  \item The range of a continuous nonconstant function on an open
+    interval that may be bounded or unbounded (i.e., an interval of
+    the form $(a,b)$,$(a,\infty)$, $(-\infty,a)$, or
+    $(-\infty,\infty)$), is also an open interval that may be bounded
+    or unbounded.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: This is a combination of the extreme-value
+  theorem and the intermediate-value theorem. By the extreme-value
+  theorem, the continuous function attains a minimum value $m$ and a
+  maximum value $M$. By the intermediate-value theorem, it attains
+  every value between $m$ and $M$. Further, it can attain no other
+  values because $m$ is after all the minimum and $M$ the maximum.
+
+  {\em The other choices}:
+
+  Option (B): Think of a function that increases first and then
+  decreases. For instance, the function $f(x) := \sqrt{1 - x^2}$ on
+  $(-1,1)$ has range $(0,1]$, which is not open. Or, the function
+  $\sin x$ on the interval $(0,2\pi)$ has range $[-1,1]$.
+
+  Option (C): We can get counterexamples for unbounded intervals. For
+  instance, consider the function $f(x) := 1/x$ on $[1,\infty)$. The
+  range of this function is $(0,1]$, which is not closed. The idea is
+  that we make the function approach but not reach a finite value as
+  $x \to \infty$ (we'll talk more about this when we deal with
+  asymptotes).
+
+  Option (D): The same counterexample as for option (B) works.
+
+  {\em Performance review}: $8$ out of $12$ got this correct. $1$ each
+  chose (B), (C), (D), and (E).
+
+  {\em Historical note (last year)}: $9$ out of $16$ people got it
+  correct. $3$ people chose (C), $2$ people chose (D), and $1$ person
+  each chose (A) and (E).
+
+  {\em Historical note (last year, previous quiz)}: When the question
+  appeared in a previous quiz, $2$ out of $11$ people got it correct.
+
+\item Suppose $f$ is a continuously differentiable function on $\R$
+  and $c \in \R$. Which of the following implications is {\bf false}?
+  {\em Similar to (but trickier than) October 13 question 4.}
+
+  \begin{enumerate}[(A)]
+  \item If $f$ has mirror symmetry about $x = c$, $f'$ has half turn
+    symmetry about $(c,f'(c))$.
+  \item If $f$ has half turn symmetry about $(c,f(c))$, $f'$ has
+    mirror symmetry about $x = c$.
+  \item If $f'$ has mirror symmetry about $x = c$, $f$ has half turn
+    symmetry about $(c,f(c))$.
+  \item If $f'$ has half turn symmetry about $(c,f'(c))$, $f$ has
+    mirror symmetry about $x = c$.
+  \item None of the above, i.e., they are all true.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We can construct a number of examples, but
+  instead of doing that, we make a general note. If $f$ has mirror
+  symmetry about $x = c$, then not only must $f'$ have half turn
+  symetry about $(c,f'(c))$, we must {\em also} have $f'(c) =
+  0$. Therefore, in any situation where $f'$ has half turn symmetry
+  about a point where it does not take the value $0$, $f$ will not
+  have mirror symmetry about that point. More details below.
+
+  Option (A) is true. In fact, the following stronger claim is true:
+  if $f$ has mirror symmetry about $x = c$ and $f'$ is defined on all
+  of $\R$, then $f'(c) = 0$ and $f'(c + h) + f'(c - h) = 0$ for all $h
+  \in \R$. This can be proved as follows. By mirror symmetry:
+
+  $$f(c + h) = f(c - h)$$
+
+  This is true as an identity in $h$. Thus, differentiating both sides
+  with respect to $h$ and using the chain rule, we get:
+
+  $$f'(c + h) = -f'(c - h)$$
+
+  The negative sign arises due to the chain rule.
+
+  Option (B) is true and the justification is similar to that for
+  option (A). Namely:
+
+  $$f(c + h) + f(c - h) = 2f(c)$$
+
+  Differentiating both sides with respect to $h$ gives:
+
+  $$f'(c + h) - f'(c - h) = 0$$
+
+  Option (C) requires more justification. The idea is that:
+
+  $$f(c + h) - f(c) - \int_c^{c + h} f'(t) \, dt$$
+
+  and:
+
+  $$f(c) - f(c - h) = \int_{c - h}^c f'(t) \, dt$$
+
+  Now, since $f'$ has mirror symmetry about $c$, the two definite
+  integrals are equal, so we get:
+
+  $$f(c + h) - f(c) = f(c) - f(c - h)$$
+
+  which is precisely the condition for half turn symmetry of $f$ about
+  $(c,f(c))$.
+
+  Option (D) is false, because, as mentioned earlier, for $f$ to have
+  mirror symmetry given $f'$ having half turn symmetry, we need the
+  additional condition that $f'(c) = 0$.
+
+  For instance, any cubic polynomial has half turn symmetry, but most
+  polynomials of degree four do not have mirror symmetry. In fact, a
+  polynomial of degree four has mirror symmetry iff its derivative
+  cubic has the property that its point of inflection is a critical
+  point.
+
+  {\em Additional note}: As we differentiate things, we obtain more
+  and more symmetry. Here is the overall summary (where each step is
+  true assuming that we can differentiate):
+
+  Half turn symmetry $\stackrel{\text{diff}}{\to}$ Mirror symmetry
+  $\stackrel{\text{diff}}{\to}$ Half turn symmetry about point on $x$-axis.
+
+  Further, these arrows are reversible: any antiderivative of a
+  function with half turn symmetry about a point on the $x$-axis has
+  mirror symmetry about the same point, and any antiderivative of that
+  has half turn symmetry for a point with the same $x$-coordinate.
+
+  The even and odd functions are special cases where the
+  $x$-coordinate is $0$, so in that special case:
+
+  Half turn symmetry about point on $y$-axis $\stackrel{\text{diff}}{\to}$
+  Even function $\stackrel{\text{diff}}{\to}$ Odd function
+
+  {\em Performance review}: $3$ out of $12$ got this correct. $5$
+  chose (E), $3$ chose (C), $1$ left the question blank.
+
+  {\em Historical note (last year)}: $2$ out of $16$ people
+  got it correct. $7$ people chose (E), $5$ people chose (C), and $2$
+  people chose (A).
+\item Consider the function $f(x) := \lbrace\begin{array}{rl} x, & 0
+  \le x \le 1/2 \\ x - (1/5), & 1/2 < x \le 1 \\\end{array}$. Define by
+  $f^{[n]}$ the function obtained by iterating $f$ $n$ times, i.e.,
+  the function $f \circ f \circ f \circ \dots \circ f$ where $f$
+  occurs $n$ times. What is the smallest $n$ for which $f^{[n]} =
+  f^{[n + 1]}$? {\em Similar to a question on the previous midterm.}
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $5$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: We need to iterate $f$ enough times that
+  everything gets inside $[0,1/2]$, after which it becomes
+  stable. Note that each time, the value goes down by $0.2$. Thus, for
+  any $x \le 1$, we need at most three steps to bring it in $[0,1/2]$,
+  with the upper bound of $3$ being attained for $1$.
+
+  {\em Performance review}: $4$ out of $12$ got this correct. $3$
+  chose (D), $2$ each chose (A) and (E), $1$ chose (B).
+
+  {\em Historical note (last year)}: $3$ out of $16$ people
+  got this correct. $8$ people chose (A), $3$ people chose (B), and
+  $2$ people chose (D).
+
+  {\em Action point}: It seems that most people did not figure out how
+  composition works. Please make sure you understand at least one
+  question like this at some point in your life.
+
+\item With $f$ as in the previous question, what is the set of points
+  in $(0,1)$ where $f \circ f$ is not continuous?
+
+  \begin{enumerate}[(A)]
+  \item $0.5$ only
+  \item $0.5$ and $0.7$
+  \item $0.5$, $0.7$, and $0.9$
+  \item $0.7$ and $0.9$
+  \item $0.9$ only
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The piecewise definition is:
+
+  $$(f \circ f)(x) = \lbrace\begin{array}{rl} x, & 0 \le x \le 0.5\\ x - (1/5), & 0.5 < x \le 0.7 \\ x - (2/5), & 0.7 < x \le 1 \\\end{array}$$
+
+  We see that that points of discontinuity are $0.5$ and $0.7$.
+
+  Note that if we considered $f \circ f \circ f$ instead, $0.9$ would
+  also be a point of discontinuity, since, the definition to the right
+  of $0.9$ would be $x - (3/5)$.
+  
+  {\em Performance review}: $5$ out of $12$ got this correct. $4$
+  chose (C), $2$ chose (A), $1$ chose (D).
+
+  {\em Historical note (last year)}: $4$ out of $16$ people got this
+  correct. $9$ people chose (A), $2$ people chose (C), and $1$ person
+  chose (D).
+
+  {\em Action point}: Same as for previous problem -- make sure you
+  understand this clearly at least once in your life.
+\item Consider the graph of the function $f(x) := x\sin(1/(x^2 -
+  1))$. What can we say about the vertical and horizontal asymptotes?
+  {\em This resembles a future whopper.}
+
+  \begin{enumerate}[(A)]
+  \item The graph has vertical asymptotes at $x = +1$ and $x = -1$
+    and horizontal asymptote (in both directions) $y = 0$.
+  \item The graph has vertical asymptotes at $x = +1$ and $x = -1$
+    and horizontal asymptote (in both directions) $y = 1$.
+  \item The graph has no vertical asymptotes and horizontal
+    asymptote (in both directions) $y = 0$.
+  \item The graph has no vertical asymptotes and horizontal
+    asymptote (in both directions) $y = 1$.
+  \item The graph has no vertical or horizontal asymptotes.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The points where $f$ is undefined are $x = \pm
+  1$. At both these points, the limit is undefined, but the function
+  is bounded, because the $x$-part has a finite limit and the
+  $\sin(1/(x^2 - 1))$ part is bounded in $[-1,1]$. Thus, the function
+  cannot have a vertical asymptote (in fact, it is oscillatory with no
+  limit at both these points).
+
+  For the horizontal asymptote, we rewrite the limit at $+\infty$ as:
+
+  $$\lim_{x \to \infty} \frac{x}{x^2 - 1} \lim_{x \to \infty} (x^2 - 1)\sin(1/(x^2 - 1))$$
+
+  The first limit is $0$. As for the second limit, putting $t = 1/(x^2
+  - 1)$, we see that $t \to 0^+$ as $x \to \infty$, so the second
+  limit becomes $\lim_{t \to 0^+} (\sin t)/t = 1$. The overall limit
+  at $+\infty$ is thus $0$. A similar argument works for
+  $-\infty$. Note that since $x^2 - 1$ has even degree, we get
+  $\lim_{t \to 0^+} (\sin t)/t$ in this case as well.
+
+  {\em Performance review}: $4$ out of $12$ got this correct. $4$
+  chose (A), $2$ chose (E), $1$ each chose (B) and (D).
+  
+  {\em Historical note (last year)}: $3$ out of $16$ people
+  got this correct. $6$ people chose (A), $5$ people chose (B), and
+  $1$ person each chose (D) and (E).
+
+  {\em Action point}: Since the most commonly chosen incorrect answer
+  was (A), it seems that most people figured out the horizontal
+  asymptotes correctly. However, the vertical asymptotes confused
+  people -- not surprisingly, because they confused me too when I dug
+  up this question from last year. Once you read the solution,
+  however, you should be able to understand it.
+\item Suppose $f$ and $g$ are increasing functions from $\R$ to
+  $\R$. Which of the following functions is {\em not} guaranteed to be
+  an increasing functions from $\R$ to $\R$? {\em An exact replica of
+  a past question.}
+
+  \begin{enumerate}[(A)]
+
+  \item $f + g$
+  \item $f \cdot g$
+  \item $f \circ g$
+  \item All of the above, i.e., none of them is guaranteed to be increasing.
+  \item None of the above, i.e., they are all guaranteed to be increasing.
+  \end{enumerate}
+
+    {\em Answer}: Option (B)
+
+  {\em Explanation}: The problem with option (B) arises when one or
+  both functions take negative values. For instance, consider the case
+  $f(x) := x$ and $g(x) := x$. Both are increasing functions on all of
+  $\R$. However, the pointwise product is the function $x \mapsto
+  x^2$, which is a decreasing function for negative $x$.
+
+  Formally, the issue is that we cannot multiply inequalities of the
+  form $A < B$ and $C < D$ unless we are guaranteed to be working with
+  positive numbers.
+
+  {\em The other choices}:
+
+  Option (A): For any $x_1 <
+  x_2$, we have $f(x_1) < f(x_2)$ and $g(x_1) < g(x_2)$. Adding up, we
+  get $f(x_1) + g(x_1) < f(x_2) + g(x_2)$, so $(f + g)(x_1) < (f + g)(x_2)$.
+
+  Option (C): For any $x_1 < x_2$, we have $g(x_1) < g(x_2)$ since $g$
+  is increasing. Now, we use the factthat $f$ is increasing to compare
+  its values at the two points $g(x_1)$ and $g(x_2)$, and we get
+  $f(g(x_1)) < f(g(x_2))$. We thus get $(f \circ g)(x_1) < (f \circ
+  g)(x_2)$.
+
+  {\em Performance review}: $7$ out of $12$ got this correct. $4$
+  chose (C), $1$ chose (E).
+
+  {\em Historical note (last year)}: $9$ out of $16$ people got this
+  correct. $3$ people chose (C) and $2$ people each chose (D) and (E).
+
+  {\em Historical note (last year, previous quiz)}: When this question
+  appeared earlier on October 20, only $1$ out of $15$ people got it
+  correct.
+
+\item Suppose $F$ and $G$ are continuously differentiable functions on
+  all of $\R$ (i.e., both $F'$ and $G'$ are continuous). Which of the
+  following is {\bf not necessarily true}? {\em Exact replica of a
+  previous question.}
+
+  \begin{enumerate}[(A)]
+  \item If $F'(x) = G'(x)$ for all integers $x$, then $F - G$ is a
+    constant function when restricted to integers, i.e., it takes the
+    same value at all integers.
+  \item If $F'(x) = G'(x)$ for all numbers $x$ that are not integers,
+    then $F - G$ is a constant function when restricted to the set of
+    numbers $x$ that are not integers.
+  \item If $F'(x) = G'(x)$ for all rational numbers $x$, then $F - G$
+    is a constant function when restricted to the set of rational
+    numbers.
+  \item If $F'(x) = G'(x)$ for all irrational numbers $x$, then $F -
+    G$ is a constant function when restricted to the set of irrational
+    numbers.
+  \item None of the above, i.e., they are all necessarily true.
+  \end{enumerate}
+
+  {\em Answer}: Option (A).
+
+  {\em Explanation}: The fact that the derivatives of two functions
+  agree at integers says nothing about how the derivatives behave
+  elsewhere -- they could differ quite a bit at other places. Hence,
+  (A) is not necessarily true, and hence must be the right option. All
+  the other options are correct as statements and hence cannot be the
+  right option. This is because in all of them, the set of points
+  where the derivatives agree is {\em dense} -- it intersects every
+  open interval. So, continuity forces the functions $F'$ and $G'$ to
+  be equal everywhere, forcing $F - G$ to be constant everywhere.
+
+  {\em Performance review}: $6$ out of $12$ got this correct. $5$
+  chose (E), $1$ chose (D).
+
+  {\em Historical note (last year)}: $10$ out of $16$ people got this
+  correct. $2$ people each chose (B), (D), and (E).
+
+  {\em Historical note (last year, previous quiz)}: Nobody got it
+  correct.
+
+  {\em Action point}: It's possible that many of you just
+  remembered/revisited the question and saw that the correct answer
+  option is (A). However, you should make sure you understand {\em
+  why} the correct answer option is (A).
+\item Consider the four functions $\sin(\sin x)$, $\sin(\cos x)$,
+  $\cos(\sin x)$, and $\cos(\cos x)$. Which of the following
+  statements are true about their periodicity?
+
+  \begin{enumerate}[(A)]
+  \item All four functions are periodic with a period of $2\pi$.
+  \item All four functions are periodic with a period of $\pi$.
+  \item $\sin(\sin x)$ and $\sin(\cos x)$ have a period of $\pi$,
+    whereas $\cos(\sin x)$ and $\cos(\cos x)$ have a period of $2\pi$.
+  \item $\cos(\sin x)$ and $\cos(\cos x)$ have a period of $\pi$,
+    whereas $\sin(\sin x)$ and $\sin(\cos x)$ have a period of $2\pi$.
+  \item $\sin(\sin x)$ has a period of $2\pi$, the other three
+    functions have a period of $\pi$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Since the inner functions in all cases have a
+  period of $2\pi$, it is clear that all the four functions have a
+  period of at most $2\pi$, in fact, the period of each divides
+  $2\pi$. The crucial question is which of them have the smaller
+  period $\pi$.
+
+  Let's look at $\sin \circ \sin$ first. We have:
+
+  $$\sin(\sin(x + \pi)) = \sin(-\sin x) = - \sin(\sin x)$$
+
+  So, we see that that value at $x + \pi$ is the negative, and hence
+  usually not the equal, of the value at $x$. Similarly:
+
+  $$\sin(\cos(x + \pi)) = \sin(-\cos x) = -\sin(\cos x)$$
+
+  On the other hand, for the functions that have a $\cos$ on the
+  outside, the negative sign on the inside gets eaten up by the even
+  nature of the outer function. For instance:
+
+  $$\cos(\sin(x + \pi)) = \cos(-\sin x) = \cos(\sin x)$$
+
+  and:
+
+  $$\cos(\cos(x + \pi)) = \cos(-\cos x) = \cos(\cos x)$$
+
+  Now, this is not a proof that $\pi$ is strictly the smallest period
+  for these functions, but that can be proved using other methods. In
+  any case, given the choices presented, it is now easy to single out
+  (D) as the only correct answer.
+
+  The key feature here is that both $\sin$ and $\cos$ (viewed as the
+  inner functions of the composition) have {\em anti-period} $\pi$:
+  their value gets negated after an interval of $\pi$.
+
+  The outer function $\cos$ is even, hence it converts an anti-period
+  for the inner function into a period for the overall function. The
+  outer function $\sin$ is odd, so it keeps anti-periods anti-periods.
+
+  {\em Performance review}: $1$ out of $12$ got this correct. $5$
+  chose (A), $4$ chose (B), $1$ chose (C), $1$ chose (E).
+
+
+  {\em Historical note (last year)}: $5$ out of $16$ people got this
+  correct. $1$ person left the question blank. $7$ people chose (A),
+  $1$ person chose (B), and $2$ people chose (C).
+
+  {\em Action point}: This is fairly tricky to get at first sight, but
+  you should be able to read and understand the solution.
+\end{enumerate}
+\end{document}

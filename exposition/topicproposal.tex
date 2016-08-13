@@ -1,0 +1,521 @@
+\documentclass{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul}
+%Title details
+\title{Topic proposal: The structure of finite groups}
+\author{Vipul Naik\\discussed with George Glauberman}
+
+%List of new commands
+\renewcommand{\definedind}[1]{{\bf #1}}
+\makeindex
+
+\begin{document}
+\maketitle
+
+The typical college course in group theory covers groups,
+homomorphisms, normal subgroups, quotients, and group actions. This is
+followed by two basic theorems about finite groups: Sylow's theorem
+and the Jordan-Holder theorem. Sylow's theorem is the starting point
+of the {\em arithmetic} structure of groups: it relates the
+factorization of a natural number $n$ to subgroups in a group of order
+$n$. The Jordan-Holder theorem is the starting point of the {\em
+  normal} structure of groups: the use of normal subgroups and
+quotient groups to study a group's structure. (For more discussion on
+the arithmetic and normal structure, refer \cite{arithmeticandnormal}).
+
+The Jordan-Holder theorem relates arbitrary finite groups to a
+restricted class of finite groups called finite simple groups. A
+\definedind{simple group} is a nontrivial group that
+has no proper nontrivial normal subgroup. Unlike what the name
+suggests, {\em simple} here does not mean straightforward, gullible,
+or easy. Rather, simple means {\em unbreakable} or {\em
+  indecomposable}.
+
+By the eighties, finite group theorists had completed (modulo a snag
+that was finally resolved in 2004) the classification of all finite
+simple groups. (\cite{SolomonCFSG} is an excellent expository article
+on the classification and its history). Unlike what some believe, this
+does not render trivial the study of questions about {\em all finite
+  groups}, since there are many different ways that finite
+simple groups can be ``put together.'' For instance, all finite
+$p$-groups are obtained by piecing together simple groups of order
+$p$. However, there are many nontrivial questions about the structure
+of finite $p$-groups. In fact, classifying all finite groups, or even
+all finite $p$-groups, may not be meaningful in any sense because
+there are just too many types.
+
+With no large-scale classification in the works, group theorists are
+trying to add that extra bit to our knowledge of how finite groups
+behave. They're also building on the effort of the classification by
+helping out in other areas of mathematics. Some examples worth
+mentioning here:
+
+\begin{itemize}
+
+\item Geometric group theorists are interested in studying group
+  actions on manifolds. Often, the study of such actions boils down to
+  questions about $p$-groups and simple groups.
+
+\item Pro-$p$-groups, and profinite groups in general, are of
+  tremendous importance to questions in number theory, algebraic
+  geometry, and Galois theory. For instance, the inverse Galois
+  problem can be phrased as a question of computing the finite
+  quotients of a given profinite group. Solving many of these
+  questions requires exploration of questions involving finite groups.
+
+\item $p$-local classifying spaces of finite groups are important
+  objects in algebraic topology. The recent development of the notion
+  of fusion system allows for the construction of classifying spaces
+  of fusion systems, which is a generalization of $p$-local
+  classifying spaces of finite groups. The construction of fusion
+  systems is inspired by the fusion theorems proved by Alperin and
+  others as work towards the classification. (More on this in section
+  \ref{fusion}; also see \cite{fusionintro} for an introduction to
+  fusion systems).
+
+\end{itemize}
+
+I hope to pursue research in group theory. My topic proposal
+describes some old work (1900-1975) in group theory, done originally
+with the classification in mind, that might help with such research.
+
+
+My topic covers material largely from Chapters 5 to 8 of Gorenstein's
+book  {\em Finite Groups} (\cite{gorenstein}).
+
+\section{Groups of prime power order}
+
+\subsection{Characteristic subgroups of finite $p$-groups}
+
+Let $p$ be a prime. A finite $p$-group is a group whose order is a
+power of $p$.\footnote{The trivial group is a finite $p$-group as
+  well, but people often implicitly mean ``nontrivial'' when talking
+  about finite $p$-groups.} A famous elementary result is that every
+finite $p$-group is nilpotent: in particular, every nontrivial finite
+$p$-group has a nontrivial center.
+
+There are many important characteristic subgroups of finite
+$p$-groups, many of them defined through subgroup-defining functions:
+they're defined in a unique way starting from the big group. Examples
+include the center, commutator subgroup, members of the lower central
+series, members of the upper central series, the \definedind{Frattini
+  subgroup} (defined as the intersection of all maximal subgroups),
+and members of the Frattini series (a series obtained by taking
+Frattini subgroups successively). Also important are the omega and
+agemo subgroups: the subgroup $\Omega_j(P)$ of a $p$-group $P$ is
+defined as the subgroup generated by all $x \in P$ for which the order
+of $x$ divides $p^j$. $\mho^j(P)$ is defined as the subgroup generated
+by all elements of the form $x^{p^j}$.
+
+Why the plethora of subgroup-defining functions? The hope is to find
+smaller characteristic subgroups inside the big group whose structure
+gives information about the structure of the whole group.
+
+\subsection{Measures of size}
+
+How big is a $p$-group? The naive measure of size is the order. A
+group of order $p^n$ thus has size $p^n$. However, size on its own
+conveys little information about complexity. For instance, the
+structure of the cyclic group of order $p$ is similar for all primes
+$p$, and these groups might be thought of as equally complex in some
+sense, even though their sizes differ widely. This suggests that
+the measure of size is not $p^n$, but the exponent $n$.
+
+However, for large values of $n$, the value of $p$ matters too. When
+$n = 1$, all groups of order $p^1$ can be studied under the same
+umbrella: cyclic groups of prime order. The same holds for $n = 2,3$
+(with $p=2$ behaving slightly differently) and to a somewhat lesser
+extent, for $n= 4$. But for $n \ge 5$, the number of groups of order
+$p^n$, and their nature and behavior, depends very much on $p$.
+
+We have two measures of size so far: $p^n$ and $n$. Other measures of
+size look at the length of various series associated with the
+group. For instance, we can consider the nilpotence class (the length
+of the lower or upper central series), the solvable length (the length
+of the derived series), or the Frattini length (the length of the
+Frattini series). These measures are related in strange ways, and none
+of them alone suffices. For instance:
+
+\begin{itemize}
+
+\item A nontrivial $p$-group is abelian if and only if it has
+  nilpotence class one, if and only if it has solvable length
+  one. Thus, groups of small nilpotence class and small solvable
+  length can be thought of as being close to abelian.
+
+\item A group of nilpotence class $c$ has solvable length {\em at
+    most} $c$, but the solvable length provides no bound on the
+  nilpotence class.
+
+\item A nontrivial $p$-groups is elementary abelian\footnote{An
+    \definedind{elementary abelian group} is a direct product of
+    isomorphic cyclic groups of prime order; equivalently, it is the
+    additive group of a vector space over a finite field.} if and only
+  if it has Frattini length one.
+
+\end{itemize}
+
+Yet another measure of size is the exponent. The exponent of a finite
+group is the smallest $d$ such that the order of every element divides
+$d$. The exponent of a $p$-group is of the form $p^e$ for some natural
+number $e$, so we may choose either $e$ or $p^e$ as the size measure.
+
+Here are some interesting and unexpected facts:
+
+\begin{itemize}
+
+\item When $p = 2$, any group of exponent $p$ is abelian. When $p =
+  3$, any group of exponent $p$ has nilpotence class at most
+  three. When $p \ge 5$, there is no bound on the nilpotence class of
+  a $p$-group of exponent $p$.
+
+\item A group of order $p^n$ and nilpotence class $n-1$ (also called a
+  \definedind{maximal class group}) is generally thought of as being
+  very far from abelian. However, we can find maximal class groups
+  with abelian subgroups of index $p$. For instance, the dihedral
+  group of order $2^n$, or the wreath product of two cyclic
+  $p$-groups, are maximal class groups, yet have abelian subgroups of
+  prime index. In fact, any $2$-group of maximal class has a cyclic
+  maximal subgroup (this follows from the classification of all
+  $2$-groups of maximal class, see for instance \cite[Theorem 5.4.5,
+  Page 194--195]{gorenstein}).
+
+\end{itemize}
+
+\subsection{Coprime automorphisms and Thompson's critical subgroup}
+
+For simplicity of expression, we introduce a term. A subgroup $H$ of a
+finite group $G$ is termed a \definedind{coprime automorphism-faithful
+  subgroup} if, for any non-identity automorphism $\sigma$ of $G$ of
+order relatively prime to the order of $G$, such that $\sigma(H) = H$,
+the restriction of $\sigma$ to $H$ is not the identity map. In other
+words, non-identity automorphisms of coprime order, when they
+restrict, restrict to non-identity maps.
+
+Thompson was interested in whether a small coprime
+automorphism-faithful {\em characteristic} subgroup can be found. If
+$H$ is both coprime automorphism-faithful and characteristic, we get a
+homomorphism, by restriction:
+$$\operatorname{Aut}(G) \to \operatorname{Aut}(H)$$
+where the kernel contains no non-identity element of order coprime to
+that of $G$. Thompson managed to prove, in his paper with Feit on the
+odd-order theorem (\cite[Chapter 2, Lemma 8.2, Page
+795]{feitthompson}) that every finite $p$-group has such a coprime
+automorphism-faithful characteristic subgroup of nilpotence class
+two. Nilpotence class two groups are very close to abelian groups:
+they are ``small.'' Thompson used the faithful action of the coprime
+automorphism group on this small group to get strong restrictions on
+the nature of the coprime automorphism group.
+
+The subgroup constructed by Thompson has many other
+remarkable properties as well. These properties were abstracted by
+Gorenstein (\cite[Theorem 5.3.11, Page 185--186]{gorenstein}), and a
+subgroup satisfying these properties is termed a \definedind{critical
+  subgroup}.
+
+The typical temptation when trying to build a characteristic subgroup
+with certain properties is to look for a subgroup-defining function:
+something that pinpoints a subgroup uniquely. So, one might look at
+the omega series, the agemo series, the Frattini series, the lower and
+upper central series, or the derived series. Thompson's insight was to
+{\em not} yield to this temptation. Rather, his construction of a
+critical subgroup relies on certain {\em choices}, and in general, there
+may be more than one critical subgroup. As yet, there is no known way
+of {\em canonically} picking a critical subgroup, despite the fact
+that critical subgroups are all characteristic. In fact, Thompson's
+procedure does not even yield all the possible critical subgroups.
+
+\subsection{Abelian to cyclic: groups in a real-life act}
+
+Students of group cohomology may recognize the condition for finite
+groups: {\em every abelian subgroup is cyclic}. This is precisely the
+condition for having periodic cohomology, and is relevant to
+topological questions such as group actions on spheres. The question
+can be broken into two parts using Sylow's theorem: find the
+$p$-groups with this property, and then, find all groups which have
+$p$-Sylow subgroups within that list of $p$-groups with the
+property. It turns out that when $p$ is odd, a $p$-group in which
+every abelian subgroup is cyclic must itself by cyclic, and for $p =
+2$, the group is either cyclic or generalized quaternion.\footnote{A
+  \definedind{generalized quaternion group} of order $2^{n+1}$ is a group with a
+  presentation $\langle a^{2^n} = 1, x^2 = a^{2^{n-1}}, xax^{-1} =
+  a^{-1} \rangle$, $n \ge 2$. All generalized quaternion groups occur
+  as subgroups of the skew field of Hamiltonian quaternions. The famed
+  example is the quaternion group $\{ \pm 1, \pm 1, \pm j, \pm k \}$
+  of order eight, obtained by setting $n = 2$.}
+
+Thompson's critical subgroup theorem, and many related discoveries
+that appeared in his paper with Feit on the odd-order theorem
+(\cite{feitthompson}), can be used to answer more general versions of
+this question. For instance, it is possible to considerably simplify
+the proof of the classification of all $p$-groups in which {\em every
+  abelian characteristic subgroup is cyclic} (originally done by
+Philip Hall), and all $p$-groups in which {\em every abelian normal subgroup
+  is cyclic}.
+
+\subsection{Differentiate and exponentiate}
+
+The last thing you might expect to be able to do with a finite group
+is take logarithms, exponentials, and tangent spaces. And yet, it
+turns out that for a restricted class of finite $p$-groups (the
+subgroup generated by any three elements must have class at most
+$p-1$), there exist ``Lie rings'' corresponding to the groups, with a
+bijective map from the Lie ring to the group called the
+``exponential''. This exponential behaves much the same way as the
+usual exponential for a nilpotent Lie group (such as a group of
+upper-triangular matrices). This establishes a correspondence between
+a restricted class of $p$-groups and a restricted class of $p$-Lie
+rings, called the Lazard correspondence.  Here are some interesting
+observations about the correspondence:
+
+\begin{itemize}
+
+\item The exponential map is a bijection that preserves orders of
+  elements, puts Lie subrings in correspondence with subgroups, and
+  puts Lie ideals in correspondence with normal subgroups. It
+  preserves automorphism groups as well.
+
+\item For abelian groups, the corresponding Lie ring is abelian with
+  the same additive group. In other words, the Lie bracket is zero.
+
+\item For odd primes, the Lie ring corresponding to a group of class
+  two is defined with the Lie bracket being the commutator in the
+  group-theoretic sense.
+
+\item When the group has exponent $p$, the Lie ring is a Lie algebra
+  over the prime field. This allows us to do ``algebraic geometry''
+  over the prime field.
+
+\end{itemize}
+
+The Lazard correspondence is more than a curiosity. Just as taking
+logarithms helps in converting messy arithmetic computation involving
+multiplication to relatively easier problems of addition, the Lazard
+correspondence helps escape the messy noncommutativity of groups and
+pass to the more pleasant and tractable Lie rings. The Lazard Lie ring
+of a group of class two was used by Bender (in
+\cite{benderonthompson}) to simplify a computationally involved proof
+of Thompson about signalizers.
+
+\section{Solvable groups}
+
+\subsection{Schur-Zassenhaus and the shadow of odd order}
+
+A subgroup $H$ of a group $G$ is termed a \definedind{Hall subgroup}
+if the order and index of $H$ are relatively prime. Schur and
+Zassenhaus proved that any normal Hall subgroup has a permutable
+complement: in other words, if $H$ is normal Hall in $G$, $G$ splits
+as a semidirect product involving $H$. The proof has many variations,
+some using transversals, some making a direct appeal to group
+cohomology. They further proved that if $H$ is normal Hall in $G$, and
+either $H$ or $G/H$ is solvable, then any two complements to $H$ in
+$G$ are conjugate.\footnote{Who contributed what part to the proof is
+  unclear. It is definitely true that Schur set the ball rolling by
+  proving existence, at least in the abelian case, and Zassenhaus
+  stated the full theorem in his textbook later.}
+
+This ``either one or the other is solvable'' assumption may seem
+weak. However, given two coprime numbers, at least one of them is odd,
+and the celebrated odd-order theorem of Feit and Thompson
+(\cite{feitthompson}) shows that any group of odd order is
+solvable. Thus, Zassenhaus' conclusion actually holds for any normal
+Hall subgroup. Unfortunately, the proof of the Feit-Thompson theorem
+is fairly involved (255 pages) and it feels bad to invoke such a big
+theorem to prove a relatively minor result.
+
+The Schur-Zassenhaus theorem has many applications, one of them being
+a ``Sylow's theorem with operators'': a version of Sylow's theorem
+that measures all the Sylow subgroups invariant under the action of a
+coprime group of automorphisms. The usual existence, conjugacy, and
+domination statements hold.
+
+\section{Fusion and transfer}
+
+\subsection{Alperin's fusion: hopping step by step locally}\label{fusion}
+
+Fusion, despite its grand-sounding name, is about a simple question:
+given two elements in a big group that are conjugate, are they
+conjugate in some intermediate subgroup?  And more generally, can we
+hop from one element to another using conjugates within intermediate
+subgroups?
+
+This question is related to the idea of ``local analysis''. Suppose
+$G$ is a finite group with possibly many primes dividing it. Local
+analysis basically says that certain behavior inside the big group $G$
+can be studied by looking at a number of smaller subgroups dependent
+on a prime $p$, along with information that describes how they piece
+together. In the typical scenario, these smaller subgroups are
+\definedind{$p$-local subgroups}: the normalizers of $p$-subgroups of
+the whole group. Local analysis was originally developed to study the
+local structure of simple groups, or candidates for simple
+groups. Those who've played with Sylow numbers to prove that certain
+groups aren't simple may think of local analysis as a much more
+advanced tool that works partly in that direction.
+
+Alperin's fusion theorem (\cite{alperinfusion}) proves a certain
+result about selecting a family of subgroups of a $p$-Sylow subgroup,
+such that two elements (or more generally, subsets) are conjugate in
+the whole group if and only if there is a way from one element to
+another by conjugation using elements in the normalizers of this
+family of subgroups. In other words, it says that two subsets are
+conjugate {\em globally in the group} if and only if they are
+conjugate {\em locally, via normalizers of $p$-subgroups}. (For a more
+detailed treatment of local analysis, refer \cite[Chapter 1]{GL}).
+
+People working on the classification of finite simple groups came
+across a few stubborn examples of collections of local information
+that didn't give a group, but for which it was very hard to prove that
+there was no group behind them. It turns out that these collections of
+local information were actually something close to groups: they have
+been christened {\em fusion systems}. For any finite simple group and
+any prime $p$, we get a $p$-fusion system, but there exist $p$-fusion
+systems that arise through other means. 
+
+Algebraic topologists have long been interested in $p$-local
+classifying spaces. The $p$-local classifying space of a group is the
+$p$-localization of its classifying space. People working on fusion
+systems came up with a notion of the classifying space corresponding
+to a $p$-fusion system, such that if we take the $p$-fusion system
+$\mathcal{F}$ corresponding to a finite group $G$, the classifying
+space corresponding to $\mathcal{F}$ is equal to the $p$-local
+classifying space corresponding to $G$. (For a quick introduction to
+fusion systems, refer to \cite{fusionintro}).
+
+\subsection{The Focal Subgroup Theorem}
+
+The Focal Subgroup Theorem states something seemingly uninteresting:
+if $P$ is a $p$-Sylow subgroup of $G$, then the intersection of $P$
+with $[G,G]$ equals the subgroup generated by $xy^{-1}$, where $x,y
+\in P$ and are conjugate in $G$. This theorem has many proofs, the
+most typical being a proof using the transfer homomorphism. (The
+theorem, along with many related facts, were proved by Donald Higman
+as part of his doctoral thesis, \cite{higmanfocal}).
+
+The Focal Subgroup Theorem has many consequences. For instance, define
+a subgroup $H$ of a group $G$ to be a \definedind{conjugacy-closed
+  subgroup} of $G$ if any two elements of $H$ that are conjugate in
+$G$ are conjugate in $H$. In other words, fusion in $G$ is contained
+completely inside $H$.
+
+The Focal Subgroup Theorem, combined with results about conjugacy and
+normalizers (such as Alperin's fusion theorem), yields that if an
+abelian Sylow subgroup $S$ of $G$ is in the center of its normalizer,
+it has a \definedind{normal complement}: a normal subgroup $N$ of $G$
+such that $NS = G$ and $N \cap S$ is trivial. This result is called
+Burnside's normal $p$-complement theorem. More work in this direction
+shows that if $S$ is any conjugacy-closed Sylow subgroup of $G$, $S$
+has a normal complement in $G$. A slightly more elaborate version of
+this result is called the Frobenius normal $p$-complement theorem.
+
+Here are some examples of applications of Burnside's and Frobenius'
+normal $p$-complement theorems:
+
+\begin{itemize}
+
+\item Suppose $p$ is the least prime divisor of the order of a finite
+  group $G$. if $G$ has a cyclic $p$-Sylow subgroup $P$, then $P$ has
+  a normal complement in $G$.
+
+\item Suppose $G$ is a group in which every Sylow subgroup is
+  cyclic. Then, $G$ is solvable. The original proof used order
+  computations involving elements, but the proof using the normal
+  $p$-complement theorems is more intuitive.
+
+\item If $G$ is a simple non-abelian group, either $12$ divides the
+  order of $G$ or the cube of the smallest prime divisor of the order
+  of $G$ divides the order of $G$.
+
+\end{itemize}
+
+\section{More powerful machinery}
+
+\subsection{Replacement theorems, and more normal complement theorems}
+
+The next level of normal complement theorems, proved by Thompson and
+Glauberman, required a new array of techniques. We encountered
+Thompson's out-of-the-box thinking in the critical subgroup
+construction earlier.\footnote{Alas, out-of-the-box thinking ceases to
+  be out-of-the-box pretty quickly. Thompson's methods were widely used by other group theorists.}
+
+Here, we see {\em replacement}, yet another idea of Thompson. The idea
+is: {\em if at first you pick a bad subgroup, replace it with a better
+  one}. In \cite{thompsonsreplacement}, Thompson proved a replacement
+theorem for abelian subgroups, showing that abelian subgroups could be
+replaced by {\em better} abelian subgroups, using abelian normal
+subgroups. Glauberman later proved a trickier replacement theorem
+involving subgroups of class two. These replacement theorems led to
+smarter choices that could prove stronger versions of normal
+complement theorems. The upshot: better control than ever before on
+the Sylow subgroups and $p$-structure of simple groups.
+
+\subsection{Uniqueness subgroups and the maximal subgroup theorem}
+
+As described earlier, $p$-local analysis studies the structure of
+nontrivial $p$-subgroups and their normalizers, which are called
+$p$-local subgroups. The structure of $p$-local subgroups can get
+messy, and one of the many questions that may arise is whether the
+collection of $p$-local subgroups has a largest element. The existence
+of a largest element would make the study of questions of conjugacy
+easier to handle.
+
+One result in this direction is the maximal subgroup theorem due to
+Thompson (see \cite[Theorem 8.6.3, Page 295--298]{gorenstein},for
+instance). This gives condition under which certain subsets of the set
+of normalizers of $p$-subgroups in a given $p$-Sylow subgroup have
+maximal elements. When such a maximal element exists, it is termed a
+\definedind{uniqueness subgroup}.
+
+\begin{thebibliography}{99}
+
+\bibitem{arithmeticandnormal}{\em Arithmetic and normal structure of
+    finite groups} by Helmut Wielandt and Bertram Huppert,
+  {\em Proc. Sympos. Pure Math.}, Vol. VI, Page 17--38 (Year 1962), MR
+  \href{http://www.ams.org/mathscinet-getitem?mr=0147530}{0147530}
+
+\bibitem{SolomonCFSG}{\em A brief history of the classification of the
+    finite simple groups} by Ronald M. Solomon, {\em Bulletin of the
+    American Mathematical Society}, ISSN 10889485 (electronic), ISSN
+    02730979 (print), Volume 38, Page 315--352 (Year 2001): An
+    expository paper by Ronald Mark Solomon describing the 110-year
+    history of the classification of finite simple groups.
+
+  \bibitem{gorenstein} {\em Finite Groups} by Daniel Gorenstein, {\em
+      American Mathematical Society}, ISBN--10 0821843427, ISBN--13
+    9780821843420
+
+\bibitem{feitthompson} {\em Solvability of groups of odd order} by
+  Walter Feit and John G. Thompson, {\em Pacific Journal of
+  Mathematics}, Volume 13, Page 775--1029 (Year 1963), MR
+  \href{http://www.ams.org/mathscinet-getitem?mr=0166261}{0166261}
+
+\bibitem{benderonthompson}{\em Uber den grossten $p\sp{\prime}
+    $-Normalteiler in $p$-auflosbaren Gruppen} by Helmut Bender,
+  {\em Arch. Math. (Basel)}, Volume 18, Page 15--16 (1967), MR
+  \href{http://www.ams.org/mathscinet-getitem?mr=0213439}{0213439}
+
+\bibitem{alperinfusion}{\em Transfer and fusion in finite groups} by
+  Jonathan L. Alperin and Daniel Gorenstein, {\em Journal of Algebra},
+  ISSN 00218693, Volume 6, Page 242--255 (Year 1967), MR
+  \href{http://www.ams.org/mathscinet-getitem?mr=0215914}{0215914}
+
+\bibitem{GL}{\em Finite simple groups}, edited by Graham Higman and
+  Martin B. Powell, {\em Academic Press}, ISBN--10 0125638507,
+  ISBN--13 9780125638500
+
+\bibitem{fusionintro}{\em Introduction to fusion systems} by Markus
+  Linckelmann, URL \url{http://web.mat.bham.ac.uk/C.W.Parker/Fusion/fusion-intro.pdf}
+
+\bibitem{higmanfocal}{\em Focal series in finite groups} by Donald
+  G. Higman, {\em Canadian Journal of Mathematics}, Volume 5, Page
+  477--497 (Year 1953), MR
+  \href{http://www.ams.org/mathscinet-getitem?mr=0058597}{0058597}
+
+\bibitem{thompsonsreplacement}{\em A replacement theorem for p-groups
+    and a conjecture} by John G. Thompson, {\em Journal of Algebra},
+  ISSN 00218693, Volume 13, Page 149--151 (Year 1969), MR
+  \href{http://www.ams.org/mathscinet-getitem?mr=0245683}{0245683}
+
+\end{thebibliography}
+
+\end{document}

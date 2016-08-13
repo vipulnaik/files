@@ -1,0 +1,183 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Wednesday February 6: Multivariable function basics continued}
+\author{Math 195, Section 59 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$26$ people took this quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $0$: $4$ people
+\item Score of $1$: $6$ people
+\item Score of $2$: $9$ people
+\item Score of $3$: $5$ people
+\item Score of $4$: $2$ people
+\end{itemize}
+
+The question-wise answers and performance review were as follows:
+
+\begin{enumerate}
+\item Option (C): $12$ people 
+\item Option (B): $13$ people
+\item Option (E): $15$ people
+\item Option (B): $7$ people
+\end{enumerate}
+
+\section{Solutions}
+\begin{enumerate}
+\item Suppose $F$ is an additively separable function of two variables
+  $x$ and $y$ that is defined everywhere, i.e., there exist functions
+  $f$ and $g$ of one variable, both defined on all of $\R$, such that
+  $F(x,y) = f(x) + g(y)$ for all $x,y \in \R$.
+ 
+  We call two curves {\em parallel} if there is a vector by which we
+  can translate all the points in one curve to get precisely the other
+  curve.
+
+  Consider the following three statements:
+
+  (i) All curves obtained as the intersections of the graph of $F$
+  with planes parallel to the $xy$-plane are parallel to each other.
+
+  (ii) All curves obtained as the intersections of the graph of $F$
+  with planes parallel to the $xz$-plane are parallel to each other.
+
+  (iii) All curves obtained as the intersections of the graph of $F$
+  with planes parallel to the $yz$-plane are parallel to each other.
+
+  Which of the statements (i)-(iii) is/are necessarily true?
+
+  \begin{enumerate}[(A)]
+  \item All of (i), (ii), and (iii) are true.
+  \item Both (i) and (ii) are true but (iii) need not be true.
+  \item Both (ii) and (iii) are true but (i) need not be true.
+  \item Both (i) and (iii) are true but (ii) need not be true.
+  \item (i) is true but (ii) and (iii) need not be true.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: 
+
+  (i): The intersections are level curves, but these need not be
+  parallel to each other. In fact, they could be different sizes, such
+  as with $x^2 + y^2$.
+
+  (ii): The intersection with a plane of the form $y = y_0$ gives the
+  graph of a function $x \mapsto F(x,y_0) = f(x) + g(y_0)$. Note that
+  all the functions whose graphs are obtained by such restrictions
+  just look like the graph of $f$, translated to different $z$-heights
+  and $y$-locations. Thus, they are parallel to one another. Note that
+  we use additive separability in this reasoning.
+
+  (iii): Similar reasoning as with (ii).
+
+  {\em Performance review}: $12$ out of $26$ got this. $7$ chose (A),
+  $6$ chose (E), $1$ chose (B).
+
+\item Suppose $f$ is a continuous function of two variables $x$ and
+  $y$, defined on the entire $xy$-plane. Suppose further that $f$ is
+  increasing in $x$ for each fixed value of $y$, and that $f$ is
+  increasing in $y$ for every fixed value of $x$. Which of the
+  following is the most plausible description of the level curves of
+  $f$ in the $xy$-plane? {\em Note: You might wish to take an
+  extremely simple example, e.g., an additively separable function
+  where each of the pieces is the simplest possible increasing
+  function you can think of}.
+
+  \begin{enumerate}[(A)]
+  \item They are all upward-sloping, i.e., they are of the form $y =
+    g(x)$ with $g$ an increasing function.
+    \item They are all downward-sloping, i.e., they are of the form $y
+      = g(x)$ with $g$ a decreasing function.
+    \item They look like closed loops (e.g., circles).
+    \item They look like graphs of functions with a unique local and
+      absolute minimum (such as the parabola $y = x^2$, though the
+      actual picture may be different).
+    \item They look like graphs of functions with a unique local and
+      absolute maximum (such as the parabola $y = -x^2$, though the
+      actual function may be different).
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Since $f$ is increasing in $x$ and in $y$, it
+  means that an increase in the $x$-value must be compensated by a
+  decrease in the $y$-value to keep the output constant.
+
+  The example $f(x,y) := x + y$ is illustrative. The level curves of
+  these are downward-sloping straight lines.
+
+  {\em Performance review}: $13$ out of $26$ got this. $7$ chose (A),
+  $3$ each chose (C) and (D).
+\item What do the level curves of the function $f(x,y) := \sin(x + y)$
+  look like for output value in $[-1,1]$? Note that all these level
+  curves are being considered as curves in the $xy$-plane. {\em Note:
+  This builds upon the idea of Question 3 of the previous quiz.}
+
+  \begin{enumerate}[(A)]
+  \item Each level curve is a single line.
+  \item Each level curve is a union of two intersecting lines.
+  \item Each level curve is a union of two distinct parallel lines.
+  \item Each level curve is a union of infinitely many concurrent
+    lines (i.e., infinitely many lines, all passing through the same
+    point).
+  \item Each level curve is a union of infinitely many distinct
+    parallel lines (i.e., infinitely many lines, all parallel to each
+    other).
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: For $C \in [-1,1]$, we need to solve $\sin(x + y)
+  = C$. We first find all solutions $u$ to $\sin u = C$, which is a
+  countably infinite subset of $\R$. Then, for each such $u$, we get
+  the line $x + y = u$ in the $xy$-plane. All these lines are parallel
+  to each other, and have slope $-1$.
+
+  {\em Performance review}: $15$ out of $26$ got this. $6$ chose (A),
+  $4$ chose (D), $1$ chose (B).
+
+\item Suppose $f$ and $g$ are both continuous functions of two
+  variables $x$ and $y$, both defined on all of $\R^2$, and such that
+  $f(x,y) + g(x,y)$ is a constant $C$. What is the relation between
+  the level curves of $f$ and the level curves of $g$, all drawn in
+  the $xy$-plane?
+
+  \begin{enumerate}[(A)]
+  \item Every level curve of $f$ is a level curve of $g$ and vice
+    versa, with the same level value for both functions.
+  \item Every level curve of $f$ is a level curve of $g$ and vice
+    versa, but the value for which it is a level curve may be different
+    for the two functions.
+  \item The level curves of $f$ need not be precisely the same as the
+    level curves of $g$, but we can go from one set of level curves to
+    the other via a parallel translation.
+  \item Each level curve of $f$ can be obtained by reflecting a
+    suitable level curve of $g$ about a suitable line in the
+    $xy$-plane.
+  \item Each level curve of $f$ can be obtained by reflecting a
+    suitable level curves of $g$ about a suitable line in the
+    $xy$-plane and then performing a suitable translation.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Any level curve of the form $f(x,y) = k$
+  coincides with the level curve $g(x,y) = C - k$. Note that unless $k
+  = C/2$, the level values for the two curves are different.
+
+  {\em Performance review}: $7$ out of $26$ got this. $8$ chose (D),
+  $6$ chose (C), $3$ chose (A), $2$ chose (E).
+\end{enumerate}
+
+\end{document}

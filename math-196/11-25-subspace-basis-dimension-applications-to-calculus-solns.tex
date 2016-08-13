@@ -1,0 +1,707 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Monday November 25: Subspace, basis, dimension, and abstract spaces: applications to calculus}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+22 people took this 13-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of 2: 1 person
+\item Score of 4: 3 people
+\item Score of 5: 2 people
+\item Score of 6: 2 people
+\item Score of 7: 1 person
+\item Score of 8: 5 people
+\item Score of 9: 3 people
+\item Score of 10: 2 people
+\item Score of 11: 3 people
+\end{itemize}
+
+The mean score was about 7.41.
+
+The question-wise answers and performance review are as follows:
+
+\begin{enumerate}
+\item Option (A): 18 people%$20$ people
+\item Option (A): 15 people%$23$ pepole
+\item Option (E): 17 people%$16$ people
+\item Option (D): 13 people%$4$ people
+\item Option (C): 15 people%$14$ people
+\item Option (E): 10 people%$17$ people
+\item Option (E): 12 people%$2$ people
+\item Option (E): 13 people%$8$ people
+\item Option (E): 9 people%$9$ people
+\item Option (D): 1 person%$16$ people
+\item Option (C): 15 people%$17$ people
+\item Option (D): 13 people%$14$ people
+\item Option (B): 12 people%$16$ people
+\end{enumerate}
+
+{\bf REVIEW NOTE}: Please make sure to read the corresponding lecture
+notes on abstract vector spaces rather than simply going over the quiz
+solutions.
+\section{Solutions}
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+This quiz builds on the November 8 and November 20 quizzes that apply
+ideas we are learning about linear transformations to the calculus
+setting. The November 8 quiz went over some basic ideas related to
+differentiation as a linear transformation. The November 20 quiz
+explored the ideas in greater depth. We now look at questions that
+apply the ideas of basis, dimension, and subspace to the calculus
+setting.
+
+We begin by recalling some notation and facts we already saw in
+earlier quizzes.  Denote by $C(\R)$ (or alternatively by $C^0(\R)$)
+the vector space of all continuous functions from $\R$ to $\R$, with
+pointwise addition and scalar multiplication. Note that the elements
+of this vector space, which we would ordinarily call ``vectors'', are
+now {\em functions}.
+
+For $k$ a positive integer, denote by $C^k(\R)$ the subspace of
+$C(\R)$ comprising those continuous functions that are at least $k$
+times {\em continuously} differentiable. Note that $C^{k+1}(\R)$ is
+a subspace of $C^k(\R)$, so we have a descending chain of subspaces:
+
+$$C(\R) = C^0(\R) \supseteq C^1(\R) \supseteq C^2(\R) \supseteq \dots $$
+
+The intersection of these spaces is the vector space $C^\infty(\R)$,
+defined as the subspace of $C(\R)$ comprising those functions that
+are {\em infinitely} differentiable.
+
+We had also noted that:
+
+\begin{itemize}
+\item The kernel of differentiation is the vector space of constant functions.
+\item The kernel of $k$ times differentiating is the vector space of
+  polynomials of degree at most $k - 1$.
+\item The fiber of any function for differentiation is a translate
+  of the space of constant functions. That's what explains the $+C$
+  when you perform indefinite integration.
+\end{itemize}
+
+{\em Note}: For finite-dimensional spaces, a linear transformation $T$
+from a vector space to itself is injective if and only if it is
+surjective. This follows from dimension and rank considerations: $T$
+is injective if and only its kernel is zero, which happens if and only
+if the matrix has full column rank, which happens if and only if the
+matrix has full row rank (because the matrix is a square matrix),
+which happens if and only if $T$ is surjective. The rank-nullity
+theorem provides an equivalent explanation. We had also seen that if
+$T:\R^m \to \R^n$ is injective, then $m \le n$, and if $T: \R^m \to
+\R^n$ is surjective, then $m \ge n$. In particular, we cannot have a
+surjective map from a proper subspace to the whole space.
+
+With infinite-dimensional spaces, however, we can have funny
+phenomena. Examples of these phenomena are strewn across the quizzes.
+
+\begin{itemize}
+\item We can have a map from an infinite-dimensional vector space to
+  itself that is injective but not surjective.
+\item We can have a map from an infinite-dimensional vector space to
+  itself that is surjective but not injective.
+\item We can have a surjective map from a proper subspace to the whole
+  space (for instance, differentiation $C^1(\R) \to C(\R)$ is
+  surjective, even though $C^1(\R)$ is a proper subspace of $C(\R)$).
+\item We can have an injective map from a space to a proper subspace.
+\end{itemize}
+
+Note that we will use the terms {\em subspace} and {\em vector
+  subspace} synonymously with {\em linear subspace} in this quiz.
+
+\vspace{0.5in}
+\begin{enumerate}
+
+\item Suppose $V$ is a vector subspace of the vector space
+  $C^\infty(\R)$. We know that differentiation is linear. How is that
+  information computationally useful?
+
+  \begin{enumerate}[(A)]
+  \item It tells us that knowing how to differentiate all functions in
+    any spanning set for $V$ tells us how to differentiate any
+    function in $V$ (assuming we know how to express any function in
+    $V$ as a linear combination of the functions in the spanning set).
+  \item It tells us that knowing how to differentiate all functions in
+    any linearly independent set in $V$ tells us how to differentiate any
+    function in $V$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: {\bf MAKE SURE TO READ THE LECTURE NOTES ON
+    ABSTRACT VECTOR SPACES, SECTION 5}.
+
+  Given the knowledge of the derivatives of all
+  functions in a spanning set for $V$, we can differentiate any
+  function in $V$ as follows: first, express it as a linear
+  combination of the functions in the spanning set. Now, use the
+  linearity of differentiation to express its derivative as the
+  corresponding linear combination of the derivatives.
+
+  For instance, suppose we know that the derivative of $\sin$ is
+  $\cos$ and the derivative of $\exp$ is $\exp$. Then the derivative
+  of the function:
+
+  $$f(x) = 2\sin x + 5 \exp(x)$$
+
+  is:
+
+  $$f'(x) = 2\sin'x + 5 \exp'(x) = 2\cos x + 5\exp(x)$$
+
+  Note that it is the fact of the functions {\em spanning} $V$ that is
+  crucial in allowing us to be able to write {\em any} function in $V$
+  as a linear combination of the functions.
+
+  {\em Performance review}: 18 out of 22 people got this. 4 chose (B).
+
+  {\em Historical note (last time)}: $20$ out of $26$ got this. $6$ chose (B).
+
+\item Suppose $V$ is a vector subspace of the vector space
+  $C^\infty(\R)$. We know that differentiation is linear. How
+  is that information computationally useful?
+
+  \begin{enumerate}[(A)]
+  \item It tells us that knowing the antiderivatives of all functions
+    in any spanning set for $V$ tells us the antiderivative of every
+    function in $V$ (assuming we know how to express any function in
+    $V$ as a linear combination of the functions in the spanning set).
+  \item It tells us that knowing the antiderivatives of all functions in
+    any linearly independent set in $V$ tells us the antiderivative of every
+    function in $V$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: {\bf MAKE SURE TO READ THE LECTURE NOTES ON
+    ABSTRACT VECTOR SPACES, SECTION 5}.
+
+  The reasoning is similar to that for differentiation, except that we
+  put in the obligatory $+C$ of indefinite integration to account for
+  the fact that the kernel of differentiation is the one-dimensional
+  space of constant functions.
+
+  For instance, suppose we know that an antiderivative of $\sin$ is
+  $-\cos$ and an antiderivative of $\exp$ is $\exp$. Then, the indefinite integral of the function:
+
+  $$f(x) = 2\sin x + 5 \exp(x)$$
+
+  is:
+
+  $$\int f(x) \, dx = 2(-\cos x) + 5\exp x + C$$
+
+  {\em Performance review}: 15 out of 22 people got this. 7 chose (B).
+
+  {\em Historical note (last time)}: $23$ out of $26$ got this. $3$ chose (B).
+
+  \vspace{0.6in}
+
+  We now consider two related vector spaces. $\R[x]$ is defined as the
+  vector space of polynomials with real coefficients in the single
+  variable $x$, with the usual addition and scalar
+  multiplication. There is a natural injective homomorphism from
+  $\R[x]$ to $C^\infty(\R)$ that sends any polynomial to the same
+  polynomial viewed as a function.
+
+  $\R(x)$ is defined as the vector space of all rational functions
+  where the numerator and denominator are both polynomials with the
+  denominator nonzero, up to equivalence (i.e., two rational functions
+  $p_1(x)/q_1(x)$ and $p_2((x)/q_2(x)$ are equivalent if $p_1(x)q_2(x)
+  = q_1(x)p_2(x)$). Addition and scalar multiplication are defined the
+  usual way. Note that there is a natural injective homomorphism from
+  $\R[x]$ to $\R(x)$ that sends any polynomial $p(x)$ to the rational
+  function $p(x)/1$.
+
+  Also note that $\R(x)$ does not map to $C^\infty(\R)$, for the
+  reason that a rational function, viewed {\em qua} function, is not
+  necessarily defined everywhere. Specifically, if written in
+  simplified form, it is not defined at the set of roots of its
+  denominator.
+
+  Note that both $\R[x]$ and $\R(x)$ are infinite-dimensional vector
+  spaces, i.e., they do not have finite spanning sets.
+
+\item Which of the following is {\em not} a basis for $\R[x]$? Please
+  see Option (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $1,x,x^2,x^3,\dots$
+  \item $1,x,x(x - 1),x(x - 1)(x - 2),x(x-1)(x-2)(x-3),\dots$
+  \item $1,x + 1, x^2 + x + 1, x^3 + x^2 + x + 1, \dots$
+  \item $1,x,x^2 - x, x^3 - x^2, x^4 - x^3,\dots$
+  \item None of the above, i.e., each of them is a basis.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: {\bf MAKE SURE TO READ THE LECTURE NOTES ON ABSTRACT VECTOR SPACES, SECTION 5}.
+
+  Option (A) clearly is a basis: polynomials are by definition linear
+  combinations of $1,x,x^2,\dots$ and the method of expressing a
+  polynomial as a linear combination is unique. All the other options
+  are equivalent to Option (A) in the following sense: if we think of
+  how the span grows as we go from left to right, it's the same in all
+  options. In each option, the span of the first $n$ vectors is the
+  same as the span of $1,x,x^2,\dots,x^{n-1}$. In particular, in all
+  options, there are no redundant vectors, and the span of all vectors
+  together is all of $\R[x]$. In other words, each option gives a
+  basis.
+
+  {\em Performance review}: 17 out of 22 people got this. 2 each chose
+  (B) and (C), 1 chose (D).
+
+  {\em Historical note (last time)}: $16$ out of $26$ got this. $6$ chose (C),
+  $2$ chose (D), $1$ each chose (A) and (B).
+
+  \vspace{0.6in}
+
+  Let's now revisit the topic of {\em partial fractions} as a tool for
+  integrating rational functions. The idea behind partial fractions is
+  to consider an integration problem with respect to a variable
+  $x$ with integrand of the following form:
+
+  $$\frac{a_0 + a_1x + a_2x^2 + \dots + a_{n-1}x^{n-1}}{p(x)}$$
+
+  where $p$ is a polynomial of degree $n$. For convenience, we may
+  take $p$ to be a monic polynomial, i.e., a polynomial with leading
+  coefficient $1$. For $p$ fixed, the set of all rational functions of
+  the form above forms a vector subspace of dimension $n$ inside
+  $\R(x)$. A natural choice of basis for this subspace is:
+
+  $$\frac{1}{p(x)}, \frac{x}{p(x)}, \dots, \frac{x^{n-1}}{p(x)}$$
+
+  The goal of partial fraction theory is to provide an {\em alternate
+    basis} for this space of functions with the property that those
+  basis elements are particularly easy to integrate (recurring to one
+  of our earlier questions). Let's illustrate one special case: the
+  case that $p$ has $n$ distinct real roots
+  $\alpha_1,\alpha_2,\dots,\alpha_n$. The alternate basis in this case is:
+
+  $$\frac{1}{x - \alpha_1}, \frac{1}{x - \alpha_2}, \dots, \frac{1}{x - \alpha_n}$$
+
+  The explicit goal is to rewrite a partial fraction:
+
+  $$\frac{a_0 + a_1x + a_2x^2 + \dots + a_{n-1}x^{n-1}}{p(x)}$$
+
+  in terms of the basis above. If we denote the numerator as $r(x)$, we want to write:
+
+  $$\frac{r(x)}{p(x)} = \frac{c_1}{x - \alpha_1} + \frac{c_2}{x - \alpha_2} + \dots + \frac{c_n}{x - \alpha_n}$$
+
+  The explicit formula is:
+
+  $$c_i = \frac{r(\alpha_i)}{\prod_{j \ne i} (\alpha_i - \alpha_j)}$$
+
+  Once we rewrite the original rational function as a linear
+  combination of the new basis vectors, we can integrate it easily
+  because we know the antiderivatives of each of the basis
+  vectors. The antiderivative is thus:
+
+  $$\left(\sum_{i=1}^n \frac{r(\alpha_i)}{\prod_{j \ne i} (\alpha_i - \alpha_j)} \ln|x - \alpha_i|\right) + C$$
+
+  where the obligatory $+C$ is put for the usual reasons.
+
+  Note that this process only handles rational functions that are
+  proper fractions, i.e., the degree of the numerator must be less
+  than that of the denominator.
+
+  We now consider cases where $p$ is a polynomial of a different type.
+
+\item Suppose $p$ is a monic polynomial of degree $n$ that is a
+  product of pairwise distinct irreducible factors that are all either
+  monic linear or monic quadratic. Call the roots for the linear
+  polynomials $\alpha_1, \alpha_2,\dots,\alpha_s$ and call the monic
+  quadratic factors $q_1,q_2,\dots,q_t$. Which of the following sets
+  forms a basis for the vector space that we are interested in, namely
+  all rational functions of the form $r(x)/p(x)$ where the degree of
+  $r$ is less than $n$? Please see Option (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item All rational functions of the form $1/(x - \alpha_i), 1 \le i
+    \le s$ together with all rational functions of the form $1/q_j(x),
+    1 \le j \le t$
+  \item All rational functions of the form $1/(x - \alpha_i), 1 \le i
+    \le s$ together with all rational functions of the form $q_j'(x)/q_j(x),
+    1 \le j \le t$
+  \item All rational functions of the form $1/q_j(x), 1 \le j \le t$
+    together with all rational functions of the form $q_j'(x)/q_j(x),
+    1 \le j \le t$
+  \item All rational functions of the form $1/(x - \alpha_i), 1 \le i
+    \le s$ together with all rational functions of the form $1/q_j(x),
+    1 \le j \le t$ {\em and} all rational functions of the form
+    $q_j'(x)/q_j(x), 1 \le j \le t$
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: {\bf MAKE SURE TO READ THE LECTURE NOTES ON
+    ABSTRACT VECTOR SPACES, SECTION 5}.
+
+  This should be familiar to you from the halcyon days of doing
+  partial fractions. For instance, consider the example where $p(x) =
+  (x - 1)(x^2 + x + 1)$. In this case, the basis is:
+
+  $$\frac{1}{x - 1}, \frac{1}{x^2 + x + 1}, \frac{2x + 1}{x^2 + x + 1}$$
+
+  Note that an easy sanity check is that the {\em size} of the basis
+  should be $n$. This is clear in the above example with $n = 3$, but
+  let's reason generically.
+
+  We have that:
+
+  $$p(x) = \left[\prod_{i=1}^s (x - \alpha_i)\right]\left[\prod_{j=1}^t q_j(x)\right]$$
+
+  By degree considerations, we get that:
+
+  $$s + 2t = n$$
+
+  Now, the vector space for which we are trying to obtain a basis has
+  dimension $n$. This means that the basis we are looking for should
+  have size $n$. Of the given options, Option (D) (which gives one
+  basis element for each of the $s$ linear factors and two basis
+  elements for each of the $t$ quadratic factors) is the most
+  attractive.
+
+  Also recall that the reciprocals of the linear factors integrate to
+  logarithms. The expressions of the form $1/q_j(x)$ integrate to an
+  expression involving $\arctan$. The expressions of the form
+  $q_j'(x)/q_j(x)$ integrate to logarithms.
+
+  {\em Performance review}: 13 out of 22 people got this. 3 each chose
+  (A) and (B), 2 chose (E), 1 chose (C).
+
+  {\em Historical note (last time)}: $4$ out of $26$ got this. $13$ chose (A),
+  $5$ chose (B), and $4$ chose (C).
+
+\item Suppose $p(x) = (x - \alpha)^n$. Which of the following sets
+  forms a basis for the vector space that we are interested in, namely
+  all rational functions of the form $r(x)/p(x)$ where the degree of
+  $r$ is less than $n$? Please see Options (D) and (E) before
+  answering.
+
+  \begin{enumerate}[(A)]
+  \item The single function $1/(x - \alpha)$
+  \item The single function $1/(x - \alpha)^n$
+  \item All the functions $1/(x - \alpha), 1/(x - \alpha)^2, \dots, 1/(x - \alpha)^n$
+  \item Any of the above works
+  \item None of the above works
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: {\bf MAKE SURE TO READ THE LECTURE NOTES ON ABSTRACT VECTOR SPACES, SECTION 5}.
+
+  This is the obvious choice by size considerations. It also makes
+  sense based on what you remember about partial fractions.
+
+  {\em Performance review}: 15 out of 22 people got this. 4 chose (D),
+  2 chose (B), 1 chose (A).
+
+  {\em Historical note (last time)}: $14$ out of $26$ got this. $8$ chose (D),
+  $3$ chose (B), and $1$ chose (E).
+
+  \vspace{0.6in}
+
+  We now recall our earlier discussion of the solution process for
+  first-order linear differential equations. Consider a first-order
+  linear differential equation with independent variable $x$ and
+  dependent variable $y$, with the equation having the form:
+
+  $$y' + p(x)y = q(x)$$
+
+  where $p,q \in C^\infty(\R)$.
+
+  We solve this equation as follows. Let $H$ be an antiderivative of
+  $p$, so that $H'(x) = p(x)$. 
+
+  $$\frac{d}{dx}\left(ye^{H(x)}\right) = q(x)e^{H(x)}$$
+
+  This gives:
+
+  $$ye^{H(x)}  = \int q(x)e^{H(x)} \, dx$$
+  
+  So:
+
+  $$y = e^{-H(x)}\int q(x)e^{H(x)} \, dx$$
+
+  The indefinite integration gives a $+C$, so overall, we get:
+
+  $$y = Ce^{-H(x)} + \text{particular solution}$$
+
+  It's now time to understand this in terms of linear algebra.
+
+  Define a linear transformation $L:C^\infty(\R) \to C^\infty(\R)$ as:
+
+  $$f(x) \mapsto f'(x) + p(x)f(x)$$
+
+\item The kernel of $L$ is one-dimensional. Which of the following
+  functions spans the kernel?
+
+  \begin{enumerate}[(A)]
+  \item $p(x)$
+  \item $q(x)$
+  \item $H(x)$
+  \item $e^{H(x)}$
+  \item $e^{-H(x)}$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: {\bf MAKE SURE TO READ THE LECTURE NOTES ON
+    ABSTRACT VECTOR SPACES, SECTION 7}. 
+
+  This is pretty obvious from the description of the general solution
+  above. In particular, set $q(x) = 0$ and get the generic element of
+  the kernel as:
+
+  $$y = Ce^{-H(x)}, C \in \R$$
+
+  This is spanned by $e^{-H(x)}$.
+
+  {\em Performance review}: 10 out of 22 people got this. 4 each
+  chose (A) and (B), 2 each chose (C) and (D).
+
+  {\em Historical note (last time)}: $17$ out of $26$ got thus. $5$ chose (C),
+  $2$ each chose (A) and (B).
+
+\item I would like to argue that $L$ is {\em surjective} as a linear
+  transformation from $C^\infty(\R)$ to $C^\infty(\R)$. Why is that
+  true?
+
+  \begin{enumerate}[(A)]
+  \item The kernel of $L$ is zero-dimensional.
+  \item The image of $L$ is zero-dimensional.
+  \item The kernel of $L$ is one-dimensional.
+  \item The image of $L$ is one-dimensional.
+  \item For any $q$, we have a formula above that describes a solution
+    function that maps to $q$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: {\bf MAKE SURE TO READ THE LECTURE NOTES ON
+    ABSTRACT VECTOR SPACES, SECTION 7}.
+
+  Obvious! Note that Option (C), while correct, is
+  not an {\em explanation} for the surjectivity of the linear
+  transformation, because the dimension of the kernel speaks to how
+  far the linear transformation is from being injective, and,
+  particularly in the infinite-dimensional case, does not provide any
+  direct information regarding whether or not the linear
+  transformation is surjective.
+
+  {\em Performance review}: 12 out of 22 people got this. 8 chose (C),
+  2 chose (A).
+
+  {\em Historical note (last time)}: $2$ out of $26$ got this. $12$ chose (C),
+  $7$ chose (D), $3$ chose (A), $2$ chose (B).
+
+  \vspace{0.6in}
+
+  Let $n$ be a nonnegative integer. Denote by $P_n$ the vector space
+  of all polynomials in one variable $x$ that have degree $\le
+  n$. $P_n$ is a subspace of $\R[x]$, which in turn can be viewed as a
+  subspace of $C^\infty(\R)$ through the natural injective map. For
+  convenience and completeness, define $P_{-1}$ to be the zero
+  subspace.
+
+  Differentiation defines a linear transformation from
+  $C^\infty(\R)$ to itself.
+
+\item What are the kernel and image of the restriction of
+  differentiation to $P_n$? The result should be valid for all
+  positive integers $n$.
+ 
+  \begin{enumerate}[(A)]
+  \item The kernel and image are both $P_n$
+  \item The kernel is the zero subspace and the image is $P_n$
+  \item The kernel is $P_n$ and the image is the zero subspace
+  \item The kernel is $P_{n-1}$ and the image is $P_0$ (the subspace
+    of constant functions)
+  \item The kernel is $P_0$ and the image is $P_{n-1}$
+  \end{enumerate}
+  
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: {\bf MAKE SURE TO READ THE LECTURE NOTES ON
+    ABSTRACT VECTOR SPACES, SECTION 5}.
+  
+  The only functions that differentiate to $0$ are
+  the constant functions, which is $P_0$. The derivative of any
+  polynomial of degree $\le n$ is a polynomial of degree $\le n -
+  1$. Further, {\em every} polynomial of degree $\le n - 1$ arises as
+  the derivative of a polynomial of degree $\le n$. So the image is
+  $P_{n-1}$.
+
+  {\em Performance review}: 13 out of 22 people got this. 5 chose (B),
+  3 chose (D), 1 chose (C).
+
+  {\em Historical note (last time)}: $8$ out of $26$ got this. $8$ chose (D),
+  $6$ chose (B), $2$ each chose (A) and (C).
+
+\item What are the kernel and image of the restriction of
+  differentiation to all of $\R[x]$?
+
+  \begin{enumerate}[(A)]
+  \item The kernel and image are both $\R[x]$
+  \item The kernel is the zero subspace and the image is $\R[x]$
+  \item The kernel is $\R[x]$ and the image is the zero subspace
+  \item The kernel is $\R[x]$ and the image is $P_0$ (the subspace
+    of constant functions)
+  \item The kernel is $P_0$ and the image is $\R[x]$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: {\bf MAKE SURE TO READ THE LECTURE NOTES ON
+    ABSTRACT VECTOR SPACES, SECTION 5}.
+
+  The only functions that differentiate to the zero
+  function are the constant functions, so the kernel is $P_0$. The
+  image is all of $\R[x]$, because every polynomial arises as the
+  derivative of some polynomial.
+
+  {\em Performance review}: 9 out of 22 people got this. 9 chose (B),
+  2 chose (D), 1 chose (A), 1 left the question blank.
+
+  {\em Historical note (last time)}: $9$ out of $26$ got this. $8$ chose (B),
+  $7$ chose (D), $2$ chose (C).
+
+
+\item We can use differentiation to define a linear transformation
+  from $\R(x)$ to $\R(x)$, where we differentiate a rational function
+  using the quotient rule for differentiation and the known rules for
+  differentiating polynomials. What can we say about this linear
+  transformation?
+
+  \begin{enumerate}[(A)]
+  \item The differentiation linear transformation is bijective from
+    $\R(x)$ to $\R(x)$, i.e., every rational function is the
+    derivative of a unique rational function.
+  \item The differentiation linear transformation is injective but not
+    surjective from $\R(x)$ to $\R(x)$, i.e., every rational function
+    is the derivative of {\em at most one} rational function, but
+    there do exist rational functions that are not expressible as the
+    derivative of any rational function.
+  \item The differentiation linear transformation is surjective but
+    not injective from $\R(x)$ to $\R(x)$, i.e., every rational
+    function is the derivative of {\em at least one} rational
+    function, but there do exist rational functions that occur as
+    derivatives of more than one rational function.
+  \item The differentiation linear transformation is neither injective
+    nor surjective from $\R(x)$ to $\R(x)$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: {\bf MAKE SURE TO READ THE LECTURE NOTES ON
+    ABSTRACT VECTOR SPACES, SECTION 5}.
+
+  Differentiation is not injective because it has a
+  nonzero kernel comprising constants. It is not surjective because
+  there exist rational functions, such as $1/(x^2 + 1)$, that have no
+  rational function antiderivative: the indefinite integral of $1/(x^2
+  + 1)$ is of the form $(\arctan x) + C$, $C \in \R$, and no possible
+  function here is a rational function.
+
+  {\em Performance review}: 1 (?????) out of 22 people got this. 14
+  chose (C), 6 chose (B), 1 chose (A).
+
+  {\em Historical note (last time)}: $16$ out of $26$ got this. $5$ chose (B),
+  $2$ chose(C), $1$ chose (A), $1$ chose (E) (????), $1$ non-attempt.
+
+\item Denote by $\R[[x]]$ the vector space of all formal power series
+  with real coefficients in one variable, i.e., series of the form:
+
+  $$\sum_{i=0}^\infty a_ix^i$$
+
+  Formal differentiation defines a linear transformation from
+  $\R[[x]]$ to itself. What can we say about this linear transformation?
+
+  \begin{enumerate}[(A)]
+  \item The formal differentiation linear transformation is bijective
+    from $\R[[x]]$ to $\R[[x]]$.
+  \item The formal differentiation linear transformation is injective
+    but not surjective from $\R[[x]]$ to $\R[[x]]$.
+  \item The formal differentiation linear transformation is surjective but
+    not injective from $\R[[x]]$ to $\R[[x]]$.
+  \item The formal differentiation linear transformation is neither
+    injective nor surjective from $\R[[x]]$ to $\R[[x]]$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: {\bf MAKE SURE TO READ THE LECTURE NOTES ON
+    ABSTRACT VECTOR SPACES, SECTION 5}.
+
+  The linear transformation is surjective because every formal power
+  series can be integrated term-wise to obtain another formal power
+  series (note that we have flexibility in choosing the constant
+  term). It is not injective, because constant formal power series are
+  in the kernel.
+
+  {\em Performance review}: 15 out of 22 people got this. 5 chose (A),
+  2 chose (D).
+
+  {\em Historical note (last time)}: $17$ out of $26$ got this. $3$ each chose
+  (A), (B), and (D).
+
+\item Consider the following two linear transformations $T_1,T_2:\R[x]
+  \to \R[x]$: $T_1$ is differentiation, and $T_2$ is multiplication by
+  $x$. Which of the following is true?
+
+  \begin{enumerate}[(A)]
+  \item Both $T_1$ and $T_2$ are injective, but neither is surjective.
+  \item Both $T_1$ and $T_2$ are surjective, but neither is injective.
+  \item $T_1$ is injective but not surjective. $T_2$ is surjective but not injective.
+  \item $T_1$ is surjective but not injective. $T_2$ is injective but
+    not surjective.
+  \item Neither $T_1$ nor $T_2$ is injective. Neither $T_1$ nor $T_2$
+    is surjective.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We already discussed that the image of $T_1$
+  (differentiation) is all of $\R[x]$, and that it is not injective
+  because it has constants in its kernel. $T_2$ is injective because
+  $xp(x) = xq(x) \implies p(x) = q(x)$. However, it is not surjective
+  because its image comprises only the polynomials with zero constant
+  term.
+
+  {\em Performance review}: 13 out of 22 people got this. 4 chose (C),
+  3 chose (B), 2 chose (A).
+
+  {\em Historical note (last time)}: $14$ out of $26$ got this. $7$ chose (C),
+  $3$ chose (B), and $2$ chose (E).
+
+\item Consider the linear transformations $T_1$ and $T_2$ of the
+  preceding question. What can we say regarding whether $T_1$ and
+  $T_2$ commute?
+
+  \begin{enumerate}[(A)]
+  \item $T_1$ and $T_2$ commute.
+  \item $T_1$ and $T_2$ do not commute.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Consider the input $x$. $T_1(T_2(x)) = T_1(x^2) =
+  2x$. On the other hand, $T_2(T_1(x)) = T_2(1) = x$.
+
+  {\em Performance review}: 12 out of 22 people got this. 10 chose (A).
+
+  {\em Historical note (last time)}: $16$ out of $26$ got this. $7$ chose (A),
+  $3$ chose (E) (?????).
+\end{enumerate}
+\end{document}

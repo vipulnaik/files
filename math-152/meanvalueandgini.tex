@@ -1,0 +1,304 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Mean-value theorem, mean, median, mode, Gini}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 5.9
+
+{\bf Difficulty level}: Medium.
+
+{\bf What students should definitely get}: The statement of the
+mean-value theorem for integrals, how it relates to the mean-value
+theorem that we saw earlier.
+
+{\bf What students should eventually get}: The notions of mean,
+median, mode, how they differ, and how they all apply to the Gini
+setup.
+
+
+In this lecture (actually got split up into two lectures), we look at
+the (first) mean-value theorem for integrals, which is Theorem 5.9.1
+of the book. We are omitting, for now, the second mean-value theorem
+for integrals (Theorem 5.9.3 of the book), though you might benefit
+from reading the statement of this result in the book. After covering
+the theorem, we discuss ideas of mean, median, and mode, which come up
+in statistics, and how the concepts of differentiation and integration
+relate to these. The discussion of concepts used in statistics is not
+in your syllabus, i.e., you will not be tested on this knowledge in
+your midterms or final.
+
+
+\section{Statistics discussion}
+\subsection*{The Gini coefficient setup}
+
+Recall the setup that we had for the Gini coefficient. We arranged our
+huge population in increasing order of income. Then, for $x \in
+[0,1]$, we defined $f(x)$ as the fraction of the income earned by the
+bottom $x$ fraction of the population. With reasonable assumptions and
+using continuous approximations, we obtained that $f$ is continuous
+and increasing, $f(0) = 0$, $f(1) = 1$, and $f(x) \le x$ for all $x
+\in [0,1]$. These were the observations that were necessary for doing
+the homework problems.
+
+Another observation that was not necessary for doing the homework
+problems, but is nonetheless true, is that about the significance of
+$f'$. $f'(x)$ measures the fractional contribution of a person at
+level $x$ (i.e., with $x$ fraction of the population earning
+less). More precisely, we have:
+
+$$f'(x) = \frac{\text{Income of person at level $x$}}{\text{Mean income}}$$
+
+The reason why we need to normalize by mean income is that we have
+normalized things to $[0,1]$. Here are some corollaries:
+
+\begin{enumerate}
+\item $f'$ is itself increasing, so $f$ is concave up. In other words,
+  people at a higher income level earn more. (In a degenerate case,
+  $f'$ may be constant in an interval, and $f$ linear on that
+  interval. This is when multiple people earn the same income. Unless
+  otherwise stated, we'll assume no degeneracy).
+\item There is a $c$ such that $f'(c) = 1$. This follows from the
+  mean-value theorem. In other words, there is a person who earns the
+  mean income.
+\end{enumerate}
+
+\subsection*{Positions of interest}
+
+What are all the positions $x$ and values $f(x)$ of interest? Here are
+some of them:
+
+\begin{enumerate}
+\item The value $x$ such that the person at level $x$ earns the {\em
+  mean income}. Mathematically, this means that $f'(x) = 1$. Note that
+  the existence of this value is guaranteed by the mean-value theorem
+  while its uniqueness is guaranteed by the fact that the function is
+  concave up.
+\item The value $1/2$. $f'(1/2)$ is the {\em median income}. $f(1/2)$
+  is the fraction of total income earned by the {\em bottom half} of the
+  population.
+\item The {\em break-even point}, i.e., the value $x$ such that $f(x)
+  = 1/2$. This is the level $x$ at which the bottom fraction earns the
+  same total income as the remaining top fraction. The break-even
+  point is always bigger than $1/2$ because of the concave up nature
+  of the function. The income earned at this point (given by $f'(x)$)
+  may also be of interest. The existence of a break-even point is
+  guaranteed by the intermediate-value theorem and its uniqueness is
+  guaranteed by the fact that $f$ is increasing.
+\item The {\em Pareto point}, i.e., the value $x$ such that $f(x) = 1
+  - x$. This is greater than $1/2$, but less than the break-even
+  point. The income earned at this point may also be of interest. (You
+  proved the existence and uniqueness of this point in your homework).
+\end{enumerate}
+
+\subsection*{Mean versus median? Mode? Looking at the third derivative}
+
+Is the mean income greater than the median income? Equivalently, is
+the value $x$ for which $f'(x) = 1$ greater than $1/2$? There is no
+clear-cut answer. It turns out that the answer depends on whether the
+distribution of incomes is skewed more toward lower incomes or toward
+higher incomes.
+
+A third statistical concept that comes up is that of the {\em
+mode}. Roughly speaking, the mode is the region where there is maximum
+clustering of incomes.
+
+We thus want mathematical tools that will help answer the questions:
+(a) how can we compare mean and median? (b) how can we define mode in
+this situation?
+
+The answer, interestingly, has something to do with the third
+derivative.
+
+\subsection*{The first, second and third derivatives}
+
+You might remember that, when discussing how to graph functions to
+understand them better, one useful technique we discussed was to graph
+the function as well as its first and second derivative (and perhaps
+higher derivatives as well). Let us put this technique to use here.
+
+Note that the graph of $f$ measures the {\em cumulative income} earned
+by certain fractions of the population. This is good for some
+purposes, but for other purposes, we are interested in individual
+incomes. Though the graph of $f$ contains this information, it is
+hidden in that graph. To see the information on individual incomes
+better, we consider the graph of $f'$.
+
+As discussed above, the first derivative of $f$, denoted $f'$, is the
+ratio of the income of the person at level $x$ to the mean income. We
+know that $f'$ is a continuous and increasing function on $[0,1]$. We
+also know that $f'(0) \ge 0$ and that there is some $c \in (0,1)$ such
+that $f'(c) = 1$. Thus, $f'(0) \le 1$ and $f'(1) \ge 1$. We cannot say
+anything more conclusive.
+
+Thus, $f'$ is a continuous increasing function on $[0,1]$ with $0 \le
+f'(0) \le 1$ and $f'(1) \ge 1$. The fact that $f'$ is increasing
+corresponds to the fact that $f$ is concave up. The value $f'(1/2)$ is
+the median income, and the point $c$ where $f'(c) = 1$ is the point
+where the mean income is attained. We can see that the graph of $f'$,
+subject to the given constraints, could be of many kinds. In
+particular, the median may occur before the mean or it may occur after
+the mean.
+
+One advantage of drawing the graph of $f'$ is that, compared to the
+graph of $f$, we can focus more in-depth on the way $f'$ increases. We
+see that $f''$ measures the rate at which income increases (relative
+to mean income) as we move from the poorest to the richest. However,
+we also see that there are many unanswered questions. Where is $f'$
+concave up and concave down? Where does it rise most quickly and where
+does it rise most slowly? We see that the answers to these questions
+depend on $f'''$. In the regions where $f'''$ is positive, $f'$ is
+concave up, which means that the gain in income by moving to the right
+increases as we move to the right. In the regions where $f'''$ is
+negative, $f'$ is concave down, which means that the gain in income by
+moving to the right decreases as we move to the right.
+
+We see that if $f'''$ is positive throughout, that means that the
+relative gain in income for every slight increase in position goes up
+as we go from poorer to richer people. This means that the growth of
+$f'$ is initially sluggish and picks up pace later. Such situations
+typically correspond to larger values of the mean.
+
+On the other hand, if $f'''$ is negative, that means that the relative
+gain in income for every slight increase in position goes down as we
+go from poorer to richer people. In other words, a small step up in
+the relative ranking means more in income gain terms for poor people
+than the same small step means for rich people. In this case, the
+growth of $f'$ is sluggish for rich people and large for poor
+people. These situations correspond to the mean occurring relatively
+early.
+
+A final question of interest is about the modal income. What is the
+income range that most people have? This corresponds to:
+
+\begin{itemize}
+\item The parts where the graph of $f$ is closest to linear, i.e.,
+\item The parts where the graph of $f'$ is closest to horizontal, i.e.,
+\item The parts where the graph of $f''$ attains its minimum values.
+\item (Probably) the parts where $f''' = 0$ and $f^{(4))} > 0$. 
+\end{itemize}
+
+In other words, the modal segment is the segment where people's income
+is changing as little as possible with $x$.
+
+\subsection*{The peril of numbers}
+
+Before you entered the world of functions and calculus, the only type
+of mathematical object you dealt with was a number. But once you
+entered the world of functions and calculus, you saw yourself dealing
+regularly with mathematical objects that were more complicated than
+mere numbers: for instance, sets of numbers, functions, collections of
+functions, points in the plane (which are ordered pairs of numbers)
+and so on. Some of these objects are so complicated that it is not
+possible to describe them using one or two or three numbers.
+
+For instance, we saw that a partition of the interval $[a,b]$ is given
+by an increasing finite sequence of numbers starting at $a$ and ending
+at $b$. Unfortunately, the finite sequence may be arbitrarily
+large. How do we compare different partitions? We saw two ideas for
+comparing partitions: (a) The notion of {\em finer} partition, whereby
+one refines the other. Unfortunately, given two partitions, it isn't
+necessary that either one be finer than the other. (b) The notion of
+the {\em norm} of a partition, which measures the size of the largest
+part. We can use the norm to compare two partitions. Unfortunately, a
+partition with smaller norm may not always behave like a {\em smaller}
+partition as far as the upper and lower sums of a particular function
+are concerned, as you discovered in the midterm.
+
+So, one powerful idea is to use single numbers that measure {\em size}
+for complicated objects and reflect some underlying reality of those
+objects that is empirically useful. The drawback with that idea is
+that when we look only at that single number, we lose a lot of
+information about the original object. We may not be able to answer
+every question that comes up.
+
+The distribution of incomes is another such complicated construct. It
+is described, as we saw, by this function $f:[0,1] \to [0,1]$. But a
+function cannot be described by a single number. So, instead we ask
+for single numbers that we can obtain from the function that measure
+some empirically useful reality about the function. One such number,
+which tries to measure the {\em extent of inequality}, is the Gini
+coefficient. But one problem with the Gini coefficient is that it only
+measures total inequality, and is not sensitive to inequalities within
+subpopulations. For instance, if everybody earns roughly the same
+income and a few people at the top earn a much much larger income, the
+Gini coefficient is close to $1$, even though in some sense there is
+not much inequality among most people. In other words, the Gini
+coefficient is sensitive to {\em huge outliers} in the high-income
+direction.
+
+That is why it is useful to have a number of different size measures
+that we can use, and to look at all of them. For instance, the
+break-even point and Pareto point are useful single numbers that give
+some intuition about the skew in the distribution of incomes. The
+median income or the level at which the mean is attained are also
+useful numbers. When you learn statistics, you will learn many other
+single numbers that capture useful information about aggregates and
+distributions. Keep in mind that for any single measure that you
+choose, there will always be examples of distributions where that
+measure does not seem to capture what you would like it to intuitively
+capture.
+
+\subsection*{Averages and compositional effects}
+
+As some fun unwinding, here is a trick question. Suppose you have two
+countries $A$ and $B$. Is it possible that the mean income in both $A$
+and $B$ goes down, but the mean of no {\em individual} in either
+country goes down, and in fact, there are individuals whose mean
+income goes {\em up}?
+
+Yes, it is possible. Suppose the mean income in country $A$ is $100$
+money units and the mean income in country $B$ is $400$ money
+units. Imagine that there is a person in country $A$ earning an income
+of $200$ money units who chooses to migrate to country $B$ and gets
+her income boosted to $300$ money units. Assume that nobody else
+migrates, and nobody else's income changes.
+
+The mean income of country $A$ has gone down, because a person earning
+above the mean left the country. The mean income of country $B$ has
+{\em also} goes down, because it just took in a person earning less
+than the mean income. The net effect is that both countries see a
+decline in their mean, but no individual is worse off -- and at least
+one individual is better off! This is just one reason why {\em group
+averages and aggregates are not always reflective of
+individuals}. What we have described here is an example of a {\em
+compositional effect} -- changes in group compositions affecting
+averages that reflect the opposite of what is happening at the
+individual level.
+
+Of course, the group averages might still be useful in their own
+right, but the statistical error would be to {\em deduce things about
+individuals using group averages without taking into account
+compositional effects and the fluidity of group boundaries}.
+
+Here are some other examples of the same phenomenon:
+
+\begin{enumerate}
+\item Inter-sectoral migration: In rapidly industrializing nations
+  such as China, agricultural productivity and industrial productivity
+  are both rising about $5\%$ per year. Yet, overall productivity is
+  rising by something like $8\%$ How is this happening? This is
+  because the industrial sector is much more productive than the
+  agricultural sector. As agricultural productivity increases, less
+  people are needed in agriculture, and so people move from the
+  (comparatively less productive) agricultural sector to the
+  (comparatively more productive) industrial sector. This shifting of
+  people from a less productive to a more productive sector itself
+  causes an increase in productivity independent of the increase in
+  productivity within each sector. Here, agriculture plays the role of
+  the poorer nation $A$ and industry plays the role of the richer
+  nation $B$.
+\item Inter-level migration in calculus: Imagine that one of you, who
+  is doing badly in the 150s, drops down to the 130s, which are a
+  cakewalk for you. Then, the average mathematical skill of the 150s
+  students increases, the average mathematical skill of the 130s
+  student increases, yet there may probably be a net {\em decrease} in
+  the overall average mathematical skill of the population, if your
+  mathematical skills decline after you're no longer subjected to the
+  rigors of the 150s.
+\end{enumerate}
+
+
+\end{document}

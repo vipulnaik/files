@@ -1,0 +1,281 @@
+\documentclass[a4paper]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul}
+
+%Title details
+\title{Solving differential equations: heat equation, wave equation and more}
+\author{Vipul Naik}
+\thanks{\copyright Vipul Naik, 1st Year, Ph.D. University of Chicago}
+
+%List of new commands
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\schwarz}[1]{\mathcal{S}\left(#1\right)}
+\newcommand{\sgn}{\text{sgn}}
+\makeindex
+
+\begin{document}
+\maketitle
+%\tableofcontents
+
+\begin{abstract}
+  This article describes some aspects of solving differential
+  equations using the toolkit and ideas of functional analysis.
+\end{abstract}
+
+\section{Differential equations and functional analysis}
+
+We shall here study differential equations that have the hope of
+modelling some physical law. The idea usually is that there is some
+physical quantity that is defined for every point in time and space,
+and whose value changes both with time and space. The ``evolution'' of
+this physical quantity with time and space is described by a partial
+differential equation.
+
+Two basic principles that we can start out with are:
+
+\begin{itemize}
+
+\item Time-invariance: This principle states that translating the time
+  origin should not change the physical law
+
+\item Spatial invariance, or translaton-invariance: This principle
+  states that translating the spatial origin should not change the
+  physical law
+
+\end{itemize}
+
+Assuming both spatial and time invariance restricts us to a class of
+partial differential equations called \sdefinedproperty{partial
+  differential equation}{autonomous}. Loosely speaking, an autonomous
+partial differential equation is a partial differential equation that
+is an equation of the form $F(u,\partial u) = 0$, in other words, it
+is an equation relating the value of $u$ and its mixed partials at a
+particlar point in space-time. The crucial feature is that space and
+time can appear in the differential equation {\em only} by
+differentiating in them. Thus:
+
+$$tu = 0$$
+
+is {\em not} autonomous,but $u = 0$ is.
+
+There could be other desirable features of a physical law, for
+instance, dimension matching, rotation invariance, covariance with
+respect to scaling space and time, translation invariance of $u$ and
+so on.
+
+\subsection{Evolution and flows}
+
+The typical kind of PDE we come across everyday from physical
+situations is:
+
+$$\frac{\partial u}{\partial t} = \text{Something involving $u$, and its $x$-partials}$$
+
+In other words, the {\em rate of change} of $u$ depends entirely on
+$u$ and its mixed $x$-partials, where $x$ is the spatial
+variable. This is a flow equation. Intuitively, if we are thinking of
+$u$ as living inside a monstrous function space, what we're doing is
+providing a vector field in this function space and requiring that any
+solution is an ``integral curve'' of this vector field.
+
+Our goal is the following: given an initial condition $u_0$ at time
+$0$, find a solution $u(x,t)$ such that $u(x,0) = u_0(x)$. In other
+words, trace the integral curve of the vector field that at time $0$,
+is the point $u_0$ (in the monstrous function space). The existence
+and uniqueness of solution to differential equations is thus the
+theory of existence and uniqueness to integral curves for vector
+fields.
+
+In this and subsequent sections, we shall use subscript notation for
+partial derivatives. So $u_{xy}$, for instance, denotes a second
+derivative of $u$, a mixed partial in $x$ and $y$.
+\subsection{The solution operator}
+
+Let's first define the notion of a solution operator.
+
+\begin{definer}[Solution operator]
+  Suppose $u_t = F$ is an autonomous differential equation (Where the
+  right side is a differential operator involving only partials in the
+  spatial variables). A solution operator for this associates, to
+  every $t$, a linear operator $S_t$ such that for any function $u_0$,
+  $S_t(u_0)(x) = u(x,t)$ where $u(x,t)$ is the solution corresponding
+  to $u_0$.
+\end{definer}
+
+In other words, the solution operator is an operator that takes the
+value at time $0$ and outputs the value at time $t$. Ideally we'd like
+to be able to guarantee that solution operators exist, and can be
+written down explicitly.
+
+If reasonable existence and uniqueness conditions hold, we get a
+solution operator for every $t$, and the solution operators form a
+one-parameter group of transformations.
+
+We consider the particularly nice situation where the right side is a
+linear differential operator in $u$.
+
+The following is clear:
+
+\begin{quote}
+  When the differential operator is linear, so is the solution
+  operator (by linear, we mean linear in $u_0$).
+\end{quote}
+
+\subsection{A good family of kernels}
+
+Our setup so far is that we have a linear differential operator $F$ in
+terms of the spatial coordinates, and we want to solve the initial
+value problem:
+
+$$u_t = Fu$$
+
+where we are given the function $u$ at time $0$. More generally, we
+want to find a family $S_t$ of solution operators for this
+differential equation.
+
+Let's now define a family of good kernels:
+
+\begin{definer}[Family of good kernels]
+  A collection of functions $\phi:\R^n \times \R \to \R$ is termed a
+  \definedind{family of good kernels}:
+
+  \begin{itemize}
+
+  \item For each $t$, the map $x \mapsto \phi(x,t)$ integrates to $1$
+
+  \item The $\phi$s are Schwarz in $x$ for each $t$, in a uniform
+    manner.
+
+  \item The integral operators obtained by integrating against
+    $\phi(x,t)$ converge to the $\delta$-operator
+
+  \end{itemize}
+
+\end{definer}
+
+Now the following is an easy to check fact:
+
+\begin{quote}
+  If $\phi$ is a family of good kernels that itself solves the
+  differential equation we want (i.e. $\phi_t = F\phi$), then the
+  solution operators for the differential equation $u_t = Fu$ are
+  given by integral operators determiend by $\phi$.
+\end{quote}
+
+The key steps/ideas of the proof are as follows:
+
+\begin{itemize}
+
+\item We know that $\varphi$ solves the differential equation. We want
+  to use this to show that something obtained by integrating against
+  it satisfies the differential equation. Let's consider the definition of $u$:
+
+  $$u(x,t) = \int \phi(x-y,t) u_0(y) \, dy$$
+
+\item We now want to check that $u_t = Fu$. The key point is that we
+  can use a corollary of the dominated convergence theorem to
+  interchange the derivative and integral, if $\varphi$ satisfies a
+  Schwarz-like condition. After that, the proof for satisfying the
+  differential equation is direct.
+
+\item We also need to show that as $t \to 0$, the function $x \mapsto
+  u(x,t)$ approaches the function $u_0(x)$.
+
+\end{itemize}
+
+\section{Weak solutions to PDEs}
+
+\subsection{Functions, measures and operators}
+
+Before proceeding further, let us look at three related notions. We look at the three classes of ideas:
+
+\begin{tabular}{|l|l|l|}
+  Function & Measure & Linear operator\\
+  Nonnegative integrable function & Positive finite measure & Positive linear operator\\
+  Real integrable function & Real finite measure & Real linear operator \\
+  Complex integrable function & Finite complex measure & Linear operator\\
+  Nonnegative $L^1_{loc}$ function & Real measure & Real linear operator\\
+\end{tabular}
+
+Given an integrable function from a measure space to $\C$, we can
+associate to that a measure, as the measure obtained by integrating
+against it. For the measure to be finite, we require that the function
+be in $L^1$. If the function is real-valued, we get a real measure,
+and if the function is nonnegative, we get a nonnegative measure.
+
+Any measure defines a linear functional, again by integrating against
+it. The correspondence between measures and operators is bijective;
+for further terminology, we also sometimes use the term
+``distribution'' for the measure or associated operator. On the other
+hand, not every measure can be traced as coming from a function.
+
+In fact, the Radon-Nikodym theorem tells us that any measure on $\R$
+can be decomposed asa sum of two orthogonal pieces: a part that is
+absolutely continuous with respect to Lebesgue measure, and a singular
+part, which is in some sense ``orthogonal'' to Lebesgue measure. An
+example of a singular measure (which thus, cannot be obtained as
+coming from an integrable function) is the delta-measure, which
+associated measure $1$ to the point $0$ and measure $0$ elsewhere.
+
+\subsection{Weak convergence and weak solutions}
+
+Weak convergence is a somewhat slippery concept, so don't be surprised
+of you don't get this straight at the start. The notion works well
+only for linear PDEs, which will be our focus for this subsection:
+
+$$Fu = 0$$
+
+here $u$ is the function, $F$ is the differential operator, and we
+need to find a ``solution'' $u$.
+
+Now the nature of the differential operator $F$ imposes conditions on
+the kind of $u$s we can look for if we're interested in strong, or
+genuine, solutions. For instance, if $F$ involves second partials,
+then honest solutions must at the very least be in $C^2$.
+
+The notion of ``weak solution'' puts the lie to this. The idea,
+roughly speaking is as follows:
+
+\begin{itemize}
+
+\item Assume we had a strong solution.
+
+\item Pick a test function $g$
+
+\item Find a new PDE such that, within the domain of strong solutions
+  for the original PDE, the two PDEs are equivalent.
+
+\item Now try to solve the new PDE within a bigger, or different,
+  function space.
+
+\end{itemize}
+
+Let's take an example. Suppose we want to solve the differential equation:
+
+$$\Delta u = f$$
+
+on a domain $\Omega \subset \R^n$ whose closure is compact.
+
+Now, if we pick a function $g$ that is continuous with compact
+support, then we know that:
+
+$$\int_\Omega (\Delta u)(g) = \int_\Omega (\nabla u)\cdot \nabla g = \int_\Omega u (\Delta g)$$
+
+(The two steps there are applications of the product rule to $(\nabla
+u) \cdot g$. Thus, a ``solution'' function $f$ should be a function
+such that:
+
+$$\int_\Omega fg = \int_\Omega u (\Delta g)$$
+
+for any function in $C^2_c(\Omega)$ (i.e. any twice-continuously
+differentiable function). 
+
+We can now try to look at solutions for the above equation, over a
+larger domain. In other words, we want $f$ such that for {\em every}
+$g \in C^2_c(\Omega)$, the above two integrals are equal.
+
+Note that we didn't have to go two 
+
+
+
+\end{document}

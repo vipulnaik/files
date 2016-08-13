@@ -1,0 +1,1263 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Abstract vector spaces and the concept of isomorphism}
+\author{Math 196, Section 57 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Sections 4.1 and 4.2.
+
+\section*{Executive summary}
+
+General stuff ...
+
+\begin{enumerate}
+\item There is an abstract definition of real vector space that
+  involves a set with a binary operation playing the role of addition
+  and another operation playing the role of scalar multiplication,
+  satisfying a bunch of axioms. The goal is to axiomatize the key
+  aspects of vector spaces.
+\item A subspace of an abstract vector space is a subset that contains
+  the zero vector and is closed under addition and scalar
+  multiplication.
+\item A linear transformation is a set map between two vector spaces
+  that preserves addition and preserves scalar multiplication. It also
+  sends zero to zero, but this follows from its preserving scalar
+  multiplication.
+\item The {\em kernel} of a linear transformation is the subset of the
+  domain comprising the vectors that map to zero. The kernel of a
+  linear transformation is always a subspace.
+\item The {\em image} of a linear transformation is its range as a set
+  map. The image is a subspace of the co-domain.
+\item The {\em dimension} of a vector space is defined as the size of
+  any basis for it. The dimension provides an upper bound on the size
+  of any linearly independent set in the vector space, with the upper
+  bound attained (in the finite case) only if the linearly independent
+  set is a basis. The dimension also provides a lower bound on the
+  size of any spanning subset of the vector space, with the lower
+  bound being attained (in the finite case) only if the spanning set
+  is a basis.
+\item Every vector space has a particular subspace of interest: the
+  zero subspace.
+\item The {\em rank} of a linear transformation is defined as the
+  dimension of the image. The rank is the answer to the question:
+  ``how much survives the linear transformation?''
+\item The {\em nullity} of a linear transformation is defined as the
+  dimension of the kernel. The nullity is the answer to the question:
+  ``how much gets killed under the linear transformation?''
+\item The sum of the rank and the nullity of a linear transformation
+  equals the dimension of the domain. This fact is termed the {\em
+    rank-nullity theorem}.
+\item We can define the {\em intersection} and {\em sum} of
+  subspaces. These are again subspaces. The intersection of two
+  subspaces is defined as the set of vectors that are present in both
+  subspaces. The sum of two subspaces is defined as the set of vectors
+  expressible as a sum of vectors, one in each subspace. The sum of
+  two subspaces also equals the subspace spanned by their union.
+\item A linear transformation is {\em injective} if and only if its
+  kernel is the zero subspace of the domain.
+\item A linear transformation is {\em surjective} if and only if its
+  image is the whole co-domain.
+\item A {\em linear isomorphism} is a linear transformation that is
+  {\em bijective}: it is both injective and surjective. In other
+  words, its kernel is the zero subspace of the domain and its image
+  is the whole co-domain.
+\item The dimension is an isomorphism-invariant. It is in fact a {\em
+  complete isomorphism-invariant}: two real vector spaces are
+  isomorphic if and only if they have the same dimension. Explicitly,
+  we can use a bijection between a basis for one space and a basis for
+  another. In particular, any $n$-dimensional space is isomorphic to
+  $\R^n$. Thus, by studying the vector spaces $\R^n$, we have
+  effectively studied all finite-dimensional vector spaces up to
+  isomorphism.
+\end{enumerate}
+
+Function spaces ...
+
+\begin{enumerate}
+\item For any set $S$, consider the set $F(S,\R)$ of {\em all}
+  functions from $S$ to $\R$. With pointwise addition and scalar
+  multiplication of functions, this set is a vector space over
+  $\R$. If $S$ is finite ({\em not} our main case of interest) this
+  space has dimension $|S|$ and is indexed by a basis of $S$. We are
+  usually interested in {\em subspaces} of this space.
+\item We can define vector spaces such as $\R[x]$ (the vector space of
+  all polynomials in one variable with real coefficients) and $\R(x)$
+  (the vector space of all rational functions in one variable with
+  real coefficients). These are both infinite-dimensional spaces. We
+  can study various finite-dimensional subspaces of these. For
+  instance, we can define $P_n$ as the vector space of all polynomials
+  of degree less than or equal to $n$. This is a vector space of
+  dimension $n + 1$ with basis given by the monomials
+  $1,x,x^2,\dots,x^n$.
+\item There is a natural injective linear transformation $\R[x] \to
+  F(\R,\R)$.
+\item Denote by $C(\R)$ or $C^0(\R)$ the subspace of $F(\R,\R)$
+  comprising the functions that are continuous everywhere. For $k$ a
+  positive integer, denote by $C^k(\R)$ the subspace of $C(\R)$
+  comrpising those functions that are at least $k$ times continuously
+  differentiable, and denote by $C^\infty(\R)$ the subspace of $C(\R)$
+  comprising all the functions that are {\em infinitely}
+  differentiable. We have a descending chain of subspaces:
+
+  $$C^0(\R) \supseteq C^1(\R) \supseteq C^2(\R) \supseteq \dots $$
+
+  The image of $\R[x]$ inside $F(\R,\R)$ lands inside $C^\infty(\R)$.
+
+\item We can view differentiation as a linear transformation $C^1(\R)
+  \to C(\R)$. It sends each $C^k(\R)$ to $C^{k-1}(\R)$. It is
+  surjective from $C^\infty(\R)$ to $C^\infty(\R)$. The kernel is
+  constant functions, and the kernel of $k$-fold iteration is
+  $P_{k-1}$. Differentiation sends $\R[x]$ to $\R[x]$ and is
+  surjective to $\R[x]$.
+\item We can also define a formal differentiation operator $\R(x) \to
+  \R(x)$. This is not surjective.
+\item Partial fractions theory can be formulated in terms of saying
+  that some particular rational functions form a basis for certain
+  finite-dimensional subspaces of the space of rational functions, and
+  exhibiting a method to find the ``coordinates'' of a rational
+  function in terms of this basis. The advantage of expressing in this
+  basis is that the basis functions are particularly easy to integrate.
+\item We can define a vector space of sequences. This is a special
+  type of function space where the domain is $\mathbb{N}$. In other
+  words, it is the function space $F(\mathbb{N},\R)$.
+\item We can define a vector space of formal power series. The Taylor
+  series operator and series summation operator are back-and-forth
+  operators between this vector space (or an appropriate subspace
+  therefore) and $C^\infty(\R)$.
+\item Formal differentiation is a linear transformation $\R[[x]] \to
+  \R[[x]]$. It is surjective but not injective. The kernel is the
+  one-dimensional space of formal power series.
+\item We can consider linear differential operators from
+  $C^\infty(\R)$ to $C^\infty(\R)$. These are obtained by combining
+  the usual differentiation operator and multiplication operators
+  using addition, multiplication (composition) and scalar
+  multiplication. Finding the kernel of a linear differential operator
+  is equivalent to solving a homogeneous linear differential
+  equation. Finding the inverse image of a particular function under a
+  linear differential operator amounts to solving a non-homogeneous
+  linear differential equation, and the solution set here is a
+  translate of the kernel (the corresponding solution in the
+  homogeneous case, also called the {\em auxilliary solution}) by a
+  particular solution. The first-order case is particularly
+  illuminative because we have an explicit formula for the fibers.
+\end{enumerate}
+
+\section{Abstract definitions}
+
+\subsection{The abstract definition of a vector space}
+
+A {\em real vector space} (just called {\em vector space} for short)
+is a set $V$ equipped with the following structures:
+
+\begin{itemize}
+\item A binary operation $+$ on $V$ called addition that is
+  commutative and associative. By ``binary operation'' we mean that it
+  is a map $V \times V \to V$, i.e., it takes two inputs in $V$ and
+  gives an output in $V$. Explicitly, for any vectors $\vec{v},
+  \vec{w}$ in $V$, there is a vector $\vec{v} + \vec{w} \in V$. The
+  operation is commutative and associative:
+
+  \begin{itemize}
+  \item {\em Commutativity} means that for any vectors $\vec{v},\vec{w}
+    \in V$, $\vec{v} + \vec{w} = \vec{w} + \vec{v}$.
+  \item {\em Associativity} means that for any vectors
+    $\vec{u},\vec{v},\vec{w} \in V$, $(\vec{u} + \vec{v}) + \vec{w} =
+    \vec{u} + (\vec{v} + \vec{w})$.
+  \end{itemize}
+\item A special element $\vec{0} \in V$ that is an identity for
+  addition. Explicitly, for any vector $\vec{v} \in V$, we have
+  $\vec{0} + \vec{v} = \vec{v} + \vec{0} = \vec{v}$.
+\item A scalar multiplication operation $\R \times V \to V$ denoted
+  by concatenation such that:
+  \begin{itemize}
+  \item $0\vec{v} = \vec{0}$ (the $\vec{0}$ on the right side being the vector
+    $0$) for all $\vec{v} \in V$.
+  \item $1\vec{v} = \vec{v}$ for all $\vec{v} \in V$.
+  \item $a(b\vec{v}) = (ab)\vec{v}$ for all $a,b \in \R$ and
+      $\vec{v} \in V$.
+  \item $a(\vec{v} + \vec{w}) = a\vec{v} + a\vec{w}$ for all $a \in
+    \R$ and $\vec{v},\vec{w} \in V$.
+  \item $(a + b)\vec{v} = a\vec{v} + b\vec{v}$ for all $a,b \in \R$,
+    $\vec{v} \in V$.
+    \end{itemize}
+\end{itemize}
+
+Note that the vector spaces $\R^n$ that we have encountered are
+examples of real vector spaces in the sense above. However, there are
+many other vector spaces, such as spaces of functions, that at least
+superficially look very different.
+
+\subsection{Abstract vector spaces: where do they live?}
+
+One of the difficulties that many people have with grasping abstract
+vector spaces is that it's not clear {\em where} this vector space
+is. With $\R^n$, we know what the elements (vectors) are: they are
+vectors with $n$ coordinates, all of which are real numbers. We know
+the algebraic representation, and also have a vague geometric
+picture. Admittedly, the geometric picture is clear only for $n =
+1,2,3$, but we can obtain our intuition from there and extend formally
+from there.
+
+With abstract vector spaces, {\em where} they live could vary quite a
+bit based on what space we are considering. But in some sense, it
+doesn't matter {\em where they live}. What really matters is how the
+vectors interact with each other, i.e., how they add and scalar
+multiply. The addition and scalar multiplication are the essence of a
+vector space. How the vectors are written or what they are called is
+less relevant than how they add. Just like where you live or where you
+were born is not directly relevant to your grade: how you score on the
+test is. We judge vectors not by how they're written, but by the way
+they add and scalar multiply. We'll understand this better when we
+study the definition of {\em isomorphism} of vector spaces.
+
+\subsection{What are all those axioms for?}
+
+The conditions such as commutativity, associativity, distributivity,
+etc. imposed in the abstract definition of vector space are there in
+order to make sure that the {\em key features} of the concrete vector
+spaces we have encountered so far are preserved in the abstract
+setting. Basically, what we want is that any algebraic identity or
+manipulation technique that we need to use in our usual proofs is
+available to us in the abstract setting.
+\subsection{The abstract definition of subspace and linear transformation}
+
+Fortunately, these definitions don't really differ from the
+definitions you are probably already familiar with from earlier. The
+reason is that it's only the beginning part (the foundation, so to
+speak) that gets more complicated in the abstract setting. The rest of
+it was already sufficiently abstract to begin with. Nonetheless, we
+review the definitions below.
+ 
+A {\em (linear) subspace} of a vector space is defined as a nonempty
+subset that is closed under addition and scalar multiplication. In
+particular, any subspace must contain the zero vector. So, an
+alternative definition of subspace is that it is a subset that
+contains the zero vector, is closed under addition, and is closed
+under scalar multiplication. Note that if we just say {\em subspace}
+we are by default referring to a linear subspace.
+
+A subspace of a vector space can be viewed as being a vector space in
+its own right. Note that there is one vector that we are sure every
+subspace must contain: the zero vector.
+  
+Suppose $V$ and $W$ are vector spaces. A function $T: V \to W$ is
+termed a {\em linear transformation} if $T$ preserves addition and
+scalar multiplication, i.e., we have the following two conditions:
+
+\begin{itemize}
+\item $T(\vec{v_1} + \vec{v_2}) = T(\vec{v_1}) + T(\vec{v_2})$ for
+  all vectors $\vec{v_1},\vec{v_2} \in V$.
+\item $T(a\vec{v}) = aT(\vec{v})$ for all $a \in \R$, $\vec{v} \in
+    V$.
+\end{itemize}
+
+Note that any linear transformation must send the zero vector to the
+zero vector. This need not be imposed as a separate condition: it
+follows from the scalar multiplication condition.
+
+\subsection{Kernel and image}
+
+The {\em kernel} of a linear transformation $T: V \to W$ is defined as
+the set of all vectors $\vec{v} \in V$ such that $T(\vec{v})$ is the
+zero vector. As we saw earlier, the kernel of any linear
+transformation is a {\em subspace} of $V$. In other words, it is
+non-empty (note that in particular it contains the zero vector of
+$V$), it is closed under addition, and it is closed under scalar
+multiplication.
+
+The {\em image} of a linear transformation $T:V \to W$ is defined as
+the set of all vectors $\vec{w} \in W$ that can be written as $\vec{w}
+= T(\vec{v})$ for some vector $\vec{v} \in V$. In the language of
+functions, it is simply the range of $T$. The image of $T$ is a {\em
+  subspace} of $W$.
+
+The proofs of both statements (the kernel is a subspace and the image
+is a subspace) are the same as those we saw earlier when introducing
+the concept of kernel. However, now that we are dealing with abstract
+vector spaces as opposed to the concrete setting, we need to be sure
+that every manipulation that we perform is included in, or justifiable
+from, the axioms in the abstract setting.
+
+\subsection{Dimension and containment}
+
+Suppose $V$ is a real vector space. The {\em dimension} of $V$ (as a
+real vector space) is defined in the following equivalent ways:
+
+\begin{enumerate}
+\item It is the maximum possible size of a linearly independent set in
+  $V$. Note that in the finite case, a linearly independent set has
+  this maximum size if and only if it is a basis.
+\item It the size of any basis of $V$.
+\item It is the minimum possible size of a spanning set in $V$. Note
+  that in the finite case, a spanning set has this minimum size if and
+  only if it is a basis.
+\end{enumerate}
+
+We call a vector space {\em finite-dimensional} if its dimension is
+finite, and {\em infinite-dimensional} otherwise.
+
+The following are true for a subspace containment: suppose $U$ is a
+subspace of a real vector space $V$. Then, the dimension of $U$ is
+less than or equal to the dimension of $V$. If $U$ is
+finite-dimensional, then the dimensions are equal if and only if $U =
+V$.
+
+\subsection{The zero subspace}
+
+Every vector space has a particular subspace of interest: the {\em
+  zero subspace}. This is the subspace that contains only the zero
+vector. This is a zero-dimensional space. In other words, the empty
+set is a basis for it.
+
+\subsection{Rank-nullity theorem}
+
+The rank-nullity theorem holds for abstract vector spaces. Suppose
+$T:V \to W$ is a linear transformation from a real vector space $V$ to
+a real vector space $W$. Suppose further that $V$ is
+finite-dimensional. We do not need to assume anything regarding
+whether $W$ is finite-dimensional. 
+
+Recall that the {\em rank} of $T$ is defined as the dimension of the
+image of $T$. The {\em nullity} of $T$ is defined as the dimension of
+the kernel of $T$. The rank-nullity theorem states that the sum of the
+rank of $T$ and the nullity of $T$ is the dimension of the domain
+space $V$.
+
+This is the same as the old rank-nullity theorem, except that now, we
+are no longer thinking of things in terms of matrices, but simply in
+terms of abstract spaces and linear transformations between them.
+\subsection{Sum and intersection of subspaces}
+
+We had earlier defined the concepts of sum and intersection of
+subspaces. The same concepts apply with the same definition in the
+abstract setting. Explicitly:
+
+\begin{itemize}
+\item If $U_1$ and $U_2$ are subspaces of a real vector space $V$,
+  then the intersection $U_1 \cap U_2$, defined as the set of vectors
+  that are in both $U_1$ and $U_2$, is also a subspace of $V$.
+\item If $U_1$ and $U_2$ are subspaces of a real vector space $V$,
+  then the sum $U_1 + U_2$, defined as the set of vectors that can be
+  expressed as the sum of a vector in $U_1$ and a vector in $U_2$, is
+  also a subspace of $V$.
+
+  Note that the union $U_1 \cup U_2$ is just a subset and not in
+  general a subspace, and in fact, $U_1 \cup U_2 \subseteq U_1 + U_2$
+  and $U_1 + U_2$ is the subspace spanned by $U_1 \cup U_2$. It is a
+  subspace if and only if either $U_1 \subseteq U_2$ or $U_2 \subseteq
+  U_1$, and further, that happens if and only if $U_1 \cup U_2 = U_1 +
+  U_2$.
+\end{itemize}
+
+\section{Isomorphism of vector spaces}
+
+\subsection{Definition of isomorphism}
+
+Recall our general concept of {\em isomorphism} from earlier in the
+course: it is an invertible mapping that preserves the essence of the
+structure. In the context of vector spaces, a {\em linear isomorphism}
+between abstract vector spaces $V$ and $W$ is a bijective linear
+transformation $T: V \to W$.
+
+If $V$ and $W$ are vector spaces and there exists a linear isomorphism
+$T: V \to W$, then we say that $V$ and $W$ are isomorphic.
+
+\subsection{Isomorphism as an equivalence relation}
+
+Isomorphism is an equivalence relation between vector
+spaces. Explicitly, it satisfies the following three conditions:
+
+\begin{itemize}
+\item {\em Reflexivity}: Every vector space is isomorphic to
+  itself. We can choose the identity map as the isomorphism (though it
+  is not the only possible isomorphism).
+\item {\em Symmetry}: If $V$ and $W$ are isomorphic, then $W$ and $V$
+  are isomorphic. Explicitly, if $T:V \to W$ is a linear isomorphism,
+  then $T^{-1}:W \to V$ is a linear isomorphism.
+\item {\em Transivity}: If $U$ and $V$ are isomorphic, and $V$ and $W$
+  are isomorphic, then $U$ and $W$ are isomorphic. Explicitly, if
+  $T_1: U \to V$ is a linear isomorphism and $T_2:V \to W$ is a linear
+  isomorphism, then $T_2 \circ T_1: U \to W$ is a linear
+  isomorphism. Explicitly, $(T_2 \circ T_1)^{-1} = T_1^{-1} \circ
+  T_2^{-1}$. 
+\end{itemize}
+
+\subsection{Isomorphism and dimension}
+
+The dimension of a vector space is an invariant that completely
+determines the isomorphism class. Explicitly, if $V$ and $W$ are
+vector spaces, then $V$ and $W$ are isomorphic if and only if they
+have the same dimension. Constructively, the isomorphism is obtained
+as follows: choose any set bijection from a basis of $V$ to a basis of
+$W$, and then extend linearly to a linear isomorphism from $V$ to $W$.
+
+This is particularly useful for finite-dimensional vector spaces:
+given a $n$-dimensional vector space and a $m$-dimensional vector
+space, the vector spaces are isomorphic if and only if $n = m$. In
+particular, this also tells us that any $n$-dimensional real vector
+space is isomorphic to the ``standard'' $n$-dimensional vector space
+$\R^n$. Put another way, studying the spaces $\R^n, n \in
+\mathbb{N}_0$ is tantamount to studying all finite-dimensional vector
+spaces up to isomorphism. That's why our concreteness so far didn't
+really lose us much generality.
+
+The particular case of dimension zero gives the zero space. This is
+isomorphic to the zero subspace in any vector space.
+
+\section{Function spaces}
+
+\subsection{The general idea of function spaces}
+
+The idea of {\em function spaces} is as follows. For $S$ any set, we
+can define the space of {\em all} functions from $S$ to $\R$ and make
+this a real vector space with the following structure:
+
+\begin{itemize}
+\item The addition of functions is defined {\em
+  pointwise}. Explicitly, given functions $f,g: S \to \R$, we define
+  $f + g$ as the function $x \mapsto f(x) + g(x)$.
+\item Scalar multiplication is defined as follows: given $\lambda \in
+  \R$ and $f: S \to \R$, $\lambda f$ is defined as function $x \mapsto
+  \lambda f(x)$.
+\end{itemize}
+
+We will denote this vector space as $F(S,\R)$. 
+
+Now, this is the space of {\em all} functions on the set $S$. We are
+usually interested in other vector spaces that arise as subspaces of
+this space. Specifically, we are interested in subsets of this space
+that contain the zero function (the function sending everything to
+zero), are closed under pointwise addition of functions, and are
+closed under scalar multiplication.
+
+Note also that the ``vectors'' here are now ``functions.'' This
+requires a bit of rethinking, because we are used to thinking of
+vectors as pointy arrows or equivalently as things with
+coordinates. Functions, on the other hand, do not look like that. But
+to make a vector space, we don't care about whether the things look
+like our preconceived notion of vectors, but rather, we care about
+whether they have the addition and scalar multiplication operations
+satisfying the conditions we have specified.
+
+\subsection{A basis for the space of all functions when the set is finite}
+
+If $S$ is finite, then the space of all functions on a set $S$ has a
+basis indexed by the elements of $S$. For each $s \in S$, define the
+characteristic function $\mathbf{1}_s$ as the function that sends $s$
+to $1$ and sends all other elements of $S$ to $0$. For any function
+$f$, the expression for $f$ in terms of this basis is:
+
+$$f = \sum_{s \in S} f(s)\mathbf{1}_s$$
+
+Note that this idea cannot be used when $S$ is infinite because the
+required sum would be infinite, and vector spaces only permit finite
+sums.
+
+\subsection{The vector space of polynomials}
+
+The set of {\em all} polynomials with real coefficients in one
+variable $x$ is a vector space, with the usual definition of addition
+and scalar multiplication of polynomials. This vector space is
+sometimes denoted $\R[x]$ (the book denotes this space by $P$). Note
+that there is {\em also} a definition of {\em multiplication} of
+polynomials but that definition is {\em not} part of the vector space
+structure.
+
+Explicitly, an element of this vector space is of the form:
+
+$$a_0 + a_1x + a_2x^2 + \dots + a_nx^n$$
+
+Now, any polynomial can be thought of as a function. In other words,
+given any polynomial $p$, we can think of the {\em function} $x
+\mapsto p(x)$. In other words, we have a mapping:
+
+$$\R[x] \to F(\R,\R)$$
+
+that sends any polynomial to the corresponding function. We note the
+following about the mapping:
+
+\begin{itemize}
+\item The mapping is {\em linear}: It preserves sums and scalar
+  multiples. What this means is that adding polynomials as {\em
+    polynomials} and then considering them as functions is equivalent
+  to considering them as functions and then adding as functions. This
+  is no surprise: our formal method for polynomial addition is
+  designed to mimic function addition. Also, scalar multiplying a
+  polynomial and {\em then} viewing it as a function is equivalent to
+  converting it to a function and then scalar multiplying that function.
+\item The mapping is {\em injective}: What this means is that two
+  different polynomials can never give rise to the same
+  function. Equivalently (since the mapping is linear) no nonzero
+  polynomial can be the zero function. This is obvious: a nonzero
+  polynomial of degree $n$ has at most $n$ real roots, hence cannot be
+  zero at all points.
+\end{itemize}
+
+Thus, the image of $\R[x]$ is a subspace of $F(\R,\R)$. Since the
+mapping is injective, we can think of this subspace as another copy of
+$\R[x]$, so we sometimes abuse notation and identify $\R[x]$ with that image.
+
+\subsection{Subspaces of the space of polynomials}
+
+The space $\R[x]$ of polynomials is infinite-dimensional. The
+following is the most convenient basis for it:
+
+$$1,x,x^2,x^3,\dots$$
+
+Note that this is a spanning set because every polynomial is
+expressible as a linear combination of a finite number of these. It is
+a basis because there are no linear relations between these.
+
+We can define the following subspaces of $\R[x]$ of interest. For any
+nonnegative integer $n$, let $P_n$ be the span of the subset:
+
+$$1,x,x^2,\dots,x^n$$
+
+In other words, $P_n$ is the $(n+1)$-dimensional space comprising all
+polynomials of degree $\le n$. The above set forms a basis for $P_n$.
+
+We have the following subspace inclusions:
+
+$$P_0 \subseteq P_1 \subseteq P_2 \subseteq P_3 \subseteq \dots $$
+
+And the whole space is the union of all these subspaces, i.e., we have:
+
+$$\R[x] = P = \bigcup_{i=0}^\infty P_i$$
+
+\subsection{The vector space of rational functions}
+
+We denote by $\R(x)$ the set of all rational functions, i.e.,
+expressions of the form $p(x)/q(x)$ where $p$ and $q$ are both
+polynomials with $q$ not the zero polynomial, up to the following {\em
+  equivalence} relation: $p_1(x)/q_1(x)$ and $p_2(x)/q_2(x)$ are
+considered the ``same'' rational function if $p_1(x)q_2(x) =
+p_2(x)q_1(x)$.
+
+With the usual definition of addition (take common denominator, then
+add numerators) and scalar multiplication (just multiply the scalar in
+the numerator), the space of rational functions is a vector
+space. Further, there is a natural injective linear transformation
+from the space of polynomials to the space of rational functions:
+
+$$\R[x] \to \R(x)$$
+
+that sends a polynomial $p(x)$ to $p(x)/1$.
+
+The map is not surjective, because there do exist rational functions
+that are not polynomials.
+
+We might be tempted to say that there is a natural map:
+
+$$\R(x) \to F(\R,\R)$$
+
+However, this would be inaccurate, because the {\em function} defined
+by a rational function is not defined at the points where the
+denominator becomes zero. So, the above map does not {\em quite} make
+sense. There are ways of getting around the issue by fixing either the
+domain or the co-domain appropriately, but we shall not bother right
+now.
+
+\section{Evaluation functionals and related transformations}
+
+\subsection{Evaluation functional at a single point}
+
+For any real number $u$, the evaluation functional
+$\operatorname{eval}_u$ is defined as a linear transformation:
+
+$$\operatorname{eval}_u: F(\R,\R) \to \R$$
+
+given by:
+
+$$\operatorname{eval}_u(f) := f(u)$$
+
+The term {\em linear functional} is used for a linear transformation
+from a vector space to the vecotr space $\R$ (viewed as a
+one-dimensional vector space over itself). The evaluation maps are
+linear functionals.
+
+\subsection{Evaluation at multiple points simultaneously}
+
+Consider a tuple $(u_1,u_2,\dots,u_n)$ of real numbers. We can define
+a linear transformation:
+
+$$\operatorname{eval}_{(u_1,u_2,\dots,u_n)}:F(\R,\R) \to \R^n$$
+
+as follows:
+
+$$f \mapsto \left[\begin{matrix} f(u_1) \\ f(u_2) \\ \cdot \\ \cdot \\ \cdot \\ f(u_n) \\\end{matrix}\right]$$
+
+This linear transformation involves the simultaneous evaluation of $f$
+at multiple points, and it further involves storing the outputs as the
+coordinates of a vector.
+
+\subsection{Evaluation transformations from smaller spaces}
+
+Instead of considering evaluation transformations originating from
+$F(\R,\R)$, we can consider evaluation transformations originating
+from smaller spaces. For instance, recall that we defined $P_m$ as the
+vector space of polynomials of degree $\le m$. This is a $(m +
+1)$-dimensional real vector space. Given $n$ distinct points, we can
+define the evaluation transformation:
+
+$$P_m \to \R^n$$
+
+\subsection{Injectivity and surjectivity of the evaluation transformation}
+
+The following are true:
+
+\begin{itemize}
+\item The evaluation transformation from a function space to $\R^n$
+  (based on evaluation at a collection of points) is {\em injective}
+  if and only if the only function that evaluates to zero at all the
+  points in that collection is the zero function.
+\item The evaluation transformation from a function space to $\R^n$
+  (based on evaluation at a collection of points) is {\em surjective}
+  if and only if every possible tuple of output values at that
+  collection of points arises from a function in that function space.
+\end{itemize}
+
+\subsection{Setting things up using matrices: need for choosing a basis of the space, and hence parameters}
+
+Consider in more detail the evaluation transformation:
+
+$$P_m \to \R^n$$
+
+Note that $P_m$, the space of polynomials of degree $\le m$, is an
+abstract vector space. Although it has dimension $(m + 1)$ we do not
+think of it as being the same as $\R^{m+1}$. If we choose a basis for
+$P_m$, then we can write coordinates in that basis, and we can then
+think of the map as being like a map $\R^{m+1} \to \R^n$, and describe
+it with a $n \times (m + 1)$ matrix.
+
+The obvious choice of basis is:
+
+$$1,x,x^2,\dots,x^m$$
+
+Thus, for a polynomial:
+
+$$a_0 + a_1x + a_2x^2 + \dots  + a_mx^m$$
+
+the corresponding coordinates are:
+
+$$\left[\begin{matrix} a_0 \\ a_1 \\ \cdot \\ \cdot \\ \cdot \\ a_m \\\end{matrix}\right]$$
+
+Recall that, at the start of the course, we had talked about
+functional forms that are {\em linear in the parameters}. We can
+really think about such functional forms as describing vector spaces
+of the functions, with the functions appearing in front of the
+parameters as a basis for that function space, and the parameters
+specifying the coordinates of a particular function of the function
+space in terms of that basis. For the example of $P_m$, the functional
+form of a polynomial of degree $\le m$ corresponds to the function
+space $P_m$. This space has basis $1,x,x^2,\dots,x^m$ and the
+coefficients that appear in front of these monomials in the
+description of a polynomial are the coordinates in that basis. These
+coordinates are our parameters.
+
+Explicitly, the dictionary between our earlier jargon and our new
+jargon in as follows:
+
+\begin{itemize}
+\item Parameters for the general functional form $\leftrightarrow$
+  Coordinates in the chosen basis for the function space
+\item Inputs (of input-output pair fame) $\leftrightarrow$ Points at
+  which we are performing the evaluation maps
+\item Outputs $\leftrightarrow$ Outputs of the evaluation maps
+\end{itemize}
+
+\section{Function spaces: differentiation and integration}
+
+\subsection{Spaces of continuous and differentiable functions}
+
+We denote by $C(\R)$ or $C^0(\R)$ the subset of $F(\R,\R)$ comprising
+all the functions that are continuous on all of $\R$. This is a
+subspace. Here's why:
+
+\begin{itemize}
+\item The zero function is continuous.
+\item A sum of continuous functions is continuous: Remember that this
+  follows from the fact that the limit of the sum is the sum of the
+  limits, which in turn can be proved using the $\varepsilon-\delta$
+  definition of the limit (there are also alternative ways of thinking
+  about it).
+\item A scalar multiple of a continuous function is continuous: This
+  follows from the fact that the limit of a scalar multiple is the
+  corresponding scalar multiple of the limit.
+\end{itemize}
+
+The elements (``vectors'') of the vector space $C(\R)$ are continuous
+functions from $\R$ to $\R$. Note that this space is pretty huge, but
+relative to $F(\R,\R)$, it is still quite small: if you just picked a
+function with random values everywhere, it would probably be {\em very
+  far} from continuous. In fact, it's unlikely to be continuous at
+{\em any} point.
+
+The space $C(\R)$, also denoted $C^0(\R)$, has a number of interesting
+subspaces. For $k$ a positive integer, we define $C^k(\R)$ as the
+subspace of $C(\R)$ comprising those continuous functions that are at
+least $k$ times continuously differentiable on all of
+$\R$. Explicitly, $f \in C^k(\R)$ if $f^{(k)}$ exists and is in
+$C(\R)$. We thus have subspace inclusions:
+
+$$C(\R) = C^0(\R) \supseteq C^1(\R) \supseteq C^2(\R) \supseteq \dots $$
+
+The intersection of these spaces is the vector space of {\em
+  infinitely} differentiable functions, denoted $C^\infty(\R)$. Explicitly:
+
+$$C^\infty(\R) = \bigcap_{k=0}^\infty C^k(\R)$$
+
+The vector space $C^\infty(\R)$, though much smaller than $C(\R)$, is
+still pretty big. It includes all polynomial functions (i.e., the
+image of $\R[x]$ in $F(\R,\R)$ lives inside $C^\infty(\R)$). It also
+includes rational functions where the denominator is never zero. It
+includes other functions involving exponentials, sines, and cosines,
+as long as these functions don't have zeros for their denominators.
+
+\subsection{Differentiation as a linear transformation}
+
+Differentiation can be defined as a linear transformation:
+
+$$C^1(\R) \to C(\R)$$
+
+The following emerge from some thought:
+
+\begin{itemize}
+\item The {\em kernel} of this linear transformation is $P_0$, the
+  space of constant functions. The kernel is one-dimensional.
+\item The linear transformation is surjective, i.e., its image is all
+  of $C(\R)$. This follows from the fact that every continuous
+  function is the derivative of its integral.
+\item The fibers of differentiation, also called the ``indefinite
+  integral'', are of the form (particular antiderivative) $+ C$, where
+  $C$ is an arbitrary constant. The $+ C$ arises from the fact that
+  each fiber is a translate of the kernel, and the kernel is the space
+  of constant functions.
+\item Note that $C(\R)$ and $C^1(\R)$ are infinite-dimensional spaces,
+  and $C^1(\R)$ is a proper subspace of $C(\R)$. We thus have an
+  interesting situation where there is a {\em surjective} linear
+  transformation from a proper subspace to the whole space. Note that
+  this kind of situation cannot arise with finite-dimensional spaces.
+\item For $k \ge 1$, the image of $C^k(\R)$ under differentiation is
+  $C^{k-1}(\R)$. Moreover, the inverse image of $C^{k-1}(\R)$ under
+  differentiation is $C^k(\R)$.
+\item The image of $C^\infty(\R)$ under differentiation is
+  $C^\infty(\R)$. Moreover, the inverse image of $C^\infty(\R)$ under
+  differentiation is $C^\infty(\R)$.
+\item The image of $\R[x]$ under differentiation is $\R[x]$. Moreover,
+  the inverse image of $\R[x]$ under differentiation is also
+  $\R[x]$. More detail: for $n \ge 1$, the image of $P_n$ under
+  differentiation is $P_{n-1}$, and the inverse image of $P_{n-1}$ is
+  $P_n$.
+\item The kernel of the $k$-fold iteration of differentiation is
+  $P_{k-1}$, or rather, the image of $P_{k-1}$ in $F(\R,\R)$
+  (depending on whether we are thinking of differentiation as an
+  operator $C^1(\R) \to C(\R)$ or as an operator $\R[x]\to \R[x]$).
+\item We can also define a formal differentiation operator from
+  $\R(x)$ to $\R(x)$ (recall the $\R(x)$ is not identifiable with a
+  subspace of $C(\R)$ because of the problem of denominator
+  blow-up). The kernel is once again $P_0$. The image of $\R(x)$ under
+  this differentiation operator is a subspace of $\R(x)$, but is {\em
+    not} all of $\R(x)$. In other words, there do exist rational
+  functions that do not have any rational function as their
+  antiderivative. The function $1/(x^2 + 1)$, whose antiderivatives
+  are all of the form $(\arctan x) + C$, is an example that is {\em
+    not} in the image of $\R(x)$ under differentiation.
+\end{itemize}
+
+\subsection{Knowledge of derivatives and antiderivatives on a spanning set suffices}
+
+Suppose $V$ is a vector subspace of the vector space
+$C^\infty(\R)$. We know that differentiation is linear. We now explore
+how that information is useful in computing the derivatives and
+antiderivatives of functions in $V$ based on knowledge of derivatives
+and antiderivatives of functions in a spanning set $S$ for $V$.
+
+Let's tackle differentiation first. The first step is to express the
+function we want to differentiate as a linear combination of the
+functions in the spanning set $S$ . Now, use the linearity of
+differentiation to express its derivative as the corresponding linear
+combination of the {\em derivatives} of functions in $S$.
+
+For instance, suppose $V$ is the span of $\sin$ and $\exp$ in
+$C^\infty(\R)$ and we know that the derivative of $\sin$ is $\cos$ and
+the derivative of $\exp$ is $\exp$. In this case, $S = \{ \sin, \exp
+\}$. Then the derivative of the function:
+
+$$f(x) = 2\sin x + 5 \exp(x)$$
+
+is:
+
+$$f'(x) = 2\sin'x + 5 \exp'(x) = 2\cos x + 5\exp(x)$$
+
+More generally, given an arbitrary function:
+
+$$f(x) = a\sin x + b \exp(x)$$
+
+The derivative is:
+
+$$f'(x) = a\cos x + b\exp(x)$$
+
+Note that it is the fact of the functions {\em spanning} $V$ that is
+crucial in allowing us to be able to write {\em any} function in $V$
+as a linear combination of the functions.
+
+The computational procedure tells us a bit more: suppose $S$ is a
+spanning set for a subspace $V$ of $C^\infty(\R)$. Suppose $W$ is the
+image of $V$ under differentiation. Then, the image of $S$ under
+differentiation is a spanning set for $W$.
+
+In particular, this means that if the image of $S$ under
+differentiation lies inside $V$, then the image of $V$ under
+differentiation is a subspace of $V$. This is what happens with the
+space $\R[x]$ of polynomials: the derivative of every power function
+(with nonnegative integer exponent) is a polynomial, and hence, the
+derivative of every polynomial is a polynomial.
+
+Something similar applies to indefinite integration. We need to be a
+{\em little} more careful with indefinite integration, because the
+antiderivative is not unique. Instead, the indefinite integral of any
+function is a translate of the one-dimensional kernel. The obligatory
+$+C$ of indefinite integration is to account for the fact that the
+kernel of differentiation is the one-dimensional space of constant
+functions.
+
+For instance, suppose we know that an antiderivative of $\sin$ is
+$-\cos$ and an antiderivative of $\exp$ is $\exp$. Then, the
+indefinite integral of the function:
+
+$$f(x) = 2\sin x + 5 \exp(x)$$
+
+is:
+
+$$\int f(x) \, dx = 2(-\cos x) + 5\exp x + C$$
+
+Let's consider some other settings where this idea has come in play:
+
+\begin{itemize}
+\item Consider $V = \R[x]$ and $S = \{1,x,x^2,\dots,\}$. The set $S$
+  is a spanning set for $V$. In fact, $S$ is a basis for $V$. We know
+  how to diffferentiate any member of $S$: the power rule says that
+  the derivative of $x^n$ with respect to $x$ is $nx^{n-1}$. This rule
+  allows us to differentiate {\em any} polynomial, because a
+  polynomial is a linear combination of these power functions. In
+  other words, knowledge of how to differentiate functions in $S$
+  tells us how to differentiate anything in $V$.
+\item Consder $V = \R[x]$ and $S = \{ 1,x,x^2,\dots,\}$ (same as
+  above), but we are now interested in indefinite integration. Note
+  that $V$ already contains the constant functions (the kernel of
+  differentiation) so we do not need to worry about the $+C$ taking us
+  out of the space. The antiderivative of $x^n$ is
+  $x^{n+1}/(n+1)$. The formula is not correct at $n = -1$, but we are
+  not considering that case here, since $n \ge 0$ here. We can use
+  knowledge of antiderivatives of all functions in $S$ to obtain
+  antiderivatives of all functions in $V$. Further, since the
+  antiderivatives of all elements of $S$ are within $V$, every element
+  of $V$ has an antiderivative within $V$. And further, because
+  constants are in $V$, {\em every} antiderivative of an element of
+  $V$ (aka a polynomial) is an element of $V$ (aka a polynomial).
+\item Rational functions are somewhat similar: integration of rational
+  functions relies on partial fractions theory, as discussed in the
+  next section.
+\end{itemize}
+
+\subsection{How partial fractions help with integration}
+
+Let's now revisit the topic of {\em partial fractions} as a tool for
+integrating rational functions. The idea behind partial fractions is
+to consider an integration problem with respect to a variable $x$ with
+integrand of the following form:
+
+$$\frac{a_0 + a_1x + a_2x^2 + \dots + a_{n-1}x^{n-1}}{p(x)}$$
+
+where $p$ is a polynomial of degree $n$. For convenience, we may take
+$p$ to be a monic polynomial, i.e., a polynomial with leading
+coefficient $1$. For $p$ fixed, the set of all rational functions of
+the form above forms a vector subspace of dimension $n$ inside
+$\R(x)$. A natural choice of basis for this subspace is:
+
+$$\frac{1}{p(x)}, \frac{x}{p(x)}, \dots, \frac{x^{n-1}}{p(x)}$$
+
+The goal of partial fraction theory is to provide an {\em alternate
+  basis} for this space of functions with the property that those
+basis elements are particularly easy to integrate (recurring to one
+of our earlier questions). Let's illustrate one special case: the
+case that $p$ has $n$ distinct real roots
+$\alpha_1,\alpha_2,\dots,\alpha_n$. The alternate basis in this case is:
+
+$$\frac{1}{x - \alpha_1}, \frac{1}{x - \alpha_2}, \dots, \frac{1}{x - \alpha_n}$$
+
+The explicit goal is to rewrite a partial fraction:
+
+$$\frac{a_0 + a_1x + a_2x^2 + \dots + a_{n-1}x^{n-1}}{p(x)}$$
+
+in terms of the basis above. If we denote the numerator as $r(x)$, we want to write:
+
+$$\frac{r(x)}{p(x)} = \frac{c_1}{x - \alpha_1} + \frac{c_2}{x - \alpha_2} + \dots + \frac{c_n}{x - \alpha_n}$$
+
+The explicit formula is:
+
+$$c_i = \frac{r(\alpha_i)}{\prod_{j \ne i} (\alpha_i - \alpha_j)}$$
+
+Once we rewrite the original rational function as a linear
+combination of the new basis vectors, we can integrate it easily
+because we know the antiderivatives of each of the basis
+vectors. The antiderivative is thus:
+
+$$\left(\sum_{i=1}^n \frac{r(\alpha_i)}{\prod_{j \ne i} (\alpha_i - \alpha_j)} \ln|x - \alpha_i|\right) + C$$
+
+where the obligatory $+C$ is put for the usual reasons.
+
+Note that this process only handles rational functions that are proper
+fractions, i.e., the degree of the numerator must be less than that of
+the denominator. For other rational functions, we first convert the
+``improper fraction'' to a mixed fraction form using Euclidean
+division, then we integrate the polynomial part in the typical way
+that we integrate polynomials, and integrate the remaining proper
+fraction as above.
+
+We now consider cases where $p$ is a polynomial of a different type.
+
+Suppose $p$ is a monic polynomial of degree $n$ that is a product of
+pairwise distinct irreducible factors that are all either monic linear
+or monic quadratic. Call the roots for the linear polynomials
+$\alpha_1, \alpha_2,\dots,\alpha_s$ and call the monic quadratic
+factors $q_1,q_2,\dots,q_t$. We are interested in finding an alternate
+basis of the space of all rational functions of the form $r(x)/p(x)$
+where the degree of $r$ is less than $n$.
+
+This should be familiar to you from the halcyon days of doing partial
+fractions. For instance, consider the example where $p(x) = (x -
+1)(x^2 + x + 1)$. In this case, the basis is:
+
+$$\frac{1}{x - 1}, \frac{1}{x^2 + x + 1}, \frac{2x + 1}{x^2 + x + 1}$$
+
+Note that an easy sanity check is that the {\em size} of the basis
+should be $n$. This is clear in the above example with $n = 3$, but
+let's reason generically.
+
+We have that:
+
+$$p(x) = \left[\prod_{i=1}^s (x - \alpha_i)\right]\left[\prod_{j=1}^t q_j(x)\right]$$
+
+By degree considerations, we get that:
+
+$$s + 2t = n$$
+
+Now, the vector space for which we are trying to obtain a basis has
+dimension $n$. This means that the basis we are looking for should
+have size $n$, as it does, because we have a basis vector $1/(x -
+\alpha_i)$ for each linear factor $x - \alpha_i$ (total of $s$ basis
+vectors here) and we have two basis vectors $1/q_j(x)$ and
+$q_j'(x)/q_j(x)$ for each quadratic factor $q_j(x)$ (total of $2t$
+basis vectors here).
+
+Now, recall that the reciprocals of the linear factors integrate to
+logarithms. The expressions of the form $1/q_j(x)$ integrate to an
+expression involving $\arctan$. The expressions of the form
+$q_j'(x)/q_j(x)$ integrate to logarithms.
+
+
+\section{Spaces of sequences}
+
+\subsection{Spaces of sequences of real numbers}
+
+Recall that a sequence of real numbers is a function:
+
+$$f: \N \to \R$$
+
+We typically denote the function input as a subscript, so for instance
+we may denote $f(n)$ by $a_n$. The sequence is typically written by
+listing its elements, so the above function is written as:
+
+$$f(1),f(2),f(3),\dots$$
+
+or equivalently as:
+
+$$a_1,a_2,a_3,\dots$$
+
+We've already discussed that the space of all functions from {\em any}
+set to the reals has a natural structure of a vector space. The
+addition is pointwise: we add the values of the functions at each
+point. The scalar multiplication is also pointwise. For sequences,
+let's describe these operations more explicitly:
+
+\begin{itemize}
+\item The zero sequence is the sequence all of whose entries are zero.
+\item Given two sequences $a_1,a_2,a_3,\dots$ and $b_1,b_2,b_3,\dots$,
+  the sum of the sequences is the sequence $a_1 + b_1, a_2 + b_2, a_3
+  + b_3, \dots$.
+\item Given a sequence $a_1,a_2,a_3,\dots$ and a real number
+  $\lambda$, the sequence we get after scalar multiplication is
+  $\lambda a_1, \lambda a_2, \lambda a_3, \dots$.
+\end{itemize}
+
+The vector space of sequences is infinite-dimensional.
+
+\subsection{Formal power series and convergence}
+
+A {\em formal power series} is defined as a series of the form:
+
+$$\sum_{i=0}^\infty a_ix^i$$
+
+where $x$ is an indeterminate, and $a_i$ are all real numbers. In
+other words, formal power series are like polynomials in $x$, except
+that they {\em can} go on indefinitely rather than being forced to
+terminate at a finite stage. Examples are:
+
+$$1 + x + x^2 + \dots $$
+
+$$1 - x + x^2 - x^3 + x^4 - \dots$$
+
+The set of all formal power series forms a vector space under
+coefficient-wise addition and scalar multiplication. Note that this
+vector space looks a lot like (in fact, is isomorphic to) the vector
+space of sequences. The only difference is that we write the
+``vectors'' as formal sums rather than as comma-separated lists.
+
+The vector space of all formal power series is denoted $\R[[x]]$. Note
+that this vector space has a lot of additional structure to it beyond
+simply being a vector space.
+
+Several statements about the nature of Taylor series and power series
+summation operators, which you have encountered in the past, can be
+framed as statements about the injectivity, surjectivity, kernel, and
+image of suitably defined linear transformations.
+
+\subsection{Differentiation as an operator from formal power series to itself}
+
+We can define a formal differentiation operator:
+
+$$\R[[x]] \to \R[[x]]$$
+
+that is done term-wise. Explicitly, the constant term falls off, and
+each $a_nx^n$ for $n \ge 1$ gets differentiated to $na_nx^{n-1}$. In
+other words, the new coefficient for $x^{n-1}$ is $n$ times the old
+coefficient for $x^n$. Thus:
+
+$$\frac{d}{dx} \sum_{i=0}^\infty a_ix^i = \sum_{i=0}^\infty (i+1)a_{i+1}x^i$$
+
+Formal differentiation is a linear transformation. The kernel is the
+space of constant power series. These are power series where all
+coefficients $a_i, i \ge 1$ are equal to $0$. The coefficient $a_0$
+may be zero or nonzero. This kernel is one-dimensional, so formal
+differentiation is not injective.
+
+On the other hand, formal differentiation is {\em surjective}. Every
+formal power series arises as the formal derivative of a formal power
+series. The ``indefinite integral'' is non-unique (we have flexibility
+in the choice of constant term, with the famed $+C$ out there). But it
+can be computed by term-wise integration. Explicitly:
+
+$$\int \left(\sum_{i=0}^\infty a_ix^i \right) \, dx = \left(\sum_{i=1}^\infty \frac{a_{i-1}}{i}x^i\right) + C$$
+
+\subsection{Taylor series operator and power series summation operator}
+
+The {\em Taylor series} operator is an operator whose domain is a
+space of function-like things and whose co-domain is a space of power
+series-like things. For our purposes, we choose a simple
+implementation, albeit not the best one. We view the Taylor series operator as an operator:
+
+$$\text{Taylor series}: C^\infty(\R) \to \R[[x]]$$
+
+The operator takes as input an infinitely differentiable function
+defined on all of $\R$ and outputs the Taylor series of the function
+centered at $0$. Explicitly, the operator works as follows:
+
+$$f \mapsto \sum_{k=0}^\infty \frac{f^{(k)}(0)}{k!}x^k$$
+
+Note that we need infinite differentiability at $0$ in order to make
+sense of the expression. We do not really need infinite
+differentiability on all of $\R$, so the domain is in some sense too
+restrictive. But let's not get into the issue of trying to define new
+spaces to overcome this space.
+
+For the power series summation operator, let $\Omega$ be the subspace
+of $\R[[x]]$ comprising the power series that converge globally. Then, we have a mapping:
+
+$$\text{Summation}: \Omega \to C^\infty(\R)$$
+
+that sends a formal power series to the function to which it
+converges. It turns out to be true that if we start with an element of
+$\Omega$, apply the summation operator to it, and then take the Taylor
+series of that, we land up with the same thing we started with. On the
+other hand, if we start with something in $C^\infty(\R)$, take its
+Taylor series, and then try summing that up, we may land up with a
+completely different function, if we end up with a function at
+all. You should remember more of this from your study of Taylor series
+and power series in single variable calculus.
+
+\section{Differential operators and differential equations}
+
+\subsection{Linear differential operators with constant coefficients}
+
+Denote by $D$ the operator of differentiation. Note that $D$ can be
+viewed as an operator in many contexts:
+
+\begin{itemize}
+\item It defines a linear transformation $C^1(\R) \to C(\R)$
+\item It defines a linear transformation $C^\infty(\R) \to C^\infty(\R)$
+\item It defines a linear transformation $\R[x] \to \R[x]$
+\item It defines a linear transformation $\R(x) \to \R(x)$
+\item It defines a linear transformation $\R[[x]] \to \R[[x]]$
+\end{itemize}
+
+We will consider the case of $D:C^\infty(\R) \to C^\infty(\R)$. We
+will use $I$ to denote the identity transformation $C^\infty(\R) \to
+C^\infty(\R)$. We can then construct other linear transformations,
+loosely called {\em linear differential operators with constant
+  coefficients}, by adding, multiplying, and scalar multiplying
+these. In other words, we can use polynomials in $D$. For instance:
+
+\begin{itemize}
+\item $I + D$ is the linear transformation $f \mapsto f + f'$.
+\item $I - D$ is the linear transformation $f \mapsto f - f'$.
+\item $I + 2D + 3D^2$ is the linear transformation $f \mapsto f + 2f' + 3f''$.
+\end{itemize}
+
+Finding the {\em kernel} of any such differential operator is
+equivalent to solving a homogeneous linear differential equation with
+constant coefficients. Finding the {\em fiber} over a specific nonzero
+function in $C^\infty(\R)$ under any such differential operator is
+equivalent to solving a non-homogeneous linear differential equation
+with constant coefficients.
+
+For instance, finding the kernel of $I + D$ is equivalent to solving
+the following linear differential equation, where $x$ is the
+independent variable and $y$ is the dependent variable. The linear
+differential equation is:
+
+$$y + y' = 0$$
+
+We know that this solves to:
+
+$$y = Ce^{-x}, C \in \R$$
+
+The kernel is thus the one-dimensional space spanned by the function
+$e^{-x}$.
+
+On the other hand, if we are trying to find the fiber of the function,
+say $x \mapsto x^2$, that is equivalent to solving the non-homogeneous
+linear differential equation:
+
+$$y + y' = x^2$$
+
+A {\em particular solution} here is $y = x^2 - 2x + 2$. The general
+solution is the translate of the kernel by the particular solution,
+i.e., the general solution function is:
+
+$$x^2 - 2x + 2 + Ce^{-x}, C \in \R$$
+
+What this means is that each specific value of $C$ gives a different
+particular solution. Pictorially, each such solution function is a
+point and the fiber we are thinking of is the line of all such points.
+
+\subsection{The first-order linear differential equation: a full understanding}
+
+We now move to the somewhat more general setting of first-order linear
+differential operatiors with nonconstant coefficients.
+
+Consider a first-order linear differential equation with independent
+variable $x$ and dependent variable $y$, with the equation having the
+form:
+
+$$y' + p(x)y = q(x)$$
+
+where $p,q \in C^\infty(\R)$.
+
+We solve this equation as follows. Let $H$ be an antiderivative of
+$p$, so that $H'(x) = p(x)$. 
+
+$$\frac{d}{dx}\left(ye^{H(x)}\right) = q(x)e^{H(x)}$$
+
+This gives:
+
+$$ye^{H(x)}  = \int q(x)e^{H(x)} \, dx$$
+
+So:
+
+$$y = e^{-H(x)}\int q(x)e^{H(x)} \, dx$$
+
+The indefinite integration gives a $+C$, so overall, we get:
+
+$$y = Ce^{-H(x)} + \text{particular solution}$$
+  
+It's now time to understand this in terms of linear algebra.
+
+Define a linear transformation $L:C^\infty(\R) \to C^\infty(\R)$ as:
+
+$$f(x) \mapsto f'(x) + p(x)f(x)$$
+
+This is a differential operator of a more complicated sort than seen
+earlier (explicitly, it is $L = D + pI$). The kernel of $L$ is the
+solution set when $q(x) = 0$, and this just becomes the set:
+
+$$Ce^{-H(x)}, C \in \R$$
+
+In other words, each value of $C$ gives a solution, i.e., a ``point''
+in the kernel. The entire solution set is a line, i.e., a
+one-dimensional space, spanned by the function $e^{-H(x)}$.
+
+The fiber over a function $q$ is a translate of this kernel:
+
+$$y = Ce^{-H(x)} + \text{particular solution}$$
+
+Note that the fiber is non-empty because a particular solution can be
+obtained by integration. Thus, the linear transformation $L$ is
+surjective. $L$ is not injective because it has a one-dimensional
+kernel.
+
+\subsection{Higher order differential operators and differential equations}
+
+Here's a brief description of the theory of differential operators and
+differential equations that is relevant here.
+
+Consider a linear differential equation of order $n$ of the following
+form:
+
+$$y^{(n)} + p_{n-1}(x)y^{(n-1)} + \dots + p_1(x)y' + p_0(x)y = q(x)$$
+
+The left side can be viewed as a linear differential operator of order
+$n$ from $C^\infty(\R)$ to $C^\infty(\R)$. Explicitly, it is the operator:
+
+$$L(y) = y^{(n)} + p_{n-1}(x)y^{(n-1)} + \dots + p_1(x)y' + p_0(x)y$$
+
+Here, all the functions $p_0,p_1,\dots,p_{n-1},q$ are in
+$C^\infty(\R)$.
+
+The kernel of this operator is the solution set to the corresponding
+homogeneous linear differential equation:
+
+$$y^{(n)} + p_{n-1}(x)y^{(n-1)} + \dots + p_1(x)y' + p_0(x)y = 0$$
+
+It turns out that we generically expect this kernel to be a
+$n$-dimensional subspace of $C^\infty(\R)$. Explicitly, this means
+that the kernel has a basis comprising $n$ functions, each of which is
+a solution to the system. This is consistent with the general
+principle that we expect $n$ independent parameters in the general
+solution to a differential equation of order $n$.
+
+The general solution to the original non-homogeneous linear differential
+equation, if it exists, is of the form:
+
+(Particular solution) + (Arbitrary element of the kernel)
+
+The elements of the kernel are termed ``auxilliary solutions'' so we
+can rewrite this as:
+
+(General solution) = (Particular solution) + ((General) auxilliary solution)
+
+The parameters (freely floating constants) all come from the choice of
+arbitrary element of the kernel. There are $n$ of them, as
+expected. Unfortunately, unlike the first-order case, there is no
+generic integration formula for finding the particular solution. The
+first-order and second-order cases are the only cases where a generic
+integration formula is known for finding the auxilliary
+solutions. Also, it is known how to find the auxilliary solutions in
+the constant coefficients case for arbitrary order.
+
+The linear differential operator $L$ is thus {\em surjective but not
+injective}: it has $n$-dimensional kernel.
+
+\end{document}

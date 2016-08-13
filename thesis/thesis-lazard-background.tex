@@ -1,0 +1,1888 @@
+\section{Adjoint groups and the exponential and logarithm maps}\label{sec:adjoint-exp-log}
+
+\subsection{Remarks on the approach followed from this point onward}
+
+Many of the identities that we will obtain in this section and the
+subsequent sections are {\em formal} identities. They make sense in a
+wide array of situations, if appropriately interpreted. Below, we
+outline our typical logic flow.
+
+\begin{itemize}
+\item Some of our identities start off as identities involving
+  infinite series that make sense over the reals, or over real Lie
+  groups. In those contexts, the identities may have specific
+  interpretations related to differential equations, although those
+  interpretations do not concern us directly.
+\item Our identities are valid {\em formally} in a noncommutative (but
+  associative) power series algebra over $\Q$. Note that we need to
+  use power series algebras because the identities involve infinite
+  series.
+\item As a result, our identities are valid in free nilpotent
+  associative $\Q$-algebras of nilpotency class $c$, where the
+  identities get truncated to expressions of finite length. We
+  therefore get identities involving the truncated expressions of
+  finite length with the assumption about nilpotency class.
+\item We notice that the truncated expressions, for which the identity
+  is valid, have only a finite number of coefficients, that in turn
+  have only a finite number of prime divisors of their
+  denominators. Typically, the truncated expression to class $c$ uses
+  only the primes that are less than or equal to $c$. Denote
+  this prime set by $\pi_c$.
+\item We then notice that our identities (in truncated form) are valid
+  in free nilpotent (associative) $\Z[\pi_c^{-1}]$-algebras of
+  nilpotency class $c$.
+\item We conclude that our identities (in truncated form) are valid in
+  all nilpotent (associative) $\Z[\pi_c^{-1}]$-algebras of nilpotency
+  class at most $c$, on account of our being able to express such
+  algebras as quotients of the free nilpotent $\Z[\pi_c^{-1}]$-algebras
+  of nilpotency class $c$.
+\end{itemize}
+
+\subsection{Some background on adjoint groups and algebra groups}\label{sec:adjoint-group}
+
+An associative (not necessarily unital) ring $N$ is termed a {\em
+  radical ring} if for every $x \in N$ there exists $y \in N$ such
+that $x + y + xy = 0$.
+
+For any radical ring $N$, we define the {\em adjoint group}
+corresponding to $N$ as the set $1 + N$, i.e., the set of formal symbols:
+
+$$\{ 1 + x \mid x \in N \}$$
+
+equipped with the multiplication:
+
+$$(1 + x)(1 + y) = 1 + (x + y + xy)$$
+
+The identity element for this adjoint group is $1 + 0$ (simply denoted
+as $1$). For any $x \in N$, the inverse of $1 + x$ is the element $1 +
+y$ where $y$ is an element satisfying $x + y + xy = 0$. Such an
+element exists by the assumption that $N$ is radical. The uniqueness
+and two-sidedness of inverses follows from group
+theory.\footnote{Specifically, if every element of a monoid has a
+  right inverse, then every element has a two-sided inverse and the
+  two-sided inverse is unique.}
+
+An {\em algebra group} over a field $F$ is defined as a group arising
+as the adjoint group corresponding to an associative algebra $N$ over
+$F$ that is also a radical ring.
+
+Suppose $G$ is an algebra group over a field $F$ corresponding to a
+radical ring $N$ that is an associative algebra over $F$. A subgroup
+$H$ of $G$ is termed an {\em algebra subgroup} if $H = 1 + M$ for a
+subalgebra $M$ of $N$ (note that $M$ must also be a radical ring for
+$H$ to be a subgroup).
+
+The following facts about algebra groups can be easily checked.
+
+\begin{enumerate}
+\item An associative ring in which every element is nilpotent is a
+  radical ring. In particular, an associative ring that is itself
+  nilpotent is a radical ring.
+
+  The proof of this assertion relies on the observation that if $x^n =
+  0$, then the element $y = \sum_{i=1}^{n-1} (-1)^ix^i = -x + x^2 -
+  x^3 + \dots + (-1)^{n-1}x^{n-1}$ satisfies $x + y + xy =
+  0$. Secretly, the expression above relies on expanding $(1 -
+  (-x)^n)(1 - (-x))$ as a power series in $x$.
+\item Suppose $K$ is a field extension of a field $F$. Then, any
+  $K$-algebra group naturally acquires the structure of a $F$-algebra
+  group. In particular, any algebra group over a field of
+  characteristic zero is a $\mathbb{Q}$-algebra group. Similarly any
+  algebra group over a field of characteristic $p$ is a
+  $\mathbb{F}_p$-algebra group.
+\item It is possible to have two non-isomorphic
+  $\mathbb{F}_p$-algebras $N_1$ and $N_2$ such that the algebra group
+  corresponding to $N_1$ is isomorphic (as an abstract group) to the algebra group
+  corresponding to $N_2$. In fact, we can construct examples of
+  non-isomorphic associative algebras over $\mathbb{F}_2$ whose
+  corresponding algebra groups are both isomorphic to
+  $\mathbb{Z}/4\mathbb{Z} \oplus \mathbb{Z}/2\mathbb{Z}$.
+\item Suppose $N$ is a radical $\mathbb{F}_p$-algebra where $p$ is a
+  prime number. Then, we have $(1 + x)^p = 1 + x^p$ for all $x \in
+  N$. In other words, the $p^{th}$ power map in the algebra and the
+  algebra group correspond to each other.
+\item A finite $\mathbb{F}_p$-algebra $N$ is radical if and only if
+  every element of $N$ is nilpotent. One direction was already
+  established in (1). For the reverse direction, note that if $1 + x$ has
+  finite order $p^k$, then $1 + x^{p^k} = (1 + x)^{p^k} = 1$, so
+  $x^{p^k} = 0$, and thus, $x$ is nilpotent.
+\item For any field $F$ and a positive integer $n$, consider the group
+  $UT(n,F)$ of upper triangular unipotent matrices over $F$. $UT(n,F)$
+  is the algebra group corresponding to $NT(n,F)$, the strictly upper
+  triangular matrices over $F$, where we view $NT(n,F)$ as an {\em
+    associative} $F$-algebra with the usual addition and
+  multiplication of matrices.
+\item Any $\mathbb{F}_q$-algebra group $G = 1 + N$ of order $q^m$ is
+  isomorphic to an algebra subgroup of the algebra group $UT(m+1,q) =
+  UT(m+1,\mathbb{F}_q)$. The proof idea is to consider $G$ as a
+  multiplicative subgroup of the ring $N + \mathbb{F}_q$ (the {\em
+    unitization} of $N$) and then consider the action of $G$ on the
+  underlying vector space of $N + \mathbb{F}_q$ by
+  multiplication. This action is faithful, and defines an injective
+  homomorphism $G \to GL(m+1,\mathbb{F}_q)$. By Sylow's theorem, $G$
+  can be conjugated to a subgroup inside any $p$-Sylow subgroup of
+  $GL(m+1,q)$ (where $p$ is the underlying prime of $q$). $UT(m+1,q)$
+  is one such $p$-Sylow subgroup.
+\end{enumerate}
+
+\subsection{Exponential map inside an associative ring: the torsion-free case}\label{sec:exp-and-log-unital}
+
+Suppose $R$ is an associative unital ring. For now, assume that the
+additive group of $R$ is torsion-free (we will later relax the
+assumption). An element $x \in R$ is termed {\em exponentiable} if the
+following sum makes sense, and if so the sum is termed the {\em
+  exponential} of $x$:
+
+$$\exp(x) = e^x = \sum_{m=0}^\infty \frac{x^m}{m!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots$$
+
+The notations $\exp(x)$ and $e^x$ are both used. The $\exp$ notation
+is more helpful when the argument to the function is complicated and
+cumbersome to write in a superscript.
+
+Here, $x^0 = 1$, and $x^m/m!$ is the unique element $y \in R$ such
+that $m!y = x^m$. Note that uniqueness follows from our assumption
+that $R$ is torsion-free.
+
+For the sum to make sense, we need two conditions:
+
+\begin{itemize}
+\item $x$ is nilpotent, i.e., there exists a natural number $n$ such
+  that $x^n = 0$. The smallest such $n$ is the {\em nilpotency} of $x$.
+\item For all positive integers $m < n$, $m!$ divides $x^m$, i.e.,
+  there exists an element $y \in R$ (unique by the torsion-free
+  assumption) such that $m!y = x^m$.
+\end{itemize}
+
+If both the above conditions hold, then we can rewrite:
+
+$$e^x = \sum_{m=0}^{n - 1} \frac{x^m}{m!}$$
+
+For an element $x \in R$, we say that $x$ is {\em logarithmable} if
+there exists a positive integer $n$ such that $(x - 1)^n = 0$, {\em and} the following can be computed:
+
+$$\log x := (x - 1) - \frac{(x - 1)^2}{2} + \frac{(x - 1)^3}{3} - \dots + \frac{(-1)^n(x - 1)^{n-1}}{n}$$
+
+Explicitly, $x$ is logarithmable if the following two conditions hold:
+
+\begin{itemize}
+\item $x$ is {\em unipotent}, or equivalently, $x - 1$ is nilpotent,
+  i.e., there exists a natural number $n$ such that $(x - 1)^n =
+  0$. The smallest such $n$ is termed the {\em unipotency} of $x$.
+\item For all positive integers $m < n$, $m$ divides $(x - 1)^m$,
+  i.e., there exists an element $y \in R$ such that $my = (x - 1)^m$.
+\end{itemize}
+
+The following can be deduced from formal manipulation:
+
+\begin{itemize}
+\item If $x \in R$ is exponentiable and $e^x$ is logarithmable, then
+  $\log(e^x) = x$.
+  
+  %% It can also be shown ({\em TONOTDO: Can it? Do calculations in
+  %%   appendix}) that if $x \in R$ is exponentiable then $e^x$ is
+  %%   logarithmable, but this is harder and we will not need it for our
+  %%   results.
+\item If $x \in R$ is logarithmable and $\log x$ is exponentiable, then
+  $e^{\log x} = x$.
+
+  %% It can also be shown ({\em TONOTDO: Can it? Do calculations in
+  %%   appendix}) that if $x \in R$ is logarithmable then $\log x$ is
+  %% exponentiable, but this is harder and we will not need it for our
+  %% results.
+\end{itemize}
+
+This follows from the fact that the identities hold formally on
+account of these being the usual Taylor series for the exponential and
+logarithm functions that are inverses of each other.
+    
+\subsection{Exponential to and logarithm from the adjoint group}\label{sec:exp-and-adjoint}
+
+Suppose $N$ is an associative (but not necessarily commutative and
+generally {\em not} unital) ring whose additive group is torsion-free
+and $x$ is a nilpotent element of $N$ satisfying the following two
+conditions:
+
+\begin{itemize}
+\item $x$ is nilpotent, i.e., there exists a natural number $n$ such
+  that $x^n = 0$. The smallest such $n$ is the {\em nilpotency} of $x$.
+\item For all positive integers $m < n$, $m!$ divides $x^m$, i.e.,
+  there exists an element $y \in R$ (unique by the torsion-free
+  assumption) such that $m!y = x^m$.
+\end{itemize}
+
+Then, we can make sense of the element $e^x$ as an element of the
+adjoint group $1 + N$. Explicitly:
+
+$$e^x := 1 + \left(x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots \frac{x^{n-1}}{(n - 1)!}\right)$$
+
+Similarly, for an element $1 + x, x \in N$, we say that $1 + x$ is
+{\em logarithmable} if the following two conditions hold:
+
+\begin{itemize}
+\item $x$ is nilpotent, i.e., there exists a natural number $n$ such
+  that $x^n = 0$. The smallest such $n$ is the {\em nilpotency} of $x$.
+\item For all positive integers $m < n$, $m$ divides $x^m$, i.e.,
+  there exists an element $y \in R$ (unique by the torsion-free
+  assumption) such that $my = x^m$.
+\end{itemize}
+
+We then define $\log(1 + x)$ as an element of $N$:
+
+$$\log(1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \dots + \frac{(-1)^nx^{n-1}}{n - 1}$$
+
+We have observations similar to those in Section \ref{sec:exp-and-log-unital}:
+
+\begin{itemize}
+\item If $x \in N$ is exponentiable and $e^x$ is logarithmable, then
+  $\log(e^x) = x$.
+\item If $x \in N$ is logarithmable and $\log x$ is exponentiable, then
+  $e^{\log x} = x$.
+\end{itemize}
+
+Note that this notion of exponential differs slightly from the
+preceding definition in that the exponential of an element is now no
+longer in the ring but rather in its adjoint group. However, we can
+embed $N$ inside its unitization $R = N + \mathbb{Z}$ and both the
+definitions would then agree.\footnote{Note that the definition of
+  ``unitization'' depends on what commutative unital ring we are
+  considering $N$ as an algebra over. The default assumption is to
+  treat it as an algebra over $\Z$, in which case the unitization is
+  $N + \Z$. If, howevever, we are viewing $N$ as an algebra over a
+  field $F$, the unitization is $N + F$.} In fact, via this method, we
+  can deduce all results here from the results of Section
+  \ref{sec:exp-and-log-unital} without redoing any of the work.
+
+\subsection{The exponential and logarithm as global maps}\label{sec:exp-log-global}
+
+Suppose $N$ is an associative ring whose additive group is
+torsion-free and in which {\em every} element is exponentiable (to the
+adjoint group) and {\em every} element of the adjoint group is
+logarithmable. Then, the exponential can be defined as a {\em global}
+set map:
+
+$$\exp:N \to 1 + N$$
+
+In this case, the logarithm is also a global map:
+
+$$\log:1 + N \to N$$
+
+and further, the two maps are inverses of each other.
+
+The following are some cases where these hypotheses are satisfied:
+
+\begin{itemize}
+\item The case that $N$ is a nilpotent $\mathbb{Q}$-algebra. This will
+  be the case that interests us the most in the beginning.
+\item The case that $N$ is a torsion-free $\Z[\pi_c^{-1}]$-algebra of
+  nilpotency class at most $c$ where $\pi_c$ is the set of all primes
+  less than or equal to $c$. Many of our generalizations will apply to
+  this case. (See the next subsection regarding relaxation to the
+  non-torsion-free case).
+\end{itemize}
+
+\subsection{Truncated exponentials and the case of torsion}\label{sec:truncated-exponentials}
+
+So far, we have considered the definition of exponential and logarithm
+in the context of torsion-free additive groups. The torsion-free
+assumption is significant because it guarantees that all the summands
+of the form $x^n/n!$ or $x^n/n$ are {\em uniquely defined} if they
+exist. We now consider whether this torsion-free assumption can be
+relaxed somewhat.
+
+In the case that an element $x$ satisfies $x^n = 0$ for some natural
+number $n$, we can truncate the exponential series and get:
+
+$$e^x = 1 + \left(x + \frac{x^2}{2!} + \dots + \frac{x^{n-1}}{(n - 1)!}\right)$$
+
+Similarly, we can truncate the logarithm series and get:
+
+$$\log(1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \dots + \frac{(-1)^nx^{n-1}}{n - 1}$$
+
+Thus, we can relax the {\em torsion-free} assumption to the assumption
+that the ring is $\pi$-torsion-free where $\pi$ is the set of all
+primes strictly less than the nilpotency. Alternatively, if $N$ is a
+nilpotent associative ring of nilpotency class $c$ (explicitly, this
+means that $x_1x_2 \dots x_cx_{c+1} = 0$ for all $x_1$, $x_2$,
+$\dots$, $x_c$, $x_{c+1}$ $\in N$) that is
+$\pi_c$-torsion-free where $\pi_c$ is the set of primes less than or
+equal to $c$, then we can make unique sense of the terms $x^m/m!$ and
+$x^m/m$ used in the definitions of the exponential and logarithm maps.
+
+In particular, if $N$ is a $\Z[\pi_c^{-1}]$-algebra of nilpotency class
+at most $c$, then the exponential and logarithm maps make sense globally.
+
+There is, however, a small caveat. Namely, the process of truncating
+the exponential map involves a choice, even though the choice we have
+made is a canonical choice. Consider again the infinite series for the
+exponential:
+
+$$e^x = 1 + \left(x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots\right)$$
+
+The $m^{th}$ term of the summation is $\frac{x^m}{m!}$. In the case
+that $m \ge n$, the numerator is the zero element of $N$. We are
+therefore trying to make sense of the computation:
+
+$$\frac{0}{m!}$$
+
+A canonical candidate for the answer is $0$. However, if $N$ has
+$p$-torsion for some prime $p$ less than or equal to $m$, this is not
+the {\em unique} candidate for the answer. Our decision to truncate
+the exponential implicitly involves making the canonical choice of the
+answer of $0$ for all terms $x^m/m!$, even though this choice is not
+uniquely fixed.
+
+Despite the non-uniqueness of these choices, all the formal
+manipulations involving exponentials and logarithms continue to be
+valid. A quick explanation for this is as follows: all the proofs for
+these manipulations involve using the existing (truncated) expressions
+and then applying the operations of addition, subtraction,
+multiplication, and composition. None of these operations is capable
+of introducing new primes into the denominators. Thus, we do not ever
+need to confront the non-uniqueness of division by larger primes when
+mimicking the proofs that work over the rational numbers.
+
+%%A slightly different version of the same argument follows.
+
+\subsection{Exponential and logarithm maps preserve abelian and cyclic subgroup structures}
+
+The following lemmas follow from manipulation similar to the formal
+manipulation used when dealing with power series over the reals. We
+therefore omit the proofs.
+
+\begin{lemma}\label{lemma:exp-and-commutative}
+  Suppose $c$ is a positive integer and $\pi_c$ is the set of primes
+  less than or equal to $c$. Suppose $N$ is an associative
+  $\Z[\pi_c^{-1}]$-algebra of nilpotency class less than or equal to
+  $c$. Suppose $x,y \in N$ are elements such that $xy = yx$. Then, the
+  exponential map $\exp: N \to 1 + N$ satisfies the condition that:
+
+  $$\exp(x + y) = \exp(x) \exp (y)$$
+\end{lemma}
+
+\begin{lemma}\label{lemma:exp-and-powering}
+  Suppose $c$ is a positive integer and $\pi_c$ is the set of primes
+  less than or equal to $c$. Suppose $N$ is an associative
+  $\Z[\pi_c^{-1}]$-algebra of nilpotency class less than or equal to
+  $c$. Suppose $x \in N$ and $n \in \Z$. Then, the exponential map
+  $\exp: N \to 1 + N$ satisfies the condition that:
+
+  $$\exp(nx) = (\exp(x))^n$$
+\end{lemma}
+
+This follows from the preceding lemma, combined with a proof by
+induction.
+
+%\newpage
+
+\section{Free nilpotent groups and the exponential and logarithm}\label{sec:free-nilpotent-exp-log}
+
+\subsection{Free associative algebra and free nilpotent associative algebra}\label{sec:free-associative-algebra}
+
+The notation and results here follow Khukhro's book \cite{Khukhro},
+Chapters 9 and 10. For brevity, we omit some proofs and provide
+citations to Khukhro.
+
+For this and the next few subsections, $c$ is a fixed but arbitrary
+positive integer. The algebraic structures $F$, $A$, and $L$ are all
+dependent on $c$. However, to keep the notation as uncluttered as
+possible, we will not use $c$ as an explicit parameter to these.
+
+Denote by $\mathcal{A}$ the free associative $\mathbb{Q}$-algebra on a
+generating set $S = \{ x_1,x_2,\dots \}$ The generating set may have
+any cardinality. By the well-ordering principle, we will index the
+generating set by a well-ordered set. 
+
+The algebra $\mathcal{A}$ is naturally a {\em graded} associative
+algebra. Explicitly, the $i^{th}$ graded component of $\mathcal{A}$ is
+the $\mathbb{Q}$-subspace generated by all products of length $i$ of
+elements from the generating set. Formally, $\mathcal{A}$ has the
+following direct sum decomposition as a vector space:
+
+$$\mathcal{A} = \bigoplus_{i=1}^\infty \mathcal{A}_i$$
+
+and further:
+
+$$\mathcal{A}_i\mathcal{A}_j \subseteq \mathcal{A}_{i+j}$$
+
+For any positive integer $i$, we can define an ideal:
+
+$$\mathcal{A}^i = \bigoplus_{j=i}^\infty \mathcal{A}_j$$
+
+For any positive integer $c$, define the associative algebra:
+
+$$A = \mathcal{A}/\mathcal{A}^{c+1}$$
+
+$A$ can be described as the free nilpotent associative algebra of
+class $c$ on the same generating set $S$. Explicitly, this means that
+all products in $A$ of length more than $c$ become zero.
+
+Based on the discussion in Sections \ref{sec:exp-and-adjoint}
+and \ref{sec:exp-log-global}, the exponential and logarithm map are
+globally defined, i.e., we have global maps:
+
+$$\exp:A \to 1 + A, \log: 1 + A \to A$$
+
+that are inverses of each other. Explicitly:
+
+\begin{eqnarray*}
+  \exp(x) & = & 1 + \left(x + \frac{x^2}{2!} + \dots + \frac{x^c}{c!}\right)\\
+  \log(1 + x) & = & x - \frac{x^2}{2} + \dots + \frac{(-1)^{c-1}x^c}{c}\\
+\end{eqnarray*}
+
+
+\subsection{Free Lie algebra and free nilpotent Lie algebra}
+
+Denote by $\mathcal{L}$ the Lie subring of $\mathcal{A}$ generated by
+the free generating set $S$. Note that $\mathcal{L}$ is {\em only} a
+Lie ring, {\em not} a $\mathbb{Q}$-Lie
+algebra. $\mathbb{Q}\mathcal{L}$ is the $\mathbb{Q}$-Lie algebra
+generated by $S$ in $\mathcal{A}$.
+
+By \cite{Khukhro}, Theorem 5.39, $\mathcal{L}$ is the free Lie ring on
+$S$, and $\mathbb{Q}\mathcal{L}$ is the free $\Q$-Lie algebra on
+$S$. Further, for every prime set $\pi$,
+$\mathbb{Z}[\pi^{-1}]\mathcal{L}$ is the free $\pi$-powered Lie ring
+on $S$.
+
+We can define $L$ in the following equivalent ways:
+
+\begin{itemize}
+\item $L = \mathcal{L}/\gamma_{c+1}(\mathcal{L}) =
+  \mathcal{L}/(\mathcal{L} \cap \mathcal{A}^{c+1})$.
+\item $L$ is the Lie subring generated by the image of $S$ inside $A$,
+  i.e., it is the Lie subring generated by the freely generating set
+  inside $A$.
+\end{itemize}
+
+Denote by $1 + A$ the adjoint group to $A$.
+
+Denote by $F$ the subgroup of $1 + A$ generated by the elements
+$e^{x_i}$, $x_i \in S$.
+
+\begin{lemma}
+  $1 + A$ is a rationally powered group.
+\end{lemma}
+
+\begin{proof}
+  The maps $\log:1 + A \to A$ and $\exp:A \to 1 + A$ are inverses of
+  each other. We know that $A$ is a $\Q$-algebra, and Lemma
+  \ref{lemma:exp-and-powering} tells us that the map $\exp:A \to 1 +
+  A$ preserves the cyclic subgroup structure (i.e., $\exp(nx) =
+  (\exp(x))^n$ for any $n \in \Z$). Thus, $1 + A$ is also rationally
+  powered.
+\end{proof}
+  
+\begin{theorem}\label{thm:free-nilpotent}
+  \begin{enumerate}
+  \item For each $x_i$ in the generating set $S$, choose an element $y_i
+    \in A$ that has no homogeneous degree one component. Then, the
+    subgroup of $1 + A$ generated by the elements $1 + x_i + y_i$ is a
+    free nilpotent group of class $c$ on the generating set $\{ 1 +
+    x_i + y_i \mid i \in I \}$.
+  \item The subgroup $F$ of $1 + A$ generated by the elements
+    $e^{x_i}$, $x_i \in S$ is a free nilpotent group of class $c$ on
+    the generating set $e^{x_i}, x_i \in S$. Thus, it is canonically
+    isomorphic to the free nilpotent group of class $c$ on $S$.
+  \item For any prime set $\sigma$, the subgroup $\sqrt[\sigma]{F}$ of
+    $1 + A$ (where $F$ is defined as in part (2)) is a free
+    $\sigma$-powered nilpotent group of class $c$ on the generating
+    set $e^{x_i}, x_i \in S$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  {\em Proof of (1)}: See \cite{Khukhro}, Theorem 9.2.
+
+  {\em Proof of (2)}: This follows from (1), setting
+
+  $$y_i = \sum_{j=2}^c \frac{x_i^j}{j!}$$
+
+  {\em Proof of (3)}: By (2), we obtain that $\hat{F}^\sigma$ is the
+  free $\sigma$-powered free class $c$ nilpotent group on the set
+  $e^{x_i}, x_i \in S$. We also know that the group $1 + A$ is
+  rationally powered, hence in particular it is torsion-free and
+  $\sigma$-powered. Thus, $\hat{F}^\sigma$ is canonically isomorphic
+  to $\sqrt[\sigma]{F}$ inside $1 + A$. This proves the result.
+\end{proof}
+
+%\newpage
+
+\section{Baker-Campbell-Hausdorff formula}\label{sec:bch}
+
+We use the same notation as in the preceding section (Section
+\ref{sec:free-nilpotent-exp-log}).
+
+\subsection{Introduction}
+
+Consider the case of a generating set $\{ x_1,x_2 \}$ of size two. $A$
+is the free associative algebra of class $c$ generated by
+$\{ x_1,x_2 \}$. $L$ is the Lie subring of $A$ generated by the elements
+$x_1$ and $x_2$. Note that $A$ is powered over all primes on account
+of being a $\mathbb{Q}$-algebra, and further, every element of $A$ is
+nilpotent, in fact, $u^{c+1} = 0$ for all $u \in A$. Thus, for all $u \in
+A$, it makes sense to consider the element $e^u \in 1 + A$ defined as
+follows:
+
+$$e^u = 1 + \left(u + \frac{u^2}{2!} + \frac{u^3}{3!} + \dots + \frac{u^c}{c!}\right)$$
+
+The Baker-Campbell-Hausdoroff formula for class $c$ is a formal
+expression $H_c(x_1,x_2)$ with the property that:
+
+$$e^{H_c(x_1,x_2)} = e^{x_1}e^{x_2}$$
+
+It is not {\em a priori} obvious that $H_c(x_1,x_2)$ exists, but
+\cite{Khukhro}, Section 9.2 demonstrates that $H_c(x_1,x_2)$ exists, {\em and
+moreover, that $H_c(x_1,x_2) \in \mathbb{Q}L$}, i.e., it is in the
+$\mathbb{Q}$-Lie subalgebra generated by $x_1$ and $x_2$.
+
+It is easy to see that in the Baker-Campbell-Hausdorff formula for
+class $c$, truncating to products of length $c - 1$ and lower gives
+the Baker-Campbell-Hausdorff formula for class $c - 1$. Equivalently,
+the Baker-Campbell-Hausdorff formula for class $c$ can be obtained by
+adding a degree $c$ term to the Baker-Campbell-Hausdorff formula for
+class $c - 1$.
+
+We can thus define an infinite Baker-Campbell-Hausdorff formula as follows:
+
+$$H(x_1,x_2) = t_1(x_1,x_2) + t_2(x_1,x_2) + \dots$$
+
+where each $t_i(x_1,x_2)$ is in the $i^{th}$ homogeneous component of
+$\mathbb{Q}\mathcal{L}$, with the further property that if we truncate
+the summation to:
+
+$$H_c(x_1,x_2) = t_1(x_1,x_2) + t_2(x_1,x_2) + \dots + t_c(x_1,x_2)$$
+
+then for $A = \mathcal{A}/\mathcal{A}^{c+1}$, we have:
+
+$$e^{H_c(x_1,x_2)} = e^{x_1}e^{x_2}$$
+
+\subsection{Computational procedure for the Baker-Campbell-Hausdorff formula}\label{sec:bch-computation}
+
+The following procedure can be used to compute the
+Baker-Campbell-Hausdorff formula. The procedure as described here is
+incomplete, because it only gives the formula inside the associative
+algebra, but does not express it in terms of Lie products. There are
+closed-form expressions using Lie products, but these are extremely
+messy to work with, so we provide only the conceptual outline for
+obtaining $H(x_1,x_2)$ as an expression in terms of $x_1$ and $x_2$ in
+the associative algebra. See \cite{Khukhro}, Sections 5.3 and 9.9 for
+more more details, and see \cite{Lazardeffective} for the most
+efficient known computational procedure.
+
+First, we begin by considering the product:
+
+$$e^{x_1}e^{x_2} = \sum_{k=0}^\infty \sum_{l=0}^\infty \frac{x_1^k}{k!}\frac{x_2^l}{l!}$$
+
+Subtract $1$ and obtain:
+
+$$w = e^{x_1}e^{x_2} - 1 = \sum_{k,l \ge 0, 0 < k + l} \frac{x_1^kx_2^l}{k!l!}$$
+
+We have a formal power series:
+
+$$\log(1 + w) = w - \frac{w^2}{2} + \frac{w^3}{3} - \dots $$
+
+It can also be formally verified that:
+
+$$e^{\log(1 + w)} = 1 + w = 1 + (e^{x_1}e^{x_2} - 1) = e^{x_1}e^{x_2}$$
+
+Thus, $H(x_1,x_2) = \log(1 + w)$. Formally:
+
+$$H(x_1,x_2) = \sum_{k,l \ge 0, 0 < k + l} \frac{x_1^kx_2^l}{k!l!} - \frac{1}{2}\left(\sum_{k,l \ge 0, 0 < k + l} \frac{x_1^kx_2^l}{k!l!}\right)^2 + \frac{1}{3}\left(\sum_{k,l \ge 0, 0 < k + l} \frac{x_1^kx_2^l}{k!l!}\right)^3 - \dots$$
+
+The above calculation gives the full Baker-Campbell-Hausdorff
+formula. If we are interested in the class $c$
+Baker-Campbell-Hausdorff formula, we can use truncated versions of
+both the exponential and the logarithm power series.
+
+\subsection{Homogeneous terms of the Baker-Campbell-Hausdorff formula}\label{sec:bch-homogeneous-terms}
+
+The infinite Baker-Campbell-Hausdorff formula has the form:
+
+$$H(x_1,x_2) = t_1(x_1,x_2) + t_2(x_1,x_2) + \dots$$
+
+where $t_i(x_1,x_2)$ is the homogeneous component of degree $i$. The
+first few homogeneous components are given below:
+
+\begin{small}
+\begin{table}[htbp]
+\caption{Truncations of the Baker-Campbell-Hausdorff formula}\label{T4}
+\begin{tabular}{|l|l|l|}
+  \hline
+  $i$ & $t_i(x_1,x_2)$ & $H_i(x_1,x_2)$\\\hline
+  $1$ & $x_1 + x_2$ & $x_1 + x_2$ \\\hline
+  $2$ & $\frac{1}{2}[x_1,x_2]$ & $x_1 + x_2 + \frac{1}{2}[x_1,x_2]$\\\hline
+  $3$ & $\frac{1}{12}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]])$ & $x_1 + x_2 + \frac{1}{2}[x_1,x_2] + \frac{1}{12}([x_1,[x_1,x_2]] - [x_2,[x_1,x_2]])$ \\\hline
+  $4$ & $- \frac{1}{24}[x_2,[x_1,[x_2,x_2]]]$ & $H_3(x_1,x_2) - \frac{1}{24}[x_2,[x_1,[x_2,x_2]]]$\\\hline
+\end{tabular}
+\end{table}
+\end{small}
+
+The case $i = 1$ is obvious. The case $i = 2$ is derived in the
+Appendix, Section \ref{appsec:bch-class-two}. The case $i = 3$ is derived
+in the Appendix, Section \ref{appsec:bch-class-three}.
+
+For explicit descriptions of higher degree terms of the
+Baker-Campbell-Hausdorff formula, see \cite{Lazardeffective}.
+
+\subsection{Universal validity of the Baker-Campbell-Hausdorff formula}\label{sec:bch-formula-universal-validity}
+
+The Baker-Campbell-Hausdorff formula is valid wherever it makes
+sense. Explicitly, the following holds. Note that Lemma
+\ref{lemma:exp-and-commutative} can be viewed as a special case of
+this theorem (or rather, of Theorem
+\ref{thm:bch-universal-validity-pi-powered}, the generalization to
+$\Z[\pi_c^{-1}]$-algebras).
+
+\begin{theorem}\label{thm:bch-universal-validity-rationals}
+  Suppose $R$ is a nilpotent $\mathbb{Q}$-algebra. Then, the
+  Baker-Campbell-Hausdorff formula is valid for any $x,y \in R$:
+
+  $$e^{H(x,y)} = e^xe^y$$
+
+  where we make sense of the exponentials as expressions in the
+  adjoint group $1 + R$, which can be viewed as a multiplicative
+  subgroup inside the unitization $\mathbb{Q} \oplus R$.
+\end{theorem}
+
+\begin{proof}
+  Denote by $c$ the nilpotency class of $R$. Let $A$ be the free
+  nilpotent $\mathbb{Q}$-algebra of class $c$ on two generators $x_1$
+  and $x_2$. There is a unique $\Q$-algebra homomorphism $\theta:A
+  \to R$ that sends $x_1$ to $x$ and $x_2$ to
+  $y$. The existence of this homomorphism is guaranteed by $A$ being
+  the {\em free} class $c$ nilpotent $\mathbb{Q}$-algebra on two
+  generators.
+
+  It is useful to extend $\theta$ to a homomorphism between the unitizations:
+
+  $$\varphi: \Q \oplus A \to \Q \oplus R$$
+
+  where $\varphi$ acts as the identity map on the first coordinate and
+  acts as $\theta$ on the second coordinate. $\varphi$ is a
+  $\Q$-algebra homomorphism satisfying $\varphi(x_1) = x$ and
+  $\varphi(x_2) = y$.
+  
+  We now use the fact that the corresponding identity holds in $A$,
+  and the fact that homomorphisms preserve all formulas, to obtain the
+  identity for $x$ and $y$. Explicitly, we know that:
+
+  $$e^{H_c(x_1,x_2)} = e^{x_1}e^{x_2}$$
+
+  Apply $\varphi$ to both sides:
+  
+  $$\varphi(e^{H_c(x_1,x_2)}) = \varphi(e^{x_1}e^{x_2})$$
+
+  $\Q$-algebra homomorphisms commute with exponentiation and with
+  products, so this becomes:
+  
+  $$e^{\varphi(H_c(x_1,x_2))} = e^{\varphi(x_1)}e^{\varphi(x_2)}$$
+  
+  $\Q$-algebra homomorphism also commute with $H_c$, and we get:
+  
+  $$e^{H_c(\varphi(x_1),\varphi(x_2))} = e^{\varphi(x_1)}e^{\varphi(x_2)}$$
+  
+  We had set $\varphi(x_1) = x$ and $\varphi(x_2) = y$, so we get:
+  
+  $$e^{H_c(x,y)} = e^xe^y$$
+
+  as desired.
+\end{proof}
+
+\subsection{Formal properties of the Baker-Campbell-Hausdorff formula}\label{sec:bch-formal-properties}
+
+Below are some important properties of the Baker-Campbell-Hausdorff
+formula:
+
+\begin{enumerate}
+\item The $i^{th}$ homogeneous component $t_i(x_1,x_2)$ of the
+  Baker-Campbell-Hausdorff formula is symmetric if $i$ is odd and
+  skew-symmetric if $i$ is even. Explicitly:
+
+  $$t_i(x_1,x_2) = (-1)^{i-1}t_i(x_2,x_1)$$
+
+\item The Baker-Campbell-Hausdorff formula is associative, i.e., we
+  have the following formal identity:
+
+  $$H(H(x_1,x_2),x_3) = H(x_1,H(x_2,x_3))$$
+
+  Equivalently, for every positive integer $c$, the following identity
+  holds in class $c$:
+
+  $$H_c(H_c(x_1,x_2),x_3) = H_c(x_1,H_c(x_2,x_3))$$
+
+  Note that by ``holds in class $c$'' we mean that we {\em truncate}
+  the formula to all Lie products of degree at most $c$, and set all
+  higher degree Lie products to be zero.
+\item The Baker-Campbell-Hausdorff formula satisfies:
+
+  $$H(x,0) = H(0,x) = x$$
+
+  Equivalently, for every positive integer $c$, we have:
+
+  $$H_c(x,0) = H_c(0,x) = x$$
+
+  Note that in this case, explicit truncation to class $c$ is not
+  necessary.
+
+\item The Baker-Campbell-Hausdorff formula satisfies:
+
+  $$H(x,-x) = H(-x,x) = 0$$
+
+  Equivalently, for every positive integer $c$, we have:
+
+  $$H_c(x,-x) = H_c(-x,x) = 0$$
+
+  Note that in this case, explicit truncation to class $c$ is not
+  necessary.
+\end{enumerate}
+
+\subsection{Universal validity of the formal properties of the Baker-Campbell-Hausdorff formula}\label{sec:bch-formula-universal-lie-validity}
+
+Note that the universal validity being alluded to here differs in
+spirit from the universal validity that was alluded to in Section
+\ref{sec:bch-formula-universal-validity}. The universal validity
+alluded to earlier was the universal validity of the
+Baker-Campbell-Hausdorff formula in relation with the exponential map
+in an {\em associative} algebra. The universal validity alluded to
+here is in {\em Lie} algebras.
+
+\begin{theorem}\label{thm:bch-group-axiom-universal-validity}
+  Suppose $N$ is a nilpotent $\mathbb{Q}$-Lie algebra of
+  nilpotency class $c$ for some positive integer $c$. Then, the
+  following hold for all $x,y,z \in N$:
+    
+  \begin{eqnarray*}
+    H_c(H_c(x,y),z) & = & H_c(x,H_c(y,z)) \\
+    H_c(x,0) & = & x \\
+    H_c(0,x) & = & x \\
+    H_c(x,-x) & = & 0 \\
+    H_c(-x,x) & = & 0 \\
+  \end{eqnarray*}
+\end{theorem}
+
+\begin{proof}
+  All identities except the first are obvious from the expressions. We
+  therefore concentrate on the first identity.
+
+  Denote by $L$ the free Lie ring on the set $\{x_1,x_2,x_3\}$. Then,
+  $\Q L$ is the free $\Q$-Lie algebra on $\{x_1,x_2,x_3\}$. Consider
+  the unique $\Q$-algebra homomorphism $\varphi: \mathbb{Q}L \to N$
+  defined as follows: $\varphi(x_1) = x$, $\varphi(x_2) = y$, and
+  $\varphi(x_3) = z$. 
+
+  We know that $H_c(H_c(x_1,x_2),x_3) = H_c(x_1,H_c(x_2,x_3))$ by the
+  formal associativity of the Baker-Campbell-Hausdorff formula. The
+  homomorphism $\varphi$ is a homomorphism of $\mathbb{Q}$-Lie
+  algebras, hence it preserves the identity, and we obtain that:
+
+  $$H_c(H_c(x,y),z) = H_c(x,H_c(y,z))$$
+
+\end{proof}
+
+\subsection{Primes in the denominator for the Baker-Campbell-Hausdorff formula}\label{sec:bch-primes-in-denominators}
+
+The lemma below allows us to restrict the Baker-Campbell-Hausdorff
+formula to $\mathbb{Z}[\pi_c^{-1}]L$ where $\pi_c$ is the set of primes
+less than or equal to $c$.
+
+\begin{lemma}\label{lemma:bch-primes-in-denominators}
+  It is possible to express the Baker-Campbell-Hausdorff formula
+  $H_c(x,y)$ in a manner where all primes that appear as divisors of
+  denominators of the coefficients are less than or equal
+  to $c$.
+\end{lemma}
+
+\begin{proof}
+  The Baker-Campbell-Hausdorff formula is obtained from the class $c$
+  exponential and logarithm formulas using the operations of addition,
+  subtraction, multiplication, and composition. The class $c$
+  exponential and logarithm formulas use only the primes less than or
+  equal to $c$, and the operations of addition, subtraction,
+  multiplication and composition cannot introduce new prime divisors
+  into the denominators, so the Baker-Campbell-Hausdorff formula does
+  not have any other primes in its denominator.
+
+  Note that the above only demonstrates the result for the {\em
+    associative} expression for the Baker-Campbell-Hausdorff
+  formula. However, \cite{Khukhro}, Theorem 5.39\footnote{It would be
+    helpful to read the surrounding discussion in Section 5.3}
+  demonstrates that we can rewrite the expression as a sum of basic
+  Lie products in a manner that does not use any new prime divisors
+  in the denominator.
+\end{proof}
+
+A somewhat stronger result is true: Suppose $p$ is a prime. Then, the
+largest $k$ such that $p^k$ divides one or more of the denominators in
+the coefficients for $H_c(x_1,x_2)$ is at most $\left \lfloor \frac{c
+  - 1}{p - 1}\right \rfloor$. This is derived in the Appendix, Section
+\ref{appsec:bch-prime-power-divisor-bound}. Note that this would
+immediately imply the preceding lemma, but it has additional
+significance.
+
+\subsection{Universal validity assuming powering over the required primes}
+
+Below, we present results analogous to those described in Sections
+\ref{sec:bch-formula-universal-validity} and
+\ref{sec:bch-formula-universal-lie-validity}, but with the base ring
+taken to be $\Z[\pi_c^{-1}]$ instead of $\Q$, where $\pi_c$ is the set of
+primes less than or equal to $c$.
+
+\begin{theorem}\label{thm:bch-universal-validity-pi-powered}
+  Suppose $c$ is a positive integer, $\pi_c$ is the set of all primes
+  less than or equal to $c$, and $R$ is an associative
+  $\mathbb{Z}[\pi^{-1}]$-algebra that is nilpotent of nilpotency class
+  at most $c$. Then, the Baker-Campbell-Hausdorff formula is valid
+  for any $x,y \in R$:
+    
+  $$e^{H_c(x,y)} = e^xe^y$$
+    
+  where we make sense of the exponentials as expressions in the
+  adjoint group $1 + R$, which can be viewed as a multiplicative
+  subgroup inside the unitization $\mathbb{Z}[\pi^{-1}] \oplus R$.
+\end{theorem}
+
+\begin{proof}
+  Let $A$ be the free nilpotent associative $\Q$-algebra of class $c$
+  on the two generators $x_1$ and $x_2$ and let $B$ be the
+  $\mathbb{Z}[\pi^{-1}]$-subalgebra generated by $x_1$ and
+  $x_2$. Clearly, $B$ is the free $\Z[\pi^{-1}]$-algebra on $x_1$ and
+  $x_2$. There is a natural homomorphism $\theta: B \to R$ of
+  $\mathbb{Z}[\pi^{-1}]$-algebras that sends $x_1$ to $x$ and $x_2$ to
+  $y$. The existence of this homomorphism is guaranteed by $B$ being
+  the {\em free} class $c$ nilpotent $\mathbb{Z}[\pi^{-1}]$-algebra on
+  two generators. Further, $\theta$ extends uniquely to a homomorphism
+  $\varphi: \Z[\pi^{-1}] \oplus B \to \Z[\pi^{-1}] \oplus R$ between
+  the unitizations of $B$ and $R$ as $\Z[\pi^{-1}]$-algebras.
+
+  Note that the Baker-Campbell-Hausdorff formula is valid for the
+  elements $x_1,x_2 \in A$, i.e., we have:
+
+  $$e^{H_c(x_1,x_2)} = e^{x_1}e^{x_2}$$
+
+  Both sides of the identity and all intermediate calculations happen
+  inside $B$, because the exponential map as well as the
+  Baker-Campbell-Hausdorff formula all involve division only by the
+  primes in $\pi_c$ (by Lemma
+  \ref{lemma:bch-primes-in-denominators}). Thus, the above identity
+  holds in $B$.
+
+  We now apply $\varphi$ to both sides and obtain the conclusion. The
+  details are analogous to those of Theorem
+  \ref{thm:bch-universal-validity-rationals}. The main difference is
+  that the homomorphism $\varphi$ is now a $\Z[\pi^{-1}]$-algebra
+  homomorphism rather than a $\Q$-algebra homomorphism. The reason it
+  commutes with the formulas is that all the formulas involved make
+  sense over $\Z[\pi^{-1}]$.
+\end{proof}
+
+\begin{theorem}\label{thm:bch-group-axiom-universal-validity-pi-powered}
+  Suppose $c$ is a positive integer and $\pi_c$ is the set of all primes
+  less than or equal to $c$. Suppose $N$ is a nilpotent
+  $\mathbb{Z}[\pi^{-1}]$-Lie algebra of nilpotency class $c$. Then, the
+  following hold for all $x,y,z \in N$:
+    
+  \begin{eqnarray*}
+    H_c(H_c(x,y),z) & = & H_c(x,H_c(y,z)) \\
+    H_c(x,0) & = & x \\
+    H_c((0,x) & = & x\\
+    H_c(x,-x) & = & 0 \\
+    H_c(-x,x) & = & 0 \\
+  \end{eqnarray*}
+
+\end{theorem}
+
+\begin{proof}
+  All identities except the first one are obvious from the
+  expressions. We therefore concentrate on proving the first identity.
+
+  Denote by $L$ the free Lie ring on the set $\{
+  x_1,x_2,x_3 \}$. Then, $\Z[\pi^{-1}]L$ is the free
+  $\Z[\pi^{-1}]$-Lie algebra on the set $\{ x_1,x_2,x_3 \}$. Consider
+  the unique $\Z[\pi^{-1}]$-algebra homomorphism $\varphi:
+  \mathbb{Z}[\pi^{-1}]L \to N$ defined by the conditions $\varphi(x_1)
+  = x$, $\varphi(x_2) = y$, $\varphi(x_3) = z$.
+
+  We know that $H_c(H_c(x_1,x_2),x_3) = H_c(x_1,H_c(x_2,x_3))$ by the
+  formal associativity of the Baker-Campbell-Hausdorff formula. Lemma
+  \ref{lemma:bch-primes-in-denominators} tells us that this identity
+  holds inside $\Z[\pi^{-1}]L$. The homomorphism $\varphi:
+  \Z[\pi^{-1}]L \to N$ is a homomorphism of $\Z[\pi^{-1}]$-algebras,
+  hence it preserves the identity, and we obtain that:
+
+  $$H_c(H_c(x,y),z) = H_c(x,H_c(y,z))$$
+\end{proof}
+
+
+%\newpage
+
+\section{The inverse Baker-Campbell-Hausdorff formulas}\label{sec:inverse-bch}
+
+\subsection{Brief description of the formulas}
+
+There are two inverse Baker-Campbell-Hausdorff formulas. The first
+inverse Baker-Campbell-Hausdorff formula is a formula to compute:
+
+$$h_1(x,y) = \exp(\log x + \log y)$$
+
+The second inverse Baker-Campbell-Hausdorff formula is a formula to
+compute:
+
+$$h_2(x,y) =\exp([\log x, \log y])$$
+
+We will now provide a few important details regarding the formulas
+that will help understand the correspondence. However, we do not
+attempt to be comprehensive here. More information about the inverse
+Baker-Campbell-Hausdorff formula is in \cite{Khukhro}, Section
+10.1. Lemma 10.7 in particular establishes the key nature of the
+formula. For an explicit description of the first few terms for both
+$h_1$ and $h_2$, as well as an efficient computation strategy, see
+\cite{Lazardeffective}.
+
+
+\subsection{Origin of the formulas}\label{sec:inverse-bch-origins}
+
+We follow the notation of Section
+\ref{sec:free-nilpotent-exp-log}. The highlights of the notation
+follow: $\mathcal{A}$ is the free associative $\Q$-algebra on a
+generating set $S = \{ x_1,x_2,\dots \}.$ $\mathcal{L}$ is the Lie
+subring (not the $\Q$-Lie subalgebra, but just the $\Z$-Lie
+subalgebra) of $\mathcal{A}$ generated by $S$. $c$ is a fixed positive
+integer. We denote by $\mathcal{A}_c$ the $c^{th}$ graded component in
+the natural gradation of $\mathcal{A}$, and we denote by
+$\mathcal{A}^c$ the sum of all graded components at and beyond
+$c$. Define $A = \mathcal{A}/\mathcal{A}^{c+1}$ and define $L$ to be
+the Lie subring of $A$ generated by $S$.\footnote{Note that the $S$
+  viewed as a subset inside $A$ is the image of the $S$ viewed as a
+  subset of $\mathcal{A}$.} By Theorem \ref{thm:free-nilpotent}, the
+set $\{ e^{x_i} \mid x_i \in S \}$ generates a free nilpotent group of
+class $c$ and is a freely generating set for it. We denote this group
+as $F$.
+
+Corollary 9.22 in Khukhro's book (\cite{Khukhro}) states that
+$\sqrt{F}$ is a free rationally powered nilpotent group of nilpotency
+class $c$. This is a consequence of Theorem
+\ref{thm:pi-powered-envelope}. Further, Theorem 10.4 of \cite{Khukhro}
+states that $\sqrt{F} = e^{\Q L}$. Thus, every element of $e^{\Q L}$
+can be expressed in terms of the elements $e^{x_i}$ using group
+operations as well as taking roots.
+
+The first inverse Baker-Campbell-Hausdorff formula expresses $e^{x_1 +
+  x_2}$ as a word in terms of $e^{x_1}$ and $e^{x_2}$ using the group
+operations and taking roots. Explicitly, the first inverse
+Baker-Campbell-Hausdorff formula in class $c$ is a formula $h_{1,c}$
+such that:
+
+$$e^{x_1 + x_2} = h_{1,c}(e^{x_1},e^{x_2})$$
+
+Note importantly that the element $e^{x_1+x_2}$ need not lie inside
+$F$, but it does lie inside $\sqrt{F}$.
+
+Similarly, the second inverse Baker-Campbell-Hausdorff formula
+expresses $e^{[x_1,x_2]}$ as a word in terms of $e^{x_1}$ and
+$e^{x_2}$ using the group operations and taking roots. The second
+inverse Baker-Campbell-Hausdorff formula in class $c$ is a formula
+$h_{2,c}$ such that:
+
+$$e^{[x_1,x_2]} = h_{2,c}(e^{x_1},e^{x_2})$$
+
+Here, $[x_1,x_2]$ denotes the Lie bracket of $x_1$ and $x_2$ inside
+$L$. Inside $A$, this can be viewed as the expression $x_1x_2 -
+x_2x_1$. However, the latter does not make sense as an expression
+inside $L$.
+
+\subsection{Formal properties of the inverse Baker-Campbell-Hausdorff formulas}\label{sec:inverse-bch-formal-properties}
+
+\begin{itemize}
+\item As with the original Baker-Campbell-Hausdorff formula, both the
+  inverse \\ Baker-Campbell-Hausdorff formulas can be truncated to class
+  $c$ for any positive integer $c$. We will denote the truncations as
+  $h_{1,c}$ and $h_{2,c}$ respectively.
+\item The class $c + 1$ inverse Baker-Campbell-Hausdorff formula is
+  obtained by taking the class $c$ inverse Baker-Campbell-Hausdorff
+  formula and multiplying by a suitable product of iterated
+  commutators, each of length $c + 1$. Note that the precise nature of
+  the terms depends on whether we multiply on the left or the
+  right.\footnote{Technically, the new term that needs to be inserted
+    is the same whether on the left or on the right, because it is
+    central and therefore commutes with the rest of the
+    expression. However, the choice of whether previous terms were
+    inserted on the left or the right affects the precise choice of
+    the term being inserted at a given stage, so in that sense, it
+    does matter whether the higher degree terms are being inserted on
+    the left or the right.}
+\item For $h_1(x_1,x_2)$, the degree one term is $x_1x_2$ and the
+  degree two term is $[x_1,x_2]^{-1/2}$, the reciprocal of the square
+  root of the group commutator.
+\item For $h_2(x_1,x_2)$, there is no degree one term, and the degree
+  two term is the group commutator $[x_1,x_2]$.
+\end{itemize}
+
+\subsection{Universal validity of Lie ring axioms for inverse Baker-Campbell-Hausdorff formulas}
+
+We begin by establishing the universal validity over rationally
+powered nilpotent groups.
+
+\begin{theorem}\label{thm:inverse-bch-lie-ring-axiom-universal-validity}
+  Suppose $G$ is a rationally powered nilpotent group of nilpotency
+  class $c$. Then, the following are true for all $x,y,z \in G$:
+
+  \begin{small}
+  \begin{eqnarray*}
+    h_{1,c}(h_{1,c}(x,y),z) & = & h_{1,c}(x,h_{1,c}(y,z)) \\
+    h_{1,c}(x,1) & = & x \\
+    h_{1,c}(1,x) & = & x \\
+    h_{1,c}(x,x^{-1}) & = & 1 \\
+    h_{1,c}(x^{-1},x) & = & 1 \\
+    h_{1,c}(x,y) & = & h_{1,c}(y,x)\\
+    h_{2,c}(x,h_{1,c}(y,z)) & = & h_{1,c}(h_{2,c}(x,y),h_{2,c}(x,z))\\
+    h_{2,c}(h_{1,c}(x,y),z) & = & h_{1,c}(h_{2,c}(x,z),h_{2,c}(y,z))\\
+    h_{2,c}(x,x) & = & 1 \\
+    h_{1,c}(h_{1,c}(h_{2,c}(h_{2,c}(x,y),z),h_{2,c}(h_{2,c}(y,z),x)),h_{2,c}(h_{2,c}(z,x),y)) & = & 1 \\
+  \end{eqnarray*}
+  \end{small}
+\end{theorem}
+
+\begin{proof}
+  Let $S = \{x_1,x_2,x_3\}$ and use the setup of Section
+  \ref{sec:inverse-bch-origins}. $F$ is therefore a free nilpotent
+  group of class $c$ with freely generating set comprising $e^{x_1}$,
+  $e^{x_2}$, $e^{x_3}$. There is therefore a unique group homomorphism
+  from $F$ to $G$ sending $e^{x_1}$ to $x$, $e^{x_2}$ to $y$, and
+  $e^{x_3}$ to $z$. By Theorem \ref{thm:pi-powered-envelope} and the
+  fact that $G$ is rationally powered, this extends to a unique group
+  homomorphism from $\sqrt{F}$ to $G$. All the above identites hold
+  for $\sqrt{F}$ because of the Lie ring structure on $L$. The
+  identities are preserved under homomorphisms, therefore they also
+  hold in $G$ (the proof details are similar to those for Theorems
+  \ref{thm:bch-universal-validity-rationals} and
+  \ref{thm:bch-group-axiom-universal-validity}).
+\end{proof}
+
+\subsection{Universal validity of Lie ring axioms: the $\pi_c$-powered case}\label{sec:inverse-bch-pi-powered}
+
+Denote by $\pi_c$ the set of all primes less than or equal to
+$c$. Theorem 10.22 of Khukhro's book \cite{Khukhro} states that for
+any prime set $\sigma \supseteq \pi_c$, we have $\sqrt[\sigma]{F} =
+e^{\Z[\sigma^{-1}]L}$. In particular, this means that $\sqrt[\pi_c]{F} =
+e^{\Z[\pi_c^{-1}]L}$. Therefore, both the formulas $h_{1,c}$ and
+$h_{2,c}$ (which describe elements of $e^L$ and hence elements of
+$e^{\Z[\pi_c^{-1}]L}$) can be written using $p^{th}$ roots only for the
+primes $p$ that are in $\pi_c$.
+
+We will later see, in Lemma \ref{lemma:lie-bracket-denominators}, that
+a slightly stricter bound applies to $h_{2,c}$, though the bound here
+is tight for $h_{1,c}$. However, we do not need the stricter bound
+for our present purpose.
+
+Based on this, we can formulate a $\pi_c$-powered version of the preceding theorem.
+
+\begin{theorem}\label{thm:inverse-bch-lie-ring-axiom-universal-validity-pi-powered}
+  Suppose $G$ is a $\pi_c$-powered nilpotent group of nilpotency class
+  $c$. Then, the following are true for all $x,y,z \in G$:
+    
+  \begin{eqnarray*}
+    h_{1,c}(h_{1,c}(x,y),z) & = & h_{1,c}(x,h_{1,c}(y,z)) \\
+    h_{1,c}(x,1) & = & x \\
+    h_{1,c}(1,x) & = & x \\
+    h_{1,c}(x,x^{-1}) & = & 1 \\
+    h_{1,c}(x^{-1},x) & = & 1 \\
+    h_{1,c}(x,y) & = & h_{1,c}(y,x)\\
+    h_{2,c}(x,h_{1,c}(y,z)) & = & h_{1,c}(h_{2,c}(x,y),h_{2,c}(x,z))\\
+    h_{2,c}(h_{1,c}(x,y),z) & = & h_{1,c}(h_{2,c}(x,z),h_{2,c}(y,z))\\
+    h_{2,c}(x,x) & = & 1 \\
+    h_{1,c}(h_{1,c}(h_{2,c}(h_{2,c}(x,y),z),h_{2,c}(h_{2,c}(y,z),x)),h_{2,c}(h_{2,c}(z,x),y)) & = & 1 \\
+  \end{eqnarray*}
+\end{theorem}
+
+\begin{proof}
+  Let $S = \{x_1,x_2,x_3\}$ and use the setup of Section
+  \ref{sec:inverse-bch-origins}. $F$ is therefore a free nilpotent
+  group of class $c$ with freely generating set comprising $e^{x_1}$,
+  $e^{x_2}$, $e^{x_3}$. There is therefore a unique group homomorphism
+  from $F$ to $G$ sending $e^{x_1}$ to $x$, $e^{x_2}$ to $y$, and
+  $e^{x_3}$ to $z$. By Theorem \ref{thm:pi-powered-envelope} and the
+  fact that $G$ is $\pi_c$-powered, this extends to a unique group
+  homomorphism from $\sqrt[\pi_c]{F}$ to $G$. All the above identities
+  hold inside $\sqrt[\pi_c]{F}$, therefore, they also hold in $G$.
+\end{proof}
+
+%\newpage
+
+\section{The Malcev correspondence}\label{sec:malcev-correspondence}
+
+\subsection{The class $c$ Malcev correspondence}
+
+The class $c$ Malcev correspondence is a correspondence:
+
+Rationally powered nilpotent groups of nilpotency class at most $c$
+$\leftrightarrow$ Rationally powered nilpotent Lie rings of nilpotency
+class at most $c$ (i.e., nilpotent $\mathbb{Q}$-Lie algebras)
+
+The class $c$ Malcev correspondence has a number of features similar
+to the abelian Lie correspondence (described in Section
+\ref{sec:abelian-lie-correspondence}) and the Baer correspondence
+(described in Sections \ref{sec:baer-correspondence-basics} and
+\ref{sec:baer-correspondence-more}). To avoid repetition, we refer to
+relevant sections for the earlier correspondences where helpful.
+
+Given a rationally powered nilpotent Lie ring $L$ of nilpotency class
+at most $c$, the {\em Malcev Lie group} for $L$, denoted $\exp(L)$, is
+a rationally powered nilpotent group of nilpotency class at most $c$
+defined as follows:
+
+\begin{itemize}
+\item The underlying set of $\exp(L)$ is the same as the underlying set of
+  $L$.
+\item The group operation of $\exp(L)$ is defined as follows: $xy =
+  H_c(x,y)$ where $H_c$ is the class $c$ Baker-Campbell-Hausdorff
+  formula, and the operations in the formula are interpreted over $L$.
+\item The identity element $1 \in \exp(L)$ of the group is the same as the
+  zero element $0 \in L$.
+\item The inverse map is defined as $x^{-1} := -x$.
+\end{itemize}
+
+Conversely, given a rationally powered nilpotent group $G$ of
+nilpotency class at most $c$, the {\em Malcev Lie ring} for $G$,
+denoted $\log(G)$, is a rationally powered nilpotent Lie ring of
+nilpotency class at most $c$ defined as follows:
+
+\begin{itemize}
+\item The underlying set of $\log(G)$ is the same as the underlying
+  set of $G$.
+\item The Lie ring addition is defined using the first inverse
+  Baker-Campbell-Hausdorff formula in terms of the group
+  operations. Explicitly, we define $x + y := h_{1,c}(x,y)$, where
+  $h_{1,c}$ is the first inverse Baker-Campbell-Hausdorff formula for
+  class $c$, and the operations in the formula are interpreted over
+  $G$.
+\item The Lie bracket is defined using the second
+  inverse-Baker-Campbell-Hausdorff formula in terms of the group
+  operations. Explicitly, we define $[x,y] := h_{2,c}(x,y)$, where
+  $h_{2,c}$ is the inverse Baker-Campbell-Hausdorff formula for class
+  $c$, and the operations in the formula are interpreted over $G$.
+\item The zero element $0 \in \log(G)$ is defined to be the identity
+  element $1 \in G$.
+\item The negation map in $\log(G)$ is defined to be the same as the
+  inverse map in the group, i.e., $-x := x^{-1}$.
+\end{itemize}
+
+\subsection{Why the class $c$ Malcev correspondence works}
+
+The class $c$ Malcev correspondence works in the direction from Lie
+rings to groups due to Theorem
+\ref{thm:bch-group-axiom-universal-validity}. It works in the reverse
+direction due to Theorem
+\ref{thm:inverse-bch-lie-ring-axiom-universal-validity}. The fact that
+the two directions are inverses of each other (i.e., applying the
+correspondence in one direction and then in the other direction
+returns to the original object) also follows from the original setup
+of the formulas.
+
+\subsection{Description of the Malcev correspondence (combining all possibilities for nilpotency class)}
+
+The class $c$ Malcev correspondences for different values of $c$ are
+related in the following manner. Suppose $c_1 \le c_2$. Then, the
+class $c_1$ Malcev correspondence is a subcorrespondence of the class
+$c_2$ Malcev correspondence. Explicitly, this means that the
+subcategory (on the group side and the Lie ring side respectively) for
+the class $c_1$ Malcev correspondence is a full subcategory of the
+subcategory (on the group and the Lie ring side respectively) for the
+class $c_2$ Malcev correspondence. Further, the $\exp$ and $\log$
+functors for the class $c_1$ Malcev correspondence are obtained by
+restricting to that subcategory the $\exp$ and $\log$ functors for the
+class $c_2$ Malcev correspondence.
+
+Thus, as we increase the value of $c$, both sides of the
+correspondence become larger. We can thus consider a combined
+correspondence for all classes. This is the {\em Malcev
+  correspondence}. The Malcev correspondence is a correspondence:
+
+\begin{center}
+  Rationally powered nilpotent groups $\leftrightarrow$ Rationally
+  powered nilpotent Lie rings
+\end{center}
+\subsection{The Malcev correspondence as an isomorphism of categories over Set}
+
+We can use reasoning analogous to that used for the Baer
+correspondence in Section
+\ref{sec:baer-correspondence-homomorphism-preservation} to deduce that
+the Malcev correspondence defines an isomorphism of categories over
+the category of sets between the following two categories: the
+category of rationally powered nilpotent groups and the category of
+rationally powered nilpotent Lie rings. We can also deduce some
+immediate consequences similar to those deduced for the Baer
+correspondence in Section
+\ref{sec:baer-correspondence-isocat-consequences}.
+
+%\newpage
+
+\section{The global Lazard correspondence}\label{sec:global-lazard-correspondence}
+
+\subsection*{Remark about the ``global'' and ``3-local'' terminology}
+
+Although the terms ``Lazard Lie group'' and ``Lazard Lie ring'' are
+reasonably standard, the prefix adjectives ``global'' and ``3-local''
+are not standard. Some sources, such as Khukhro's book \cite{Khukhro},
+use the term ``Lazard correspondence'' only for the global Lazard
+correspondence, and do not describe the $3$-local Lazard
+correspondence. Others, including Lazard's original paper
+\cite{Lazardsoriginal}, describe the $3$-local Lazard correspondence.
+
+We will separate the two ideas because the statements and proofs are
+easier to understand in the global class case, and due to
+considerations of space and complexity, we provide complete proofs
+only for the global class case. We begin by understanding the global
+class case of the Lazard correspondence.
+
+\subsection{Definitions of global class Lazard Lie group and global class Lazard Lie ring}
+
+\begin{definer}[Global class $c$ Lazard Lie group]
+  Suppose $G$ is a nilpotent group and $c$ is a positive
+  integer. Denote by $\pi_c$ the set of all primes less than or equal
+  to $c$. We say that $G$ is a {\em global class $c$ Lazard Lie group}
+  if the following two conditions are satisfied:
+
+  \begin{itemize}
+  \item The nilpotency class of $G$ is at most equal to $c$.
+  \item $G$ is $\pi_c$-powered, i.e., $G$ is powered over all primes
+    less than or equal to $c$.
+  \end{itemize}
+
+  We say that $G$ is a global Lazard Lie group if $G$ is a global
+  class $c$ Lazard Lie group for some positive integer
+  $c$. Equivalently, $G$ is a global Lazard Lie group if it is powered
+  over all primes less than or equal to its nilpotency class.
+\end{definer}
+
+\begin{definer}[Global class $c$ Lazard Lie ring]
+  Suppose $L$ is a nilpotent Lie ring and $c$ is a positive
+  integer. Denote by $\pi_c$ the set of all primes less than or equal
+  to $c$. We say that $L$ is a {\em global class $c$ Lazard Lie ring}
+  if the following two conditions are satisfied:
+
+  \begin{enumerate}
+  \item The nilpotency class of $L$ is at most equal to $c$.
+  \item $L$ is $\pi_c$-powered, i.e., $L$ is powered over all primes
+    less than or equal to $c$.
+  \end{enumerate}
+
+  We say that $L$ is a global Lazard Lie ring if $L$ is a global class
+  $c$ Lazard Lie ring for some positive integer $c$. Equivalently, $L$
+  is a global Lazard Lie ring if $L$ is powered over all primes less
+  than or equal to its nilpotency class.
+\end{definer}
+
+\subsection{Possibilities for the set of values of $c$ for a global class $c$ Lazard Lie group}\label{sec:global-class-c-multiple-c-values}
+
+We re-examine the two conditions for a group $G$ to be a ``global
+class $c$ Lazard Lie group'':
+
+\begin{enumerate}
+\item The nilpotency class of $G$ is at most equal to $c$.
+\item $G$ is powered over all primes less than or equal to $c$.
+\end{enumerate}
+
+Condition (1) becomes weaker as we increase $c$. Condition (2), on the
+other hand, becomes {\em stronger} as we increase $c$. Overall,
+therefore, being a global class $c$ Lazard Lie group is neither
+stronger nor weaker than being a global class $(c + 1)$ Lazard Lie
+group.
+
+For instance, an abelian group with $2$-torsion is a global class $1$
+Lazard Lie group, but not a global class $2$ Lazard Lie group. On the
+other hand, a finite non-abelian $p$-group of class two for odd $p$
+(such as the unitriangular group $UT(3,p)$, which is a non-abelian
+group of order $p^3$ and exponent $p$) is a global class $2$ Lazard
+Lie group, but not a global class $1$ Lazard Lie group. Thus, neither
+condition implies the other.
+
+We now turn to what we {\em can} say about the set of possible values
+$c$ for which a given group is a global class $c$ Lazard Lie group.
+
+Suppose $G$ is a nilpotent group. Denote by $c_0$ the nilpotency class
+of $G$. Let $p_0$ be the smallest prime such that $G$ is {\em not}
+powered over $p_0$, if there exists such a prime ($G$ is rationally
+powered if and only if no such $p_0$ exists). There are four
+possibilities:
+
+\begin{itemize}
+\item $c_0 \ge p_0$: In this case, $G$ is {\em not} a global class $c$
+  Lazard Lie group for any value of $c$.
+\item $c_0 = p_0 - 1$: In this case, $G$ is a global class $c_0$
+  Lazard Lie group, but is not a global class $c$ Lazard Lie group for
+  any other value of $c$.
+\item $c_0 < p_0 - 1$: In this case, $G$ is a global class $c$ Lazard
+  Lie group for all $c$ satisfying $c_0 \le c \le p_0 - 1$.
+\item $G$ is rationally powered: In this case, $G$ is a global class
+  $c$ Lazard Lie group for all $c$ satisfying $c_0 \le c$.
+\end{itemize}
+
+The upshot is that the set of values $c$ for which $G$ is a global
+class $c$ Lazard Lie group is either empty or a single value or a
+contiguous (possibly finite and possibly infinite) subsegment of the
+nonnegative integers.
+
+Analogous remarks apply for the case of nilpotent Lie rings.
+
+\subsection{The global class $c$ Lazard correspondence}
+
+The global class $c$ Lazard correspondence is a correspondence:
+
+\begin{center}
+  Global class $c$ Lazard Lie groups $\leftrightarrow$ Global class $c$
+  Lazard Lie rings
+\end{center}
+The global class $c$ Lazard correspondence operates in a manner quite
+similar to the class $c$ Malcev correspondence. We describe it
+explicitly below.
+
+Given a global class $c$ Lazard Lie ring $L$, the corresponding global
+class $c$ Lazard Lie ring $\exp(L)$ is defined as follows:
+
+\begin{itemize}
+\item The underlying set of $\exp(L)$ is the same as the underlying set of
+  $L$.
+\item The group operation of $\exp(L)$ is defined as follows: $xy =
+  H_c(x,y)$ where $H_c$ is the class $c$ Baker-Campbell-Hausdorff
+  formula, and the Lie brackets in the formula are interpreted as Lie
+  brackets in $L$. The reason this makes sense is that we have assumed
+  that $L$ powered over all primes less than or equal to $c$, and by
+  Lemma \ref{lemma:bch-primes-in-denominators}, these are the only
+  primes that appear as divisors of the denominators in $H_c(x,y)$.
+\item The identity element $1 \in \exp(L)$ of the group is the same as the
+  zero element $0 \in L$.
+\item The inverse map is defined as $x^{-1} := -x$.
+\end{itemize}
+
+In the reverse direction, given a global class $c$ Lazard Lie group
+$G$ of nilpotency class $c$, the {\em Lazard Lie ring} for $G$ is a
+rationally powered nilpotent Lie ring $\log(G)$ of nilpotency class $c$
+defined as follows:
+
+\begin{itemize}
+\item The underlying set of $\log(G)$ is the same as the underlying set of
+  $G$.
+\item The Lie ring addition is defined using the first inverse
+  Baker-Campbell-Hausdorff formula $h_{1,c}$ in terms of the group
+  operations. Note that, as explained in Section
+  \ref{sec:inverse-bch-pi-powered}, the formula for $h_{1,c}$ makes
+  sense in a $\pi_c$-powered nilpotent group of nilpotency class at most
+  $c$.
+\item The Lie bracket is defined using the second
+  inverse-Baker-Campbell-Hausdorff formula in terms of the group
+  operations. Note that, as explained in Section
+  \ref{sec:inverse-bch-pi-powered}, the formula for $h_{2,c}$ makes
+  sense in a $\pi_c$-powered nilpotent group of nilpotency class at most
+  $c$.
+\item The zero element of $\log(G)$ is defined to be the identity
+  element of $G$.
+\item The negation map in the Lie ring is defined to be the same as
+  the inverse map in the group, i.e., $-x := x^{-1}$.
+\end{itemize}
+
+The forward direction (from Lie rings to groups) works because of
+Theorem \ref{thm:bch-group-axiom-universal-validity-pi-powered}. The
+reverse direction works due to Theorem
+\ref{thm:inverse-bch-lie-ring-axiom-universal-validity-pi-powered}. The
+directions are reverses of each other due to the formal properties of
+the formulas.
+
+\subsection{The global class one Lazard correspondence is the abelian Lie correspondence}
+
+The global class one Lazard correspondence is the abelian Lie
+correspondence described in Section
+\ref{sec:abelian-lie-correspondence}:
+
+\begin{center}
+  Abelian groups $\leftrightarrow$ Abelian Lie rings
+\end{center}
+\subsection{The global class two Lazard correspondence is the Baer correspondence}
+
+Recall the definition of Baer Lie group from Section
+\ref{sec:baer-lie-definitions}: a $2$-powered group of nilpotency
+class at most two. This agrees with the definition of a global class
+$2$ Lazard Lie group. Similarly, the definition of Baer Lie ring in
+Section \ref{sec:baer-lie-definitions} agrees with the definition of a
+global class $2$ Lazard Lie ring.
+
+The class two Baker-Campbell-Hausdorff formula, stated in Section
+\ref{sec:bch-homogeneous-terms} and worked out in the Appendix,
+Section \ref{appsec:bch-class-two}, is:
+
+$$H_2(x,y) = x + y + \frac{1}{2}[x,y]$$
+
+This is precisely the same as the formula in the direction from Lie
+rings to groups in the Baer correspondence. Similarly, the class two
+inverse Baker-Campbell-Hausdorff formulas are:
+
+$$x + y = \frac{xy}{\sqrt{[x,y]}}$$
+
+$$[x,y]_{\text{Lie}} = [x,y]_{\text{Group}}$$
+
+These are precisely the same as the formulas in the direction from
+groups to Lie rings in the Baer correspondence.
+
+Thus, the Baer correspondence is the same as the global class two
+Lazard correspondence.
+
+\subsection{Interaction of global Lazard correspondences for different classes}
+
+In Section \ref{sec:global-class-c-multiple-c-values}, we noted that a
+given global Lazard Lie group may be a global class $c$ Lazard Lie
+group for multiple values of $c$. The analogous observation applies to
+Lie rings. This leads to potential for ambiguity regarding which
+global class $c$ Lazard correspondence we are referring to.
+
+It turns out that the global class $c$ Lazard correspondences for
+different values of $c$ agree with each other wherever both are
+applicable. Explicitly, the following are true:
+
+\begin{itemize}
+\item Suppose $G$ is a group of nilpotency class exactly $c_0$, and
+  $p_0$ is the smallest prime for which $G$ is not powered (see below
+  for the case that $G$ is rationally powered). Suppose that $c_0 \le
+  p_0 - 1$. Then, for each $c$ satisfying $c_0 \le c \le p_0 - 1$, $G$
+  is a global class $c$ Lazard Lie group. Therefore, for each such
+  $c$, we can consider a definition of $\log(G)$ based on the global
+  class $c$ Lazard correspondence. All these definitions coincide.
+
+  In the case that $G$ is rationally powered and has class exactly
+  $c_0$, we can consider a definition of $\log(G)$ based on the global
+  class $c$ Lazard correspondence for all $c \ge c_0$. All the
+  definitions coincide.
+\item Suppose $L$ is a Lie ring of nilpotency class exactly $c_0$, and
+  $p_0$ is the smallest prime for which $L$ is not powered (see below
+  for the case that $L$ is rationally powered). Suppose that $c_0 \le
+  p_0 - 1$. Then, for each $c$ satisfying $c_0 \le c \le p_0 - 1$, $L$
+  is a global class $c$ Lazard Lie ring. Therefore, for each such $c$,
+  we can consider a definition of $\exp(L)$ based on the global class
+  $c$ Lazard correspondence. All these definitions coincide.
+
+  In the case that $L$ is rationally powered and has class exactly
+  $c_0$, we can consider a definition of $\exp(L)$ based on the global
+  class $c$ Lazard correspondence for all $c \ge c_0$. All the
+  definitions coincide.
+\end{itemize}
+
+Thus, we can define the global Lazard correspondence as the union of
+all the global class $c$ Lazard correspondences. We now make a brief
+philosophical remark regarding why this behaves a little worse than
+the correspondences discussed earlier.
+
+An observation people make early on in their study of algebraic
+structures is that whereas intersections behave nicely with respect to
+presrving closure and important structural attributes, unions rarely
+do. For instance, an intersection of subgroups is a subgroup, but a
+union of two subgroups is not a subgroup unless one of them contains
+the other. In general, unions are not guaranteed to preserve closure
+except in situations where they are unions of ascending chains or of
+directed sets.
+
+We encounter a similar type of problem dealing with the global Lazard
+correspondence, albeit the problem is now at a higher level of
+abstraction. Each of the individual global class $c$ Lazard
+correspondences behaves very nicely, just as the Baer correspondence
+and the abelian Lie correspondence do. However, when we combine the
+correspondences, we are dealing with heterogeneous types of objects,
+and we need to be more careful. In particular, the combined
+correspondence does not behave well with respect to direct
+products. Also, it does not behave well with respect to the relation
+between subgroups and quotient groups: the normal subgroups that are
+in the category are not the same as the normal subgroups for which the
+quotient groups are in the category. We will return to these in more
+detail in Section \ref{sec:global-lazard-correspondence-sub-quot-dp}.
+
+\subsection{Isomorphism of categories}
+
+We follow here the general template outlined in Section
+\ref{sec:isocat-template}.
+
+Each global class $c$ Lazard correspondence defines an isomorphism of
+categories over the category of sets\footnote{This means that the
+  functors in both directions preserve the underlying set.} between the
+full subcategory of the category of groups comprising the global
+class $c$ Lazard Lie groups and the full subcategory of the category
+of Lie rings comprising the global class $c$ Lazard Lie rings. The
+functor from Lie rings to groups is the $\exp$ functor and the
+functor from groups to Lie rings is the $\log$ functor.
+
+The global Lazard correspondence can be viewed as an isomorphism of
+categories over the category of sets between the full subcategory of
+the category of groups comprising all the global Lazard Lie groups,
+and the full subcategory of the category of Lie rings comprising all
+the global Lazard Lie rings.
+
+The set of objects involved in the global Lazard correspondence is the
+union of the sets of objects involved in each of the global class $c$
+Lazard correspondences. The set of morphisms, however, is strictly
+larger, because the new correspondence includes morphisms between
+global class $c$ Lazard Lie groups for different values of $c$. For
+instance, an inclusion of $\Z$ in $UT(3,\Q)$ is a morphism in the
+category on the group side, because $\Z$ is a global class $1$ Lazard
+Lie group and $UT(3,\Q)$ is a global class $2$ Lazard Lie group.
+
+We can deduce a number of immediate consequences of the isomorphism of
+categories similar to those in Section
+\ref{sec:baer-correspondence-isocat-consequences}.
+
+\subsection{Subgroups, quotients, and direct products}\label{sec:global-lazard-correspondence-sub-quot-dp}
+
+We describe how subgroups, quotient groups, and direct products
+interact with the global class $c$ Lazard correspondence.
+
+\subsubsection{Subgroups}\label{sec:global-lazard-correspondence-subgroups}
+
+Suppose $G$ is a global class $c$ Lazard Lie group and $L = \log(G)$
+is the corresponding global class $c$ Lazard Lie ring. Then, the
+global class $c$ Lazard correspondence gives a bijective
+correspondence:
+
+\begin{center}
+  Global class $c$ Lazard Lie subgroups of $G$ $\leftrightarrow$
+  Global class $c$ Lazard Lie subrings of $L$
+\end{center}
+
+The global Lazard correspondence gives a bijective correspondence:
+
+\begin{center}
+  Global Lazard Lie subgroups of $G$ $\leftrightarrow$
+  Global Lazard Lie subrings of $L$
+\end{center}
+
+The latter correspondence is somewhat more general than the former,
+because it includes subgroups (respectively, subrings) that are global
+Lazard Lie groups (respectively, global Lazard Lie rings) for smaller
+nilpotency class values. In particular, it includes all abelian
+subgroups and abelian subrings, as well as all Baer Lie subgroups and
+Baer Lie subrings. These may not qualify for the earlier
+correspondence because they may not be powered over {\em all} the
+primes less than or equal to $c$. For instance, any copy of $\Z$
+inside $UT(3,\Q)$ is part of the latter correspondence but not the
+former.
+
+\subsubsection{Quotient groups}\label{sec:global-lazard-correspondence-quot}
+
+Suppose $G$ is a global class $c$ Lazard Lie group and $L = \log(G)$
+is the corresponding global class $c$ Lazard Lie ring. We have a
+correspondence:
+
+\begin{center}
+  Global class $c$ Lazard Lie groups that are quotient groups of $G$
+  $\leftrightarrow$ Global class $c$ Lazard Lie rings that are
+  quotient Lie rings of $L$
+\end{center}
+
+We also obtain correspondences between the corresponding kernels:
+
+\begin{center}
+  Global class $c$ Lazard Lie groups that are normal subgroups of $G$
+  $\leftrightarrow$ Global class $c$ Lazard Lie rings that are ideals
+  of $L$
+\end{center}
+
+Note that the equivalence relies on Theorem \ref{thm:two-out-of-three}
+and Lemma \ref{lemma:two-out-of-three-lie}. These show that in a
+$\pi_c$-powered nilpotent group (respectively, $\pi_c$-powered
+nilpotent Lie ring) a normal subgroup (respectively, ideal) is
+$\pi_c$-powered if and only if the quotient group (respectively,
+quotient Lie ring) is $\pi_c$-powered. Here, we take $\pi_c$ to be the
+set of all primes less than or equal to $c$.
+
+We also have a correspondence:
+
+\begin{center}
+  Global Lazard Lie groups that are quotient groups of $G$
+  $\leftrightarrow$ Global Lazard Lie rings that are quotient Lie
+  rings of $L$
+\end{center}
+
+This gives rise to another correspondence:
+
+\begin{center}
+  Normal subgroups of $G$ for which the quotient group is a global
+  Lazard Lie group $\leftrightarrow$ Ideals of $L$ for which the
+  quotient Lie ring is a global Lazard Lie ring
+\end{center}
+
+Note, however, that these normal subgroups are {\em not necessarily
+  the same as} the normal subgroups that are also global Lazard Lie
+groups. For instance, consider the global class two Lazard Lie group
+(i.e., the Baer Lie group) $G = UT(3,\Q)$. A subgroup $H$ isomorphic
+to $\Z$ inside the center of $G$ is a normal subgroup that is a global
+class one Lazard Lie group. However, $G/H$ is not a global Lazard Lie
+group, because it has class two but has $2$-torsion in the center. On
+the other hand, consider the subgroup $K$ of $G$ such that $K/Z(G)$ is
+isomorphic to $\Z \times \Z$ inside $G/Z(G) \cong \Q \times \Q$. $K$
+is a normal subgroup that is not a global Lazard Lie group, but the
+quotient group $G/K$ is a global Lazard Lie group.
+
+\subsubsection{Direct products}
+
+Suppose $G_i, i \in I$, are all global class $c$ Lazard Lie groups for
+the same value of $c$. Then, the external direct product $\prod_{i \in
+  I} G_i$ is also a global class $c$ Lazard Lie group. Moreover,
+$\log(\prod_{i \in I} G_i) = \prod_{i \in I} \log(G_i)$.
+
+On the other hand, it may happen that $G_1$ is a global class $c_1$
+Lazard Lie group, $G_2$ is a global class $c_2$ Lazard Lie group, and
+the direct product $G_1 \times G_2$ is not a global class $c$ Lazard
+Lie group for any value of $c$. For instance, this happens if $G_1 =
+\Z/2\Z$ (with $c_1 = 1$) and $G_2 = UT(3,\Q)$ (with $c_2 = 2$).
+
+\subsection{Inner derivations and inner automorphisms}\label{sec:lazard-adjoint}
+
+Suppose $G$ is a global class $c$ Lazard Lie group and $L$ is the
+corresponding global class $c$ Lazard Lie ring. The group $G/Z(G)
+\cong \operatorname{Inn}(G)$ is in global class $c - 1$ Lazard
+correspondence with the Lie ring $L/Z(L) \cong
+\operatorname{Inn}(L)$. In particular, $G/Z(G)$ and $L/Z(L)$ have the
+same underlying set.
+
+For any $x$ in the common underlying set of $G$ and $L$, denote by
+$\overline{x}$ its image in the common underlying set of $G/Z(G)$ and
+$L/Z(L)$. We have two set maps of interest from $L$ to itself induced
+by $x$:
+
+\begin{itemize}
+\item The automorphism of $L$ arising from the inner automorphism of
+  $G$ given by conjugation by $x$, i.e., the map $g \mapsto
+  xgx^{-1}$. We denote this as $\operatorname{Ad}_x$.
+\item The inner derivation of $L$ given as $g \mapsto [x,g]$. We
+  denote this as $\operatorname{ad}_x$.
+\end{itemize}
+
+We then have the relationship:
+
+$$\operatorname{Ad}_x = \exp(\operatorname{ad}_x)$$
+
+where the exponentiation occurs inside the ring
+$\operatorname{End}_\Z(L)$ of the additive group of $L$.
+
+Deducing the result would require us to return to the free group
+scenario, obtain the result in that scenario where the group and Lie
+ring are both subsets in an associative ring, and then apply
+homomorphisms. We are not using this result for our main proofs, so we
+skip the proof. Interested readers may look at Lemma 3.3 of
+George Glauberman's paper \cite{Partialextensions}.
+
+This relationship continues to be valid in the general case (the
+$3$-local case) that we discuss in the next section.
+
+\subsection{The case of adjoint groups}\label{sec:adjoint-lazard}
+
+In Section \ref{sec:adjoint-exp-log}, we introduced the general idea
+of the adjoint group of a radical ring. Suppose $N$ is a nilpotent
+associative ring of nilpotency class $c$ (this means that any product
+of length $c + 1$ or more is zero) and $1 + N$ is the corresponding
+adjoint group. We can view $N$ as a Lie ring by using the same
+additive structure and defining:
+
+$$[x,y] := xy - yx$$
+
+$N$ as a Lie ring also has nilpotency class at most $c$ (although the
+nilpotency class as a Lie ring could be smaller). The following turn
+out to be true.
+
+\begin{itemize}
+\item The adjoint group $1 + N$ is a nilpotent group of nilpotency
+  class at most $c$. Note that this is true regardless of whether $N$
+  is powered over any primes.
+\item Suppose the additive group of $N$ is powered over the set
+  $\pi_c$ of all primes less than or equal to $c$. Then, the Lie ring
+  $N$ and the group $1 + N$ are in global class $c$ Lazard
+  correspondence {\em up to isomorphism}. Moreover, the isomorphism is
+  given by the set maps $\exp:N \to 1 + N$ and $\log: 1 + N \to N$
+  described in Section \ref{sec:adjoint-exp-log} (specifically, see
+  Section \ref{sec:truncated-exponentials}). This follows quite
+  directly from the analytical framework described in Section
+  \ref{sec:adjoint-exp-log}.
+\end{itemize}
+
+\subsection{The case of the niltriangular matrix Lie ring and the unitriangular matrix group}\label{sec:unitriangular-lazard}
+%%TONOTDO: Have a section before this describing the adjoint group in general
+The material discussed here builds on Section
+\ref{sec:unitriangular-lie-correspondence} in the introduction.
+
+Suppose $R$ is a commutative associative unital ring and $n$ is a
+positive integer. We define $UT(n,R)$ as the group of $n \times n$
+upper triangular matrices with $1$s on the diagonal, with the group
+operation being the usual matrix multiplication. we define $NT(n,R)$
+as the Lie ring of $n \times n$ strictly upper triangular matrices,
+with the Lie bracket defined as $[x,y] = xy - yx$ where the
+multiplication here is matrix multiplication. We had considered groups
+of the form $UT(n,R)$ and $NT(n,R)$ (in the case $n = 3$) when
+describing counterexamples to naively plausible statements about
+powering and divisibility in Sections \ref{sec:group-ctex} and
+\ref{sec:lie-ring-ctex}.
+
+The following turn out to be true for any positive integer $c$. Denote
+by $\pi_c$ the set of all primes less than or equal to $c$.
+
+\begin{enumerate}
+\item The group $UT(c+1,R)$ is a group of nilpotency class $c$ and the
+  Lie ring $NT(c+1,R)$ is a Lie ring of nilpotency class $c$.
+\item The group $UT(c+1,R)$ is the adjoint group to the radical ring
+  $NT(c+1,R)$, based on the definitions in Section
+  \ref{sec:adjoint-exp-log}.
+\item If the additive group of $R$ is $\pi_c$-powered, the additive
+  group of $NT(c+1,R)$ is also $\pi_c$-powered, and the group
+  $UT(c+1,R)$ is also $\pi_c$-powered. This follows from (2) and the
+  discussion in Section \ref{sec:adjoint-lazard}.
+\item If the equivalent conditions for (3) hold, then the group
+  $UT(c+1,R)$ is in global class $c$ Lazard correspondence {\em up to
+  isomorphism} with $NT(c+1,R)$. The logarithm and exponential maps
+  used to describe the bijection of sets are the usual matrix
+  logarithm and exponential maps. This follows by combining (2) and
+  the discussion in Section \ref{sec:adjoint-lazard}.
+\end{enumerate}
+
+Particular cases of interest for the above scenario are:
+
+\begin{itemize}
+\item $R$ is a field of characteristic zero. Note that in this case,
+  we get an instance of the class $c$ Malcev correspondence.
+\item $R$ is a field of characteristic $p$, where $p > c$.
+\item $R$ is a local ring of characteristic $p^k$, where $p$ is the
+  underlying prime and $p > c$. For instance, the case $c = 2$ and $R
+  = \Z/9\Z$.
+\end{itemize}
+
+%\newpage
+
+\section{The general definition of the Lazard correspondence: $3$-local case}\label{sec:lazard-correspondence}
+
+\subsection{Definition of local nilpotency class}\label{sec:local-nilpotency-class-def}
+
+This is the general version of the Lazard correspondence.
+
+\begin{definer}[$k$-local nilpotency class]
+  Suppose $G$ is a group and $k$ is a positive integer (we are
+  generally interested in $k \ge 2$). The {\em $k$-local nilpotency
+    class} of $G$ is the supremum over all subgroups $H$ of $G$ with
+  generating set of size at most $k$ of the nilpotency class of
+  $H$. Note that if any subgroup of $G$ with generating set of size at
+  most $k$ is non-nilpotent, {\em or} if there is no common finite
+  upper bound on the nilpotency classes of all such subgroups, then
+  the $k$-local nilpotency class is $\infty$.
+
+  We say that $G$ is a group of $k$-local nilpotency class (at most)
+  $c$ if the $k$-local nilpotency class of $G$ is finite and less than
+  or equal to $c$.
+\end{definer}
+
+\begin{definer}[$k$-local nilpotency class of a Lie ring]
+  Suppose $L$ is a Lie ring and $k$ is a positive integer (we are
+  generally interested in $k \ge 2$). The {\em $k$-local nilpotency
+    class} of $L$ is the supremum over all Lie subrings $M$ of $L$ with
+  generating set of size at most $k$ of the nilpotency class of
+  $M$. Note that if any Lie subring of $L$ with generating set of size at
+  most $k$ is non-nilpotent, {\em or} if there is no common finite
+  upper bound on the nilpotency classes of all such subgroups, then
+  the $k$-local nilpotency class is $\infty$.
+
+  We say that $L$ is a Lie ring of $k$-local nilpotency class (at most)
+  $c$ if the $k$-local nilpotency class of $L$ is finite and less than
+  or equal to $c$.
+\end{definer}
+
+\subsection{Definition of Lazard Lie group and Lazard Lie ring, and the correspondence}
+
+We can now define Lazard Lie group and Lazard Lie ring.
+
+\begin{definer}[Lazard Lie group]
+  Suppose $G$ is a group and $c$ is a positive integer. $G$ is termed
+  a {\em class $c$ Lazard Lie group} if {\em both} the following
+  conditions are satisfied:
+
+  \begin{enumerate}
+  \item The $3$-local nilpotency class of $G$ is at most $c$.
+  \item $G$ is powered over all primes less than or equal to $c$.
+  \end{enumerate}
+\end{definer}
+
+\begin{definer}[Lazard Lie ring]
+  Suppose $L$ is a Lie ring and $c$ is a positive integer. $L$ is
+  termed a {\em class $c$ Lazard Lie ring} if {\em both} the
+  following conditions are satisfied:
+
+  \begin{enumerate}
+  \item The $3$-local nilpotency class of $L$ is at most $c$.
+  \item $L$ is powered over all primes less than or equal to $c$.
+  \end{enumerate}
+\end{definer}
+
+The ($3$-local) class $c$ Lazard correspondence is a correspondence:
+
+\begin{center}
+  ($3$-local) class $c$ Lazard Lie groups $\leftrightarrow$
+  ($3$-local) class $c$ Lazard Lie rings
+\end{center}
+
+Note that the ``($3$-local)'' qualifier may be specified on occasions
+where there is potential for confusion with the global class $c$
+Lazard correspondence. However, by default, in this section and later,
+if we just say {\em class $c$ Lazard} (followed by any of the terms
+{\em correspondence}, {\em Lie group}, and {\em Lie ring}), we are
+  referring to the $3$-local case.
+
+This correspondence works in a manner analogous to the global class $c$ Lazard
+correspondence, and the remarks made in the preceding section (Section
+\ref{sec:global-lazard-correspondence}) about the global Lazard
+correspondence apply to the ($3$-local) Lazard correspondence. For
+brevity, we will not repeat the observations.
+
+Note that the {\em formulas} use only $2$ elements at a time. So one
+might naively expect that a ``$2$-local'' condition would
+suffice. However, the associativity condition for groups, and
+correspondingly, many of the Lie ring identities (associativity of
+addition, distributivity, and the Jacobi identity), reference three
+arbitrary elements at a time. This is why we need to impose the
+``$3$-local'' condition. With this caveat, the reasoning is similar to
+that for the global class $c$ Lazard correspondence. All the other
+remarks made in the previous section also apply. We had touched on the
+significance of the numbers $2$ and $3$ in an introductory section
+(Section \ref{sec:globally-and-locally-nilpotent}) and we are now
+making use of the observations made at the time.
+
+\subsection{Divergence between the $3$-local and global class cases}
+
+For $c = 1,2,3$, the global class $c$ Lazard correspondence coincides
+with the class $c$ Lazard correspondence. The cases $c = 1$ and $c =
+2$ are obvious: if every $3$-generated subgroup (respectively Lie
+subring) is abelian, the whole group (respectively, Lie ring) is
+abelian. Similarly, if every $3$-generated subgroup (respectively Lie
+subring) has class at most two, the whole group (respectively, Lie
+ring) has class at most two. This is because the class two condition
+involves checking the triviality of $[[x,y],z]$, and this expression
+uses only three elements. The case $c = 3$ is more interesting,
+because it is not immediate. However, providing details of this case
+would distract us from our main goal, so we omit it. The case of $c =
+3$ for Lie rings is discussed in the Appendix,
+Section \ref{appsec:3-local-class-three-implies-global-class-three}.
+
+The global class $c$ Lazard correspondence becomes strictly weaker
+than the class $c$ Lazard correspondence for $c \ge 4$, as
+demonstrated by Lazard in \cite{Lazardsoriginal}. For more about the
+relationship between local and global nilpotency, see the literature
+on Engel conditions and local nilpotency. In particular, the paper
+\cite{Pilgrim} by Pilgrim and the paper \cite{Plotkin} by Plotkin
+provide a summary of the known results relating local and global
+nilpotency.
+
+\subsection{The $p$-group case of the Lazard correspondence}
+
+Recall that a $p$-group is a group in which the order of every element is
+a power of $p$. We use the term {\em $p$-Lie ring} for a Lie ring
+whose additive group is a $p$-group.
+
+The {\em global} Lazard correspondence is a correspondence:
+
+$p$-groups of nilpotency class at most $p - 1$ $\leftrightarrow$
+$p$-Lie rings of nilpotency class at most $p - 1$
+
+The Lazard correspondence (including the $3$-local case) is a
+correspondence:
+
+$p$-groups of $3$-local nilpotency class at most $p - 1$
+$\leftrightarrow$ $p$-Lie rings of $3$-local nilpotency class at most
+$p - 1$.

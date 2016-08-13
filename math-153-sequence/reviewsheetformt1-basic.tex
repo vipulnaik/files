@@ -1,0 +1,514 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Review sheet for midterm 1: basic}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf To maximize efficiency, please bring a copy (print or readable
+electronic) of this review sheet, the advanced review sheet, AND the
+integration worksheet to the review session.}
+
+This is the {\bf basic} part of the review sheet and you are expected
+to go through it by yourself. There is a separate {\bf advanced} part of
+the review sheet that contains error-spotting exercises that we'll be
+doing in the review session.
+
+The document is arranged as follows. The initial sections/subsections
+correspond to topics. Each subsection has two sets of points,
+``Words'' which includes basic theory and definitions, and ``Actions''
+which provides information on strategies for specific problem
+types. In some cases, there are additional points. The lists of points
+are largely the same as the executive summaries at the beginning of
+the lecture notes. Sometimes, I missed out some points in the original
+executive summaries and have added them, clearly indicating that the
+point has been added.
+
+There may be parts of the lectures that are not mentioned in this
+review sheet. Sometimes, these are the parts of lectures that were
+optional and were included for ``fun'' purposes, such as an
+explanation of present value, the separation of secular trends from
+seasonal trends, etc. The review sheet is an attempt to strike a
+balance between brevity and relevance on the one hand and
+comprehensiveness on the other. If you're keen on more, go back to the
+lecture notes. If you're keen on less, be selective in what you read.
+
+To maximize efficiency in the review session, here is what I
+suggest. Go through all the lists of points. For each point, make sure
+you understand it by jotting down a relevant example or illustration
+or providing a brief justification. If you have difficulty, go back to
+the lecture notes and read them in detail. You might also want to look
+at more worked examples in the book, and check out homework and quiz
+problems.
+
+We will not go over this review sheet in the review session unless you
+have specific questions. Instead, we will concentrate on the advanced
+part and also do a lot of integration practice.
+
+\section{Exponential growth and decay}
+
+\subsection{Basics of exponential growth and decay}
+
+Words ...
+
+\begin{enumerate}
+\item A function $f$ is said to have exponential growth if $f'(t) =
+  kf(t)$ for all $t$. Such a function must be of the form $f(t) :=
+  Ce^{kt}$. Here, $C = f(0)$, and can be thought of as the initial
+  value. $k$ is a parameter controlling the {\em rate of growth}. When
+  $k > 0$, we have growth, and when $k < 0$, we have {\em decay}. When
+  $k = 0$, there's no growth or decay.
+\item For a function with exponential growth and growth rate $k$, the
+  time taken for the function value to multiply by a number $q > 0$
+  depends only on $q$ and $k$. Specifically, the time interval is
+  $(\ln q)/k$. In particular, for growth, the doubling time is $(\ln
+  2)/k$. Note that if $\ln q$ and $k$ have opposite signs, the time
+  taken is negative -- which means that we need to go {\em back} in
+  time to multiply by a factor of $q$.
+\item If a function takes a time interval $t_{d1}$ to multiply by a
+  factor of $q_1$ and a time interval $t_{d2}$ to multiply by a factor
+  of $q_2$, we have the relation: $\ln(q_1)/t_{d1} =
+  \ln(q_2)/t_{d2}$. Thus, given three of these quantities, we can
+  calculate the fourth.
+\item Exponential functions grow faster than all positive power
+  functions (and hence all polynomial functions) while logarithmic
+  functions grow slower than all positive power functions.
+\item Exponential functions {\em decay} slower than linear functions.
+\item {\em Added}: The graph of the logarithm of a function $Ce^{kt}$
+  is $kt + \ln C$. In particular, it is a straight line with slope $k$
+  and intercept $\ln C$. In particular, the fact that describing an
+  exponential growth function requires two parameters or two
+  observation points is equivalent to the fact that you need two
+  pieces of information to describe a straight line, or that given any
+  two points, there is a unique straight line joining them.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item Suppose we know that $f$ is a function of the form $f(t) :=
+  Ce^{kt}$, but we do not know the values of the constants $C$ and
+  $k$. One way of determining these values is to determine the value
+  of $f$ and $f'$ at some point $t_0$. We can then get $k$ as
+  $f'(t_0)/f(t_0)$ and then solve to get $C = f(t_0)/e^{kt_0}$. This
+  type of specification is termed an {\em initial value specification}
+  and a problem with such a specification is termed an {\em initial
+  value problem}.
+\item Another way we can determine $C$ and $k$ is if we are given the
+  value of $f$ at two points $t_1$ and $t_2$. In this case, we solve
+  to obtain that $k = \frac{1}{t_2 - t_1} \ln[f(t_2)/f(t_1)]$, and we
+  can plug back to get $C = f(t_1)/e^{kt_1}$. Note that this is a
+  reformulation of the formula that the time taken to multiply by a
+  factor of $q$ is $(\ln(q))/k$. This kind of specification is
+  somewhat related to the notion of {\em boundary value
+  specification}.
+\item But in many real-world situations, we do not need to actually
+  determine the constants $C$ and $k$. Rather, we use the fact that
+  $\ln(q_1)/t_{d1} =\ln(q_2)/t_{d2}$ to compare the rates of growth in
+  two intervals.
+\item Even nicer, in many cases, we do not need to know the actual
+  values of $\ln(q_1)$ and $\ln(q_2)$, because the only thing that
+  matters is their {\em quotient} $\ln(q_2)/\ln(q_1)$, which can also
+  be viewed as the relative logarithm $\log_{q_1}(q_2)$. Thus, for
+  instance, if $q_2$ is a rational power of $q_1$, we know the
+  quotient precisely even though we may not know $\ln(q_1)$ and
+  $\ln(q_2)$. For instance, $\ln(8)/\ln(4) = 3/2$.
+\item {\em Added}: To check whether a function has exponential growth,
+  we can plot the graph of its logarithm, and check whether that is a
+  straight line. Plotting just two points gives us no evidence either
+  way, though it is sufficient for finding the values of $k$ and $C$
+  {\em assuming} that growth is exponential. Plotting three or more
+  points and finding them to be collinear provides affirmative
+  evidence.
+\end{enumerate}
+
+\subsection{Compound interest}
+
+\begin{enumerate}
+\item Compound interest: This is written as $A(t) = A_0 e^{rt}$ where
+  $r$ is the {\em continuously compounded interest rate}, $A_0$ is the
+  initial principal or initial amount, and $A(t)$ is the amount at
+  time $t$. The corresponding differential equation is $A'(t) =
+  rA(t)$. Continuously compounded interest differs from simple interest,
+  where $A(t) = A_0(1 + rt)$ and from discretely compounded interest,
+  where the interest earned is added to the principal at periodic
+  intervals.
+\item The time taken for the amount to double under continuously
+  compounded interest with rate $r$ is $(\ln 2)/r$, which is
+  approximately $0.7/r$. When $r$ is expressed as a percentage, we
+  need to divide $70$ by that percentage to get the doubling
+  time. (Times here are typically measured in years). This is called
+  the {\em rule of 70}. {\em Note}: The rule of 70 also applies to
+  discretely compounded interest rates when $r$ is very small, but
+  that is a topic for next quarter.
+\end{enumerate}
+
+\subsection{Radioactive decay}
+
+\begin{enumerate}
+\item A radioactive material undergoes {\em decay}, i.e., its quantity
+  goes {\em down} with time. The constant $k$ in the expression
+  $Ce^{kt}$ is thus a negative number.
+\item The fraction that remains is $1$ minus the fraction that
+  decays. Thus, if $1/3$ of the material decays, then the relevant $q$
+  to plug into formulas is $q = 2/3$, {\em not} $1/3$.
+\item The rate of decay of radioactive materials is typically measured
+  by their half-life, which is the time taken for half the material to
+  decay and half to remain. ($1/2$ is the only number that is equal to
+  $1$ minus itself). We have the formula $k = (-\ln
+  2)/\text{half-life}$.
+\end{enumerate}
+
+\section{Inverse trigonometric functions}
+
+\subsection{Main points}
+
+Words ...
+
+\begin{enumerate}
+\item The functions $\sin$, $\cos$, $\tan$, and their reciprocals are
+  all periodic functions. While $\tan$ and $\cot$ have a period of
+  $\pi$, the other four have a period of $2\pi$ each. While $\sin$ and
+  $\cos$ are continuous and defined for all real numbers, the other
+  four functions have points of discontinuity where they approach
+  infinities of different signs from both sides. Also, $\tan$ and
+  $\cot$ are one-to-one on a single period domain, while the other
+  functions are usually two-to-one.
+\item To construct inverses to these functions, we take intervals
+  small enough such that the function is one-to-one restricted to that
+  interval, but the range of the function restricted to that interval
+  is the whole range. We also try to make our choice in such a manner
+  that the {\em other function in the square sum/difference
+  relationship} is nonnegative on the domain.
+\item The choices are: $[-\pi/2,\pi/2]$ for $\sin$ (note that $\cos$
+  is nonnegative on this), $[0,\pi]$ for $\cos$ (note that $\sin$ is
+  nonnegative on this), $(-\pi/2,\pi/2)$ for $\tan$ (note that $\sec$
+  is nonnegative on this), and $(0,\pi)$ for $\cot$ (note that $\csc$
+  is nonnegative on this).
+\item We define the corresponding inverse trigonometric functions
+  $\arcsin$, $\arccos$, $\arctan$ and $\operatorname{arccot}$. The
+  domains for both $\arcsin$ and $\arccos$ equal $[-1,1]$ while the
+  domains for both $\arctan$ and $\operatorname{arccot}$ equal all of
+  $\R$. The range of $\arcsin$ is $[-\pi/2, \pi/2]$ and the range of
+  $\arccos$ is $[0,\pi]$. The range of $\arctan$ is $(-\pi/2,\pi/2)$
+  and the range of arccot is $(0,\pi)$.
+\item $\arcsin$ is an increasing function with vertical tangents at
+  the endpoints, and $\arccos$ is a decreasing function with vertical
+  tangents at the endpoints. For all $x$, we have $\arcsin x + \arccos
+  x = \pi/2$. $\arctan$ is an increasing function with horizontal
+  asymptotes valued at $-\pi/2$ and $\pi/2$ and arccot is a decreasing
+  function with horizontal asymptotes valued at $\pi$ and $0$.
+\item We define the arc secant function and the arc cosecant function
+  as $\operatorname{arcsec}(x) = \arccos(1/x)$ and
+  $\operatorname{arccsc}(x) = \arcsin(1/x)$. These are defined for all
+  $x$ outside $(-1,1)$.
+\item Using the formula for differentiating the inverse function, we
+  obtain that $\arcsin'(x) = 1/\sqrt{1 - x^2}$ and $\arccos'(x) =
+  -1/\sqrt{1 - x^2}$. Thus, $\int dx/\sqrt{1 - x^2} = \arcsin x +
+  C$. Also, we obtain $\int dx/\sqrt{a^2 - x^2} = \arcsin(x/a) + C$.
+\item Similarly, we obtain that $\arctan'(x) = 1/(1 + x^2)$ and
+  $\operatorname{arcsec}'(x) = 1/(|x|\sqrt{x^2 - 1})$. Note that in
+  the case of arc secant, we need the absolute value to account for
+  the fact that tangent is not nonnegative on the range of arc secant.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+
+\item $\sin(\arcsin x) = x$ if $x$ lies in the domain of the $\arcsin$
+  function. Note that otherwise $\sin(\arcsin x)$ does not make
+  sense. Similar observations hold for the other trigonometric
+  functions.
+\item {\em Solving equations}: The solutions to $\sin x = \alpha$,
+  where $\alpha \in [-1,1]$ come in two families: $\{ 2n\pi + \arcsin
+  \alpha : n \in \mathbb{Z} \}$ and $\{ 2n\pi + (\pi - \arcsin \alpha)
+  : n \in \mathbb{Z} \}$. Similarly, the solutions to $\cos x =
+  \alpha$ where $\alpha \in [-1,1]$ come in two families: $\{ 2n \pi +
+  \arccos \alpha: n \in \mathbb{Z} \}$ and $\{ 2n\pi - \arccos \alpha
+  : n \in \mathbb{Z} \}$. In the special case where $\alpha = 1$
+  (respectively, $\alpha = -1$), the two solution families for $\sin$
+  (respectively, $\cos$) collapse into one solution family.
+\item $\arcsin(\sin x)$ need not be equal to $x$ -- they are equal if
+  and only if $x$ is in the range of $\arcsin$. {\em Added}: The
+  function $\arcsin \circ \sin$ is a piecewise linear function with a
+  sawtooth shape and a period of $2\pi$. See the lecture notes for a
+  more detailed description.
+\item We often want to compute things like $\cos(2 \arctan x)$. To
+  tackle these situations, we set $\theta = \arctan x$, so we obtain
+  $\tan \theta = x$. The problem now reduces to determining
+  $\cos(2\theta)$ in terms of $\tan \theta$, which is some elementary
+  trigonometry. (It's elementary only if you know at least some of the
+  double-angle formulas).
+\item The integration formulas for $1/\sqrt{1 - x^2}$ etc. give rise
+  to many slightly more general integration formulas. The list is
+  given below. Don't just memorize it, make sure you internalize it.
+\end{enumerate}
+
+{\em Note}: In class, we discussed a heuristic based on homogeneous
+degree. That heuristic was not mentioned in the lecture notes, and in
+fact it is covered in the lecture notes for integrating radicals,
+which we plan to cover on January 21 and which is {\em not} in the
+midterm syllabus. If you already understand the homogeneous degree
+stuff, that's great, but you don't need to spend time thinking about
+it for now.
+\subsection{The formulas for indefinite integration}
+
+We have the following formulas for indefinite integration:
+
+\begin{eqnarray*}
+  \int \frac{dx}{\sqrt{1 - x^2}} & = & \arcsin(x) + C \\
+  \int \frac{dx}{1 + x^2} & = & \arctan(x) + C\\
+  \int \frac{dx}{|x|\sqrt{x^2 - 1}} & = & \operatorname{arcsec}(x) + C
+\end{eqnarray*}
+
+We now consider slight variants of these. In all the formulas below,
+$a > 0$ is a constant. We can obtain all these formulas from the
+previous ones via the $u$-substitution $u = x/a$:
+
+\begin{eqnarray*}
+  \int \frac{dx}{\sqrt{a^2 - x^2}} & = & \arcsin\left(\frac{x}{a}\right) + C\\
+  \int \frac{dx}{a^2 + x^2} & = & \frac{1}{a} \arctan \left(\frac{x}{a}\right) + C\\
+  \int \frac{dx}{|x|\sqrt{x^2 - a^2}} & = & \frac{1}{a} \operatorname{arcsec}\left(\frac{x}{a}\right) +C
+\end{eqnarray*}
+
+We consider yet more variants of these. Here, $a > 0$ and $b$ is
+arbitrary, but both are constants:
+
+\begin{eqnarray*}
+  \int \frac{dx}{\sqrt{a^2 - (x - b)^2}} & = & \arcsin\left(\frac{x - b}{a}\right) + C\\
+  \int \frac{dx}{a^2 + (x - b)^2} & = & \frac{1}{a} \arctan \left(\frac{x - b}{a} \right) + C\\
+  \int \frac{dx}{|x - b|\sqrt{(x - b)^2 - a^2}} & = & \frac{1}{a} \operatorname{arcsec}\left(\frac{x - b}{a}\right) + C
+\end{eqnarray*}
+
+Next, we see how these can be combined with other ideas. As before, $a
+> 0$ is a constant:
+
+\begin{eqnarray*}
+  \int \frac{f'(x) \, dx}{\sqrt{a^2 - (f(x))^2}} & = & \arcsin\left(\frac{f(x)}{a}\right) + C\\
+  \int \frac{f'(x) \, dx}{(f(x))^2 + a^2} & = & \frac{1}{a}\arctan\left(\frac{f(x)}{a}\right) + C\\
+  \int \frac{f'(x) \, dx}{|f(x)|\sqrt{(f(x))^2 - a^2}} & = & \frac{1}{a} \operatorname{arcsec}\left(\frac{f(x)}{a}\right) + C\\
+  \int \frac{f(\arctan (x/a))}{a^2 + x^2}  \, dx& = & \frac{1}{a} \int f(u) \, du \text{ where } u = \arctan(x/a)\\
+  \int \frac{f(\arcsin(x/a))}{\sqrt{a^2 - x^2}} \, dx& = & \int f(u) \, du \text{ where } u = \arcsin(x/a)
+\end{eqnarray*}
+
+\section{Hyperbolic functions}
+
+\begin{enumerate}
+\item We define {\em hyperbolic cosine} $\cosh x := (e^x + e^{-x})/2$
+  and {\em hyperbolic sine} $\sinh x := (e^x - e^{-x})/2$. $\cosh$ is
+  the {\em even part} of the exponentiation function (and in
+  particular, is an even function) while $\sinh$ is the {\em odd part}
+  of the exponentiation function (and in particular, is an odd
+  function).
+\item $\cosh$ and $\sinh$ are derivatives of each other, and hence
+  also antiderivatives of each other.
+\item $\cosh$ is even and positive, decreasing on $(-\infty,0)$ and
+  increasing on $(0,\infty)$, concave up throughout, goes to $\infty$
+  as $x \to \pm \infty$, and its local and absolute minimum value of
+  $1$ are attained at $0$.
+\item $\sinh$ is odd, increasing on all of $\R$, negative and concave
+  down on $(-\infty,0)$, and positive and concave up on
+  $(0,\infty)$. It passes through $(0,0)$ where it has its unique
+  point of inflection. Note that at $(0,0)$, the derivative takes its
+  minimum value, which is $1$. In this important respect, the graph
+  does {\em not} look like $x^3$, where we have a horizontal tangent
+  at $x = 0$.
+\item $\cosh^2 x - \sinh^2 x = 1$. A lot of the identities involving
+  hyperbolic sine and hyperbolic cosine look very similar to the
+  corresponding identities involving the trigonometric (circular) sine
+  and cosine. In fact, we can move back and forth between the circular
+  and the hyperbolic using the following rule: change the sign in
+  front of any term that involves a product of two sine terms. This
+  rule is termed {\em Osborne's rule}.
+\end{enumerate}
+
+\section{Integration by parts}
+
+Words ...
+
+\begin{enumerate}
+
+\item Integration by parts is a technique that uses the product rule
+  to integrate a product of two terms. If $F$ and $g$ are the two
+  functions, and $G$ is an antiderivative of $g$, we obtain:
+
+  $$\int F(x) g(x) \, dx = F(x)G(x) - \int F'(x) G(x) \, dx$$
+
+  This basically follows from the product rule, which states that:
+
+  $$\frac{d}{dx} [F(x)G(x)] = F(x)G'(x) + F'(x)G(x) = F(x)g(x) + F'(x)G(x)$$
+
+  In particular, we {\em integrate} one function and {\em
+  differentiate} the other.
+\item Applying integration by parts twice stupidly tells us
+  nothing. In particular, if we choose to re-integrate the piece that
+  we just obtained from differentiation, we get nowhere.
+\item The definite integral version of this is:
+
+  $$\int_a^b F(x) g(x) \, dx = [F(x)G(x)]_a^b - \int_a^b F'(x) G(x) \, dx$$
+
+  In particular, note that the part outside the integral sign is
+  simply evaluated between limits.
+
+\item We can use integration by parts to show that integrating a
+  function $f$ twice is equivalent to integrating $f$ and the function
+  $xf(x)$. More generally, integration a function $f$ $k$ times is
+  equivalent to integrating $f(x)$, $xf(x)$, $x^2f(x)$, and so on up
+  till $x^{k-1}f(x)$. {\em Added}: Please beware that being able to
+  integrate $xf(x)$ alone is not equivalent to being able to integrate
+  $f$ twice. Rather, being able to integrate both $f(x)$ and $xf(x)$
+  is equivalent to being able to integrate $f$ twice.
+\item To integrate $e^xg(x)$, we can use integration by parts,
+  typically taking $e^x$ as the second part. We could also do this
+  integral by finding a function $f$ such that $f + f' = g$, and then
+  writing the answer as $e^x f(x) + C$. The latter approach is
+  feasible and sometimes quicker in case $g$ is a polynomial function.
+\item {\em Added}: Integrating the inverse function: Integration by
+  parts can be used to integrate the inverse of a function that we know
+  how to integrate. Specifically, the formula is:
+
+  $$\int f^{-1}(x) \, dx = xf^{-1}x - \int x(f^{-1})'(x) \, dx$$
+
+  The latter integral can be rewritten as $\int f(u) \, du$ after the
+  substitution $u =f^{-1}(x)$. In particular, this means that knowing
+  how to integrate $f$ allows us to integrate $f^{-1}$.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+
+\item Integration by parts is {\em not} the first or best technique to
+  consider upon seeing a product. The first thing to attempt is the
+  $u$-substitution/chain rule. In cases where such a thing fails, we
+  move to integration by parts.
+\item For products of trigonometric functions, it is usually more
+  fruitful to apply the trigonometric identities, such as $2\sin A
+  \cos B = \sin(A + B) + \sin(A - B)$, than to use integration by
+  parts.
+\item To apply integration by parts, we need to express the function
+  as a product. The {\em part to integrate} should always be chosen as
+  something that we {\em know} how to integrate. Beyond this, we
+  should try to make sure that: (i) the part to differentiate gets
+  {\em simpler in some sense} after differentiating, and (ii) the part
+  to integrate does not get too much more complicated upon
+  integration.
+\item Beware of the circular trap when doing integration by parts. In
+  particular, when using integration by parts twice, you should always
+  make sure that the part to integrate is {\em not} chosen as the
+  thing you just got by differentiating.
+\item For polynomial times trigonometric or exponential, always take
+  the polynomial as the first part (the part to differentiate). The
+  trigonometric or exponential thing is the thing to integrate. After
+  enough steps, the polynomial is reduced to a constant, and the
+  trigonometric part (hopefully) does not become any more complex.
+\item The ILATE/LIATE rule is a reasonable precedence rule for doing
+  integration by parts.
+\item In some cases, we may use integration by parts once or twice and
+  then relate the integral we get at the end to the original integral
+  in some other way (for instance, using a trigonometric identity) to
+  solve the problem. Examples include $e^x \cos x$ and $\sec^3 x$.
+\item For functions such as $\ln (x)$, we typically take $1$ as the
+  part to integrate and the given function as the part to
+  differentiate.
+\item In general, for functions of the form $f(\ln x)$ or
+  $f(x^{1/n})$, we can first do a $u$-substitution (setting $u = \ln
+  x$ or $u = x^{1/n}$ respectively). This converts it to a product, on
+  which we can apply integration by parts. {\em We can also apply
+  integration by parts directly, but this tends to get messy.}
+\end{enumerate}
+
+\section{Induction}
+
+Words...
+
+\begin{enumerate}
+\item Induction is a powerful tool that allows us to prove a statement
+  for all positive integers (sometimes, for all positive integers
+  $\ge$ some given positive integer) by proving it in just two special
+  cases. These are the {\em base case} (proving it for the smallest
+  positive integer in the set, usually $1$) and the {\em induction
+  step}. The induction step is a {\em conditional implication} that
+  shows that if the statement is true for the positive integer $k$,
+  then it is true for $k + 1$.
+\item {\em Statement} here could be some equality or inequality
+  depending on the positive integer. Usually, it is something like a
+  sum of $n$ terms or a product of $n$ terms being equal to some nice
+  polynomial or rational function in $n$. Sometimes, we have an
+  inequality instead. There are other forms of statement too, such as
+  divisibility statements, but we aren't dealing with them as of now.
+\end{enumerate}
+
+Actions (try to recall problems on induction)...
+
+\begin{enumerate}
+
+\item Proving the base case is straightforward, as long as you
+  remember to do it.
+\item To prove the induction step, write what it means for the
+  statement to be true for $k$, and write what it means for the
+  statement to be true for $k + 1$. Try to figure out a way to prove
+  the {\em conditional implication}: assuming true for $k$, prove true
+  for $k + 1$.
+\item With summations, we usually start with the expression for $k$
+  and add the $(k+1)^{th}$ term to both sides. Then, we do some
+  algebraic manipulation and we're done. With products, we multiply
+  instead of add.
+\item When dealing with inequality instead of equality, it is usually
+  required to prove an {\em auxiliary inequality}. Basically, the
+  right side that you get from the $k$ assumption needs to be shown to
+  be related to the right side you need to get for the $k + 1$
+  conclusion.
+\item Sometimes, you may want to make an educated guess about what you
+  should prove before proving it by induction. We saw some examples
+  involving $(1-1/n)$ and $(1 - 1/n^2)$. These are all nice tricks,
+  and this kind of cancellation of successive terms is called {\em
+  telescoping}. But you will not be expected to guess what to prove --
+  you'll be told. Proving it by induction is largely procedural
+\end{enumerate}
+
+Caution ...
+
+\begin{enumerate}
+\item Always clearly indicate that statements that you want to show
+  and have not yet established are statements that you want to show.
+\item Please make sure that you show the base case correctly.
+\end{enumerate} 
+
+Frills ...
+
+\begin{enumerate}
+\item Induction is a bit like
+  differentiation/integration. Specifically, the inductive step is an
+  analogue of the derivative, and the base case is an analogue of a
+  specific value of the $+C$ that we see in indefinite integration.
+\item To prove the inductive step in an induction problem, we could
+  try using induction again. This is analogous to
+  differentiating/integrating twice.
+\item There is a concept of induction for sufficiently large integers,
+  where we try to establish a statement only for natural numbers $n
+  \ge n_0$. Both the base case and inductive step need to be suitably
+  modified (the base case is $n_0$ and the inductive step can assume
+  $k \ge n_0$).
+\item In some variants on induction, we show that $P(k)$ and $P(k-1)$
+  implies $P(k+1)$. If using such a variant, we need to make the base
+  case correspondingly thicker, i.e., we need to show $P(1)$ and
+  $P(2)$. In yet another variant of induction, we assume the truth of
+  $P$ for {\em all} smaller natural numbers.
+\item It is possible to induct on several parameters, either
+  simultaneously or sequentially. This is a bit like differentiating a
+  function of multiple variables in terms of each of the variables one
+  by one.
+\item Induction can also be used to prove statements that are
+  qualitatively different for different congruence classes modulo
+  $d$. For such statements, we can either do the usual induction $k
+  \leadsto k + 1$, making cases based on congruence class, or a jump
+  induction $k \leadsto k + d$, again making cases based on congruence
+  class. In the latter case, we need to establish the first $d$
+  natural numbers as base cases.
+\end{enumerate}
+
+
+\end{document}

@@ -1,0 +1,697 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, amssymb}
+
+%Title details
+\title{2-cocycles and a Lazard-like correspondence for some 2-groups}
+\author{Vipul Naik}
+
+%List of new commands
+\newcommand{\Skew}{\operatorname{Skew}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\makeindex
+\begin{document}
+\maketitle
+
+In this document, we outline a basic theoretical framework that allows
+us to generalize a particular case of the Lazard correspondence -- the
+{\em Baer correspondence}, to some situations beyond the original
+formulation of the correspondence. To keep the length of the document
+reasonable, proofs are omitted though outlines are provided. All the
+proofs are either standard results or have been written up in detail
+elsewhere (or both).
+
+\section{Class two groups: 2-cocycles with trivial group action}
+
+\subsection{Definitions of cocycle, coboundary, and cohomology class}
+
+The following setup forms the basis of much of the discussion in this
+document. Consider abelian groups $A$ and $G$. Although both $A$ and
+$G$ are abelian, we will use additive notation for $A$ (denoting its
+operation by $+$, inverse by $-$, and identity element by $0$) and
+multiplicative notation for $G$ (denoting its multiplication by
+concatenation, inverse by ${}^{-1}$, and identity element by $1$), since
+some of the ideas we discuss here will generalize to the case of
+non-abelian $G$.
+
+Denote by $C^2(G,A)$ the group of {\em $2$-cocycles} for the trivial
+action of $G$ on $A$. Denote by $B^2(G,A)$ the group of {\em
+$2$-coboundaries} for the trivial action of $G$ on $A$. In other
+words, $C^2(G,A)$ is the group of functions $f:G \times G \to A$
+satisfying:
+
+$$f(g_2,g_3) - f(g_1g_2,g_3) + f(g_1,g_2g_3) - f(g_1,g_2) = 0 \ \forall \ g_1,g_2,g_3 \in G$$
+
+$B^2(G,A)$ is the subgroup comprising those $f$ for which there exists
+a function $\varphi:G \to A$ such that:
+
+$$f(g_1,g_2) = \varphi(g_1g_2) - \varphi(g_1) - \varphi(g_2) \ \forall \ g_1, g_2 \in G$$
+
+The quotient group $C^2(G,A)/B^2(G,A)$ is defined as the {\em
+$2$-cohomology group} (or second cohomology group) $H^2(G,A)$ for the
+trivial group action of $G$ on $A$. The elements of $H^2(G,A)$ are
+thus cosets of $B^2(G,A)$ in $C^2(G,A)$ and these elements are termed
+{\em 2-cohomology classes}.
+
+\subsection{Relationship with extensions: standard facts}
+
+Here are some standard facts that we will use repeatedly. Note that
+while some of these facts have analogues when $G$ is non-abelian
+and/or the action is nontrivial, others do no:
+
+\begin{enumerate}
+\item Every element of $C^2(G,A)$ can be used to define a group $E$
+  with $A$ embedded as a central subgroup of $E$ and a specified
+  isomorphism $E/A \to G$. As a set, we take $E = A \times G$, and the
+  multiplication is defined as:
+
+  $$(a_1,g_1)(a_2,g_2) = (a_1 + a_2 + f(g_1,g_2), g_1g_2)$$
+
+  The corresponding embedding of $A$ in $E$ is given by:
+
+  $$a \mapsto (a - f(1,1), 1)$$
+
+  where $1$ denotes the identity element of $G$. The corresponding
+  projection map from $E$ to $G$ is:
+
+  $$(a,g) \mapsto g$$
+
+  In other words, every element of $C^2(G,A)$ gives rise to a central
+  extension with base $A$ and quotient group $G$.
+\item Given an extension, we can obtain a $2$-cocycle that yields that
+  extension by choosing a section, i.e., a set theoretic map $s:G \to
+  E$ that is a one-sided inverse to the projection map from $E$ to
+  $G$. For a section $s$, the corresponding $2$-cocycle $f$ is defined
+  by:
+
+  $$f(g_1,g_2) = s(g_1)s(g_2)\{s(g_1g_2)\}^{-1}$$
+
+\item Two elements of $C^2(G,A)$ give rise to congruent extensions if
+  and only if they are in the same coset of $B^2(G,A)$ in
+  $C^2(G,A)$. This is roughly because shifting by a $2$-coboundary
+  roughly corresponds with choosing a different set theoretic section
+  of the extension. Specifically, shifting a section by a function
+  $\varphi:G \to A$ corresponds to shifting the corresponding
+  $2$-cocycle by the boundary of $\varphi$.
+
+  Thus, the set of congruence classes of extensions is identified with
+  the $2$-cohomology group $H^2(G,A)$. Note that for all these
+  extensions, the big group is a {\em group of nilpotency class at
+  most two}. We will often use the term {\em nilpotency class two} to
+  mean nilpotency class at most two.
+
+\item For every extension, we can choose a {\em normalized
+  $2$-cocycle} representing it. A normalized $2$-cocycle is a
+  $2$-cocycle with the property that $f(g,1) = 0$ for all $g \in G$
+  (note that this is equivalent to assuming that $f(1,1) =
+  0$). Specifically, if the section $s:G \to E$ that we pick chooses
+  the identity element of $E$ as the image of the identity element of
+  $G$, we get a normalized $2$-cocycle.
+
+  In terms of the group of $2$-cocycles, this says that the normalized
+  $2$-cocycles span the $2$-cocycles modulo the $2$-coboundaries. In
+  other words, every $2$-cocycle is the sum of a normalized
+  $2$-cocycle and a $2$-coboundary. For most practical purposes, we
+  can thus restrict attention to normalized $2$-cocycles. With
+  normalized $2$-coycles, the embedding of $A$ in $E$ becomes more
+  straightforward:
+
+  $$a \mapsto (a,1)$$
+
+\item Both $\Aut(G)$ and $\Aut(A)$ act via composition on the group
+  $C^2(G,A)$ and the action takes the subgroup $B^2(G,A)$ to itself --
+  hence there is an action on the quotient group
+  $H^2(G,A)$.\footnote{Note: This uses the fact that the action of $G$
+  on $A$ is trivial. If the action were nontrivial, we would still
+  have some automorphisms acting -- however, these automorphisms would
+  have to lie in suitable centralizers.} The actions commute (because
+  composition is associative, and the two actions by composition are
+  on opposite sides) so we get an action of $\Aut(G) \times \Aut(A)$
+  on $H^2(G,A)$. Any two elements of $H^2(G,A)$ in the same orbit
+  under this action correspond to extensions that are essentially the
+  same up to relabeling of $G$ and $A$ -- in particular, the
+  isomorphism class of the big group $E$ is the same. The quotient
+  space (or the set or orbits), however, does not have a group
+  structure for obvious reasons.
+
+  We define $C^2_{Fix}(G,A)$ as the group of $2$-cocycles fixed under
+  the action and $H^2_{Fix}(G,A)$ as the group of $2$-cohomology
+  classes fixed under the action. Note that $H^2_{Fix}(G,A)$ could, in
+  principle, be bigger than the image in cohomology of
+  $C^2_{Fix}(G,A)$.
+
+\item For a function $f:G \times G \to A$, define $\Skew f$ as
+  $(g_1,g_2) \mapsto f(g_1,g_2) - f(g_2,g_1)$. Call a $2$-cocycle $f$
+  {\em symmetric} if $\Skew f = 0$. We then have the following:
+
+  \begin{enumerate}
+  \item $\Skew$ is a linear map on the set of all functions $f:G
+    \times G \to A$ under pointwise addition. Further, it maps
+    $2$-cocycles to $2$-cocycles (it does a lot more, as we shall see
+    later).
+  \item Every $2$-coboundary is a symmetric $2$-cocycle. Thus, the
+    property of being a symmetric $2$-cocycle is well defined up to
+    cohomology.
+  \item The group of symmetric $2$-cocycles forms a subgroup of
+    $C^2(G,A)$ (that we denote by $C^2_{sym}(G,A)$), and its image in
+    $H^2(G,A)$ forms a subgroup of $H^2(G,A)$. This subgroup
+    corresponds to those extensions where the big group $E$ is also an
+    abelian group. We denote this subgroup by $H^2_{Sym}(G,A)$. Hence,
+    this subgroup is isomorphic to $\Ext^1(G,A)$.
+  \item The subgroup $H^2_{sym}(G,A)$ is invariant (not necessarily
+    pointwise) under the action of $\Aut(G) \times \Aut(A)$.
+  \item $\Skew f$ represents the commutator map in the big group $E$
+    as follows. For $x,y \in E$, denote by $\overline{x},
+    \overline{y}$ the corresponding elements in $G$. Then, $[x,y] =
+    f(\overline{x},\overline{y})$ where the element of $A$ in the
+    right side is interpreted naturally as an element of $E$ via the
+    embedding of $A$ in $E$.
+  \item In particular, each coset of $H^2_{sym}(G,A)$ in $H^2(G,A)$
+    corresponds to all the congruence classes of extensions that give
+    rise to one particular commutator map.
+  \item The image of $\Skew$ is in the group of alternating biadditive
+    maps from $G$ to $A$. This can be seen both algebraically by
+    manipulating equations involving $2$-cocycles and in terms of the
+    known properties of the commutator map for groups of class
+    two. More on this later.
+  \end{enumerate}
+\end{enumerate}
+
+\section{Twisting into abelianness}
+
+\subsection{The idea of twisting}
+Given a group $E$ constructed as one of these extensions, we can twist
+or shift $E$ by a $2$-cocycle $f$ by defining a new multiplication
+$*$:
+
+$$x * y := f(\overline{x},\overline{y})xy$$
+
+Here, $f(\overline{x},\overline{y})$ is the element in the central
+subgroup $A$ that we obtain by applying the $2$-cocycle $f$ to the
+images of $x$ and $y$ in the quotient group $G$. The new group
+obtained can naturally be viewed as a central extension with base $A$
+and quotient group $G$, corresponding to the $2$-cocycle $c + f$. In
+other words, the original $2$-cocycle has been modified by $f$.
+
+Shifting by $-f$, or untwisting by $f$, would mean using the formula:
+
+$$x * y := \frac{xy}{f(\overline{x},\overline{y})}$$
+
+
+\subsection{Specific kinds of $2$-cocycles and twistings}
+
+\begin{enumerate}
+\item (Recall): A $2$-cocycle is a {\em normalized $2$-cocycle} if,
+  whenever either of the inputs is the identity element, so is the
+  output.
+
+  Every cohomology class contains at least one normalized
+  $2$-cocycle. Thus, we will always deal with normalized $2$-cocycles
+  unless otherwise specified.
+
+  Twisting a given group extension by a normalized 2-cocycle preserves
+  the identity element.
+
+\item A $2$-cocycle is an {\em IIP 2-cocycle} if it is normalized and,
+  whenever the two inputs are inverses of each other, so is the
+  output. IIP 2-cocycles form a subgroup of $C^2(G,A)$ that we denote
+  by $C^2_{IIP}(G,A)$.
+
+  If there are no elements of order $2$, then every cohomology class
+  contains an IIP 2-cocycle. However, in the presence of elements of
+  order $2$ in $G$, it is possible to have $2$-cohomology classes
+  without any representative IIP 2-cocycle. We define $H^2_{IIP}(G,A)$
+  as the subgroup of $H^2(G,A)$ comprising those $2$-cohomology
+  classes that can be represented by an IIP $2$-cocycle. As noted
+  here, if $G$ has no elements of order $2$, then $H^2_{IIP}(G,A) =
+  H^2(G,A)$.
+
+  Twisting a given group extension by an IIP 2-cocycle preserves the
+  identity element {\em and} preserves inverses.
+\item A $2$-cocycle is a {\em cyclicity-preserving $2$-cocycle} if it
+  is normalized and, whenever both inputs lie inside a common cyclic
+  subgroup, it takes the value $0$. Cyclicity-preserving $2$-cocycles
+  form a subgroup of $C^2(G,A)$ that we denote by
+  $C^2_{CP}(G,A)$. $C^2_{CP}(G,A)$ is a subgroup of $C^2_{IIP}(G,A)$.
+   
+  Many cohomology classes do not contain cyclicity-preserving
+  $2$-cocycles, so having a representative that is a
+  cyclicity-preserving $2$-cocycle puts a nontrivial constraint on a
+  $2$-cohomology class. We define $H^2_{CP}(G,A)$ as the subgroup of
+  $H^2(G,A)$ comprising those $2$-cohomology classes that can be
+  represented by a cyclicity-preserving $2$-cocycle.
+
+  Twisting a given group extension by a cyclicity-preserving
+  $2$-cocycle preserves the cyclic subgroup structure, i.e., it is a
+  $1$-isomorphism. Here, we define a {\em 1-isomorphism} as a
+  bijection between groups whose restriction to any cyclic subgroup on
+  either side is an isomorphism.
+
+  In particular, it preserves the directed power graph, undirected
+  power graph, order statistics, and other such information about the
+  group.
+\end{enumerate}
+
+\subsection{What we want to do}
+
+We are given a group $E$ with a central subgroup $A$ and abelian
+quotient group $G$. (In most cases, $A$ is taken as precisely the
+center of $E$; however, it may not remain the precise center after
+twisting, hence we do not include this as a condition in the general
+discussion). Let $c$ be a $2$-cocycle describing the extension $E$. We
+want to write:
+
+$$c = f + s$$
+
+where $f$ is a cyclicity-preserving $2$-cocycle and $s$ is a symmetric
+$2$-cocycle. If we have such a decomposition, then twisting $E$ by
+$-f$ (or the untwisting of $E$ by $f$) gives us an abelian group
+described by the $2$-cocycle $s$.
+
+The group of $2$-cocycles that we can write in this form is the sum
+$C^2_{CP}(G,A) + C^2_{sym}(G,A)$ inside $C^2(G,A)$. The corresponding
+group of $2$-cohomology classes covered is $H^2_{CP}(G,A) +
+H^2_{sym}(G,A)$.
+
+\subsection{Uniqueness theorem}
+
+The following uniqueness result is important:
+
+\begin{theorem}\label{uniqueness}
+  Assume $A$ and $G$ are both finite abelian groups with $G$ acting
+  trivially on $A$. The following (easily seen to be equivalent) are
+  true:
+  \begin{enumerate}
+  \item $C^2_{sym}(G,A) \cap C^2_{CP}(G,A) \subseteq B^2(G,A)$.
+  \item $H^2_{sym}(G,A) \cap H^2_{CP}(G,A)$ is trivial.
+  \item For any extension group $E$ with base $A$ (central) and
+    quotient group $G$, there is at most one abelian group extension
+    (up to congruence) that can be obtained from it by twisting using
+    a cyclicity-preserving $2$-cocycle. All the cyclicity-preserving
+    $2$-cocycles that can be used are in the same cohomology class.
+  \end{enumerate}
+\end{theorem}
+
+The proof is related to the idea that two finite abelian group that
+are $1$-ismorphic are in fact isomorphic.
+
+The key idea behind the proof is to exploit the fact that cocycle
+groups are groups: namely, we can translate stuff to the identity
+element of a group. Proving the specific statement {\em at} the
+identity element (i.e., for the split extension) turns out to be a lot
+easier than proving it elsewhere. However, because of the nature of
+groups, the proof applies everywhere.
+
+\begin{proof}
+  (1) can be reinterpreted as follows: Let $E$ be the extension $A
+  \times G$. Let $f$ be a symmetric cyclicity-preserving
+  $2$-cocycle. Let $F$ be the extension obtained by twisting $E$ by
+  $f$. Then, $F$ is congruent to $E$.
+
+  We prove this as follows. First, note that since $f$ is
+  cyclicity-preserving, it preserves orders of elements. If we denote
+  the multiplication in $F$ by $*$ and the multiplication in $E$ by
+  $+$, then:
+
+  $$x * y := x + y + f(x,y)$$
+
+  Since $f$ is cyclicity-preserving, $*$ and $+$ agree on cyclic
+  subgroups and in particular the cyclic subgroups are the same.
+
+  Moreover, the identification of $E$ with $F$ induces identity maps
+  on the corresponding subgroups $A$ and the corresponding quotients
+  $G$. Since $E$ has the property that for every $g \in G$, there
+  exists $x \in E$ mapping to $G$ and having the same order as $g$,
+  $F$ also has this property.
+
+  Since $f$ is symmetric, $F$ is abelian. $F$ is thus an abelian
+  extension with base $A$, quotient $G$, and the property that for
+  every $g \in G$, there exists $x \in E$ mapping to $G$ and having
+  the same order as $g$.
+
+  Suppose now that we write $G$ as an internal direct product of
+  cyclic subgroups $T_1, T_2, \dots, T_n$ generated by elements $t_1,
+  t_2, \dots, t_n$ respectively. For each $t_i$, let $u_i$ be an
+  element of $F$ in its coset and having the same order. Let $U_i$ be
+  the subgroup generated by $u_i$. Then, each $U_i$ is isomorphic to
+  the corresponding $T_i$. Moreover, $U_1 \times U_2 \times \dots
+  \times U_n$ (in $F$) is a complement to $A$ in $F$ with the natural
+  projection to $G$ being an isomorphism, and hence $F$ is congruent
+  to $A \times G$. (Note: I've skipped some details here to avoid
+  messiness, but have worked them out elsewhere).
+\end{proof}
+
+\subsection{Stating what we need to do}
+
+We are confronted with the question: given a $2$-coycle $c$, how do we
+go about finding a nice (i.e., cyclicity-preserving) $2$-cocycle $f$
+such that $c - f$ is symmetric? Note that the symmetric $2$-cocycles
+are the kernel of the skew map, so this is equivalent to requiring
+that $\Skew c = \Skew f$, or equivalently, that $\Skew f$ is the
+commutator map. In other words, we need to find a cyclicity-preserving
+$2$-cocycle $f$ whose skew is precisely the commutator, so that when
+we untwist by $f$, we land in the abelian case.
+
+Let $\lambda = \Skew c$ be the commutator map.
+
+\begin{lemma}
+  $\lambda$ is alternating and biadditive. In particular, it is skew
+  symmetric.  
+\end{lemma}
+
+This follows from the known properties of the commutator map for class
+two groups. However, it can also be deduced without reference to
+groups at all, using algebraic manipulations of $2$-cocycles. In other
+words, the following is true and can be proved purely by cocycle
+equation manipulation:
+
+\begin{lemma}
+  Let $c$ be a $2$-cocycle for a trivial group action of an abelian
+  group on an abelian group. Then, $\Skew c$ is alternating and
+  biadditive.
+\end{lemma}
+
+Either way, $\lambda$ is alternating and biadditive. We also note the
+following easy to prove but perhaps not very well known fact:
+
+\begin{lemma}
+  Any biadditive function is a $2$-cocycle. More generally, any
+  function $G^n \to A$ that is additive in each coordinate is a
+  $n$-cocycle.
+\end{lemma}
+
+\section{Baer's solution to the twisting problem}
+
+
+\subsection{Implications and interpretation}
+
+\begin{lemma}
+  \begin{enumerate}
+  \item The group of alternating biadditive maps from $G$ to $A$ is
+    isomorphic to $\operatorname{Hom}(\bigwedge^2G,A)$.
+  \item The $\Skew$ map establishes an isomorphism between
+    $H^2(G,A)/H^2_{sym}(G,A)$ and the subgroup of
+    $\operatorname{Hom}(\bigwedge^2G,A)$ identified with the image of
+    the $\Skew$ map on $H^2(G,A)$.
+  \item If every alternating biadditive map arises as the skew of some
+    $2$-cocycle, we have:
+
+    $$\operatorname{Hom}(\bigwedge^2G, A) \cong H^2(G,A)/H^2_{sym}(G,A)$$
+  \end{enumerate}
+\end{lemma}
+One question that I have not resolved (but should probably be easy to
+resolve) is:
+
+\begin{quote}
+  Does every alternating biadditive map occur as the skew of some (not
+  necessarily IIP) $2$-cocycle?
+\end{quote}
+
+If so, that would make the isomorphism in (3) unconditional.
+\subsection{Baer's solution}
+
+
+Note that $\lambda$ itself is cyclicity-preserving since it is
+alternating and biadditive. Moreover, it is skew symmetric, so $\Skew
+\lambda = 2 \lambda$. This is off by a factor of $2$: we want $f$ such
+that $\Skew f = \lambda$. Thus, if we could halve the $\lambda$, we
+would have the desired $f$ whereby we could twist by $-f$.
+
+This is the crux of Baer's idea: if $A$ is $(1/2)$-powered (in the
+sense that there is a halving operation that commutes with the group
+operations) then we can define $f(x,y) = \frac{1}{2}[x,y]$ in $A$. In
+the big group $E$, this halving would be represented as a square root,
+and we would get the formula $f(x,y) = \sqrt{[x,y]}$, giving Baer's
+formula:
+
+$$x + y := \frac{xy}{\sqrt{[x,y]}}$$
+
+\subsection{Something special about Baer's approach}
+
+Baer's approach has a number of nice features that will not be
+replicated in all the other approaches that we'll see:
+
+\begin{enumerate}
+\item Baer actually manages to select a single canonical $2$-cocycle
+  to twist by. Note that this canonical $2$-cocycle is not the only
+  cyclicity-preserving $2$-cocycle to twist by, but it is still
+  uniquely determined. Other $2$-cocycles can be used but are not as
+  good.
+
+  The uniqueness theorem that we have says that if we can find a nice
+  $2$-cocycle to twist by, it is unique up to
+  $2$-coboundaries. However, it is not unique in an absolute sense. In
+  some of the generalizations that we consider, there are two mirror
+  symmetric choices of $2$-cocycle that are interchanged via
+  conjugation by one of the acting automorphisms.
+
+\item Baer's $2$-cocycle is more than just a cyclicity-preserving
+  $2$-cocycle: it is alternating, biadditive, skew symmetric,
+  commutativity-preserving, subgroup-preserving, and much more. We
+  will find that skew symmetry and the alternating property are often
+  replicated in the $2$-cocycles we manage to find as well, but the
+  other properties (biadditivity, commutativity-preserving,
+  subgroup-preserving) often are not.
+\end{enumerate}
+
+
+\section{The situation with $2$-groups}
+
+In this section, we explore in detail the various cases where $A$ and
+$G$ are both $2$-groups.
+
+\subsection{The case of $G$ elementary abelian}
+
+When $G$ is elementary abelian, every cyclicity-preserving $2$-cocycle
+is skew symmetric and takes values in the $4$-torsion of
+$A$. Moreover, for $f$ a cyclicity-preserving $2$-cocycle, if $x$ and
+$y$ are distinct, then $f(x,y)$ determines the value of $f$ for all
+pairs of elements in $\langle x, y \rangle$, which are either equal to
+$f(x,y)$ or equal to $-f(x,y)$. We state this formally:
+
+\begin{lemma}\label{CP2cocycleonelab}
+  Suppose $G$ is an elementary abelian $2$-group and $A$ is an abelian
+  group with trivial action of $G$ on $A$. Then, the following are
+  equivalent for a $2$-cocycle $f$:
+
+  \begin{enumerate}
+  \item $f$ is an IIP $2$-cocycle.
+  \item $f$ is a cyclicity-preserving $2$-cocycle.
+  \item $f$ is a skew-symmetric IIP $2$-cocycle.
+  \item $f$ is a skew-symmetric cyclicity-preserving $2$-cocycle.
+  \end{enumerate}
+
+  Further, any $f$ satisfying these equivalent conditions also satisfies:
+
+  \begin{enumerate}
+  \item $$4f(x,y) = 0 \ \forall \ x,y \in G$$
+  \item $$f(x,y) = f(y,xy) = f(xy,x) = -f(y,x) = -f(xy,y) = -f(x,xy) \ \forall \ x,y \in G$$
+  \item $2f$ is alternating and biadditive.
+  \end{enumerate}
+\end{lemma}
+
+An easy consequence of this is the following lemma:
+
+\begin{lemma}
+  Suppose $G$ is an elementary abelian $2$-group and $A$ is an abelian
+  group with trivial action of $G$ on $A$. Then, the following are
+  equivalent for a $2$-cocycle $f$:
+
+  \begin{enumerate}
+  \item $f$ is biadditive and IIP.
+  \item $f$ is biadditive and cyclicity-preserving.
+  \item $f$ is alternating and biadditive.
+  \end{enumerate}
+
+  Also, under these equivalent classes, $f$ is a symmetric
+  cyclicity-preserving $2$-cocycle and hence (by the uniqueness theorem
+  or otherwise) a $2$-coboundary.
+\end{lemma}
+
+We now discuss how the results obtained here affect our original problem. 
+
+\begin{quote}
+  For an alternating biadditive map $\lambda: G \times G \to A$, find
+  a cyclicity-preserving $2$-cocycle $f$ such that $\Skew f =
+  \lambda$?
+\end{quote}
+
+Since, by lemma \ref{CP2cocycleonelab} in the previous section, $f$
+must be skew symmetric, we get that $\Skew f = 2f$. Thus, in the
+context of elementary abelian $2$-groups, the question becomes:
+
+\begin{quote}
+  For an alternating biadditive map $\lambda:G \times G \to A$, does
+  there exist a skew-symmetric cyclicity-preserving $2$-cocycle $f$
+  such that $2f = \lambda$?
+\end{quote}
+
+\subsection{The Klein four-group}
+
+We now restrict attention to the case where $G$ is a Klein
+four-group. Before proceeding further, we note that in order to be
+able to tackle the general case of elementary abelian $2$-groups, it
+is important to first tackle the case of the Klein four-group because
+any elementary abelian $2$-group contains a bunch of Klein
+four-groups.
+
+First, what are the possible alternating biadditive maps on the Klein
+four-group? Alternating biadditive maps on $G$ are equivalent to
+homomorphisms from $\bigwedge^2(G)$. When $G$ is the Klein four-group,
+$\bigwedge^2(G)$ is cyclic of order $2$. The only possible
+homomorphisms out from this are the trivial homomorphism and a mapping
+that sends the non-identity element to an element of order $2$.
+
+In the latter case, successfully {\em halving} the $2$-cocycle
+requires the image element of order $2$ to itself be double of
+something. It turns out that this is sufficient. We state this with
+two back-to-back lemmas.
+
+\begin{lemma}\label{KleinfourCPcocycleclassification}
+  Suppose $G$ is a Klein four-group generated by $x$ and $y$. Let $A$
+  be any abelian group. Let $F$ be the subgroup of $A$ comprising
+  those elements whose order divides $4$. Then consider the map $\chi$
+  from $F$ to the set of functions $G \times G \to A$ where $\chi(t)$
+  is the $2$-cocycle $f$ given by:
+
+  $$f(x,y) = f(y,xy) = f(xy,x) = t$$
+
+  and:
+
+  $$f(y,x) = f(xy,y) = f(x,xy) = -t$$
+
+  Finally, we define $f$ to be $0$ whenever both its inputs are
+  identical or either of its inputs is $0$.
+
+  Then, the following are true:
+
+  \begin{enumerate}
+  \item $\chi$ is an isomorphism from $F$ to $C^2_{CP}(G,A)$. In
+    particular, $\chi(t)$ is a cyclicity-preserving $2$-cocycle for
+    every $t$ and $\chi(t + u) = \chi(t) + \chi(u)$.
+  \item $\chi(t)$ is the {\em unique} cyclicity-preserving $2$-coycle
+    $f$ satisfying $f(x,y) = t$.
+  \item Let $K$ be the subgroup of $F$ comprising the elements whose
+    order divides $2$. Then, for any $t \in K$, $\chi(t)$ is a
+    symmetric cyclicity-preserving $2$-cocycle and hence a
+    $2$-coboundary.
+  \item The image of $K$ coincides with the group of alternating
+    biadditive maps from $G$ to $A$.
+  \item $K$ is {\em precisely} the subgroup of $F$ whose image under
+    $\chi$ is in the subgroup of $2$-coboundaries. Thus, $\chi$
+    induces an isomorphism from $F/K$ to $H^2_{CP}(G,A)$.
+  \end{enumerate}
+
+  In the $p$-group jargon, if $A$ is a $2$-group, we would denote $F$
+  as $\Omega_2(A)$ and $K$ as $\Omega_1(A)$. Thus, in the $p$-group
+  jargon, $C^2_{CP}(G,A) \cong \Omega_2(A)$ and $H^2_{CP}(G,A) \cong
+  \Omega_2(G,A)/\Omega_1(G,A)$.
+\end{lemma}
+
+An easy corollary of this is:
+
+\begin{lemma}
+  Suppose $G$ is a Klein four-group generated by distinct elements $x$
+  and $y$. Suppose $\lambda$ is an alternating biadditive map from $G
+  \times G$ to $A$. Suppose $\lambda(x,y) = a$ for some element $a \in
+  A$. Then, the mapping $\chi$ of the previous lemma establishes a
+  bijection between the sets:
+
+  $$\{ b \in A | 2b = a \} \leftrightarrow \{ f \in C^2_{CP}(G,A) \mid \Skew f = \lambda \}$$
+
+  where, by lemma \ref{CP2cocycleonelab}, all elements in
+  $C^2_{CP}(G,A)$ are $2$-cocycles and hence $\Skew f = 2f$.
+\end{lemma}
+
+Finally, we can summarize the previous lemmas plus more in a
+theorem:
+
+\begin{theorem}\label{Kleinfoursummary}
+  Suppose $G$ is a Klein four-group generated by distinct elements $x$
+  and $y$. Let $F$ be the subgroup of $G$ comprising elements whose
+  order divides $4$ (thus, $F = \Omega_2(A)$ when $A$ is a $2$-group),
+  $K$ be the subgroup of $A$ comprising elements whose order divides
+  $2$ (thus, $K = \Omega_1(A)$ when $A$ is a $2$-group) and $L$ be the
+  subgroup $2F$ (thus, $L = \mho^1(\Omega_2(A))$ when $A$ is a
+  $2$-group. Let $\chi$ be the mapping from $F$ to $C^2_{CP}(G,A)$
+  described in lemma \ref{KleinfourCPcocycleclassification}. Then:
+
+  \begin{enumerate}
+  \item $$F \cong^{\chi} C^2_{CP}(G,A)$$
+
+    In $2$-group jargon:
+
+    $$\Omega_2(A) \cong^{\chi} C^2_{CP}(G,A)$$
+
+  \item $$F/L \cong K \cong^{\chi} B^2_{CP}(G,A) \cong
+    \operatorname{Hom}(\bigwedge^2G,A) \cong^{\Skew} H^2(G,A)/H^2_{sym}(G,A)$$
+
+    In $2$-group jargon, $K$ is $\Omega_1(A)$.
+
+  \item $$F/K \cong L \cong H^2_{CP}(G,A) \cong (H^2_{CP}(G,A) + H^2_{sym}(G,A))/H^2_{sym}(G,A)$$
+
+    In $2$-group jargon, $F/K$ is $\Omega_2(A)/\Omega_1(A)$ and $L$ is
+    $\mho^1(\Omega_2(A))$.
+  \item $$K/L \cong H^2(G,A)/(H^2_{CP}(G,A) + H^2_{sym}(G,A))$$
+
+    In $2$-group jargon, $K/L$ is $\Omega_1(A)/(\mho^1(\Omega_2(A)))$.
+  \item In particular, $H^2(G,A) = H^2_{CP}(G,A) + H^2_{sym}(G,A)$ if
+    and only if $K = L$, or, every element of order $2$ has a half. In
+    other words, every central extension with base $A$ and quotient
+    group $G$ can be untwisted to an abelian extension if and only if
+    every element of $A$ having order $2$ is twice of something.
+  \end{enumerate}
+\end{theorem}
+
+\subsection{Some examples with the Klein four-group and various $A$s}
+
+Theorem \ref{Kleinfoursummary} completes the discussion for the case
+where $G$ is the Klein four-group, but some concrete examples may
+help. In these concrete examples, we actually look at the extension
+groups. We also note the role of the $\operatorname{Aut}(G) \times
+\operatorname{Aut}(A)$ group in permuting the possibilities.
+
+In specific examples, we restrict attention to $A$ a $2$-group,
+because the $2'$-part splits off and does not interact in any
+interesting way with $G$.
+
+In the case that $A$ is a cyclic $2$-group, we get the following:
+
+\begin{enumerate}
+\item $H^2(G,A)$ is an elementary abelian group of order $8$.
+\item $H^2_{sym}(G,A)$ is a Klein four-group inside this elementary
+  abelian group. Its identity element is $A \times G$. Its other
+  three elements all have big group isomorphic to $\Z_{2^{m+1}}
+  \times \Z_2$. These three non-identity elements form one orbit
+  under the action of $\Aut(G)$ and hence also of $\Aut(G) \times
+  \Aut(A)$.
+\item $H^2(G,A)/H^2_{sym}(G,A)$ is cyclic of order $2$. The
+  non-identity coset has $4$ elements. One of these elements has big
+  group isomorphic to the central product $Q_8 *_{\Z_2} \Z_{2^m}$,
+  which, for $m > 1$, is also $D_8 *_{\Z_2} \Z_{2^m}$. The three other
+  elements are $D_8$ when $m = 1$ and $M_{2^{m+2}}$ when $m > 1$,
+  where $M_{2^n}$ is the class two $2$-group with cyclic maximal
+  subgroup. These three other elements are permuted by the action of
+  $\Aut(G)$, and form a single orbit under $\Aut(G) \times \Aut(A)$.
+\item In the case $m = 1$, $H^2_{CP}(G,A)$ is trivial, which is
+  basically because $A$ does not have elements of order $4$.
+\item For $m > 1$, $H^2_{CP}(G,A)$ is cyclic of order $2$, and its
+  non-identity element corresponds to the group $Q_8 *_{\Z_2}
+  \Z_{2^m}$. Thus, for $m > 1$, $H^2(G,A) = H^2_{CP}(G,A) +
+  H^2_{sym}(G,A)$ so every group can be untwisted to an abelian
+  group. We thus get two group correspondences: 
+    
+  $$Q_8 *_{\Z_2} \Z_{2^m} \to \Z_{2^m} \times \Z_2 \times \Z_2$$
+  
+  and
+  
+  $$M_{2^{m + 2}} \to \Z_{2^{m+1}} \times \Z_2$$
+\item In all cases, $H^2_{CP}(G,A) \subseteq H^2_{Fix}(G,A)$. Equality
+  holds for $m > 1$. Does this hold in general? Probably not. We
+  consider this question later.
+\end{enumerate}
+
+
+\end{document}

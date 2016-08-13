@@ -1,0 +1,141 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Diagnostic in-class quiz: due Wednesday October 2: Vectors (basic stuff)}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+Your name (print clearly in capital letters): $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+
+{\bf PLEASE DO {\em NOT} DISCUSS ANY QUESTIONS.}
+
+Many of you are familiar with vectors, either from Math 195 or some
+exposure to vectors in high school (or perhaps both).  This quiz is to
+help gauge your level of understanding coming in. We will not get to
+start using the ideas in their full depth until a few weeks later.
+
+For the benefit of those who haven't seen vectors at all, the
+definitions are briefly provided.
+
+There are many ways of describing the vector in $\R^n$ with
+coordinates $a_1$, $a_2$, $\dots$, $a_n$. You may have seen the vector
+described using angled braces as $\langle a_1,a_2,\dots,a_n
+\rangle$. In this linear algebra course, we will customarily write the
+vector as a {\em column} vector, i.e., the coordinates will be written
+in a vertical column. For instance, the vector $\langle 2,3,7 \rangle$
+will be written as the column vector $\left[\begin{matrix} 2 \\ 3 \\ 7
+    \\\end{matrix}\right]$.
+
+Two vectors in $\R^n$ can be added with each other (note that both
+vectors need to be in the {\em same} $\R^n$ in order to be added). The
+addition is coordinate-wise:
+
+$$\left[\begin{matrix} v_1 \\ v_2 \\ \cdot \\ \cdot \\ \cdot \\ v_n \\\end{matrix}\right] + \left[\begin{matrix} w_1 \\ w_2 \\ \cdot \\ \cdot \\ \cdot \\ w_n \\\end{matrix}\right] = \left[\begin{matrix} v_1 + w_1 \\ v_2 + w_2 \\ \cdot \\ \cdot \\ \cdot \\ v_n + w_n \\\end{matrix}\right]$$
+
+Also, given any real number $\lambda$ (called a {\em scalar} to
+distinguish from a vector) and a vector $\vec{v} = \left[\begin{matrix} v_1 \\ v_2 \\ \cdot \\ \cdot \\ \cdot \\ v_n \\\end{matrix}\right]$, we can define:
+
+$$\lambda \vec{v} = \lambda\left[\begin{matrix} v_1 \\ v_2 \\ \cdot \\ \cdot \\ \cdot \\ v_n \\\end{matrix}\right] := \left[\begin{matrix} \lambda v_1 \\ \lambda v_2 \\ \cdot \\ \cdot \\ \cdot \\ \lambda v_n \\\end{matrix}\right]$$
+
+We can identify the set of $n$-dimensional vectors with the set of
+points in $\R^n$. The vector $\vec{v} = \left[\begin{matrix}
+    v_1 \\ v_2 \\ \cdot \\ \cdot \\ \cdot \\ v_n
+    \\\end{matrix}\right]$ in this case corresponds to the point with
+coordinates $(v_1,v_2,\dots,v_n)$.
+
+\begin{enumerate}
+\item {\em Do not discuss this!}: For a $n$-dimensional vector
+  $\vec{v}$, the {\em set of scalar multiples} of $\vec{v}$ is the set
+  of vectors that can be expressed in the form $\lambda \vec{v}$,
+  $\lambda \in \R$. Assume that $\vec{v}$ is a nonzero vector. What
+  can we say geometrically about the set of points in $\R^n$ that
+  correspond to the scalar multiples of $\vec{v}$?
+
+  \begin{enumerate}[(A)]
+  \item It is a straight line in $\R^n$ that passes through the
+    origin.
+  \item It is a straight line in $\R^n$. However, it need not pass
+    through the origin.
+  \item It is a straight half-line in $\R^n$ with the endpoint at the
+    origin.
+  \item It is a straight half-line in $\R^n$, but the endpoint need
+    not be at the origin.
+  \item It is a line segment in $\R^n$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item {\em Do not discuss this!}: Given two $n$-dimensional vectors
+  $\vec{v}$ and $\vec{w}$, the {\em set of linear combinations} of
+  $\vec{v}$ and $\vec{w}$ is the set of all vectors that can be
+  written in the form $\lambda \vec{v} + \mu \vec{w}$ where
+  $\lambda,\mu \in \R$ (note that $\lambda$ and $\mu$ can take
+  arbitrary real values, and are allowed to be equal to each
+  other). In other words, you can take scalar multiples, and you can
+  then add these scalar multiples.
+
+  The set of linear combinations of $\vec{v}$ and $\vec{w}$ is
+  sometimes also called the {\em span} of $\vec{v}$ and $\vec{w}$.
+
+  What is the span of the vectors $\left[\begin{matrix} 1 \\ 0
+      \\\end{matrix}\right]$ and $\left[\begin{matrix} 0 \\ 1
+      \\\end{matrix}\right]$ in $\R^2$?
+
+  \begin{enumerate}[(A)]
+  \item The zero vector only, because that is the only vector that can
+    be expressed both as a multiple of $\left[\begin{matrix} 1 \\ 0
+        \\\end{matrix}\right]$ and as a multiple of
+    $\left[\begin{matrix} 0 \\ 1 \\\end{matrix}\right]$.
+  \item The set of vectors that can be expressed as a scalar multiple
+    either of $\left[\begin{matrix} 1 \\ 0 \\\end{matrix}\right]$ or
+    of $\left[\begin{matrix} 0 \\ 1 \\\end{matrix}\right]$.
+  \item The set of vectors that can be expressed as a scalar multiple
+    of at least one of these three vectors: $\left[\begin{matrix} 1
+        \\ 0 \\\end{matrix}\right]$, $\left[\begin{matrix} 0 \\ 1
+        \\\end{matrix}\right]$, and $\left[\begin{matrix} 1 \\ 1
+        \\\end{matrix}\right]$.
+  \item All vectors in the first quadrant of $\R^2$, including the
+    bounding half-lines. In other words, the set of vectors of the
+    form $\left[\begin{matrix} x \\ y \\\end{matrix}\right]$ where $x
+    \ge 0$ and $y \ge 0$.
+  \item All vectors in $\R^2$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item {\em Do not discuss this!}: Consider the transformation from
+  $\R^2$ to $\R^2$ that interchanges the coordinates of a
+  vector. Explicitly, the transformation is given as:
+
+  $$\left[\begin{matrix} x \\ y \\\end{matrix}\right] \mapsto \left[\begin{matrix} y \\ x \\\end{matrix}\right]$$
+
+  Which of the following describes the transformation geometrically,
+  with $\R^2$ viewed as the $xy$-plane?
+  \begin{enumerate}[(A)]
+  \item It is a reflection about the $x$-axis in $\R^2$, i.e., the
+    axis for the first coordinate.
+  \item It is a reflection about the $y$-axis in $\R^2$, i.e., the
+    axis for the second coordinate.
+  \item It is a reflection about the line $y = x$ in $\R^2$, i.e., the
+    line of vectors where both coordinates are equal.
+  \item It is a reflection about the line $y = -x$ in $\R^2$, i.e.,
+    the line of vectors where the coordinates are negatives of each
+    other.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\end{enumerate}
+\end{document}

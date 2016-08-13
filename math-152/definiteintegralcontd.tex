@@ -1,0 +1,469 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Definite integrals, fundamental theorem of calculus, antiderivatives}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 5.3, 5.4
+
+{\bf Difficulty level}: Hard.
+
+{\bf What students should definitely get}: Some results leading to and
+including the fundamental theorem of integral calculus, the definition
+of antiderivative and how to calculate antiderivatives for polynomials
+and the sine and cosine functions.
+
+{\bf What students should hopefully get}: The intuition behind the way
+differentiation and integration relate; the concept of indeterminacy
+up to constants when we integrate. The reason for making assumptions
+such as continuity.
+
+\section*{Executive summary}
+
+\subsection{Definite integral, antiderivative, and indefinite integral}
+
+Words ..
+
+\begin{enumerate}
+\item We have $\int_a^b f(x) \, dx + \int_b^c f(x) \, dx = \int_a^c
+  f(x) \, dx$.
+\item We say that $F$ is an antiderivative for $f$ if $F' = f$.
+\item For a continuous function $f$ defined on a closed interval
+  $[a,b]$, and for a point $c \in [a,b]$, the function $F$ given by
+  $F(x) = \int_c^x f(t) \, dt$ is an antiderivative for $f$.
+\item If $f$ is continuous on $[a,b]$ and $F$ is a function continuous
+  on $[a,b]$ such that $F' = f$ on $(a,b)$, then $\int_a^b f(x) \, dx
+  = F(b) - F(a)$.
+\item The two results above essentially state that differentiation and
+  integration are opposite operations.
+\item For a function $f$ on an interval $[a,b]$, if $F$ and $G$ are
+  antiderivatives, then $F - G$ is constant on $[a,b]$. Conversely, if
+  $F$ is an antiderivative of $f$, so is $F$ plus any constant.
+\item The {\em indefinite integral} of a function $f$ is the
+  collection of all antiderivatives for the function. This is
+  typically written by writing one antiderivative plus $C$, where $C$
+  is an arbitrary constant. We write $\int f(x) \, dx$ for the
+  indefinite integral. Note that there are no upper and lower limits.
+\item Both the definite and the indefinite integral are additive. In
+  other words, $\int f(x) \, dx + \int g(x) \, dx = \int f(x) + g(x)
+  \, dx$. The analogue holds for definite integrals, with limits.
+\item We can also pull constants multiplicatively out of integrals.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item To do a definite integral, find any one antiderivative and
+  evaluate it between limits.
+\item An important caveat: when using antiderivatives to do a definite
+  integral, it is important to make sure that the antiderivative is
+  defined and continuous everywhere on the interval of
+  integration. (Think of the $1/x^3$ example). 
+\item To do an indefinite integral, find any antiderivative and put a
+  $+ C$.
+\item To find an antiderivative, use the additive splitting and
+  pulling constants out, and the fact that $\int x^r \, dx = x^{r +
+    1}/(r + 1)$.
+\end{enumerate}
+
+\subsection{Higher derivatives, multiple integrals, and initial/boundary conditions}
+
+Actions ...
+
+\begin{enumerate}
+\item The simplest kind of {\em initial value problem} (a notion we
+  will encounter again when we study differential equations) is as
+  follows. The $k^{th}$ derivative of a function is given on the
+  entire domain. Next, the {\em values} of the function and the first
+  $k - 1$ derivatives are given at a single point of the domain. We
+  can use this data to find the function. Step by step, we find
+  derivatives of lower orders. First, we integrate the $k^{th}$
+  derivative to get that the $(k-1)^{th}$ derivative is of the form
+  $F(x) + C$, where $C$ is unknown. We now use the value of the
+  $(k-1)^{th}$ derivative at the given point to find $C$. Now, we have
+  the $(k-1)^{th}$ derivative. We proceed now to find the $(k-2)^{th}$
+  derivative, and so on.
+\item Sometimes, we may be interested in finding {\em all} functions
+  with a given second derivative $f$. For this, we have to perform an
+  indefinite integration twice. The net result will be a general
+  expression of the form $F(x) + C_1x + C_2$, where $F$ is a function
+  with $F'' = f$, and $C_1$ and $C_2$ are arbitrary constants. In
+  other words, we now have {\em up to constants or linear functions}
+  instead of {\em up to constants} as our degree of ambiguity.
+\item More generally, if the $k^{th}$ derivative of a function is
+  given, the function is uniquely determined up to additive
+  differences of polynomials of degree strictly less than $k$. The
+  number of free constants that can take arbitrary real values is $k$
+  (namely, the coefficients of the polynomial).
+\item This general expression is useful if, instead of an initial
+  value problem, we have a boundary value problem. Suppose we are
+  given $G''$ as a function, and we are given the value of $G$ at two
+  points. We can then first find the general expression for $G$ as $F
+  + C_1x + C_2$. Next, we plug in the values to get a system of two
+  linear equations, that we solve in order to determine $C_1$ and
+  $C_2$, and hence $G$.
+\end{enumerate}
+
+
+\section{Statements of main results}
+
+\subsection{The definite integral: recall and more details}
+
+Recall from last time that for a {\em continuous} (or piecewise
+continuous where all discontinuities are jump discontinuities)
+function $f$ on an open interval $[a,b]$, the {\em integral} of $f$
+over the interval $[a,b]$, denoted:
+
+$$\int_a^b f(x) \, dx$$
+
+is a kind of summation for $f$ for all the real numbers from $a$ to
+$b$. This integral is also called a {\em definite integral}. The
+function is often termed the {\em integrand}. The number $b$ is termed
+the {\em upper limit} of the integration, and the number $a$ is termed
+the {\em lower limit} of the integration. The variable $x$ is termed
+the {\em variable of integration}.
+
+So far, we have made sense of the expression as described above with
+$a < b$. We now add in a few details on how to make sense of two other
+possibilities:
+
+\begin{itemize}
+\item If $a = b$, then, by {\em definition}, the integral is defined
+  to be zero.
+\item If $a > b$, then, by {\em definition}, the integral is defined
+  as the {\em negative} of the integral $\int_b^a f(x) \, dx$.
+\end{itemize}
+
+Now, it makes sense to consider the symbol $\int_a^b f(x) \, dx$
+without any ordering conditions on $a$ and $b$. With these
+definitions, we have, for any $a,b,c \in \R$:
+
+$$\int_a^b f(x) \, dx + \int_b^c f(x) \, dx = \int_a^c f(x) \, dx$$
+
+\subsection{Definite integrals do exist for piecewise continuous functions}
+
+It is useful to know the following:
+
+\begin{enumerate}
+\item For a continuous function $f$ on a closed and bounded interval
+  $[a,b]$, the integral exists and is finite. In fact, the integral
+  over the interval $[a,b]$ is bounded from above by $(b - a)$ times
+  the maximum value of the function and from below by $(b - a)$ times
+  the minimum value of the function. (Both of these exist by the
+  extreme value theorem).
+\item For a piecewise continuous function $f$ on a closed and bounded
+  interval $[a,b]$ such that all the one-sided limits exist and are
+  finite at points of discontinuity, the integral exists and is
+  finite. This follows from the previous part, via the intermediate
+  step of breaking $[a,b]$ into parts such that the restriction of the
+  function to each part is continuous and extends continuously to the
+  boundary of that part.
+\end{enumerate}
+
+\subsection{The definite integral and differentiation}
+
+There is also a clear relationship between the definite integral and
+differentiation. In some sense, the integral and derivative are
+inverses (opposites) of each other. Let $[a,b]$ be an
+interval. Suppose $f$ is a continuous function on $[a,b]$ and $c \in
+[a,b]$ is any number. Define the following function $F$ on $[a,b]$:
+
+$$F(x) := \int_c^x f(t) \, dt$$
+
+Note the way the function is defined. $t$ is the variable of
+integration, and $F$ depends on $x$ in the sense that the {\em upper
+limit} of the interval of integration is $x$, whereas the lower limit
+is fixed at $c$.
+
+Continuous functions are integrable, as discussed above, so $F$ turns
+out to be well-defined.
+
+Further, $F$ is continuous on $[a,b]$, differentiable on $(a,b)$, and has
+derivative
+
+$$F'(x) = f(x) \qquad \text{for all } x \in (a,b)$$
+
+This is Theorem 5.3.5.
+
+\subsection{Concept of antiderivative}
+
+Suppose $f$ is continuous on $[a,b]$. An {\em antiderivative} for $f$,
+or {\em primitive} for $f$, or {\em indefinite integral} for $f$, is a
+function $G$ on $[a,b]$ such that:
+
+\begin{itemize}
+\item $G$ is continuous on $[a,b]$.
+\item $G'(x) = f(x)$ for all $x \in (a,b)$.
+\end{itemize}
+
+A little while back, we had seen the following result: if $F$, $G$ are
+functions on an interval $I$ such that $F' = G'$ for all points in the
+interior of $I$, then $F - G$ is a constant function on $I$. In other
+words, $F$ and $G$ differ by a constant.
+
+Conversely, if $F$ and $G$ are functions on an interval $I$ with $F$
+differentiable on the interior of $I$, and $F - G$ is constant, then
+$G$ is also differentiable on $I$ and $F' = G'$ on the interior of $I$.
+
+Thus, the antiderivative of a function is not unique -- we can always
+add a constant function to one antiderivative to obtain another
+antiderivative. However, the antiderivative is unique up to differing
+by constants. In other words, any two antiderivatives differ by a
+constant.
+
+We are now in a position to state the fundamental theorem of calculus.
+
+Suppose $f$ is a continuous function on the interval $[a,b]$. If $G$
+is an antiderivative for $f$ on $[a,b]$, then we have:
+
+$$\int_a^b f(t) \, dt = G(b) - G(a)$$
+
+Also, as we already noted, any two antiderivatives differ by a
+constant, so if we replace $G$ by another antiderivative, the right
+side remains the same because both $G(a)$ and $G(b)$ get shifted by
+the same amount.
+
+For notational convenience, this is sometimes written as:
+
+$$\int_a^b f(t) \, dt = [G(t)]_a^b$$
+
+Here, the right side is interpreted as the difference between the
+values of $G(t)$ for $t = b$ and $t = a$, which simplifies to $G(b) -
+G(a)$.
+
+\section{Computing antiderivatives and integrals: easy facts}
+
+\subsection{Computing some antiderivatives}
+
+We now compute some common expressions for antiderivatives of functions.
+
+\begin{enumerate}
+\item If $f(x) = x^r$, and $r \ne -1$, then we can set $G(x) = x^{r +
+  1}/(r + 1)$. The factor of $1/(r + 1)$ is intended to cancel the
+  factor of $r + 1$ that appears as a coefficient when we
+  differentiate $x^{r + 1}$. In particular, if $f(x) = x$, $G(x) =
+  x^2/2$, and if $f(x) = x^2$, $G(x) = x^3/3$. Most importantly, if
+  $f(x) = 1$, then $G(x) = x$.
+\item An antiderivative for $\sin$ is $-\cos$ and an antiderivative
+  for $\cos$ is $\sin$. Note the sign differences between these
+  formulas and those for the derivative. The derivative of $\sin$ is
+  $\cos$ but the antiderivative of $\sin$ is $-\cos$. The derivative
+  of $\cos$ is $-\sin$ and the antiderivative of $\cos$ is $\sin$. (We
+  will see more trigonometric antiderivatives later).
+\end{enumerate}
+
+\subsection{Linearity of the integral}
+
+The integral is {\em linear}, in the sense of being additive and
+allowing for the factoring out of scalars. Specifically:
+
+$$\int_a^b [f(x) + g(x)] \, dx = \int_a^b f(x) \, dx + \int_a^b g(x) \, dx$$
+
+and
+
+$$\int_a^b \alpha f(x) \, dx = \alpha \int_a^b f(x) \, dx$$
+
+Thus, we can pull out scalars and split sums additively when computing
+integrals, just as we did for derivatives.
+
+\subsection{Linearity of the antiderivative}
+
+The linearity of the integral turns out to be closely related to the
+linearity of the antiderivative. Of course, it is not precise to say
+``the'' antiderivative, since the antiderivative is defined only up to
+differences of constants. What we mean is the following:
+
+\begin{enumerate}
+\item If $F$ is an antiderivative for $f$ and $G$ is an antiderivative
+  for $g$, then $F + G$ is an antiderivative for $f + g$.
+\item If $F$ is an antiderivative for $f$ and $\alpha$ is a real
+  number, then $\alpha F$ is an antiderivative for $\alpha f$.
+\end{enumerate}
+
+(These statements are immediate corollaries of the corresponding
+statements for derivatives).
+
+\subsection{General expression for indefinite integral}
+
+Once we have computed one antiderivative for the integral, the general
+expression for the indefinite integral is obtained by taking that
+antiderivative and writing a ``+ C'' at the end, where $C$ is a freely
+varying real parameter. What this means is that {\em every specific
+choice} of numerical value for $C$ gives yet another antiderivative
+for the original function.
+
+Note that the letter $C$ is used conventionally, but there is nothing
+special about this latter. If the situation at hand already uses the
+letter $C$ in some other context, please use another letter.
+
+For instance:
+
+$$\int (x - \sin x) \, dx = (x^2/2) + \cos x + C$$
+
+\subsection{Getting our hands dirty}
+
+We are now in a position to do some straightforward computations of
+integrals for polynomials and some basic trigonometric functions. For
+instance:
+
+$$\int_0^1 (x^2 - x + 1) \, dx$$
+
+We can find an antiderivative for this function, by finding
+antiderivatives for the individual functions $x^2$, $-x$, and $1$, and
+then adding up. An antiderivative that works is $x^3/3 - x^2/2 +
+x$. Now, to calculate the definite integral, we need to calculate the
+difference between the values of the antiderivative at the upper and
+lower limit. We write this as:
+
+$$\left[ \frac{x^3}{3} - \frac{x^2}{2} + x \right]_0^1$$
+
+Next, we do the calculation:
+
+$$\left(\frac{1}{3} - \frac{1}{2} + 1\right) - (0 - 0 + 0) = \frac{5}{6}$$
+
+Thus, the value of the definite integral is $5/6$.
+
+In other words, the signed area between the graph of the function $x^2
+- x + 1$ and the $x$-axis, between the $x$-values $0$ and $1$, is $5/6$.
+
+Some people prefer to split the definite integral as a sum first and
+then compute antiderivatives for each piece. The work would then
+appear as follows:
+
+$$\int_0^1 (x^2 - x + 1) \, dx = \int_0^1 x^2 \, dx - \int_0^1 x \, dx + \int_0^1 1 \, dx = [x^3/3]_0^1 - [x^2/2]_0^1 + [x]_0^1 = 1/3 - 1/2 + 1 = 5/6$$
+
+There is no substantive difference in the computations.
+
+\section{Higher derivatives and repeated integration}
+
+\subsection{Finding all functions with given $k^{th}$ derivative}
+
+Suppose the second derivative of a function is given. What are all the
+possibilities for the original function? In order to answer this
+question, we need to integrate twice. For instance, suppose $f''(x) =
+\cos x$. Then, we know that:
+
+$$f'(x) = \int \cos x \, dx = (\sin x) + C_1$$
+
+where $C_1$ is an arbitrary real number.
+
+Integrating again, we get:
+
+$$f(x) = \int f'(x) \, dx = \int [(\sin x) + C_1] \, dx = (- \cos x) + C_1x + C_2$$
+
+Here, both $C_1$ and $C_2$ are arbitrary real numbers. Thus, the
+family of all possible $f$s that work is described by two parameters,
+freely varying over the real numbers.
+
+More generally, if the $k^{th}$ derivative of a function is known,
+then the original function is known up to additive difference of a
+polynomial fo degree at most $k - 1$. Each coefficient of that
+polynomial is a freely varying real parameter, and there are $k$ such
+coefficients: the constant term, the coefficient of $x$, and so on
+till the coefficient of $x^{k-1}$.
+
+\subsection{Degree of freedom and initial/boundary values}
+
+One way of thinking of the preceding material is that each time we
+integrate, we introduce one more degree of freedom. Thus, integrating
+thrice introduces a total of three degrees of freedom.
+
+In practice, when we are asked to find a function $f$ in the real
+world, we know the $k^{th}$ derivative of $f$, but we also have
+information about the values of $f$ at some points. The two typical
+ways this information is packaged are:
+
+\begin{itemize}
+\item {\em Initial value problem} packaging: Here, the value of $f$
+  and all its derivatives, up to the $(k-1)^{th}$ derivative, at a
+  single point $c$ are provided, along with the general expression for
+  the $k^{th}$ derivative. For this kind of problem, we can, at each
+  stage of antidifferentiation, determine the value of the constant we
+  get, and thus we get a {\em single} function at the end.
+\item {\em Boundary value problem} packaging: Here, the value of $f$
+  at $k$ distinct points is specified. To solve this kind of problem,
+  we first find the general expression for $f$ with $k$ unknown
+  constants, then use the values at $k$ distinct points to get a
+  system of $k$ linear equations in $k$ variables, which we then
+  proceed to solve.
+\end{itemize}
+
+\section{Subtle issues/additional notes}
+
+\subsection{Variable of integration -- don't reuse!}
+
+When writing something like $\int_a^b f(t) \, dt$, please remember
+that the letter $t$, which is used locally as a variable of
+integration, {\em cannot} be used outside the expression.
+
+\subsection{Definite integral as a size or norm of function}
+
+To completely describe a function $f$ on a closed interval $[a,b]$
+requires a lot of work, since it requires specifying the function
+value at infinitely many points. On the other hand, the value of the
+integral of $f$ on $[a,b]$, given by $\int_a^b f(x) \, dx$, is a
+single real number. Since numbers are easier to grasp than functions,
+we often use the integral of a function on an interval to get an
+approximate estimate of its size.
+
+More generally, we are often interested in expressions of the form
+$\int_a^b f(x)g(x) \, dx$ where $g(x)$ plays the role of a weighting
+function. Usually, we have a bunch of two or three functions $g$ and
+we are interested in the above integral on $[a,b]$ for each of those
+$g$s. We use the collection of two or three numbers we get that way to
+say profound things about the function $f$, even without knowing $f$
+directly.
+
+
+\subsection{Linear algebra interpretation of antiderivative}
+
+(This material is not necessary for this course, but is useful for
+subsequent mathematics -- we'll see it again in 153 and you'll see
+more of these ideas if you take Math 196/199 or advanced courses in
+the social and/or physical sciences).
+
+Denote by $C^1$ the set of functions on $\R$ that are continuously
+differentiable everywhere. Denote by $C^0$ the set of continuous
+functions on $\R$.
+
+First, note that $C^0$ and $C^1$ are both {\em vector spaces} over
+$\R$. Here's what this means for $C^0$: the sum of two continuous
+functions is continuous, and any scalar multiple of a continuous
+function is continuous. Here's what this means for $C^1$: the sum of
+two continuously differentiable functions is continuously
+differentiable, and any scalar multiple of a continuously
+differentiable function is continuously differentiable.
+
+Differentiation is a {\em linear} operator from $C^1$ to $C^0$ in the
+following sense: first, for any $f \in C^1$, $f'$ is an element of
+$C^0$. Second, we have the rules $(f + g)' = f' + g'$ and $(\alpha f)'
+= \alpha f'$. In other words, differentiation respects the vector
+space structure.
+
+The {\em kernel} of a linear operator is the set of a functions which
+go to zero. For any linear operator between vector spaces, the kernel
+is a subspace.
+
+Our basic result is that the kernel of the differentiation operator is
+the space of constant functions. Two elements in a vector space have
+the same image under a linear operator iff their difference is in the
+kernel of that operator. In our context, this translates to the
+statement that two functions have the same derivative iff their
+difference is a constant function.
+
+Our second basic result is that any function in $C^0$ arises as the
+derivative of something in $C^1$. This something can be computed using
+a definite integral.
+
+Thus, the kernel of the differentiation operator is a copy of the real
+line inside $C^1$, given by the scalar functions. For any element of
+$C^0$, the set of elements of $C^1$ which map to it is a line inside
+$C^1$ parallel to the line of constant functions.
+
+Instead of looking at functions on the entire real line, we can also
+restrict attention to functions on an open interval inside the real
+line -- qualitatively, all our results hold.
+
+\end{document}

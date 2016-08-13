@@ -1,0 +1,2664 @@
+\section{The Lie bracket and group commutator in terms of each other: prime bounds}\label{sec:group-commutator-and-lie-bracket-ito-each-other}
+
+\subsection{Group commutator formula in terms of the Lie bracket}\label{sec:group-commutator-ito-lie-bracket}
+
+For reasons that will become clear later, we will work with the class
+$(c + 1)$ Baker-Campbell-Hausdorff formula instead of the class $c$
+Baker-Campbell-Hausdorff formula, where $c$ is a positive
+integer. This is purely a matter of notation, and its main advantage
+is that later results that use the results here can do so directly
+without needing to increase or decrease the values by one.
+
+In the usual Lazard correspondence, there is an explicit formula for
+the group commutator of two elements in terms of Lie brackets. In
+fact, there is an infinite series, which can be obtained from the
+Baker-Campbell-Hausdorff formula series, whose truncations give the
+formula for the group commutator. We will now describe how this
+formula is obtained.
+
+{\em Note that the explicit expressions here are sensitive to whether
+  we use the left or right action convention for computing the group
+  commutator. We will use the left action convention.}
+
+$$[x,y]_{\text{Group}} = (xy)(yx)^{-1}$$
+
+Inverses in the group correspond to taking the negative in the Lie
+ring, so this becomes:
+
+$$[x,y]_{\text{Group}} = (xy)(-(yx))$$
+
+We now need to apply the Baker-Campbell-Hausdorff formula to expand
+each piece.
+
+We have the following in the class $(c + 1)$ case:
+
+\begin{eqnarray*}
+  xy = x + y + t_2(x,y) + t_3(x,y) + \dots + t_{c+1}(x,y)\\
+  yx = y + x + t_2(y,x) + t_3(y,x) + \dots + t_{c+1}(y,x)\\
+\end{eqnarray*}
+
+We thus get the following expression for $[x,y]_{\text{Group}}$.
+
+\begin{small}
+$$(x + y + t_2(x,y) + t_3(x,y) + \dots + t_{c+1}(x,y))$$
+$$- (y + x + t_2(y,x) + t_3(y,x) + \dots + t_{c+1}(y,x))$$
+$$+ t_2(xy,-(yx)) + t_3(xy,-(yx)) + \dots + t_{c+1}(xy,-(yx))$$
+\end{small}
+
+Based on the symmetry and skew symmetry properties deduced in the
+preceding section, we obtain the following, where $c'$ is the largest
+even number less than or equal to $c + 1$:
+
+\begin{small}
+$$[x,y]_{\text{Group}} = 2(t_2(x,y) + t_4(x,y) + \dots + t_{c'}(x,y)) + t_2(xy,-(yx)) + t_3(xy,-(yx)) + \dots + t_{c+1}(xy,-(yx))$$
+\end{small}
+
+It is also the case that $t_{c+1}(xy,-(yx)) = 0$. This is because when we
+expand these out, all the degree $c$ terms in the product are iterated
+products with each piece equal to $(x + y)$ or $-(x + y)$, and all
+higher degree terms are anyway zero. Thus, the group commutator
+simplifies to:
+
+\begin{small}
+$$[x,y]_{\text{Group}} = 2(t_2(x,y) + t_4(x,y) + \dots + t_{c'}(x,y)) + t_2(xy,-(yx)) + t_3(xy,-(yx)) + \dots + t_c(xy,-(yx))$$
+\end{small}
+
+Denote this formula of $x$ and $y$ by $M_{c+1}(x,y)$. In other words:
+
+$$[x,y]_{\text{Group}} = M_{c+1}(x,y)$$
+
+Note that in the case that we are using the Lazard correspondence up
+to isomorphism, such as the case where we are using the exponential
+and logarithm maps inside an associative ring of class $c + 1$,
+$M_{c+1}$ can be interpreted as follows:
+
+$$e^{M_{c+1}(x,y)}= [e^x,e^y]_{\text{Group}}$$
+
+The distinction between this and the earlier interpretation is that
+with the earlier intepretation, we identified $x$ and $e^x$ as the
+same element, whereas now, we are treating them as different
+elements. The latter interpretation makes sense when we are describing
+the exponential and logarithm maps inside an associative ring.
+
+Note that the explicit formula $M_{c+1}$ is sensitive to whether we
+are using the left action convention or the right action convention,
+but the existence of a formula of the sort is not, and the general
+properties of the prime divisors of denominators for the formula are
+not. The corresponding formula with the right action convention would
+expand the product $(yx)^{-1}(xy)$ instead of $(xy)(yx)^{-1}$, and the
+steps would be fairly similar. The results from this point onward do
+not depend on the choice of action convention (left versus right).
+
+We are now in a position to prove a lemma.
+
+\begin{lemma}\label{lemma:commutator-denominators}
+  In the formula $M_{c+1}(x,y)$ for the group commutator
+  $[x,y]_{\text{Group}}$ in terms of Lie ring operations (addition and
+  Lie bracket) in class $c + 1$, all prime divisors of the
+  denominators are less than or equal to $c$.
+\end{lemma}
+
+\begin{proof}
+  We divide into cases:
+
+  \begin{itemize}
+  \item $c = 1$, so that $c + 1 = 2$: In this case, we can work the
+    formula out and we get that $[x,y]_{\text{Group}} = [x,y]$. This
+    satisfies the condition, since there are no prime factors of the
+    denominator.
+  \item $c$ is even, so that $c + 1$ is odd: In this case, the
+    formula above shows that we use terms only up to $t_c$, and do not
+    use $t_{c+1}$. Thus, we can only get the primes less than or equal
+    to $c$.
+  \item $c$ is odd and at least $3$, so that $c + 1$ is even and
+    greater than $2$: In this case, $c + 1$ is composite. We know from the
+    formula that we only use primes less than or equal to $c + 1$. Since
+    $c + 1$ is composite, this means we only use primes less than or equal
+    to $c$.
+  \end{itemize}
+\end{proof}
+
+It is also possible to construct an infinite series expression whose
+truncations give the group commutator formulas for various choices of
+$3$-local nilpotency class.
+
+The importance of these observations is as follows. We can make sense
+of the formula for $M_{c+1}(x,y)$ for certain Lie rings that are {\em
+  not} Lazard Lie rings. Specifically, we can make sense of this
+formula for Lie rings of $3$-local nilpotency class $(c + 1)$ which
+are uniquely divisible by primes strictly {\em less} than $c + 1$, but
+not by $c + 1$ itself. This case is of interest (i.e., it conveys
+nontrivial information) when $c + 1$ itself is a prime number. We will
+build on the results here in Sections
+\ref{sec:lazard-correspondence-derived} and \ref{sec:lcuti}.
+
+The procedure outlined above has been used to compute $M_{c+1}$ for
+small values of $c$ in the Appendix. The case $c = 2$ is described in
+Section \ref{appsec:M3formula} and the case $c = 3$ is described in
+Section \ref{appsec:M4formula}.
+
+\subsection{Inverse Baker-Campbell-Hausdorff formula: bound on denominators}\label{sec:lie-bracket-ito-group-commutator}
+
+We want to prove a similar result for the bounds on prime powers of
+denominators for the formula $h_2$ that describes the Lie bracket of
+the Lie ring in terms of group commutators. The result follows from
+Theorem 6.4 in \cite{Lazardeffective}, but we provide a minimalistic
+proof below that builds on Lemma \ref{lemma:commutator-denominators}.
+
+\begin{lemma}\label{lemma:lie-bracket-denominators}
+  In the formula $h_{2,c + 1}(x,y)$ for the Lie bracket
+  $[x,y]_{\text{Lie}}$ in terms of group commutators, all prime
+  divisors of the denominators in the exponents are less than or equal
+  to $c$.
+\end{lemma}
+
+\begin{proof}
+  Recall that $M_{c+1}(x,y)$ expresses the group commutator in terms
+  of the Lie bracket and its iterations, whereas $h_{2,c + 1}(x,y)$
+  expresses the Lie bracket in terms of the group commutator and its
+  iterations. These formulas are therefore ``inverses'' of each other
+  in the following sense. Denote by $(h_{2,c + 1} \circ M_{c +
+    1})(x,y)$ the formula that substitutes, in each of the commutators
+  appearing in the expression for $h_{2,c + 1}$, the formula for
+  $M_{c+1}$, and then expands group products of these commutators as
+  Lie ring expressions using the class $(c + 1)$
+  Baker-Campbell-Hausdorff formula. Then:
+
+  $$(h_{2,c+1} \circ M_{c+1})(x,y) \equiv [x,y]_{\text{Lie}},$$
+
+  where the equality is considered modulo $\mathcal{A}^{c+2}$ where
+  $\mathcal{A}$ is the free associative $\Q$-algebra with generators
+  $x$ and $y$. Replacing $c + 1$ by $c$ above, we obtain:
+
+  $$(h_{2,c} \circ M_c)(x,y) \equiv [x,y]_{\text{Lie}} \pmod{\mathcal{A}^{c+1}}$$
+
+  Thus, we get that:
+
+  $$(h_{2,c} \circ M_{c})(x,y) \equiv [x,y]_{\text{Lie}} + \chi_{c+1}(x,y) \pmod{\mathcal{A}^{c+2}}$$
+ 
+ where $\chi_{c+1}$ is a $\mathbb{Q}$-linear combination of weight $c
+ + 1$ Lie products. Note that since $\chi_{c+1}$ is obtained by
+ composing and manipulating terms from $h_{2,c}$, $M_{c}$, and the
+ class $c$ Baker-Campbell-Hausdorff formula, all the prime divisors
+ appearing in its denominators are less than or equal to $c$.
+
+ We also have that:
+
+ $$M_{c+1}(x,y) = M_c(x,y) + \xi_{c+1}(x,y)$$
+
+ where, by Lemma \ref{lemma:commutator-denominators}, all the prime
+ divisors of denominators appearing in the expression for $\xi_{c+1}$ are
+ less than or equal to $c$. It follows that:
+
+ $$(h_{2,c} \circ M_{c+1})(x,y) \equiv [x,y]_{\text{Lie}} + \chi_{c+1}(x,y) + \xi_{c+1}(x,y)$$
+
+ It now follows that:
+
+ $$h_{2,c+1}(x,y) = h_{2,c}(x,y)(\tilde{\chi}_{c+1}(x,y)\tilde{\xi}_{c+1}(x,y))^{-1}$$
+
+ where $\tilde{\chi}$ and $\tilde{\xi}$ denote the same expressions as
+ those used for $\chi$ and $\xi$ but interpreting the Lie brackets as
+ commutators. This works because the $(c+1)$-fold iterated commutator
+ coincides with the $(c + 1)$-fold iterated Lie bracket in class $c +
+ 1$. In other words, the set map:
+
+$$(x_1,x_2,\dots,x_{c+1}) \mapsto [[ \dots [x_1,x_2],x_3],\dots,x_c],x_{c+1}]$$
+
+is the same whether we interpret the brackets on the right as group
+commutators or as Lie brackets: this follows immediately from the
+formula $M_{c+1}$.
+
+ In particular, note that the only prime divisors that appear in the
+ denominators of the exponents on the right are primes less than or
+ equal to $c$, completing the proof.
+\end{proof}
+
+The case $c = 2$ (so that $c + 1 = 3$) has been worked out in the
+Appendix, Section
+\ref{appsec:lie-bracket-denominators-illustration}. Readers interested
+in understanding the proof via a concrete illustration are advised to
+read this.
+%\newpage
+
+\section{Lazard correspondence, commutativity relation, and central series}\label{sec:lazard-correspondence-commutativity-relation-central-series}
+
+\subsection{The commutativity relation and the upper central series}
+
+We begin with an important lemma.
+
+\begin{lemma}\label{lemma:commutativity-relation-same-group-lie-ring}
+  Suppose $G$ is a ($3$-local) class $c$ Lazard Lie group and $L =
+  \log(G)$ is its Lazard Lie ring. Then, for elements $x,y \in G$, the
+  commutator $[x,y]$ is the identity element of $G$ if and only if the
+  Lie bracket $[x,y]$ is zero. In other words, $x$ and $y$ commute as
+  group elements if and only if they commute as Lie ring elements.
+\end{lemma}
+
+\begin{proof}
+  In Section \ref{sec:group-commutator-ito-lie-bracket}, we described
+  a formula $M_{c+1}$ for the group commutator in terms of the Lie
+  bracket. The formula makes it clear that if the Lie bracket is zero,
+  the group commutator is the identity element.
+
+  In Section \ref{sec:inverse-bch}, we described a formula $h_{2,c+1}$
+  for the Lie bracket in terms of the group commutator. The formula
+  makes it clear that if the group commutator is the identity element,
+  then the Lie bracket is zero.
+\end{proof}
+
+It is possible to prove one direction directly from the
+Baker-Campbell-Hausdorff formula rather than referencing the above
+sections. The idea behind a direct proof would be to show that if the
+Lie bracket $[x,y]$ is $0$, then $xy = x + y = yx$, so that the group
+commutator is zero.
+
+We now show that the Lazard correspondence relates the upper central
+series of the Lie ring with the upper central series of the group.
+
+\begin{theorem}
+  Suppose $G$ is a ($3$-local) class $c$ Lazard Lie group and $L =
+  \log(G)$ is its Lazard Lie ring. Then the following are true:
+
+  \begin{enumerate}
+  \item $\log(Z(G)) = Z(L)$ (this is an instance of the $3$-local
+    class $c$ Lazard correspondence)
+  \item $\log(G/Z(G)) = L/Z(L)$ (this is an instance of the $3$-local
+    class $c$ Lazard correspondence)
+  \item For all positive integers $i$, we have $\log(Z^i(G)) = Z^i(L)$
+    and $\log(G/Z^i(G)) = L/Z^i(L)$.  where $Z^i$ denotes the $i^{th}$
+    member of the upper central series (for $G$ or $L$ respectively).
+  \item For all positive integers $i > j$, $\log(Z^i(G)/Z^j(G)) =
+    Z^i(L)/Z^j(L)$ where $Z^i,Z^j$ denote the $i^{th}$ and $j^{th}$
+    members of the lower central series (for $G$ or $L$ respectively).
+  \end{enumerate}
+\end{theorem}
+
+Note that since we are in general using the $3$-local class $c$ Lazard
+correspondence, the global class of $G$ and $L$ may be greater than
+$c$. Thus, the result is potentially of interest even for $i \ge c$.
+
+\begin{proof}
+  {\em Proof of (1)}: The fact that $\log(Z(G)) = Z(L)$ follows
+  immediately from the preceding lemma (Lemma
+  \ref{lemma:commutativity-relation-same-group-lie-ring}). By Lemmas
+  \ref{lemma:centerispoweringinvariant} and
+  \ref{lemma:centerispoweringinvariant-lie}, $Z(G)$ and $Z(L)$ are
+  both $\pi_c$-powered, so this is an instance of the $3$-local class
+  $c$ Lazard correspondence.
+
+  {\em Proof of (2)}: This follows from (1) and from facts for the
+  $3$-local class $c$ Lazard correspondence similar to those for the
+  global Lazard correspondence described in Section
+  \ref{sec:global-lazard-correspondence-quot}.  Thus, $\log(G/Z(G)) =
+  L/Z(L)$.
+
+  {\em Proof of (3)}: We obtain this by induction using (1) and (2).
+
+  {\em Proof of (4)}: This follows from (3), using reasoning similar
+  to that in (2).
+\end{proof}
+
+\subsection{The commutator map and the lower central series}
+
+We begin with a lemma.
+
+\begin{lemma}\label{lemma:derived-subgroup-same-group-lie-ring}
+  Suppose $G$ is a $3$-local class $c$ Lazard Lie group and $L =
+  \log(G)$ is its Lazard Lie ring. Suppose $H$ is a $\pi_c$-powered
+  normal subgroup of $G$ and $I = \log(H)$ is the corresponding
+  $\pi_c$-powered ideal of $L$. Then, $[G,H]$ is a $\pi_c$-powered
+  normal subgroup of $G$, $[L,I]$ is a $\pi_c$-powered ideal of $L$,
+  and $[L,I] = \log([G,H])$.
+\end{lemma}
+
+\begin{proof}
+  $[G,H]$ is normal by basic group theory, and it is $\pi_c$-powered
+  by Lemma \ref{lemma:lcs-subgroup-divisibility}. $[L,I]$ is a
+  $\pi_c$-powered ideal by basic Lie ring theory. Thus, $\log([G,H])$
+  is a $3$-local class $c$ Lazard Lie subring of $L$, and
+  $\exp([L,I])$ is a $3$-local class $c$ Lazard Lie subgroup of
+  $G$. It therefore suffices to show that a generating set for $[G,H]$
+  is inside $[L,I]$ and that a generating set for $[L,I]$ is inside
+  $[G,H]$.
+
+  {\em Proof that $\log([G,H]) \subseteq [L,I]$}: It suffices to show
+  that every element of the form $[g,h]$, for $g \in G, h \in H$, is in
+  $[L,I]$. This follows from the formula $[g,h] = M_{c+1}(g,h)$
+  described in Section \ref{sec:group-commutator-ito-lie-bracket}. In
+  particular, we use Lemma \ref{lemma:commutator-denominators} to
+  argue that the expression is in $[L,I]$.
+
+  {\em Proof that $[L,I] \subseteq \log([G,H])$}: It suffices to show
+  that every element of the form $[x,y]$, for $x \in L$, $y \in I$, is
+  in $[G,H]$. This follows from the formula $[x,y] = h_{2,c+1}(x,y)$
+  described as the second inverse Baker-Campbell-Hausdorff formula in
+  Section \ref{sec:inverse-bch}. In particular, we use Lemma
+  \ref{lemma:lie-bracket-denominators} to argue that the expression is
+  in $[G,H]$.
+\end{proof}
+
+We now show that the Lazard correspondence relates the lower central
+series of the Lie ring with the lower central series of the group.
+
+\begin{theorem}\label{thm:lazard-correspondence-lcs}
+  Suppose $G$ is a $3$-local class $c$ Lazard Lie group and $L =
+  \log(G)$ is its Lazard Lie ring. Then, the following hold.
+
+  \begin{enumerate}
+  \item For all positive integers $i$, $\log(\gamma_i(G)) =
+    \gamma_i(L)$ where $\gamma_i$ denotes the $i^{th}$ member of the
+    lower central series (for $G$ or $L$ respectively).
+  \item For all positive integers $i < j$,
+    $\log(\gamma_i(G)/\gamma_j(G)) = \gamma_i(L)/\gamma_j(L)$. In
+    particular, setting $i = 1$, $\log(G/\gamma_j(G)) =
+    L/\gamma_j(L)$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  {\em Proof of (1)}: This follows by inducting on Lemma
+  \ref{lemma:derived-subgroup-same-group-lie-ring}. The base case $i =
+  1$ is given. For the inductive step from $i$ to $i + 1$, set $H =
+  \gamma_i(G)$ and $I = \gamma_i(L)$.
+
+  {\em Proof of (2)}: This follows from (1).
+\end{proof}
+
+%\newpage
+
+\section{The Malcev and Lazard correspondence in the free case}\label{sec:malcev-lazard-free}
+
+\subsection{Setup}\label{sec:malcev-lazard-free-setup}
+
+We use the same notation as in Section
+\ref{sec:free-associative-algebra}. The notation is reviewed below for
+convenience. Denote by $\mathcal{A}$ the free associative
+$\mathbb{Q}$-algebra on a generating set $S = \{ x_1,x_2,\dots
+\}$. The generating set may have any cardinality. By the well-ordering
+principle, we will index the generating set by a well-ordered set. For
+a positive integer $c$, define $A :=
+\mathcal{A}/\mathcal{A}^{c+1}$. $A$ can be described as the free
+nilpotent associative algebra of class $c$ on the same generating set
+$S$. Explicitly, this means that all products in $A$ of length more
+than $c$ become zero.
+
+Denote by $\mathcal{L}$ the Lie subring of $\mathcal{A}$ generated by
+the free generating set $S$. Note that $\mathcal{L}$ is {\em only} a
+Lie ring, {\em not} a $\mathbb{Q}$-Lie
+algebra. $\mathbb{Q}\mathcal{L}$ is the $\mathbb{Q}$-Lie algebra
+generated by $S$ in $\mathcal{A}$.
+
+We can define $L$ in the following equivalent ways:
+
+\begin{itemize}
+\item $L = \mathcal{L}/\gamma_{c+1}(\mathcal{L}) =
+  \mathcal{L}/(\mathcal{L} \cap \mathcal{A}^{c+1})$.
+\item $L$ is the Lie subring generated by the image of $S$ inside $A$,
+  i.e., it is the Lie subring generated by the freely generating set
+  inside $A$.
+\end{itemize}
+
+Denote by $F$ the group generated by the elements $e^{x_i}$, $x_i$
+varying over the generating set $S$ of $L$. As per Theorem
+\ref{thm:free-nilpotent}, $F$ is a free nilpotent group with $e^{x_i}$
+forming a freely generating set.
+
+We can define an exponential map
+
+$$\exp:L \to 1 + A$$
+
+by:
+
+$$\exp(x) = 1 + x + \frac{x^2}{2!} + \dots + \frac{x^c}{c!}$$
+
+We can also define a logarithm map:
+
+$$\log:F \to A$$
+
+by:
+
+$$\log x = (x - 1) - \frac{(x - 1)^2}{2} + \frac{(x - 1)^3}{3} - \dots + \frac{(-1)^c(x - 1)^c}{c}$$
+
+We might naively hope that $\exp(L) = F$ and $\log(F) = L$. This,
+however, is not the case. A somewhat weaker version of the statement
+{\em is} true, as described in Section
+\ref{sec:inverse-bch-pi-powered} (the original proof is in Khukhro's
+book \cite{Khukhro}, Theorem 10.22), and we recall that below, because
+we will be using it extensively in some of our proofs. Denote by
+$\pi_c$ the set of all primes less than or equal to $c$. Then, for any
+prime set $\sigma \supseteq \pi_c$, $\sqrt[\sigma]{F} =
+\exp(\Z[\sigma^{-1}]L)$. In particular, both of these hold:
+
+\begin{itemize}
+\item $\sqrt[\pi_c]{F} = \exp(\Z[\pi_c^{-1}]L)$
+\item $\sqrt{F} = \exp(\Q L)$ 
+\end{itemize}
+
+\subsection{Interpretation as correspondences up to isomorphism}\label{sec:malcev-lazard-correspondence-interpretation}
+
+In Section \ref{sec:abelian-lie-correspondence-up-to-isomorphism}, we
+had described the abelian Lie correspondence {\em up to
+  isomorphism}. This differs from the abelian Lie correspondence in
+the important sense that the group and the Lie ring need not have the
+same underlying set. Instead, we are given a set map (denoted $\exp$)
+from the Lie ring to the group and a set map (denoted $\log$) from the
+group to the Lie ring that play the role of identifying the sets with
+each other. We noted in Section \ref{sec:isocat-template} that this
+notion of relaxing {\em up to isomorphism} applies to all the
+similarly defined correspondences in this document. In Section
+\ref{sec:baer-correspondence-isocat-consequences}, we noted that the
+notion applies to the Baer correspondence.
+
+The notion of a correspondence up to isomorphism also applies to the
+Malcev correspondence and the Lazard correspondence. In both cases, we
+need to specify a set map from the Lie ring to the group (customarily
+denoted $\exp$) and a set map from the group to the Lie ring
+(customarily denoted $\log$) that play the role of identifying the sets.
+
+Using the same notation as in Section
+\ref{sec:malcev-lazard-free-setup}, we obtain the following
+correspondences up to isomorphism:
+
+\begin{itemize}
+\item The Lie ring $\Q L$ and the group $\sqrt{F}$ are in class $c$
+  Malcev correspondence up to isomorphism. The $\exp$ and $\log$ maps
+  defining the correspondence coincide with the $\exp$ and $\log$ maps
+  defined in Section \ref{sec:malcev-lazard-free-setup}. This is not a
+  coincidence: the terminology $\exp$ and $\log$ that we introduced in
+  the abstract setting was specifically {\em chosen} based on this
+  setup.
+\item For any prime set $\sigma$ containing $\pi_c$, the Lie ring
+  $\Z[\sigma^{-1}]L$ and the group $\sqrt[\sigma]{F}$ are in global
+  class $c$ Lazard correspondence up to isomorphism. The $\exp$ and
+  $\log$ maps defining the correspondence coincide with the $\exp$ and
+  $\log$ maps defined in Section \ref{sec:malcev-lazard-free-setup}.
+\item In particular, the Lie ring $\Z[\pi_c^{-1}]L$ and the group
+  $\sqrt[\pi_c]{F}$ are in global class $c$ Lazard correspondence up
+  to isomorphism, with the same $\exp$ and $\log$ maps.
+\end{itemize}
+
+\subsection{Restriction of the Malcev correspondence to groups and Lie rings that lack adequate powering}
+
+We continue using the same notation as above: $L$ is a free nilpotent
+Lie ring of class $c$ on the generating set $S$, and $F$ is a free
+nilpotent group of class $c$ on the generating set $e^S$, which is in
+canonical bijection with $S$. We had already noticed that $L$ and $F$
+are not in Lazard correspondence with one another. We will now take a
+closer look at the statement.
+
+Any element of $L$ can be written as a sum involving the $x_i$s and
+Lie products involving the $x_i$s. Consider, for instance, the case
+that $|S| = 2$ and the generating set is $\{ x_1, x_2 \}$. Consider
+the element $x_1 + x_2$ of $L$. Then, to find $e^{x_1 + x_2}$, we can
+use the inverse Baker-Campbell-Haudorff formula, and obtain:
+
+$$e^{x_1 + x_2} = h_{1,c}(e^{x_1},e^{x_2})$$
+
+The formula $h_{1,c}$ involves taking $p^{th}$ roots for primes $p \in
+\pi_c$. Therefore, even though the elements $e^{x_1}$ and $e^{x_2}$ are in
+$F$, the element $e^{x_1 + x_2}$ is not in $F$ if $c \ge 2$.
+
+Consider a more complicated element of $L$.
+
+$$z = x_1 + x_2 + 3[x_1,x_2]$$
+
+We can compute $e^z$ by splitting $z$ as a sum $(x_1 + x_2) +
+3[x_1,x_2]$, then splitting $x_1 + x_2$ as a sum again, and also
+$h_{2,c}$ to compute $e^{[x_1,x_2]}$. The final formula is:
+
+$$e^z = h_{1,c}(h_{1,c}(e^{x_1},e^{x_2}),(h_{2,c}(e^{x_1},e^{x_2}))^3)$$
+
+Once again, we are guaranteed that $e^z \in \sqrt[\pi_c]{F}$. However,
+it will not in general be in $F$ itself.
+
+There do exist some elements of $L$ whose exponential is in $F$. For
+instance, all the elements of the generating set $S$ have exponentials
+in $F$. Other examples also exist. For instance, in the case $c = 2$,
+the exponential of $[x_1,x_2]$ is $[e^{x_1},e^{x_2}]$ and is inside
+$F$. The subset of $L$ comprising those elements whose exponential is
+in $F$ is a generating set for $L$ as a Lie ring (because in
+particular it contains $S$) and therefore in particular it is {\em
+  not} a subring of $L$.
+
+Suppose now that we consider the Lie ring $\Z[\sigma^{-1}]L$ and the
+group $\sqrt[\sigma]{F}$, where $\sigma$ is a subset of $\pi_c$ that
+does not include all the primes in $\pi_c$. Note that the whole Lie
+ring $\Z[\sigma^{-1}]L$ is not in Lazard correspondence with the whole
+group $\sqrt[\sigma]{F}$. In particular, $\exp(\Z[\sigma^{-1}]L)$ is
+not contained in $\sqrt[\sigma]{F}$, and $\log(\sqrt[\sigma]{F})$ is
+not contained in $\Z[\sigma^{-1}]L$.
+
+It might still be the case, however, that there are subrings of
+$\Z[\sigma^{-1}]L$ that are in Lazard correspondence with certain
+subgroups of $\sqrt[\sigma]{F}$. The naive intuition is that, as long
+as the formulas involved require division only by the primes in
+$\sigma$ and not by any of the other primes in $\pi_c$, the
+correspondence should work.
+
+We will now establish a few important results of this sort.
+
+\subsection{Lazard correspondence between derived subgroup and derived subring}\label{sec:lazard-correspondence-derived}
+
+The following result is an extremely important first step both in
+defining and in establishing important aspects of the Lazard
+correspondence up to isoclinism.
+
+We will perform our calculuations in class $c + 1$. This will make it
+easier to use our results directly in later sections. However, it will
+be a slight departure from the preceding discussion. For clarity, we
+use subscripts to remind ourselves of the class we are operating in.
+
+Let $c$ be a positive integer and $\pi_c$ be the set of all primes
+less than or equal to $c$. Let $S$ be a set. The algebra $A =
+A_{c+1}$, the Lie ring $L = L_{c+1}$, and the group $F = F_{c+1}$ are
+defined the same way as in Sections \ref{sec:malcev-lazard-free-setup}
+and \ref{sec:malcev-lazard-correspondence-interpretation}, but
+replacing $c$ by $c + 1$. In particular, $A$ is a free
+$\Q$-algebra on $S$ of nilpotency class $c + 1$, $L$ is the Lie
+subring of $A_{c+1}$ generated by $S$, and $D$ is the group
+generated by $e^{x_i}, x_i \in S$.
+
+Let $K$ be the group $\sqrt[\pi_c]{F}$ and $N$ be the group
+$\mathbb{Z}[\pi_c^{-1}](L)$. As shown in Theorem
+\ref{thm:free-nilpotent}, $K$ is a free $\pi_c$-powered class $(c +
+1)$ group on $e^S$ (and therefore canonically isomorphic to the free
+$\pi_c$-powered class $(c + 1)$ group on $S$), and $N$ is a free
+$\pi_c$-powered class $(c + 1)$ Lie ring on $S$.
+
+Before proceeding, we note a few basic facts that we will repeatedly
+use in the course of our proofs.
+
+\begin{itemize}
+\item $\sqrt{F} = \sqrt{K}$ is the free $\Q$-powered group on $e^S$.
+\item $\Q N = \Q L$ is the free $\Q$-powered Lie ring on $S$.
+\end{itemize}
+
+Our eventual goal will be to show that the exponential and logarithm
+map establish a Lazard corespondence between $[N,N]$ and $[K,K]$. We
+will begin by establishing some preliminaries.
+
+\begin{lemma}\label{lemma:lazard-correspondence-derived-setup}
+  With notation as above, the following are true:
+
+  \begin{enumerate}
+  \item $[N,N]$ is a global class $c$ Lazard Lie ring, i.e., it is a
+    $\pi_c$-powered Lie ring of nilpotency class at most $c$.
+  \item $[K,K]$ is a global class $c$ Lazard Lie group, i.e., it is a
+    $\pi_c$-powered group of nilpotency class at most $c$.
+  \item Under the exponential map from $A$ to $1 + A$, $\exp([N,N])$
+    is a $\pi_c$-powered subgroup of $1 + A$ (in fact, it is a
+    subgroup of $\sqrt{F}$). Moreover, the exponential and logarithm
+    maps establish a Lazard correspondence up to isomorphism between
+    $[N,N]$ and $\exp([N,N])$.
+  \item Under the logarithm map from $1 + A$ to $A$, $\log([K,K])$ is
+    a $\pi_c$-powered Lie subring of $A$ (in fact, it is a Lie subring
+    of $\Q L$). Moreover, the exponential and logarithm maps
+    establish a Lazard correspondence up to isomorphism between
+    $\log([K,K])$ and $[K,K]$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  We prove the parts one by one.
+
+  \begin{enumerate}
+  \item $[N,N]$ is a global class $c$ Lazard Lie ring: 
+    \begin{itemize}
+    \item $[N,N]$ is $\pi_c$-powered: This follows from the fact that
+      $N$ is $\pi_c$-powered and Lemma
+      \ref{lemma:lie-ring-lcs-divisibility}.
+    \item $[N,N]$ has nilpotency class at most $c$: In fact, since $N$
+      has nilpotency class $c + 1$, $[N,N]$ has nilpotency class at
+      most $\lfloor (c + 1)/2 \rfloor$, which is less than or equal to
+      $c$.
+    \end{itemize}
+  \item $[K,K]$ is a global class $c$ Lazard Lie group:
+    
+    \begin{itemize}
+    \item $[K,K]$ is $\pi_c$-powered: The follows from the fact that
+      $K$ is $\pi_c$-powered and Theorem \ref{thm:powering-lcs}.
+    \item $[K,K]$ has nilpotency class at most $c$: In fact, since $K$
+      has nilpotency class $c + 1$, $[K,K]$ has nilpotency class at
+      most $\lfloor (c + 1)/2 \rfloor$, which is less than or equal to
+      $c$.
+    \end{itemize}
+
+  \item This follows directly from (1) and applying the global Lazard
+    correspondence between {\em subrings and subgroups} described in
+    Section \ref{sec:global-lazard-correspondence-subgroups}, to the
+    Lazard correspondence between $\Q L$ and $\sqrt{F}$.
+  \item This follows directly from (2) and applying the global Lazard
+    correspondence between {\em subrings and subgroups} described in
+    Section \ref{sec:global-lazard-correspondence-subgroups}, to the
+    Lazard correspondence between $\Q L$ and $\sqrt{F}$.
+  \end{enumerate}
+\end{proof}
+
+\begin{lemma}\label{lemma:exp-log-error-term}
+  With notation as above, the following are true (recall that
+  $Z(\sqrt{K})$ is the center of $\sqrt{K} = \sqrt{F}$):
+
+  \begin{enumerate}
+  \item Under the exponential map $\exp: \Q L = \Q N \to \sqrt{F} =
+    \sqrt{K}$ (which in turn is obtained from the exponential map
+    $\exp:A \to 1 + A$), we have $\exp(N) \subseteq
+    KZ(\sqrt{K})$. 
+  \item Under the logarithm map $\log: \sqrt{F} = \sqrt{K} \to \Q L =
+    \Q N$ (which in turn is obtained from the logarithm map $\log:1 +
+    A \to A$), we have $\log(K) \subseteq N + Z(\Q N)$.
+  \item Under the exponential map $\exp: \Q L = \Q N \to \sqrt{F} =
+    \sqrt{K}$ (which in turn is obtained from the exponential map
+    $\exp:A \to 1 + A$), we have $K \subseteq
+    \exp(N)Z(\sqrt{K})$. 
+  \item Under the logarithm map $\log: \sqrt{F} = \sqrt{K} \to \Q L =
+    \Q N$ (which in turn is obtained from the logarithm map $\log:1 +
+    A \to A$), we have $N \subseteq \log(K) + Z(\Q N)$.
+
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Consider the quotient map $A \to A/A^{c+1}$. This map factors out
+  the products of length $c + 1$ and the quotient is therefore the
+  free nilpotent associative algebra of nilpotency class $c$ on
+  $S$. Based on the setup described in Section
+  \ref{sec:free-nilpotent-exp-log}, the image of $F$ under the
+  quotient map is $F_c$ (the class $c$ version of $F$) and the image
+  of $L$ under the quotient map is $L_c$ (the class $c$ version of
+  $L$). Denote by $K_c$ and $N_c$ the images of $K$ and $N$ under the
+  quotient map. Then, $K_c = \sqrt[\pi_c]{F_c}$ and $N_c =
+  \Z[\pi_c^{-1}]L_c$, so that $K_c$ and $N_c$ are in global class $c$
+  Lazard correspondence up to isomorphism.
+
+  {\em Proof of (1)}: For $x \in N$, denote by $\overline{x}$ the
+  image of $x$ in $N_c$. Then, $\exp(\overline{x}) =
+  \overline{\exp(x)} \in K_c$, so $\exp(x)$ can be written in the form
+  $g + a$ where $g \in K$ and $a$ is in the $(c+1)^{th}$ graded
+  component of $A$. This can be rewritten as $g(1 + g^{-1}a)$. The
+  element $1 + g^{-1}a$ is an element of $\sqrt{F} = \sqrt{K}$, and
+  $g^{-1}a$ is in the $(c+1)^{th}$ graded component of $A$, so that $1
+  + g^{-1}a \in Z(\sqrt{F}) = Z(\sqrt{K})$.
+
+  {\em Proof of (2)}: For $g \in K$, denote by $\overline{g}$ the
+  image of $g$ in $K_c$. Then, $\log(\overline{x}) =
+  \overline{\log(x)} \in N_c$, so $\log x$ can be written in the form
+  $x + a$ where $x \in N$ and $a$ is in the $(c+1)^{th}$ graded
+  component of $A$, so that $a \in Z(\Q L) = Z(\Q N)$.
+
+  {\em Proof of (3)}: For $g \in K$, part (2) says that we can write
+  $\log g = x +a$ where $a$ is central. Exponentiating both sides, we
+  obtain that $g = e^xe^a$, with $e^a \in Z(\sqrt{K})$.
+
+ {\em Proof (4)}: For $x \in N$, part (1) says that we can write $e^x
+ = gu$ where $g \in K$ and $u \in Z(\sqrt{K})$. Taking logarithms both
+ sides, and using the centrality of $u$, we obtain that $x = \log g +
+ \log u$, with $\log u \in Z(\Q N)$.
+\end{proof} 
+
+\begin{theorem}[Lazard correspondence between derived subgroup and derived subring]\label{thm:lazard-correspondence-derived}
+  With notation as above, the derived subgroup $[K,K]$ and the derived
+  subring $[N,N]$ are in Lazard correspondence up to
+  isomorphism. Moreover, this Lazard correspondence arises as a
+  restriction of the Malcev correspondence between $\sqrt{F} =
+  \hat{K}$ and $\Q N = \Q L$ described in Section
+  \ref{sec:malcev-lazard-correspondence-interpretation}.
+\end{theorem}
+
+Before we begin the proof, we make a few remarks. First, note that $K$
+and $N$ are very close to being in Lazard correspondence
+themselves. If we had inverted all primes in $\pi_{c+1}$, then we
+would have obtained the Lazard correspondence. This also means that if
+$c + 1$ is composite, then $K$ and $N$ {\em are} in Lazard
+correspondence. In that case, the result follows from Theorem
+\ref{thm:lazard-correspondence-lcs}.
+
+The case of interest is where $c + 1$ is prime, so that $K$ and $N$
+are not in Lazard correspondence themselves. In other words, when we
+compute $e^u$ for some $u \in N$, we do obtain an element of
+$\sqrt{K}$ but not necessarily an element of $K$. We want to show that
+if the element of $N$ that we start with is in $[N,N]$, then computing
+the exponential gives an element in $[K,K]$, and that every element of
+$[K,K]$ can be obtained in this fashion.
+
+We are now in a position to begin the proof.
+
+\begin{proof}
+  By Lemma \ref{lemma:lazard-correspondence-derived-setup}, it
+  suffices to show that $\exp([N,N]) = [K,K]$, or equivalently, that
+  $\log([K,K]) = [N,N]$. We can show this in two steps: showing that
+  $[K,K] \subseteq \exp([N,N])$ and showing that $[N,N] \subseteq
+  \log([K,K])$.
+
+  \begin{enumerate}
+  \item Proof that $[K,K] \subseteq \exp([N,N])$: Lemma
+    \ref{lemma:lazard-correspondence-derived-setup} established that
+    $\exp([N,N])$ is a group. Thus, it suffices to show that a
+    generating set of $[K,K]$ is in $\exp([N,N])$. Specifically, it
+    suffices to show that for all $g, h \in K$, $[g,h] \in
+    \exp([N,N])$.
+
+    By Lemma \ref{lemma:exp-log-error-term} (part (3)), $g = e^xu$ and
+    $h = e^yv$ where $x,y \in N$ and $u,v \in Z(\sqrt{K})$. Thus,
+    $[g,h] = [e^x,e^y] = e^{M_{c+1}(x,y)}$. By Lemma
+    \ref{lemma:commutator-denominators}, $M_{c+1}$ uses only division
+    by primes in $\pi_c$, so that $[g,h] \in \exp([N,N])$.
+
+  \item Proof that $[N,N] \subseteq \log([K,K])$: We showed in Lemma
+    \ref{lemma:lazard-correspondence-derived-setup} that $\log([K,K])$
+    is a Lie ring. Thus, it suffices to show that a generating set of
+    $[N,N]$ is in $\log([K,K])$.  Specifically, it suffices to show
+    that for $x,y \in N$, $[x,y] \in \log([K,K])$.
+
+    By Lemma \ref{lemma:exp-log-error-term} (part (4)), $x = \log g +
+    s$ and $y = \log k + t$ where $g, k \in K$ and $s,t \in Z(\Q
+    N)$. Thus, $[x,y] = [\log g, \log k] = \log(h_{2,c+1}(g,k))$. By
+    Lemma \ref{lemma:lie-bracket-denominators}, $h_{2,c+1}(g,k) \in
+    [K,K]$, so $[x,y] \in \log([K,K])$.
+  \end{enumerate}
+\end{proof}
+
+In later applications of the result, we will use the result in its
+{\em abstract} form, i.e., instead of treating $K$ and $N$ as subsets
+inside $\Q + A$ as we did above, we will treat them as the abstract
+free $\pi_c$-powered group and Lie ring respectively of class $c + 1$.
+
+\begin{lemma}\label{lemma:exp-log-error-term-sub}
+  Continuing notation from the preceding theorem (Theorem
+  \ref{thm:lazard-correspondence-derived}), let $K_1 =
+  K/\gamma_c(K)$ and $N_1 = N/\gamma_c(N)$. Let $R$ be the
+  $\pi_c$-powered normal subgroup of $K$ containing $\gamma_c(K)$
+  while $J$ is a $\pi_c$-powered ideal of $N$ containing
+  $\gamma_c(N)$. Let $R_1 = R/\gamma_c(K)$ and $J_1 =
+  J/\gamma_c(N)$. Further, suppose that $R_1 = \exp(J_1)$ with respect
+  to the Lazard correspondence given by the usual logarithm and
+  exponential map between $N_1$ and $K_1$. Then, the following are true:
+
+  \begin{enumerate}
+  \item Under the exponential map $\exp: \Q L = \Q N \to \sqrt{F} =
+    \sqrt{K}$ (which in turn is obtained from the exponential map
+    $\exp:A \to 1 + A$), we have $\exp(J) \subseteq
+    RZ(\sqrt{K})$. 
+  \item Under the logarithm map $\log: \sqrt{F} = \sqrt{K} \to \Q L =
+    \Q N$ (which in turn is obtained from the logarithm map $\log:1 +
+    A \to A$), we have $\log(R) \subseteq J + Z(\Q N)$.
+  \item Under the exponential map $\exp: \Q L = \Q N \to \sqrt{F} =
+    \sqrt{K}$ (which in turn is obtained from the exponential map
+    $\exp:A \to 1 + A$), we have $R \subseteq
+    \exp(J)Z(\sqrt{K})$. 
+  \item Under the logarithm map $\log: \sqrt{F} = \sqrt{K} \to \Q L =
+    \Q N$ (which in turn is obtained from the logarithm map $\log:1 +
+    A \to A$), we have $J \subseteq \log(R) + Z(\Q N)$.
+
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  The proof is analogous to the proof of Lemma
+  \ref{lemma:exp-log-error-term}.
+\end{proof}
+
+\begin{theorem}\label{thm:lazard-correspondence-intersect-kernel}
+  Continuing notation from Lemma \ref{lemma:exp-log-error-term-sub},
+  the Lazard correspondence between $[K,K]$ and $[N,N]$ restricts to
+  a Lazard correspondence between $R \cap [K,K]$ and $J \cap [N,N]$.
+\end{theorem}
+
+Before we begin the proof, note that $R$ and $J$ are not themselves
+necessarily in Lazard correspondence. They {\em would be} in Lazard
+correspondence if $c + 1$ were composite, because in that case, $\pi_c
+= \pi_{c+1}$. We want to show here that even though $R$ and $J$ may
+themselves fail to be in Lazard correspondence, their respective
+intersections with $[K,K]$ and $[N,N]$ are in Lazard correspondence.
+
+\begin{proof}
+  %% Without loss of generality (for the proof, not for the statement),
+  %% we can assume here that $R$ is contained in $[K,K]$ and $J$ is
+  %% contained in $[N,N]$ (if not, replace $R$ by $R \cap [K,K]$ and $J$
+  %% by $J \cap [N,N]$, modifying the definitions of $R_1$ and $N_1$
+  %% accordingly).
+  We prove the result in several steps:
+
+  \begin{enumerate}
+  \item $R \cap [K,K]$ is a global class $c$ Lazard Lie group: By
+    Lemma \ref{lemma:lazard-correspondence-derived-setup}, $[K,K]$ is
+    a global class $c$ Lazard Lie group. In particular, it is
+    $\pi_c$-powered and has nilpotency class at most $c$. $R$ is given
+    to be $\pi_c$-powered. Thus, $R \cap [K,K]$ is $\pi_c$-powered,
+    and its nilpotency class is at most $c$. Note that the only bound
+    we have on the nilpotency class of $R$ is $c + 1$, but bounding the
+    class of $[K,K]$ is sufficient to bound the class of $R \cap
+    [K,K]$.
+  \item $J \cap [N,N]$ is a global class $c$ Lazard Lie ring: By Lemma
+    \ref{lemma:lazard-correspondence-derived-setup}, $[N,N]$ is a
+    global class $c$ Lazard Lie ring. In particular, it is
+    $\pi_c$-powered and has nilpotency class at most $c$. $J$ is
+    $\pi_c$-powered. Thus, $J \cap [N,N]$ is $\pi_c$-powered, and its
+    nilpotency class is at most $c$. Note that the only bound we have
+    on the nilpotency class of $J$ is $c + 1$, but bounding the class
+    of $[N,N]$ is sufficient to bound the class of $J \cap [N,N]$.
+  \item $\exp(J \cap [N,N]) \subseteq R \cap [K,K]$: We know that
+    $\exp([N,N]) = [K,K]$, so $\exp(J \cap [N,N]) \subseteq [K,K]$. In
+    addition, $\exp(J \cap [N,N]) \subseteq \exp(J)$. By Lemma
+    \ref{lemma:exp-log-error-term-sub} (part (1)), we obtain that
+    $\exp(J \cap [N,N]) \subseteq RZ(\sqrt{K})$, and hence $\exp(J
+    \cap [N,N]) \subseteq RZ(\sqrt{K}) \cap [K,K]$. We will show that
+    $RZ(\sqrt{K}) \cap [K,K] = R \cap [K,K]$, completing the proof.
+
+    Consider an element $g \in RZ(\sqrt{K}) \cap [K,K]$. Then, $g =
+    uv$ with $u \in R$ and $v \in Z(\sqrt{K})$. We obtain that $v =
+    u^{-1}g$. Since both $R$ and $[K,K]$ are subgroups of $K$, we
+    obtain that $v \in K$, so $v \in Z(\sqrt{K}) \cap K$, so that $v
+    \in Z(K)$. But $Z(K) = \gamma_c(K)$ (both are precisely the
+    elements in $K$ that have the form $1 + a$ with $a$ a homogeneous
+    degree $c + 1$ element of $A$), so $v \in \gamma_c(K) \subseteq
+    R$. Thus, $g = uv \in R$, so that $g \in R \cap [K,K]$ as desired.
+  \item $\log(R \cap [K,K]) \subseteq J \cap [N,N]$: We know that
+    $\log([K,K])$ $= [N,N]$, so $\log(R \cap [K,K]) \subseteq
+    [N,N]$). In addition, $\log(R \cap [K,K]) \subseteq \log(R)$. By
+    Lemma \ref{lemma:exp-log-error-term-sub} (part (2)), we obtain
+    that $\log(R \cap [K,K]) \subseteq J + Z(\Q N)$, and hence $\log(R
+    \cap [K,K]) \subseteq (J + Z(\Q N)) \cap [N,N]$. We will now show
+    that $(J + Z(\Q N)) \cap [N,N] = J \cap [N,N]$, completing the
+    proof.
+
+    Consider an element $x \in (J + Z(\Q N)) \cap [N,N]$. Then, $x= y
+    + z$ with $y \in J$ and $z \in Z(\Q N)$. We obtain that $z = x -
+    y$. Since both $J$ and $[N,N]$ are subrings of $N$, we obtain that
+    $z \in N$, so $z \in Z(\Q N) \cap N$, so $z \in Z(N)$. We have
+    $Z(N) = \gamma_c(N)$, so $z \in \gamma_c(N) \subseteq J$. Thus, $x
+    = y + z \in J$, so $x \in J \cap [N,N]$ as desired.
+  \end{enumerate}
+\end{proof}
+
+\begin{theorem}\label{thm:lazard-correspondence-commutator-lie}
+  Continuing notation from the preceding theorem (Theorem
+  \ref{thm:lazard-correspondence-derived}), the Lazard correspondence
+  between $[K,K]$ and $[N,N]$ restricts to a Lazard correspondence
+  between $[K,R]$ and $[N,J]$.
+\end{theorem}
+
+\begin{proof}
+  \begin{enumerate}
+  \item $[K,R]$ is a global class $c$ Lazard Lie group and $[N,J]$ is a
+    global class $c$ Lazard Lie ring: This requires verifying that
+    both $[K,R]$ and $[N,J]$ are $\pi_c$-powered, and both have class
+    at most $c$. We break this down further:
+
+    \begin{itemize}
+    \item $[K,R]$ is a $\pi_c$-powered group: This follows from Lemma
+      \ref{lemma:lcs-subgroup-divisibility}.
+    \item $[N,J]$ is a $\pi_c$-powered Lie ring: This follows from $N$
+      and $J$ both being $\pi_c$-powered, and the additivity of the
+      Lie bracket.
+    \item $[K,R]$ has nilpotency class at most $c$: $[K,R]$ is a
+      subgroup of $[K,K]$, which has nilpotency class at most $c$ as
+      established in Theorem \ref{thm:lazard-correspondence-derived}.
+    \item $[N,J]$ has nilpotency class at most $c$: $[N,J]$ is a
+      subring of $[N,N]$, which has nilpotency class at most $c$ as
+      established in Theorem \ref{thm:lazard-correspondence-derived}.
+    \end{itemize}
+
+  \item $\exp([N,J])$ is a group with which $[N,J]$ is in global
+    class $c$ Lazard correspondence up to isomorphism via $\exp$, and
+    $\log([K,R])$ is a Lie ring that is in global class $c$ Lazard
+    correspondence with it via $\exp$: These follow from Step (1) and
+    the fact that the exponential and logarithm maps establish
+    correspondences between global class $c$ Lazard Lie subgroups and
+    global class $c$ Lazard Lie subrings.
+
+  \item $[K,R] \subseteq \exp([N,J])$ and $[N,J] \subseteq
+    \log([K,R])$: We show both parts:
+
+    \begin{itemize}
+    \item $[K,R] \subseteq \exp([N,J])$: In Step (2), we established
+      that $\exp([N,J])$ is a group. Thus, it suffices to show that
+      every commutator between an element of $K$ and an element of $R$
+      is in $\exp([N,J])$. Explicitly, given $g \in K$ and $h \in R$,
+      we need to show that $[g,k] \in \exp([N,J])$. 
+
+      By Lemma \ref{lemma:exp-log-error-term} (part (3)) and Lemma
+      \ref{lemma:exp-log-error-term-sub} (part (3)), $g = e^xu$ and $h
+      = e^yv$ where $x \in N$, $y \in J$ and $u,v \in
+      Z(\sqrt{K})$. Thus, $[g,h] = [e^x,e^y] = e^{M_{c+1}(x,y)}$. By
+      Lemma \ref{lemma:commutator-denominators}, $M_{c+1}$ uses only
+      division by primes in $\pi_c$, so that $[g,h] \in \exp([N,J])$.
+
+    \item $[N,J] \subseteq \log([K,R])$: In Step (2), we established
+      that $\log([K,R])$ is a Lie ring. Thus, it suffices to show that
+      a generating set of $[N,J]$ is in $\log([K,R])$.  Specifically,
+      it suffices to show that for $x \in N$ and $y \in J$, $[x,y] \in
+      \log([K,R])$.
+
+      By Lemma \ref{lemma:exp-log-error-term} (part (4)) and Lemma
+      \ref{lemma:exp-log-error-term-sub} (part (4)), $x = \log g + s$
+      and $y = \log k + t$ where $g \in K$, $k \in R$, and $s,t \in
+      Z(\Q N)$. Thus, $[x,y] = [\log g, \log k] =
+      \log(h_{2,c+1}(g,k))$. By Lemma
+      \ref{lemma:lie-bracket-denominators}, $h_{2,c+1}(g,k) \in
+          [K,R]$, so $[x,y] \in \log([K,R])$.
+    \end{itemize}
+  \end{enumerate}
+
+  Combining these, we obtain the result.
+\end{proof}
+
+
+%\newpage
+
+\section{Homology of powered nilpotent groups}\label{sec:homology-of-powered-nilpotent-groups}
+
+\subsection{Hopf's formula variant for Schur multiplier of powered nilpotent group}\label{sec:hopf-formula-pi-powered}
+
+So far, we have studied the extension theory and homology theory of
+groups {\em qua} groups. We now consider the extension theory and
+homology theory in the context of $\pi$-powered groups. For the
+results presented throughout this section, $\pi$ is {\em any} set of
+primes. Later, we will apply the results to the case where $\pi =
+\pi_c$ is the set of all primes less than or equal to $c$, but the
+results for this section are not restricted to such sets of primes.
+
+It turns out that, in the nilpotent case, the Schur multiplier, Schur
+covering group, exterior square, and all related constructions {\em
+  qua} group are the same as the corresponding constructions {\em qua}
+$\pi$-powered group. This is specific to the nilpotent case.
+
+\begin{lemma}\label{lemma:homology-pi-powered}
+  Suppose $G$ is a $\pi$-powered nilpotent group. Then, the following
+  hold:
+
+  \begin{enumerate}
+    \item All the homology groups $H_i(G;\mathbb{Z})$, $i > 0$, are
+      $\pi$-powered abelian groups.
+    \item The Schur multiplier $M(G)$, which is $H_2(G;\mathbb{Z})$, is
+      a $\pi$-powered abelian group.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  {\em Proof of (1)}: This follows from May and Ponto's text,
+  \cite{ConciseII}, Theorem 6.1.1, implication (iii) $\implies$ (iv),
+  setting $Z = K(G,1)$ and $T$ as the complement of $\pi$ in the set
+  of primes. The result appeared earlier in
+  \cite{HiltonMislinRoitberg}, Theorem 2.9. However, the notation and
+  surrounding explanation in May and Ponto's text are easier to
+  follow. 
+
+  {\em Proof of (2)}: This follows immediately from (1).
+\end{proof}
+
+\begin{lemma}\label{lemma:schur-cover-pi-powered}
+  Suppose $G$ is a $\pi$-powered nilpotent group. Every Schur covering
+  group of $G$ is $\pi$-powered. Since Schur covering groups exist and
+  are by definition initial objects in the category of central
+  extensions of $G$ with homoclinisms, there exist initial objects in
+  the category of extensions of $G$ with homoclinisms that are
+  $\pi$-powered.
+\end{lemma}
+
+\begin{proof}
+  By the preceding lemma (Lemma \ref{lemma:homology-pi-powered}),
+  $M(G) = H_2(G;\mathbb{Z})$ is $\pi$-powered. Consider a Schur
+  covering group $E$ of $G$. $E$ is a central extension of the form:
+
+  $$0 \to M(G) \to E \to G \to 1$$
+
+  By Lemma \ref{lemma:powering-extension-group}, $E$ is also
+  $\pi$-powered. By definition, any Schur covering group gives an
+  inital object in the category of central extensions of $G$ with
+  homoclinisms, so the last part of the statement follows.
+
+  Schur covering groups exist by Theorem
+  \ref{thm:schur-covering-groups-exist}, so the final sentence
+  follows.
+\end{proof}
+
+We are now in a position to prove results that establish analogues of
+Hopf's formula (discussed in Section \ref{sec:hopf-formula-proofs}):
+
+\begin{theorem}
+  Suppose $\pi$ is a set of primes and $G$ is a $\pi$-powered
+  nilpotent group. Express $G$ in the form $G \cong F/R$ where $F$ is
+  a free $\pi$-powered group. Then, the following are true.
+
+  \begin{enumerate}
+  \item The group $E_1 = F/[F,R]$, with the natural quotient map $E_1
+    \to G$, is an initial object in the category of central extensions
+    of $G$ with homoclinisms.
+  \item The exterior square $G \wedge G$ is canonically isomorphic to
+    the quotient group $[F,F]/[F,R]$.
+  \item The Schur multiplier $M(G)$ is canonically isomorphic to the
+    quotient group $(R \cap [F,F])/[F,R]$:
+
+    \begin{equation}\label{eq:pi-powered-hopf-formula}
+      M(G) \cong (R \cap [F,F])/[F,R]
+    \end{equation}
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  {\em Proof of (1)}: Let $E_2$ be a Schur covering group of $G$. By
+  Lemma \ref{lemma:schur-cover-pi-powered}, $E_2$ is $\pi$-powered.
+
+  Consider the commutator map $\omega_1:G \times G \to E_1$ and denote
+  by $\Omega_1$ the corresponding group homomorphism:
+
+  $$\Omega_1: G \wedge G \to [E_1,E_1]$$
+
+  Consider also the extension:
+
+  $$0 \to A \to E_2 \stackrel{\mu}{\to} G \to 1$$
+  
+  with the natural commutator map $\omega_2:G \times G \to E_2$ and the
+  corresponding commutator map homomorphism:
+
+  $$\Omega_2:G \wedge G \to [E_2,E_2]$$
+  
+  Our goal is to show that there there exists a unique homomorphism
+  $\varphi:[E_1,E_1] \to [E_2,E_2]$ such that $\varphi \circ
+  \omega_1 = \omega_2$, or equivalently, $\varphi \circ \Omega_1 =
+  \Omega_2$.
+
+  The map $\nu:F \to G$ lifts to a map $\psi:F \to E_2$ on account of
+  $F$ being a free $\pi$-powered group and $E_2$ being a $\pi$-powered
+  group (note that the lift is not necessarily unique). Explicitly,
+  this means that $\mu \circ \psi = \nu$.
+
+  We know that $\nu(R)$ is trivial, so $\mu(\psi(R))$ is trivial. Thus,
+  $\psi(R)$ lands inside the kernel of $\mu$, which is the image of $A$
+  in $E_2$. Thus, $\psi(R)$ is a central subgroup of $E_2$. Therefore,
+  $\psi([F,R]) = [\psi(F),\psi(R)]$ is trivial.
+  
+  Thus, $\psi$ descends to a homomorphism $\theta:E_1 \to E_2$, where
+  $E_1 = F/[F,R]$ as defined above, with the property that $\mu \circ
+  \theta = \overline{\nu}$. The condition $\mu \circ \theta =
+  \overline{\nu}$ can be interpreted as saying that $\theta$ is a
+  homomorphism between the central extensions $(E_1,\overline{\nu})$ and
+  $(E_2,\mu)$. Denote by $\varphi:E_1' \to E_2'$ the restriction of
+  $\theta$ to $E_1'$. Thus, by Lemma
+  \ref{lemma:homomorphism-restriction-homoclinism}, $\varphi$ defines a
+  homoclinism of the central extensions. 
+
+  Now, we know that $(E_2,\mu)$ is an initial object in the category,
+  so there is a homoclinism from it to any other object in the
+  category. Composing with the above gives a homoclinism from
+  $(E_1,\overline{\nu})$ to any central extension of $G$. By Lemma
+  \ref{lemma:uniqueness-of-homoclinism}, this homoclinism is
+  unique. Finally, Lemma \ref{lemma:initobj} establishes from this that
+  $(E_1,\overline{\nu})$ defines an initial object in the category of central
+  extensions of $G$ with homoclinisms.
+
+  {\em Proof of (2)}: By definition, $G \wedge G$ is isomorphic to the
+  derived subgroup $[E_1,E_1]$ on account of $E_1$ being an initial
+  object in the category of central extensions with
+  homoclinisms. $[E_1,E_1]$ is canonically isomorphic to
+  $[F,F]/[F,R]$.
+
+  {\em Proof of (3)}: The Schur multiplier is the kernel of the map
+  $[E_1,E_1] \to [G,G]$, or equivalently, it is the kernel of the map
+  $[F,F]/[F,R] \to [F,F]/(R \cap [F,F])$. The kernel works out to $(R
+  \cap [F,F])/[F,R]$.
+\end{proof}
+
+
+\subsection{Hopf's formula variant for Schur multiplier of powered nilpotent group: class one more version}\label{sec:hopf-formula-pi-powered-class-one-more}
+
+Suppose $\pi$ is a set of primes and $G$ is a $\pi$-powered nilpotent
+group of nilpotency class $c$. Suppose $G$ can be expressed in the
+form $F/R$ where $F$ is a free $\pi$-powered nilpotent group of class
+$c + 1$ and $R$ is a normal subgroup of $F$. Then:
+
+\begin{equation}\label{eq:pi-powered-hopf-formula-class-one-more}
+  M(G) \cong (R \cap [F,F])/([F,R])
+\end{equation}
+
+Also:
+
+\begin{equation}\label{eq:pi-powered-exteriorsquare-hopf-formula-class-one-more}
+  G \wedge G \cong [F,F]/[F,R]
+\end{equation}
+
+Our application of these results, in Section \ref{sec:lcuti}, will
+combine these results with the results of Section
+\ref{sec:malcev-lazard-free}. In that section, we use the letter $K$
+for the free group, and $R$ for the normal subgroup that is being
+factored out. Therefore, in our application of the above theorem, the
+letter $K$ will appear instead of the letter $F$.
+
+\subsection{Remark on powered Schur multipliers and powered Schur covering groups}
+
+It is possible to define concepts of Schur multiplier, Schur covering
+group, and exterior square, all {\em within the variety of
+  $\pi$-powered groups}. In other words, we can mimic the steps of
+Section \ref{sec:exteriorsquare-and-homoclinism}, replacing ``group''
+by $\pi$-powered group'', and obtain corresponding notions of
+$\pi$-powered exterior square and $\pi$-powered Schur multiplier. We
+can also define $\pi$-powered Schur covering group.
+
+The results of Sections \ref{sec:hopf-formula-pi-powered} and
+\ref{sec:hopf-formula-pi-powered-class-one-more} tell us that for
+nilpotent groups, the $\pi$-powered Schur multiplier coincides with
+the usual Schur multiplier and the $\pi$-powered exterior square
+coincides with the usual exterior square.
+
+\subsection{Results about isoclinisms for $\pi$-powered central extensions}\label{sec:isoclinisms-pi-powered-central-extensions}
+
+The results here follow from the results of Section
+\ref{sec:pi-powered-isoclinism-results} using reasoning similar to the
+way the results in Section
+\ref{sec:homoclinisms-words-central-extensions} follow from the
+results in Section \ref{sec:homoclinism-misc-results}. Note that we
+restrict our statements to $\pi$-powered class $c$ nilpotent groups
+and $\pi$-powered class $c$ words. Note that although the result is
+stated for $\pi$-powered class $c$ words, it also applies to
+$\pi$-powered words in general, because a $\pi$-powered class $c$ word
+can be viewed as an equivalence class of $\pi$-powered words that are
+equal in any $\pi$-powered class $c$ group.
+
+\begin{lemma}\label{lemma:iterated-commutator-descends-extension-version-pi-powered}
+  Suppose $c \ge 1$ and $\pi$ is a set of primes. Suppose $G$ is a
+  $\pi$-powered group and $w(g_1,g_2,\dots,g_n)$ is a $\pi$-powered
+  class $c$ word in $n$ letters with the property that $w$ evaluates
+  to the identity element in every $\pi$-powered abelian group. The
+  following are true.
+
+  \begin{enumerate}
+  \item For every $\pi$-powered central extension $E$ of $G$ such that
+    $E$ has class at most $c$, $w$ can be used to define a set map
+    $\chi_{w,E}: G^n \to [E,E]$.
+  \item For any homoclinism between $\pi$-powered central extensions
+    $E_1$ and $E_2$, with the central extension specified via a
+    homomorphism $\varphi:[E_1,E_1] \to [E_2,E_2]$, we have that:
+
+    $$\varphi \circ \chi_{w,E_1} = \chi_{w,E_2}$$
+  \end{enumerate}
+\end{lemma}
+
+%%TONOTDO: Possibly insert more detail here
+
+\begin{proof}
+  {\em Proof of (1)}: This is similar to the proof of Theorem
+  \ref{thm:iterated-commutator-descends-to-inn-pi-powered}. Alternatively, we can
+  deduce it from the {\em result} of Theorem
+  \ref{thm:iterated-commutator-descends-to-inn-pi-powered} by noting that the
+  map factors as follows:
+
+  $$G^n \to (E/Z(E))^n \to [E,E]$$
+
+  {\em Proof of (2)}: This is similar to the proof of Theorem
+  \ref{thm:iterated-commutator-commutes-homoclinisms-pi-powered}. Alternatively,
+  we can deduce it from the {\em result} of Theorem
+  \ref{thm:iterated-commutator-commutes-homoclinisms-pi-powered} by factoring
+  through $E/Z(E)$.
+\end{proof}
+
+We can now prove the theorem.
+
+\begin{theorem}\label{thm:iterated-commutator-map-to-exteriorsquare-pi-powered}
+  Suppose $\pi$ is a set of primes. Suppose $G$ is a $\pi$-powered
+  nilpotent group and $w(g_1,g_2,\dots,g_n)$ is a $\pi$-powered word
+  in $n$ letters with the property that $w$ evaluates to the identity
+  element in every $\pi$-powered abelian group. Then, there exists a
+  set map $X_w:G^n \to G \wedge G$ with the property that for any
+  $\pi$-powered central extension $E$ of $G$, $\Omega_{E,G} \circ X_w
+  = \chi_{w,E}$.
+\end{theorem}
+
+\begin{proof}
+  Set $c$ to be one more than the nilpotency class of $G$, and treat
+  $w$ as a $\pi$-powered class $c$ word. Apply Part (1) of Lemma
+  \ref{lemma:iterated-commutator-descends-extension-version-pi-powered}
+  to the case where the extension $E_0$ is an initial object in the
+  category of central extensions of $G$, {\em and} $E_0$ is
+  $\pi$-powered (this is possible by Lemma
+  \ref{lemma:schur-cover-pi-powered}). The rest of the proof is
+  analogous to Theorem
+  \ref{thm:iterated-commutator-map-to-exteriorsquare}.
+\end{proof}
+
+%\newpage
+
+\section{Homology of powered Lie rings}\label{sec:homology-of-powered-nilpotent-lie-rings}
+
+This section develops the Lie ring analogues of the results in Section
+\ref{sec:homology-of-powered-nilpotent-groups}. One key difference is
+that whereas the results of the previous section were restricted to
+nilpotent groups, some of the results in this section apply in full
+generality to all Lie rings.
+
+\subsection{Hopf's formula for powered Lie rings}\label{sec:hopf-formula-pi-powered-lie}
+
+We now establish the Lie ring analogues of the results describe in
+Section \ref{sec:hopf-formula-pi-powered}.
+
+\begin{lemma}\label{lemma:homology-pi-powered-lie}
+  Suppose $L$ is a $\pi$-powered Lie ring. Then, the following hold:
+
+  \begin{enumerate}
+    \item All the homology groups $H_i(L;\mathbb{Z})$, $i > 0$, are
+      $\pi$-powered abelian groups.
+    \item The Schur multiplier $M(L)$, which is $H_2(L;\mathbb{Z})$, is
+      a $\pi$-powered abelian group.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  {\em Proof of (1)}: This is a direct consequence of how we define
+  cohomology, and follows from the fact that the universal enveloping
+  algebra is the same except in degree zero whether taken over
+  $\mathbb{Z}$ or $\mathbb{Z}[\pi^{-1}]$, and the homology groups are
+  defined in terms of the universal enveloping algebra. %% TONOTDO: I
+  %% intend to provide more background regarding Lie ring cohomology
+  %% in the (pending) Appendix section.
+
+  {\em Proof of (2)}: This follows immediately from (1).
+\end{proof}
+
+\begin{lemma}\label{lemma:schur-cover-pi-powered-lie}
+  Suppose $L$ is a $\pi$-powered  Lie ring. Every Schur covering
+  Lie ring of $L$ is $\pi$-powered. Since Schur covering Lie rings exist and
+  are by definition initial objects in the category of extensions of
+  $L$ with homoclinisms, there exist initial objects in the category
+  of extensions of $L$ with homoclinisms that are $\pi$-powered.
+\end{lemma}
+
+\begin{proof}
+  By the preceding lemma (Lemma \ref{lemma:homology-pi-powered-lie}),
+  $M(L)$ is $\pi$-powered. Consider a Schur covering Lie ring $N$ of
+  $L$. $N$ is a central extension of the form:
+
+  $$0 \to M(L) \to N \to L \to 1$$
+
+  By Lemma \ref{lemma:two-out-of-three-lie}, $N$ is also
+  $\pi$-powered. By definition, any Schur covering Lie ring gives an
+  inital object in the category of central extensions of $L$ with
+  homoclinisms, so the last part of the statement follows.
+
+  Schur covering Lie rings exist by Theorem
+  \ref{thm:schur-covering-lie-rings-exist}, so the final sentence
+  follows.
+\end{proof}
+
+We are now in a position to prove results that establish analogues of
+Hopf's formula (discussed in Section \ref{sec:hopf-formula-proofs}):
+
+\begin{theorem}
+  Suppose $\pi$ is a set of primes and $L$ is a $\pi$-powered
+   Lie ring. Express $L$ in the form $L \cong F/R$ where $F$ is
+  a free $\pi$-powered Lie ring. Then, the following are true.
+
+  \begin{enumerate}
+  \item The Lie ring $N_1 = F/[F,R]$, with the natural quotient map $N_1
+    \to L$, is an initial object in the category of central extensions
+    of $L$ with homoclinisms.
+  \item The exterior square $L \wedge L$ is canonically isomorphic to
+    the quotient Lie ring $[F,F]/[F,R]$.
+  \item The Schur multiplier $M(L)$ is canonically isomorphic to the
+    quotient Lie ring $(R \cap [F,F])/[F,R]$:
+
+    \begin{equation}\label{eq:pi-powered-hopf-formula-lie}
+      M(L) \cong (R \cap [F,F])/[F,R]
+    \end{equation}
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  {\em Proof of (1)}: Let $N_2$ be a Schur covering Lie ring of $L$. By
+  Lemma \ref{lemma:schur-cover-pi-powered-lie}, $N_2$ is $\pi$-powered.
+
+  Consider the commutator map $\omega_1:L \times L \to N_1$ and denote
+  by $\Omega_1$ the corresponding Lie ring homomorphism:
+
+  $$\Omega_1: L \wedge L \to [N_1,N_1]$$
+
+  Consider also the extension:
+
+  $$0 \to A \to N_2 \stackrel{\mu}{\to} L \to 1$$
+  
+  with the natural commutator map $\omega_2:L \times L \to N_2$ and the
+  corresponding commutator map homomorphism:
+
+  $$\Omega_2:L \wedge L \to [N_2,N_2]$$
+  
+  Our goal is to show that there there exists a unique homomorphism
+  $\varphi:[N_1,N_1] \to [N_2,N_2]$ such that $\varphi \circ
+  \omega_1 = \omega_2$, or equivalently, $\varphi \circ \Omega_1 =
+  \Omega_2$.
+
+  The map $\nu:F \to L$ lifts to a map $\psi:F \to N_2$ on account of
+  $F$ being a free $pi$-powered Lie ring and $N_2$ being a $\pi$-powered
+  Lie ring (note that the lift is not necessarily unique). Explicitly,
+  this means that $\mu \circ \psi = \nu$.
+
+  We know that $\nu(R)$ is trivial, so $\mu(\psi(R))$ is trivial. Thus,
+  $\psi(R)$ lands inside the kernel of $\mu$, which is the image of $A$
+  in $N_2$. Thus, $\psi(R)$ is a central Lie subring of $N_2$. Therefore,
+  $\psi([F,R]) = [\psi(F),\psi(R)]$ is trivial.
+  
+  Thus, $\psi$ descends to a homomorphism $\theta:N_1 \to N_2$, where
+  $N_1 = F/[F,R]$ as defined above, with the property that $\mu \circ
+  \theta = \overline{\nu}$. The condition $\mu \circ \theta =
+  \overline{\nu}$ can be interpreted as saying that $\theta$ is a
+  homomorphism between the central extensions $(N_1,\overline{\nu})$ and
+  $(N_2,\mu)$. Denote by $\varphi:N_1' \to N_2'$ the restriction of
+  $\theta$ to $N_1'$. Thus, by Lemma
+  \ref{lemma:homomorphism-restriction-homoclinism-lie}, $\varphi$ defines a
+  homoclinism of the central extensions. 
+
+  Now, we know that $(N_2,\mu)$ is an initial object in the category,
+  so there is a homoclinism from it to any other object in the
+  category. Composing with the above gives a homoclinism from
+  $(N_1,\overline{\nu})$ to any central extension of $L$. By Lemma
+  \ref{lemma:uniqueness-of-homoclinism-lie}, this homoclinism is
+  unique. Finally, Lemma \ref{lemma:initobj-lie} establishes from this that
+  $(N_1,\overline{\nu})$ defines an initial object in the category of central
+  extensions of $L$ with homoclinisms.
+
+  {\em Proof of (2)}: By definition, $L \wedge L$ is isomorphic to the
+  derived subring $[N_1,N_1]$ on account of $N_1$ being an initial
+  object in the category of central extensions with
+  homoclinisms. $[N_1,N_1]$ is canonically isomorphic to
+  $[F,F]/[F,R]$.
+
+  {\em Proof of (3)}: The Schur multiplier is the kernel of the map
+  $[N_1,N_1] \to [L,L]$, or equivalently, it is the kernel of the map
+  $[F,F]/[F,R] \to [F,F]/(R \cap [F,F])$. The kernel works out to $(R
+  \cap [F,F])/[F,R]$.
+\end{proof}
+
+\subsection{Hopf's formula variant for Schur multiplier of powered nilpotent Lie ring: class one more version}\label{sec:hopf-formula-pi-powered-class-one-more-lie}
+
+Suppose $\pi$ is a set of primes and $L$ is a $\pi$-powered nilpotent
+Lie ring of nilpotency class $c$. Suppose $L$ can be expressed in the
+form $F/R$ where $F$ is a free $\pi$-powered nilpotent Lie ring of class
+$c + 1$ and $R$ is an ideal of $F$. Then:
+
+\begin{equation}\label{eq:pi-powered-hopf-formula-class-one-more-lie}
+  M(L) \cong (R \cap [F,F])/([F,R])
+\end{equation}
+
+Also:
+
+\begin{equation}\label{eq:pi-powered-exteriorsquare-hopf-formula-class-one-more-lie}
+  L \wedge L \cong [F,F]/[F,R]
+\end{equation}
+
+Our application of these results, in Section \ref{sec:lcuti}, will
+combine these results with the results of Section
+\ref{sec:malcev-lazard-free}. In that section, we used the letter $N$
+for the free Lie ring, and $J$ for the ideal is being factored
+out. Therefore, in our application of the above theorem, the letter
+$N$ will appear instead of the letter $F$, and the letter $J$ will
+appear instead of the letter $R$.
+
+\subsection{Sidenote on powered Schur multipliers and powered Schur covering Lie rings}
+
+It is possible to define concepts of Schur multiplier, Schur covering
+group, and exterior square, all {\em within the variety of
+  $\pi$-powered Lie rings}. In other words, we can mimic the steps of
+Section \ref{sec:exteriorsquare-and-homoclinism-lie}, replacing ``Lie
+ring'' by $\pi$-powered Lie ring'', and obtain corresponding notions
+of $\pi$-powered exterior square and $\pi$-powered Schur
+multiplier. We can also define $\pi$-powered Schur covering Lie ring.
+
+The results of Sections \ref{sec:hopf-formula-pi-powered-lie} and
+\ref{sec:hopf-formula-pi-powered-class-one-more-lie} tell us that the
+$\pi$-powered Schur multiplier coincides with the usual Schur
+multiplier and the $\pi$-powered exterior square coincides with the
+usual exterior square.
+
+\subsection{Results about isoclinisms for $\pi$-powered central extensions of Lie rings}\label{sec:isoclinisms-pi-powered-central-extensions-lie}
+
+The results here follow from the results of Section
+\ref{sec:pi-powered-isoclinism-results} using reasoning similar to the
+way the results in Section
+\ref{sec:homoclinisms-words-central-extensions} follow from the
+results in Section \ref{sec:homoclinism-misc-results}. Unlike the
+corresponding section for groups (Section
+\ref{sec:isoclinisms-pi-powered-central-extensions}), we do not
+restrict ouselves to the nilpotent case. However, we {\em can}
+formulate all our results for the nilpotent setting. The proofs remain
+similar.
+
+\begin{lemma}\label{lemma:iterated-bracket-descends-extension-version-pi-powered}
+  Suppose $\pi$ is a set of primes. Suppose $L$ is a $\pi$-powered Lie
+  ring and $w(g_1,g_2,\dots,g_n)$ is a $\pi$-powered Lie
+  ring word in $n$ letters with the property that $w$ evaluates to the
+  zero element in every abelian Lie ring. The following are true.
+
+  \begin{enumerate}
+  \item For every central extension $N$ of $L$, $w$ can be used to
+    define a set map $\chi_{w,N}: L^n \to [N,N]$.
+  \item For any homoclinism between central extensions $N_1$ and
+    $N_2$, with the central extension specified via a homomorphism
+    $\varphi:[N_1,N_1] \to [N_2,N_2]$, we have that:
+
+    $$\varphi \circ \chi_{w,N_1} = \chi_{w,N_2}$$
+  \end{enumerate}
+\end{lemma}
+
+%%TONOTDO: Possibly insert more detail here
+
+\begin{proof}
+  {\em Proof of (1)}: This is similar to the proof of Theorem
+  \ref{thm:iterated-bracket-descends-to-inn-pi-powered}. Alternatively, we can
+  deduce it from the {\em result} of Theorem
+  \ref{thm:iterated-bracket-descends-to-inn-pi-powered} by noting that the
+  map factors as follows:
+
+  $$L^n \to (N/Z(N))^n \to [N,N]$$
+
+  {\em Proof of (2)}: This is similar to the proof of Theorem
+  \ref{thm:iterated-bracket-commutes-homoclinisms-pi-powered}. Alternatively,
+  we can deduce it from the {\em result} of Theorem
+  \ref{thm:iterated-bracket-commutes-homoclinisms-pi-powered} by factoring
+  through $N/Z(N)$.
+\end{proof}
+
+We can now prove the theorem.
+
+\begin{theorem}\label{thm:iterated-bracket-map-to-exteriorsquare-pi-powered}
+  Suppose $\pi$ is a set of primes. Suppose $L$ is a $\pi$-powered Lie
+  ring and $w(g_1,g_2,\dots,g_n)$ is a $\pi$-powered Lie ring word in
+  $n$ letters with the property that $w$ evaluates to the identity
+  element in every abelian Lie ring. Then, there exists a set map
+  $X_w:L^n \to L \wedge L$ with the property that for any central
+  extension $N$ of $L$, $\Omega_{N,L} \circ X_w = \chi_{w,N}$.
+\end{theorem}
+
+\begin{proof}
+  Apply Part (1) of Lemma
+  \ref{lemma:iterated-bracket-descends-extension-version-pi-powered} to
+  the case where the extension $N_0$ is an initial object in the
+  category of central extensions of $L$ and such that $N_0$ is
+  $\pi$-powered. Such an extension exists by Lemma
+  \ref{lemma:schur-cover-pi-powered-lie}. The rest of the proof is
+  analogous to the proof of Theorem \ref{thm:iterated-bracket-map-to-exteriorsquare}.
+\end{proof}
+
+
+%\newpage
+
+\section{Commutator-like and Lie bracket-like maps}\label{sec:commutator-and-lie-bracket-like-maps}
+
+This section describes maps that can be used to compute a
+``commutator-like'' expression for Lie rings whose nilpotency class is
+one more than desired (or the $3$-local variant thereof), and
+correspondingly, a ``Lie bracket-like'' expression for groups whose
+nilpotency class is one more than desired (or the $3$-local variant
+thereof). We use the formula $M_{c+1}$ (introduced in Section
+\ref{sec:group-commutator-ito-lie-bracket}) to express the group
+commutator as a $\pi_c$-powered word that makes use of the Lie
+bracket. We use the formula $h_{2,c+1}$ (the second inverse
+Baker-Campbell-Hausdorff formula) to express the Lie bracket as a
+$\pi_c$-powered word that makes use of the group commutator.
+
+For simplicity, we will restrict our definitions to situations where
+the groups and Lie rings involved are {\em globally} nilpotent, but
+without any restriction on their global nilpotency class. This will
+allow us to apply the theorems stated about nilpotent groups and Lie
+rings. It is possible to relax these assumptions to some extent, but
+the ensuing greater generality will not be worth the additional cost
+in the complexity of proofs.
+
+\subsection{Commutator-like map for Lie ring whose class is one more}\label{sec:commutator-like-map}
+
+Suppose $c$ is a natural number and $\pi_c$ is the set of primes less
+than or equal to $c$.
+
+Suppose $L$ is a $\pi_c$-powered nilpotent Lie ring such that the
+inner derivation Lie ring $L/Z(L)$ is a $3$-local class $c$ Lazard Lie
+ring. We can define a set map:
+
+$$\omega_L^{\text{Group}}: \operatorname{Inn}(L) \times \operatorname{Inn}(L) \to [L,L]$$
+
+The set map is defined as follows:
+
+$$\omega^{\text{Group}}_L(x,y) := M_{c+1}(\tilde{x},\tilde{y})$$
+
+where $M_{c+1}$ is the formula for the group commutator in terms of
+the Lie bracket described in Section
+\ref{sec:group-commutator-ito-lie-bracket}, and $\tilde{x}$,
+$\tilde{y}$ are elements of $L$ that map to $x$ and $y$ respectively
+in $L/Z(L)$. Note that
+this is defined because of the following:
+
+\begin{itemize}
+\item The expression $M_{c+1}$ makes sense because $L$ is $\pi_c$-powered,
+  and Lemma \ref{lemma:commutator-denominators} shows that all prime
+  divisors of the denominators of coefficients for $M_{c+1}$ are in $\pi_c$.
+\item The output of the expression is independent of the choice of
+  lifts, because the Lie bracket map descends to a map $L/Z(L) \times
+  L/Z(L) \to [L,L]$, and $M_{c+1}$ is obtained by using the Lie
+  bracket and its iterations. See Theorem
+  \ref{thm:iterated-bracket-descends-to-inn-pi-powered} for an explanation.
+\end{itemize}
+
+Further, in the case that $L$ itself is a $3$-local class $c$ Lazard
+Lie ring, $\omega_L^{\text{Group}}(x,y)$ agrees with the
+commutator-induced map $\omega_G: \operatorname{Inn}(G) \times
+\operatorname{Inn}(G) \to G'$ where $G$ is the Lazard Lie group for
+$L$. Recall that $\omega_G$ was originally defined in Section
+\ref{sec:isoclinism-definition} along with the definition of
+isoclinism.
+
+This again follows from the definition of $M_{c+1}$ as introduced in
+Section \ref{sec:group-commutator-ito-lie-bracket}.
+
+We now show that the map $\omega^{\text{Group}}$ is an isoclinism-invariant.
+
+\begin{lemma}\label{lemma:omega-group-isoclinism-invariant}
+  Suppose $c$ is a natural number and $\pi_c$ is the set of primes less
+  than or equal to $c$. Suppose $L_1$ and $L_2$ are isoclinic
+  $\pi_c$-powered Lie rings, such that $\operatorname{Inn}(L_1) \cong
+  \operatorname{Inn}(L_2)$ is a $3$-local class $c$ Lazard Lie ring.
+
+  Suppose $(\zeta,\varphi)$ is an isoclinism from $L_1$ to $L_2$:
+  $\zeta$ is the isomorphism $\operatorname{Inn}(L_1) \to
+  \operatorname{Inn}(L_2)$ and $\varphi$ is the isomorphism $L_1' \to
+  L_2'$. Then:
+
+  $$\varphi(\omega^{\text{Group}}_{L_1}(x,y)) = \omega^{\text{Group}}_{L_2}(\zeta(x),\zeta(y))$$
+\end{lemma}
+
+\begin{proof}
+  Apply Theorem
+  \ref{thm:iterated-bracket-commutes-homoclinisms-pi-powered} to the
+  word $\omega^{\text{Group}}$ and obtain the result.
+\end{proof}
+
+%% We now state a lemma that is similar to Lemma
+%% \ref{lemma:commutativity-relation-same-group-lie-ring}.
+
+%% \begin{lemma}
+%%   Suppose $c$ is a natural number and $\pi_c$ is the set of primes
+%%   less than or equal to $c$. Suppose $L$ is a $\pi_c$-powered Lie ring
+%%   such that $\operatorname{Inn}(L)$ is a $3$-local class $c$ Lazard
+%%   Lie ring. Consider the set maps $\omega,
+%%   \omega^{\text{Group}}:\operatorname{Inn}(L) \times
+%%   \operatorname{Inn}(L) \to [L,L}$. For $x,y \in
+%%   \operatorname{Inn}(L)$, $\omega(x,y) = 0$ if and only if $\omega^{\tet{
+\subsection{Lie bracket-like map for group whose class is one more}\label{sec:lie-bracket-like-map}
+
+A special case of the map described here appeared in Theorem 5.1 of
+the 2008 paper \cite{GG08} by George Glauberman. Glauberman's paper
+proves certain properties of the map that we do not prove in this
+section, but that follow from stronger results we will prove later in
+the course of establishing the global Lazard correspondence up to
+isoclinism. We discuss the relationship in more detail in Section
+\ref{sec:rel-gg08}.
+
+Suppose $c$ is a natural number and $\pi_c$ is the set of primes less
+than or equal to $c$. 
+
+Suppose $G$ is a $\pi_c$-powered nilpotent group such that the inner automorphism
+group $G/Z(G)$ is a $3$-local class $c$ Lazard Lie group. We can
+define a set map:
+
+$$\omega_G^{\text{Lie}}: G/Z(G) \times G/Z(G) \to [G,G]$$
+
+The set map is defined as follows:
+
+$$(x,y) \mapsto h_{2,c+1}(\tilde{x},\tilde{y})$$
+
+where $h_{2,c+1}$ is the formula for the Lie bracket in terms of the
+group commutator and its iterations. It is the second of the two
+inverse Baker-Campbell-Hausdorff formulas described in Section
+\ref{sec:inverse-bch}. Note that this is defined because:
+
+\begin{itemize}
+\item The expression $h_{2,c+1}$ makes sense because $G$ is $\pi_c$-powered,
+  and Lemma \ref{lemma:lie-bracket-denominators} shows that all prime
+  divisors of the denominators of coefficients for $h_{2,c+1}$ are in $\pi_c$.
+\item The output of the expression is independent of the choice of
+  lifts, because the commutator map descends to a map $G/Z(G) \times
+  G/Z(G) \to [G,G]$, and $h_{2,c+1}$ is obtained by using the
+  commutator map and its iterations. See Theorem
+  \ref{thm:iterated-commutator-descends-to-inn-pi-powered} for an
+  explanation.
+\end{itemize}
+
+Further, in the case that $G$ itself is a $3$-local class $c$ Lazard
+Lie group, $\omega_G^{\text{Lie}}(x,y)$ agrees with the definition of
+the Lie bracket-induced map $\omega_L: \operatorname{Inn}(L) \times
+\operatorname{Inn}(L) \to L'$ where $L$ is the Lazard Lie ring for
+$G$. Recall that $\omega_L$ was defined in Section
+\ref{sec:isoclinism-definition-lie} where we introduced the definition
+of isoclinism and homoclinism for Lie rings. 
+
+This again follows from the definition of $h_{2,c+1}$. 
+
+We now show that $\omega_G^{\text{Lie}}$ is an isoclinism-invariant.
+
+\begin{lemma}\label{lemma:omega-lie-isoclinism-invariant}
+  Suppose $c$ is a natural number and $\pi_c$ is the set of primes less
+  than or equal to $c$. Suppose $G_1$ and $G_2$ are isoclinic
+  $\pi_c$-powered groups such that $\operatorname{Inn}(G_1) \cong
+  \operatorname{Inn}(G_2)$ is a $3$-local class $c$ Lazard Lie group.
+
+  Suppose $(\zeta,\varphi)$ is an isoclinism from $G_1$ to $G_2$:
+  $\zeta$ is the isomorphism $\operatorname{Inn}(G_1) \to
+  \operatorname{Inn}(G_2)$ and $\varphi$ is the isomorphism $G_1' \to
+  G_2'$. Then:
+
+  $$\varphi(\omega^{\text{Lie}}_{G_1}(x,y)) = \omega^{\text{Lie}}_{G_2}(\zeta(x),\zeta(y))$$
+\end{lemma}
+
+\begin{proof}
+  Apply Theorem
+  \ref{thm:iterated-commutator-commutes-homoclinisms-pi-powered} to
+  the word $\omega^{\text{Lie}}$ and obtain the result. Note that the
+  $c$ used in that theorem refers to a bound on the global class of
+  $G_1$ and $G_2$, and may be a different value from the value of $c$
+  used here. The fact of significance is that $G_1$ and $G_2$ are
+  nilpotent, so the theorem can be applied.
+\end{proof}
+
+%% {\em TONOTDO: It should be possible to remove the assumption that $G$
+%%   itself is $\pi_c$-powered and simply impose the condition on $G'$
+%%   (along with on $\operatorname{Inn}(G)$); this will require proving
+%%   additional results in Sections \ref{sec:group-powering} and
+%%   \ref{sec:lie-ring-powering}. This will allow us to consider examples
+%%   where we take central products with arbitrary abelian groups.}
+
+\subsection{Commutator-like map for Lie ring extensions}\label{sec:commutator-like-map-for-extensions}
+
+In Section \ref{sec:commutator-like-map}, we described a
+commutator-like map that can be defined for any $\pi_c$-powered Lie
+ring whose inner derivation Lie ring is nilpotent and of $3$-local
+nilpotency class at most $c$. We will now consider the corresponding
+notion for Lie ring {\em extensions}. Consider a central extension of
+Lie rings, with the following central extension short exact sequence:
+
+$$0 \to A \to N \to L \to 0$$
+
+The Lie bracket map in $N$ descends to a $\Z$-bilinear map:
+
+$$\omega_{N,L}: L \times L \to [N,N]$$
+
+Suppose now that $N$ is $\pi_c$-powered and that $L$ has $3$-local
+nilpotency class at most $c$. Then, we can define a commutator-like
+map:
+
+$$\omega_{N,L}^{\text{Group}}: L \times L \to [N,N]$$
+
+The map $\omega_{N,L}^{\text{Group}}$ can be defined as the map
+$\chi_{w,N}$ described in Lemma
+\ref{lemma:iterated-bracket-descends-extension-version-pi-powered}
+where $w$ is the word $M_{c+1}$.
+
+$\omega_{N,L}^{\text{Group}}$ can be obtained by composing the
+quotient map $L \times L \to N/Z(N) \times N/Z(N)$ with the map
+$\omega_N^{\text{Group}}$ described in Section
+\ref{sec:commutator-like-map} (the Lie ring is now $N$ instead of
+$L$).
+
+\subsection{Lie bracket-like map for group extensions}\label{sec:lie-bracket-like-map-for-extensions}
+
+In Section \ref{sec:lie-bracket-like-map}, we described a Lie
+bracket-like map that can be defined for any $\pi_c$-powered nilpotent
+group whose inner automorphism group is of $3$-local nilpotency class
+at most $c$. We will now consider the corresponding notion for Lie
+ring extensions. Consider a central extension of groups, with the
+following central extension short exact sequence:
+
+$$0 \to A \to E \to G \to 1$$
+
+The commutator map in $E$ descends to a set map:
+
+$$\omega_{E,G}: G \times G \to [E,E]$$
+
+Suppose now that $E$ is $\pi_c$-powered and that $G$ has $3$-local
+nilpotency class at most $c$. Then, we can define a Lie bracket-like
+map:
+
+$$\omega_{E,G}^{\text{Lie}}: G \times G \to [E,E]$$
+
+The map $\omega_{E,G}^{\text{Lie}}$ can be defined as the map
+$\chi_{w,N}$ described in Lemma
+\ref{lemma:iterated-commutator-descends-extension-version-pi-powered}
+where $w$ is the word $M_{c+1}$.
+
+This map $\omega_{E,G}^{\text{Lie}}$ can be obtained by composing the
+quotient map $G \times G \to E/Z(E) \times E/Z(E)$ with the map
+$\omega_E^{\text{Lie}}$ described in Section
+\ref{sec:lie-bracket-like-map} (the group is now $E$ instead of $G$).
+
+\subsection{The commutator in terms of the Lie bracket: the central extension and exterior square version}\label{sec:group-commutator-ito-lie-bracket-exteriorsquare-version}
+
+Suppose $c$ is a positive integer and $L$ is a $\pi_c$-powered
+nilpotent Lie ring of $3$-local nilpotency class at most $c$. Our goal
+is to define a set map:
+
+$$\tilde{M}_{c+1}(x,y): L \times L \to L \wedge L$$
+
+where $L \wedge L$ is the exterior square of $L$ as defined in Section
+\ref{sec:exteriorsquare-lie} (and later explicitly in Section
+\ref{sec:exteriorsquare-explicit-lie}).
+
+The definition of $\tilde{M}_{c+1}$ is as follows: it is the map $X_w$
+of Theorem \ref{thm:iterated-bracket-map-to-exteriorsquare-pi-powered}
+where $\pi = \pi_c$ and $w$ is the word $M_{c+1}$. The word $M_{c+1}$
+satisfies the hypotheses of the theorem, so the theorem applies.
+
+Using Theorem
+\ref{thm:iterated-bracket-map-to-exteriorsquare-pi-powered} again, the
+map $\omega_{N,L}^{\text{Group}}$ defined in Section
+\ref{sec:commutator-like-map-for-extensions} is related to the map
+$\tilde{M}_{c+1}$ defined in Section as follows:
+
+$$\omega_{N,L}^{\text{Group}}(x,y) = \Omega_{N,L}(\tilde{M}_{c+1}(x,y))$$
+
+where the maps are $\omega_{N,L}^{\text{Group}}: L \times L \to [N,N]$,
+$\Omega_{N,L}: L \wedge L \to [N,N]$, and $\tilde{M}_{c+1}:L \times L
+\to L \wedge L$.
+
+\subsection{The Lie bracket in terms of the commutator: the central extension and exterior square version}\label{sec:lie-bracket-ito-group-commutator-exteriorsquare-version}
+
+Suppose $c$ is a positive integer and $G$ is a $\pi_c$-powered nilpotent group
+of $3$-local nilpotency class at most $c$. Our goal is to define a set
+map:
+
+$$\tilde{h}_{2,c+1}(x,y): G \times G \to G \wedge G$$
+
+where $G \wedge G$ is the exterior square of $G$ as defined in Section
+\ref{sec:exteriorsquare} (and later explicitly in Section
+\ref{sec:exteriorsquare-explicit}). 
+
+The definition of $\tilde{h}_{2,c+1}$ is as follows: it is the map
+$X_w$ of Theorem
+\ref{thm:iterated-commutator-map-to-exteriorsquare-pi-powered} where
+$\pi = \pi_c$, $w$ is the word $h_{2,c+1}$, and the value $c$ of the
+theorem is taken to be $c + 1$. The word $h_{2,c+1}$ satisfies the
+hypotheses of the theorem, so the result applies.
+
+Using Theorem
+\ref{thm:iterated-commutator-map-to-exteriorsquare-pi-powered} again,
+the map $\omega_{E,G}^{\text{Lie}}$ defined in Section
+\ref{sec:lie-bracket-like-map-for-extensions} is related to the map
+$\tilde{h}_{2,c+1}$ as follows:
+
+$$\omega_{E,G}^{\text{Lie}}(x,y) = \Omega_{E,G}(\tilde{h}_{2,c+1}(x,y))$$
+
+where the maps are $\omega_{E,G}^{\text{Lie}}: G \times G \to [E,E]$,
+$\Omega_{E,G}: G \wedge G \to [E,E]$, and $\tilde{h}_{2,c+1}:G \times G
+\to G \wedge G$.
+
+%\newpage
+
+\section{Lazard correspondence up to isoclinism}\label{sec:lcuti}
+
+\subsection{Definition of Lazard correspondence up to isoclinism}\label{sec:lcuti-def}
+
+The Lazard correspondence up to isoclinism combines the idea of
+isoclinism with the idea of the Lazard correspondence.
+
+\begin{definer}[$3$-local class $(c + 1)$ Lazard correspondence up to isoclinism]
+  Suppose $c$ is a positive integer and $\pi_c$ is the set of all
+  prime numbers less than or equal to $c$. Suppose $G$ is a
+  $\pi_c$-powered nilpotent group whose inner automorphism group and
+  derived subgroup are both $3$-local class $c$ Lazard Lie groups, and
+  $L$ is a $\pi_c$-powered nilpotent Lie ring whose inner derivation
+  Lie ring and derived subring are both $3$-local class $c$ Lazard Lie
+  rings. A Lazard correspondence up to isoclinism from $L$ to $G$ is a
+  pair of isomorphisms $(\zeta,\varphi)$ where $\zeta$ is an
+  isomorphism from $\operatorname{Inn}(L)$ to
+  $\log(\operatorname{Inn}(G))$ and $\varphi$ is an isomorphism from
+  $L'$ to $\log(G')$ such that:
+
+  $$\varphi(\omega_L(x,y)) = \omega^{\text{Lie}}_G(\zeta(x),\zeta(y))$$
+
+  This is equivalent to the requirement that:
+
+  $$\varphi(\omega^{\text{Group}}_L(x,y)) = \omega_G(\zeta(x),\zeta(y))$$
+\end{definer}
+
+The following are easy to verify for the $3$-local class $(c + 1)$ Lazard
+correspondence up to isoclinism. All the groups mentioned below are
+$\pi_c$-powered groups that have the property that their inner
+automorphism group and derived subgroup are both $3$-local class $c$
+Lazard Lie groups, and all the Lie rings mentioned below are
+$\pi_c$-powered Lie rings that have the property that their inner
+derivation Lie ring and derived subring are both $3$-local class $c$
+Lazard Lie rings. %% {\em TONOTDO: Once the $\pi_c$-powering assumption is
+  %% removed from the preceding subsection, remove it from here}.
+
+\begin{itemize}
+\item If $G_1$ and $G_2$ are isoclinic groups, and $G_1$ and $L$ are
+  in $3$-local class $(c + 1)$ Lazard correspondence up to isoclinism,
+  then $G_2$ and $L$ are also in $3$-local class $(c + 1)$ Lazard
+  correspondence up to isoclinism. This follows from Lemma
+  \ref{lemma:omega-lie-isoclinism-invariant}.
+\item If $L_1$ and $L_2$ are isoclinic Lie rings, and $G$ and $L_1$
+  are in $3$-local class $(c + 1)$ Lazard correspondence up to
+  isoclinism, then $G$ and $L_2$ are in $3$-local class $(c + 1)$
+  Lazard correspondence up to isoclinism. This follows from Lemma
+  \ref{lemma:omega-group-isoclinism-invariant}.
+\item If $G_1$ and $G_2$ are groups and $L$ is a Lie ring such that
+  $G_1$ is in $3$-local class $(c + 1)$ Lazard correspondence up to
+  isoclinism with $L$ and $G_2$ is also in $3$-local class $(c + 1)$ Lazard
+  correspondence up to isoclinism with $L$, then $G_1$ and $G_2$ are
+  isoclinic.
+\item If $L_1$ and $L_2$ are Lie rings and $G$ is a group such that
+  $G$ is in $3$-local class $(c + 1)$ Lazard correspondence up to isoclinism
+  with $L_1$ and $G$ is in $3$-local class $(c + 1)$ Lazard correspondence
+  up to isoclinism with $L_2$, then $L_1$ and $L_2$ are isoclinic Lie
+  rings.
+\end{itemize}
+
+In other words, the definition we gave above establishes a
+correspondence between {\em some} equivalences classes up to
+isoclinism of groups and {\em some} equivalence classes up to
+isoclinism of Lie rings. However, it is not yet clear that the
+correspondence applies to {\em every} equivalence class up to
+isoclinism of groups of the specified type and to {\em every}
+equivalence class up to isoclinism of Lie rings of the specified
+type. Ideally, we would like to demonstrate the following two facts:
+
+\begin{enumerate}
+\item For every $\pi_c$-powered group $G$ whose inner automorphism group
+  and derived subgroup are both $3$-local class $c$ Lazard Lie groups,
+  there exists a $\pi_c$-powered Lie ring $L$ whose inner derivation Lie
+  ring and derived subring are both $3$-local class $c$ Lazard Lie
+  rings such that $G$ is in $3$-local class $(c + 1)$ Lazard
+  correspondence up to isoclinism with $L$.
+\item For every $\pi_c$-powered Lie ring $L$ whose inner derivation Lie
+  ring and derived subring are both $3$-local class $c$ Lazard Lie
+  rings, there exists a $\pi_c$-powered group $G$ whose inner
+  automorphism group and derived subgroup are both $3$-local class $c$
+  Lazard Lie groups, such that $G$ is in $3$-local class $(c + 1)$
+  Lazard correspondence up to isoclinism with $L$.
+\end{enumerate}
+
+Unfortunately, the full proofs of these results would require us to
+develop further machinery and notation that would take too much
+work. Therefore, we restrict attention to the global class case. The
+proofs in the $3$-local case are analogous, but would require us to
+deal with a $3$-local version of the free constructions that we used
+earlier, which would considerably complicate the presentation. For
+this reason, we restrict our proof to the global case.
+
+\subsection{Global Lazard correspondence up to isoclinism}\label{sec:glcuti-def}
+
+We begin with a couple of lemmas about the structures between which we
+aim to establish the correspondence.
+
+\begin{lemma}\label{lemma:global-class-one-more}
+  Suppose $c$ is a positive integer and $\pi_c$ is the set of all
+  primes less than or equal to $c$. Suppose $G$ is a $\pi_c$-powered
+  nilpotent group of nilpotency class at most $c + 1$. Then, both
+  $\operatorname{Inn}(G)$ and $G'$ are global class $c$ Lazard Lie
+  groups, i.e., both $\operatorname{Inn}(G)$ and $G'$ are
+  $\pi_c$-powered groups of nilpotency class at most $c$.
+\end{lemma}
+
+\begin{proof}
+  We need to establish four facts:
+
+  \begin{enumerate}
+  \item $\operatorname{Inn}(G)$ has nilpotency class at most $c$: This
+    is obvious from the condition on the nilpotency class of $G$.
+  \item $\operatorname{Inn}(G)$ is $\pi_c$-powered: This follows from
+    Lemma \ref{lemma:inn-aut-is-powering-invariant}.
+  \item $G'$ has nilpotency class at most $c$: In fact, $G'$ has
+    nilpotency class at most $\lfloor (c + 1)/2 \rfloor$, which in
+    turn is at most $c$, but the naive bound of $c$ can be established
+    in a straightforward manner by looking at the lower central series
+    of $G$ and comparing with that of $G'$. More explicitly, this
+    follows from the fact that the lower central series is a strongly
+    central series. See the Appendix, Section
+    \ref{appsec:strongly-central} for more details.
+  \item $G'$ is $\pi_c$-powered: This follows from Theorem
+    \ref{thm:powering-lcs}.
+  \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+  Suppose $c$ is a positive integer and $\pi_c$ is the set of all primes
+  less than or equal to $c$. Suppose $L$ is a $\pi_c$-powered Lie ring of
+  nilpotency class at most $c + 1$. Then, both $\operatorname{Inn}(L)$
+  and $L'$ are global class $c$ Lazard Lie rings, i.e., both
+  $\operatorname{Inn}(L)$ and $L'$ are $\pi_c$-powered groups of
+  nilpotency class at most $c$.
+\end{lemma}
+
+\begin{proof}
+  We need to establish four facts:
+
+  \begin{enumerate}
+  \item $\operatorname{Inn}(L)$ has nilpotency class at most $c$: This
+    is obvious from the condition on the nilpotency class of $L$.
+  \item $\operatorname{Inn}(L)$ is $\pi_c$-powered: This follows from
+    Theorem \ref{thm:ucsqpi-lie}.
+  \item $L'$ has nilpotency class at most $c$: In fact, $L'$ has
+    nilpotency class at most $\lfloor (c + 1)/2 \rfloor$, which in
+    turn is at most $c$, but the naive bound of $c$ can be established
+    very straightforwardly by looking at the lower central series of
+    $L$ and comparing with that of $L'$. %% {\em TONOTDO: Link to appendix
+      %% section on lower central series being strongly central for Lie
+      %% rings}.
+  \item $L'$ is $\pi_c$-powered: This follows from Lemma
+    \ref{lemma:lie-ring-lcs-divisibility}.
+  \end{enumerate}
+\end{proof}
+
+We can now define the correspondence:
+
+\begin{definer}[Global class $(c + 1)$ Lazard correspondence up to isoclinism]
+  Suppose $c$ is a positive integer and $\pi_c$ is the set of (all)
+  prime numbers less than or equal to $c$. Suppose $G$ is a
+  $\pi_c$-powered group of nilpotency class at most $c + 1$, and $L$ is
+  a $\pi_c$-powered Lie ring of nilpotency class at most $c + 1$. A
+  global class $(c + 1)$ Lazard correspondence up to isoclinism from $L$ to
+  $G$ is a pair of isomorphisms $(\zeta,\varphi)$ where $\zeta$ is an
+  isomorphism from $\operatorname{Inn}(L)$ to
+  $\log(\operatorname{Inn}(G))$ (note that this $\log$ uses the global
+  Lazard correspondence) and $\varphi$ is an isomorphism from $L'$ to
+  $\log(G')$ such that:
+
+  $$\varphi(\omega_L(x,y)) = \omega^{\text{Lie}}_G(\zeta(x),\zeta(y))$$
+
+  This is equivalent to the requirement that:
+
+  $$\varphi(\omega^{\text{Group}}_L(x,y)) = \omega_G(\zeta(x),\zeta(y))$$
+\end{definer}
+
+The observations from Section \ref{sec:lcuti-def} about the $3$-local
+class $(c + 1)$ Lazard correspondence up to isoclinism continue to apply
+here: the correspondence establishes a correspondence between {\em
+  some} $\pi_c$-powered groups of class at most $c + 1$ and {\em some}
+$\pi_c$-powered Lie rings of class at most $c + 1$. However, it is not yet clear that the
+correspondence applies to {\em every} equivalence class up to
+isoclinism of groups of the specified type and to {\em every}
+equivalence class up to isoclinism of Lie rings of the specified
+type. Essentially, we need to establish two facts:
+
+\begin{enumerate}
+\item For every $\pi_c$-powered group $G$ of nilpotency class at most $c
+  + 1$, there exists a $\pi_c$-powered Lie ring $L$ of nilpotency class
+  at most $c + 1$ such that $L$ and $G$ are in global class $(c + 1)$ Lazard
+  correspondence up to isoclinism.
+\item For every $\pi_c$-powered Lie ring $L$ of nilpotency class at most
+  $c + 1$, there exists a $\pi_c$-powered group $G$ of nilpotency class
+  at most $c + 1$ such that $L$ and $G$ are in global class $(c + 1)$ Lazard
+  correspondence up to isoclinism.
+\end{enumerate}
+
+\subsection{The Baer correspondence up to isoclinism is the case $c = 1$}
+
+If we set $c = 1$, then the global class $(c + 1)$ Lazard
+correspondence up to isoclinism reduces to the Baer correspondence up
+to isoclinism, as described in Section \ref{sec:bcuti}. The general
+proof that we will now give follows steps very similar to the proof of
+the statement for the Baer correspondence. The key difference is that
+the group whose Schur multiplier and exterior square we are computing
+is no longer an abelian group. Therefore, we have to explicitly use
+the Lazard correspondence rather than the abelian Lie correspondence
+to move back and forth between the group and the Lie ring.
+
+
+\subsection{Global Lazard correspondence preserves Schur multipliers}\label{sec:global-lazard-correspondence-preserves-schur-multipliers}
+
+For both groups and Lie rings, the Schur multiplier is the object that
+controls the equivalence class of the extension up to isoclinism. The
+first step in establishing the global Lazard correspondence up to
+isoclinism is therefore to establish that Schur multipliers are
+preserved under the global Lazard correspondence.
+
+A particular case of this statement appeared as a conjecture in the
+paper \cite{SchurmultiplierandLazard} by Eick, Horn, and Zandi in
+September 2012, stated informally after Theorem 2 of the
+paper. Specifically, the authors conjectured that for a finite
+$p$-groups of nilpotency class at most $p - 1$, the Schur multiplier
+of the group coincides with the Schur multiplier of its Lazard Lie
+ring. The authors proved the corresponding statement for $p$-groups of
+nilpotency class at most $p - 2$ by noting that the central extensions
+of the group are in Lazard correspondence with the central extensions
+of the Lie ring.\footnote{The authors write: ``Based on various
+  example computations, see also [7], we believe that Theorems 1 and 2
+  also hold for finite $p$-groups of class $p - 1$. However, our proofs
+  do not extend to this case.''  The reference [7] alluded to by the
+  authors has not yet been published or made available online.}
+\begin{theorem}\label{thm:global-lazard-correspondence-preserves-schur-multipliers}
+  Suppose $c$ is a positive integer and $\pi_c$ is the set of all primes
+  less than or equal to $c$. Suppose $G$ is a $\pi_c$-powered group of
+  nilpotency class at most $c$ and $L$ is its Lazard Lie ring under
+  the global Lazard correspondence. Then:
+
+  \begin{enumerate}
+  \item The short exact sequences:
+
+    $$0 \to M(L) \to L \wedge L \to [L,L] \to 0$$
+
+    and
+
+    $$0 \to M(G) \to G \wedge G \to [G,G] \to 1$$
+
+    are canonically in Lazard correspondence.
+
+  \item $L \wedge L$ and $G \wedge G$ are in Lazard correspondence up
+    to canonical isomorphism. Moreover, if we denote the isomorphism
+    as a set map $\exp: L \wedge L \to G \wedge G$, we have $\exp(x
+    \wedge y) = \tilde{h}_{2,c+1}(x,y)$ where $\tilde{h}_{2,c+1}$ is
+    the adaptation of $h_{2,c+1}$ described in Section
+    \ref{sec:lie-bracket-ito-group-commutator-exteriorsquare-version}. Similarly,
+    under the inverse set map $\log: G \wedge G \to L \wedge L$, we
+    have $\log(x \wedge y) = \tilde{M}_{c+1}(x,y)$, where
+    $\tilde{M}_{c+1}$ is the adaptation of $M_{c+1}$ described in
+    Section
+    \ref{sec:group-commutator-ito-lie-bracket-exteriorsquare-version}.
+  \item $M(L)$ and $M(G)$ are canonically isomorphic as abelian groups.
+  \end{enumerate}
+\end{theorem}
+
+Note that these theorems are framed in terms of the Lazard
+correspondence {\em up to isomorphism} rather than the strict Lazard
+correspondence (in the sense of equality of sets). It does not make
+sense to do the latter here because a strict Lazard correspondence
+would require us to keep track of the strict definition of the
+sets. However, although our results are {\em up to isomorphism}, they
+are {\em up to canonical isomorphism}, which means that they commute
+with the isomorphisms induced by transitioning from a group to an
+isomorphic group.
+
+\begin{proof}
+  {\em Proof of (1)}: Denote by $K_1$ the free $\pi_c$-powered group
+  of class $c$ on the underlying set of $G$. Denote by $R_1$ the
+  kernel of the natural homomorphism $K_1 \to G$.
+
+  Denote by $K$ the free $\pi_c$-powered group of class $c + 1$ on the
+  underlying set $G$. Denote by $R$ the kernel of the natural
+  homomorphism $K \to G$. Note that $K_1 = K/\gamma_c(K)$, and $R$ is
+  the inverse image of $R_1$ under the projection map.
+
+  Denote by $N_1$ the free $\pi_c$-powered Lie ring of class $c$ on the
+  underlying set of $L$ (which is identified with the underlying set
+  of $G$). Denote by $J_1$ the kernel of the natural homomorphism $N_1
+  \to L$. Denote by $N$ the free $\pi_c$-powered Lie ring of class $c +
+  1$ on the underlying set of $L$. Denote by $J$ the kernel of the natural
+  homomorphism $N \to L$. Note that $N_1 = N/\gamma_c(N)$ and $J$ is
+  the inverse image of $J_1$ under the projection map.
+
+  From Theorem \ref{thm:lazard-correspondence-derived} (note that the
+  notation of that theorem matches the notation here), the derived
+  subgroup $[K,K]$ is in Lazard correspondence with the derived
+  subring $[N,N]$. From Theorems
+  \ref{thm:lazard-correspondence-intersect-kernel} and
+  \ref{thm:lazard-correspondence-commutator-lie} (again, note that the
+  notation of that theorem matches the notation here), we see that
+  this Lazard correspondence restricts to a Lazard correspondence
+  between $[K,R]$ and $[N,J]$ and also to a Lazard correspondence
+  between $R \cap [K,K]$ and $J \cap [N,N]$. Applying these to
+  quotient groups, we obtain that:
+
+  \begin{itemize}
+  \item $[K,K]/[K,R]$ is canonically in Lazard correspondence with the
+    quotient Lie ring \\ $[N,N]/[N,J]$.
+  \item $[K,K]/(R \cap [K,K])$ is canonically in Lazard correspondence
+    with $[N,N]/(J \cap [N,N])$. 
+  \item $(R \cap [K,K])/[K,R]$ is canonically in Lazard correspondence
+    with $(J \cap [N,N])/[N,J]$.
+  \end{itemize}
+
+  Moreover, these short exact sequences are also in Lazard
+  correspondence:
+
+  $$0 \to (J \cap [N,N])/[N,J] \to [N,N]/[N,J] \to [N,N]/(J \cap [N,N]) \to 0$$
+
+  $$0 \to (R \cap [K,K])/[K,R] \to [K,K]/[K,R] \to [K,K]/(K \cap [R,R]) \to 1$$
+
+  By the discussion in Sections
+  \ref{sec:hopf-formula-pi-powered-class-one-more} and
+  \ref{sec:hopf-formula-pi-powered-class-one-more-lie}, these
+  correspond respectively to the short exact sequences:
+
+  $$0 \to M(L) \to L \wedge L \to [L,L] \to 0$$
+
+  $$0 \to M(G) \to G \wedge G \to [G,G] \to 1$$
+
+  {\em Proof of (2)}: The fact of isomorphism follows directly from
+  (1). The assertions about $M_{c+1}$ and $h_{2,c+1}$ follow from the
+  fact that the Lazard correspondence between $[N,N]$ and $[K,K]$
+  arises as the restriction of the Lazard correspondence between $\Q
+  N$ and $\sqrt{K}$, and under this correspondence, by definition,
+  $e^{M_{c+1}(x,y)} = [e^x,e^y]$ (with the group commutator appearing
+  on the right) and $[\log x,\log y] = \log(h_{2,c+1}(x,y))$ (with the
+  Lie bracket appearing on the left) by the respective definitions of
+  $M_{c+1}$ and $h_{2,c+1}$.
+
+  {\em Proof of (3)}: This follows from (1), and the observation that
+  the Lazard correspondence coincides with the abelian Lie
+  correspondence where they overlap, so $M(L)$ and $M(G)$ are
+  isomorphic as abelian groups.
+\end{proof}
+
+%% {\em TONOTDO: The proof above needs to be clarified, and lemmas need to
+%%   be added earlier to make it more ``obvious'' to people who have
+%%   reached this point. Also, I want to include a discussion of what
+%%   this means in terms of the identities used to define the exterior
+%%   square of a group or a Lie ring.}
+
+
+\subsection{The global Lazard correspondence up to isoclinism for extensions}\label{sec:glcuti-extensions}
+
+Suppose $c$ is a positive integer and $\pi_c$ is the set of all primes
+less than or equal to $c$. Suppose $A$ is an abelian group and $G$ is
+a global class $c$ Lazard Lie group.
+
+Denote by $L$ the Lazard Lie ring of $G$.
+
+We have the following short exact sequence (originally described in
+Section \ref{sec:ses-uct}) for the central extensions with central
+subgroup $A$ and quotient group $G$:
+
+\begin{equation*}
+  0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}};A) \to H^2(G;A) \to \operatorname{Hom}(M(G),A) \to 0
+\end{equation*}
+
+We also have the following short exact sequence (originally described
+in Section \ref{sec:ses-uct-lie}) for the central extensions with
+central subring $A$ and quotient Lie ring $L$:
+
+\begin{equation*}
+0 \to \operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}};A) \to H^2_{\text{Lie}}(L;A) \to \operatorname{Hom}(M(L), A) \to 0
+\end{equation*}
+
+By Theorem
+\ref{thm:global-lazard-correspondence-preserves-schur-multipliers},
+$M(L)$ and $M(G)$ are canonically isomorphic. Also,
+$L^{\operatorname{ab}}$ is canonically in abelian Lie correspondence
+with $G^{\operatorname{ab}}$. Thus, the downward arrows below are
+canonical isomorphisms:
+
+$$\begin{array}{ccccccccc}
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}};A) &\to &H^2(G;A) &\to &\operatorname{Hom}(M(G),A) &\to &0\\
+  & & \downarrow & & & & \downarrow & & \\
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}};A) & \to & H^2_{\text{Lie}}(L;A) & \to & \operatorname{Hom}(M(L), A) & \to & 0\\
+\end{array}$$
+  
+The middle groups $H^2(G;A)$ and $H^2_{\text{Lie}}(L;A)$ are isomorphic
+to each other, because both short exact sequences split. However, we
+{\em do not} in general have a {\em canonical} isomorphism between the
+middle groups.
+
+\subsubsection{The isomorphism of the $\operatorname{Ext}^1$ groups on the left side, and its relation to the global class $c$ Lazard correspondence}
+
+We have a canonical isomorphism of groups:
+
+$$\operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}};A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}};A)$$
+
+This is because the abelian group $G^{\operatorname{ab}}$ is in
+abelian Lie correspondence with the abelian Lie ring
+$L^{\operatorname{ab}}$, so the additive groups are the same, and
+$\operatorname{Ext}^1$ computation uses only the underlying additive
+group.
+
+The elements of
+$\operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}};A)$
+correspond to the extension groups with subgroup $A$ and quotient
+group $G$ for which the sub-extension with quotient group $G'$ splits
+(as $G' \times A$) and the induced extension with subgroup $A$ and
+quotient group $G^{\operatorname{ab}}$ gives an abelian group. As a
+result, all extensions corresponding to elements of
+$\operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}};A)$ have the
+property that the extension group is a global class $c$ Lazard Lie
+group. Similarly, the extensions corresponding to elements of
+$\operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}};A)$ have the
+property that the extension group is a global class $c$ Lazard Lie
+ring. We thus obtain a correspondence:
+
+\begin{center}
+Group extensions with subgroup $A$ and quotient group $G$ that are in
+the image of
+$\operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}};A)$
+$\leftrightarrow$ Lie ring extensions with subring $A$ and quotient
+ring $L$ that are in the image of $\operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}};A)$ 
+\end{center}
+
+For each group extension and Lie ring extension that are in bijection
+(in other words, each pair of elements in the two isomorphic groups
+that are in bijection with each other), the corresponding extension
+group is in global class $c$ Lazard correspondence with the
+corresponding extension Lie ring.
+
+\subsubsection{The isomorphism of the $\operatorname{Hom}$ groups on the right side, and its relation to the Lazard correspondence up to isoclinism}\label{sec:glcuti-extensions-main}
+
+We have a canonical isomorphism:
+
+$$\operatorname{Hom}(M(G),A) \cong \operatorname{Hom}(M(L), A)$$
+
+We reviewed the meanings of the two groups in Sections
+\ref{sec:beta-map} and \ref{sec:ses-uct-right-map} (for groups) and
+Sections \ref{sec:beta-map-lie} and \ref{sec:ses-uct-lie-right-map}
+(for Lie rings). The group $\operatorname{Hom}(M(G),A)$
+classifies the central extensions with central subgroup $A$ and
+quotient group $G$ up to isoclinism of extensions. The group
+$\operatorname{Hom}(M(L),A)$ classifies the central extensions
+with central subring $A$ and quotient Lie ring $L$ up to isoclinism of
+extensions.
+
+The two $\operatorname{Hom}$ groups are isomorphic because, as
+established above (Theorem
+\ref{thm:global-lazard-correspondence-preserves-schur-multipliers}),
+the Schur multipliers $M(L)$ and $M(G)$ are canonically isomorphic.
+
+The isomorphism gives a correspondence:
+
+\begin{center}
+  Equivalence classes up to isoclinism of group extensions with central
+  subgroup $A$ and quotient group $G$ $\leftrightarrow$
+  Equivalence classes up to isoclinism of Lie ring extensions with
+  central subring $A$ and quotient Lie ring $L$
+\end{center}
+
+Any particular instance of this bijection (i.e., an equivalence class
+of Lie ring extensions and an equivalence class of group extensions
+that are in bijection with each other) is termed a {\em global class
+  $(c + 1)$ Lazard correspondence up to isoclinism for extensions}.
+
+We now state an important lemma that relates the global class $(c + 1)$
+Lazard correspondence up to isoclinism for extensions with the global
+class $(c + 1)$ Lazard correspondence up to isoclinism.
+
+%% \begin{lemma}\label{lemma:glcuti-extensions-like-maps}
+%%   Supose $A$ is an abelian group, $G$ is a global class $c$ Lazard Lie
+%%   group, and $L = \log G$ is the corresponding global class $c$ Lazard
+%%   Lie ring. Suppose $E$ is a group extension with central subgroup $A$
+%%   and quotient group $G$. Suppose $N$ is a Lie ring extension with
+%%   central subring $\log A$ (which we denote as $A$ via abuse of
+%%   notation) and quotient Lie ring $L$. Suppose further that the
+%%   equivalence class up to isoclinism of the group extension $E$
+%%   corresponds, via the above bijection, to the equivalence class of
+%%   the Lie ring extension $N$. Then, consider the commutator map:
+
+%%   $$\omega_{E,G}:G \times G \to [E,E]$$
+
+%%   and the Lie bracket map:
+
+%%   $$\omega_{N,L}: L \times L \to [N,N]$$
+
+%%   In Sections \ref{sec:lie-bracket-like-map-for-extensions} and
+%%   \ref{sec:commutator-like-map-for-extensions}, we defined maps:
+
+%%   $$\omega_{E,G}^{\text{Lie}}: G \times G \to [E,E]$$
+
+%%   $$\omega_{N,L}^{\text{Group}}: L \times L \to [N,N]$$
+%% \end{lemma}
+
+\begin{theorem}\label{thm:glcuti-extensions-implies-glcuti}
+  Suppose $A$ is an abelian group, $G$ is a global class $c$ Lazard Lie
+  group, and $L = \log G$ is the corresponding global class $c$ Lazard
+  Lie ring. Suppose $E$ is a group extension with central subgroup $A$
+  and quotient group $G$. Suppose $N$ is a Lie ring extension with
+  central subring $\log A$ (which we denote as $A$ via abuse of
+  notation) and quotient Lie ring $L$. Suppose further that the
+  equivalence class up to isoclinism of the group extension $E$
+  corresponds, via the above bijection, to the equivalence class of
+  the Lie ring extension $N$. Then, the following are true.
+
+  \begin{enumerate}
+  \item The group $[E,E]$ is in global class $c$ Lazard correspondence
+    with the Lie ring $[N,N]$.
+  \item The commutator-induced group homomorphism $\Omega_{E,G}: G
+    \wedge G \to [E,E]$ is in global class $c$ Lazard correspondence
+    with the commutator-induced group homomorphism $\Omega_{N,L}: L
+    \wedge L \to [N,N]$, where we use the canonical Lazard
+    correspondence between $G \wedge G$ and $L \wedge L$ described in
+    Theorem
+    \ref{thm:global-lazard-correspondence-preserves-schur-multipliers},
+    and the Lazard correspondence between $[E,E]$ and $[N,N]$
+    described in part (1).
+  \item Explicitly, if $\varphi:[N,N] \to \log([E,E])$ describes the
+    isomorphism of Step (1), then for all $x,y \in G$ (so that $x,y
+    \in L$ as well because $L$ and $G$ have the same underlying set):
+
+    $$\varphi(\omega_{N,L}(x,y)) = \omega^{\text{Lie}}_{E,G}(x,y)$$
+
+    Equivalently:
+
+    $$\varphi(\omega^{\text{Group}}_{N,L}(x,y)) = \omega_{E,G}(x,y)$$
+
+  \item The group $E$ is in global class $(c + 1)$ Lazard
+    correspondence up to isoclinism with the Lie ring $N$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  {\em Proof of (1) and (2)}: We have the following map induced by the
+  commutator map in $E$:
+
+  $$\omega_{E,G}: G \times G \to [E,E]$$
+
+  Similarly, we have the following map induced by the Lie bracket map
+  in $N$:
+
+  $$\omega_{N,L}: L \times L \to [N,N]$$
+
+  We can define $\omega_{E,G}^{\text{Lie}}$ in terms of $\omega_{E,G}$
+  as explained in Section
+  \ref{sec:lie-bracket-like-map-for-extensions}. Consider the
+  canonical isomorphism between $L \wedge L$ and $G \wedge G$
+  (described in Theorem
+  \ref{thm:global-lazard-correspondence-preserves-schur-multipliers})
+  and denote the set map by $\exp:L \wedge L \to G \wedge G$.
+
+  In Section \ref{sec:beta-map}, we
+  considered short exact sequences with surjective downward maps,
+  where $\beta_G$ is the element of $\operatorname{Hom}(M(G),A)$ and
+  $\beta'$ is the morphism obtained by restricting $\beta_G$ to its
+  image, which we call $B$:
+
+  $$\begin{array}{ccccccccc}
+    0 & \to & M(G) & \to & G \wedge G & \to & [G,G] & \to & 1\\
+    &&   \downarrow^{\beta_G'}  &&  \downarrow     && \downarrow^{\text{id}} && \\
+    0 & \to & B &\to & [E,E] & \to & [G,G] & \to & 1\\
+  \end{array}$$
+
+  In Section \ref{sec:beta-map-lie}, we considered a similar short
+  exact sequence with surjective downward maps, where $\beta_L$ is the
+  element of $\operatorname{Hom}(M(L),A)$ and $\beta'_L$ is the
+  morphism obtained by restricting $\beta_L$ to its image, which we
+  call $B$:
+
+  $$\begin{array}{ccccccccc}
+    0 & \to & M(L) & \to & L \wedge L & \to & [L,L] & \to & 1\\
+    \downarrow &&   \downarrow^{\beta'_L}  &&  \downarrow     && \downarrow&& \downarrow\\
+    0 & \to & B &\to & [N,N] & \to & [L,L] & \to & 1\\
+  \end{array}$$
+
+  Under the canonical isomorphism of $M(L)$ and $M(G)$, $\beta_L$ and
+  $\beta_G$ are canonically identified, so that the subgroups $B$ in
+  both cases are the same, and $\beta_L'$ and $\beta_G'$ are
+  canonically identified as well.
+
+  The left and right downward maps for the group short exact sequence
+  are in Lazard correspondence respectively with the left and right
+  downward maps for the Lie ring short exact sequence. Therefore, the
+  middle maps for these sequences, which are determined uniquely up to
+  isomorphism, are also in Lazard correspondence up to
+  isomorphism.\footnote{To see this, we could apply $\exp$ to the
+    diagram for Lie rings and note that that diagram is equivalent up
+    to isomorphism with the diagram for groups.} In particular, $[E,E]$
+  and $[N,N]$ are in Lazard correspondence up to isomorphism and the
+  maps $G \wedge G \to [E,E]$ and $L \wedge L \to [N,N]$ are in
+  Lazard correspondence.
+
+  {\em Proof of (3)}: The explicit description of the Lazard
+  correspondence between $G \wedge G$ and $L \wedge L$ described in
+  Theorem
+  \ref{thm:global-lazard-correspondence-preserves-schur-multipliers}
+  gives us that, for $x,y \in L$ (so that $x,y \in G$ because $L$ and
+  $G$ have the same underlying set):
+
+  $\exp(x \wedge y) = \tilde{h}_{2,c+1}(x,y)$
+
+  where the $x \wedge y$ on the left is interpreted as an element of
+  $L \wedge L$.
+
+  Apply $\Omega_{E,G}$ to both sides and obtain:
+
+  $$\Omega_{E,G}(\exp(x \wedge y)) = \Omega_{E,G}(\tilde{h}_{2,c+1}(x,y))$$
+
+  The right side is $\omega_{E,G}^{\text{Lie}}(x,y)$, as described at
+  the end of Section
+  \ref{sec:lie-bracket-ito-group-commutator-exteriorsquare-version}. We thus obtain:
+
+  $$\Omega_{E,G}(\exp(x \wedge y)) = \omega_{E,G}^{\text{Lie}}(x,y)$$
+
+  The left side involves composing the set map $\exp: L \wedge L \to G
+  \wedge G$ and the group homomorphism $\Omega_{E,G}: G \wedge G
+  \to[E,E]$. By Part (2), this is equivalent to composing the map
+  $\Omega_{N,L}:L \wedge L \to [N,N]$ with the Lazard correspondence
+  up to isomorphism between $[N,N]$ and $[E,E]$. The statement of the
+  theorem uses the symbol $\varphi$ to denote the isomorphism $[N,N]
+  \to \log([E,E])$ describing the correspondence, so we obtain:
+
+  $$\varphi(\Omega_{N,L}(x \wedge y)) = \omega_{E,G}^{\text{Lie}}(x,y)$$
+
+  $\Omega_{N,L}(x \wedge y) = \omega_{N,L}(x,y)$, and we obtain:
+
+  $$\varphi(\omega_{N,L}(x,y)) = \omega_{E,G}^{\text{Lie}}(x,y)$$
+
+  as desired.
+
+  The proof of the other identity is similar.
+
+  {\em Proof of (4)}: The image of $Z(N)$ in $L$ is precisely the set
+  $\{x \in L \mid \omega_{N,L}(x,y) = 0 \forall \ y \in L \}$. The
+  image of $Z(E)$ in $G$ is precisely the set $\{ x \in G \mid
+  \omega_{E,G}(x,y) = 1 \ \forall \ y \in G \}$. The condition
+  $\omega_{E,G}(x,y) = 1$ implies that $\omega_{E,G}^{\text{Lie}}(x,y)
+  = 0$ which in turn implies that $\omega_{N,L}(x,y) = 0$. Similarly,
+  the condition that $\omega_{N,L}(x,y) = 0$ implies that
+  $\omega_{N,L}^{\text{Group}}(x,y) = 1$ which in turn implies that
+  $\omega_{E,G}(x,y) = 1$. The upshot is that the image of $Z(N)$ in
+  $L$ coincides with the image of $Z(E)$ in $G$.
+
+  Thus, the quotient of $L$ by the image of $Z(N)$ in $L$ is in strict
+  Lazard correspondence with the quotient of $G$ by the image of
+  $Z(E)$ in $G$. The former is canonically isomorphic to $N/Z(N)$ and
+  the latter is canonically isomorphic to $E/Z(E)$. Thus, $N/Z(N)$ is
+  in Lazard correspondence with $E/Z(E)$. Finally, the maps
+  $\omega_{N,L}$ and $\omega_{E,G}$ descend in the same way to maps
+  $\omega_N$ and $\omega_E$, and we obtain, for all $x,y \in
+  \operatorname{Inn}(N)$:
+
+  $$\varphi(\omega_N(x,y)) = \omega_E^{\text{Lie}}(x,y)$$
+
+  We thus obtain that $N$ and $E$ are in global class $(c+1)$ Lazard
+  correspondence up to isoclinism.
+\end{proof}
+
+\subsubsection{Relation between the middle groups}\label{sec:glcuti-extensions-splitting}
+
+We have demonstrated the existence of canonical isomorphisms between
+the left groups and between the right groups in the two short exact
+sequences:
+
+$$\begin{array}{ccccccccc}
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}};A) &\to &H^2(G;A) &\to &\operatorname{Hom}(G \wedge G,A) &\to &0\\
+  & & \downarrow & & & & \downarrow & & \\
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}};A) & \to & H^2_{\text{Lie}}(L;A) & \to & \operatorname{Hom}(L \wedge L, A) & \to & 0\\
+\end{array}$$
+
+As described in Sections \ref{sec:ses-uct} and
+\ref{sec:ses-uct-lie}, both short exact sequences
+split. Therefore, it is possible to find an isomorphism $H^2(G;A) \to
+H^2_{\text{Lie}}(L;A)$ that establishes an isomorphism of the short
+exact sequences:
+
+$$\begin{array}{ccccccccc}
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(G;A) &\to &H^2(G;A) &\to &\operatorname{Hom}(G \wedge G,A) &\to &0\\
+  & & \downarrow & & \downarrow & & \downarrow & & \\
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(L;A) & \to & H^2_{\text{Lie}}(L;A) & \to & \operatorname{Hom}(L \wedge L, A) & \to & 0\\
+\end{array}$$
+
+Note, however, that the middle isomorphism is not canonical. In
+general, here, {\em neither} sequence splits canonically. This is in
+contrast with the Baer correspondence up to isoclinism, where the
+short exact sequence for Lie rings splits, as per Section
+\ref{sec:bcuti-extensions-splitting}. For the Baer correspondence up
+to isoclinism, specifying an isomorphism of the middle groups is
+equivalent to specifying a splitting of the short exact sequence
+corresponding to group extensions. For the global Lazard
+correspondence up to isoclinism, however, the analogous statement is
+not true.
+
+\subsection{The global Lazard correspondence up to isoclinism: filling the details}
+
+Suppose $c$ is a positive integer and $\pi_c$ is the set of all primes
+less than or equal to $c$.
+
+We are now in a position to flesh out the remaining details of the
+global Lazard correspondence up to isoclinism, which we defined in Section
+\ref{sec:glcuti-def}:
+
+\newpage
+
+\begin{center}
+  Equivalence classes up to isoclinism of $\pi_c$-powered groups of
+  nilpotency class at most $c + 1$ $\leftrightarrow$ Equivalence
+  classes up to isoclinism of $\pi_c$-powered Lie rings of nilpotency
+  class at most $c + 1$
+\end{center}
+
+There are two pending facts we need to establish:
+
+\begin{enumerate}
+\item For every $\pi_c$-powered group $G$ of nilpotency class at most $c
+  + 1$, there exists a $\pi_c$-powered Lie ring $L$ of nilpotency class at
+  most $c + 1$ such that $G$ and $L$ are in global class $(c + 1)$ Lazard
+  correspondence up to isoclinism.
+\item For every $\pi_c$-powered Lie ring $L$ of nilpotency class at most
+  $c + 1$, there exists a $\pi_c$-powered group $G$ of nilpotency class
+  at most $c + 1$ such that $G$ and $L$ are in global class $(c + 1)$ Lazard
+  correspondence up to isoclinism.
+\end{enumerate}
+
+\subsubsection{Explicit construction from the group to the Lie ring}
+
+We are given a $\pi_c$-powered group $G$ of nilpotency class at most
+$c + 1$, and we need to find a $\pi_c$-powered Lie ring $L$ of
+nilpotency class at most $c + 1$ such that $L$ and $G$ are in global
+class $c + 1$ Lazard correspondence up to isoclinism.
+
+\begin{enumerate}[(a)]
+\item Consider $G$ as a central extension:
+
+  $$0 \to Z(G) \to G \to G/Z(G) \to 1$$
+
+  Consider the equivalence class up to isoclinism of this extension.
+
+\item Based on the discussion in Section
+  \ref{sec:glcuti-extensions-main}, this equivalence class corresponds
+  to an equivalence class up to isoclinism of Lie ring extensions with
+  central subring $\log(Z(G))$ and quotient Lie ring
+  $\log(G/Z(G))$. Let $L$ be any extension Lie ring in this
+  equivalence class.
+
+\item By Theorem \ref{thm:glcuti-extensions-implies-glcuti}, $L$ and $G$
+  are in global Lazard correspondence up to isoclinism.
+\end{enumerate}
+
+\subsubsection{Explicit construction from the Lie ring to the group}
+
+We are given a $\pi_c$-powered Lie ring $L$ of nilpotency class at
+most $c + 1$, and we need to find a $\pi_c$-powered group $G$ of
+nilpotency class at most $c + 1$ such that $L$ and $G$ are in global
+class $c + 1$ Lazard correspondence up to isoclinism.
+
+\begin{enumerate}[(a)]
+\item Consider $L$ as a central extension:
+
+  $$0 \to Z(L) \to L \to L/Z(L) \to 0$$
+
+  Consider the equivalence class up to isoclinism of this extension.
+
+\item Based on the discussion in Section
+  \ref{sec:glcuti-extensions-main}, this equivalence class corresponds
+  to an equivalence class up to isoclinism of group extensions with
+  central subgroup $\exp(Z(L))$ and quotient group $\exp(L/Z(L))$. Let
+  $G$ be any extension group in this equivalence class.
+
+\item By Theorem \ref{thm:glcuti-extensions-implies-glcuti}, $L$ and
+  $G$ are in global class $(c + 1)$ Lazard correspondence up to
+  isoclinism.
+\end{enumerate}
+
+\subsubsection{Preservation of order}\label{sec:glcuti-preserves-order}
+
+In both directions, the constructions preserve the orders. In other
+words, if we start with a finite group and use the construction in the
+direction from groups to Lie rings, the Lie ring that we obtain has
+the same order as the group that we started with. Similarly, if we
+start with a finite Lie ring and use the construction in the direction
+from Lie groups to groups, the group that we obtain has the same order
+as the Lie ring that we started with.
+
+This does not imply that {\em every} group and every Lie ring that are
+in global Lazard correspondence up to isoclinism must have the same
+order. Rather, we are saying that the answer to the existence question
+continues to be affirmative even after we impose the condition that
+the orders have to be equal.
+
+In particular, given a a finite $p$-group of nilpotency class $p$, we
+can find a finite $p$-Lie ring (i.e., a Lie ring whose additive group
+is a finite $p$-group) of nilpotency class $p$ such that the group and
+Lie ring are in global class $p$ Lazard correspondence up to
+isoclinism. Similarly, given a finite $p$-Lie ring of nilpotency class
+$p$, we can find a finite $p$-group of nilpotency class $p$ such that
+the group and Lie ring are in global class $p$ Lazard correspondence
+up to isoclinism.
+
+\subsection{Relating the global Lazard correspondence and the global Lazard correspondence up to isoclinism}
+
+Suppose $c$ is a positive integer and $\pi_c$ is the set of all primes
+less than or equal to $c$. In Section \ref{sec:glcuti-extensions}, we
+considered the case where $A$ is an abelian group and $G$ is a global
+class $c$ Lazard Lie group (i.e., a $\pi_c$-powered group of nilpotency
+class at most $c$) with Lazard Lie ring $L$. Recall the short exact
+sequences described in Section \ref{sec:glcuti-extensions}:
+
+$$\begin{array}{ccccccccc}
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}};A) &\to &H^2(G;A) &\to &\operatorname{Hom}(M(G),A) &\to &0\\
+  & & \downarrow & & & & \downarrow & & \\
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}};A) & \to & H^2_{\text{Lie}}(L;A) & \to & \operatorname{Hom}(M(L), A) & \to & 0\\
+\end{array}$$
+
+We had noted at the time that both short exact sequences split, and
+therefore the middle groups are isomorphic. However, in general,
+neither splitting is canonical (the splitting on the Lie ring side is
+canonical for abelian $L$, as described in Section
+\ref{sec:ses-uct-lie-abelian-canonical-splitting}, but this is an exceptional
+situation). Moreover, in general, there is no canonical isomorphism
+between the middle groups.
+
+Suppose now that $A$ and $G$ (and therefore also $L$) are powered over
+the set of all primes less than or equal to $c + 1$. Note that in the
+case that $c + 1$ is composite, this is always true, but it may also
+be true for specific choices of $A$ and $G$ even in the case that $c +
+1$ is prime. In this case, all the elements of $H^2(G;A)$ correspond
+to global class $(c + 1)$ Lazard Lie groups and all the elements of
+$H^2_{\text{Lie}}(L;A)$ correspond to global class $(c + 1)$ Lazard
+Lie rings. Moreover, the global class $(c + 1)$ Lazard correspondence
+induces an isomorphism between these groups that defines a canonical
+isomorphism of the short exact sequences:
+
+$$\begin{array}{ccccccccc}
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(G^{\operatorname{ab}};A) &\to &H^2(G;A) &\to &\operatorname{Hom}(M(G),A) &\to &0\\
+  & & \downarrow & & \downarrow & & \downarrow & & \\
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(L^{\operatorname{ab}};A) & \to & H^2_{\text{Lie}}(L;A) & \to & \operatorname{Hom}(M(L), A) & \to & 0\\
+\end{array}$$
+
+Note that in this situation, {\em both} short exact sequences split,
+{\em neither} splits canonically (unless $c = 1$), yet there is a
+canonical isomorphism between them.
+
+Another way of framing this is that, wherever applicable, the global
+class $(c + 1)$ Lazard correspondence {\em refines} the global class
+$(c + 1)$ Lazard correspondence up to isoclinism.
+
+%% \subsection{Cases where the correspondence applies only up to isoclinism}
+
+%% In order to have a situation where the global class $(c + 1)$ Lazard
+%% correspondence applies {\em only} up to isoclinism, we need $c + 1$ to
+%% be prime, and we need that the groups and Lie rings in question are
+%% {\em not} powered over the prime $c + 1$.
+
+%% The prototypical example of this for finite groups is as follows,
+%% where $p$ is a prime number:
+
+%% Equivalence classes up to isoclinism of finite $p$-groups of nilpotency class exactly $p$ $\leftrightarrow$ Equivalence classes up to isoclinism of finite $p$-Lie rings of nilpotency class exactly $p$
+
+%% Examples for the case $p = 2$ (thus, $c = 1$) were described in
+%% connection with the Baer correspondence up to isoclinism (see Section
+%% \ref{sec:bcuti-ex}). We briefly describe an example for the case $p =
+%% 3$, using the extension setup described in Section
+%% \ref{sec:glcuti-extensions} in order to get a more holistic
+%% picture.
+
+%% Consider the case where $G = UT(3,3)$ (this is the unique non-abelian
+%% group of order $3^3$ and exponent $3$) and $A = \mathbb{Z}_3$ is the
+%% cyclic group of order three. The corresponding Lie ring $L$ is
+%% $NT(3,3)$.
+
+%% {\em TONOTDO: Insert full details of example}

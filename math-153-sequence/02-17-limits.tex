@@ -1,0 +1,165 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz: February 17: Limit, order of zero, LH rule}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+Your name (print clearly in capital letters): $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+
+\begin{enumerate}
+
+\item Suppose $g:\R \to \R$ is a continuous function such that
+  $\lim_{x \to 0} g(x)/x = A$ for some constant $A \ne 0$. What is
+  $\lim_{x \to 0} g(g(x))/x$? 
+
+  \begin{enumerate}[(A)]
+  \item $0$
+  \item $A$
+  \item $A^2$
+  \item $g(A)$
+  \item $g(A)/A$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item Suppose $g:\R \to \R$ is a continuous function such that
+  $\lim_{x \to 0} g(x)/x^2 = A$ for some constant $A \ne 0$. What is
+  $\lim_{x \to 0} g(g(x))/x^4$? 
+
+  \begin{enumerate}[(A)]
+  \item $A$
+  \item $A^2$
+  \item $A^3$
+  \item $A^2g(A)$
+  \item $g(A)/A^2$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+  For the remaining questions, keep in mind that the {\em order of a
+  zero} for a function $f$ at a point $c$ in its domain (where it's
+  continuous) such that $f(c) = 0$ is defined as the lub of the set $\{
+  \beta \ge 0 \mid \lim_{x \to c} |f(x)|/|x - c|^\beta = 0 \}$.
+
+  If $f$ is an infinitely differentiable function at $c$, then the
+  order, if finite, must be a positive integer. If the order is a
+  positive integer $r$, then the first $r - 1$ derivatives of $f$ at
+  $c$ equal zero and the $r^{th}$ derivative at $c$ is nonzero
+  (assuming $f$ to be infinitely differentiable).
+
+  For convenience, we take $c = 0$ in the next three questions, i.e.,
+  all limits are being taken as $x \to 0$.
+
+\item If $f$ has a zero of order $2$ and $g$ has a zero of order $3$
+  at the point $0$, what is the order of zero for the pointwise sum $f
+  + g$ at zero?  (Example: $f(x) = \sin^2x$ and $g(x) = \ln(1 +
+  x^3)$).
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $5$
+  \item $6$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item If $f$ has a zero of order $2$ and $g$ has a zero of order $3$
+  at the point $0$, what is the order of zero for the pointwise
+  product $fg$ at zero?  (Example: $f(x) = \sin^2x$ and $g(x) = \ln(1
+  + x^3)$).
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $5$
+  \item $6$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item If $f$ has a zero of order $2$ and $g$ has a zero of order $3$
+  at the point $0$, what is the order of zero for the composite
+  function $f \circ g$ at zero?  (Example: $f(x) = \sin^2x$ and $g(x) =
+  \ln(1 + x^3)$).
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $5$
+  \item $6$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item The L'Hopital rule can be related with order of zero in the
+  following manner: Every time the rule is applied to a $(\to 0)/(\to
+  0)$ form, the order of zero of the numerator and denominator go {\em
+    down by one}. Repeated application hopefully yields a situation
+  where either the numerator or the denominator has a nonzero value.
+
+  Assume that we start with a limit $\lim_{x \to c} f(x)/g(x)$ where
+  both $f$ and $g$ are infinitely differentiable at $c$, and further,
+  that $f(c) = g(c) = 0$. If the order of zero of $f$ is $d_f$ and the
+  order of zero of $g$ is $d_g$, which of the
+  following is true?
+
+  \begin{enumerate}[(A)]
+  \item If $d_f = d_g$, then we need to apply the LH rule $d_f$ times
+    and we will then get a nonzero numerator and nonzero denominator,
+    that we can evaluate to get the limit. If $d_f < d_g$, then we
+    apply the LH rule $d_f$ times to get a nonzero numerator and zero
+    denominator, so the limit is undefined. If $d_g < d_f$, then we
+    apply the LH rule $d_g$ times to get a zero numerator and nonzero
+    denominator, so the limit is zero.
+  \item If $d_f = d_g$, then we need to apply the LH rule $d_f$ times
+    and we will then get a nonzero numerator and nonzero denominator,
+    that we can evaluate to get the limit. If $d_f < d_g$, then we
+    apply the LH rule $d_f$ times to get a zero numerator and nonzero
+    denominator, so the limit is undefined. If $d_g < d_f$, then we
+    apply the LH rule $d_g$ times to get a nonzero numerator and zero
+    denominator, so the limit is zero.
+  \item If $d_f = d_g$, then we need to apply the LH rule $d_f$ times
+    and we will then get a nonzero numerator and nonzero denominator,
+    that we can evaluate to get the limit. If $d_f < d_g$, then we
+    apply the LH rule $d_f$ times to get a nonzero numerator and zero
+    denominator, so the limit is zero. If $d_g < d_f$, then we
+    apply the LH rule $d_g$ times to get a zero numerator and nonzero
+    denominator, so the limit is undefined.
+  \item If $d_f = d_g$, then we need to apply the LH rule $d_f$ times
+    and we will then get a nonzero numerator and nonzero denominator,
+    that we can evaluate to get the limit. If $d_f < d_g$, then we
+    apply the LH rule $d_f$ times to get a zero numerator and nonzero
+    denominator, so the limit is zero. If $d_g < d_f$, then we
+    apply the LH rule $d_g$ times to get a nonzero numerator and zero
+    denominator, so the limit is undefined.
+  \item In all cases, we perform the LH rule $\min \{ d_f, d_g \}$
+    times and obtain a nonzero numerator and nonzero denominator.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\end{enumerate}
+\end{document}

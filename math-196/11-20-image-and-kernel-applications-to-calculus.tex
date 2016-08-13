@@ -1,0 +1,270 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz: due Wednesday November 20: Image and kernel: applications to calculus}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+Your name (print clearly in capital letters): $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+The goal of this quiz is to use the setting of calculus to practice
+our skill of understanding linear transformations, specifically their
+injectivity, surjectivity, bijectivity, kernel and image. It builds on
+the November 8 quiz, but goes further. Please refer back to the
+November 8 quiz for the definitions of vector space, subspace, and
+linear transformation.
+
+Please read these questions {\em very} carefully. For the first few
+questions, the interpretation of the question in the language of
+calculus is provided. Please refer to that if the linear algebra-based
+description is unclear.
+
+\begin{enumerate}
+
+\item Let $\R[x]$ denote the vector space of all polynomials in one
+  variable with real coefficients, with the usual addition and scalar
+  multiplication of polynomials. There is an obvious linear
+  transformation from $\R[x]$ to $C^\infty(\R)$ that sends any
+  polynomial to the function it describes, e.g., the polynomial $x^2 +
+  1$ gets sent to the function $x \mapsto x^2 + 1$. What can you say
+  about this map $\R[x] \to C^\infty(\R)$?
+
+  {\em Please note}: We are {\em not} talking here about whether the
+  polynomial functions themselves are injective or surjective as
+  functions from $\R$ to $\R$. Rather, we are talking about whether
+  the mapping from {\em the set of polynomials} (which itself is a
+  vector space over the reals) to {\em the set of infinitely
+    differentiable functions} (which itself is another vector space).
+
+  \begin{enumerate}[(A)]
+  \item The map is neither injective nor surjective, i.e., different
+    polynomials may define the same function, and not every infinitely
+    differentiable function can be expressed using a polynomial.
+  \item The map is injective but not surjective, i.e., different
+    polynomials always define different functions, and not every
+    infinitely differentiable function can be expressed using a
+    polynomial.
+  \item The map is surjective but not injective, i.e., different
+    polynomials may define the same function, and every infinitely
+    differentiable function can be expressed using a polynomial.
+  \item The map is bijective, i.e., different polynomials always
+    define different functions, and every infinitely differentiable
+    function can be expressed using a polynomial.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Denote by $\R[[x]]$ the vector space of all {\em formal power
+  series} in one variable with real coefficients, with
+  coefficient-wise addition and scalar multiplication. Explicitly, an
+  element $a \in \R[[x]]$ is of the form:
+
+  $$a = \sum_{i=0}^\infty a_ix^i = a_0 + a_1x + a_2x^2 + \dots$$
+
+  where $a_i \in \R$ for $i \in \mathbb{N}_0$. Addition is
+  coefficient-wise, i.e., if:
+
+  $$a = \sum_{i=0}^\infty a_ix^i, b = \sum_{i=0}^\infty b_ix^i$$
+
+  Then we have:
+
+  $$a + b = \sum_{i=0}^\infty (a_i + b_i)x^i$$
+
+  and for any real number $\lambda$, we have:
+
+  $$\lambda a = \sum_{i=0}^\infty (\lambda a_i)x^i$$
+
+  Note that a formal power series may have any radius of
+  convergence. The radius of convergence could range from being $0$
+  (which means that the formal power series converges only at the
+  point $\{ 0 \}$) to being $\infty$ (which means that the formal
+  power series converges on all of $\R$). In other words, a formal
+  power series need not define an actual function on $\R$.
+
+  {\em Aside}: If you remember sequences and series from
+  single-variable calculus, you will recall that the radius of
+  convergence is the reciprocal of the exponential growth rate of
+  coefficients. In particular, if the coefficients {\em grow
+    superexponentially}, the radius of convergence is zero. On the
+  other hand, if the coefficients {\em decay superexponentially}, the
+  radius of convergence is $\infty$. If the coefficients have
+  exponential growth, the radius of convergence is less than $1$. If
+  the coefficients have exponential decay, the radius of convergence
+  is greater than $1$. Finally, if the coefficients grow or decay
+  subexponentially, the radius of convergence is $1$.
+
+  Note that $\R[x]$ can be viewed as a subspace of $\R[[x]]$ by
+  thinking of each polynomial as a formal power series where there are
+  only finitely many nonzero coefficients.
+
+  Let $\Omega$ be the subset of $\R[[x]]$ comprising those formal power
+  series that converge globally, i.e., the radius of convergence is
+  $\infty$. Note that $\Omega$ is a sub{\em space} of $\R[[x]]$.
+
+  What is the relation between $\R[x]$ and $\Omega$?
+
+  Note that by {\em proper} subspace we mean a subspace that is not
+  equal to the whole space.
+  \begin{enumerate}[(A)]
+  \item $\R[x] = \Omega$, i.e., a power series is globally convergent
+    if and only if it is a polynomial (i.e., it has only finitely many
+    nonzero coefficients).
+  \item $\R[x]$ is a proper subspace of $\Omega$, i.e., every
+    polynomial is a globally convergent power series, but there exist
+    globally convergent power series that are not polynomials.
+  \item $\Omega$ is a proper subspace of $\R[x]$, i.e., every globally
+    convergent power series is a polynomial, but there are polynomials
+    that are not globally convergent power series.
+  \item $\R[x]$ and $\Omega$ are incomparable, i.e., there exist
+    polynomials that are not globally convergent power series and
+    there exist globally convergent power series that are not
+    polynomials.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item The {\em Taylor series operator} can be viewed as a linear
+  transformation from $C^\infty(\R)$ to $\R[[x]]$. This operator sends
+  any infinitely differentiable function to its Taylor series centered
+  at $0$. Explicitly, the operator is:
+
+  $$f \mapsto \sum_{k=0}^\infty \frac{f^{(k)}(0)}{k!}x^k$$
+
+  What can we say about the kernel of this linear transformation?
+
+  \begin{enumerate}[(A)]
+  \item The kernel is the set of functions $f$ satisfying $f(0) = 0$
+  \item The kernel is the set of functions $f$ satisfying $f'(0) = 0$
+  \item The kernel is the set of functions $f$ such that $f$ and all
+    its derivatives take the value $0$ at $0$.
+  \item The kernel is the set of polynomial functions.
+  \item The kernel is the set of functions that have globally
+    convergent power series.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Which of the following is the best explanation for why we put
+  the $+C$ when performing indefinite integration?
+
+  \begin{enumerate}[(A)]
+  \item The kernel of differentiation is a zero-dimensional space
+    (namely, the zero function only), hence the fibers (inverse images
+    or pre-images) for differentiation are all zero-dimensional spaces,
+    i.e., single functions.
+  \item The kernel of differentiation is a one-dimensional space
+    (namely, the vector space of constant functions), hence the fibers
+    (inverse images or pre-images) for differentiation are all
+    one-dimensional spaces, i.e., lines that are translates of the
+    space of constant functions.
+  \item The image of differentiation is a zero-dimensional space
+    (namely, the zero function only), hence the fibers (inverse images
+    or pre-images) for differentiation are all zero-dimensional spaces,
+    i.e., single functions.
+  \item The image of differentiation is a one-dimensional space
+    (namely, the vector space of constant functions), hence the fibers
+    (inverse images or pre-images) for differentiation are all
+    one-dimensional spaces, i.e., lines that are translates of the
+    space of constant functions.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item When finding all functions $f$ on $\R$ such that $f''(x) = g(x)$
+  for some known continuous function $g$ on $\R$, we get a general
+  description of the form $G(x) + C_1x + C_2$ where $C_1$, $C_2$, are
+  arbitrary real numbers. Which of the following is the best
+  explanation for this?
+
+  \begin{enumerate}[(A)]
+  \item The kernel of the operation of differentiating twice is
+    precisely the set of constant functions.
+  \item The kernel of the operation of differentiating twice is
+    precisely the set of nonconstant linear functions.
+  \item The kernel of the operation of differentiating twice is the
+    union of the set of constant functions and the set of nonconstant
+    linear functions.
+  \item The image of the operation of differentiating twice is
+    precisely the set of constant functions.
+  \item The image of the operation of differentiating twice is
+    precisely the set of nonconstant linear functions.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Consider a second-order homogeneous linear differential equation
+  of the form:
+
+  $$y'' + p_1(x)y' + p_2(x)y = 0$$
+
+  where $x$ is the independent variable, $y$ is the dependent
+  variable, and $p_1$ and $p_2$ are known functions. We are trying to
+  find global solutions, i.e., functions defined on all of $\R$. One
+  way of thinking of this is to consider the linear transformation $L$
+  that sends a function $y$ of $x$ to $L(y) = y'' + p_1(x)y' +
+  p_2(x)y$, a new function of $x$. Which of the following best
+  describes what we are trying to do?
+
+  \begin{enumerate}[(A)]
+  \item $L$ is a linear transformation $C^2(\R) \to C(\R)$, and the
+    solution space we are interested in is the kernel of $L$.
+  \item $L$ is a linear transformation $C^2(\R) \to C(\R)$, and the
+    solution space we are interested in is the image of $L$.
+  \item $L$ is a linear transformation $C(\R) \to C^2(\R)$, and the
+    solution space we are interested in is the kernel of $L$.
+  \item $L$ is a linear transformation $C(\R) \to C^2(\R)$, and the
+    solution space we are interested in is the image of $L$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Consider a second-order non-homogeneous linear differential
+  equation of the form:
+
+  $$y'' + p_1(x)y' + p_2(x)y = q(x)$$
+
+  where $x$ is the independent variable, $y$ is the dependent
+  variable, and $p_1$, $p_2$, and $q$ are known functions. We are
+  trying to find global solutions, i.e., functions defined on all of
+  $\R$. One way of thinking of this is to consider the linear
+  transformation $L$ that sends a function $y$ of $x$ to $L(y) = y'' +
+  p_1(x)y' + p_2(x)y$, a new function of $x$. Which of the following
+  best describes what we are trying to do?
+
+  \begin{enumerate}[(A)]
+  \item We are trying to find the inverse image under $L$ of $q(x)$,
+    and we know this is a translate of the solution space of the
+    corresponding homogeneous linear differential equation (the one
+    from the preceding question).
+  \item We are trying to find the image under $L$ of $p_1(x)$,
+    and we know this is a translate of the solution space of the
+    corresponding homogeneous linear differential equation (the one
+    from the preceding question).
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\end{enumerate}
+\end{document}

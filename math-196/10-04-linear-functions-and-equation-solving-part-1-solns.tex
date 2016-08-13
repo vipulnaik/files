@@ -1,0 +1,482 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Friday October 4: Linear functions and equation-solving (part 1)}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+27 people took this 9-question quiz. The score distribution was as
+follows:
+
+\begin{itemize}
+\item Score of 1: 2 people
+\item Score of 3: 1 person
+\item Score of 4: 2 people
+\item Score of 5: 4 people
+\item Score of 6: 3 people
+\item Score of 7: 8 people
+\item Score of 8: 5 people
+\item Score of 9: 2 people
+\end{itemize}
+
+The mean score was about 6.1.
+
+The question-wise answers and performance review are below:
+
+\begin{enumerate}
+\item Option (D): 20 people
+\item Option (C): 16 people
+\item Option (B): 21 people
+\item Option (A): 23 people
+\item Option (E): 9 people
+\item Option (D): 19 people
+\item Option (C): 26 people
+\item Option (C): 11 people
+\item Option (A): 20 people
+\end{enumerate}
+
+\section{Solutions}
+
+This quiz covers some basics involving linear functions and
+equation-solving (notes at {\tt Linear functions: a primer} and {\tt
+  Equation-solving with a special focus on the linear case}). The quiz
+tests for the following:
+
+\begin{itemize}
+\item What it means to be (affine) linear, and in particular, the
+  significance of the intercept as an additional parameter to track.
+\item The distinction between behavior relative to the variables (the
+  inputs) and behavior relative to the parameters.
+\item Using the linear paradigm to study functional forms that are not
+  themselves linear.
+\item A small taste of dealing with measurement uncertainty to obtain
+  upper and lower bounds (not covered in the notes, so this is where
+  your famed ability to think out of the box should manifest).
+\item Solving ``triangular'' systems of equations.
+\end{itemize}
+
+\begin{enumerate}
+\item A function $f$ of $3$ variables $x$, $y$, $z$ defined everywhere is
+  (affine) linear in the variables. (The ``affine'' is to indicate
+  that the intercept may be nonzero). Based on the above information
+  and some input-output pairs for $f$, we would like to determine $f$
+  uniquely. What is the minimum number of input-output pairs that we
+  would need in order to achieve this?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $5$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: The general expression for a linear function $f$
+  of the variables $x$, $y$, and $z$ is:
+
+  $$f(x,y,z) := ax + by + cz + d$$
+
+  There are four unknown parameters here (one coefficient for each
+  variable, and one parameter $d$ for the intercept). Our goal is to
+  determine uniquely the values of the parameters. Since there are
+  four parameters, we need four equations to determine them
+  uniquely. Note that the equations themselves are linear. We should
+  choose our four inputs in a manner that there are no linear
+  dependencies between them (what this means will become clearer as we
+  study more linear algebra).
+
+  {\em Performance review}: $20$ out of $27$ got this. $6$ chose (C),
+  $1$ chose (E).
+
+  {\em Historical note (last time; however, discussion was not
+    permitted for this question last time)}: $7$ out of $29$ people
+  got this. $20$ chose (C), $2$ chose (B).
+
+\item Which of the following gives an example of a function $F$ of
+  three variables $x,y,z$ whose third-order mixed partial derivative
+  $F_{xyz}$ is zero everywhere, but for which none of the second-order
+  mixed partial derivatives $F_{xy}$, $F_{xz}$, $F_{yz}$ is zero
+  everywhere?
+
+  \begin{enumerate}[(A)]
+  \item $\sin(xy) - z^2$
+  \item $\cos(x^2 + y^2) - \sin(y^2 + z^2)$
+  \item $e^{xy} + (y - z)^2 + 3xz$
+  \item $x^2 + y^2 + z^2$
+  \item $xyz$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Look for functions of the form:
+
+  $$F(x,y,z) = f(x,y) + g(y,z) + h(x,z)$$
+
+  where $f$, $g$, and $h$ are all nonzero and none of them is
+  additively separable.
+
+  The only option fitting this description is Option (C).
+
+  As for the other options:
+
+  \begin{itemize}
+  \item Option (A): Both $F_{xz}$ and $F_{yz}$ are zero. This is
+    because neither $x$ nor $y$ interacts with $z$.
+  \item Option (B): $F_{xz}$ is zero, because there is no interaction
+    between $x$ and $z$.
+  \item Option (D): $F$ is completely additively separable in terms of
+    $x$, $y$, and $z$, so all the second-order mixed partials
+    $F_{xy}$, $F_{xz}$, and $F_{yz}$ are zero.
+  \item Option (E): $F_{xyz} = 1$.
+  \end{itemize}
+
+  {\em Performance review}: $16$ out of $27$ got this. $7$ chose (E),
+  $3$ chose (B), $1$ chose (A).
+
+  {\em Historical note (last time)}: $20$ out of $29$ people got this. $8$
+  chose (E), $1$ chose (D).
+
+\item Consider a function of the form $F(x,y) := Ca^xb^y$ where
+  $C,a,b$ are all positive reals that serve as parameters and $x,y$
+  are restricted to the positive reals. We wish to study $F$ using the
+  paradigm of linear functions. What is the best way of doing this?
+
+  \begin{enumerate}[(A)]
+  \item Express $\ln(F(x,y))$ in terms of $\ln x$ and $\ln y$
+  \item Express $\ln(F(x,y))$ in terms of $x$ and $y$
+  \item Express $F(x,y)$ in terms of $\ln x$ and $\ln y$
+  \item Express $\ln(F(x,y))$ in terms of $a^x$ and $b^y$
+  \item Express $F(x,y)$ in terms of $a^x$ and $b^y$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: We take logarithms to get:
+
+  $$\ln(F(x,y)) = \ln C + x \ln a + y \ln b$$
+
+  Note that $a$, $b$, and $C$ are positive constants. Hence, $\ln C$,
+  $\ln a$, and $\ln b$ are also constants. Thus, $\ln(F(x,y))$ is a
+  linear function of $x$ and $y$.
+
+  {\em Performance review}: $21$ out of $27$ got this. $4$ chose (A),
+  $2$ chose (D).
+
+  {\em Historical note (last time)}: $26$ out of $29$ got this. $3$ chose (A).
+
+\item Consider a function of the form $F(x,y) := Cx^ay^b$ where
+  $C,a,b$ are all positive reals that serve as parameters and $x,y$
+  are restricted to the positive reals. We wish to study $F$ using the
+  paradigm of linear functions. What is the best way of doing this?
+
+  \begin{enumerate}[(A)]
+  \item Express $\ln(F(x,y))$ in terms of $\ln x$ and $\ln y$
+  \item Express $\ln(F(x,y))$ in terms of $x$ and $y$
+  \item Express $F(x,y)$ in terms of $\ln x$ and $\ln y$
+  \item Express $\ln(F(x,y))$ in terms of $x^a$ and $y^b$
+  \item Express $F(x,y)$ in terms of $x^a$ and $y^b$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: We take logarithms to get:
+
+  $$\ln(F(x,y)) = \ln C + a \ln x + b \ln y$$
+
+  Note that $C$ is a positive constant, so $\ln C$ is a constant.
+  $\ln(F(x,y))$ is a linear function of $\ln x$ and $\ln y$.
+
+  {\em Performance review}: $23$ out of $27$ got this. $1$ each chose
+  (B), (C)., and (D), $1$ left the question blank.
+
+  {\em Historical note (last time)}: $28$ out of $29$ got this. $1$
+  chose (B).
+
+\item (**) {\em This is a hard question!} The population in the island
+  of Andrognesia as a function of time is believed to be an
+  exponential function. On January 1, 1984, the population was
+  measured to be $3 * 10^5$ with a measurement error of up to $10^5$
+  on either side, i.e., the population was measured to be between $2*
+  10^5$ and $4 * 10^5$. On January 1, 1998, the population was
+  measured to be $1.2 * 10^6$ with a measurememt error of up to $4 *
+  10^5$ on either side, i.e., the population was measured to be
+  between $8 * 10^5$ and $1.6 * 10^6$. If the population is an
+  exponential function of time (i.e., the increment in population per
+  year is a fixed proportion of the population that year), what is the
+  {\bf range of possible values} of the population measured on January
+  1, 2012? {\em Hint: Think of the umbral versus penumbral region for
+    an eclipse}
+
+  \begin{enumerate}[(A)]
+  \item Between $3.2 * 10^6$ and $6.4 * 10^6$
+  \item Between $3.2 * 10^6$ and $1.28 * 10^7$
+  \item Between $1.6 * 10^6$ and $3.2 * 10^6$
+  \item Between $1.6 * 10^6$ and $6.4 * 10^6$
+  \item Between $1.6 * 10^6$ and $1.28 * 10^7$
+  \end{enumerate}
+
+ {\em Answer}: Option (E)
+
+  {\em Explanation}: Note first that $2012 - 1998 = 1998 - 1984 = 14$.
+
+  The key idea is that the lowest estimate occurs
+  if the 1998 population was measured as low as possible {\em and} the
+  rate of population growth estimated using the 1984 and 1998
+  populations is as low as possible. The lowest possible rate of
+  growth we can measure occurs if we choose the highest possible 1984
+  value and the lowest possible 1998 value. Picking these, we obtain
+  that the population estimate for 1984 is $4 * 10^5$ and the
+  population estimate for 1998 is $8 * 10^5$. Since the
+  multiplicative growth of the population depends on the time elapsed,
+  the total population in 2012 will be the solution $x$ to:
+
+  $$\frac{x}{8 * 10^5} = \frac{8 * 10^5}{4 * 10^5}$$
+
+  which solves to $x = 1.6 * 10^6$.
+
+  Similarly, the highest estimate will occur if we take the highest
+  estimate possible for the 1998 population and the lowest estimate
+  possibly for the 1984 population.
+
+  This relates to the idea of linear models as follows. Consider a
+  plot of the logarithm of the population with respect to time. Since
+  the growth is exponential, this should be a linear plot. If we knew
+  the precise values of the populations in 1984 and 1998, we could fit
+  a straight line through those and use that to determine the
+  population in 2012. Uncertainty regarding the values of the
+  population in 1984 and 1998, however. means that instead of having
+  points in the graph, we have an interval (represented by a vertical
+  line segment) for the time coordinate value of 1984 and another
+  interval (represented by another vertical line segment) for the time
+  coordinate value of 1998.
+
+  The upper end estimate is obtained by making a line through the
+  lower end of the 1984 estimate range and the upper end of the 1998
+  estimate range. The lower end estimate is obtained by making a line
+  through the upper end of the 1984 estimate range and the lower end
+  of the 1998 estimate range.
+
+  {\em Performance review}: $9$ out of $27$ got this. $14$ chose (A),
+  $3$ chose (D), $1$ chose (C).
+
+  {\em Historical note (last time)}: $6$ out of $29$ got
+  this. $15$ chose (A), $6$ chose (C), $1$ each chose (B) and (D).
+
+\item Suppose, according to our model, a particular function $f(x,y)$
+  is of the form $f(x,y) = a_1 + a_2x + a_3y + a_4x^2y^2$ where
+  $a_1,a_2,a_3,a_4$ are parameters. Our goal is to determine the
+  values of the parameters $a_1,a_2,a_3,a_4$. We do this by collecting
+  a number of (input,output) pairs for the function $f$ and then
+  setting up equations in terms of the parameters using the
+  (input,output) pairs. What can we say about the nature of $f$ and
+  the nature of the system of equations that we will need to solve?
+  {\em Note that ``nonlinear'' as used here simply means that the
+    expression is not guaranteed to be linear, though it may turn out
+    to be linear in some cases. Similarly, ``non-polynomial'' means
+    not guaranteed to be polynomial, though it may turn out to be
+    polynomial in some cases.}
+
+  \begin{enumerate}[(A)]
+  \item $f$ is a linear function of $x$ and $y$, hence we need to
+    solve a linear system of equations to determine the parameters
+    $a_1,a_2,a_3,a_4$.
+  \item $f$ is a nonlinear polynomial function of $x$ and $y$, hence
+    we need to solve a nonlinear polynomial system of equations to
+    determine the parameters $a_1,a_2,a_3,a_4$.
+  \item $f$ is a linear function of $x$ and $y$. However, we need to
+    solve a nonlinear polynomial system of equations to determine the
+    parameters $a_1,a_2,a_3,a_4$.
+  \item $f$ is a nonlinear polynomial function of $x$ and
+    $y$. However, we need to solve a linear system of equations to
+    determine the parameters $a_1,a_2,a_3,a_4$.
+  \item $f$ is a nonlinear polynomial function of $x$ and
+    $y$. However, we need to solve a non-polynomial system of
+    equations to determine the parameters $a_1,a_2,a_3,a_4$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: $f$ is polynomial in $x$ and $y$, and it is not
+  linear because one of its terms is $x^2y^2$ (note that it may {\em
+    happen} to be linear if $a_4 = 0$, but we do not know this in
+  advance).
+
+  However, $f$ is linear in the parameters, hence the system of
+  equations that we get from input-output pairs is a linear system of
+  equations.
+
+  {\em Performance review}: $19$ out of $27$ got this. $6$ chose (B),
+  $1$ each chose (C) and (E).
+
+  {\em Historical note (last time)}: $24$ out of $29$ got this. $4$ chose (B),
+  $1$ chose (A).
+\item Consider the system of equations:
+
+  \begin{eqnarray*}
+    x^2 - x & = & 2 \\
+    y^2 + xy & = & x + 13 \\
+  \end{eqnarray*}
+
+  What is the number of solutions to this system for real $x$ and $y$?
+
+  \begin{enumerate}[(A)]
+  \item $0$
+  \item $2$
+  \item $4$
+  \item $6$
+  \item $8$
+  \end{enumerate}
+  \vspace{0.6in}
+  
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Solving the first equation, we get:
+
+  $$(x - 2)(x + 1) = 0$$
+
+  Thus, we have $x = 2$ or $x = -1$.
+
+  For each choice of $x$, we need to solve the second equation by
+  plugging in that value of $x$.
+
+  For the choice $x = 2$, we have:
+
+  $$y^2 + 2y = 15$$
+
+  This simplifies to:
+
+  $$(y - 3)(y + 5) = 0$$
+
+  Thus, $y = 3$ or $y = -5$, so we get the solutions $x = 2, y = 3$
+  and $x = 2, y = -5$.
+
+  For the choice $x = -1$, we get:
+
+  $$y^2 - y = 12$$
+
+  This gives:
+
+  $$(y - 4)(y + 3) = 0$$
+
+  Thus, $y = 4$ or $y = -3$, so we get the solutions $x = -1, y = 4$
+  and $x = -1, y= -3$.
+
+  Overall, we have four solutions:
+
+  \begin{itemize}
+  \item $x = 2, y = 3$
+  \item $x = 2, y = -5$
+  \item $x = -1, y = 4$
+  \item $x = -1, y = -3$
+  \end{itemize}
+
+  {\em Performance review}: $26$ out of $27$ got this. $1$ chose (D).
+
+  {\em Historical note (last time)}: $28$ out of $29$ got this. $1$
+  chose (D).
+
+\item Consider the system of equations:
+
+  \begin{eqnarray*}
+    x^2 - x & = & 2 \\
+    y^2 + xy & = & x + 13 \\
+    z^2 & = & xy \\
+  \end{eqnarray*}
+
+  What is the number of solutions to this system for real $x$, $y$,
+  and $z$?
+
+  \begin{enumerate}[(A)]
+  \item $0$
+  \item $2$
+  \item $4$
+  \item $6$
+  \item $8$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Recall from the preceding question that we have
+  the following solutions to the first two equations:
+
+  \begin{itemize}
+  \item $x = 2, y = 3$
+  \item $x = 2, y = -5$
+  \item $x = -1, y = 4$
+  \item $x = -1, y = -3$
+  \end{itemize}
+
+  For each of these, our goal is to find the corresponding $z$-values
+  that work. Note that if $xy$ is positive, there are two
+  $z$-values. If $xy = 0$, there is a unique $z$-value, and if $xy$ is
+  negative, there are no $z$-values.
+
+  Of the four possible $(x,y)$-value pairs, only two give positive
+  products. The other two give negative products. In both the positive
+  product cases, we get $2$ values of $z$, so we overall get four
+  solutions as listed below:
+
+  \begin{itemize}
+  \item $x = 2, y = 3, z = \sqrt{6}$
+  \item $x = 2, y = 3, z = -\sqrt{6}$
+  \item $x = -1, y = -3, z = \sqrt{3}$
+  \item $x = -1, y = -3, z = -\sqrt{3}$
+  \end{itemize}
+
+  {\em Performance review}: $11$ out of $27$ got this. $10$ chose (B),
+  $3$ chose (D), $2$ chose (E), $1$ chose (A).
+
+  {\em Historical note (last time)}: $25$ out of $29$ got this. $2$ chose (D),
+  $1$ each chose (B) and (E).
+\item Consider the system of equations:
+
+  \begin{eqnarray*}
+    x^2 - x & = & 2 \\
+    y^2 + xy & = & x + 13 \\
+    z^2 & = & x^2 - y^2 \\
+  \end{eqnarray*}
+
+  What is the number of solutions to this system for real $x$, $y$,
+  and $z$?
+
+  \begin{enumerate}[(A)]
+  \item $0$
+  \item $2$
+  \item $4$
+  \item $6$
+  \item $8$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: The solutions to the first two equations are:
+
+  \begin{itemize}
+  \item $x = 2, y = 3$
+  \item $x = 2, y = -5$
+  \item $x = -1, y = 4$
+  \item $x = -1, y = -3$
+  \end{itemize}
+
+  In all cases, $x^2 - y^2 < 0$. Thus, there is no $z$-value that
+  works in any of the cases. Thus, there are no solutions to this
+  system.
+
+  {\em Performance review}: $20$ out of $27$ got this. $5$ chose (E),
+  $1$ each chose (C) and (D).
+
+  {\em Historical note (last time)}: $22$ out of $29$ got this. $3$ chose (D),
+  $2$ chose (C), $1$ each chose (B) and (E).
+\end{enumerate}
+
+\end{document}

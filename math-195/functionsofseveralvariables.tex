@@ -1,0 +1,474 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Functions of several variables: definition, examples}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 14.1.
+
+{\bf What students should definitely get}: Definition of function of
+two variables, concept of graph of such a function, level curves,
+function of three variables, level surfaces, determining the domain of
+a function, functions of $n$ variables.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item A function of $n$ variables is a function on a subset of
+  $\R^n$. We can think of it in three ways: as a function with $n$
+  real inputs, as a function with input a point in (a subset of)
+  $\R^n$, and as a function with $n$-dimensional vector inputs. We
+  often write the inputs with numerical subscripts, so a function $f$
+  of $n$ inputs is written as $f(x_1,x_2,\dots,x_n)$.
+\item In the case $n = 2$, we often write the inputs as $x,y$ so we
+  write $f(x,y)$. This may be concretely described as an expression in
+  terms of $x$ and $y$.
+\item The graph of a function $f(x,y)$ of the two variables $x$ and
+  $y$ is the surface $z = f(x,y)$. The $xy$-plane plays the role of
+  the independent variable plane and the $z$-axis is the dependent
+  variable axis. Any such graph satisfies the ``vertical'' line test
+  where vertical means parallel to the $z$-axis.
+\item The level curves of a function $f(x,y)$ are curves satisfying
+  $f(x,y) = z_0$ for some fixed $z_0$. These are curves in the
+  $xy$-plane.
+\item The level surfaces of a function $f(x,y,z)$ of three variables
+  are the surfaces satisfying $f(x,y,z) = c$ for some fixed $c$.
+\item Domain convention: If nothing else is specified, the domain of a
+  function in $n$ variables given by an expression is defined as the
+  largest subset of $\R^n$ on which that expression makes sense.
+\item We can also define vector-valued functions of many variables,
+  e.g., a function from a subset of $\R^m$ to a subset of $\R^n$.
+\item We can do various pointwise combination operations on functions
+  of many variables, similar to what we do for functions of one variable
+  (both the scalar and vector cases).
+\item To compose functions, we need that the number of outputs of the
+  inner/right function equals the number of inputs of the outer/left
+  function.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item To find the domain, we first apply the usual conditions on
+  denominators, things under square roots, and inputs to logarithms
+  and inverse trigonometric functions. For functions of two variables,
+  each such condition usually gives a region of $\R^2$ bounded by a
+  line or curve.
+\item After getting a bunch of conditions that need to be satisfied,
+  we try to find the common solution set for all of these. This
+  involves intersecting the regions in $\R^2$ obtained previously.
+\end{enumerate}
+
+\section{Functions of two variables}
+
+\subsection{Definition}
+
+A {\em function of two variables} is a function whose domain is a
+subset of the plane $\R^2$ and whose range is a subset of $\R$. If we
+denote the domain set by $D$, then a function $f$ is a rule that assigns
+to every point $(x,y) \in D$ a real number $f(x,y) \in \R$.
+
+The typical way of describing a function in two variables is by means
+of an expression that may include both variables. For instance $f(x,y)
+:= \frac{xy}{\sqrt{1 + x^2 + y^2}}$ is a function of the two variables
+$x$ and $y$. The usual remarks from functions of one variable apply:
+
+\begin{itemize}
+\item The key fact about a function is that {\em equal inputs give
+  equal outputs}. This remains true for functions of two variables:
+  the value of $f(x_0,y_0)$ depends only on $(x_0,y_0)$.
+\item We typically define a function using an algebraic
+  expression. When the expression is given without a specified domain,
+  we take the domain to be the largest possible subset of $\R^2$ where
+  the expression makes sense.
+\item The same function can be given by multiple different-looking
+  expressions (which turn out to be the same upon algebraic
+  simplification). Also, the same expression can give different
+  functions if the domains are taken to be different.
+\end{itemize}
+
+Instead of a function of two variables, we can also consider a
+function of three variables, four variables, or more. For instance, a
+function of three variables is defined as a function whose domain is a
+subset of $\R^3$ and whose range is a subset of $\R$.
+
+Some of the visualization techniques we have start breaking down for
+more than two input variables, because we're constrained to live in a
+three-dimensional world, and $2 + 1 = 3$. To overcome these
+limitations, we need to resort to techniques like color, texture, and
+pattern to visualize such functions.
+
+\subsection{Graphs of functions of two variables}
+
+The convention we'll follow here is that, by default, the dependent
+variable (the output of the function) will be denoted $z$ and the
+independent variables will be noted $x$ and $y$, so we have $z =
+f(x,y)$.
+
+The {\em graph} of such a function is thus the {\em surface} given by
+the equation $z = f(x,y)$. Comparing with the way we usually think of
+functions in one variable as $y = f(x)$, we have the following
+analogies:
+
+\begin{itemize}
+\item The $xy$-plane plays the role that the $x$-axis played in the
+  past, as the space of possible {\em inputs} (the actual domain may
+  be a subset rather than the whole plane).
+\item The $z$-axis plays the role that the $y$-axis played earlier, as
+  the set of all possible {\em outputs}.
+\item To read the function value at a point in the $xy$-plane, we note
+  the corresponding value of the $z$-coordinate so that we hit a point
+  in the surface.
+\item Graphs of functions in this sense satisfy the {\em vertical line
+  test} where ``vertical'' here means parallel to the $z$-axis.
+\end{itemize}
+
+\subsection{Two inputs, one output, much repetition, level curves}
+
+In the midst of one-variable calculus, we introduced a notion of {\em
+one-to-one function}. A one-to-one function is a function with the
+property that no two different input values give the same output,
+i.e., {\em equal outputs must have arisen from equal inputs}.
+
+When we're dealing with functions where the number of input variables
+is greater than the number of outputs, however, being one-to-one is
+highly unlikely (in fact, impossible for continuous functions defined
+on any big enough subset). Rather, for any given output, it is highly
+likely that the number of inputs isn't just more than one, it is
+itself a curve.
+
+Let's think about this. To find all the input pairs $(x,y)$ which map
+to a fixed value $z = z_0$, we need to solve:
+
+$$f(x,y) = z_0$$
+
+In other words, we need to find the $(x,y)$-coordinate of the
+intersection of the surface $z = f(x,y)$ and the plane $z = z_0$.
+
+This is an intersection of two surfaces, and is expected to be a
+curve. Thus, the general collection of points which map to a given
+$z$-value is a {\em curve} in the $xy$-plane (the actual intersection
+of surfaces will be the same curve translated to the $z = z_0$ plane).
+
+These curves are called the {\em level curves} of the function. We
+could choose to depict all the level curves in the $xy$-plane. {\em
+The picture of the level curves, along with the labels of the levels
+by the $z$-value}, together describe the function completely.
+
+Note that for $z$-values which are outside the range, the
+corresponding level curve is empty. For $z$-values in the boundary of
+the range, the level curve may not be a curve at all but may be a
+bunch of points.
+
+For instance, consider the function:
+
+$$f(x,y) := x^2 + y^2$$
+
+The graph of this is the surface $z = x^2 + y^2$. It lies in the $z
+\ge 0$ region. For a fixed value $z_0 > 0$, the corresponding level
+curve is a circle centered at the origin and with radius
+$\sqrt{z_0}$. For $z_0 = 0$, the corresponding level ``curve'' is the
+single point $(0,0)$, and for $z_0 < 0$, the corresponding level curve
+is empty.
+
+\subsection{Color, a new dimension}
+
+Level curves suggest a new, fascinating approach to depict functions
+with two inputs and one output using {\em pictures in the plane}. The
+key idea is to use a dimension such as color or texture to code for
+the function value. Specifically, we first map the output values to a
+color spectrum. For instance, if the range of a function $f$ is $[0,1]$,
+we may map $[0,1]$ linearly to the wavelengths for the visible color
+spectrum, setting $0$ for the violet color and $1$ for the red color.
+
+Next, for any point $(x,y)$, we ``color'' that point with the color
+value associated with $f(x,y)$. In particular, this means that the
+``single color curves'' are precisely the ``level curves'' for the
+function. The more reddish the color, the larger the function value at
+the point. The more violetish the color, the smaller the function
+value at that point.
+
+In other words, instead of choosing a physical or height axis for the
+$z$-axis, we choose a {\em color axis}.
+
+\subsection{Finding the domain of a function}
+
+As indicated earlier, the largest possible domain of a function of two
+variables is the set of all possible input pairs on which the function
+makes sense. In particular, this means things like:
+
+\begin{itemize}
+\item Any denominator should be nonzero
+\item Any thing under a square root should be nonnegative
+\item Any thing under a square root sign {\em in the denominator}
+  should be positive
+\item Any thing inside a logarithm should be positive
+\end{itemize}
+
+and more similar stuff.
+
+What each of these conditions do typically is remove subsets from the
+plane, and what's left is the domain. For instance, consider the function:
+
+$$f(x,y) := \frac{x + y}{y^2 - 4x^2}$$
+
+Here, the denominator factors as $(y + 2x)(y - 2x) = 0$, giving the
+lines $y = -2x$ and $y = 2x$. These are the two forbidden lines --
+everything else is the domain. The domain is thus the {\em complement
+of the union of these lines in the plane}.
+
+Similarly, consider:
+
+$$f(x,y) := \frac{x + \ln(x - y)}{\sqrt{x^2 + y}}$$
+
+The domain here must satisfy both the conditions $x > y$ and $x^2 + y
+> 0$, so it is the intersection of the subsets satisfying these two
+conditions. The condition $x > y$ is the half-plane region to the
+left/down of the $y = x$ line. The condition $x^2 + y > 0$ is the
+region above the parabola $y = -x^2$. The intersection of these
+regions gives a particular subset of the plane.
+
+See more examples of this sort in the book.
+
+\section{Functions of more than two variables}
+
+\subsection{Functions of three variables: depiction}
+
+Most of the ideas mentioned above have analogues for functions of
+three variables. The key difference is that there is no fourth
+dimension in our three-dimensionally constrained visualization
+capacities to make the graph of the function. Nonetheless, we can
+still study the behavior in a similar manner.
+
+First, we can talk of {\em level surfaces} (in place of level
+curves). For a function $f(x,y,z)$ of three variables, the level
+surface corresponding to a function value $c$ is the set of all input
+points which get mapped to $c$ under $f$. This typically looks like a
+surface -- we have one equation in three variables, so the solution
+space is expected to be two-dimensional. In degenerate cases, it may
+be a curve or even a point or bunch of points.
+
+Second, in order to depict such functions, we can again use the {\em
+color axis} trick -- determine the function value by the choice of
+color at the point. This allows us to {\em depict functions of three
+variables in three-dimensional space}. Of course, we cannot see all of
+the function at the same time, because we can only see the outer
+regions of the domain (they block the sight to the inner regions). But
+with sophisticated slicing and visualization tools, we can get to see
+all parts of the function.
+
+\subsection{Functions of $n$ variables}
+
+A function of $n$ variables is a function from a subset of $\R^n$ to
+$\R$. In other words, the input of this function is a point in $\R^n$
+(possibly restricted to a subset) and the output is a real number.
+
+There are three ways of thinking of a function of $n$ variables:
+
+\begin{enumerate}
+\item As a function of $n$ real variables $x_1, x_2, \dots, x_n$.
+\item As a function of a single point variable $(x_1,x_2,\dots,x_n)$.
+\item As a function of a single vector variable $\mathbf{x} = \langle
+  x_1, x_2, \dots, x_n \rangle$.
+\end{enumerate}
+
+All these perspectives turn out to be useful.
+
+\subsection{Multiple inputs -- what's the big deal?}
+
+We earlier dealt with functions that take one real input and give more
+than one real output -- we called these {\em vector-valued
+functions}. We found that vector-valued functions are no big deal --
+to handle a vector-valued function, we simply look at each of the
+outputs separately.
+
+The story is more complicated for multiple inputs. It is {\em not}
+possible to look at each input separately, because the inputs interact
+with each other in msyterious ways and it is hard to disentangle them.
+
+Here's an analogy that may help you understand this. If you write a
+press release, it is easy to send it to a hundred different news
+wires, put it up on your website, and print copies to put on loads of
+bulletin boards. It may require more effort than simply putting it up
+on your website, but the complexity of the task does not increase.
+
+On the other hand, if, in order to write the press release, you need
+to coordinate the activities of a hundred people, bring them together
+in a meeting, and have them interchange ideas to come up with the
+wording, that's a fundamentally more challenging task.
+
+That's because multiple {\em inputs} are a lot harder than multiple
+{\em outputs}.
+
+\section{Operations on functions of many variables}
+
+\subsection{Pointwise combination}
+
+It is possible to do pointwise addition, subtraction, and
+multiplication on real-valued functions of more than one variable. For
+instance, if $f$ and $g$ are functions of two variables, then $f + g$
+is also a function of two variables, defined as:
+
+$$(f + g)(x,y) = f(x,y) + g(x,y)$$
+
+Similarly, we can define the pointwise difference, pointwise product,
+and pointwise quotient.
+
+The usual comments on domain apply: the domain for any pointwise sum,
+difference, or product is the intersection of the domains of the
+functions. With pointwise quotient, we also need to exclude points
+where the denominator function takes the value zero.
+
+\subsection{Vector-valued functions: multiple inputs and multiple outputs}
+
+Before moving to the next topic, i.e., composition, we consider the
+concept of a {\em vector-valued function of multiple variables}. Here,
+we simultaneously have multiple inputs (i.e., the domain is a subset
+of $\R^m$) and multiple outputs (i.e., the range is a subset of
+$\R^n$).
+
+For vector-valued functions of multiple variables, we can do the same
+types of pointwise combinations as for vector-valued functions of one
+variable: pointwise addition, subtraction, scalar-vector
+multiplication, dot product, and (when the output vector sare
+three-dimensional) cross product.
+
+\subsection{Composition}
+
+If $f$ and $g$ are both real-valued functions of two variables, it
+does not make direct sense to talk of $f \circ g$. The problem is that
+the output of $g$ is a single real number, and this cannot be fed as
+the input to $f$. Please remember: {\em with pointwise combination,
+like combines with like. With composition, on the other hand, what
+matters is that the output of one should feed into the input of the
+other}.
+
+Here is the kind of composition we can do: If $g$ is a vector-valued
+function with $m$ inputs and $n$ outputs (i.e., the output is a
+$n$-dimensional vector), and $f$ is a vector-valued function with $n$
+inputs and $p$ outputs, then $f \circ g$ makes sense as a
+vector-valued function with $m$ inputs and $p$ outputs. If this
+reminds you of matrix multiplication, that is for good reason!
+Unfortunately, the details are beyond the current scope.
+
+\section{Real world examples}
+
+\subsection{Quantity demanded: in the microeconomic realm}
+
+We consider an example from microeconomics to illustrate the notion of
+functions of many variables. The book has a number of other examples
+that you can also review.
+
+According to standard microeconomic theory, the ``quantity demanded''
+for a good by a household is determined by six kinds of things:
+
+\begin{itemize}
+\item The unit price of the good
+\item The unit prices of substitute goods
+\item The unit prices of complementary goods
+\item The income/wealth of the household
+\item The tastes and preferences of the household
+\item Expectations regarding future prices
+\end{itemize}
+
+Each of these things in turn may involve multiple sub-items. The unit
+price of the good is a single real number, but the unit prices of
+substitute and complementary goods could be as many real numbers as
+the number of such substitute and complementary goods. For instance,
+if we are looking at the quantity demanded for whole wheat bread, we
+may identify substitute goods such as pita bread and baguettes, and
+complementary goods such as butter and jam. Thus, we already have five
+input variables: the price of whole wheat bread, the price of pita
+bread, the price of baguettes, the price of butter, and the price of
+jam.
+
+The income of the household is a single variable, but there may be
+other income-related variables of interest. The tastes and preferences
+may be modeled using many measurements, such as a scale for the taste
+for novelty, a scale for the preference for ``healthy'' food, a scale
+for the taste of sweetness, etc. Expectations regarding future prices
+may again be modeled using many real inputs.
+
+Thus, we see that the quantity demanded for a good is a function of a
+potentially large number of input variables, even in an ideal
+microeconomic world of rational decision making. The kinds of
+questions that we are interested in, and that will motivate further
+mathematical analysis, include:
+
+\begin{itemize}
+\item When these ``determinants of demand'' are perturbed slightly,
+  does the quantity demanded also respond by changing only slightly,
+  or does it experience sudden, massive shifts? The ``changing only
+  slightly'' is the key motivation behind the concept of continuity.
+\item If we fix all the determinants of demand except one, how does
+  the quantity demanded vary with changes in that one parameter? Does
+  it increase or decrease? Can we differentiate this function? In
+  economics, keeping everything else fixed is termed {\em ceteris
+  paribus}. The related ideas in multivariable calculus are {\em
+  separate continuity in the variables} and {\em partial derivatives}.
+\end{itemize}
+
+\subsection{Feels like temperature: of wind and water}
+
+Page 892, Section 15.1, Example 2 in the book talks of the {\em wind
+chill index} and the ``feels like'' temperature. Basically, when it is
+cold and windy, it appears colder than it actually is, and weather
+services have constructed tables that compute the ``feels like''
+temperature as a function of the actual temperature and the wind
+speed.
+
+There is also a {\em temperature-humidity index} or humidex, which
+measures the perceived air temperature as a function of actual
+temperature and humidity. In general, the more the humidity, the
+higher the perceived temperature. See Exercise 2, Section 15.1, Page
+902 and also the discussion at the beginning of Section 15.3, Page 914
+of the book.
+
+These examples are not of direct relevance for us, but they may be fun
+to read about (and you can learn more on the Internet) since they'll
+give you a better perspective on interpreting weather forecasts.
+
+\subsection{Functions on physical locations/geographic areas}
+
+We consider another related concept where the book offers some
+examples: functions whose inputs are physical locations, and which
+output quantities that can be measured at those locations. For
+instance, we can think of temperature as a function defined at every
+point in physical space. It can thus be modeled as a function from a
+subset of $\R^3$ to $\R$. If we are interested in measuring the
+``surface temperature'' on the earth, then this can be modeled as a
+function from the subset of $\R^3$ comprising the surface of the
+earth, to $\R$.
+
+The surface of the earth is an interesting domain upon which to define
+a function. Although it lives in a three-dimensional world, the
+surface itself is a two-dimensional construct. This means that it is
+possible to parameterize the surface of the earth using a {\em
+two-parameter formulation} (something we will explore in more detail
+later). For those of you who remember high school geography, one way
+of parameterizing the surface of the earth using two coordinates is
+via the {\em latitude} and {\em longitude}. Once we choose this kind
+of parameterization, then a function whose domain is the surface of
+the earth can be viewed as a function of two variables (the latitude
+and longitude coordinates) and hence can be viewed as a function on a
+subset of $\R^2$ (with some caveats).
+
+With this in mind, here is some terminology:
+
+\begin{itemize}
+\item If the function we are considering is temperature, then the
+  level curves (i.e., the curves corresponding to fixed temperature
+  values) are called {\em isotherms} or {\em isothermal curves}.
+\item If the function we are considering is atmospheric pressure, then
+  the level curves are called {\em isobars}.
+\end{itemize}
+
+\subsection{Cobb-Douglas production function}
+
+This is an important idea but we will postpone discussion of this
+until later, once we have seen partial derivatives.
+\end{document}

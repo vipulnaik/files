@@ -1,0 +1,197 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul}
+
+%Title details
+\title{Bracketed groups}
+\author{Vipul Naik}
+
+%List of new commands
+
+\makeindex
+
+\begin{document}
+\maketitle
+%\tableofcontents
+
+\begin{abstract}
+
+\end{abstract}
+
+\section{Definition of bracket structure}
+
+For this document, we follow the right-action convention. Under this
+convention, $x^y := y^{-1}xy$ and $[x,y] = x^{-1}y^{-1}xy$.
+
+Let $G$ be a group with identity element $e$. We define a {\em bracket
+structure} on $G$ as a binary operation $\{ , \}:G \times G \to G$
+satisfying the following conditions:
+
+\begin{enumerate}
+\item {\bf Identity as nil}: $\{ g,e \} = e$.
+\item {\bf Alternating property}: $\{ g,g \} = e$ and $\{ g,h \} = \{
+  h,g \}^{-1}$ for all $g,h \in G$.
+\item {\bf Conjugation-invariance}: $\{g,h \}^k = \{ g^k,h^k \}$.
+\item {\bf Weak form of linearity}: $\{g,hk \} = \{ g,k \} \{ g,h\}^k$
+  and $\{ gh,k \} = \{ g,k \}^h \{ h,k \}$.
+\item The {\bf Hall-Witt-Jacobi identities}:
+ 
+  \begin{eqnarray*}
+    \{ \{g,h^{-1}\},k\}^h \{ \{h,k^{-1} \},g \}^k \{ \{k,g^{-1} \}, h \}^g & = & e\\
+    \{ \{g,h \}, k^g \} \{ \{ h,k \}, g^h \} \{k,g \}, h^k \} & = & e
+  \end{eqnarray*}
+\end{enumerate}
+
+We will use the term {\em bracketed group} for a group with a bracket structure.
+
+\subsection{Quick observations}
+
+\begin{enumerate}
+\item The bracket of any two elements that generate a cyclic subgroup
+  is the identity element.
+\item A bracket structure on an abelian group is precisely the same
+  thing as a Lie bracket, and the corresponding bracketed group is the
+  same thing as a Lie ring.
+\item The trivial bracket structure is a bracket structure on any
+  group.
+\item The commutator is a bracket structure on any group, and is a
+  nontrivial bracket structure when the group is non-abelian. We shall
+  call this the {\em inner bracket structure}.
+\end{enumerate}
+
+\subsection{Bracket-invariant subgroups}
+
+For a bracketed group, it may be of interest to study all the {\em
+bracket-invariant subgroups}. Note that every subgroup need not be
+bracket-invariant.
+
+\subsection{Ideals in a bracketed group}
+
+For a bracketed group $G$, a {\em weak ideal} is a subgroup $I$ of $G$
+with the property that, for any $x \in I$ and $y \in G$, $\{ x,y \} \in
+I$. Note that because of the alternating property, $\{ x,y \} \in I \iff \{ y
+, x \} \in I$, so there is no distinction between the notions of left and
+right ideal.
+
+An {\em ideal} is a weak ideal that is also a normal subgroup of $G$.
+
+For the inner bracket structure on a group as well as for all Lie
+rings, every weak ideal is an ideal. More generally, define a
+bracket-structure to be {\em conjugacy-generating} if, for all $g,h
+\in G$, we have $g^h \in \langle g, \{ g,h \} \rangle$. The inner
+bracket structure as well as Lie brackets are conjugacy-generating,
+and for any conjugacy-generating bracket structure, the weak ideals
+are all ideals.
+
+Given an ideal $I$ of $G$, we obtain an induced bracket structure on
+$G/I$. Note that in order to check that this is well-defined, we use
+the weak form of linearity. The various identities follow from the fact
+that it is a quotient structure.
+
+Note that any weak ideal, and hence any ideal, is bracket-invariant,
+so we have both $I$ and $G/I$ as bracketed groups.
+\subsection{Automorphism-invariant bracket structures}
+
+We say that a bracket structure is {\em automorphism-invariant} if it
+commutes with all the automorphisms of the group. The inner bracket
+structure is automorphism-invariant, but most other bracket
+structures, including Lie brackets, are not.
+
+\subsection{Bracket automorphism group}
+
+The bracket automorphism group of a bracketed group is the subgroup of
+the group comprising the automorphisms that preserve the bracket
+structure. It contains the inner automorphism group.
+
+\subsection{Perp structure induced by a bracket structure}
+
+We can define a reflexive symmetric relation on $G$ given by $g \perp
+h \iff \{ g,h \} = e$. The relation is symmetric because of the
+alternating property. 
+
+This relation gives a Galois correspondence on $G$ where all closed
+sets are subgroups. In other words, for every subset $A$ of $G$,
+$A^\perp$ is a subgroup. This follows from the weak form of
+linearity. I will use the term {\em perp-structure} for a reflexive
+symmetric relation on a group such that the set of elements related to
+any subset is a subgroup. Thus, every bracket structure gives a
+perp-structure.
+
+With the inner bracket structure, we get the usual notion of
+centralizer, and the subgroups that arise in this way are subgroups
+that are centralizers of other subsets. Such subgroups have been
+called {\em c-closed subgroups}. Similarly, with a Lie ring, these are
+just the centralizers of subsets in the Lie ring sense. In keeping
+with the terminology of these two examples, I will use the term {\em
+bracket-centralizer} for $A^\perp$ where $\perp$ is the perp-structure
+arising from a bracket.
+
+Via the Hall-Witt-Jacobi identities, we see that the
+bracket-centralizer of an ideal is an ideal.
+
+\subsection{The bracket of two ideals}
+
+Given two ideals $I$ and $J$ of $G$, we can define $\{ I, J \}$ as the
+subgroup generated by $\{ i,j \}$ where $i \in I, j \in J$. It turns
+out, from the weak form of linearity and the Hall-Witt-Jacobi
+identities, that this bracket is again an ideal.
+
+\subsection{Everything that's common to groups and Lie rings works for bracketed groups}
+
+For a bracketed group, we can define the {\em bracket-derived series}
+as the series where each member is the bracket of the previous member
+with itself. By induction, each member is in fact an ideal in the
+preceding member and hence we can define the bracket structure on
+it. Also, all members of this series are {\em bracket
+automorphism-invariant}, i.e., they are invariant under the
+automorphisms that preserve the bracket structure.
+
+In a similar manner, we can define the {\em bracket-lower central
+series}. We can also define a {\em bracket-upper central series}: the
+bracket-center is the set of elements whose bracket with everything is
+trivial. The bracket-center is clearly an ideal, hence we can take the
+quotient group, and take the bracket-center of that, and so on.
+
+We can also define a notion of a {\em bracket-central series}: a
+series of ideals where each successive quotient is in the
+bracket-center of the whole quotient.
+
+Thus, we can define a notion of {\em bracket-nilpotent group} and {\em
+bracket-solvable group}, talk of the {\em bracket-nilpotency class}
+and the {\em bracket-derived length}, and so on.
+
+My guess is that every statement that is clearly true both for groups
+and for Lie rings has a counterpart that is true for the same reasons
+for arbitrary bracketed groups.
+
+\subsection{Derivations of a bracket structure}
+
+I'm seeking a good definition of derivation that uses the weak form of
+linearity and/or the Hall-Witt-Jacobi identities.
+
+\section{Actions of groups and weak morphisms}
+
+\subsection{Action of a group on a bracketed group}
+Suppose we have a bracketed group $A$ and a group $G$. An action of
+$G$ on $A$ is a homomorphism from $G$ to the bracket automorphism
+group of $A$. Note that any group has a natural action on any bracket
+structure of that group: the action by conjugation.
+
+\subsection{Various notions of morphism}
+
+Given two bracketed groups $A$ and $B$, the strong notion of morphism
+$f:A \to B$ would be a group homomorphism from $A$ to $B$ that also
+preserves the bracket structure. This would be the standard universal
+algebra definition of morphism, whereby we can define notions of
+isomorphism, etc. We can also prove an analogue to the fundamental
+theorem of group homomorphisms and (probably) analogues to the other
+isomorphism theorems.
+
+However, we would often like weaker notions of morphism that do not
+care about the precise bracket structure, or even about the precise
+multiplication, but the relations that these generate.
+
+\printindex
+
+\end{document}

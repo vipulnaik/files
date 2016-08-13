@@ -1,0 +1,247 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: May 2: Partial derivatives}
+\author{Math 195, Section 59 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+{\em Note}: The quiz was actually conducted on May 6.
+
+\section{Performance review}
+
+$20$ people took this $5$-question quiz. The score distribution was as
+follows:
+
+\begin{itemize}
+\item Score of $0$: $3$ people
+\item Score of $1$: $2$ people
+\item Score of $2$: $6$ people
+\item Score of $3$: $4$ people
+\item Score of $4$: $5$ people
+\end{itemize}
+ 
+The mean score was $2.3$.
+ 
+The question wise answers and performance were:
+
+\begin{enumerate}
+\item Option (B): $12$ people
+\item Option (D): $14$ people
+\item Option (B): $2$ people. {\em Really? This was an algebra
+  question, not a calculus question!}
+\item Option (D): $8$ people
+\item Option (E): $10$ people
+\end{enumerate}
+
+\section{Solutions}
+\begin{enumerate}
+
+\item Consider a production function $f(L,K,T)$ of three inputs $L$
+  (labor expenditure), $K$ (capital expenditure), and $T$ (technology
+  expenditure). Suppose all mixed partials of $f$ with respect to $L$,
+  $K$, and $T$ are continuous. Suppose we have the following signs of
+  partial derivatives: $\partial f/\partial L > 0$, $\partial
+  f/\partial K > 0$, $\partial^2f/(\partial L \partial K) < 0$, and
+  $\partial^3f/(\partial L\partial K \partial T) > 0$. What does this
+  mean?
+
+  \begin{enumerate}[(A)]
+  \item Increasing labor increases production, increasing capital
+    increases production, and labor and capital substitute for each
+    other to some extent. Increasing the expenditure on technology
+    increases the degree to which labor and capital substitute for
+    each other.
+  \item Increasing labor increases production, increasing capital
+    increases production, and labor and capital substitute for each
+    other to some extent. Increasing the expenditure on technology
+    decreases the degree to which labor and capital substitute for
+    each other, i.e., with more technology investment, labor and
+    capital become more complementary.
+  \item Increasing labor increases production, increasing capital
+    increases production, and labor and capital complement each other
+    to some extent. Increasing the expenditure on technology increases
+    the degree to which labor and capital complement for each other.
+  \item Increasing labor increases production, increasing capital
+    increases production, and labor and capital complement each other
+    to some extent. Increasing the expenditure on technology decreases
+    the degree to which labor and capital complement for each other.
+  \item Increasing labor or capital decreases production.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: $\partial f/\partial L > 0$ shows that increasing
+  labor increases production. $\partial f/\partial K > 0$ shows that
+  increasing capital increases production. $\partial^2f/\partial L
+  \partial K < 0$ indicates that labor and capital substitute for each
+  other, i.e., a small increase in capital reduces the marginal
+  product of labor. Finally, $\partial^3f/\partial L\partial K
+  \partial T > 0$ indicates that $\partial^2f/\partial L \partial K$
+  is increasing with $T$, i.e., getting less negative. So, although
+  labor and capital substitute for each other, the degree to which
+  they do so reduces as $T$ increases. Roughly speaking, more
+  technology reduces the antagonism between labor and capital.
+
+  {\em Performance review}: $12$ out of $20$ people got this
+  correct. $7$ chose (A) and $1$ chose (D). The people who chose (A)
+  probably didn't note that an increase in the degree of substitution
+  would mean a decrease in the derivative, rather than an increasing.
+\item Analysis of usage of an online social network finds that the
+  total time spent by people on the social network is $P^{1.3}L^{0.5}$
+  where $P$ is the total number of people on the network and $L$ is a
+  number of processors used at the social network's server
+  facility. Which of these is true?
+
+  \begin{enumerate}[(A)]
+  \item Increasing returns both on persons and on processors: every
+    new person joining the network increases the average time spent
+    {\em per person} (and not just the total time), and every new
+    processor added to the server facility increases the average time
+    spent per processor.
+  \item Constant returns on persons, increasing returns on processors
+  \item Constant returns on persons, decreasing returns on processors
+  \item Increasing returns on persons, decreasing returns on processors
+  \item Decreasing returns on persons, increasing returns on processors
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: The short explanation is that the exponent on $P$
+  is greater than $1$, so the second partial derivative is positive,
+  and the exponent of $L$ is between $0$ and $1$, so the second
+  partial derivative is negative.
+
+  The long explanation is just working it out.
+
+  {\em Performance review}: $14$ out of $20$ got this correct. $5$
+  chose (A), $1$ chose (B).
+
+\item {\em Not a calculus question, but has deep calculus
+  interpretations -- it is basically measuring the derivative of the
+  $1/x$ function with respect to $x$}: A person travels fifty miles
+  every day by car and the travel distance is fixed. The price of
+  gasoline, which she uses to fuel her car, is also fixed. Which of
+  the following increases in fuel efficiency result in the maximum
+  amount of savings for her?
+
+  \begin{enumerate}[(A)]
+  \item From $11$ to $12$ miles per gallon
+  \item From $12$ to $14$ miles per gallon
+  \item From $20$ to $25$ miles per gallon
+  \item From $36$ to $54$ miles per gallon
+  \item From $50$ to $100$ miles per gallon
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The gain achieved by upgrading from $a$ miles per
+  gallon to $b$ miles per gallon is $(50/a - 50/b)$ times the cost of
+  a gallon. In particular, it is proportional to $1/a - 1/b$. It
+  remains to compute the case where this difference is largest.
+
+  The values of $1/a - 1/b$ are: Option (A):/ $1/132$, Option (B):
+  $1/84$, Option (C): $1/100$, Option (D): $1/108$, Option (E):
+  $1/100$. Of these, the largest is the one with smallest denominator,
+  i.e., $1/84$. In other words, the maximum gain happens in going from
+  $12$ to $14$.
+
+  This seems a little counter-intuitive at first. Looked at in terms
+  of ratios, the gain from $50$ to $100$ is most impressive. Looked at
+  in terms of differences in MPG values, again the gain from $50$ to
+  $100$ is more impressive. However, these gains are not what we are
+  measuring, because in the question, it is specified that the
+  distance of travel is {\em fixed} and hence what matters is the
+  absolute savings in cost.
+
+  Intuitively, what's happening is that while a gain from $50$ to
+  $100$ halves the cost, that halving is occurring from an already
+  fairly small cost base, so the quantitative savings are little. On
+  the other hand, a jump from $12$ to $14$ is small in proportion but
+  large in absolute terms because the base from which the savings are
+  occurring is much larger. In fact, even a gain from $100$ miles per
+  gallon to infinite miles per gallon produces less in cost savings
+  assuming fixed distance and fixed cost per gallon than a gain from
+  $12$ to $14$.
+
+  Another way of thinking of this is in terms of the derivative of
+  $1/x$. We know that as $x$ increases, $1/x$ decreases. However, the
+  derivative is not constant. When $x$ is small, the derivative
+  $-1/x^2$ is huge in magnitude, which means that small changes in $x$
+  lead to large changes in $1/x$. When $x$ is large, the derivative
+  $-1/x^2$ is small in magnitude, which means that large changes in
+  $x$ lead to only small changes in $1/x$.
+
+  Thus, we can get three fairly different pictures depending on
+  whether we measure things using $x$, $1/x$, or $\ln x$.
+
+  {\em Performance review}: $2$ out of $20$ people got this
+  correct. $7$ chose (C), $6$ chose (E), $4$ chose (D), and $1$ chose
+  (A).
+\item For which of the following production functions $f(L,K)$ of
+  labor and capital is it true that labor and capital can be
+  complementary for some choices of $(L,K)$, and substitutes for
+  others? In other words, for which of these are labor and capital
+  neither globally complements nor globally substitutes? Assume the
+  domain $L > 0, K > 0$.
+
+  \begin{enumerate}[(A)]
+  \item $L^2 + LK + K^2$
+  \item $L^2 - LK + K^2$
+  \item $L^3 + L^2K + LK^2 + K^3$
+  \item $L^3 + L^2K - LK^2 + K^3$
+  \item $L^3 - L^2K - LK^2 + K^3$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: For option (D), the second mixed partial is $2(L
+  - K)$ which is positive if $L > K$ and negative if $L < K$. For
+  options (A) and (C), the second mixed partial is always positive,
+  while for options (B) and (E), the second mixed partial is always
+  negative.
+
+  {\em Performance review}: $8$ out of $20$ people got this
+  correct. $4$ each chose (B), (C) and (E).
+\item Consider the following Leontief-like production function $f(L,K)
+  = (\min \{ L, K \})^2$. What is the nature of returns and
+  complementarity here?
+
+  \begin{enumerate}[(A)]
+  \item Positive increasing returns on the smaller of the inputs,
+    positive constant returns on the larger of the inputs
+  \item Positive constant returns of the smaller of the inputs,
+    positive increasing returns on the larger of the inputs
+  \item Zero returns on the smaller of the inputs, positive constant
+    returns on the larger of the inputs
+  \item Positive decreasing returns on the smaller of the inputs, zero
+    returns on the larger of the inputs
+  \item Positive increasing returns on the smaller of the inputs, zero
+    returns on the larger of the inputs
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: This is a ``weak link'' type of production
+  function in the sense that the weakest link in the labor-capital
+  nexus determines output. If $L < K$, then output is $L^2$, and if $K
+  < L$, then output is $K^2$. This means that, at the margin,
+  increasing the one which is already larger produces no gain in
+  output. However, increasing the one which is smaller increases
+  output as the square thereof. Since $2 > 1$, there are positive
+  increasing returns on the smaller input.
+
+  A practical example of this is where ``it takes two to tango'' --
+  for instance, if each unit of labor is a person and each unit if
+  capital is a machine, and if there are more machines than people or
+  vice versa, the extra machines/people are completely unused.
+
+  {\em Performance review}: $10$ out of $20$ people got this
+  correct. $3$ each chose (A) and (D), $2$ each chose (B) and (C).
+\end{enumerate}
+\end{document}

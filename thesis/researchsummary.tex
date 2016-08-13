@@ -1,0 +1,367 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul}
+
+%Title details
+\title{Research summary as of April 2011 end}
+\author{Vipul Naik}
+
+%List of new commands
+\newcommand{\Skew}{\operatorname{Skew}}
+
+\begin{document}
+\maketitle
+
+I am currently pursuing some research questions related to $p$-groups,
+partly in collaboration with John Wiltshire-Gordon, and with some
+guidance from my advisor George Glauberman. In this document, I
+describe the research, its current state, and future directions.
+
+This is a rough sketch document lacking in footnotes/citations or
+precise mathematical statements.
+
+\section*{Overall aim of research}
+
+\subsection*{Baer correspondence and proposed generalizations}
+
+The goal of this research is to discover new results that clarify the
+relationship between finite (hence nilpotent) $p$-groups and finite
+nilpotent $p$-Lie rings.
+
+Baer originally noted (in an appendix to a 1939 paper) that there is a
+correspondence:
+
+Uniquely $2$-divisible groups of nilpotency class at most two
+$\leftrightarrow$ Uniquely $2$-divisible Lie rings of nilpotency class
+at most two
+
+In particular, this works for odd-order class two $p$-groups.
+
+The correspondence proceeds by a formula which is a truncation of the
+Baker-Campbell-Hausdorff formula, roughly as follows:
+
+$$x \cdot y = x + y + \frac{1}{2}[x,y], \qquad x + y :=  \frac{x \cdot y}{\sqrt{[x,y]}}, \qquad [x,y] = [x,y]$$
+
+Note that under the correspondence any Lie ring gets identified with a
+group {\em on the same underlying set}, and homomorphisms of Lie rings
+get identified with homomorphisms of the corresponding groups. The
+upshot of all this is that the above establishes what category
+theorists term an ``isomorphism of categories over Set'' between the
+two sides. (The category theoretic interpretation is not central to
+our current direction of thinking, but it may turn out to be important
+at a later stage).
+
+The Baer correspondence can be generalized in some obvious ways: {\em
+first}, we note that the formula actually requires only unique
+$2$-divisibility within the derived subgroup/subring. This slight
+generalization does not provide any essentially new examples in the
+finite case, apart from the inclusion of abelian $2$-groups.
+
+The remaining generalizations help us cover {\em some} non-abelian
+$2$-groups of class two.
+
+{\em Second}, we can get over the restriction of unique
+$2$-divisibility by merely looking for ``linear halves'', i.e.,
+instead of demanding that there be a unique half for every element in
+the derived subring/subgroup, we can seek an alternating bilinear map
+that doubles to the Lie bracket/commutator. Allowing for linear halves
+helps us include some $2$-groups not covered earlier (the smallest
+example is of order $2^6$). However, we lose out on the uniqueness
+aspect since there may be many difference choices of linear half.
+
+{\em Third}, we can get rid of the ``linear'' part in {\em linear
+half} and simply look for a ``half'' that satisfies enough conditions
+for key features of the proof of the Baer correspondence to go
+through. We require the half to be a $2$-cocycle satisfying certain
+conditions (namely, it must be skew symmetric and
+cyclicity-preserving\footnote{This means that whenever the two inputs
+to the cocycle generate a cyclci subgroup, the output is zero}). This
+gives us new examples, the smallest being of order $2^4$.
+
+{\em Fourth}, we could drop the ``half'' thing altogether and simply
+look for a $2$-cocycle satisfying certain conditions (namely, it must
+be cyclicity-preserving) that skews to the Lie
+bracket/commutator. This gives us new examples, the smallest being of
+order $2^5$.
+
+All these generalizations have the property that they induce
+isomorphisms on cyclic subgroups on both sides. In particular, this
+means that any group covered under any of these generalizations has
+the same cyclic subgroup structure as a particular abelian group,
+namely the additive group of its Lie ring.
+
+\subsection*{What we lose in the generalizations}
+
+With the generalizations listed above, we lose out on many of the
+features that make the Baer correspondence work so well. Most
+importantly, we lose the canonical nature of the bijection and the
+``isomorphism of categories'' aspect that allows us to identify the
+endomorphisms, automorphisms, subrings/subgroups, ideals/normal
+subgroups, characteristic subrings/characteristic subgroups,
+etc.
+
+\subsection*{New terminology: class two Lie cring}
+
+We introduce some terminology: A class two (near-)Lie cring is an
+abelian group equipped with a binary operation that is a $2$-cocycle
+satisfying certain conditions, specifically, the condition that $x * y
+= 0$ whenever $\langle x,y \rangle$ is cyclic, $((x * y) * z) = (x *
+(y * z)) = 0$ for all $x$, $y$, and $z$, and $x * y = -(y * x)$ for
+all $x$ and $y$. For near-Lie crings, the last condition (skew
+symmetry) is dropped.
+
+Class two Lie crings can be viewed as the {\em enriched intermediate
+structures that we use to pass between Lie rings and groups}. We can
+think of a mapping:
+
+$$\text{Class two Lie ring} \leftarrow \text{Class two (near-)Lie
+cring} \rightarrow \text{Group}$$
+
+The same class two Lie ring could arise from multiple class two
+near-Lie crings, or from none. An analogous observation holds on the
+group side.
+
+\subsection*{Good news: uniqueness}
+
+The {\em uniqueness theorem} roughly states the following: regardless
+of the choice of the class two (near-)Lie cring used as intermediate,
+the isomorphism class of the {\em group} that we get starting from a
+Lie ring depends only on the isomorphism class of the Lie
+ring. Conversely, the isomorphism class of the Lie ring that we can
+get starting from a group depends only on the isomorphism class of the
+group. The uniqueness theorem actually states something stronger, but
+we will avoid the technical details here.
+
+\subsection*{Studying extensions and cohomology}
+
+We can also study the theory of extensions with a particular central
+subgroup $A$ and a particular abelian quotient group $G$. On the one
+hand, we can study the {\em Lie ring} extensions where $A$ is a
+central subring and $G$ is an abelian quotient ring. On the other
+hand, we can study the group extensions where $A$ is a central
+subgroup and $G$ is an abelian quotient group.
+
+The group of possible Lie ring extensions can be viewed as the direct
+sum of the group of abelian extensions $H^2_{sym}(G,A)$ and the group
+of alternating biadditive maps from $G$ to $A$ (the group
+$\bigwedge^2(G,A)$). In other words:
+
+$$\text{Lie ring extensions} \cong H^2_{sym}(G,A) \oplus \bigwedge^2(G,A)$$
+
+The $H^2_{sym}(G,A)$ part captures how the addition extends, and the
+$\bigwedge^2(G,A)$ part captures the Lie bracket.
+
+The group of possible group extensions can be identified with
+$H^2(G,A)$. The subgroup $H^2_{sym}(G,A)$, standing for symmetric
+$2$-cocycles, corresponds to abelian extensions. It turns out that (at
+least in the finite case) the quotient $H^2(G,A)/H^2_{sym}(G,A)$ can
+be naturally identified with $\bigwedge^2(G,A)$. Thus, $H^2(G,A)$ has
+a normal subgroup and a quotient that can be identified with the two
+direct summands that describe the group of Lie ring extensions.
+
+In particular, we see that the {\em number} of group extensions equals
+the number of Lie ring extensions, and if the normal subgroup
+$H^2_{sym}(G,A)$ has a complement in $H^2(G,A)$, then the group of
+group extensions is isomorphic to the group of Lie ring extensions.
+
+Our generalization of the Baer correspondence relates to the above
+discussion as follows. Denote by $H^2_{CP}(G,A)$ the group of
+cohomology classes represented by cyclicity-preserving $2$-cocycles $G
+\times G \to A$. Then, by a strong version of the uniqueness theorem,
+$H^2_{sym}(G,A)$ and $H^2_{CP}(G,A)$ have trivial intersection. Under
+additional assumptions, these generate all of $H^2(G,A)$. {\em If this
+happens}, then $H^2(G,A)$ is an internal direct sum of these
+subgroups, and the result is that {\em we get a canonical isomorphism
+between the group of group extensions and the group of Lie ring
+extensions}. It turns out that the identification of group and Lie
+ring under {\em this correspondence coincides with the generalization
+of the Baer correspondence} that we considered a while back.
+
+The smallest example where this phenomenon occurs for $2$-groups is
+where $G$ is a Klein four-group and $A$ is cyclic of order
+four. $H^2(G,A)$ is elementary abelian of order $8$, and
+$H^2_{sym}(G,A)$ is elementary abelian of order $4$. $H^2_{CP}(G,A)$
+is cyclic of order two and $H^2(G,A)$ splits as an internal direct
+sum. We can use this decomposition to find (generalized Baer) Lie
+rings for some non-abelian groups of order $16$.
+
+\subsection*{Embedding theorem}
+
+This theorem states that for any finite $2$-group of class at most
+two, we can embed it as a subgroup of a finite $2$-group that has a
+corresponding Lie ring under the generalized Baer correspondence. The
+key idea is to take a central product with a large enough cyclic group
+in which there is enough space to divide by two.
+
+
+\subsection*{Further directions}
+
+Some further directions of research related to these generalizations
+of the Baer correspondence are:
+
+\begin{itemize}
+\item {\em Reduce the gap between necessary and sufficient conditions
+  for the existence of a Lie ring for a group or a group for a Lie
+  ring}: As of now, we have some easily verifiable sufficient
+  conditions, and some easily verifiable necessary conditions, for a
+  group to have a Lie ring under the generalized Baer
+  correspondence. However, there is a considerable gap between the
+  sufficient conditions and the necessary conditions. In particular,
+  there are many examples that do not fall within the ``sufficient
+  conditions'' and are worthy of investigations.
+\item {\em Study the intermediate structures more extensively}: The
+  ``intermediate structures'' refers to the structure of the group or
+  Lie ring along with the chosen $2$-cocycle that satisfies the
+  desired conditions. These structures have been provisionally named
+  ``class two Lie crings.'' A basic theory and classification of these
+  structures can help better understand the relationship between
+  groups and Lie rings.
+\item {\em Get clear results relating the size and structure of
+  automorphism groups of the group and Lie ring}: There are some
+  potential leads as to possible approaches to do this. In particular,
+  it seems likely that the automorphism groups have the same order and
+  partly similar structure.
+\item {\em Get clear results on the relation between the
+  subgroup/subring lattices on both sides}
+\end{itemize}
+
+\section*{Generalizations to class more than two}
+
+In addition to better understanding the class two case, there are
+generalizations of this idea to class more than two. To do this, we
+need to generalize the {\em Lazard correspondence} rather than the
+Baer correspondence.
+
+There are two aspects to such generalizations:
+
+\begin{itemize}
+\item The list of ``bad primes'', i.e., the primes that we have
+  difficulty dividing by because of problems with existence and
+  uniqueness.
+\item The nilpotency class at which we are operating.
+\end{itemize}
+
+Of course, trouble arises only with the ``bad primes'' that are less
+than or equal to the nilpotency class at which we are operating. For
+simplicity, we will assume that there is only one bad prime. This
+assumption is valid in the finite case because we can separate out the
+effects of different primes and restrict attention to $p$-groups. So,
+we are interested in generalizations to situations of $p$-groups of
+class $c$, where $p \le c$, such as:
+
+\begin{itemize}
+\item $2$-groups of class three
+\item $3$-groups of class three
+\item $2$-groups of class four
+\item $3$-groups of class four
+\item $2$-groups of class five
+\item $3$-groups of class five
+\item $5$-groups of class five
+\end{itemize}
+
+\subsection*{Bad prime $p = 2$, higher class}
+
+This case has been resolved theoretically for the Lie ring to group
+direction. The approach is as follows: start with the Lie ring. Now,
+we look for a $2$-cocycle that skews/doubles to the Lie bracket, but
+the conditions that the $2$-cocycle needs to satisfy are now somewhat
+different, depending on the class at which we are operating. After
+obtaining this $2$-cocycle, we consider a version of the
+Baker-Campbell-Hausdorff formula where the Lie bracket is replaced by
+this $2$-cocycle and the denominators are cleared of their powers of
+$2$. For instance, the usual class three formula is:
+
+$$x \cdot y = x + y + \frac{1}{2}[x,y] + \frac{1}{12}[x,[x,y]] - \frac{1}{12}[y,[x,y]]$$
+
+The new formula is:
+
+$$x \cdot y = x + y + (x * y) + \frac{1}{3}(x * (x * y)) - \frac{1}{3}(y * (x * y))$$
+
+We have managed to prove that with this new formula, we can proceed
+from the Lie ring to a group. However, much work needs to be done here:
+
+\begin{itemize}
+\item We don't have a cohomology interpretation that can be used to
+  generate examples.
+\item We aren't sure if this is the most general version possible.
+\item We have identified some possible examples computationally, but
+  have not been able to compute the $2$-cocycles and understand them
+  conceptually.
+\item We have not yet worked out the reverse formula from the group to
+  the Lie ring (though this should not be hard).
+\end{itemize}
+
+\subsection*{Higher class intermediaries}
+
+Some of the examples we have suggest that it is possible for the group
+and the Lie ring to both have class $c$ but for the intermediate
+structure (cring) that we go through to have higher class than
+$c$. The smallest example here is a group of order $32$, which we do
+not yet fully understand.
+
+Roughly speaking, what is happening is that for the cring structure
+(i.e., the $2$-cocycle we get after ``halving'') the image of each
+application of the ``halved'' operation is potentially bigger than the
+image of the actual Lie bracket. If we denote the Lie bracket by $[,]$
+and the $2$-cocycle obtained after halving by $*$, then $L * L$ could
+be bigger than $[L,L]$. But this may mean that we need more iterations
+$((L * L) * L) * L \dots$ to reach the trivial subring than we do for
+the Lie bracket.
+
+\subsection*{The case of $p = 3$ and other primes}
+
+For $p = 3$, there is no problem for groups and Lie rings of class up
+to two. The problem begins when we are trying to interpret the degree
+three terms, i.e., for groups/Lie rings of class three or higher.
+
+As of now, the best level of generalization for tackling this in the
+case of $3$-groups is unclear. Some ideas are:
+
+\begin{itemize}
+\item We find linear functions of $3$ variables $f(x,y,z)$ with the
+  property that $3f(x,y,z) = [x,[y,z]]$ (and similarly for the other
+  primes). If we can find such functions, we can interpret every
+  instance of $(1/3)[x,[y,z]]$ as simply $f(x,y,z)$ and proceed from that.
+\item We directly try to find functions of two variables $t(x,y)$ with
+  the property that $12t(x,y) = [x,[x,y]] - [y,[x,y]]$, and satisfying
+  some additional conditions.
+\end{itemize}
+
+\section*{Broader implications}
+
+If we can obtain more results in this direction, there are a number of
+possible broader implications and lines of research that could be
+opened up:
+
+\begin{itemize}
+\item We have two novel approaches to the problem of division by bad
+  primes. The first is to shift from ``doubles'' to ``skews'' (which
+  unfortunately works only for $p = 2$). The second is to divide {\em
+  non-uniquely} but impose some {\em global uniformity conditions} on
+  the function we get after dividing. These uniformity conditions
+  could be linearity or a cocycle condition.
+\item We give prominence to an approach that has not been widely used
+  in this area of mathematics: {\em generalize from linearity to a
+  cocycle condition}. In particular, we look at a generalization from
+  {\em rings} (which are characterized by an additive group and a {\em
+  bilinear map} on top of that called multiplication) to {\em crings}
+  (which are characterized by an additive group and a {\em 2-cocycle}
+  on top of that). Generalizing from linear things to 2-cocycles is a
+  theme in some other parts of mathematics, but it is not common in
+  the study of algebraic structures of the sort we are dealing with.
+\item As a raw fraction, the groups for which we can obtain Lie rings
+  by this approach is very small. However, the embedding theorem and
+  similar results show that many groups can be studied {\em by means
+  of such correspondences} by putting them in bigger groups. It may be
+  possible to come up with measurements of how far a group is from
+  having a Lie ring of its own, and of bounding the nature and
+  structure of the subgroups and automorphisms of groups.
+\item Another related direction of study (that has been shelved for
+  now) is the relation between derivations and automorphisms obtained
+  by exponentiating them. Some preliminary calculations suggest that
+  the derivation-automorphism relationship will play on $1$-cocycles
+  in much the same way as our current work plays on $2$-cocycles.
+\end{itemize}
+
+\end{document}

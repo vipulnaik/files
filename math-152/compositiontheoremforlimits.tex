@@ -1,0 +1,51 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Composition theorem for limits}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+There is a composition theorem for continuous functions: if $g$ is
+continuous at $c$ and $f$ is continuous at $g(c)$, then $f \circ g$ is
+continuous at $c$.
+
+We might suspect an analogous composition theorem for limits: if
+$\lim_{x \to c} g(x) = L$ and $\lim_{v \to L} f(v) = M$, then $\lim_{x
+\to c} f(g(x)) = M$.
+
+However, the composition theorem for limits as stated above is not
+strictly true.
+
+The reason is very subtle, though it is in some sense similar to why
+composites do not hold in the one-sided sense. It all has to do with
+the $0 <$ in the limit definition, or, the fact that when we say
+$\lim_{x \to c} g(x)$, we exclude the behavior at the point $c$.
+
+Let's consider this more carefully. If $\lim_{x \to c} g(x) = L$, then
+that means that as $x \to c$, then $g(x) \to L$. Next, we know that as
+$v \to L$, then $f(v) \to M$. So, why doesn't it follow that as $x \to
+c$, $f(g(x)) \to M$?
+
+In words:
+
+$x \to c$ implies $g(x) \to L$
+
+and:
+
+$v \to L$ implies $f(v) \to M$
+
+Plugging $v = g(x)$, why doesn't the result follow?
+
+The issue is that the $g(x) \to L$ on the right half of the first line
+differs from the $v \to L$ on the left half of the second line. The
+former conclusion is valid, for instance, if $g(x)$ is a constant
+function $L$. On the other hand the $v \to L$ specifically includes
+only a straightforward approach from the left or the right.
+
+Thus, we can construct a counterexample to the ``composition theorem
+for limits'' with the following features: (i) $g$ is constant around
+$c$ with the value $L$ and (ii) $f$ is defined at $c$ but has a
+removable discontinuity at $c$.
+
+\end{document}

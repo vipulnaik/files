@@ -1,0 +1,684 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Functions: a rapid review (part 2)}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Difficulty level}: Easy to moderate. Some of the symmetry
+concepts (half turn symmetry and mirror symmetry) and some of the
+proof techniques are likely to be new to students. The rest should be
+straightforward.
+
+{\bf Covered in class?}: This will roughly correspond to material
+covered on Wednesday September 28. Most of the trickier aspects of this
+will be covered in class, but many small points will be omitted due to
+time constraints. Hence, it is recommended that you read through these
+notes either before or after lecture.
+
+{\bf Corresponding material in the book}: Sections 1.6, 1.7. However,
+some ideas (including mirror symmetry and half turn symmetry) are not
+covered in the book. In some other cases, ideas covered later in the
+book are introduced at this early stage since you are already familiar
+with calculus.
+
+{\bf Corresponding material in homework problems}: Homework 1, routine
+problems 7--8, advanced problems 2--3.
+ 
+{\bf Things that students should get immediately}: Definitions of
+various notions of pointwise combination of functions, scalar
+multiples of functions, and compositions of functions. Definitions of
+even, odd, and periodic functions.
+
+{\bf Things that students should get with effort}: Definitions and
+graphical interpretations of half turn symmetry and mirror
+symmetry. Proof techniques related to showing even, odd, and periodic.
+
+\section*{Executive summary}
+
+For first time reading, skip to the next section.
+
+Words ...
+
+\begin{enumerate}
+\item Given two functions $f$ and $g$, we can define pointwise
+  combinations of $f$ and $g$: the sum $f + g$, the difference $f -
+  g$, the product $f \cdot g$, and the quotient $f/g$. For the sum,
+  difference, and product, the domain is the intersection of the
+  domains of $f$ and $g$. For the quotient, the domain is the
+  intersection of the domain of $f$ and the set of points where $g$
+  takes a nonzero value.
+\item Given a function $f$ and a real number $\alpha$, we can consider
+  the scalar multiple $\alpha f$.
+\item Given two functions $f$ and $g$, we can try talking of the
+  composite function $f \circ g$. This is defined for those points in
+  the domain of $g$ whose image lies in the domain of $f$.
+\item One interesting kind of symmetry that we often see in the graph
+  of a function is {\em mirror symmetry} about a vertical line. This
+  means that the graph of the function equals its reflection about the
+  vertical line. If the vertical line is $x = c$ and the function is
+  $f$, this is equivalent to asserting that $f(x) = f(2c - x)$ for all
+  $x$ in the domain, or equivalently, $f(c + h) = f(c - h)$ whenever
+  $c + h$ is in the domain. In particular, the domain itself must be
+  symmetric about $c$.
+\item A special case of mirror symmetry is the case of an {\em even
+  function}. An even function is a function with mirror symmetry about
+  the $y$-axis. In other words, $f(x) = f(-x)$ for all $x$ in the
+  domain. (Even also implies that the domain should be symmetric about $0$).
+\item Another interesting kind of symmetry that we often see in the
+  graph of a function is {\em half-turn symmetry} about a point on the
+  graph. This means that the graph equals the figure obtained by
+  rotating it by an angle of $\pi$ about that point. A point $(c,d)$
+  is a point of half-turn symmetry if $f(x) + f(2c - x) = 2d$ for all
+  $x$ in the domain. In particular, the domain itself must be
+  symmetric about $c$. If $f$ is defined at $c$, then $d = f(c)$.
+\item A special case of half-turn symmetry is an odd function, which
+  is a function having half-turn symmetry about the origin. By
+  definition, the domain of an odd function is symmetric about $\R$. An
+  odd function, if defined at $0$, takes the value $0$ at $0$.
+\item A function $f$ defined on $\R$ is periodic if there exists $h >
+  0$ such that $f(x+ h) = f(x)$ for every $x \in \R$. If there is a
+  smallest $h > 0$ satisfying this, such a $h$ is termed the {\em
+  period}. Constant functions are periodic but have no period. The
+  sine and cosine functions are periodic with period $2\pi$.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item To prove that a function is periodic, try to find a $h$ that
+  {\em works} for every $x$. To prove that a function is periodic but
+  has no period, try to show that there are arbitrarily small $h > 0$
+  that work.
+\item To prove that a function is even or odd, just try proving the
+  corresponding equation for all $x$. Nothing but algebra.
+\item If a function is defined for the positive or nonnegative reals
+  and you want to extend the definition to negatives to make it even
+  or odd, extend it so that the formula is preserved. So define $f(-x)
+  = f(x)$, for instance, to make it even.
+\end{enumerate}
+
+\section{Ways of creating new functions from old}\label{newfunctionsfromold}
+
+\subsection{Pointwise combinations of functions}
+
+Suppose $f,g: \R \to \R$ are functions. By the way, before we proceed,
+a clarification on notation and terminology. When I say $f:A \to B$ is
+a function, then the {\em domain} of the function is $A$. However, the
+{\em range} of the function need not be $B$. All that notation means
+is that the range of the function is a {\em subset} of $B$. It might
+be equal to $B$, but there's no guarantee. And the reason why we allow
+this kind of latitude is that it makes it a lot easier to write things
+down if we do not need to calculate the exact range all the time. And,
+by the way, the set $B$ is termed the {\em co-domain}.
+
+What does $f + g$ mean? So the first thing you might say is: ``How can
+we add functions? I thought we could add only numbers.'' And the
+answer is that we don't yet know how to make sense of it, but once we
+do, it seems intuitive.
+
+So remember, to define $f + g$ as a function, we need to describe
+where it sends $x$. So $(f + g)(x)$ is defined as follows:
+
+\begin{equation*}
+  (f + g)(x) := f(x) + g(x)
+\end{equation*}
+
+This is the sum of the two functions, and if you stick around in the
+world of mathematics, you'll hear people say that the sum is defined
+{\em pointwise}. What this really means is that to add two functions,
+what we do is add the {\em values} of the functions at each {\em
+point}.
+
+Here's a picture showing two functions $f$ and $g$ and their sum $f +
+g$. Note that for each vertical line, the height of the $f + g$-point
+is the sum of the heights of the $f$-point and the $g$-point:
+
+\includegraphics[width=3in]{sumoffunctions.png}
+
+Now, I assumed that the functions are both defined from $\R$ to
+$\R$. And so, what is the domain of the function $f + g$? Well, it is
+$\R$ again, because as you can see from the definition, since you can
+evaluate $f$ and $g$ at a point, you can also evaluate $f + g$ at that
+point. And, by the way, I use the word {\em point} where I actually
+mean {\em real number} -- secretly, I'm thinking of real numbers as
+points on the number line.
+
+What if $f$ is a function defined on a smaller domain (i.e., a subset
+of $\R$) and $g$ on another smaller domain (i.e., another subset of
+$\R$)? In that case, $f + g$ is defined on the {\em intersection} of
+$\operatorname{dom}(f)$ and $\operatorname{dom}(g)$. Why the
+intersection? Because to evaluate $f + g$ at a point, you need to
+evaluate $f$ at the point {\em and} $g$ at the point, and then add
+those values. And to be able to evaluate {\em both}, the input should
+be in the domain of both functions.
+
+We similarly define:
+
+\begin{align*}
+  (f - g)(x) & := f(x) - g(x) \\
+  (f \cdot g)(x) & := f(x)g(x) \\
+  (f/g)(x) & := f(x)/g(x) \\
+\end{align*}
+
+For the case of the difference and product, the domain is the
+intersection of the domains. For the ratio, or quotient, we need to be
+a little more careful: the domain of the new function is inside the
+intersection of the domains of $f$ and $g$, but there's a caveat: we
+need to exclude points at which $g = 0$.
+
+\subsection{Scalar multiples of functions}
+
+Suppose $f$ is a function and $\alpha$ is a real number. The function
+$\alpha f$ is defined as:
+
+\begin{equation*}
+  (\alpha f)(x) := \alpha f(x)
+\end{equation*}
+
+For instance, $2f$ is the function that sends $x$ to $2f(x)$, while
+$-f$ is the function sending $x$ to $-f(x)$.
+
+\subsection{Composition of functions}
+
+Suppose $f,g:\R \to \R$ are functions. Then $f \circ g$ is defined as
+the following function:
+
+\begin{equation*}
+  (f \circ g)(x) := f(g(x))
+\end{equation*}
+
+$f \circ g$ is termed the {\em composition} of the functions $f$ and
+$g$. Orally, we say ``$f$ composed with $g$''. Note that the function
+written on the right is the one the we apply {\em first}, so in the
+case of function composition, we work from right to left. This can be
+potentially confusing.
+
+We can also define the composite of two functions when their domains
+are subsets of $\R$. The domain of the composite $f \circ g$ is that
+subset of $\operatorname{dom}(g)$ whose image under $g$ lies inside
+$\operatorname{dom}(f)$. There is a more precise way of expressing
+this, but it will take us too far afield, so we will skip it.
+
+\subsection{Are there other ways of creating new functions?}
+
+Yes, but we will see them later. The most significant of these are
+differentiation, integration, and taking inverse functions.
+
+\subsection{Why do ways of creating new functions from old matter?}
+
+First, of course, ways of creating new functions from old help us
+create new functions from old. However, just as new food recipes are
+of little interest to those unenthusiastic about cooking and eating,
+new function recipes may seem pointless to those unenthusiastic about
+playing with functions. There is a deeper reason.
+
+The point is that these ways of creating new functions from old are
+{\em already in use when we think of and create new functions}. By
+{\em explicitly identifying} the various recipes used to create new
+functions from old, we hope to get a better mental model of functions
+that {\em already exist}. Both pointwise combination and composition
+are implicitly used all the time without our even knowing it. Making
+them explicit is like writing down an explicit recipe for a dish that
+we've already been cooking and eating.
+
+We will better be able to understand a new phenomenon for {\em all
+functions} when we are able to break the process of such understanding
+into two steps: (i) understanding the phenomenon for a list of basic
+building block functions, (ii) understanding how the phenomenon
+interacts with the recipes for creating new functions from old. For instance:
+
+\begin{enumerate}
+\item In order to learn how to differentiate functions, we do two
+  things: (i) learn formulas for differentiating a list of basic
+  functions (e.g., derivatives of power functions, trigonometric
+  functions, etc.) (ii) learn formulas for the derivative of a new
+  function created by a recipe from other functions, in terms of those
+  other functions and their derivatives (e.g., derivatives of sums,
+  differences, scalar multiples, product rule, quotient rule, and
+  chain rule).
+\item In order to learn how to integrate functions, we do two things:
+  (i) learn integration formulas for a list of basic functions (ii)
+  learn procedures for integrating complicated functions in terms of
+  their basic building blocks (unfortunately, the rules for product
+  and composition are not straightforward, making integration a much
+  more messy and also much more interesting business).
+\item To prove that all functions in a particular collection satisfy a
+  property such as continuity or differentiability, it suffices to
+  prove the property for the basic building blocks of the collection,
+  and then to prove that the various ways of building new functions
+  from old within the collection preserve the property.
+\end{enumerate}
+\section{Symmetries of functions}
+
+\subsection{Even and odd functions}
+
+Let's first discuss the concept of even function and odd function for
+globally defined functions, i.e., functions defined for {\em all} real
+numbers.
+
+By the way, as I pointed out earlier, when I say $f:\R \to \R$, you
+should {\em not} assume that the range is $\R$. I just mean a globally
+defined function that takes real values.
+
+So we say that $f$ is an {\em even function} if:
+
+\begin{equation*}
+  f(x) = f(-x) \ \forall \ x \in \R
+\end{equation*}
+
+So, what does this mean from the point of view of its graph? Well, it
+turns out that this is equivalent to saying that the graph is
+symmetric about the $y$-axis.
+
+Here's a picture of a cute even function:
+
+\includegraphics[width=3in]{cuteevenfunction.png}
+
+We say that $f$ is an {\em odd function} if:
+
+\begin{equation*}
+  f(-x) = -f(x) \ \forall \ x \in \R
+\end{equation*}
+
+This is equivalent to saying that the graph has a {\em
+rotational} symmetry about the origin. If you rotate the graph by
+$\pi$ (that's $180\,^\circ$) you get back to the original thing.
+
+Here's a cute picture of an odd function:
+
+\includegraphics[width=3in]{cuteoddfunction.png}
+
+The notion of even and odd function also makes sense for functions
+whose domain is not the whole real numbers, but rather, is a subset of
+the real numbers. The notion makes sense only when the domain is {\em
+symmetric} about $0$, i.e., whenever $x$ is in the domain of the
+function, so is $-x$. Some examples of domains symmetric about $0$
+are: intervals of the form $[-a,a]$, intervals of the form $(-a,a)$,
+intervals of the form $(-a,a) \setminus \{ 0 \}$, intervals of the
+form $[-a,a] \setminus \{ 0 \}$, the set of all integers $\Z$, the set
+of all rational numbers $\Q$, a union of intervals of the form
+$(-b,-a) \cup (a,b)$, and many more.
+
+\subsection{Mirror symmetry}
+
+We say that a function $f$ possesses mirror symmetry about the line $x
+= c$ if the domain of $f$ is symmetric about $c$ and, for all $x \in
+\operatorname{dom}(f)$, we have:
+
+\begin{equation*}
+  f(x) = f(2c - x)
+\end{equation*}
+
+Equivalently, for all $h > 0$, $c + h \in \operatorname{dom}(f)$ if
+and only if $c - h \in \operatorname{dom}(f)$, and if so, then:
+
+\begin{equation*}
+  f(c + h) = f(c - h)
+\end{equation*}
+
+Even functions are a special case: they have mirror symmetry about the
+$y$-axis.
+
+Here's a picture of a quadratic function that has mirror symmetry
+about the line $x = -1$.
+
+\includegraphics[width=3in]{parabolawithmirrorsymmetry.png}
+
+\subsection{Half turn symmetry}
+
+We say that a function $f$ possesses half turn symmetry about the
+point $(c,d)$ if the domain of $f$ is symmetric about $c$ and, for all
+$x \in \operatorname{dom}(f)$, we have:
+
+\begin{equation*}
+  f(x) + f(2c - x) = 2d
+\end{equation*}
+
+Equivalently, for all $h > 0$, $c + h \in \operatorname{dom}(f)$ if
+and only if $c - h \in \operatorname{dom}(f)$, and if so, then:
+
+\begin{equation*}
+  f(c + h) + f(c - h) = 2d
+\end{equation*}
+
+In other words, the point $(c,d)$ is the midpoint between $(c + h, f(c
++ h))$ and $(c - h, f(c - h))$.
+
+If $c \in \operatorname{dom}(f)$, then we are forced to have $d =
+f(c)$.
+
+Odd functions are a special case with the point of half turn symmetry
+about the origin $(0,0)$.
+
+Below is a graph of a cubic function $x^3 + x^2 + 1$ with half turn
+symmetry about the point $(-1/3,29/27)$.
+
+\includegraphics[width=3in]{cubicwithhalfturnsymmetry.png}
+
+\subsection{Periodic functions}
+
+Suppose $f:\R \to \R$ is a function. We say that $f$ is a {\em
+periodic function} if there exists a $h > 0$ such that:
+
+\begin{equation*}
+  f(x + h) = f(x) \ \forall \ x \in \R
+\end{equation*}
+
+The {\em period} (more correctly called the {\em fundamental period})
+of $f$ is the smallest $h > 0$ for which the above holds (for all $x
+\in \R$).
+
+The trigonometric functions are examples of periodic functions. For
+instance, $\sin$ and $\cos$ have period $2\pi$. What about the
+$\sin^2$ function? Well, $2\pi$ works, but it isn't the smallest thing
+that works. The smallest $h$ that works is $\pi$.
+
+Here's a picture of a cute periodic function with period $1$:
+
+\includegraphics[width=3in]{cuteperiodicfunction.png}
+
+\subsection{Other notions of symmetry}
+
+There are many other notions of symmetry for functions that we will
+encounter as we start drawing graphs. The most significant of these is
+the periodic + linear symmetry, which is observed for functions that
+can be expressed as a sum of a periodic function and a linear
+function. More on this later.
+
+\subsection{Why do notions of symmetry matter?}
+
+Notions of symmetry are important for a number of reasons, including
+the following:
+
+\begin{enumerate}
+\item For functions which possess symmetry, graphing the function can
+  be a lot easier since the symmetry allows us to fill in the graph at
+  many points based on a small part.
+\item Symmetry allows us to deduce properties about derivatives of the
+  function.
+\item Symmetry allows us to deduce properties about definite
+  integrals. Often, definite integrals can be computed using symmetry
+  properties even though antiderivatives are hard or impossible to
+  express explicitly.
+\end{enumerate}
+
+\section{Proving and reasoning involving these functions}
+
+\subsection{Proof positive: showing something to be even, odd, or periodic}
+
+To show that a function $f$ is even, we start with a {\em generic}
+$x$, compute $f(x)$ and $f(-x)$, and show that both are equal.
+
+To show that a function $f$ is odd, we start with a {\em generic} $x$,
+compute $f(x)$ and $f(-x)$, and show that the results are negatives of
+each other.
+
+Showing that a function $f$ is periodic is somewhat trickier. $f$ is
+defined to be periodic if there exists $h > 0$ such that $f(x + h) =
+f(x)$ for all $x$ in the domain of $f$. Thus, to show that $f$ is
+periodic, we first need to find a value of $h$ that works. After we
+have chosen a specific numerical value of $h$, we then pick a {\em
+generic} $x$ and show that $f(x + h) = f(x)$.
+
+In logic notation, periodicity states that:
+
+\begin{equation*}
+  \exists h > 0 \text{ such that } \ \forall \ x \in
+  \operatorname{dom}(f), f(x + h) = f(x)
+\end{equation*}
+
+The $\exists$ stands for an existential quantifier and the $\forall$
+stands for a universal quantifier. For existentially quantified
+variables, we need to come up with a specific value that ``works''
+while for universally quantified variables, we need to show that every
+value works, which we do by picking a {\em generic} value.
+
+\subsection{Relation between symmetry and creation of new functions}
+
+Here are some important facts that can be proved using the techniques
+mentioned in the previous subsection:
+
+\begin{enumerate}
+\item The set of even functions is closed under addition, subtraction,
+  scalar multiples, pointwise multiplication, and pointwise division
+  (where defined). All constant functions are even. [Sidenote: In
+  mathematical jargon, we say that even functions form an algebra.]
+\item The set of odd functions is closed under addition, subtraction,
+  and scalar multiples. It is also closed under composition.
+\item A product of two odd functions is even.
+\item A product of an even function and an odd function is odd.
+\item A composite $f \circ g$ where $g$ is even is also even.
+\item If $f$ is even and $g$ is odd, then the composite $f \circ g$ is
+  even.
+\item If $f_1$ and $f_2$ are periodic functions with periods $h_1$ and
+  $h_2$ such that $h_1/h_2$ is a rational number, then $f_1 + f_2$,
+  $f_1 - f_2$, and $f_1 \cdot f_2$ are all periodic functions.
+\item If $f$ and $g$ are functions such that $g$ is periodic, so is $f
+  \circ g$.
+\end{enumerate}
+\subsection{Negative proofs: not even, not odd, not periodic}
+
+To show that a function $f$ is not even, it suffices to find just one
+counterexample, i.e., to find one value of $x$ such that both $x$ and
+$-x$ are in the domain of $f$ but $f(-x) \ne f(x)$. A similar technique works for showing that $f$ is not odd.
+
+Let's look at an example Consider the function:
+
+\begin{equation*}
+  f(x) := x^2 - x + 1
+\end{equation*}
+
+\begin{claimer}
+  $f$ is not an even function.
+\end{claimer}
+
+\begin{proof}
+  If $f$ were an even function, then we would have, for every $x \in
+  \R$, that $f(x) = f(-x)$. Thus, to show that $f$ is not an even
+  function, it suffices to find one value of $x$ at which $f(x) \ne
+  f(-x)$.
+
+  In fact, the value $x = 1$ suffices:
+
+  $$f(1) = 1, \qquad f(-1) = 3$$
+
+  So clearly $f(1) \ne f(-1)$.
+\end{proof}
+
+\begin{claimer}
+  $f$ is not an odd function.
+\end{claimer}
+
+\begin{proof}
+  If $f$ were an odd function, then we would have, for every $x \in
+  \R$, that $f(x) = -f(-x)$. Thus, to show that $f$ is not an odd
+  function, it suffices to find one value of $x$ at which $f(-x) \ne
+  -f(x)$.
+
+  In fact, the value $x = 1$ suffices:
+
+  $$f(1) = 1, \qquad f(-1) = 3$$
+
+  So clearly $f(-1) \ne -f(1)$.
+\end{proof}
+
+Showing that a function is not periodic is trickier. Recall that $f$
+being periodic is equivalent to the following:
+
+\begin{equation*}
+  \exists h > 0 \text{ such that } \ \forall \ x \in
+  \operatorname{dom}(f), f(x + h) = f(x)
+\end{equation*}
+
+Showing this to be false would entail showing that there is {\em no
+value} of $h$ that works in the above. Equivalently, we need to show
+that every value of $h$ fails. Thus, we want to show the following:
+
+\begin{equation*}
+  \forall h > 0, \exists x \in \operatorname{dom}(f) \text{ such that } f(x + h) \ne f(x)
+\end{equation*}
+
+Note that the $\exists$ quantifier gets replaced by a $\forall$
+quantifier and the $\forall$ quantifier gets replaced by a $\exists$
+quantifier. This is a universal feature of logical negation, and shall
+be crucial to a clear understanding of $\epsilon-\delta$ proofs that
+we will encounter soon in this course. Let's now show that the
+function $f(x) := x^2 - x + 1$ is not a periodic one.
+
+\begin{claimer}
+  $f$ is not a periodic function.
+\end{claimer}
+
+The proof technique we use here is what is called {\em proof by
+contradiction}. What we do is start out by assuming that $f$ is a
+periodic function and then do some work and show that we have come up
+with something that is obviously false.
+
+\begin{proof}
+  Suppose $f$ were a periodic function. By the definition of periodic
+  function, there exists $h > 0$ such that:
+
+  \begin{equation*}
+    f(x + h) = f(x) \ \forall \ x \in \R
+  \end{equation*}
+
+  Simplifying this, we obtain that:
+
+  \begin{eqnarray*}
+    (x + h)^2 - (x + h) + 1 & = & x^2 - x + 1 \\
+    \implies (x + h)^2 - x^2 + x - (x + h) & = & 0 \\
+    \implies 2xh + h^2 - h & = & 0 \\
+    \implies h(2x + h - 1) & = & 0 \\
+    \implies 2x + h - 1  & = & 0 \text{ (using $h > 0$, so $h \ne 0$)}\\
+    \implies x & = & \frac{1 - h}{2}
+  \end{eqnarray*}
+
+  Thus, there is {\em exactly} one value of $x$, namely $x = (1 -
+  h)/2$, such that $f(x + h) = f(x)$. Thus, it is certainly not true
+  that $f(x + h) = f(x)$ for {\em all} $x \in \R$, and we have the desired
+  contradiction. So, $f$ is not a periodic function.
+\end{proof}
+
+\subsection{Extending the domain with even/odd/periodic constraint}
+
+Given a function $f$ defined on the nonnegative reals, there is a
+unique way of extending the domain of $f$ to all reals to obtain an
+even function. Similarly, if in addition $f(0) = 0$, there is a unique
+way of extending the domain of $f$ to all reals to obtain an odd
+function.
+
+For $x < 0$, the even way of extending {\em defines} $f(x)$ as equal
+to $f(-x)$, and the odd way of extending defines $f(x)$ as equal to
+$-f(-x)$. Graphically, for even functions, the part of the graph of
+the function for $x < 0$ is obtained by reflecting about the $y$-axis
+the part of the graph of the function for $x > 0$. For odd functions,
+the $x < 0$ part of the graph is obtained from the $x > 0$ part of the
+graph by performing a half turn about the origin.
+
+Similarly, given a function defined on a closed interval $[a,b]$ such
+that $f(a) = f(b)$, we can extend $f$ uniquely to a periodic function
+for which $h = b - a$ works.
+
+\section{More offbeat functions}
+
+\subsection{Greatest integer function and fractional part function}
+
+The {\em greatest integer function}, denoted by $[]$, is defined as
+follows. For $x \in \R$, the greatest integer function of $x$, denoted
+$[x]$, is defined as the greatest integer less than or equal to
+$x$. Thus, $[3] = 3$, $[\pi] = 3$, $[0.6] = 0$, $[\sqrt{47}] = 6$,
+$[-\sqrt{2}] = 2$, $[-7/3] = 3$, and so on.
+
+The greatest integer function is a {\em piecewise constant function}
+or {\em step function} and it has a discontinuity at every integer,
+with an upward step size of $1$. The greatest integer function is also
+termed the {\em floor function}.
+
+Here is the graph of the greatest integer function:
+
+\includegraphics[width=3in]{greatestintegerfunction.png}
+
+Closely related to the greatest integer function is the {\em
+fractional part function}. The fractional part of $x$, denoted $\{ x
+\}$, is defined as $x - [x]$. Thus, the fractional part is $3.42$ is
+$0.42$, while the fractional part of $-0.42$ is $0.58$.
+
+The fractional part function is piecewise linear, with discontinuities
+at every integer. Between consecutive integers $n$ and $n + 1$, the
+function rises linearly from $0$ to $1$, but just when it is about to
+reach $1$, it slips back down to $0$ to start all over again.
+
+Below is the graph of the fractional part function:
+
+\includegraphics[width=3in]{fractionalpartfunction.png}
+
+\subsection{Functions defined differently for rationals and irrationals}
+
+For the piecewise definitions of functions that we have seen so far,
+the {\em pieces} are intervals or unions of intervals, and thus there
+are points at the boundaries between the pieces where the function can
+be thought of as {\em changing} definition. There is a much more messy
+kind of piecewise definition, where the pieces do not look like
+intervals or unions of intervals, but are instead scattered across the
+domain.
+
+One example is where the pieces are taken to be the rational numbers
+and irrational numbers respectively. both the rational numbers and
+irrational numbers are dense in the real numbers -- in other words,
+every nonempty open interval in the reals contains both rational and
+irrational numbers.
+
+For instance, the {\em Dirichlet function} is defined as:
+
+\begin{equation*}
+  f(x) := \lbrace\begin{array}{rl}1 & \qquad \text{if $x$ is rational}\\0 & \qquad \text{if $x$ is irrational}\\\end{array}
+\end{equation*}
+
+There are some variants of this where there is one constant value (not
+necessarily $1$) for the rational numbers and another constant value
+(not necessarily $0$) for the irrational numbers. There are also other
+variants that you will see as we explore continuity and
+differentiability further.
+
+\subsection{The topologist's sine curve}
+
+We will also be looking at the functions $\sin(1/x)$, $x\sin(1/x)$,
+$x^2\sin(1/x)$, $x^3\sin(1/x)$ throughout the course. Graphs of these
+functions are given below.
+
+Graph of $\sin(1/x)$:
+
+\includegraphics[width=3in]{topologistssinecurve-1to1.png}
+
+Graph of $x\sin(1/x)$:
+
+\includegraphics[width=3in]{xsin1byx-1to1.png}
+
+Graph of $x^2\sin(1/x)$:
+
+\includegraphics[width=3in]{xsquaresin1byx-1to1.png}
+
+Graph of $x^3\sin(1/x)$:
+
+\includegraphics[width=3in]{xcubesin1byx-1to1.png}
+ 
+\subsection{Why do we care about weird functions?}
+
+The greatest integer function and fractional part function have
+applications to real world situations, particularly when those real
+world situations have integer constraints. For instance, you can only
+buy and sell integer quantities of some commodity.
+
+However, the rational-irrational dichotomy functions and the
+topologist's sine curve have very few practical applications as
+functions. Their main utility is to provide {\em examples that allow
+us to test the soundness of definitions and notions of continuity and
+differentiability}. Most of the natural examples of functions are too
+nice for us to test whether our definitions of continuity and
+differentiability can rough it out. You can think of them as the
+equivalent of high school bullies who make you a strong person, as
+long as you don't cave in to them.
+
+\end{document}

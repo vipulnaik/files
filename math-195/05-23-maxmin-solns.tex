@@ -1,0 +1,223 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: May 23: Max-min values: two-variable version}
+\author{Math 195, Section 59 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$17$ people took the quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $0$: $1$ person
+\item Score of $1$: $3$ people
+\item Score of $2$: $8$ people
+\item Score of $3$: $3$ people
+\item Score of $4$: $1$ person
+\item Score of $5$: $1$ person
+\end{itemize}
+
+The question wise answers and performance review were as follows:
+
+\begin{enumerate}
+\item Option (B): $12$ people
+\item Option (B): $9$ people
+\item Option (C): $5$ people
+\item Option (C): $8$ people. {\em Please review this after Wednesday's lecture!}
+\item Option (D): $3$ people {\em Please review this after Wednesday's lecture!}
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+\item Suppose $F(x,y) := f(x) + g(y)$, i.e., $F$ is additively
+  separable. Suppose $f$ and $g$ are differentiable functions of one
+  variable, defined for all real numbers. What can we say about the
+  critical points of $F$ in its domain $\R^2$?
+
+  \begin{enumerate}[(A)]
+  \item $F$ has a critical point at $(x_0,y_0)$ iff $x_0$ is a
+    critical point for $f$ {\em or} $y_0$ is a critical point for $g$.
+  \item $F$ has a critical point at $(x_0,y_0)$ iff $x_0$ is a
+    critical point for $f$ {\em and} $y_0$ is a critical point for
+    $g$.
+  \item $F$ has a critical point at $(x_0,y_0)$ iff $x_0 + y_0$ is a
+    critical point for $f + g$, i.e., the function $x \mapsto f(x) +
+    g(x)$.
+  \item $F$ has a critical point at $(x_0,y_0)$ iff $x_0y_0$ is a
+    critical point for $fg$, i.e., the function $x \mapsto f(x)g(x)$.
+  \item None of the above.
+  \end{enumerate}
+  
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: $F_x(x_0,y_0) = f'(x_0)$ and $F_y(x_0,y_0) =
+  g'(y_0)$. In order for both of these to be $0$, we must have
+  $f'(x_0) = g'(y_0) = 0$. Thus, $x_0$ is a critical point for $f$ and
+  $y_0$ is a critical point for $g$.
+
+  {\em Performance review}: $12$ out of $17$ people got this
+  correct. $3$ chose (C) and $2$ chose (A).
+\item Suppose $F(x,y) := f(x)g(y)$ is a multiplicatively separable
+  function. Suppose $f$ and $g$ are both differentiable functions of
+  one variable defined for all real inputs. Consider a point
+  $(x_0,y_0)$ in the domain of $F$, which is $\R^2$. Which of the
+  following is true?
+
+  \begin{enumerate}[(A)]
+  \item $F$ has a critical point at $(x_0,y_0)$ if and only if $x_0$
+    is a critical point for $f$ and $y_0$ is a critical point for $g$.
+  \item If $x_0$ is a critical point for $f$ and $y_0$ is a critical
+    point for $g$, then $(x_0,y_0)$ is a critical point for
+    $F$. However, the converse is not necessarily true, i.e.,
+    $(x_0,y_0)$ may be a critical point for $F$ even without $x_0$
+    being a critical point for $f$ and $y_0$ being a critical point
+    for $g$.
+  \item If $(x_0,y_0)$ is a critical point for $F$, then $x_0$ must be
+    a critical point for $f$ and $y_0$ must be a critical point for
+    $g$. However, the converse is not necessarily true.
+  \item $(x_0,y_0)$ is a critical point for $F$ if and only if {\em at
+    least} one of these is true: $x_0$ is a critical point for $f$ and
+    $y_0$ is a critical point for $g$.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: We have $F_x(x_0,y_0) = f'(x_0)g(y_0)$ and
+  $F_y(x_0,y_0) = f(x_0)g'(y_0)$. We see that if $f'(x_0) = 0$ and
+  $g'(y_0) = 0$, then $F$ has a critical point at
+  $(x_0,y_0)$. However, $F$ could also have a critical point for other
+  reasons: for instance, $f(x_0) = f'(x_0) = 0$ (and other cases).
+
+  {\em Performance review}: $9$ out of $17$ people got this
+  correct. $5$ chose (A), $2$ chose (D), $1$ chose (C).
+\item Consider a homogeneous polynomial $ax^2 + bxy + cy^2$ of degree
+  two in two variables $x$ and $y$. Assume that at least one of the
+  numbers $a$, $b$, and $c$ is nonzero. What can we say about the local
+  extreme values of this polynomial on $\R^2$?
+
+  \begin{enumerate}[(A)]
+  \item If $b^2 - 4ac < 0$, then the function has no local extreme
+    values and its value is unbounded from both above and below. If
+    $b^2 - 4ac = 0$, the function has local extreme value $0$ and this
+    is attained on a line through the origin. If $b^2 - 4ac > 0$, the
+    function has local extreme value $0$ and this is attained only at
+    the origin.
+  \item If $b^2 - 4ac < 0$, then the function has no local extreme
+    values and its value is unbounded from both above and below. If
+    $b^2 - 4ac > 0$, the function has local extreme value $0$ and this
+    is attained on a line through the origin. If $b^2 - 4ac = 0$, the
+    function has local extreme value $0$ and this is attained only at
+    the origin.
+   \item If $b^2 - 4ac > 0$, then the function has no local extreme
+    values and its value is unbounded from both above and below. If
+    $b^2 - 4ac = 0$, the function has local extreme value $0$ and this
+    is attained on a line through the origin. If $b^2 - 4ac < 0$, the
+    function has local extreme value $0$ and this is attained only at
+    the origin.
+  \item If $b^2 - 4ac > 0$, then the function has no local extreme
+    values and its value is unbounded from both above and below. If
+    $b^2 - 4ac < 0$, the function has local extreme value $0$ and this
+    is attained on a line through the origin. If $b^2 - 4ac = 0$, the
+    function has local extreme value $0$ and this is attained only at
+    the origin.
+  \item If $b^2 - 4ac = 0$, then the function has no local extreme
+    values and its value is unbounded from both above and below. If
+    $b^2 - 4ac < 0$, the function has local extreme value $0$ and this
+    is attained on a line through the origin. If $b^2 - 4ac > 0$, the
+    function has local extreme value $0$ and this is attained only at
+    the origin.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: See discussion of homogeneous quadratic in the
+  relevant lecture notes.
+
+  {\em Performance review}: $5$ out of $17$ people got this
+  correct. $4$ chose (A), $4$ chose (B), $2$ chose (D), $2$ chose (E).
+
+  A subset of $\R^n$ is termed {\em convex} if the line segment
+  joining any two points in the subset is completely within the
+  subset. A function $f$ of two variables defined on a closed convex
+  domain is termed {\em quasiconvex} if given any two points $P$ and
+  $Q$ in the domain, the maximum of $f$ restricted to the line segment
+  joining $P$ and $Q$ is attained at one (possibly both) of the
+  endpoints $P$ or $Q$.
+
+  There are many examples of quasiconvex functions, including linear
+  functions (which are quasiconvex but not strictly quasiconvex)
+  and all convex functions.
+
+
+\item What can we say about the maximum of a continuous quasiconvex
+  function defined on the circular disk $x^2 + y^2 \le 1$?
+
+  \begin{enumerate}[(A)]
+  \item It must be attained at the center of the disk, i.e., the
+    origin $(0,0)$.
+  \item It must be attained somewhere in the interior of the disk, but
+    we cannot be more specific with the given information.
+  \item It must be attained somewhere on the boundary circle $x^2 +
+    y^2 = 1$. However, we cannot be more specific than that with the
+    given information.
+  \item It must be attained at one of the four points $(1,0)$,
+    $(0,1)$, $(-1,0)$, and $(0,-1)$. 
+  \item It could be attained at any point. We cannot be specific at all.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: For any point in the interior of the circular
+  disk, the point can be put on a chord with endpoints on the boundary
+  circle. The maximum of the function restricted to this chord occurs
+  at one of the boundary points, hence, the value at any point in the
+  interior is equaled or exceeded by some point in the boundary. Thus,
+  the maximum is attained at some point in the boundary.
+
+  However, no point in the boundary can be put in the interior of a
+  line segment joining two other points, i.e., each point in the
+  boundary is extreme. So we cannot narrow things down further.
+
+  {\em Performance review}: $8$ out of $17$ people got this
+  correct. $5$ chose (B), $3$ chose (E), $1$ chose (D).
+
+\item What can we say about the maximum of a continuous quasiconvex
+  function defined on the square region $|x| + |y|\le 1$? This is the
+  region bounded by the square with vertices $(1,0)$, $(0,1)$,
+  $(-1,0)$, and $(0,-1)$.
+
+  \begin{enumerate}[(A)]
+  \item It must be attained at the center of the square, i.e., the
+    origin $(0,0)$.
+  \item It must be attained somewhere in the interior of the square, but
+    we cannot be more specific with the given information.
+  \item It must be attained somewhere on the boundary square $|x| +
+    |y| \le 1$. However, we cannot be more specific than that with the
+    given information.
+  \item It must be attained at one of the four points $(1,0)$,
+    $(0,1)$, $(-1,0)$, and $(0,-1)$. 
+  \item It could be attained at any point. We cannot be specific at all.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We can first push to the boundary the same way as
+  for the circular disk. Now, unlike the circular disk, we note that
+  any point in the boundary that is to one of the vertices is on a
+  line segment joining two adjacent vertices, so we can push out to
+  the vertices.
+
+  {\em Performance review}: $3$ out of $17$ people got this
+  correct. $8$ chose (C), $3$ chose (B), $2$ chose (A), $1$ chose (E).
+\end{enumerate}
+
+\end{document}

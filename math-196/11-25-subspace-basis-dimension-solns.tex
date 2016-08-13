@@ -1,0 +1,181 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Diagnostic in-class quiz solutions: due Monday November 25: Subspace, basis, and dimension}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+23 people took this 3-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of 0: 2 people
+\item Score of 1: 8 people
+\item Score of 2: 6 people
+\item Score of 3: 7 people
+\end{itemize}
+
+The mean score was 1.78.
+
+The question-wise answers and performance review were as follows:
+
+\begin{enumerate}
+\item Option (A): 15 people %$15$ people
+\item Option (E): 11 people %$12$ people
+\item Option (C): 15 people %$8$ people
+\end{enumerate}
+
+\section{Solutions}
+
+{\bf PLEASE DO NOT DISCUSS {\em ANY} QUESTIONS.}
+
+This quiz covers material related to the {\tt Linear dependence, bases
+  and subspaces} notes corresponding to Sections 3.2 and 3.3 of the
+text.
+
+Keep in mind the following facts. Suppose $T:\R^m \to \R^n$ is a
+linear transformation. Suppose $A$ is the matrix for $T$, so that
+$T(\vec{x}) = A\vec{x}$ for all $\vec{x} \in \R^m$. Then, $A$ is a $n
+\times m$ matrix. Further, the following are true:
+
+\begin{itemize}
+\item The dimension of the image of $T$ equals the rank of $A$.
+\item The dimension of the kernel of $T$, called the {\em nullity} of
+  $A$, is $m$ minus the rank of $A$.
+\end{itemize}
+
+\begin{enumerate}
+\item {\em Do not discuss this!}: Suppose $T:\R^m \to \R^n$ is a
+  linear transformation. What is the best we can say about the
+  dimension of the image of $T$?
+
+  \begin{enumerate}[(A)]
+  \item It is at least $0$ and at most $\min \{m,n\}$. However, we
+    cannot be more specific based on the given information.
+  \item It is at least $0$ and at most $\max \{m,n \}$. However, we
+    cannot be more specific based on the given information.
+  \item It is at least $\min \{ m,n \}$ and at most $\max \{ m,n
+    \}$. However, we cannot be more specific based on the given information.
+  \item It is at least $\min \{ m,n \}$ and at most $m + n$. However,
+    we cannot be more specific based on the given information.
+  \item It is at least $\max \{ m,n \}$ and at most $m + n$. However,
+    we cannot be more specific based on the given information.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: The dimension of the image equals the rank of the
+  matrix for $T$, which is a $n \times m$ matrix, hence is at most
+  $\min \{ m, n\}$. It is at least $0$ for obvious reasons. It is easy
+  to see that there exist examples for each possible dimension ranging
+  from $0$ to $\min \{ m,n \}$.
+
+  {\em Performance review}: 15 out of 23 people got this. 5 chose (E),
+  2 chose (B), 1 chose (C).
+
+  {\em Historical note (last time)}: $15$ out of $26$ got this. $5$ chose (C),
+  $3$ each chose (B) and (D).
+
+\item {\em Do not discuss this!}: Suppose $T_1,T_2:\R^m \to \R^n$ are
+  linear transformations. Suppose the images of $T_1$ and $T_2$ have
+  dimensions $d_1$ and $d_2$ respectively. What can we say about the
+  dimension of the image of $T_1 + T_2$? Assume that both $m$ and $n$
+  are larger than $d_1 + d_2$.
+
+  \begin{enumerate}[(A)]
+  \item It is precisely $|d_2 - d_1|$.
+  \item It is precisely $\min \{ d_1, d_2 \}$.
+  \item It is precisely $\max \{ d_1, d_2 \}$.
+  \item It is precisely $d_1 + d_2$.
+  \item Based on the information, it could be any integer $r$ with
+    $|d_2 - d_1| \le r \le d_1 + d_2$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: The image of $T_1 + T_2$ is contained in the sum
+  of the images of $T_1$ and $T_2$, hence its dimension is at most the
+  dimension of the sum of the images of $T_1$ and $T_2$. The dimension
+  of the sum of subspaces is at most equal to the sum of the
+  dimensions (because we can take the union of the spanning
+  sets). Thus, the dimension of the image of $T_1 + T_2$ is at most
+  equal to $d_1 + d_2$.
+
+  For the lower bound of $|d_2 - d_1|$, note that the dimension of the
+  image of $T_1$ is at most the sum of the dimensions of the images of
+  $T_1 + T_2$ and of $T_2$ and also that the dimension of the image of
+  $T_2$ is at most the sum of the dimensions of the images of $T_1 +
+  T_2$ and of $T_1$. This gives lower bounds of $d_1 - d_2$ and $d_2 -
+  d_1$ respectively on the dimension of the image of $T_1 + T_2$. The
+  maximum of these is $|d_2 - d_1|$, which is the lower bound.
+
+  It is easy to construct examples of diagonal matrices with $0$, $1$
+  and $-1$ as the diagonal entries to realize any $r$ with $|d_2 -
+  d_1| \le r \le d_1 + d_2$.
+
+  {\em Performance review}: 11 out of 23 people got this. 7 chose (C),
+  3 chose (B), 2 chose (D).
+
+  {\em Historical note (last time)}: $12$ out of $26$ got this. $8$ chose (B),
+  $2$ each chose (A) and (C), $1$ chose (D).
+
+\item {\em Do not discuss this!}: Suppose $V_1$ and $V_2$ are
+  subspaces of $\R^n$. We define the sum $V_1 + V_2$ as the subset of
+  $\R^n$ comprising all vectors that can be expressed as a sum of a
+  vector in $V_1$ and a vector in $V_2$. Define $V_1 \cup V_2$ as the
+  set-theoretic union of $V_1$ and $V_2$, i.e., the set of all vectors
+  that are either in $V_1$ or in $V_2$. What can we say about these?
+
+  \begin{enumerate}[(A)]
+  \item $V_1 \cup V_2 = V_1 + V_2$ and it is a subspace of $\R^n$.
+  \item $V_1 \cup V_2$ is contained in $V_1 + V_2$ and both are subspaces of $\R^n$.
+  \item $V_1 \cup V_2$ is contained in $V_1 + V_2$, and $V_1 + V_2$ is
+    a subspace of $\R^n$. $V_1 \cup V_2$ is generally not a subspace
+    of $\R^n$ (though it might be in special cases).
+  \item $V_1 \cup V_2$ contains $V_1 + V_2$, and both are subspaces of $\R^n$.
+  \item $V_1 \cup V_2$ contains $V_1 + V_2$, and $V_1 \cup V_2$ is a
+    subspace of $\R^n$. $V_1 + V_2$ is generally not a subspace of
+    $\R^n$ (though it might be in special cases).
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: $V_1 + V_2$ is defined as the set of all vectors
+  that can be expressed as the sum of a vector in $V_1$ and a vector
+  in $V_2$. In particular, it contains both $V_1$ and $V_2$. The
+  reason it contains $V_1$ is that any vector in $V_1$ can be written
+  as itself plus the {\em zero vector} of $V_2$. The reason it
+  contains $V_2$ is that any vector in $V_2$ can be written as the
+  {\em zero vector} of $V_1$ plus that vector itself.
+
+  Thus, $V_1 \cup V_2$ is contained in $V_1 + V_2$. They need not be
+  equal. For instance, consider the case that $V_1$ is the span of
+  $\vec{e}_1$ and $V_2$ is the span of $\vec{e}_2$ inside $\R^n$. The
+  union of these is the set of vectors that are on either of the
+  axes. It is a union of two perpendicular lines. The sum on the other
+  hand is the plane spanned by the first two coordinates. The sum
+  includes linear combinations where both spaces contribute
+  nontrivially.
+
+  This also hints at why $V_1 \cup V_2$ does not need to be a
+  subspace: it contains both subspaces, but not the vectors that are
+  obtained by combining nonzero vectors from both subspaces. In fact,
+  $V_1 \cup V_2$ is a subspace if and only if it equals $V_1 + V_2$,
+  and this happens if and only if either $V_1 \subseteq V_2$ or $V_2
+  \subseteq V_1$.
+
+  {\em Performance review}: 15 out of 23 got this. 5 chose (D), 2
+  chose (B), 1 chose (E).
+
+  {\em Historical note (last time)}: $8$ out of $26$ got this. $10$ chose (B),
+  $4$ chose (E), $2$ chose (D), $1$ chose (A).
+
+\end{enumerate}
+\end{document}

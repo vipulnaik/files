@@ -1,0 +1,469 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: February 3: Differential equations}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$10$ people took this $8$-question quiz. The score distribution was as
+follows:
+
+\begin{itemize}
+\item Score of $4$: $3$ people.
+\item Score of $5$: $1$ person.
+\item Score of $6$: $2$ people.
+\item Score of $7$: $4$ people.
+\end{itemize}
+
+The mean score was $5.18$. The question wise answers are given
+below. {\em I strongly recommend reviewing all solutions, even for
+questions that you got right.}
+
+\begin{enumerate}
+\item Option (D): $5$ people
+\item Option (A): $10$ people
+\item Option (B): $7$ people
+\item Option (B): $9$ people
+\item Option (A): $7$ people
+\item Option (C): $9$ people
+\item Option (A): $7$ people
+\item Option (E): $3$ people
+\end{enumerate}
+\section{Solutions}
+
+\begin{enumerate}
+\item It takes time $T$ for $1/10$ of a radioactive substance to
+  decay. How much does it take for $3/10$ of the same substance to
+  decay?
+  
+  \begin{enumerate}[(A)]
+  \item Between $T$ and $2T$
+  \item Between $2T$ and $3T$
+  \item Exactly $3T$
+  \item Between $3T$ and $4T$
+  \item Between $4T$ and $5T$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: In time $T$, the material reduces to $0.9$ of its
+  original value. In time $3T$, it reduces to $0.9^3 = 0.729$ of its
+  original value. In time $4T$, it reduces to $0.9^4 = 0.6561$ of its
+  original value. The time taken for $3/10$ to decay, which means that
+  it must reduce to $0.7$ of its original value, is thus between $3T$
+  and $4T$.
+
+  {\em Intuitive rationale}: The time taken for
+  the first $1/10$ to decay is less than the time taken for the next
+  $1/10$ to decay, because the next $1/10$ is, as a fraction, $1/9$ of
+  what is left. Thus, the total time taken for $2/10$ to decay is
+  slightly more than twice the time taken for $1/10$ to
+  decay. Reasoning similarly, we see that the total time taken for
+  $3/10$ to decay is slightly more than thrice the time taken for
+  $1/10$ to decay.
+
+  {\em Performance review}: $5$ out of $10$ got this. $4$ chose (E),
+  $1$ chose (C).
+
+  {\em Historical note (last year)}: $22$ out of $26$ people got this
+  correct. $2$ people chose (A) and $1$ person each chose (B) and
+  (C). Many people did lengthy calculations involving $\ln$.
+
+  {\em Action point}: Please make sure you understand the {\em
+  intuitive rationale} presented above, so that you can answer this
+  question faster.
+
+\item Suppose a function $f$ satisfies the differential equation
+  $f''(x) = 0$ for all $x \in \R$. Which of the following is true
+  about $\lim_{x \to \infty} f(x)$ and $\lim_{x \to -\infty} f(x)$?
+
+  \begin{enumerate}[(A)]
+  \item If either limit is finite, then both are finite and they are
+    equal. Otherwise, both the limits are infinities of opposite
+    signs.
+  \item If either limit is finite, then both are finite and they are
+    equal. Otherwise, both the limits are infinities of the same sign.
+  \item One of the limits is finite and the other is infinite.
+  \item Both the limits are finite and unequal.
+  \item Both the limits are infinite but they may be of the same or of
+    opposite signs.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Solving, we see that $f(x)$ is a function of the
+  form $ax + b$, where $a$ and $b$ are constants. There are three
+  cases: $a = 0$, in which case $f$ is a constant function, $a > 0$,
+  in which case $f$ approaches $+\infty$ as $x \to \infty$ and
+  approaches $-\infty$ as $x$ approaches $-\infty$, and $a < 0$, in
+  which case $f$ approaches $-\infty$ as $x$ approaches $+\infty$ and
+  approaches $-\infty$ as $x$ approaches $+\infty$.
+
+  {\em Performance review}: All $10$ got this.
+
+  {\em Historical note (last year)}: $13$ out of $26$ people got this
+  correct. $6$ people chose (B) and $7$ people chose (E). Of the
+  people who chose (B), some seem to have mistakenly considered the
+  general solution to be quadratic rather than linear.
+\item For $y$ a function of $x$, consider the differential equation
+  $(y')^2 - 3yy' + 2y^2 = 0$. What is the description of the {\bf
+  general solution} to this differential equation?
+
+  \begin{enumerate}[(A)]
+  \item $y = C_1e^x + C_2e^{2x}$, where $C_1$ and $C_2$ are arbitrary
+    real numbers.
+  \item $y = C_1e^x + C_2e^{2x}$, where $C_1$ and $C_2$ are real
+    numbers satisfying $C_1C_2 = 0$ (i.e., at least one of them is
+    zero)
+  \item $y = C_1e^x + C_2e^{2x}$, where $C_1$ and $C_2$ are real
+    numbers satisfying $C_1 + C_2 = 0$.
+  \item $y = C_1e^x + C_2e^{2x}$, where $C_1$ and $C_2$ are real
+    numbers satisfying $C_1C_2 = 1$.
+  \item $y = C_1e^x + C_2e^{2x}$, where $C_1$ and $C_2$ are real
+    numbers satisfying $C_1 + C_2 = 1$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Factorize to obtain:
+
+  $$(y' - y)(y' - 2y) = 0$$
+
+  Thus, either $y' = y$ or $y' = 2y$. Note that for both these
+  solutions to hold together, we must have $y = 0$ at some point, in
+  which case it is identically zero. Thus, it cannot shift from one
+  solution to the other. So, either $y' = y$ identically or $y' = 2y$
+  identically.
+
+  In case $y' = y$ identically, we get $y = C_1e^x$ and in case $y' =
+  2y$ identically, we get $y = C_2e^{2x}$. The general solution can be
+  written as $C_1e^x + C_2e^{2x}$, with the proviso that at least one
+  among $C_1$ and $C_2$ is zero.
+
+  {\em Performance review}: $7$ out of $10$ got this. $1$ each chose
+  (A), (C), and (E).
+
+  {\em Historical note (last year)}: $12$ out of $26$ people got this
+  correct. $8$ people chose (C), $4$ people chose (A), $1$ person
+  chose (E), and $1$ person left the question blank.
+
+\item Suppose $F(t)$ represents the number of gigabytes of disk space
+  that can be purchased with one dollar at time $t$ in commercially
+  available disk drive formats (not adjusted for inflation). Empirical
+  observation shows that $F(1980) \approx 5 * 10^{-6}$, $F(1990) \approx
+  10^{-4}$, $F(2000) \approx 10^{-1}$, and $F(2010) \approx 10$. From
+  these data, what is a good estimate for the ``doubling time'' of
+  $F$, i.e., the time it takes for the number of gigabytes
+  purchaseable with a dollar to double?
+  \begin{enumerate}[(A)]
+  \item Between $6$ months and $1$ year.
+  \item Between $1$ year and $2$ years.
+  \item Between $2$ years and $4$ years.
+  \item Between $4$ years and $5$ years.
+  \item Between $5$ years and $6$ years.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: From the given data, the amount by which $F$
+  multiplies in ten years is roughly $100$. Note that the first
+  doubling time is about $20$, the next one is about $1000$, and the
+  next one is $100$. That's just the way real-world data is messy!
+
+  Overall, it seems to be greater than $30$ (although the 1980-1990
+  period comes slightly less than that) and less than $1000$.
+
+  The first period (1980-1990) could be a little misleading in this
+  sense. To get the best estimate, it makes sense to look at a longer
+  time period, so looking at the overall time period of 30 years from
+  1980 to 2010 gives a total multiplication of $2 * 10^6$ over 30
+  years, which is closest to multiplication by $10^2$ every $10$
+  years.
+
+  If the doubling time is $1$ year, then in ten years, $F$ would
+  multiply by $2^{10} = 1024$, which is too lrage. If the doubling
+  time is $2$ years, then in ten years, $F$ would multiply by $2^5 =
+  32$, which is too small. The right doubling time is likely to
+  therefore be between $1$ and $2$ years.
+  
+  {\em Real world thinking}: Do you remember what USB drives, external
+  disk drives, etc. used to cost two years ago per GB? Compare those
+  costs with today. Do you remember how much disk space was there in a
+  typical iPod, iPhone, or other smartphone? Compare that disk space
+  with today. Do you see the doubling?
+
+  By the way, this is related to (but not the same as)``Kryder's law''
+  which in turn is analogous to Moore's law.
+
+  {\em Performance review}: $9$ out of $10$ got this. $1$ chose (C).
+
+  {\em Historical note (last year)}: $10$ out of $26$ people got this
+  correct. $7$ people chose (A) (mild optimism!), $6$ people chose (C)
+  (mild pessimism!), $2$ people chose (E) (superstrong pessimism!),
+  and $1$ person chose (D) (strong pessimism!).
+
+  {\em Action point}: This is a real-life question with real-world
+  data! These are the kinds of questions for which you should have an
+  intuitive feel. 
+\item The size $S$ of an online social network satisfies the
+  differential equation $S'(t) = kS(t)(1 - (S(t))/(W(t)))$ where
+  $W(t)$ is the world population at time $t$. Suppose $W(t)$ itself
+  satisfies the differential equation $W'(t) = k_0W(t)$ where $k_0$ is
+  positive but much smaller than $k$. How would we expect $S$ to
+  behave, assuming that initially, $S(t)$ is positive but much smaller
+  than $W(t)$?
+
+  \begin{enumerate}[(A)]
+  \item It initially appears like an exponential function with
+    exponential growth rate $k$, but over time, it slows down to
+    (roughly) an exponential function with exponential growth rate
+    $k_0$.
+  \item It initially appears like an exponential function with
+    exponential growth rate $k_0$, but over time, it speeds up to
+    (roughly) an exponential function with exponential growth rate $k$.
+  \item It behaves roughly like an exponential function with growth
+    rate $k_0$ for all time.
+  \item It behaves roughly like an exponential function with growth
+    rate $k$ for all time.
+  \item It initially behaves like an exponential function with
+    exponential growth rate $k$ but then it starts declining.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Here is a conceptual explanation. Initially, the
+  growth of the social network is not directly or visibly constrained
+  by the size of the world population. The factor $1 - (S(t))/(W(t))$
+  is very close to $1$ because $S(t)$ is much smaller than
+  $W(t)$. Thus, the differential equation is approximately $S'(t)
+  \approx kS(t)$, which is exponential with exponential growth rate
+  $k$.
+
+  When $S$ starts becoming comparable to $W$, then $1 - S(t)/W(t)$
+  becomes notably smaller than $1$. The asymptotic steady state would
+  occur when $1 - S(t)/W(t) = k_0/k$, i.e., $S(t) = W(t)(1 -
+  (k_0/k))$. If this state is achieved, then we would get $S'(t) =
+  k_0S(t)$, and also $W'(t) = k_0W(t)$. Thus, the size of the social
+  network and the world population are growing at the same exponential
+  rate, which means that the social network is used by a constant
+  fraction of the world's population.
+
+  This equilibrium steady state will not in practice be achieved in
+  finite time, but the asymptotic tendency will be to approach
+  this. Note that the smaller $k_0$ is compared to $k$, the larger the
+  equilibrium fraction $S/W$. If $k_0 = 0$ (so world population is
+  static), then $S/W \to 1$.
+
+  {\em Real world thinking}: For instance, think of Facebook, which
+  opened at Harvard in February 2004. Here, the $k$ of Facebook is
+  much higher than the $k_0$ for world population, so Facebook's
+  initial growth was viral, reaching about 150,000 in about three
+  months. Then the (exponential) growth rate sort of slowed down, so
+  Facebook reached a million users by about November 2004. If the same
+  (or even a slightly lower) {\em exponential} growth rate had
+  continued, Facebook would have already saturated the human
+  population well before the end of 2009, and would have had to start
+  looking at non-human ``people'' to maintain exponential growth.
+
+  Things have been (by and large) getting slower when measured in
+  terms of {\em exponential} growth rates, though faster in terms of
+  {\em linear} growth rates. In other words, Facebook's number of new
+  users per month is much higher today than it was in 2004, but its
+  {\em proportion} of new users per month is much lower (less than
+  $5\%$). Now that Facebook has about $12\%$ of the world's population,
+  it may soon be getting to the stage where the rate of Facebook
+  growth is limited by the rate of population growth.
+
+  {\em Performance review}: $7$ out of $10$ got this. $1$ each chose
+  (B), (D), and (E).
+
+  {\em Historical note (last year)}: $11$ out of $26$ people got this
+  correct. $8$ people chose (B), $3$ people chose (E), $2$ people
+  chose (D), $1$ person chose (C), and $1$ person left the question
+  blank.
+
+\item Suppose the growth of a population $P$ with time is described by
+  the equation $dP/dt = aP^{1 - \beta}$ with $a > 0$ and $0 < \beta <
+  1$. What can we say about the nature of the population as a function
+  of $t$, assuming that the population at time $0$ is positive?
+
+  \begin{enumerate}[(A)]
+  \item The population grows as a sub-linear power function of $t$,
+    i.e., roughly like $t^\gamma$ where $0 < \gamma < 1$.
+  \item The population grows as a linear power function of $t$, i.e.,
+    roughly like $t$.
+  \item The population grows as a superlinear power function of $t$,
+    i.e., roughly like $t^\gamma$ where $\gamma > 1$.
+  \item The population grows like an exponential function of $t$,
+    i.e., roughly like $e^{kt}$ for some $k > 0$.
+  \item The population grows super-exponentially, i.e., it eventually
+  surpasses any exponential function.
+  \end{enumerate}
+  
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Rearranging, we get:
+
+  $$P^{\beta - 1} dP = dt$$
+
+  Integrating both sides, we get:
+
+  $$P^\beta/\beta = t + C$$
+
+  Rearranging, we get:
+
+  $$P = (\beta(t + C))^{1/\beta}$$
+
+  Since $0 < \beta < 1$, $1/\beta > 1$. This form most closely matches
+  (C), with $\gamma = 1/\beta$.
+
+  {\em Performance review}: $9$ out of $10$ got this. $1$ chose (A).
+
+  {\em Historical note (last year)}: $8$ out of $26$ students got this
+  correct. $9$ people chose (A), which is probably because they got to
+  $P^\beta/\beta = t + C$ but failed to rearrange to express $P$ in
+  terms of $t$. $4$ people each chose (B) and (D) and $1$ person left
+  the question blank.
+
+  {\em Action point}: Please consider re-attempting this problem prior
+  to reviewing course material for the next midterm or final.
+\item Suppose the growth of a population $P$ with time is described by
+  the equation $dP/dt = aP^{1 + \theta}$ with $0 < \theta$ and $a >
+  0$. What can we say about the nature of the population as a function
+  of $t$, assuming that the population at time $0$ is positive?
+
+  \begin{enumerate}[(A)]
+  \item The population approaches infinity in finite time, and the
+    differential equation makes no sense beyond that.
+  \item The population increases at a decreasing rate and approaches a
+    horizontal asymptote, i.e., it proceeds to a finite limit as time
+    approaches infinity.
+  \item The population grows linearly.
+  \item The population grows super-linearly but sub-exponentially.
+  \item The population grows exponentially.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Rearranging, we get:
+
+  $$\int P^{-\theta - 1} \, dP = \int dt$$
+
+  Integrating from time $0$, we get:
+
+  $$\frac{P(0)^{-\theta} - P(t)^{-\theta}}{\theta} = t$$
+
+  Thus, we get:
+
+  $$P(t)^{-\theta} = P(0)^{-\theta} - t\theta$$
+
+  Thus, we get:
+
+  $$P(t) = [P(0)^{-\theta} - t\theta]^{-1/\theta}$$
+
+  In particular, as $t \to P(0)^{-\theta}/\theta$, $P(t) \to \infty$.
+
+  Using the specific value $\theta = 1$ may make the preceding
+  discussion easier to follow.
+
+  {\em Performance review}: $7$ out of $10$ got this. $2$ chose (B),
+  $1$ chose (D).
+
+  {\em Historical note (last year)}: $3$ out of $26$ students got this
+  correct. $10$ people chose (B) (which would be sort of correct, if
+  it weren't the case that the population had already gone off to
+  infinity), $7$ people chose (E), $5$ people chose (D), and $1$
+  person chose (C).
+
+  {\em Action point}: Please consider re-attempting this problem
+  during review for the next midterm and final.
+
+\item Let $r(t)$ denote the fractional growth rate per annum in per
+  capita income, which we denote by $I(t)$. In other words, $r(t) =
+  I'(t)/I(t)$, measured in units of (per year). It is observed that,
+  over a certain time period, $r'(t) = kr(t)$ for a positive constant
+  $k$. Assuming that the initial values of $I(t)$ and $r(t)$ are
+  positive, what best describes the nature of the function $I(t)$?
+
+  \begin{enumerate}[(A)]
+  \item $I(t)$ is a linear function of $t$, i.e., per capita income is
+    getting incremented by a constant {\em amount} (rather than a
+    constant proportion).
+  \item $I(t)$ is a super-linear but sub-exponential function of $t$,
+    i.e., per capita income is rising, but less than exponentially.
+  \item $I(t)$ is an exponential function of $t$, i.e., per capita
+    income is rising by a constant proportion per year.
+  \item $I(t)$ is a super-exponential function of $t$ but slower than
+    a doubly exponential function of $t$.
+  \item $I(t)$ is a doubly exponential function of $t$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+  
+  {\em Explanation}: Intuitively, the exponential rate of growth is
+  itself growing exponentially, so the overall growth is doubly
+  exponential.
+
+  Formally, $r(t) = r(0)e^{kt}$. Then, we have:
+
+  $$\frac{dI}{I dt} = r(t)$$
+
+  Thus, we get:
+
+  $$\frac{dI}{Idt} = r(0)e^{kt}$$
+
+  Rearranging, we get:
+
+  $$\frac{dI}{I} = r(0)e^{kt} \, dt$$
+
+  Integrating from $0$ to $t$, we get:
+
+  $$\ln(I(t)/I(0)) = \frac{r(0)(e^{kt} - 1)}{k}$$
+
+  Exponentiating, we get:
+
+  $$I(t) = I(0)\exp[\frac{r(0)(e^{kt} - 1)}{k}]$$
+
+  This is doubly exponential in $t$.
+
+  {\em Real world thinking}: This is a very important question since
+  the answer to it reflects the way you think about growth. When you
+  see a {\em constant} growth rate for income measured in percentage
+  terms, that means that income is growing exponentially. When the
+  growth rate {\em itself} is growing exponentially, then income is
+  growing doubly exponentially.
+
+  Does doubly exponential growth occur in the real world? Possibly,
+  but one reason why it goes unnoticed is that the exponential rate of
+  growth of the exponential rate of growth is too slow and is hidden
+  by seasonal fluctuations. Taking the long view, we see that rates of
+  growth {\em have} increased. Annual per capita income growth before
+  1800 was less than $1\%$ almost everywhere in the world, now it is
+  $2\%$ or higher in developed countries and often more than $5\%$ in
+  developing countries. Similarly, the ``doubling time'' of a number
+  of technologies (Moore's law-related) has been falling, albeit very
+  slowly. It may not be the case, however, that this double
+  exponentiality will be a continuing feature.
+
+  {\em Performance review}: $3$ out of $10$ got this. $5$ chose (B),
+  $2$ chose (D).
+
+  {\em Historical note (last year)}: $2$ people got this correct, $5$
+  people chose option (D), $10$ people chose option (C) (pessimists!),
+  $6$ people chose option (B) (strong pessimists)!, $2$ people chose
+  option (A) (super-strong pessimists!), and $1$ person left the
+  question blank.
+
+  {\em Action point}: Get some real world intuition! Please re-attempt
+  this problem some time and review the solution.
+\end{enumerate}
+
+\end{document}

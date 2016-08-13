@@ -1,0 +1,181 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: October 14: Derivatives}
+\author{Math 152, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$11$ people took this quiz. Everybody got all questions correct!
+
+The problem wise answers and performance review are below:
+\begin{enumerate}
+\item Option (E): Everybody
+\item Option (C): Everybody
+\item Option (D): Everybody
+\item Option (D): Everybody
+\end{enumerate}
+
+Good job!
+
+\section{Solutions}
+\begin{enumerate}
+
+\item Suppose $f$ and $g$ are functions from $\R$ to $\R$ that are
+  everywhere differentiable. Which of the following functions is/are
+  guaranteed to be everywhere differentiable?
+
+  \begin{enumerate}[(A)]
+
+  \item $f + g$
+  \item $f - g$
+  \item $f \cdot g$
+  \item $f \circ g$
+  \item All of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: In fact, we have explicit formulas for the
+  derivatives of all of these in terms of the derivatives of $f$ and
+  $g$. We have $(f + g)' = f' + g'$ and $(f - g)' = f' - g'$. We also
+  have the product rule and chain rule for options (C) and (D).
+
+  Note that for the composition, we are using something more: since
+  these are functions on the whole real line $\R$, the value $g(x)$
+  also lies in the domain of $f$, hence it makes sense to compose.
+
+  {\em Performance review}: Everybody got this correct
+
+  {\em Historical note (last year)}: $13$ out of $14$ people got this
+  correct. $1$ person chose a multitude of options. {\em Note: The
+  answer should always be exactly one option.}
+
+\item Suppose $f$ and $g$ are both twice differentiable functions
+  everywhere on $\R$. Which of the following is the correct formula
+  for $(f \cdot g)''$?
+
+  \begin{enumerate}[(A)]
+  \item $f'' \cdot g + f \cdot g''$
+  \item $f'' \cdot g + f' \cdot g' + f \cdot g''$
+  \item $f'' \cdot g + 2f' \cdot g' + f \cdot g''$
+  \item $f'' \cdot g - f' \cdot g' + f \cdot g''$
+  \item $f'' \cdot g - 2f' \cdot g' + f \cdot g''$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: We differentiate once to get:
+
+  $$(f \cdot g)' = f' \cdot g + f \cdot g'$$
+
+  Now we differentiate both sides. The left side becomes $(f \cdot
+  g)''$. The right side is a sum of two terms, so we get:
+
+  $$(f \cdot g)'' = (f' \cdot g)' + (f \cdot g')'$$
+
+  We now apply the product rule to each piece on the right side to get:
+
+  $$(f \cdot g)'' = [f'' \cdot g + f' \cdot g'] + [f' \cdot g' + f \cdot g'']$$
+
+  Combining terms, we get option (C).
+
+  {\em Remark}: In general, there is a binomial theorem-like formula
+  for the $n^{th}$ derivative of $f \cdot g$. I've given the formula
+  below, but it will make sense only to people who have seen summation
+  notation and the binomial coefficients, which we have not yet done:
+
+  $$(f \cdot g)^{(n)} = \sum_{k=0}^n \binom{n}{k} f^{(k)}g^{(n - k)}$$
+
+  This is a lot like the binomial theorem expansion for $(a +
+  b)^n$. It can be proved purely formally using induction from the
+  product rule.\footnote{One of the things I'm doing research on has
+  to do with the fact above, albeit with a completely different notion
+  of differentiation.}
+
+  {\em Performance review}: Everybody got this correct
+
+  {\em Historical note (last year)}: $13$ out of $14$ people got this
+  correct. $1$ person chose option (E), though that person's rough work
+  gave option (C).
+\item Suppose $f$ and $g$ are both twice differentiable functions
+  everywhere on $\R$. Which of the following is the correct formula
+  for $(f \circ g)''$?
+
+  \begin{enumerate}[(A)]
+
+  \item $(f'' \circ g) \cdot g''$
+  \item $(f'' \circ g) \cdot (f' \circ g') \cdot g''$
+  \item $(f'' \circ g) \cdot (f' \circ g') \cdot (f \circ g'')$
+  \item $(f'' \circ g) \cdot (g')^2 + (f' \circ g) \cdot g''$
+  \item $(f' \circ g') \cdot (f \circ g) + (f'' \circ g'')$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: This question is tricky because it requires the
+  application of both the product rule and the chain rule, with the
+  latter being used twice. We first note that:
+
+  $$(f \circ g)' = (f' \circ g) \cdot g'$$
+
+  Now, we differentiate both sides:
+
+  $$(f \circ g)'' = [(f' \circ g) \cdot g']'$$
+
+  The expression on the right side that needs to be differentiated is
+  a product, so we use the product rule:
+
+  $$(f \circ g)'' = [(f' \circ g)' \cdot g'] + [(f' \circ g) \cdot g'']$$
+
+  Now, the inner composition $f' \circ g$ needs to be
+  differentiated. We use the chain rule and obtain that $(f' \circ g)'
+  = (f'' \circ g) \cdot g'$. Plugging this back in, we get:
+
+  $$(f \circ g)'' = (f'' \circ g) \cdot (g')^2 + (f' \circ g) \cdot g''$$
+
+  {\em Remark}: What's worth noting here is that in order to
+  differentiate composites of functions, you need to use both
+  composites {\em and} products (that's the chain rule). And in order
+  to differentiate products, you need to use both products {\em and}
+  sums (that's the product rule). Thus, in order to differentiate a
+  composite twice, we need to use composites, products, {\em and}
+  sums.
+
+  {\em Performance review}: Everybody got this correct
+
+  {\em Historical note (last year)}: $14$ out of $14$ people got this
+  correct. This is great! I had expected that many of you would be put
+  off by the messy computation, but apparently you were unfazed.
+
+\item Suppose $f$ is an everywhere differentiable function on
+  $\R$ and $g(x) := f(x^3)$. What is $g'(x)$?
+
+  \begin{enumerate}[(A)]
+  \item $3x^2f(x)$
+  \item $3x^2f'(x)$
+  \item $3x^2f(x^3)$
+  \item $3x^2f'(x^3)$
+  \item $f'(3x^2)$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Put $h(x) := x^3$. Then $g = f \circ h$. Thus,
+  $g'(x) = f'(h(x))h'(x) = f'(x^3) \cdot (3x^2)$, giving option (D).
+
+  {\em Performance review}: Everybody got this correct
+
+  {\em Historical note (last year)}: $13$ out of $14$ people got this
+  correct. $1$ person chose option (B), which is a close distractor if
+  you're not paying attention.
+\end{enumerate}
+
+\end{document}

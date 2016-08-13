@@ -1,0 +1,843 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Functions: a rapid review (part 1)}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Difficulty level}: Easy to moderate. Most of these are ideas you
+should have encountered either implicitly or explicitly in the past.
+
+{\bf Covered in class?}: This will roughly correspond to material
+covered on Monday September 26. Most of the trickier aspects of this
+will be covered in class, but many small points will be omitted due to
+time constraints. Hence, it is recommended that you read through these
+notes either before or after lecture.
+
+{\bf Corresponding material in the book}: Sections 1.5, 1.6. Note that
+the book covers the same material with somewhat different language and
+different examples of functions, so you should go through it before or
+while doing the homework problems.
+
+{\bf Corresponding material in homework problems}: Homework 1, routine
+problems 1--6 (all from section 1.5), advanced problem 1.
+ 
+{\bf Things that students should get immediately}: The concepts of
+function, domain, range, expression for function, table of values for
+a function, graph of a function, the notion of piecewise defined
+function, polynomials, rational functions, absolute value function,
+signum function, positive part function.
+
+{\bf Things that students should get with effort}: How to obtain a
+piecewise definition for a maximum or minimum of two functions, how to
+determine the domain and range of a function.
+
+\section*{Executive review}
+
+This review will probably be reproduced (with minor modifications) in
+the midterm review sheet. It is meant as a {\em review summary} of
+these lecture notes -- capturing those aspects of these notes that are
+important on a second reading, and {\em ignoring} those things that
+are significant for first time learning but not so important later on.
+
+For first time reading, skip to the next section.
+
+Words ...
+
+\begin{enumerate}
+
+\item The {\em domain} of a function is the set of possible
+  inputs. The {\em range} is the set of possible outputs. When we say
+  $f:A \to B$ is a function, we mean that the domain is $A$, and the
+  range is a {\em subset} of $B$ (possibly equal to $B$, but also
+  possibly a proper subset).
+\item The main fact about functions is that {\em equal inputs give
+  equal outputs}. We deal here with functions whose domain and range
+  are both subsets of the real numbers.
+\item We typically define a function using an algebraic expression,
+  e.g. $f(x) := 3 + \sin x$. When an algebraic expression is given
+  without a specified domain, we take the domain to be the largest
+  possible subset of the real numbers for which the function makes
+  sense.
+\item Functions can be defined piecewise, i.e., one definition on one
+  part of the domain, another definition on another part of the
+  domain. Interesting things happen where the function changes
+  definition.
+\item Functions involving absolute values, max of two functions, min
+  of two functions, and other similar constructions end up having
+  piecewise definitions.
+\end{enumerate}
+
+Actions (think back to examples where you've dealt with these issues)...
+
+\begin{enumerate}
+\item To find the (maximum possible) domain of a function given using
+  an expression, exclude points where:
+  
+  \begin{enumerate}
+  \item Any denominator is zero.
+  \item Any expression under the square root sign is negative.
+  \item Any expression under the square root sign in the denominator is
+    zero or negative.
+  \end{enumerate}
+
+\item To find whether a given number $a$ is in the range of a function
+  $f$, try solving $f(x) = a$ for $x$ in the domain.
+\item To find the range of a given function $f$, try solving $f(x) =
+  a$ with $a$ now being an {\em unknown constant}. Basically, solve
+  for $x$ in terms of $a$. The set of $a$ for which there exists one
+  or more value of $x$ solving the equation is the range.
+\item To write a function defined as $H(x) := \max \{ f(x), g(x) \}$
+  or $h(x) := \min\{ f(x), g(x) \}$ using a piecewise definition, find
+  the points where $f(x) - g(x)$ is zero, find the points where it is
+  positive, and find the points where it is inegative. Accordingly,
+  define $h$ and $H$ on those regions as $f$ or $g$.
+\item To write a function defined as $h(x) := |f(x)|$ piecewise, split
+  into regions based on the sign of $f(x)$.
+\item To solve an equation for a function with a piecewise definition,
+  solve for each definition within the piece (domain) for which that
+  definition is satisfied.
+\end{enumerate}
+
+\section{What is a function?}\label{whatisafunction}
+
+\subsection{Inputs and outputs, or so they say}
+
+We're going to begin by talking about functions. You've probably
+already seen functions in some form in calculus and precalculus. You
+may have seen both the general concept of function and lots of
+specific examples. In this course, we try to be a lot more precise
+about what a function means. This precision will be very important
+because functions are used for modeling purposes throughout
+mathematics and mathematically based disciplines.
+
+A function is something that ``takes in'' (or {\em eats} or {\em
+gobbles}) an input and ``gives out'' (or {\em spits}) an output. Some
+people think of a function as a {\em black box} or {\em machine} into
+which you feed in input and get output. For instance, you put in money
+into a cola vending machine and get out a cola. In today's computer
+age, you might enter an input value onto a computer screen and get an
+output. We say that a function {\em maps} the input to the output, so
+functions are also called {\em mappings} or {\em maps}. Some people
+say that a function {\em sends} an input to an output. Functions can
+also be thought of as {\em rules} or {\em assignments}.
+
+\subsection{The real bite: equal inputs give equal outputs}
+
+So what's missing from this description? Well, the most important
+thing about a function is that when you put in one input, you get one
+output, and the output depends only on the input. In other words, {\em
+equal inputs should give equal outputs}. So it doesn't depend on who
+feeds the input or how the machine is feeling at the time it is fed
+in. The output depends on the input, and only on the input. This
+dependence is what we call a {\em functional} dependence.
+
+So is Google a function? It takes in your query and outputs a bunch of
+search results. But in another sense, it isn't a function, because
+Google's results keep changing with time and other factors. What about
+temperature? Is temperature a function of time?  No, because what the
+temperature is at a given time depends on where you measure it. On the
+other hand, the temperature at a particular point in space {\em is} a
+function of time.
+
+So, in order to make something a function, you have to specify enough
+input so that the output is determined based on that.
+
+In this course sequence, we will not be looking at functions with
+weird inputs and weird outputs. For the most part, our inputs will be
+single real numbers and our outputs will be single real numbers. So,
+although the concept of function is very general, we will be
+restricting to very particular kinds of functions to which we can
+apply tools specifically developed for real numbers.
+
+There are two important concepts related to functions: the {\em
+domain} and {\em range}. We'll talk about these in more detail as we
+proceed, but here's the rough description: the {\em domain is the set
+of all possible (sensible) inputs to the function} and the {\em range
+is the set of all possible outputs of the function}.
+
+\subsection{Of circumferences and diameters: an illustrative example}
+
+Let's first consider a ``real-world'' problem. The wheel of your
+bicycle has diameter $d$. You want to find out the circumference of
+your wheel. In more abstract jargon, you want to find out the
+circumference of a circle {\em in terms of} its diameter.
+
+The first question you should ask is: does the circumference {\em depend
+only on} the diameter? That's not a silly question, even if in this
+case it seems intuitively clear to some people. What does my question
+mean? What it means is that if two circles have the same diameter, is
+it necessary that they have the same circumference? If that isn't the
+case, then we don't have a function.
+
+In this case, the answer is {\em yes}. If the diameter is the same,
+the circles are congruent -- you can translate one over to cover the
+other. So their circumference should be the same. So yes, we do have a
+function. But what kind of function is it?
+
+Now, here's the thing. We have this loose reasoning that says that
+there is a function that takes in an input $d$ and spits out an
+input. Let's call this function $f$. The value obtained by applying
+$f$ to $d$ is denoted $f(d)$. What this really means is $f$ evaluated
+at $d$ or the value of $f$ at $d$. [Sidenote: In geometric settings, I
+will abuse matters a little bit and conflate real numbers with length
+measurements. The implicit idea everywhere is to choose a unit of
+measurement, and all inputs are measured in those units. I will
+perform this abuse on a regular basis. I could be more precise, but
+you'll find this abuse everywhere so might as well get used to it.] So
+$f(1)$ denotes the circumference of a circle with diameter $1$, and
+$f(2)$ denotes the circumference of a circle with diameter $2$.
+
+So far so good. Happy? Not quite. We've just shown there is a
+function, but from a computational point of view, we haven't done
+anything. What we would like to do is have some expression for $f$
+that makes it easy to calculate. As it happens, various ancient
+civilizations (the Greeks and Indians) showed that $f(d) = \pi d$,
+where $\pi$ is some number. They also calculated the first few digits
+of $\pi$, $\pi = 3.141592 \dots$. So this finally gives a formula.
+
+So $f(1) = \pi$, $f(2) = 2\pi$, $f(3) = 3\pi$, $f(\pi) = \pi^2$, and
+so on. What about $f(a + b)$? What's that? Well, to calculate $f$ of
+something, you do $\pi$ times that thing, that's what the formula
+tells you. So $f(a + b)$ is $\pi(a + b)$. What's that? That's $\pi a +
+\pi b$, by the distributivity laws you learned in primary school. 
+
+When you apply $f$ to something, you should make sure that you apply
+$f$ to {\em the whole thing}. A common error that students make
+is to just write $f(a + b) = \pi a + b$. That's wrong, because the
+{\em whole expression} $a + b$ has to be multipled by $\pi$. So, at
+the first stage of simplifying a function where the input is itself an
+expression, {\em please put parentheses around the input} wherever you
+write it down.
+
+Hey, but $\pi a = f(a)$ and $\pi b = f(b)$, so we have this really
+cool fact:
+
+\begin{equation*}
+  f(a + b) = f(a) + f(b) \ \forall \ a,b
+\end{equation*}
+
+The $\forall$ symbol above means {\em for all}. What
+we have is a rule that holds for all values you plug in for $a$ and
+$b$. Is this rule true for any function $f$, or only for the $f$ that
+we wrote down? Well, it turns out that this is true for $f$ because
+$f$ is a {\em linear function}: it is of the form $f(x) = cx$ for some
+constant $c$.
+
+What is $f(-1)$? The formula tells you it is $-\pi$. But hang
+on. What does it even mean to have a circle of diameter $-1$?
+Nothing. It's nonsense. It doesn't make sense. The diameter of a
+circle cannot be negative, even though the formula makes perfect sense
+for negative diameters.
+
+Which brings us to the concept of {\em domain}. The domain of a
+function is the set of values you can feed in as inputs. What's the
+domain of $f$? It is the set of {\em positive real numbers}. There are
+two ways to write this set: $\{ x \in \R \mid x > 0 \}$ and
+$(0,\infty)$. [Explain both, if many students don't understand.]
+
+So $f$ is a function {\em from} the positive reals {\em to} something
+-- where? The set of values that $f$ can possibly take is termed the
+{\em range} [SIDENOTE: There is a related concept of {\em co-domain}
+  that we will discuss later.] For this choice of function $f$, the
+range is also the set of positive real numbers.
+
+We write this as follows:
+
+\begin{equation*}
+  f: (0,\infty) \to (0,\infty), \qquad f(x) := \pi x
+\end{equation*}
+
+Note that I changed the letter from $d$ to $x$. That was bad board
+technique, but it is not mathematically a problem at all. Why? Because
+that's just a name, and there's nothing in a name. May be $d$'s real
+name is $d$, but I prefer to call it by the nickname (or alias)
+$x$. The main thing to take care of is that the letter inside the
+parentheses is the one used on the right side where the input should
+go.
+
+And by the way, that earlier equation was not quite correct. We should
+really have:
+
+\begin{equation*}
+  f(a + b) = f(a) + f(b) \ \forall \ a,b \in \operatorname{dom}(f)
+\end{equation*}
+
+or:
+
+\begin{equation*}
+  f(a + b) = f(a) + f(b) \ \forall \ a,b \in (0,\infty)
+\end{equation*}
+
+[SIDENOTE, may not be covered in class: By the way, what we're using
+here is the fact that, for this function $f$, if $a$ and $b$ are in
+the domain of $f$, so is $a + b$. Why is that? This basically goes
+back to the fact that the sum of two positive numbers is positive.]
+
+[SIDENOTE: Local memory, don't give two functions the same letter name
+in the same context, but feel free to reuse letters in different
+contexts. Function name letters are just like variables in this
+respect.]
+
+Let's look at some other functions coming from geometry:
+
+\begin{enumerate}
+
+\item Area of a rectangle as a function of the perimeter? No,
+  sorry. The perimeter does not give enough information to calculate
+  the area of the rectangle. For instance, we can have a long and thin
+  rectangle and a square of the same perimeter but very different
+  areas.
+\item Area of a square as a function of the perimeter? Yes, it is
+  $g(x) = x^2/16$, where $g$ has domain and range the set of positive
+  real numbers.
+
+\end{enumerate}
+
+Before we go into examples of functions, I just want to reiterate the
+following: {\em whether something is a function} is a very different
+question from {\em whether we have an expression to compute it}. You may be
+able to successfully prove that something is a function but be
+completely at a loss to actually compute it.
+
+\section{Some important classes of functions}
+
+\subsection{Constant functions}
+
+A constant function is a function where the output is the same for all
+inputs. A constant function can be identified by the constant value of
+the output. For instance, the {\em zero} function is the function that
+sends all its inputs to $0$.
+\subsection{Polynomial functions}
+
+The general expression for a polynomial looks like:
+
+\begin{equation*}
+  p(x) = a_0 + a_1x + \dots + a_nx^n
+\end{equation*}
+
+Here, the $a_i$ are all real numbers, and they're termed the {\em
+coefficients} of the polynomial. If $a_n \ne 0$, $n$ is the {\em
+degree} of the polynomial. $a_0$ is termed the {\em constant term} of
+the polynomial and $a_n$ is termed the {\em leading coefficient} of the
+polynomial.
+
+The coefficients of the polynomial are constants, in the sense that
+they do not depend on $x$. However, we haven't specified beforehand
+the values of these constants. So they're {\em unknown knowns}.
+
+Here are some concrete examples of polynomials:
+
+\begin{itemize}
+\item $2x - 5$ is a polynomial of degree $1$, with the constant term
+  $a_0 = -5$ and the leading coefficient $a_1 = 2$.
+\item $x^2 - 7x + 3$ is a polynomial of degree $2$ with the constant
+  term $a_0 = 3$, the middle coefficient $a_1 = -7$, and the leading
+  coefficient $a_2 = 1$.
+\item $x^3 - 2$ is a polynomial of degree $3$ with constant term $a_0
+  = -2$, leading coefficient $a_3 = 1$, and $a_1 = a_2 = 0$.
+\end{itemize}
+
+
+Polynomials are {\em globally defined functions}. In other
+words, they have domain the whole real numbers $\R$. This is just a
+fancy way of saying that you can evaluate a polynomial at any real
+number without getting into trouble.
+
+However, even though a function may be globally defined, we may
+sometimes be interested in restricting it to a smaller domain. For
+instance, in the circle example, we had the linear function $f(x) =
+\pi x$. That expression is defined for all real numbers. However, the
+real-world context from which we were getting the function required us
+to {\em restrict the function} to a smaller domain: the set of
+positive real numbers.
+
+[SIDENOTE, cover in class only if somebody raises the question: What
+about the range of a polynomial function? That turns out to be a
+trickier question. We will need to build more machinery before we can
+answer that question for arbitrary polynomials.]
+
+\subsection{Rational functions}
+
+Next, we consider rational functions. Here, we have the problem of
+vanishing denominators. So, the {\em largest possible domain} for a
+rational function is the real numbers minus all the points where the
+denominator vanishes. By the way, the points where a polynomial
+vanishes are called its {\em zeros} or {\em roots}. [SIDENOTE: See
+``Convention on domains'', Page 28, in the book.]
+
+For instance, consider the rational function $T(x) = x/(x^2 +
+1)$. What is the largest possible domain for this function? To answer
+this, first ask: where does the denominator vanish? Now, those of you
+who've not seen complex numbers may say -- nowhere. And those of you
+who've seen complex numbers will say $\pm i$. Yes, $\pm i$ are roots
+of the polynomial $x^2 + 1$. But in this course we are dealing with
+the real world. In all our discussions, whether I say it or not, all
+numbers that we deal with are real numbers. And $x^2 + 1$ has no real
+roots. So the denominator does not vanish anywhere and this rational
+function is globally defined on $\R$.
+
+Okay, what about this function called $FORGET$? $FORGET$ is defined by:
+
+\begin{equation*}
+  FORGET(x) = \frac{x}{x}
+\end{equation*}
+
+You may be tempted to cancel the $x$ and the $x$ and say that
+$FORGET(x) = 1$ and so it is always defined. But one of the things
+about rational functions is that you need to look at the rational
+function {\em as it is written}. You cannot cancel something unless it
+is guaranteed to be nonzero.
+
+So, at the point $0$, the function becomes $0/0$, which is
+undefined. At any other point, the function takes the value $0$. So,
+we find that the domain is the set of nonzero real numbers. How do we
+express this?
+
+We can use the set difference notation. The domain is written as
+$\R \setminus \{ 0 \}$. Or, we can think of it as the union of the
+negative and the positive numbers. In this case, the domain is
+$(-\infty,0) \cup (0,\infty)$. 
+
+\includegraphics[width=3in]{forgetfunction.png}
+
+\section{Computational tools}
+
+\subsection{The domain}
+
+When the domain is not explicitly specified or clear from the
+situational context, the convention (cf. Page 28, ``conventions on
+domains'', subtopic of Section 1.5) is to define the domain as the
+largest possible subset of $\R$ where the function {\em as given} can
+be evaluated. Some of the things you need to check for are:
+
+\begin{itemize}
+\item The denominator should not vanish. In other words, {\em we need
+  to exclude from the domain all points where any denominator becomes
+  zero}. For instance, $1/(x(x-1))$ is not defined at the points $0$
+  and $1$ because the denominator vanishes at these points.
+\item When you are taking the square root of some expression as a
+  sub-expression of the function, then the thing under the square root
+  should be nonnegative. For instance, for the function $\sqrt{x} +
+  \sqrt{1-x}$, we should have both $x \ge 0$ and $1 - x \ge 0$.
+\item When an expression under the square root is in the denominator,
+  then the thing under the square root should be positive.
+\end{itemize}
+
+When we introduce new functions such as the logarithm and exponents
+with arbitrary bases and exponents, we will introduce further rules
+for determining the domain of the function based on the domain
+properties of these functions.
+
+\subsection{The range}
+
+Let's try to translate the statement ``$a$ is in the range of $f$''
+into a form that is computationally tractable. What does it mean
+for $a$ to be in the range of $f$? It means that there exists a value
+of $x$ such that $a = f(x)$.
+
+For instance, consider the function $f(x) = 1/(x-1)$. How do we
+determine whether a given $a \in \R$ is in the range of $f$? Okay, now
+this might be a little too abstract and symbolic for some people, so I
+would urge you to do this little trick. Imagine that $a$ is some
+constant, some number {\em known to you} but not to me. So in your
+mind, instead of $a$, you see a specific number. But since that number
+is secret, you cannot reveal it to me and you have to call it $a$.
+
+So you have this number $a$ that's known to you and you need to find
+$x$ such that $f(x) = a$. Well, let's solve. We have:
+
+\begin{eqnarray*}
+  1/(x-1) & = &a \\
+  \implies 1/a & = & x - 1 \\
+  \implies x & = & 1 + (1/a)
+\end{eqnarray*}
+
+The goal is to determine whether there exists a $x$ such that $f(x) =
+a$. What we've actually done is obtained a formula for $x$ in terms of
+$a$. So for those $a$ where this formula makes sense, we actually do
+have a value of $x$. What are those $a$? Well, all nonzero reals. So
+when $a \ne 0$, we can find a $x$ such that $f(x) = a$. What about
+when $a = 0$? In this case, it's clear that $f(x) = a$ has no
+solution.
+
+Okay, so this is the rough idea. But other situations can be a little
+trickier. In some cases, you may get multiple values of $x$ mapping to
+a single value of $a$.
+
+Also see Examples 1 and 2, Page 28-29, and look at Exercises 18-30,
+Page 30 (all of these are within Section 1.5).
+
+\section{Describing a function}
+
+\subsection{Description by algebraic expression}
+
+So far we've discussed functions. Now, we want to discuss ways
+of describing functions. One way of describing functions is using an
+expression. We discussed examples of this last time, such as:
+
+\begin{align*}
+  f: (0, \infty) \to (0, \infty),& \qquad f(x) = \pi x \text{ sends diameter of circle to circumference}\\
+  g: (0, \infty) \to (0, \infty),& \qquad g(x) = x^2/16 \text{ sends perimeter of square to area} \\
+\end{align*}
+
+But, unless you have a deep algebraic understanding of the expression,
+this doesn't give a very good {\em feel} for the function. And in many
+cases, an expression may not exist, or we may not know what it is. So
+we employ two other tools: tabular listing and graphs.
+
+\subsection{Description by tabular listing and graphs}
+
+So let's do this tabular listing thing. Let's look at the function
+$f(x) = x^2 - x + 3$. We want to get a feel for this function. Where
+is it going up and down? How does it change? Let's try some numbers.
+
+\begin{tabular}{|r|r|}
+  \hline
+  $x$ & $f(x)$ \\
+  \hline
+  $-2$ & $9$ \\
+  $-1$ & $5$ \\
+  $0$ & $3$ \\
+  $1$ & $3$ \\
+  $2$ & $5$ \\
+  $3$ & $9$ \\
+  $4$ & $15$ \\
+  \hline
+\end{tabular}
+
+Do you see a picture here? Let's try to draw a graph for this
+function. What's a graph? Well, it is a picture we draw in the plane
+that allows us to read the value of the function at any point. We
+choose a system of coordinate axes. The horizontal axis is
+conventionally chosen to be the $x$-axis, with right positive, and the
+vertical axis is the $f(x)$-axis, with up positive. We then plot the
+points $(x,f(x))$ for all values of $x$ in the domain.
+
+\includegraphics[width=3in]{parabolagraph.png}
+
+Now, there are lots of real numbers, and we cannot plot the values for
+all of them. So what I'm going to do here is a little imprecise. We'll
+just plot the values at a few numbers (the ones we calculated in the
+table) and then try to find an easy-to-draw curve that passes through
+all those points. 
+
+So we draw this graph. Now notice that I sort of assumed that the
+graph moves smoothly, it doesn't have any unexpected kinks, like, it
+doesn't jump wildly in between the points I plotted. You should take
+that with a grain of salt. I haven't presented any evidence. To really
+check that the graph I have drawn represents reality, you need to
+check a lot of intermediate values.
+
+So, by the way, now that we have drawn the graph, two questions
+emerge: what's that bottom point for the graph? Or another way of
+putting it: what is the minimum value of $f(x)$ and at what value of
+$x$ is it attained? For the case of the quadratic, there is a neat
+algebraic manipulation trick that can give us the answer. But since
+you have seen some basic calculus, you are also aware of a general
+procedure/approach to answering that kind of question.
+
+\subsection*{Scaling issues with graphs}
+
+For most of the graphs that we will draw in class, we will use the
+same scale for both the $x$-axis and the $y$-axis. However, when using
+graphs to study functions in practice, this is not useful. Indeed, for
+many of the pictures of functions in these lecture notes using
+Mathematica, the scale used for the two axes is different.
+
+In addition, it is also sometimes helpful, when drawing graphs, to
+shift the origin. Mathematica, and some other graphing softwares, may
+do this automatically for many graphs. However, for graphs drawn in
+class (as well as the Mathematica pictures included here) we will
+assume that there is no shifting of origin.
+
+\subsection{The vertical line test, domain and range}
+
+Given a picture in the coordinate plane, we have the following:
+
+\begin{itemize}
+\item The picture represents the graph of a function if every vertical
+  line intersects it at most once.
+\item The domain of the function is the set of values of $x$ such that
+  the vertical line for that value of $x$ intersects the graph.
+\item The range of the function is the set of values of $y$ such that
+  the horizontal line for that value of $y$ intersects the graph.
+\end{itemize}
+
+We will return to these points a little later when we study techniques
+for drawing graphs.
+\subsection{Functions defined piecewise}
+
+Now, we're going to consider functions that have explicit expressions,
+but they have different expressions for different values. In other
+words, the domain of the function is split into parts and the
+definition of the function is different for each part. We will say
+that such functions are {\em piecewise defined}.
+
+Can you think of an example? Let's think about taxes. Now, in a simple
+world, the tax you pay is a (non-decreasing) function of your
+income. The real world is a lot more complicated, with the tax you pay
+being a function of many other factors. But let's ignore all
+this. Let's consider the simplest tax system, which is called a {\em
+flat tax}. \footnote{For instance, income tax in the state of Illinois
+is a flat tax, with a tax rate of $3\%$ or $0.03$. Eastern European
+countries such as Estonia, Latvia, Russia, and Bulgaria have flat or
+near-flat tax systems.}
+
+So here's how a simple version of the flat tax works. There is a {\em
+basic exemption} amount, which I'll call $B$, and a tax rate $r$ for
+all income earned over and above $B$. In other words, the first $B$
+units of money that you earn don't get taxed, and of the remaining
+money you earn, a fraction $r$ is taxed. By the way, $0 < r < 1$, and
+if you write the tax rate as a percentage, you have to divide it by
+$100$ to get $r$. So, for instance, a tax rate of $10\%$ means
+that $r$ is $0.1$.
+
+[SIDENOTE: So, why did I put {\em strict inequality} (a $<$ sign
+instead of a $\le$ sign and a $>$ sign instead of a $\ge$ sign)?
+Well, what does $r = 0$ mean? It means that there is effectively no
+tax at all for any income, which isn't a case of interest here. And
+what does $r = 1$ mean? It means that all money you earn beyond $B$
+belongs to the government, and that doesn't provide people with much
+incentive to earn. So in fact $r$ should be between $0$ and $1$. What
+the optimal value of $r$ should be is a question beyond the scope of
+this discussion.]
+
+So if $T$ is the tax function, we have:
+
+\begin{equation*}
+  T(I) = r(I - B)
+\end{equation*}
+
+This formula is correct for people who earn as much as or more than
+$B$. But what about people who earn less than $B$? What if, for
+instance, your income is $0$? The formula then says that your tax is
+$T(0) = -rB$, which means you have a {\em negative tax}. But that's
+not the way flat tax systems usually work. So, the real formula is:
+
+\begin{equation*}
+  T(I) = \lbrace \begin{array}{lr}
+               0 &\text{ if } I < B \\
+	       r(I - B) &\text{ if } I \ge B
+	       \end{array}
+\end{equation*}
+
+In other words, $T(I)$ is zero for income up to $B$, and then rises
+{\em linearly} (or proportionally) with income.
+
+So let's draw the graph. In the graph, the $x$-axis is now the
+$I$-axis, or income axis, because the income is the input
+variable. And the $y$-axis is the $T$-axis or the tax axis, because
+that's the output variable. Note that the tax function goes from
+$[0,\infty)$ to $[0,\infty)$, i.e., both the income and the tax are
+nonnegative.
+
+\includegraphics[width=3in]{flattaxfunction.png}
+
+The graph starts off along the horizontal axis (the $I$-axis) from $0$
+to $B$. Then, at $B$, it takes a turn and goes in a straight line
+forever. This line points northeast. Now, what can you say about how
+steep that line can be? It depends on the rate $r$, but can you say
+something in general? Sure. Since $r < 1$, the largest angle that line
+can make with the horizontal axis is $\pi/4$ -- that's the angle when
+$r = 1$. The smaller the $r$, the smaller the angle.
+
+Note that the function takes a turn at the value $B$, but it does not
+jump in value. In other words, you can draw the graph without lifting
+your pencil. So what's happening is that when you cross $B$, there is
+a shift in the tax regime, but your tax function doesn't jump
+suddenly. Since most of you have some idea of what continuous and
+differentiable means, you can probably make this precise in those
+terms: the tax function is continuous everywhere (including at the
+point $B$ where it changes definition) but it is not differentiable at
+$B$.
+
+So, just as a fun question, what happens with a {\em progressive tax
+function}?\footnote{The term ``progressive'' here is used in a strictly
+mathematical, rather than a political sense, even though
+self-identified political progressives on average tend to favor more
+progressive tax systems.} By the way, the United States, and most
+countries, have progressive tax systems. What that would mean is that
+in addition to the base exemption, there are likely to be other income
+cutoff values at which the graph takes turns. So you might start off
+with an almost horizontal line, then turn to a slightly steeper slope,
+then an even steeper slope and so on. Of course, the tax rate should
+never exceed $1$, so you'll never get steeper than an angle of $\pi/4$
+with the horizontal axis.
+
+And what happens with a {\em regressive tax function}? For instance,
+the payroll tax in the United States is a regressive tax. Here, the
+graph becomes {\em less steep} as the income increases.
+
+\subsection{Back to mathematics}
+Coming back to mathematics, here are some important functions with
+piecewise definitions:
+
+\begin{enumerate}
+\item {\bf Absolute value function}: The function is denoted, not by a
+  letter, but by bars. For a real number $x$, the absolute value of
+  $x$, denoted $|x|$, is defined as $x$ if $x \ge 0$ and as $-x$ if $x
+  < 0$. It is also termed the {\em magnitude}.
+
+  \includegraphics[width=3in]{absolutevalue.png}
+
+\item {\bf Signum function}: The sign function or signum function
+  sends all positive numbers to $+1$, $0$ to $0$, and all negative
+  numbers to $-1$. For $x \ne 0$, the signum function is thus equal to
+  the function that sends $x$ to $x/|x|$. In an alternate conventions,
+  the signum function is considered undefined at $0$, so its domain is
+  $\R \setminus \{ 0 \}$.
+
+  \includegraphics[width=3in]{signumfunction.png}
+
+\item {\bf Positive part function}: This function applied to a real
+  number $x$ is denoted $x^+$, and is defined as $\max \{ 0, x
+  \}$. The positive part of $x$ is equal to $0$ if $x \le 0$ and equal
+  to $x$ if $x > 0$.
+
+  \includegraphics[width=3in]{positivepartfunction.png}
+
+\end{enumerate}
+
+How do we think of functions defined piecewise? The main thing to
+remember is that most of the action happens at the place where the
+function changes definition. Think of it like switching gears or
+taking a turn. That's what happens literally with the tax function,
+and the absolute value function and the signum function. And whenever
+you have piecewise defined functions and you know that the functions
+on each of the parts are very well-behaved, these turning points are
+the ones where mischief is most likely to occur.
+
+\section{The max and min operators}
+
+Among the constructs used to create piecewise functions, that arise
+naturally, are the $\max$ and $\min$ operators. For instance, suppose
+$f$ and $g$ are functions on the real numbers. Then, consider the
+function:
+
+\begin{equation*}
+  h(x) := \max\{f(x), g(x) \}
+\end{equation*}
+
+What does this mean? Here is how we evaluate $h(x)$ at a given value
+of $x$. We compute both $f(x)$ and $g(x)$. If $f(x) > g(x)$, then we
+set $h(x) = f(x)$. If $g(x) > f(x)$, then we set $h(x) = g(x)$. If
+both are equal, we set $h(x)$ to be that equal value. In other words:
+
+\begin{equation*}
+  h(x) := \lbrace\begin{array}{lr}f(x) & \qquad \text{if } f(x) > g(x) \\ g(x) & \qquad \text{otherwise} \\\end{array}
+\end{equation*}
+
+For instance, consider the function:
+
+\begin{equation*}
+  h(x) := \max \{ x + 1, 2x \}
+\end{equation*}
+
+Here are the graphs of the two functions:
+
+\includegraphics[width=3in]{xplusoneandtwox.png}
+
+At $x = 0$, $x + 1 = 1$ and $2x = 0$, and the maximum of these two
+values is $1$. So $h(0) = 1$.
+
+At $x = 1$, $x + 1 = 2$ and $2x = 2$. Both are equal to $2$, so $h(1)
+= 2$.
+
+At $x = 2$, $x + 1 = 3$ and $2x = 4$. The maximum of these is $4$, so
+$h(2) = 4$.
+
+A similar approach works for calculating the $\min$ of two functions.
+
+Here are the graphs of the $\max$ and $\min$ functions for $x + 1$ and
+$2x$.
+
+\includegraphics[width=3in]{xplusoneandtwox.png}
+
+Many of the piecewise defined functions that we encounter can
+naturally be described using the $\max$ operator. For instance:
+
+\begin{enumerate}
+
+\item The flat tax function with base exemption $B$ and rate $r$ can
+  be defined as the function $T(I) = \max \{ 0, r(I - B) \}$.
+
+\item The absolute value function, that sends $x$ to $|x|$, can be
+  defined as $\max \{ x, -x \}$.
+
+\item The positive part function, that sends $x$ to $x^+$, can be
+  defined as $\max \{ x, 0 \}$.
+\end{enumerate}
+
+Now, here's a way of thinking of the maximum of two functions. What we
+need to do is determine, at every point, which one of them is
+bigger. Think of it as a race. The two functions are constantly racing
+against each other. At some values of $x$, one function might come on
+top, and at other values of $x$, the other function might come on top.
+
+For instance, think of the absolute value function. Let's first plot
+the graph of the function that sends $x$ to $x$ and the function that
+sends $x$ to $-x$. The first is a straight line pointing north-east to
+soth-west, the second is a straight line pointing north-west to
+south-east.
+
+Now, if you start off at $-\infty$ and move right, the function $-x$
+dominates, as is obvious both graphically and algebraically. And it
+keeps dominating up till the point $x = 0$, where the two functions
+become equal. After that the function $x$ dominates. Thus, we see that
+$|x| = -x$ for $x < 0$ and $|x| = x$ for $x \ge 0$.
+
+So the main point is that the places where the functions switch roles
+are the places where the two functions become equal. [SIDENOTE:
+Technically, this statement requires both functions to be continuous.]
+So if we have $h(x) := \max \{ f(x),g(x) \}$, then the first thing we
+should do is find the points where $f(x) = g(x)$. Then, in the
+intervals between these points, we can try to find out which of the
+two functions is greater.
+
+For instance, consider the function:
+
+\begin{equation*}
+  f(x) := \max \{ x, x^2 + 1 \}
+\end{equation*}
+
+\includegraphics[width=3in]{xandxsquareplusone.png}
+
+The first thing you want to know is when those two functions become equal. So you try to solve:
+
+\begin{equation*}
+  x = x^2 + 1
+\end{equation*}
+
+which simplifies to:
+
+\begin{equation*}
+  x^2 - x + 1 = 0
+\end{equation*}
+
+Now, that function that we just wrote down there has no real
+roots. You can check this by evaluating the {\em discriminant} -- the
+$b^2 - 4ac$ term. The discriminant is negative, hence there are no
+real roots. So this function is never zero.
+
+Thus, one of the two functions, $x$ or $x^2 + 1$, always has the upper
+hand. Now you can just plug in one value of $x$ and see that $x^2 + 1$
+is in fact the upper hand. So, in fact:
+
+\begin{equation*}
+  f(x) = x^2 + 1 \ \forall \ x \in \R
+\end{equation*}
+
+By the way, there is another way of showing that $x^2 + 1 > x$ for all
+$x \in \R$. This is by writing:
+
+\begin{equation*}
+  x^2 - x + 1 = (x - 1/2)^2 + (3/4) \ge 3/4 > 0
+\end{equation*}
+
+The secret I used here is {\em completing the square using the middle
+term}. This technique will be of importance later when we study
+integration techniques.
+
+\end{document}

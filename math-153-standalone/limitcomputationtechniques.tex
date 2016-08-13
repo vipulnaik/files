@@ -1,0 +1,810 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Limit computation: formulas and techniques, including  L'H\^{o}pital's rule}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Sections 11.4, 11.5, 11.6.
+
+{\bf What students should already know}: Basic limit computations.
+
+{\bf What students should definitely get}: A good jolt that brings
+back into active memory all the past knowledge of limits. The
+statement of L'H\^{o}pital's rule for $0/0$ form and $\infty/\infty$
+form, how to apply it, and the important constraints and caveats.
+
+{\bf What students should hopefully get}: The notion of order of a
+zero, how the LH rule can be effectively combined with stripping and
+substitution, and the intuition for when a limit is going to be zero,
+infinity, or finite and nonzero.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item L'H\^{o}pital's rule for $0/0$ form: Consider $\lim_{x \to c}
+  f(x)/g(x)$ where $\lim_{x \to c} f(x) = \lim_{x \to c} g(x) = 0$. If
+  both $f$ and $g$ are differentiable around $c$, then this limit is
+  equal to $\lim_{x \to c} f'(x)/g'(x)$.
+\item Analogous statements hold for one-sided limits and in the case
+  $c = \pm \infty$.
+\item The $0/0$ form LH rule {\em cannot} be applied if the numerator
+  does not limit to zero or if the denominator does not limit to zero.
+\item L'H\^{o}pital's rule for $\infty/\infty$ form: Consider $\lim_{x
+  \to c} f(x)/g(x)$ where $\lim_{x \to c} f(x) = \pm \infty$ and
+  $\lim_{x \to c} g(x) = \pm \infty$. If both $f$ and $g$ are
+  differentiable around $c$, then this limit is equal to $\lim_{x \to
+  c} f'(x)/g'(x)$.
+\item Analogous statements hold for one-sided limits and for $c = \pm
+  \infty$.
+\item For a function $f$ having a zero at $c$, the {\em order} of the
+  zero at $c$ is the least upper bound of $\beta$ such that $\lim_{x
+  \to c} |f(x)|/|(x - c)|^{\beta} = 0$. At this least upper bound, the
+  limit is usually finite and nonzero. For larger values of $\beta$,
+  the limit is undefined.
+\item Given a quotient $f/g$ for which we need to calculate the limit
+  at $c$, the limit is zero if the order of the zero for $f$ is
+  greater than the order for $g$, and undefined if the order of the
+  zero for $f$ is less than the order for $g$. When the orders are the
+  same, the limit could potentially be a finite nonzero number.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item For polynomial functions and other continuous functions, we can
+  calculate the limit at a point by evaluating at the point. For
+  rational functions, we can cancel common factors between the
+  numerator and the denominator till one of them becomes nonzero at
+  the point.
+\item There is a bunch of basic limits that translate to saying that
+  for the following functions $f$: $f(0) = 0$ and $f'(0) = 1$, which
+  is equivalent to saying that $\lim_{x \to 0} f(x)/x = 1$. These
+  functions are $\sin x$, $x \mapsto \ln(1 + x)$, $x \mapsto e^x - 1$,
+  $x \mapsto \tan x$, $x \mapsto \arcsin x$, and $x \mapsto \arctan
+  x$.
+\item For all the functions $f$ of the above kind (that we call {\em
+  strippable}), the following is true: in any multiplicative
+  situation, if the input to the function goes to zero in the limit,
+  the function can be stripped off.
+\item Two other basic limits are $\lim_{x \to 0} (1 - \cos x)/x^2 =
+  1/2$ and $\lim_{x \to 0} (x - \sin x)/x^3 = 1/6$. These can be
+  obtained using the LH rule.
+\item Typically, to compute limits, we can combine the LH rule,
+  stripping, and removing multiplicative components that we can
+  calculate directly.
+\item Applying the LH rule $0/0$ form pushes the orders of both the
+  numerator and the denominator down by one.
+\item It is also useful to remember that logarithmic functions are
+  dominated by polynomial functions, which in turn are dominated by
+  exponential functions. These facts can be seen in various ways,
+  including the LH rule.
+\end{enumerate}
+
+\section{Limits: some of the key ideas}
+
+\subsection{The basic process for real limits at finite values}
+
+\begin{enumerate}
+\item For continuous functions, evaluate at the point.
+\item If evaluation gives a form that is determinately undefined (such
+  as a quotient where the numerator approaches a finite nonzero number
+  and the denominator approaches zero) then declare that the limit
+  does not exist as a finite number. We may still be interested in
+  whether the limit exists as $+\infty$ or $-\infty$, and we can
+  follow the rules to find out if that is the case.
+\item If evaluation gives an {\em indeterminate form}, manipulate the
+  expression to get an {\em equivalent function} that can be evaluated
+  at the point. For quotients, the process typically involves the
+  cancellation of some common factors between the numerator and the
+  denominator.
+\end{enumerate}
+
+\subsection{Some important basic cases}
+
+\begin{enumerate}
+\item For the limit of a rational function $p(x)/q(x)$ at $x = a$, try
+  evaluating at $a$. If evaluation gives a $0/0$ form, that means that
+  $x - a$ divides both $p(x)$ and $q(x)$. Factorize and cancel this
+  common factor. Now evaluate again. If we still get a $0/0$ form,
+  there is another $x -a$ common to both the numerator and the
+  denominator, and it can be canceled again. The process continues
+  till either the numerator or the denominator has no factor of $x -
+  a$. The limit is (a) finite and nonzero if $x - a$ divides neither
+  numerator nor denominator, (b) zero if $x - a$ divides the numerator
+  but not the denominator, and (c) undefined if $x - a$ divides the
+  denominator but not the numerator.
+\item For limits involving trigonometric functions, we can use
+  trigonometric identities in case the expression is of a $0/0$
+  form. Remember to {\em first evaluate and check}.
+\item For limits involving a mix of trigonometric functions and
+  polynomial functions, we use the standard limit $\lim_{x \to 0}
+  (\sin x)/x = 1$ and its many corollaries, such as $\lim_{x \to
+  0} (\tan x)/x = 1$ and $\lim_{x \to 0} (1 - \cos x)/x^2 = 1/2$.
+\end{enumerate}
+
+\subsection{Some key important limits}
+
+Some key nontrivial limits that we need to remember are:
+
+\begin{eqnarray*}
+  \lim_{x \to 0} \frac{\sin x}{x} & = & 1\\
+  \lim_{x \to 0} \frac{1 - \cos x}{x^2} & = & \frac{1}{2}\\
+  \lim_{x \to 0} \frac{\tan x}{x} & = & 1 \\
+  \lim_{x \to 0} \frac{e^x - 1}{x} & = & 1 \\
+  \lim_{x \to 0} \frac{\ln(1 + x)}{x} & = & 1\\
+  \lim_{x \to 0} \frac{\arcsin x}{x} & = & 1 \\
+  \lim_{x \to 0} \frac{\arctan x}{x} & = & 1
+\end{eqnarray*}
+
+Each of these limits has an interpretation as a derivative: it simply
+says that the numerator functions all have value $0$ and derivative
+$1$ at $x = 0$. We will see this in more detail later.
+
+\subsection{Seeing these limits in composites}
+
+Consider the limit:
+
+$$\lim_{x \to 0} \frac{\ln(1 + \sin x)}{x}$$
+
+Note that the numerator is obtained by {\em composing} the $\sin$
+function and the $t \mapsto \ln(1 + t)$ function. This composition of
+functions translates, in computational terms, to a {\em product} of
+limits. In a process similar to the chain rule, we write the limit as:
+
+$$\lim_{x \to 0} \frac{\ln(1 + \sin x)}{\sin x} \frac{\sin x}{x}$$
+
+We now split the limit:
+
+$$\lim_{x \to 0} \frac{\ln(1 + \sin x)}{\sin x} \lim_{x \to 0} \frac{\sin x}{x}$$
+
+Now, the second limit is $1$. The first limit is {\em also} $1$,
+because as $x \to 0$, we also have $\sin x \to 0$, and we can thus
+apply the limit formula.
+
+This compositional breaking up is sometimes accompanied by a few
+constants here and there. For instance:
+
+$$\lim_{x \to 0} \frac{\sin(2\ln(1 + x^2))}{e^{x^2} - 1}$$
+
+This is too tedious to write in full, but the numerator is, in the
+limit, multiplicatively the same as $2\ln(1 + x^2)$ (i.e., we can
+strip the $\sin$ off, which is twice of $\ln(1 + x^2)$, which is
+multiplicatively the same as $x^2$. The denominator is
+multiplicatively the same as $x^2$. So, the overall quotient is $2$.
+
+Similarly, consider:
+
+$$\lim_{x \to 0} \frac{\sin(ax)}{\sin(bx)}$$
+
+where $a,b \in \R$ and $b \ne 0$. In this case, the numerator is
+multiplicatively the same as $ax$, and the denominator is
+multiplicatively the same as $bx$, so the quotient is $a/b$. On the
+other hand:
+
+$$\lim_{x \to 0} \frac{\cos(ax)}{\cos(bx)}$$
+
+succumbs to a direct evaluation: at $0$, both the numerator and the
+denominator equal $1$, so the quotient equals $1$.
+
+\subsection{Heavier and lighter denominators}
+
+Consider the limit:
+
+$$\lim_{x \to 0} \frac{\sin x}{x^2}$$
+
+Here, the numerator is roughly like $x$ (multiplicatively), so the
+limit becomes:
+
+$$\lim_{x \to 0} \frac{x}{x^2} = \lim_{x \to 0} \frac{1}{x}$$
+
+which is undefined. On the other hand:
+
+$$\lim_{x \to 0} \frac{\sin x}{\sqrt{x}} = \lim_{x \to 0} \frac{x}{\sqrt{x}} = \lim_{x \to 0} \sqrt{x} = 0$$
+
+Basically, we can {\em strip off} things which multiplicatively go to
+$1$ and apply the usual rules of limits for rational functions to
+whatever is left (more on this in the next section).
+
+\subsection{Sum and product breakups}
+
+Also consider:
+
+$$\lim_{x \to 0} \frac{\sin(\pi x) \sin(ex)}{x^2}$$
+
+You can convince yourself that the limit in this case is $\pi e$. This
+essentially arises by breaking up the limit as the product of two
+limits. Similarly:
+
+$$\lim_{x \to 0} \frac{\sin(\sqrt{2}x) + \tan(\sqrt{3}x)}{x}$$
+
+is $\sqrt{2} + \sqrt{3}$ -- again obtained by breaking up.
+
+\section{Limits at infinity}
+
+We have previously reviewed the limits of rational functions at
+infinity, so we will not cover them again. Rather, we concentrate on a
+general approach here: to calculate $\lim_{x \to \infty} f(x)$, put $t
+= 1/x$ and calculate $\lim_{t \to 0^+} f(1/t)$.
+
+\subsection{The original identities transformed to limits at infinity}
+
+\begin{eqnarray*}
+  \lim_{x \to \infty} x\sin(1/x) & = & 1\\
+  \lim_{x \to \infty} x^2(1 - \cos(1/x)) & = & \frac{1}{2}\\
+  \lim_{x \to \infty} x\tan(1/x) & = & 1 \\
+  \lim_{x \to \infty} x(e^{1/x} - 1) & = & 1 \\
+  \lim_{x \to \infty} x\ln(1 + (1/x)) & = & 1
+\end{eqnarray*}
+
+The last identity is particularly important, and is also often written
+in exponential form:
+
+$$\lim_{x \to \infty} \left[1 + \frac{1}{x}\right]^x = e$$
+
+In general, whenever we have a limit of the form:
+
+$$\lim_{x \to \infty} \left[1 + \frac{1}{f(x)}\right]^{g(x)}$$
+
+where, as $x \to \infty$, we also have $f(x) \to \infty$, then this
+just becomes:
+
+$$\lim_{x \to \infty} \exp\left[\frac{g(x)}{f(x)}\right]$$
+
+Try to convince yourself of this.
+
+\section{Stripping in full glory}
+
+This is an intuitive way of thinking about and calculating {\em some}
+limits that incorporates the principles of chaining discussed above,
+without rewriting all the intermediate steps in gory details. We had a
+sneak peek of this approach in Math 152, but now we go the whole hog.
+
+\subsection{Simple examples}
+
+To motivate stripping, let us look at a fancy example:
+
+$$\lim_{x \to 0} \frac{\sin(\tan(\sin x))}{x}$$
+
+This is a composite of three functions, so if we want to chain it, we
+will chain it as follows:
+
+$$\lim_{x \to 0} \frac{\sin(\tan(\sin x))}{\tan(\sin x)}\frac{\tan(\sin x)}{\sin x}\frac{\sin x}{x}$$
+
+We now split the limit as a product, and we get:
+
+$$\lim_{x \to 0} \frac{\sin(\tan(\sin x))}{\tan(\sin x)}\lim_{x \to 0} \frac{\tan(\sin x)}{\sin x}\lim_{x \to 0} \frac{\sin x}{x}$$
+
+Now, we argue that each of the inner limits is $1$. The final limit is
+clearly $1$. The middle limit is $1$ because the inner function $\sin
+x$ goes to $0$. The left most limit is $1$ because the inner function
+$\tan(\sin x)$ goes to $0$. Thus, the product is $1 \times 1 \times 1$
+which is $1$.
+
+If you are convinced, you can further convince yourself that the same
+principle applies to a much more convoluted composite:
+
+$$\lim_{x \to 0} \frac{\sin(\sin(\tan(\sin(\tan(\tan x)))))}{x}$$
+
+However, {\em writing that thing out takes loads of time}. Wouldn't it
+be nice if we could just strip off those $\sin$s and $\tan$s? In fact,
+we can do that.
+
+The key stripping rule is this: {\em in a multiplicative situation}
+(i.e. there is no addition or subtraction happening), if we see
+something like $\sin(f(x))$ or $\tan(f(x))$, and $f(x) \to 0$ in the
+relevant limit, then we can strip off the $\sin$ or $\tan$. In this
+sense, both $\sin$ and $\tan$ are {\em strippable} functions. A
+function $g$ is strippable if $\lim_{x \to 0} g(x)/x = 1$.
+
+The reason we can strip off the $\sin$ from $\sin(f(x))$ is that we
+can multiply and divide by $f(x)$, just as we did in the above
+examples.
+
+Stripping can be viewed as a special case of the l'Hopital rule as
+well, but it's a much quicker shortcut in the cases where it works.
+
+Thus, in the above examples, we could just have stripped off the
+$\sin$s and $\tan$s all the way through.
+
+Here's another example:
+
+$$\lim_{x \to 0} \frac{\sin(2 \tan (3x))}{x}$$
+
+As $x \to 0$, $3x \to 0$, so $2 \tan 3x \to 0$. Thus, we can strip off
+the outer $\sin$. We can then strip off the inner $\tan$ as well,
+since its input $3x$ goes to $0$. We are thus left with:
+
+$$\lim_{x \to 0} \frac{2(3x)}{x}$$
+
+Cancel the $x$ and get a $6$. We could also do this problem by
+chaining or the l'Hopital rule, but stripping is quicker and perhaps
+more intuitive.
+
+Here's yet another example:
+
+$$\lim_{x \to 0} \frac{\sin (x \sin (\sin x))}{x^2}$$
+
+As $x \to 0$, $x \sin(\sin x) \to 0$, so we can strip off the
+outermost $\sin$ and get:
+
+$$\lim_{x \to 0} \frac{x \sin(\sin x)}{x^2}$$
+
+We cancel a factor of $x$ and get:
+
+$$\lim_{x \to 0} \frac{\sin(\sin x)}{x}$$
+
+Two quick $\sin$ strips and we get $x/x$, which becomes $1$.
+
+Yet another example:
+
+$$\lim_{x \to 0} \frac{\sin(ax)\tan(bx)}{x}$$
+
+where $a$ and $b$ are constants. Since this is a multiplicative
+situation, and $ax \to 0$ and $bx \to 0$, we can strip the $\sin$ and
+$\tan$, and get:
+
+$$\lim_{x \to 0} \frac{(ax)(bx)}{x}$$
+
+This limit becomes $0$, because there is a $x^2$ in the numerator and
+a $x$ in the denominator, and cancellation of one factor still leaves
+a $x$ in the numerator.
+
+Here is yet another example:
+
+$$\lim_{x \to 0} \frac{\sin^2(ax)}{\sin^2(bx)}$$
+
+where $a,b$ are nonzero constants. We can pull the square out of the
+whole expression, strip the $\sin$s in both numerator and denominator,
+and end up with $a^2/b^2$.
+
+Here's another example:
+
+$$\lim_{x \to 0} \frac{\arcsin(2\sin^2x)}{x \arctan x}$$
+
+Repeated stripping reveals that the answer is $2$. Note that $\arcsin$
+and $\arctan$ are also strippable because $\lim_{x \to 0} (\arcsin
+x)/x = 1$ and $\lim_{x \to 0} (\arctan x)/x = 1$.
+
+\subsection{A more complicated example}
+
+Here's another example:
+
+$$\lim_{x \to 0} \frac{\ln(1 + \sin(3x\sin(2\sin x)))}{x \tan(e^x - 1)}$$
+
+We note that as $x \to 0$, we have $3x \sin(2 \sin x) \to 0$, so
+$\sin$ of that goes to $0$, so we can strip off $\ln (1 + \_)$ and get:
+
+$$\lim_{x \to 0} \frac{\sin(3x\sin(2\sin x))}{x \tan(e^x - 1)}$$
+
+We can now strip off the outer $\sin$, then take $3$ outside of the
+limit, to get:
+
+$$3 \lim_{x \to 0} \frac{x\sin(2\sin x)}{x \tan(e^x - 1)}$$
+
+The $x$ and $x$ cancel, and we get:
+
+$$3 \lim_{x \to 0} \frac{\sin(2\sin x)}{\tan(e^x - 1)}$$
+
+Now, the $\sin$ gets stripped off from the numerator, and the $\tan$
+from the denominator, because the inputs to both functions go to $0$. So we are left with:
+
+$$6 \lim_{x \to 0} \frac{\sin x}{e^x - 1}$$
+
+Finally, the $\sin$ and the $\exp - 1$ can be stripped off and we just
+get the answer as $6$.
+
+Note that $\sin$, $\tan$, $\ln(1 + \_)$, and $\exp(\_) - 1$ are all
+strippable functions, because for each of these, the limit of the
+function divided by its input goes to $1$ as the input goes to $0$.
+
+\subsection{Strip with discretion}
+
+Consider:
+
+$$\lim_{x \to 0} \frac{\sin(x\sin(\pi \cos x))}{x^2}$$
+
+Here, the outer $\sin$ can be stripped off, because its input goes to
+$0$, so we get:
+
+$$\lim_{x \to 0} \frac{x \sin(\pi \cos x)}{x^2}$$
+
+Cancel the $x$ and we get:
+
+$$\lim_{x \to 0} \frac{\sin(\pi \cos x)}{x}$$
+
+However, it is {\em not} legitimate now to strip off the $\sin$ at
+this stage, because the input to the sign, namely $\pi \cos x$, does
+not tend to $0$ as $x \to 0$. There are other right ways of doing this
+problem, which we will discuss later, but stripping is not one of them.
+
+\subsection{When you can't strip}
+
+The kind of situations where we are not allowed to strip are where the
+expression $\sin(f(x))$ is not just multiplied but is being added to
+or subtracted from something else. For instance, in order to calculate
+the limit:
+
+$$\lim_{x \to 0} \frac{x - \sin x}{x^3}$$
+
+We are {\em not} allowed to strip.
+
+Roughly speaking, what goes wrong if we just strip is something like
+this: $x$ and $\sin x$ are {\em multiplicatively} the same, but they
+are {\em additively} different, near $0$. When taking the difference,
+we are picking out on a very thin, very small additive difference that
+is invisible multiplicatively.
+
+\subsection*{What about $1 - \cos(f(x))$?}
+
+If we see something like $1 - \cos(f(x))$ with $f(x) \to 0$ in the
+limit, then we know that it ``looks like'' $f(x)^2/2$ and we can
+replace it by $f(x)^2/2$. This can be thought of as a sophisticated
+version of stripping. For instance:
+
+$$\lim_{x \to 0} \frac{(1 - \cos(5x^2))}{x^4}$$
+
+Here $f(x) = 5x^2$, so the numerator is like $(5x^2)^2/2$, and the
+limit just becomes $25/2$.
+
+\section{Understanding indeterminate form $0/0$, towards L'H\^{o}pital's rule}
+
+The expression $0/0$ is undefined. It does not make sense to divide
+$0$ by $0$, because any real number times $0$ is $0$. However, $(\to
+0)/(\to 0)$ is an {\em indeterminate form}. In other words, if we're
+trying to compute the limit:
+
+$$\lim_{x \to c} \frac{f(x)}{g(x)}$$
+
+such that $\lim_{x \to c} f(x) = 0$ and $\lim_{x \to c} g(x) = 0$,
+then we cannot {\em prima facie} say anything for sure about the limit
+of the quotient. Let's try to understand the source of the uncertainty
+a little more carefully.
+
+\subsection{The rate of approach to zero}
+
+The key thing to understand is that even though two quantities may
+approach $0$, they may approach it at very different rates. For
+instance, consider $f(x) = 4x$ and $g(x) = 7x$. As $x$ approaches $0$,
+both $f(x)$ and $g(x)$ approach $0$. However, for small $x$, $f(x)$
+comes a little closer to $0$ than $g(x)$. The rate of approach for $f$
+is $4$ and the rate of approach of $g$ is $7$. The quotient thus
+approaches $4/7$.
+
+Essentially, if $\lim_{x \to c} f(x) = 0$, then the derivative $f'(c)$
+describes the rate at which $f$ approaches $0$ at $c$. The smaller the
+value of $f'(c)$, the faster $f$ approaches $0$. Thus, the derivative
+measures the rate of approach to zero. To determine the limit of the
+quotient of two functions, we need to compare their rates of approach
+to zero. This is the intuitive basis for L'H\^{o}pital's rule.
+
+\subsection{A primitive form of the rule}
+
+This primitive form says that if $f$ and $g$ are continuous at $c$ and
+$f(c) = g(c) = 0$, and if $f'(c)$ and $g'(c)$ are both defined, with $g'(c)
+\ne 0$, then we have:
+
+$$\lim_{x \to c} \frac{f(x)}{g(x)} = \frac{f'(c)}{g'(c)}$$
+
+Here is how we can think of this intuitively. Near the point $(c,0)$,
+the graph of $f$ looks very close to the straight line passing through
+$(c,0)$ with slope $f'(c)$ and the graph of $g$ looks very close to
+the straight line passing through $(c,0)$ with slope $g'(c)$. The
+quotient of the function values is, in the limit, the same as the
+quotient of the slopes of these lines.
+
+\subsection{A more sophisticated form of the rule}
+
+The primitive version above works if $g$ has nonzero derivative at
+$c$. A slight modification of it works if $g$ has zero derivative at
+$c$. Namely, if $\lim_{x \to c} f(x) = \lim_{x \to c} g(x) = 0$ and $f$
+and $g$ are both differentiable around $c$ with $g$ not identically
+zero around $c$, then:
+
+$$\lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c}\frac{f'(x)}{g'(x)}$$
+
+The advantage of this is that this works even if $g'(c)$ is zero or
+undefined, i.e., it works even at critical points of $c$. After one
+application of this, there are three possibilities:
+
+\begin{enumerate}
+\item The new limit can be directly computed because the denominator
+  approaches a nonzero number.
+\item The denominator approaches zero and the numerator approaches a
+  nonzero number. The limit in this case is undefined.
+\item Both the numerator and denominator approach $0$. We thus {\em
+  again} have the indeterminate form $(\to 0)/(\to 0)$. We can now use
+  the usual suite of techniques, which includes applying
+  L'H\^{o}pital's rule yet again.
+\end{enumerate}
+
+There are actually more possibilities, because the numerator and/or
+denominator may approach $\infty$. But we ignore those possibilities
+for now just to keep the narrative simple.
+\subsection{Caveat for applying the rule}
+
+The rule as stated here should be applied {\em only} when both the
+numerator and the denominator approach $0$. (We shall later see that
+it also applies when both approach $\infty$). This is important
+because applying the rule in other situations yields incorrect
+answers. Simply speaking, it makes sense to compare the {\em rates of
+approach to zero} only when they both {\em are actually heading to
+zero}.
+
+\subsection{A formal proof of the rule}
+
+We prove here the primitive version of the rule, which assumes that
+$f$ and $g$ are continuous and differentiable at $c$ with $f(c) = g(c)
+= 0$. We consider:
+
+$$\lim_{x \to c} \frac{f(x)}{g(x)}$$
+
+Using $f(c) = g(c) = 0$, we can rewrite this as:
+
+$$\lim_{x \to c} \frac{f(x) - f(c)}{g(x) - g(c)}$$
+
+Dividing both numerator and denominator by $x - c$, we obtain:
+
+$$\lim_{x \to c} \frac{\frac{f(x) - f(c)}{x - c}}{\frac{g(x) - g(c)}{x - c}}$$
+
+The limit of the quotients is the quotient of the limits, and we obtain:
+
+$$\frac{f'(c)}{g'(c)}$$
+
+The same idea can be extended to the more general case, but the
+details get more messy so we avoid this.
+
+\subsection{The rule applies to one-sided limits and limits for $c = \infty$}
+
+L'H\^{o}pital's rule also applies for one-sided limits (i.e., the left
+hand limit and the right hand limit) for finite values of $c$ and for
+the limit at $c = \infty$ or at $c = -\infty$. When applying to
+one-sided limits, we take the corresponding one-sided limit of the
+derivative. Thus, if $\lim_{x \to c^-} f(x) = \lim_{x \to c^-} g(x) =
+0$, and if $f$ and $g$ are differentiable on the immediate left of
+$c$, we have:
+
+$$\lim_{x \to c^-} \frac{f(x)}{g(x)} = \lim_{x \to c^-} \frac{f'(x)}{g'(x)}$$
+
+Similarly, if $\lim_{x \to \infty} f(x) = \lim_{x \to \infty} g(x) =
+0$, and if $f$ and $g$ are differentiable for large inputs, we have:
+
+$$\lim_{x \to \infty} \frac{f(x)}{g(x)} = \lim_{x \to \infty} \frac{f'(x)}{g'(x)}$$
+\section{Applying L'H\^{o}pital's rule}
+
+\subsection{Simple applications}
+
+Consider the limit:
+
+$$\lim_{x \to 0^+} \frac{\sin x}{\sqrt{x}}$$
+
+This is a $0/0$ form. Our earlier way of doing this limit was simply
+to strip off the $\sin$ in front of the $x$, notice that we get
+$x/\sqrt{x} = \sqrt{x}$, which goes to $0$. Now, we try the LH rule,
+and we get:
+
+$$\lim_{x \to 0^+} \frac{\cos x}{1/(2\sqrt{x})}$$
+
+A good shorthand for the application of this rule, used in the book,
+is to write it using $\stackrel{*}{=}$, as follows:
+
+$$\lim_{x \to 0^+} \frac{\sin x}{\sqrt{x}} \stackrel{*}{=} \lim_{x \to 0^+} \frac{\cos x}{1/(2\sqrt{x})} = \lim_{x \to 0^+} 2 \sqrt{x} \cos x$$
+
+We now evaluate and obtain $0$.
+
+Notice that in the earlier procedure (that did not use the LH rule),
+we did not obtain any factor of $2$ -- we just obtained the limit of
+$\cos x$. In both cases, the final answer is $0$. It turns out that
+with the LH rule, when the answer is $0$ or $\infty$, using the LH
+rule often gives a lot of superfluous constants that ultimately don't
+matter, as compared to the primitive stripping techniques. On the
+other hand, in those cases where the limit is nonzero, all those
+constants {\em do} end up mattering.
+
+\subsection{Another example}
+
+Consider the example:
+
+$$\lim_{x \to 0} \frac{x - \sin x}{x^3}$$
+
+The first thing we try is evaluate. We notice that the numerator and
+denominator both approach zero. We also notice something else: there
+is no simple way to get started on the problem. For instance, if we
+try to split across the $-$ sign, we get $1/x^2 - (\sin x)/x^2$, both
+of which are undefined in the limit. Also, since the numerator is an
+additive mix of the algebraic and the trigonometric, we cannot
+directly use trigonometric identities.
+
+So we use the LH rule. We obtain:
+
+$$\lim_{x \to 0} \frac{x - \sin x}{x^3} \stackrel{*}{=} \lim_{x \to 0} \frac{1 - \cos x}{3x^2}$$
+
+At this stage, we have two choices. The limit $\lim_{x \to 0} (1 -
+\cos x)/x^2$ is a standard trigonometric limit that we know to be
+$1/2$, and we can use this to get the answer of $1/6$. If, however, we
+have forgotten the answer and the procedure for computing this limit,
+we can use the LH rule again, noting that it is again the $(\to
+0)/(\to 0)$ form. We get:
+
+$$\lim_{x \to 0} \frac{x - \sin x}{x^3} \stackrel{*}{=} \lim_{x \to 0} \frac{1 - \cos x}{3x^2} = \lim_{x \to 0} \frac{\sin x}{6x}$$
+
+Again, we can choose from two alternatives: use the well-known fact
+that $\lim_{x \to 0} (\sin x)/x = 1$, or conveniently forget it and
+hence {\em again} use the LH rule. We get:
+
+$$\lim_{x \to 0} \frac{x - \sin x}{x^3} \stackrel{*}{=} \lim_{x \to 0} \frac{1 - \cos x}{3x^2} = \lim_{x \to 0} \frac{\sin x}{6x} = \lim_{x \to 0} \frac{\cos x}{6}$$
+
+Now, we no longer have a $0/0$ form, so we {\em must} evaluate, and we
+obtain the answer $1/6$.
+
+The point here is that the LH rule can be used in conjunction with
+other rules. If using the LH rule, you can choose to keep
+differentiating till you get something that is not of the $0/0$
+form. But you can also choose to fork at any stage where you know how
+to compute the limit by other means.
+
+\subsection{Combining the LH rule with stripping}
+
+Stripping is the procedure where we throw off unnecessarily confusing
+layers. For instance, if the previous question had been:
+
+$$\lim_{x \to 0} \frac{\sin(x - \sin x)}{\ln(1 + x^3)}$$
+
+We could {\em strip off} the $\sin$ in the numerator and the $\ln(1 +
+\_)$ in the denominator to get:
+
+$$\lim_{x \to 0} \frac{x - \sin x}{x^3}$$
+
+Now, {\em this} limit can be evaluated using the LH rule. Note that
+even the original limit can be evaluated using the LH rule, but the
+derivatives get extremely messy, and these messy derivatives don't
+contribute anything to the discussion.
+
+\subsection{Combining the LH rule with substitution}
+
+Consider:
+
+$$\lim_{x \to 0} \frac{x - \arcsin x}{x^3}$$
+
+We can do this using the LH rule, but the derivatives of $\arcsin$
+tend to get messy. It is smarter here to put $\theta = \arcsin x$, and
+obtain:
+
+$$\lim_{\theta \to 0} \frac{\sin \theta - \theta}{\sin^3\theta}$$
+
+Using stripping, this can be transformed to:
+
+$$\lim_{\theta \to 0} \frac{\sin \theta - \theta}{\theta^3}$$
+
+which, as we have seen above, is $-1/6$.
+
+\subsection{The order of a function near a zero}
+
+The LH rule and prior discussions give rise to a notion of the order
+of a function near a zero of the function. Suppose that, as $x \to c$,
+we have $f(x) \to 0$. The {\em order} of $f$ at $c$ is the least
+upper bound of the set of $\beta$ for which $\lim_{x \to c}
+f(x)/(x-c)^\beta = 0$.
+
+For instance, for the function $x$ at $c = 0$, the order is $1$,
+because $\lim_{x \to 0} x/x^\beta = 0$ for all $\beta < 1$, whereas
+$\lim_{x \to 0} x/x^\beta$ is undefined for all $\beta > 1$. The
+number $1$ is a threshold value at which the limit goes from being $0$
+to being undefined.
+
+Here now are some observations:
+
+\begin{enumerate}
+\item For any function $f$ with the property that $f(c) = 0$ and
+  $f'(c)$ is finite and nonzero, $f$ has order $1$ at $c$. In other
+  words, $\lim_{x \to c} |f(x)|/|x-c|^\beta = 0$ for $\beta < 1$ and
+  $\lim_{x \to c} |f(x)|/|x-c|^\beta$ is undefined for $\beta > 1$. At
+  $\beta = 1$, the limit is $f'(c)$, which is a finite and nonzero
+  number.
+
+  Examples for $c = 0$ are the functions $\sin x$, $\ln(1 + x)$, $\tan
+  x$, $e^x - 1$, and $\arcsin x$.
+\item More generally, if $f(c) = 0$ and the smallest order of
+  derivative of $f$ that is nonzero at $c$ is $k$ (i.e., the $k^{th}$
+  derivative of $f$ is nonzero at $c$ and all lower order derivatives
+  are zero), then the order of $f$ at $c$ is $k$. In other words,
+  $\lim_{x \to c} f(x)/(x-c)^\beta = 0$ for all $\beta < k$ and
+  $\lim_{x \to c} f(x)/(x-c)^\beta$ is undefined for all $\beta >
+  k$. At $\beta = k$, the limit is finite and nonzero, and is in fact
+  equal to $f^{(k)}(c)/k!$, as we can readily see by a repeated
+  application of the LH rule.
+
+  Here are some examples of functions that have order $2$ at $c = 0$:
+  $x^2$, $1 - \cos x$, $e^x - 1 - x$, $\ln(1 + x^2)$.
+
+  Here are some examples of functions that have order $3$ at $c = 0$:
+  $x - \sin x$, $x - \tan x$, $x^3$.
+\item The function $f(x) := x^r$ for some $r > 0$ has order $r$ at
+  $0$. $r$ need not be an integer.
+\item Multiplication adds orders and function composition multiplies orders. 
+\end{enumerate}
+
+We can now interpret the LH rule as follows:
+
+\begin{enumerate}
+\item Each application of the LH rule pushes down the order of both
+  the numerator and the denominator by $1$.
+\item When the numerator has higher order than the denominator, then
+  the quotient approaches zero. In the case where both orders are
+  positive integers, repeated application of the LH rule will get us
+  to a situation where the denominator becomes nonzero (because the
+  order of the zero in the denominator becomes zero) while the
+  numerator is still zero (because the order of the zero in the
+  denominator is still positive) -- yes, you read that correct.
+\item When the numerator and the denominator have the same order, the
+  quotient {\em could} approach something finite and nonzero. In most
+  cases, repeated application of the LH rule gets us down to a
+  quotient of two nonzero quantities.
+\item When the denominator has the higher order, the quotient has an
+  undefined limit (the one-sided limits are usually $\pm \infty$). In
+  the case where both orders are positive integers, repeated
+  application of the LH rule will get us to a situation where the
+  numerator becomes nonzero while the denominator is still zero
+  (because the order of the zero is still positive).
+\end{enumerate}
+
+It should be possible to determine these limits at $0$ simply by
+inspection: $(\cos x)/x$, $(\sin x)/x^2$, $(\sin^2 x)/x$, $(1 - \cos
+x)/x^3$, $(x - \sin x)/x^2$.
+
+One way of thinking of this is in terms of a race for domination. The
+order roughly measures the extent to which something is zero.
+
+\section{The LH rule for $\infty/\infty$}
+This version of the LH rule states that if both the numerator and the
+denominator of a fraction go to $\pm \infty$ (with the two infinities
+not necessarily being the same) then the limit of the quotient equals
+the limit of the quotient of the derivatives. In symbols, if $f(x) \to
+\pm \infty$ and $g(x) \to \pm \infty$ as $x \to c$ and $f$ and $g$ are
+both differentiable around $c$ with $g$ not identically zero near $c$,
+we have:
+
+$$\lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)}$$
+
+This version of the LH rule should {\em not} be mixed with the earlier
+version. In particular, if the numerator approaches $0$ and the
+denominator approaches $+\infty$, the LH rule does not
+apply. Similarly, if the numerator approaches $-\infty$ and the
+denominator approaches $0$, the LH rule does not apply. (In both these
+cases, the limits are directly obvious: in the first case, the limit
+is $0$, and in the second, the limit is undefined).
+
+\subsection{Example of $e^x/p(x)$}
+
+$e^x$ races out polynomial functions. Specifically, for any nonzero
+polynomial function $p(x)$, $\lim_{x \to \infty} \frac{e^x}{p(x)} =
+\pm \infty$, with the sign of infinity depending upon the leading
+coefficient of $p$. The LH rule gives an easy proof. For a polynomial
+of degree $k$, applying the LH rule $k$ times gives
+$\frac{e^x}{\text{constant}}$ where the constant in the denominator
+has the same sign as the leading coefficient of $p$ (in fact, it is
+$k!$ times the leading coefficient of $p$). Since $e^x \to \infty$ as
+$x \to \infty$, we see tha tthis limit is $\infty$.
+
+\subsection{Obtaining these from other indeterminate forms}
+
+Suppose we have an indeterminate form other than $0/0$ or
+$\infty/\infty$. We cannot directly use the LH rule. However, we can
+often do some manipulation to bring it into the $0/0$ or
+$\infty/\infty$ form where the LH rule can be applied. In particular:
+
+\begin{enumerate}
+\item A form of $(\to 0)(\to \infty)$ can be rewritten as $(\to
+  0)/(\to 0)$ or as $(\to \infty)/(\to \infty)$, by taking the
+  reciprocal of one of the factors. For instance, $\lim_{x \to \infty}
+  xe^{-x}$ can be written as $\lim_{x \to \infty} x/e^x$.
+\item A form of $\to \infty - \to \infty$ can often be converted to a
+  $\to 0/\to 0$ form. The trick is usually to take a common
+  denominator and simplify. For instance, $(1/x) - (1/\sin x)$ can be
+  rewritten as $(\sin x - x)/x^2$.
+\end{enumerate}
+
+\end{document}

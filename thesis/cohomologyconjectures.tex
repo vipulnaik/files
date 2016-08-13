@@ -1,0 +1,389 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, amssymb, graphicx}
+
+%Title details
+\title{Group cohomology and halving conjectures}
+\author{Vipul Naik}
+\thanks{Based on joint work with John Wiltshire-Gordon}
+
+%List of new commands
+\newcommand{\Skew}{\operatorname{Skew}}
+\makeindex
+
+\begin{document}
+\maketitle
+%\tableofcontents
+
+The purpose of this document is to flesh out, in clear cohomology
+language, some of the main conjectures that arise when trying to find
+Lazard Lie rings of 2-groups of class two. Once the conjectures are
+stated purely in the language of cohomology, they become susceptible
+to methods of cohomology.
+
+\section{The main conjectures and statements related to cocycles}
+
+\subsection{Setup and notation}
+
+We are given two abelian groups $G$ and $A$ with $G$ acting trivially
+on $A$. Note that the abelianness of $G$ is perhaps not essential to
+everything we do here. For this reason and also for clarity when
+dealing with group actions, we use multiplicative notation for $G$ and
+additive notation for $A$.
+
+For convenience, we denote the identity element of $G$ as $1$. Also,
+we use the left action convention since this is more common when
+dealing with cohomology. Note that this does not affect matters much
+in the final analysis because the action is trivial anyway.
+
+Throughout this document, whenever we speak of 2-cocycles, we always
+assume the action to be trivial.
+
+\subsection{IIP 2-cocycles and CP 2-cocycles}
+
+We are considering functions $f: G \times G \to A$ and we are
+interested in the following conditions:
+
+\begin{enumerate}
+\item $f$ is a 2-cocycle for the trivial group action. In other words,
+  for all $x,y,z \in G$, we have:
+
+  $$f(x,yz) + f(y,z) = f(xy,z) + f(x,y)$$
+
+\item $f$ is {\em identity-preserving}. In other words, $f(x,1) =
+  f(1,x) = 0$ for all $x \in G$. (In the context of group extensions,
+  identity-preserving 2-cocycles are also called normalized
+  2-cocycles, because they correspond to normalized choices of coset
+  representatives. Since we want to avoid thinking in terms of group
+  extensions, I use this different term).
+\item $f$ is {\em inverse-preserving}: In other words, $f(x,x^{-1}) =
+  0$ for all $x \in G$.
+\item $f$ is {\em cyclicity-preserving}: In other words, $f(x,y) = 0$
+  whenever $\langle x,y \rangle$ is a cyclic subgroup of $G$.
+\item $f$ is {\em skew-symmetric}: In other words, $f(x,y) = -f(y,x)$
+  for all $x,y \in G$.
+\end{enumerate}
+
+Note that condition (4) implies conditions (2) and (3). The converse
+is true when $G$ is an elementary abelian $2$-group.
+
+Note also that condition (4) does {\em not} imply condition (5) in the
+general situation, though it does when $f$ is a bihomomorphism (see
+the next subsection for a discussion of bihomomorphisms). However, (4)
+and (5) together imply that $f$ is alternating: $f(g,g) = 0$ and
+$f(g,h) = -f(h,g)$ for all $g,h \in G$.
+
+Each of these conditions cuts out a subgroup of the group of all
+functions $G \times G \to A$ under pointwise addition. There are two
+important notions that we consider by combining these conditions:
+
+\begin{enumerate}
+\item An {\em IIP 2-cocycle} is a 2-cocycle that is both
+  identity-preserving and inverse-preserving, i.e., conditions (1) --
+  (3) are satisfied.
+\item A {\em CP 2-cocycle} is a 2-cocycle that is
+  cyclicity-preserving. Equivalently, it satisfies all of conditions
+  (1) -- (4).
+\item A {\em skew-symmetric IIP 2-cocycle} is an IIP 2-cocycle that is
+  also skew-symmetric.
+\item A {\em skew-symmetric CP 2-cocycle} is a CP 2-cocycle that is
+  also skew-symmetric.
+\end{enumerate}
+
+The IIP 2-cocycles form a subgroup of the group of all functions $G
+\times G \to A$ under pointwise addition. The CP 2-cocycles form a
+further subgroup of that. In the case that $G$ is an elementary
+abelian 2-group, these two subgroups coincide. Skew symmetry brings us
+down to potentially smaller subgroups.
+
+
+\subsection{Bihomomorphisms and alternating bihomomorphisms}
+
+A function $f: G \times G \to A$ is termed a {\em bihomomorphism} if,
+for any fixed $x \in G$, the functions $y \mapsto f(x,y)$ and $y
+\mapsto f(y,x)$ are homomorphisms from $G$ to $A$. This is a
+generalization of the notion of bilinear map. Note that we are
+assuming $G$ and $A$ to be abelian. If $G$ were not abelian, the
+bihomomorphism would descend to a bihomomorphism from the
+abelianization of $G$.
+
+Here are some important facts about bihomomorphisms:
+
+\begin{enumerate}
+\item A bihomomorphism $f:G \times G \to A$, for $A$ abelian, is
+  automatically an identity-preserving 2-cocycle for the trivial
+  action of $G$ on $A$.
+\item For a bihomomorphism, being inverse-preserving is equivalent to
+  being cyclicity-preserving, which is equivalent to being
+  alternating: If $f(x,x^{-1}) = 0$, then $f(x,x) = 0$ as well by the
+  bihomomorphism property. We can now use the bihomomorphism property
+  to prove that $f(x,y) = -f(y,x)$ -- the proof being essentially the
+  same as the linear algebra proof (use $f(x,y) + f(y,x) = f(x+y,x+y)
+  - f(x,x) - f(y,y)$).
+\end{enumerate}
+
+We shall use the term {\em alternating bihomomorphism} for a
+bihomomorphism that satisfies the equivalent conditions in (2). The
+group of alternating bihomomorphisms is thus a subgroup of the group
+of skew-symmetric CP 2-cocycles.
+
+Note that a bihomomorphism $f:G \times G \to A$ is equivalent to a
+homomorphism $G \otimes_\Z G \to A$. An alternating bihomomorphism $f:
+G \times G \to A$ is equivalent to a homomorphism $\bigwedge^2 G \to
+A$.
+
+The inclusions that we have discussed so far are summarized in the figure below.
+
+\includegraphics[width=7in]{cocyclesubgroupinclusions.png}
+
+\subsection{Doubles and skews}
+
+Suppose $f:G \times G \to A$ is a function. We define the skew of $f$,
+denoted $\Skew f$, as a new function $G \times G \to A$ defined as:
+
+$$(\Skew f)(x,y) = f(x,y) - f(y,x)$$
+
+Here are some petty observations:
+
+\begin{itemize}
+\item If $g = \Skew f$, then $g$ is an {\em alternating function}:
+  $g(x,x) = 0$ and $g(x,y) = -g(y,x)$. {\em Please note: Most of the
+  functions of interest to us are not bilinear, so both aspects of
+  alternating -- $g(x,x) = 0$ and $g(x,y) = -g(y,x)$, need to be
+  stated.}
+\item $\Skew f = 0$ if and only if $f$ is a {\em symmetric function}:
+  $f(x,y) = f(y,x)$ for all $x,y \in G$.
+\item $\Skew f = 2f$ if and only if $f$ is a {\em skew-symmetric
+  function}: $f(x,y) = -f(y,x)$ for all $x,y \in G$.
+\end{itemize}
+
+\subsection{The main skewing result}
+
+\begin{lemma}[Skew of 2-cocycle is bihomomorphism]
+  Suppose $f$ is a 2-cocycle from $G$ to $A$ for the trivial
+  action. Then, if $G$ is abelian, $\Skew f$ is a bihomomorphism.
+\end{lemma}
+
+\begin{proof}
+  Since $f$ is a 2-cocycle from $G$ to $A$, we have:
+
+  \begin{equation}
+    f(x,yz) + f(y,z) = f(xy,z) + f(x,y) \label{1}
+  \end{equation}
+
+  Since this is true for all $x,y \in G$, the corresponding statement
+  with $x$ and $y$ interchanged is also true, yielding:
+
+  \begin{equation}
+    f(y,xz) + f(x,z) = f(yx,z) + f(y,x) \label{2}
+  \end{equation}
+
+  Starting with the original expression and interchanging $y$ and $z$,
+  we get:
+
+  \begin{equation}
+    f(x,zy) + f(z,y) = f(xz,y) + f(x,z) \label{3}
+  \end{equation}
+  
+  Since $G$ is abelian, $xy = yx$ and $xz = zx$. Do \ref{1} - \ref{2}
+  - \ref{3} to get:
+
+  \begin{equation*}
+    f(y,z) - f(y,xz) - f(x,z) - f(z,y) = f(x,y) - f(y,x) - f(xz,y) - f(x,z)
+  \end{equation*}
+
+  Rearranging, we get:
+
+  \begin{equation*}
+    [f(y,z) - f(z,y)] + [f(y,x) - f(x,y)] = f(y,xz) - f(xz,y)
+  \end{equation*}
+
+  which is equivalent to:
+
+  \begin{equation*}
+    (\Skew f)(y,z) + (\Skew f)(y,x) = (\Skew f)(y,xz)
+  \end{equation*}
+
+  Thus, for every fixed value of $y$, $x \maspto \Skew f(y,x)$ is a
+  homomorphism from $G$ to $A$. Because of the left-right symmetry in
+  the definition of 2-cocycle for trivial aciton, we can similarly
+  show that the map is a 2-homomorphism in the first coordinate.
+\end{proof}
+
+\section{The question of interest}
+
+We have shown in the previous subsection that the skew of any
+2-cocycle on an abelian group is a bihomomorphism. What we are
+interested in is the question: does every bihomomorphism arise as the
+skew of a 2-cocycle? More specifically, we are interested in whether
+every bihomomorphism arises as the skew of an IIP 2-cocycle.
+
+\appendix
+
+\section{Old stuff}
+
+\subsection{The halving conjectures}
+
+The general format of the halving conjectures is as follows:
+
+\begin{conjecture}[$\alpha \to \beta$ halving conjecture]
+  Suppose $c: G \times G \to A$ is a 2-cocycle satisfying condition
+  $\alpha$. Suppose, further, that for all $x,y \in G$, there exists
+  $a \in A$ such that $c(x,y) = 2a$. Then, we can find a 2-cocycle $f$
+  satisfying $\beta$ such that $2f = c$.
+\end{conjecture}
+
+We now state what's known about the halving conjectures and what would
+follow if they were true:
+
+\begin{enumerate}
+\item The $\alpha \to \alpha$ halving conjecture holds when $A$ is a
+  uniquely $2$-divisible group for each of the following conditions
+  $\alpha$ separately: alternating bihomomorphism, bihomomorphism,
+  skew-symmetric cyclicity-preserving 2-cocycle, skew-symmetric IIP
+  2-cocycle, cyclicity-preserving 2-cocycle, IIP 2-cocycle,
+  identity-preserving 2-cocycle, and 2-cocycle. Moreover, the solution
+  $f$ is {\em unique} in each case. In the case that $A$ has bounded
+  exponent $d$ (which is odd), we can in fact define $f = \frac{d +
+  1}{2}c$.
+
+  More explicitly, if $c:G \times G \to A$ is a function, there
+  exists a unique function $f: G \times G \to A$ such that $2f = c$. Moreover:
+  \begin{itemize}
+  \item If $c$ is an alternating bihomomorphism, so is $f$.
+  \item If $c$ is a bihomomorphism, so is $f$.
+  \item If $c$ is a skew-symmetric cyclicity-preserving 2-cocycle, so is $f$.
+  \item If $c$ is a skew-symmetric IIP 2-cocycle, so is $f$.
+  \item If $c$ is a cyclicity-preserving 2-cocycle, so is $f$.
+  \item If $c$ is an IIP 2-cocycle, so is $f$.
+  \item If $c$ is an identity-preserving 2-cocycle, so is $f$.
+  \item if $c$ is a 2-cocycle, so is $f$.
+  \end{itemize}
+\item The alternating bihomomorphism $\to$ alternating bihomomorphism
+  halving conjecture fails in many cases where both $G$ and $A$ are
+  finite $2$-groups. For instance, set $A = \Z_4$ and $G = \Z_2 \times
+  \Z_2$ and consider the alternating bihomomorphism that sends any
+  pair of linearly independent inputs in $G$ to the unique element of
+  order $2$ in $A$. This can be locally halved but not globally
+  halved.
+\item The following halving conjecture, if true, would be enough for
+  the widespread existence of Lazard Lie rings: (alternating
+  bihomomorphism $\to$ skew-symmetric IIP 2-cocycle). A somewhat
+  stronger halving conjecture, namely (alternating bihomomorphism
+  $\to$ skew-symmetric CP 2-cocycle), would be enough for the
+  existence of Lazard Lie rings where the correspondence is a
+  1-isomorphism.
+\item The following even stronger halving conjectures are open and are
+  false, as we shall see later using the Klein four-group: $\alpha \to
+  \alpha$ for $\alpha$ being: skew-symmetric CP 2-cocycle,
+  skew-symmetric IIP 2-cocycle.
+\end{enumerate}
+
+\section{The case of elementary abelian $2$-groups}
+
+\subsection{Collapse}
+
+In this section, we restrict attention to the case where $G$ is an
+elementary abelian $2$-group. This case is more tractable than the
+other cases for two reasons:
+
+\begin{enumerate}
+\item IIP and CP become equivalent conditions, because $x = x^{-1}$
+  and the only other power of $x$ is the identity element.
+\item Skew symmetry becomes redundant since it turns out to follow
+  from IIP and the $2$-cocycle condition (we shall elaborate on this
+  in the next subsection).
+\end{enumerate}
+
+Thus, the four conditions: IIP, CP, skew-symmetric IIP, and
+skew-symmetric CP, all become equivalent for $2$-cocycles when $G$ is
+an elementary abelian $2$-group.
+
+\subsection{Solving it for Klein four-groups}
+
+We begin with the first simple lemma.
+
+\begin{lemma}[IIP $2$-cocycle on Klein four-subgroups]
+  Suppose $G$ is an elementary abelian $2$-group and $A$ is an abelian
+  group. Suppose $f: G \times G \to A$ is an IIP $2$-cocycle for the
+  trivial action. Suppose $x$ and $y$ are two distinct non-identity
+  elements of $G$, so that $\langle x,y \rangle$ is a Klein
+  four-group. Let $z = xy$. Then $f(x,y) = f(y,z) = f(z,x)$, $f(y,x) =
+  f(z,y) = f(x,z)$, and $f(x,y) = -f(y,x)$. In particular, knowing
+  $f(x,y)$ determines all the other values. In particular, $f$ is
+  skew symmetric.
+
+  Further, we have $4f(x,y) = 0$ for all $x,y \in G$.
+\end{lemma}
+
+\begin{proof}
+  We write the cocycle condition on $x,x,y$:
+
+  \begin{equation*}
+    f(x,xy)+ f(x,y) = f(x^2,y) + f(x,x)
+  \end{equation*}
+
+  We note that by the IIP conditions, both terms on the right side are
+  zero, so since $z = xy$, we get:
+
+  \begin{equation}
+    f(x,z) + f(x,y) = 0 \label{quasialternatingkleinfour}
+  \end{equation}
+
+  Now we write the cocycle condition on $x,y,z$:
+
+  \begin{equation*}
+    f(x,yz) + f(y,z) = f(xy,z) + f(x,y)
+  \end{equation*}
+
+  Since $yz = x$ and $xy = z$, we have, from inverse-preservation (and
+  the fact that elements have order $2$), that $f(x,yz) = f(xy,z) = 0$, so we get:
+
+  \begin{equation}
+    f(y,z) = f(x,y) \label{cyclicpermkleinfour-prelim}
+  \end{equation}
+
+  By cyclic permutations of \ref{cyclicpermkleinfour-prelim}, we get:
+
+  \begin{equation}
+    f(x,y) = f(y,z) = f(z,x)\label{cyclicpermkleinfour}
+  \end{equation}
+  
+  Combining this with \ref{quasialternatingkleinfour}, we get the
+  desired result relating all six $f$-values.
+
+  Note that the remaining $10$ values for inputs in $\langle x,y
+  \rangle$ are already zero by identity-preservation and
+  inverse-preservation.
+
+  We now plug in $x$, $y$, and $x$ into the cocycle condition, to get:
+
+  \begin{equation*}
+    f(x,yx) + f(y,x) = f(xy,x) + f(x,y)
+  \end{equation*}
+
+  Simplifying using the relations we already have, we get $4f(x,y) =
+  0$.
+  
+  In other words, the image of $f$ must land inside the $4$-torsion of
+  $A$.
+\end{proof}
+
+\subsection{$2$-torsion and $4$-torsion?}
+
+The fact that the image of an IIP 2-cocycle must land inside the
+$4$-torsion means that an IIP 2-cocycle cannot be halved to get
+another IIP 2-cocycle even if every element can be halved locally. In
+other words, IIP 2-cocycle $\to$ IIP 2-cocycle halving does not always
+work, nor does skew-symmetric IIP 2-cocycle $\to$ skew-symmetric IIP
+2-cocycle halving.
+
+However, the conjecture that we really care about is alternating
+bihomomorphism $\to$ skew-symmetric IIP 2-cocycle halving. As far as
+this is concerned, we are in good shape, at least locally with respect
+to Klein four-groups. This is because if $G$ is an elementary abelian
+$2$-group, the image under a bihomomorphism must land inside the
+$2$-torsion, so halving it lands us inside $4$-torsion, which is still
+safe.
+\end{document}

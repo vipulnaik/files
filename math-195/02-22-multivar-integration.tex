@@ -1,0 +1,188 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz: due Friday February 22: Multi-variable integration}
+\author{Math 195, Section 59 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+Your name (print clearly in capital letters): $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+
+{\bf YOU ARE ALLOWED TO DISCUSS {\em ONLY} THE STAR-MARKED QUESTIONS!}
+
+The following setup is for the first five questions only.
+
+Suppose $F$ is a function of two real variables, say $x$
+and $t$, so $F(x,t)$ is a real number for $x$ and $t$ restricted to
+suitable open intervals in the real number. Suppose, further, that $F$
+is jointly continuous (whatever that means) in $x$ and $t$.
+
+Define $f(t) := \int_0^\infty F(x,t) \, dx$. Here, while doing the
+integration, $t$ is treated as a constant. $x$, the variable of
+integration, is being integrated on $[0,\infty)$.
+  
+Suppose further that $f$ is defined and continuous for $t$ in
+$(0,\infty)$.
+
+In the next few questions, you are asked to compute the function $f$
+explicitly given the function $F$, for $t \in (0,\infty)$.
+
+\begin{enumerate}
+
+\item {\em Do not discuss!} $F(x,t) := e^{-tx}$. Find $f$. {\em Last
+  time: $15/19$ correct}
+
+  \begin{enumerate}[(A)]
+  \item $f(t) = e^{-t}/t$
+  \item $f(t) = e^t/t$
+  \item $f(t) = 1/t$
+  \item $f(t) = -1/t$
+  \item $f(t) = -t$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item {\em Do not discuss!} $F(x,t) := 1/(t^2 + x^2)$. Find $f$. {\em
+  Last time: $13/19$ correct}
+
+  \begin{enumerate}[(A)]
+  \item $f(t) = \pi/(2t)$
+  \item $f(t) = \pi/t$
+  \item $f(t) = 2\pi/t$
+  \item $f(t) = \pi t$
+  \item $f(t) = 2\pi t$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item {\em Do not discuss!} $F(x,t) := 1/(t^2 + x^2)^2$. Find $f$. {\em Last time: $13/19$ correct}
+
+  \begin{enumerate}[(A)]
+  \item $f(t) = \pi/t^3$
+  \item $f(t) = \pi/(2t^3)$
+  \item $f(t) = \pi/(4t^3)$
+  \item $f(t) = \pi/(8t^3)$
+  \item $f(t) = 3\pi/(8t^3)$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item (*) {\em You can discuss this!} $F(x,t) = \exp(-(tx)^2)$. Use that
+  $\int_0^\infty \exp(-x^2) \, dx= \sqrt{\pi}/2$. Find $f$. {\em Last
+  time: $7/19$ correct}
+
+  \begin{enumerate}[(A)]
+  \item $f(t) = t^2\sqrt{\pi}/2$
+  \item $f(t) = t\sqrt{\pi}/2$
+  \item $f(t) = \sqrt{\pi}/2$
+  \item $f(t) = \sqrt{\pi}/(2t)$
+  \item $f(t) = \sqrt{\pi}/(2t^2)$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item (**) {\em You can discuss this!} (could confuse you if you don't
+  understand it): In the same general setup as above (but with none of
+  these specific $F$s), which of the following is a {\em sufficient}
+  condition for $f$ to be an increasing function of $t$? {\em Last
+  time: $3/19$ correct}
+
+  \begin{enumerate}[(A)]
+  \item $t \mapsto F(x_0,t)$ is an increasing function of $t$ for
+    every choice of $x_0 \ge 0$.
+  \item $x \mapsto F(x,t_0)$ is an increasing function of $x$ for
+    every choice of $t_0 \in (0,\infty)$.
+  \item $t \mapsto F(x_0,t)$ is a decreasing function of $t$ for
+    every choice of $x_0 \ge 0$.
+  \item $x \mapsto F(x,t_0)$ is a decreasing function of $x$ for
+  every choice of $t_0 \in (0,\infty)$.
+  \item None of the above.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.3in}
+
+  (end of the setup)
+
+  \vspace{0.3in}
+
+\item {\em Do not discuss!} Suppose $f$ is a homogeneous polynomial of
+  degree $d > 0$. Define $g$ as the following function on positive
+  reals: $g(a)$ is the double integral of $f$ on the square $[0,a]
+  \times [0,a]$. Assuming that $g(a)$ is not identically the zero
+  function, which of these best describes the nature of $g(a)$? {\em
+  Last time: $12/19$ correct}.
+
+  \begin{enumerate}[(A)]
+  \item A constant times $a^d$
+  \item A constant times $a^{d + 1}$
+  \item A constant times $a^{d + 2}$
+  \item A constant times $a^{2d + 1}$
+  \item A constant times $a^{2d + 2}$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item (*) {\em You can discuss this!} Suppose $g(x,y)$ and $G(x,y)$
+  are continuous functions of two variables and $G_{xy} = g$. How can
+  the double integral $\int_s^t \int_u^v g(x,y) \, dy \, dx$ be
+  described in terms of the values of $G$? {\em Last time: $8/19$
+  correct}
+
+  \begin{enumerate}[(A)]
+  \item $G(v,t) + G(u,s) - G(u,t) - G(v,s)$
+  \item $G(v,t) - G(v,s) + G(u,t) - G(u,s)$
+  \item $G(t,v) + G(s,u) - G(t,u) - G(s,v)$
+  \item $G(t,v) - G(s,v) + G(t,u) - G(s,u)$
+  \item $G(t,v) + G(v,t) - G(s,u) - G(u,s)$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\item (**) {\em You can discuss this!} Suppose $f$ is an elementarily
+  integrable function, but $f(x^k)$ is not elementarily integrable for
+  any integer $k > 1$ (examples are $\sin$, $\exp$, $\cos$). For which
+  of the following types of regions $D$ are we {\em guaranteed to be
+  able} to compute, in elementary function terms, the double integral
+  $\int_D \int f(x^2) \, dA$ over the region (note that $f$ is just a
+  function of $x$, but we treat it as a function of two variables)?
+  Please see Option (E) before answering and select that if
+  applicable. {\em Last time: $1/19$ correct}.
+
+  \begin{enumerate}[(A)]
+  \item A rectangle with vertices $(0,0)$, $(0,b)$, $(a,0)$, and
+    $(a,b)$, with $a,b > 0$.
+  \item A triangle with vertices $(0,0)$, $(0,b)$, $(a,0)$, with $a, b
+    > 0$.
+  \item A triangle with vertices $(0,0)$, $(0,b)$, $(a,b)$, with $a, b
+    > 0$.
+  \item A triangle with vertices $(0,0)$, $(a,0)$, $(a,b)$, with $a, b
+    > 0$.
+  \item All of the above
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.15in}
+
+\end{enumerate}
+
+\end{document}

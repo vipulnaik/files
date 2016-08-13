@@ -1,0 +1,568 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Wednesday November 27: Similarity of linear transformations}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+23 people took this 12-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of 4: 3 people
+\item Score of 5: 3 people
+\item Score of 6: 6 people
+\item Score of 7: 5 people
+\item Score of 8: 3 people
+\item Score of 9: 3 people
+\end{itemize}
+
+The mean score was about 6.48.
+
+The question-wise answers and performance review are as follows:
+
+\begin{enumerate}
+\item Option (D): 21 people%$17$ people
+\item Option (A): 4 people%$11$ people
+\item Option (E): 3 people%$12$ people
+\item Option (E): 17 people
+\item Option (A): 19 people
+\item Option (A): 22 people
+\item Option (A): 11 people%$14$ people
+\item Option (B): 9 people%$10$ people
+\item Option (B): 5 people%$10$ people
+\item Option (A): 6 people%$9$ people
+\item Option (B): 18 people%$15$ people
+\item Option (D): 14 people%$7$ people
+\end{enumerate}
+
+\section{Solutions}
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+This quiz corresponds to material discussed in the lecture notes
+titled {\tt Coordinates}. It also corresponds to Section 3.4 of the
+text.
+
+Recall that $n \times n$ matrices $A$ and $B$ are termed {\em similar}
+if there exists an invertible $n \times n$ matrix $S$ such that $A =
+SBS^{-1}$. The relation of matrices being similar is an {\em
+  equivalence relation} (please refer to the notes for an explanation
+of the terminology).
+
+For these questions, assume $n > 1$, because a lot of phenomena are
+much simpler in the case $n = 1$ and you may be misled if you look
+only at that case. In other words, just because an equality is true
+for $1 \times 1$ matrices, do not assume it is always true. On the
+other hand, if you can find {\em counterexamples} to a statement for
+$1 \times 1$ matrices, you can probably use that to construct
+counterexamples for all sizes of matrices by using scalar matrices.
+
+\begin{enumerate}
+\item Which of the following can we say about two (possibly equal,
+  possibly distinct) similar $n \times n$ matrices $A$ and $B$? Please
+  see Options (D) and (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $A$ is invertible if and only if $B$ is invertible.
+  \item $A$ is nilpotent if and only if $B$ is nilpotent.
+  \item $A$ is idempotent if and only if $B$ is idempotent.
+  \item All of the above.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+ 
+  {\em Explanation}: Suppose $A$ is similar to $B$. Then, there exists
+  an invertible matrix $S$ such that $A = SBS^{-1}$, or equivalently, $B = S^{-1}AS$.
+
+  \begin{itemize}
+  \item Option (A): If $A$ is invertible, then so is $B$, and $B^{-1}
+    = S^{-1}A^{-1}S$. Conversely, if $B$ is invertible, so is $A$, and
+    $A^{-1} = SB^{-1}S^{-1}$.
+  \item Option (B): We know that for any positive integer $r$, $A^r =
+    SB^rS^{-1}$ and $B^r = S^{-1}A^rS$. If $B$ is nilpotent, then there exists a positive
+    integer $r$ such that $B^r = 0$, so $A^r = SB^rS^{-1} = S(0)S^{-1}
+    = 0$, so $A^r = 0$. Conversely, if $A$ is nilpotent, then there
+    exists a positive integer $r$ such that $A^r = 0$, so $B^r =
+    S^{-1}A^rS = S^{-1}(0)S = 0$.
+  \item Option (C): We know that $SB^2S^{-1} = A^2$ and $S^{-1}A^2S =
+    B^2$, so $A^2 = A$ if and only if $B^2 = B$.
+  \end{itemize}
+
+  {\em Performance review}: 21 out of 23 people got this. 1 each chose
+  (A) and (E).
+
+  {\em Historical note (last time)}: $17$ out of $19$ got this. $1$ each chose
+  (A) and (B).
+
+\item Which of the following can we say about two (possibly equal,
+  possibly distinct) similar $n \times n$ matrices $A$ and $B$? Please
+  see Options (D) and (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $A$ is scalar if and only if $B$ is scalar.
+  \item $A$ is diagonal if and only if $B$ is diagonal.
+  \item $A$ is upper triangular if and only if $B$ is upper triangular.
+  \item All of the above.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: If $A$ is scalar, then it commutes with every
+  matrix. In particular, $A$ commutes with $S$, so $B = S^{-1}AS =
+  AS^{-1}S = A$. Thus, $A = B$, and so $B$ is also scalar. Similarly,
+  if $B$ is scalar, then it commutes with $S$, so $A = SBS^{-1} =
+  BSS^{-1} = B$, so $A$ is also scalar. In other words, $A$ is scalar
+  if and only if $B$ is scalar, and in the event this happens, they
+  are both equal.
+
+  The other options fail for reasons described below:
+
+  \begin{itemize}
+  \item Option (B): It is possible for $A$ to be diagonal and $B$ to not
+    be diagonal. The idea is to use a matrix $S$ that sends the
+    standard basis vectors to vectors that are not standard basis
+    vectors.
+  \item Option (C): It is possible for $A$ to be upper triangular and $B$ to not
+    be. For instance, consider:
+
+    $$A = \left[ \begin{matrix} 0 & 1 \\ 0 & 0 \\\end{matrix} \right], S = \left[ \begin{matrix} 0 & 1 \\ 1 & 0 \\\end{matrix}\right], B = \left[ \begin{matrix} 0 & 0 \\ 1 & 0 \\\end{matrix} \right]$$
+  \end{itemize}
+
+  {\em Performance review}: 4 out of 23 people got this. 10 chose (D),
+  7 chose (E), 1 each chose (B) and (C).
+
+  {\em Historical note (last time)}: $11$ out of $19$ got this. $4$ chose (D),
+  $2$ each chose (B) and (E).
+
+
+\item Suppose $A_1,A_2,B_1,B_2$ are $n \times n$ matrices such that
+  $A_1$ is similar to $B_1$ and $A_2$ is similar to $B_2$. Which of
+  the following is {\em definitely} true? Please see Options (D) and
+  (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $A_1 + A_2$ is similar to $B_1 + B_2$.
+  \item $A_1 - A_2$ is similar to $B_1 - B_2$.
+  \item $A_1A_2$ is similar to $B_1B_2$.
+  \item All of the above.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: The key problem in each case is that the matrix
+  we use for the similarity between $A_1$ and $B_1$ is not the same as
+  the matrix we use for the similarity between $A_2$ and $B_2$. If the
+  matrix were the same, then all the conclusions stated above would hold.
+
+  For instance, consider the case that:
+
+  $$A_1 = A_2 = B_1 = \left[ \begin{matrix} 1 & 0 \\ 0 & 0 \\\end{matrix}\right], B_2 = \left[ \begin{matrix} 0 & 0 & 0 & 1 \\\end{matrix}\right]$$
+
+  Note that $A_1$ and $B_1$ are similar on account of being
+  equal. $A_2$ and $B_2$ are similar using the (self-inverse)
+  similarity matrix:
+
+  $$S = \left[\begin{matrix} 0 & 1 \\ 1 & 0 \\\end{matrix}\right]$$
+
+  Consider the sums:
+
+  $$A_1 + A_2 = \left[\begin{matrix} 2 & 0 \\ 0 & 0 \\\end{matrix}\right], B_1 + B_2 = \left[\begin{matrix} 1 & 0 \\ 0 & 1 \\\end{matrix}\right]$$
+
+  These are not similar, because the latter is the identity matrix and
+  hence is not similar to anything else.
+
+  Consider the differences:
+
+  $$A_1 - A_2 = \left[\begin{matrix} 0 & 0 \\ 0 & 0 \\\end{matrix}\right], B_1 - B_2 = \left[\begin{matrix} 1 & 0 \\ 0 & -1 \\\end{matrix}\right]$$
+
+  These are not similar, because the former is the zero matrix, which
+  is not similar to any other matrix.
+
+  Finally, consider the products:
+
+  $$A_1A_2 = \left[\begin{matrix} 1 & 0 \\ 0 & 0 \\\end{matrix}\right], B_1B_2 = \left[\begin{matrix} 0 & 0 \\ 0 & 0 \\\end{matrix}\right]$$
+
+  The latter is the zero matrix, hence is not similar to any other
+  matrix.
+
+  {\em Performance review}: 3 out of 23 people got this. 11 chose (C),
+  9 chose (D).
+
+  {\em Historical note (last time)}: $12$ out of $19$ got this. $3$ each chose
+  (C) and (D), $1$ chose (A).
+
+\item Suppose $A_1,A_2,B_1,B_2$ are $n \times n$ matrices such that
+  $A_1$ is similar to $B_1$ and $A_2$ is similar to $B_2$. Which of
+  the following is {\em definitely} true? Please see Options (D) and
+  (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item $A_1 + B_1$ is similar to $A_2 + B_2$.
+  \item $A_1 - B_1$ is similar to $A_2 - B_2$.
+  \item $A_1B_1$ is similar to $A_2B_2$.
+  \item All of the above.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: There isn't even an {\em a priori} reason why any
+  of the options should be true, unlike for the previous question
+  where at least {\em a priori} the options are plausible. For Options
+  (A) and (C), the following $1 \times 1$ counterexample works: $A_1 =
+  B_1 = [1]$, $A_2 = B_2 = [2]$. For Option (B), we cannot use $1
+  \times 1$ counterexamples, because in the $1 \times 1$ case, we'd
+  have $A_1 - B_1 = A_2 - B_2 = [0]$. We can, however, use $2 \times
+  2$ counterexamples. Explicitly, consider the example:
+
+  $$A_1 = A_2 = B_1 = \left[\begin{matrix} 1 & 0 \\ 0 & 0 \\\end{matrix}\right], B_2 = \left[\begin{matrix} 0 & 0 \\ 0 & 1 \\\end{matrix}\right]$$
+
+  Here, we have:
+
+  $$A_1 - B_1 = \left[\begin{matrix} 0 & 0 \\ 0 & 0 \\\end{matrix}\right], A_2 - B_2 = \left[\begin{matrix} 1 & 0 \\ 0 & -1 \\\end{matrix}\right]$$
+
+  Clearly, $A_1 - B_1$ is {\em not} similar to $A_2 - B_2$.
+
+  {\em Performance review}: 17 out of 23 people got this. 3 each chose
+  (C) and (D).
+
+\item Suppose $A$ and $B$ are both $n \times n$ matrices
+  (but they are not given to be similar). Which of the following
+  holds?
+
+  \begin{enumerate}[(A)]
+  \item $A$ is similar to $B$ if and only if $-A$ is similar to $-B$.
+  \item If $A$ is similar to $B$, then $-A$ is similar to
+    $-B$. However, $-A$ being similar to $-B$ does not
+    imply that $A$ is similar to $B$.
+  \item If $-A$ is similar to $-B$, then $A$ is similar to
+    $B$. However, $A$ being similar to $B$ does not imply that
+    $-A$ is similar to $-B$.
+  \item $A$ being similar to $B$ does not imply that $-A$ is
+    similar to $-B$. Also, $-A$ being similar to $-B$ does
+    not imply that $A$ is similar to $B$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: We have that for any invertible matrix $S$,
+  $S(-B)S^{-1} = -(SBS^{-1})$. In other words, if $A = SBS^{-1}$, then
+  $-A = S(-B)S^{-1}$. Conversely, if $-A = S(-B)S^{-1}$, then $A =
+  SBS^{-1}$. Thus, $A$ is similar to $B$ if and only if $-A$ is
+  similar to $-B$, and the matrix used for similarity is the same in
+  both cases.
+
+  Note that invertibility of $A$ or $B$ is not necessary for this
+  question, and the inclusion of the adjective ``invertible'' in the
+  original print version of the quiz was based on an erroneous
+  copy-paste. However, the question is correct even with the
+  ``invertible'' assumption.
+
+  {\em Performance review}: 19 out of 23 people got this. 2 chose (D),
+  1 chose (B), 1 left the question blank.
+\item Suppose $A$ and $B$ are both $n \times n$ matrices (but they are
+  not given to be similar). Which of the following holds?
+
+  \begin{enumerate}[(A)]
+  \item $A$ is similar to $B$ if and only if $2A$ is similar to $2B$.
+  \item If $A$ is similar to $B$, then $2A$ is similar to
+    $2B$. However, $2A$ being similar to $2B$ does not imply that
+    $A$ is similar to $B$.
+  \item If $2A$ is similar to $2B$, then $A$ is similar to
+    $B$. However, $A$ being similar to $B$ does not imply that $2A$
+    is similar to $2B$.
+  \item $A$ being similar to $B$ does not imply that $2A$ is similar
+    to $2B$. Also, $2A$ being similar to $2B$ does not imply that
+    $A$ is similar to $B$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: We have that for any invertible matrix $S$,
+  $S(2B)S^{-1} = 2(SBS^{-1})$. In other words, if $A = SBS^{-1}$, then
+  $2A = S(2B)S^{-1}$. Conversely, if $2A = S(2B)S^{-1}$, then $A =
+  SBS^{-1}$. Thus, $A$ is similar to $B$ if and only if $2A$ is
+  similar to $2B$, and the matrix used for similarity is the same in
+  both cases.
+
+  {\em Performance review}: 22 out of 23 people got this. 1 chose (B).
+
+\item Suppose $A$ and $B$ are both invertible $n \times n$ matrices
+  (but they are not given to be similar). Which of the following
+  holds?
+
+  \begin{enumerate}[(A)]
+  \item $A$ is similar to $B$ if and only if $A^{-1}$ is similar to $B^{-1}$.
+  \item If $A$ is similar to $B$, then $A^{-1}$ is similar to
+    $B^{-1}$. However, $A^{-1}$ being similar to $B^{-1}$ does not
+    imply that $A$ is similar to $B$.
+  \item If $A^{-1}$ is similar to $B^{-1}$, then $A$ is similar to
+    $B$. However, $A$ being similar to $B$ does not imply that
+    $A^{-1}$ is similar to $B^{-1}$
+  \item $A$ being similar to $B$ does not imply that $A^{-1}$ is
+    similar to $B^{-1}$. Also, $A^{-1}$ being similar to $B^{-1}$ does
+    not imply that $A$ is similar to $B$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Note that once we show one direction, the other
+  direction follows, because the inverse operation is self-inverse:
+  the inverse of the inverse is the inverse. This automatically
+  narrows the space of possibilities to two: Option (A) and Option
+  (D). To demonstrate that the correct answer is Option (A), we will
+  show the forward implication: if $A$ is similar to $B$, then
+  $A^{-1}$ is similar to $B^{-1}$.
+
+  Suppose $A$ is similar to $B$. Then, there exists an invertible $n
+  \times n$ matrix $S$ such that $A = SBS^{-1}$. Then, $A^{-1} =
+  (SBS^{-1})^{-1} = (S^{-1})^{-1}B^{-1}S^{-1} = SB^{-1}S^{-1}$ (note
+  that the order of multiplication reverses when we take the
+  inverse). Thus, $A^{-1}$ and $B^{-1}$ are also similar.
+
+  {\em Performance review}: 11 out of 23 people got this. 5 each chose
+  (B) and (D), 1 each chose (C) and (E).
+
+  {\em Historical note (last time)}: $14$ out of $19$ got
+  this. $2$ chose (B), $1$ each chose (C), (D), and (E).
+
+\item Suppose $A$ and $B$ are both $n \times n$ matrices (but they are
+  not given to be similar). Which of the following holds?
+
+  \begin{enumerate}[(A)]
+  \item $A$ is similar to $B$ if and only if $A^2$ is similar to $B^2$.
+  \item If $A$ is similar to $B$, then $A^2$ is similar to
+    $B^2$. However, $A^2$ being similar to $B^2$ does not imply that
+    $A$ is similar to $B$.
+  \item If $A^2$ is similar to $B^2$, then $A$ is similar to
+    $B$. However, $A$ being similar to $B$ does not imply that $A^2$
+    is similar to $B^2$.
+  \item $A$ being similar to $B$ does not imply that $A^2$ is similar
+    to $B^2$. Also, $A^2$ being similar to $B^2$ does not imply that
+    $A$ is similar to $B$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: If $A$ is similar to $B$, that means there exists
+  a $n \times n$ invertible matrix $S$ such that $A = SBS^{-1}$. Thus,
+  $A^2 = (SBS^{-1})^2 = SB^2S^{-1}$, so that $A^2$ and $B^2$ are both
+  similar.
+
+  However, $A^2$ being similar to $B^2$ does not imply that $A$ is
+  similar to $B$. For instance, consider:
+
+  $$A = \left[\begin{matrix} 0 & 1 \\ 0 & 0 \\\end{matrix}\right], B = \left[\begin{matrix} 0 & 0 \\ 0 & 0 \\\end{matrix}\right]$$
+
+  Note that both $A^2$ and $B^2$ are the zero matrix, so $A^2$ and
+  $B^2$ are similar. However, $A$ is not similar to $B$. In fact, $B$,
+  being the zero matrix, is the only matrix in its similarity class,
+  for obvious reasons.
+
+  {\em Performance review}: 9 out of 23 people got this. 10 chose (A),
+  4 chose (D).
+
+  {\em Historical note (last time)}: $10$ out of $19$ got this. $5$ chose (D),
+  $2$ chose (A), $1$ each chose (C) and (E).
+
+\item Suppose $A$ and $B$ are $n \times n$ matrices (but they are not
+  given to be similar and they are not given to be invertible). We say
+  that $A$ and $B$ are {\em quasi-similar} (not a standard term!) if
+  there exist $n \times n$ matrices $C$ and $D$ such that $A = CD$ and
+  $B = DC$. What can we say is the relation between being similar and
+  being quasi-similar?
+
+  \begin{enumerate}[(A)]
+  \item $A$ and $B$ are similar if and only if they are quasi-similar.
+  \item If $A$ and $B$ are similar, they are quasi-similar. However,
+    the converse is not necessarily true: $A$ and $B$ may be
+    quasi-similar but not similar.
+  \item If $A$ and $B$ are quasi-similar, they are similar. However,
+    the converse is not necessarily true: $A$ and $B$ may be similar
+    but not quasi-similar.
+  \item Neither implies the other. $A$ and $B$ may be similar but not
+    quasi-similar. Also, $A$ and $B$ may be quasi-similar but not
+    similar.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: If $A$ and $B$ are similar, there exists an
+  invertible $n \times n$ matrix $S$ such that $A = SBS^{-1}$. In that
+  case, we can set $C = SB$ and $D = D^{-1}$ to obtain that $A = CD$
+  and $B = DC$.
+
+  The converse is not necessarily true. To establish a
+  counter-example, it suffices to construct matrices $C$ and $D$ such
+  that $CD = 0$ but $DC$ is nonzero. If we label $CD$ as $A$ and $DC$
+  as $B$, we have constructed quasi-similar matrices that are not
+  similar. Here are the examples:
+
+  $$C = \left[\begin{matrix} 0 & 1 \\ 0 & 0 \\\end{matrix}\right], D = \left[\begin{matrix} 1 & 0 \\ 0 & 0 \\\end{matrix}\right]$$
+
+  The products are:
+
+  $$A = \left[\begin{matrix} 0 & 0 \\ 0 & 0 \\\end{matrix}\right], B = \left[\begin{matrix} 0 & 1 \\ 0 & 0 \\\end{matrix}\right]$$
+
+  These are quasi-similar but not similar.
+
+  {\em Performance review}: 5 out of 23 people got this. 15 chose (D),
+  2 chose (C), 1 chose (E).
+
+  {\em Historical note (last time)}; $10$ out of $19$ got this. $7$
+  chose (D), $2$ chose (C).
+
+\item With the notion of quasi-similar as defined in the preceding
+  question, what can we say about the relation between being similar
+  and being quasi-similar for $n \times n$ matrices $A$ and $B$ that
+  are both given to be {\em invertible}?
+
+  \begin{enumerate}[(A)]
+  \item $A$ and $B$ are similar if and only if they are quasi-similar.
+  \item If $A$ and $B$ are similar, they are quasi-similar. However,
+    the converse is not necessarily true: $A$ and $B$ may be
+    quasi-similar but not similar.
+  \item If $A$ and $B$ are quasi-similar, they are similar. However,
+    the converse is not necessarily true: $A$ and $B$ may be similar
+    but not quasi-similar.
+  \item Neither implies the other. $A$ and $B$ may be similar but not
+    quasi-similar. Also, $A$ and $B$ may be quasi-similar but not
+    similar.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: We already proved that similar implies
+  quasi-similar. We want to prove the reverse implication under the
+  assumption that $A$ and $B$ are invertible. So, suppose $A = CD$ and
+  $B = DC$ with $A$ and $B$ both invertible.
+
+  First, note that $C$ is invertible. In fact, $C(DA^{-1})$ is the
+  identity matrix.
+
+  Now, note that:
+
+  $$A = CD = CDCC^{-1} = C(DC)C^{-1} = CBC^{-1}$$
+
+  Thus, $A$ and $B$ are similar.
+
+  {\em Performance review}: 6 out of 23 people got this. 6 each chose
+  (B) and (D), 5 chose (C).
+
+  {\em Historical note (last time)}: $9$ out of $19$ got this. $7$ chose (B),
+  $2$ chose (D), $1$ chose (C).
+
+\item Suppose $A$ and $B$ are two $n \times n$ matrices. Which of the
+  following best describes the relation between similarity and having
+  the same rank?
+
+  \begin{enumerate}[(A)]
+  \item $A$ and $B$ are similar if and only if they have the same rank.
+  \item If $A$ and $B$ are similar, then they have the same
+    rank. However, it is possible for $A$ and $B$ to have the same
+    rank but not be similar.
+  \item If $A$ and $B$ have the same rank, then they are
+    similar. However, it is possible for $A$ and $B$ to be similar but
+    not have the same rank.
+  \item $A$ and $B$ may be similar but have different ranks. Also, $A$
+    and $B$ may have the same rank but not be similar.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Note that similar matrices represent the same
+  linear transformation in different coordinates. In particular, this
+  means that geometrically, the kernel and image remain the same, but
+  they get re-labeled. Thus, the matrices must have the same rank.
+
+  Explicitly, if $A = SBS^{-1}$, then the image of $A$ is the image of
+  $SBS^{-1}$. Start with $\R^n$. Its image under $SBS^{-1}$ can be
+  computed by taking successive images under the linear
+  transformations corresponding to $S^{-1}$, then $B$, then $S$. The
+  first transformation, given by $S^{-1}$, is bijective from $\R^n$ to
+  $\R^n$ on account of $S$ being invertible. We then do $B$ on the
+  image. Since the image of $S^{-1}$ is all of $\R^n$, the image of
+  $BS^{-1}$ is the same as the image of $B$. Then again, $S$ is
+  bijective. Therefore it has zero kernel. Thus, its restriction to
+  the image of $BS^{-1}$ sends that subspace of $\R^n$ to an
+  equal-dimensional subspace of $\R^n$. The upshot is that the image
+  of $SBS{^-1} = A$ has the same dimension as the image of $B$. Thus,
+  $A$ and $B$ have the same rank.
+
+  However, it is possible for matrices having the same rank to not be
+  similar. For instance, {\em any} two invertible $n \times n$
+  matrices have the same rank, namely $n$. However, they need not be
+  similar. In fact, we can take two different scalar matrices with
+  different scalar values, such as $[1]$ and $[2]$. Or, we could take
+  these two matrices:
+
+  $$\left[\begin{matrix} 1 & 0 \\ 0 & 1 \\\end{matrix}\right], \left[\begin{matrix} 0 & 1 \\ 1 & 0 \\\end{matrix}\right]$$
+
+  {\em Performance review}: 18 out of 23 people got this. 5 chose (A).
+
+  {\em Historical note (last time)}: $15$ out of $19$ got this. $3$ chose (D),
+  $1$ chose (A).
+
+\item Suppose $A$ and $B$ are two $n \times n$ matrices. Which of the
+  following best describes the relation between quasi-similarity and having
+  the same rank?
+
+  \begin{enumerate}[(A)]
+  \item $A$ and $B$ are quasi-similar if and only if they have the same rank.
+  \item If $A$ and $B$ are quasi-similar, then they have the same
+    rank. However, it is possible for $A$ and $B$ to have the same
+    rank but not be quasi-similar.
+  \item If $A$ and $B$ have the same rank, then they are
+    quasi-similar. However, it is possible for $A$ and $B$ to be
+    quasi-similar but not have the same rank.
+  \item $A$ and $B$ may be quasi-similar but have different ranks. Also, $A$
+    and $B$ may have the same rank but not be quasi-similar.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: For an example of quasi-similar matrices that
+  have different ranks, consider the example provided earlier of the
+  zero matrix being quasi-similar to a nonzero matrix. Explicitly:
+
+  $$A = \left[\begin{matrix} 0 & 0 \\ 0 & 0 \\\end{matrix}\right], B = \left[\begin{matrix} 0 & 1 \\ 0 & 0 \\\end{matrix}\right]$$
+
+  For an example of matrices that have the same rank that are not quasi-similar, consider:
+
+  $$A = \left[\begin{matrix} 1 & 0 \\ 0 & 0 \\\end{matrix}\right], B = \left[\begin{matrix} 0 & 1 \\ 0 & 0 \\\end{matrix}\right]$$
+
+  Both $A$ and $B$ have rank one. However, they are not
+  quasi-similar. This can be seen in either of two ways:
+
+  \begin{itemize}
+  \item Given two quasi-similar matrices, one is nilpotent if and only
+    if the other is, and their nilpotencies differ by at most
+    one. However, in the example above, $A$ is idempotent and not
+    nilpotent, while $B$ is nilpotent. The reason is roughly that if
+    $(CD)^r = 0$, then $(DC)^{r+1} = 0$, and conversely, if $(DC)^s =
+    0$, then $(CD)^{s+1} = 0$.
+  \item Any two quasi-similar matrices have the same trace (as
+    mentioned below). However, $A$ has trace $1$ while $B$ has trace
+    $0$.
+  \end{itemize}
+
+  {\em Performance review}: 14 out of 23 people got this. 5 chose (B),
+  3 chose (A), 1 chose (C).
+
+  {\em Historical note (last time)}: $7$ out of $19$ got this. $7$ chose (B),
+  $3$ chose (A), $2$ chose (C).
+
+
+\end{enumerate}
+\end{document}

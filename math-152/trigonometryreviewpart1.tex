@@ -1,0 +1,528 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Trigonometry review (part 1)}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Difficulty level}: Easy to moderate, given that you are already
+familiar with trigonometry.
+
+{\bf Covered in class?}: Probably not (for the most part). Some small
+segments may be covered in class or in problem session if it helps
+with some problems. Please go through this if you experience
+difficulties while doing trigonometry problems.
+
+{\bf Corresponding material in the book}: Section 1.6 (part).
+
+{\bf Corresponding material in homework problems}: Homework 1,
+advanced homework problem 6.
+
+\section{Trigonometric functions for acute angles}
+
+Earlier we talked about the fact that sometimes you know that
+something is a function (because it sends every element in the domain
+to a unique output -- and satisfies the condition that equal inputs
+give equal outputs) but you don't have an expression for it. It's like
+you know somebody is a person but you don't know that person's
+name. So what do you do? You just make up a name. Well, that's what
+we're going to do.
+
+So, let's consider an angle, that I'll call $\theta$, and assume that
+$\theta$ is {\em strictly} between $0$ and $\pi/2$ ($90\,^\circ$, a
+right angle). By the way, the word {\em strictly} when used in
+mathematics means that the equality case (the {\em trivial} or {\em
+degenerate} case) is excluded. So, in this case, it means $0 < \theta
+< \pi/2$. The high school term for an angle strictly between $0$ and
+$\pi/2$ is {\em acute angle}.
+
+So now I define the following function whose domain is the set of
+acute angles. $f(\theta)$ is the ratio of the height of a right-angled
+triangle with base angle $\theta$ to the hypotenuse of that
+triangle. In other words, it is the ratio of the opposite side to the
+angle $\theta$ to the hypotenuse.
+
+So, you may say, why is this a function at all? Why does it make
+sense? There are infinitely many triangles of different sizes with
+base angle $\theta$. Could different choices of triangle give
+different values of $f(\theta)$? And if so, doesn't that undermine the
+claim that $f$ is a function? For instance, in the two triangles
+$\triangle ABC$ and $\triangle DEF$, the base angles are equal. Should
+the corresponding side ratios also be equal?
+
+\includegraphics[width=3in]{righttriangleABC.png}
+
+\includegraphics[width=2in]{righttriangleDEF.png}
+
+By the way, this first question that I asked is the kind of question
+you should ask whenever a {\em function} is defined in a roundabout
+manner, with some arbitrary choices in between. People often phrase
+this as {\em is the function well-defined?} though a more precise
+formulation is: {\em is the so-called function a function at all?}
+
+In this case, the answer is {\em yes}, and the reason is the notion of
+{\em similarity} of triangles. For those of you who've taken some high
+school geometry, you've probably seen this notion. For those who
+haven't, the idea is that if two triangles have the same angles, they
+essentially have the same {\em shape}, even if they have different
+{\em sizes}, so the {\em ratios} of side lengths are the same.
+
+So $f$ is a function. But so what? Do we have an expression for it?
+Well, yes and no. There's no expression for $f$ as a polynomial or
+rational function, because it isn't that kind of function. But we can
+give $f$ its own name, and then we'll be happy. So what's a good name?
+$f$? No, $f$, is too plain and all too common. We need a special
+name. The name we use is sine, written {\em sine} in English and
+$\sin$ in mathematics. So $f(\theta)$ is written as $\sin(\theta)$. By
+the way, when the $\sin$ is being taken of a single letter variable or
+constant, we don't usually put parentheses. So we just say $\sin
+\theta$.
+
+Okay, so what is the domain of the $\sin$ function as we've defined
+it? It is $(0,\pi/2)$. What is the range? In other words, what are the
+possible values that $\sin \theta$ can take? Well, think about it this
+way. Think of a ladder that you have placed with one end touching a
+vertical wall and the other end on the floor. Now, imagine this ladder
+sliding down. When the ladder becomes horizontal, the triangle has base
+angle of zero. When it's almost touched down, the base angle is really
+small and the opposite side is, too. So $\sin \theta \to 0$ as $\theta
+\to 0$. That $\to$ here means {\em tends to} or {\em approaches} --
+it's a concept we'll be looking at in more detail when we do limits.
+
+\includegraphics[width=3in]{slidingladder.png}
+
+At the other extreme, when the ladder is almost upright, the opposite
+side is almost equal to $1$, so $\sin \theta \to 1$ as $\theta \to
+\pi/2$. So what we're seeing is that $\sin$ is an increasing function
+starting off from just about the right of zero and ending at just
+about the left of $1$. So the range of this function is $(0,1)$.
+
+So here's one more point that is worth thinking about. In high school,
+if you started looking at trigonometric functions before the radian
+measure was introduced, then you might have seen that angles are
+denoted differently, e.g., by Greek letters. Why's that? Well, one
+reason to think of that is that angles aren't ordinary numbers. They
+are measurements, and denoting an angle by a common letter like $x$ is
+debasing, because angles come in {\em degrees}. But after you switch
+to the radian measure, an angle (in radians) is just any old real
+number. So we feel free to use $x$ and $y$ to denote angles. We've
+demystified angles.
+
+Now, let's recall the definitions of cosine. The cosine, denoted
+$\cos$, is the ratio of the adjacent side to the hypotenuse. So if
+$\theta$ is the base angle of a right triangle, $\cos \theta$ is the
+ratio of the base to the hypotenuse.
+
+And then there is the tangent function. This is denoted $\tan$, and it
+is the ratio of the opposite side to the adjacent side. Now,
+mathematicians can be very creative with naming sometimes but
+sometimes they just copy names without much deep meaning. So this
+tangent function doesn't have any deep relation with the concept of
+{\em tangent} to a circle or a curve. Yes, they are loosely related,
+but the relation isn't strong enough to merit the same name. Call that
+an accident of history.
+
+The other three trigonometric functions are the reciprocals of
+these. The reciprocal of the sine function is the cosecant function,
+denoted in mathematical shorthand as $\csc$. The reciprocal of the
+cosine function is the secant function, denoted in mathematical
+shorthand as $\sec$. The reciprocal of the tangent function is the
+cotangent function, denoted in mathematical shorthand as $\cot$.
+
+We summarize the important definitions here.
+
+\includegraphics[width=3in]{righttriangleABC.png}
+
+Next, we define the six trigonometric functions of $\theta$ as ratios
+of side lengths in this triangle:
+
+\begin{align*}
+  \sin \theta & = \frac{\text{Opposite leg}}{\text{Hypotenuse}} = \frac{BC}{AC}\\
+  \cos \theta & = \frac{\text{Adjacent leg}}{\text{Hypotenuse}} = \frac{AB}{AC}\\
+  \tan \theta & = \frac{\text{Opposite leg}}{\text{Adjacent leg}} = \frac{BC}{AB}\\
+  \cot \theta & = \frac{\text{Adjacent leg}}{\text{Opposite leg}} =\frac{AB}{BC}\\
+  \sec \theta & = \frac{\text{Hypotenuse}}{\text{Adjacent leg}} = \frac{AC}{AB}\\
+  \csc \theta & = \frac{\text{Hypotenuse}}{\text{Opposite leg}} =\frac{AC}{BC}
+\end{align*}
+
+\section{Relation between trigonometric functions}
+
+The six trigonometric functions are related via three broad classes of
+relationships. Each of these relationships pairs up the six
+trigonometric functions into three pairs. We discuss each of these
+pairings.
+
+\subsection{Complementary angle relationships}
+
+The right triangle $\triangle ABC$ has two acute angles. The ratios of
+side lengths of this triangle give the trigonometric function values
+for both acute angles. However, a leg that's opposite to one angle
+becomes adjacent to the other. Thus, the trigonometric functions for
+$(\pi/2) - \theta$ are related to the trigonometric functions for
+$\theta$ as follows:
+
+\begin{eqnarray*}
+  \sin((\pi/2) - \theta) & = & \cos \theta\\
+  \cos((\pi/2) - \theta) & = & \sin \theta\\
+  \tan((\pi/2) - \theta) & = & \cot \theta\\
+  \cot((\pi/2) - \theta) & = & \tan \theta\\
+  \sec((\pi/2) - \theta) & = & \csc \theta\\
+  \csc((\pi/2) - \theta) & = & \sec \theta
+\end{eqnarray*}
+
+The prefix {\em co-} indicates a complementary angle
+relationship. Thus, the functions sine and {\em co}sine have a
+complementary angle relationship. The functions tangent and {\em
+co}tangent have a complementary angle relationship. The functions
+secant and {\em co}secant have a complementary angle relationship.
+
+It is an easy but useful exercise to verify the complementary angle
+relationships from the definitions of the trigonometric functions.
+
+\subsection{Reciprocal relationships}
+
+Reciprocal relationships between the trigonometric functions are as follows:
+
+\begin{enumerate}
+\item $\sin \theta$ and $\csc \theta$ are reciprocals. In other words,
+  $(\sin \theta)(\csc \theta) = 1$ for all acute angles $\theta$.
+\item $\cos \theta$ and $\sec \theta$ are reciprocals. In other words,
+  $(\cos \theta)(\sec \theta) = 1$ for all acute angles $\theta$.
+\item $\tan \theta$ and $\cot \theta$ are reciprocals. In other words,
+  $(\tan \theta)(\cot \theta) = 1$ for all acute angles $\theta$.
+\end{enumerate}
+
+It is an easy but useful exercise to verify the complementary angle
+relationships from the definitions of the trigonometric functions.
+
+\subsection{Square sum and difference relationships}
+
+These are the trickiest and the most important of the
+relationships. We consider the most important of these first: the
+square sum relationship between $\sin$ and $\cos$.
+
+By the Pythagorean theorem for the right triangle $\triangle ABC$ with
+the angle at $B$ being the right angle, we have:
+
+$$AB^2 + BC^2 = AC^2$$
+
+Or, in terms of the angle $\theta$:
+
+$$\text{(Adjacent leg)}^2 + \text{(Opposite leg)}^2 = \text{(Hypotenuse)}^2$$
+
+Dividing both sides by $AC^2$, we obtain:
+
+$$\frac{AB^2}{AC^2} + \frac{BC^2}{AC^2} = \frac{AC^2}{AC^2}$$
+
+Simplifying, we obtain:
+
+$$\left(\frac{AB}{AC}\right)^2 + \left(\frac{BC}{AC}\right)^2 = 1$$
+
+Recall that $\cos \theta = AB/AC$ and $\sin \theta = BC/AC$, so we get:
+
+$$(\cos \theta)^2 + (\sin \theta)^2 = 1$$
+
+With trigonometric functions, it is a typical convention to write the
+exponent before the angle, so we write $(\cos \theta)^n$ as
+$\cos^n\theta$. Using this convention, we can rewrite the above relationship as:
+
+$$\cos^2\theta + \sin^2\theta = 1$$
+
+Two other square sum and difference relationships of importance are:
+
+\begin{eqnarray*}
+  \tan^2 \theta + 1 & = & \sec^2 \theta\\
+  \cot^2 \theta + 1 & = & \csc^2 \theta
+\end{eqnarray*}
+
+It is a good exercise to prove both of these using the Pythagorean theorem.
+
+\subsection{Everything in terms of $\sin$ and $\cos$}
+
+It is often useful to deal with $\sin$ and $\cos$ only, so it is
+helpful to know how to write the other trigonometric functions in
+terms of $\sin$ and $\cos$. The expressions are given below:
+
+It is a good exercise to verify that these expressions are correct
+using the definitions of the trigonometric functions.
+
+\begin{eqnarray*}
+  \tan \theta & = & \frac{\sin \theta}{\cos \theta} \\
+  \cot \theta & = & \frac{\cos \theta}{\sin \theta} \\
+  \sec \theta & = & \frac{1}{\cos \theta}\\
+  \csc \theta & = & \frac{1}{\sin \theta}
+\end{eqnarray*}
+
+
+\subsection{Everything in terms of $\sin$ or $\cos$}
+
+Finally, when it comes to acute angles, we can write all the
+trigonometric functions in terms of $\sin$ alone or $\cos$ alone. The
+key is to use the fact that $\sin^2\theta + \cos^2 \theta = 1$. Since
+both $\sin \theta$ and $\cos \theta$ are positive for an acute angle
+$\theta$, we can use this to get the expressions:
+
+\begin{eqnarray*}
+  \cos \theta & = & \sqrt{1 - \sin^2 \theta}\\
+  \sin \theta & = & \sqrt{1 - \cos^2 \theta}
+\end{eqnarray*}
+
+Once we have this, we can get expressions for all the other
+trigonometric functions in terms of $\sin$. We can also get
+expressions for all the other trigonometric functions in terms of
+$\cos$.
+
+We give here all the expressions in terms of $\sin$. In all these, we
+just take the previos expressions and replace every occurrence of
+$\cos \theta$ by $\sqrt{1 - \sin^2\theta}$.
+
+\begin{eqnarray*}
+  \cos \theta & = & \sqrt{1 - \sin^2\theta}\\
+  \tan \theta & = & \frac{\sin \theta}{\sqrt{1 - \sin^2\theta}}\\
+  \cot \theta & = & \frac{\sqrt{1 - \sin^2\theta}}{\sin \theta}\\
+  \sec \theta & = & \frac{1}{\sqrt{1 - \sin^2 \theta}}\\
+  \csc \theta & = & \frac{1}{\sin \theta}
+\end{eqnarray*}
+
+You can work out how the other five trigonometric functions look in
+terms of $\cos \theta$ by yourself.
+
+{\em Note that these expressions are valid only for acute angles}. The
+problem is that for bigger angles, as we shall soon see, the value of
+$\sin$ or $\cos$ can be negative, so even thought $\sin^2\theta +
+\cos^2\theta = 1$, we cannot write $\sin \theta = \sqrt{1 -
+\cos^2\theta}$ because the $\sqrt{}$ symbol always gives a nonnegative
+output and $\sin \theta$ may well be negative.
+
+\section{Unit circle trigonometry}
+
+\subsection{The unit circle}
+
+The unit circle centered at the origin is defined as the set of points
+$(x,y)$ in the coordinate plane that satisfy $x^2 + y^2 = 1$. This is
+a circle of radius $1$ centered at the origin.
+
+The unit circle intersects the $x$-axis at the points $(1,0)$ and
+$(-1,0)$. It intersects the $y$-axis at the points $(0,1)$ and
+$(0,-1)$.
+
+\includegraphics[width=3in]{unitcircle.png}
+
+\subsection{Sine and cosine using the unit circle}
+
+Suppose $\theta$ is an angle. We define $\sin \theta$ and $\cos
+\theta$ using the unit circle as follows. Start on the unit circle at
+the point $(1,0)$. Move an angle of $\theta$ in the counter clockwise
+direction on the unit circle. Call the point you finally reach
+$(x_0,y_0)$. Then, $\cos \theta$ is defined as $x_0$ and $\sin \theta$
+is defined as $y_0$.
+
+When $\theta$ is an acute angle, then the point $(x_0,y_0)$ is in the
+first quadrant. We see that the definitions of $\cos \theta$ and $\sin
+\theta$ match the definitions we gave earlier in terms of
+triangles.
+
+\section{Qualitative behavior of sine and cosine}
+
+\subsection{For acute angles}
+
+Note that prior to the introduction of unit circle trigonometry, we
+defined $\sin$ and $\cos$ only for acute angles. We first discuss the
+qualitative behavior of these functions for acute angles, but also
+include the limiting cases of $0$ and $\pi/2$. After
+that, we discuss the behavior for obtuse angles.
+
+For acute angles, we have the following:
+
+\begin{enumerate}
+\item $\sin$ is a strictly increasing function for acute angles,
+  starting off with $\sin 0 = 0$ and $\sin (\pi/2) =
+  1$. This can be seen graphically in many ways. For instance, imagine
+  a ladder that is initially vertical along a wall, and gradually
+  slides down. The angle that the foot of the ladder makes with the
+  floor decreases from $\pi/2$ to $0$, and the vertical
+  height of the top of the ladder also decreases. [More class
+  discussion on this]
+
+  \includegraphics[width=3in]{slidingladder.png}
+
+  \vspace{2in}
+\item $\cos$ is a strictly decreasing function for acute angles,
+  starting off with $\cos 0 = 1$ and $\cos (\pi/2) =
+  0$. The fact that the behavior of $\cos$ is the mirror opposite of
+  that of $\sin$ is not surprising -- this essentially follows from
+  the complementary angle relationship.
+  \vspace{1in}
+\item $\tan$ is a strictly increasing function for acute angles,
+  starting off with $\tan 0 = 0$. $\tan (\pi/2)$ is not
+  defined, and as an acute angle $\theta$ comes closer and closer to
+  being $\pi/2$, $\tan \theta$ approaches $\infty$. (The precise
+  meaning and explanation of this statement involve familiarity with
+  ideas of limits, which are beyond the current scope of discussion).
+\item $\cot$ is a strictly decreasing function for acute angles, and
+  its behavior mirrors that of $\tan$ because of the complementary
+  angle relationship. $\cot 0$ is undefined and $\cot
+  (\pi/2) = 0$.
+\end{enumerate}
+
+\subsection{For angles between $0$ and $\pi$}
+
+Using the unit circle trigonometry definition, we can see that:
+
+\begin{eqnarray*}
+  \sin(\pi - \theta) & = & \sin \theta\\
+  \cos(\pi - \theta) & = & -\cos \theta
+\end{eqnarray*}
+
+In particular, $\sin$ is positive for all angles $\theta$ that are
+strictly between $0$ and $\pi$, including both acute
+and obtuse angles. In terms of unit circle trigonometry, this is
+because the first half of the unit circle if we go counter-clockwise
+from $(1,0)$ has positive $y$-coordinate. On the other hand, $\cos$ is
+negative for obtuse angles, and this can again be seen from the unit
+circle trigonometry.
+
+Note that $\tan \theta$ is defined as $\sin \theta/\cos \theta$
+wherever $\cos \theta \ne 0$, so we get the formula:
+
+\begin{equation*}
+  \tan(\pi - \theta) = -\tan \theta
+\end{equation*}
+
+\subsection{The graphs}
+
+Here are the graphs of the sine and cosine function from $0$
+to $2\pi$.
+
+\includegraphics[width=3in]{sinecosinegraphs.png}
+
+We will study the graphs of the other trigonometric functions later.
+
+\subsection{General facts: value taking}
+
+\begin{enumerate}
+\item $\sin$ takes its peak value of $1$ at numbers of the form
+  $2n\pi + (\pi/2)$, where $n$ is an integer, and its trough values of
+  $-1$ at numbers of the form $2n\pi - (\pi/2)$, where $n$ is an
+  integer. $\sin$ takes the value $0$ at multiples of $\pi$, i.e.,
+  numbers of the form $n\pi$ where $n$ is an integer.
+\item The solutions to $\sin x = \sin \alpha$ come in two families: $x
+  = 2n\pi + \alpha$ and $x = 2n\pi + (\pi - \alpha)$, with $n$ ranging
+  over the integers.
+\item $\cos$ takes its maximum value of $1$ at multiples of $2\pi$,
+  i.e., numbers of the form $2n\pi$, $n$ ranging over integers. It
+  takes its minimum value of $-1$ at odd multiples of $\pi$, i.e.,
+  numbers of the form $(2n + 1)\pi$, $n$ ranging over integers. it
+  takes the value $0$ at odd multiples of $\pi/2$, i.e., numbers of
+  the form $n\pi + (\pi/2)$, $n$ ranging over integers.
+\item The solutions to $\cos x = \cos \alpha$ come in two families: $x
+  = 2n\pi + \alpha$ and $x = 2n\pi - \alpha$, $n$ ranging over
+  integers. These two families can be combined compactly by writing
+  the general expression as $x = 2n\pi \pm \alpha$.
+\end{enumerate}
+
+\subsection{Even, odd, mirror symmetry, half turn symmetry}
+
+Here are some general facts about the sine and cosine functions:
+
+\begin{enumerate}
+\item The sine function is an {\em odd function}, i.e., $\sin(-\theta)
+  = -\sin \theta$. In particular, the graph of the sine function
+  enjoys a half turn symmetry about the origin. In fact, the graph of
+  the sine function enjoys a half turn symmetry about any point of the
+  form $(n\pi,0)$.
+\item The graph of the sine function enjoys mirror symmetry about any
+  vertical line through a peak or trough, i.e., any line of the form
+  $x = n\pi + (\pi/2)$.
+\item The cosine function is an {\em even function}, i.e.,
+  $\cos(-\theta) = \cos \theta$. In particular, the graph of the
+  cosine function enjoys a mirror symmetry about the origin. In fact,
+  the graph enjoys a mirror symmetry about all vertical lines through
+  a peak or trough, i.e., any line of the form $x = n\pi$.
+\item The graph of the cosine function enjoys a half turn symmetry
+  about any point of the form $(n\pi + (\pi/2),0)$.
+\item The tangent, cotangent, and cosecant functions are odd functions
+  on their domains of definition. The secant function is even on its
+  domain of definition.
+\end{enumerate}
+
+\subsection{Periodicity}
+
+Here are some important facts:
+
+\begin{enumerate}
+\item The sine and cosine are periodic functions and they both have
+  period $2\pi$.
+\item The tangent and cotangent are periodic functions and they both
+  have period $\pi$.
+\item The secant and cosecant are periodic functions and they both
+  have period $2\pi$.
+\end{enumerate}
+\section{Values of trigonometric functions for important angles}
+
+\subsection{$\pi/4$}
+
+To determine the values of trigonometric functions for $\pi/4$,
+we need to examine closely the right isosceles triangle. In this
+triangle, both legs have the same length, and by the Pythagorean
+theorem, the length of the hypotenuse is $\sqrt{2}$ times this
+length. Thus, we obtain the following:
+
+\begin{align*}
+  \sin (\pi/4) & = \cos (\pi/4)  = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2} & \approx 0.707\\
+  \tan (\pi/4) & = \cot (\pi/4) = 1 \\
+  \sec (\pi/4) & = \csc (\pi/4) = \sqrt{2} & \approx 1.414
+\end{align*}
+
+Notice something else too. For the angle $\pi/4$, the values of
+any two trigonometric functions that are related by the complementary
+angle relationship are equal. Thus, $\sin (\pi/4) = \cos
+(\pi/4)$, $\tan (\pi/4) = \cot (\pi/4)$, and $\sec (\pi/4)
+= \csc (\pi/4)$. Geometrically, this is because we are working with
+a right isosceles triangle, and there is a symmetry between the two
+legs. Algebraically, this is because the angle $(\pi/4)$ is its own
+complement, i.e., $(\pi/4) = (\pi/2) - (\pi/4)$.
+
+\subsection{$\pi/6$ and $\pi/3$}
+
+We now consider the triangle where one of the angles is $\pi/6$
+and the other angle is $\pi/3$. Consider the figure below:
+
+\includegraphics[width=3in]{equilateraltrianglewithaltitude.png}
+
+In the figure, the triangle $\triangle ABC$ is an equilateral triangle
+and the line $AD$ is an altitude so $AD \perp BC$. Since $\triangle
+ABC$ is equilateral, all its angles are also equal and hence all the
+angles are $\pi/3$. Also, some elementary geometry tells us that
+$AD$ bisects $BC$ so $DC = (1/2)BC$, so $DC/BC = 1/2$.
+
+Now consider the triangle $\triangle ADC$. The angle at $C$ is
+$\pi/3$ and the angle $\angle CAD$ is $\pi/6$. Thus, we
+obtain that $\cos (\pi/3) = \sin (\pi/6) = DC/AC$. Since
+$\triangle ABC$ is equilateral, $AC = BC$, so $DC/AC = DC/BC$, which
+is $1/2$.
+
+We thus have the first important fact: $\cos (\pi/3) = \sin
+(\pi/6) = 1/2$. Now, using the relations between trigonometric
+functions, we can obtain the other values. The full list is given
+below:
+
+\begin{align*}
+  \sin (\pi/6) & = \cos (\pi/3)  = \frac{1}{2}& = 0.5\\
+  \cos (\pi/6) & = \sin (\pi/3) = \frac{\sqrt{3}}{2} & \approx 0.866 \\
+  \tan (\pi/6) & = \cot (\pi/3) = \frac{1}{\sqrt{3}} & \approx 0.577 \\
+  \cot (\pi/6) & = \tan (\pi/3) = \sqrt{3} & \approx 1.732\\
+  \sec (\pi/6) & = \csc (\pi/3) = \frac{2}{\sqrt{3}} & \approx 1.154\\
+  \csc (\pi/6) & = \sec (\pi/3) = 2
+\end{align*}
+
+You should be able to reconstruct all these values. You can choose
+either to memorize all of them, or to memorize the first two rows and
+reconstruct the rest from them on the spot. Alternatively, you can
+remember the side length configuration of the triangle $\triangle ADC$
+and read off the trigonometric function values by looking at that
+triangle.
+
+\end{document}
+

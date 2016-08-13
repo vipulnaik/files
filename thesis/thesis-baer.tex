@@ -1,0 +1,2699 @@
+\section{Baer correspondence: the basic setup}\label{sec:baer-correspondence-basics}
+
+The {\em Baer correspondence} was introduced by Reinhold Baer in
+\cite{Baer38}. We will review the correspondence in this section, and
+study it in further detail in the next two sections (Sections
+\ref{sec:baer-correspondence-more} and
+\ref{sec:baer-correspondence-definition-relaxation}). This paves the
+  way for the section after that (Section \ref{sec:bcuti}), which
+  contains a novel contribution of this thesis, that we call the {\em
+    Baer correspondence up to isoclinism}. This is relatively
+  straightforward to prove and understand. It sets the stage for the
+  next few sections, where we discuss the {\em Lazard correspondence}
+  (introduced by Lazard in \cite{Lazardsoriginal}) and our variation
+  of it, namely the {\em Lazard correspondence up to isoclinism}.
+
+Many of the ideas described in this section are similar to, and build
+upon, ideas in Section \ref{sec:abelian-lie-correspondence}, where we
+describe the abelian Lie correspondence.
+
+\subsection{Baer Lie groups and Baer Lie rings}\label{sec:baer-lie-definitions}
+
+We begin with some definitions. These definitions are not standard,
+and there may be somewhat different meanings in other sources that use
+these words.
+
+\begin{definer}[Baer Lie group]\label{def:baer-lie-group}
+  A group $G$ is termed a {\em Baer Lie group} if $G$ is powered over
+  the prime $2$ (per Definition \ref{def:poweredgroup}; explicitly,
+  this means that every element of $G$ has a unique square root) {\em
+    and} $G$ is nilpotent with nilpotency class at most $2$.
+\end{definer}
+
+\begin{definer}[Baer Lie ring]\label{def:baer-lie-ring}
+  A Lie ring $L$ is termed a {\em Baer Lie ring} if $L$ is powered
+  over the prime $2$ (i.e., its additive group is powered over $2$ per
+  Definition \ref{def:poweredgroup}; explicitly, this means that every
+  element has a unique half) {\em and} $L$ is nilpotent with
+  nilpotency class at most $2$.
+\end{definer}
+
+The Baer correspondence is a correspondence:
+
+\begin{center}
+  Baer Lie groups $\leftrightarrow$ Baer Lie rings
+\end{center}
+
+A group and Lie ring that are in Baer correspondence have {\em the
+  same underlying set}.
+
+\subsection{Construction from group to Lie ring}\label{sec:baer-group-to-lie-ring}
+
+Consider a Baer Lie group $G$ with multiplication denoted by
+juxtaposition and the identity element denoted by $1$. We define a
+Baer Lie ring, denoted $\log G$ or $\log(G)$, as follows. The
+underlying set of $\log G$ is the same as the underlying set of $G$,
+and the operations are as follows.
+
+\begin{itemize}
+\item The addition on $\log(G)$ is defined as $x + y :=
+  \frac{xy}{\sqrt{[x,y]}}$ where $[x,y]$ denotes the group
+  commutator. Note that because the group has class two, it does not
+  matter whether we use the left action convention for the commutator
+  $[x,y] = xyx^{-1}y^{-1}$ or the right action convention for the
+  commutator $[x,y] = x^{-1}y^{-1}xy$: they both mean the same thing.
+
+  Note that $[x,y] \in Z(G)$ (where $Z(G)$ denotes the center of $G$)
+  because $G$ has class at most two. $G$ is $2$-powered, so by Lemma
+  \ref{lemma:centerispoweringinvariant}, the center $Z(G)$ is also
+  $2$-powered. Thus, $\sqrt{[x,y]}$ is also in $Z(G)$. Thus, we can
+  ``divide'' $xy$ by this element unambiguously, without specifying
+  whether the division is on the left or on the right.
+
+  There are two alternative expressions for $x + y$ that are equal to
+  the above and are sometimes more useful to use: $x + y =
+  \sqrt{x}y\sqrt{x}$ and $x + y = \sqrt{xy^2x}$. For more on these
+  expressions, see Section \ref{sec:twisted-multiplication}.
+\item The zero element of $\log(G)$ is defined as equal to the
+  identity element $1$ of $G$.
+\item The additive inverse $-x$ is defined as $-x := x^{-1}$.
+\item The Lie bracket $[x,y]_{\text{Lie}}$ is defined as the group
+  commutator $[x,y]$. As remarked above, it does not matter whether we
+  use the left action convention or the right action convention for
+  the commutator.
+\end{itemize}
+
+\begin{lemma}
+  $\log G$ (as defined above, with the same underlying set as $G$), is
+  a Baer Lie ring.
+\end{lemma}
+
+\begin{proof}
+  The proof requires showing the following:
+
+  \begin{enumerate}
+  \item Addition is associative
+  \item Addition is commutative
+  \item Identity and inverses work
+  \item The Lie bracket is additive in the first variable
+  \item The Lie bracket is additive in the second variable
+  \item The Lie bracket is alternating
+  \item The Lie bracket satisfies the Jacobi condition and gives a class two Lie ring
+  \item The Lie ring is $2$-powered.
+  \end{enumerate}
+  
+  {\em Proof of (1)}: We want to show that for every $x$, $y$, $z$ in
+  $G$ (possibly equal, possibly distinct), we have:
+
+  $$(x + y) + z = x + (y + z)$$
+
+  We first consider the left side:
+
+  $$(x + y) + z = \frac{\frac{xy}{\sqrt{[x,y]}} \cdot z}{\sqrt{\left[\frac{xy}{\sqrt{[x,y]}},z\right]}}$$
+
+  We know that for $c$ central, $[a,bc] = [ac,b] = [a,b]$. Since the
+  reciprocal of $\sqrt{[x,y]}$ is central, it can be dropped from
+  inside commutator expressions, and we simplify to:
+
+  $$(x + y) + z = \frac{xyz}{\sqrt{[x,y]}\sqrt{[xy,z]}}$$
+
+  The square root operation is a homomorphism on the center, and we can thus rewrite it as:
+
+  \begin{equation*}
+    (x + y) + z = \frac{xyz}{\sqrt{[x,y][xy,z]}} \tag{$\dagger$}
+  \end{equation*}
+
+  Similarly, the right side of the associativity result we want to prove becomes:
+
+  \begin{equation*}
+    x + (y + z) = \frac{xyz}{\sqrt{[x,yz][y,z]}} \tag{$\dagger \dagger$} 
+  \end{equation*}
+
+  Thus, to prove associativity, it suffices to show that the right
+  sides of $(\dagger)$ and $(\dagger\dagger)$ are equal, which in turn
+  reduces to proving that:
+
+  $$ [x,y][xy,z] = [x,yz][y,z]$$
+
+  For a group of class two, the commutator map is a homomorphism in
+  each of its coordinates (see Lemma
+  \ref{lemma:iterated-commutator-is-multilinear} for a proof of this
+  and related statements). Thus, both sides simplify to:
+
+  $$[x,y][x,z][y,z]$$
+
+  and hence both sides are equal, completing the proof.
+
+  {\em Proof of (2)}: We want to show that for any $x$, $y$ in the
+  group, $x + y = y + x$. The key ingredient to our proof is the
+  observation that $[x,y]^{-1} = [y,x]$.
+
+  We have, by definition:
+
+  $$x + y = \frac{xy}{\sqrt{[x,y]}}$$
+
+  and:
+
+  $$y + x = \frac{yx}{\sqrt{[y,x]}}$$
+
+  It thus suffices to prove that:
+
+  $$\frac{xy}{\sqrt{[x,y]}} = \frac{yx}{\sqrt{[y,x]}}$$
+  
+  which is equivalent to proving that:
+
+  $$\frac{xy}{\sqrt{[x,y]}} = yx\sqrt{[x,y]}$$
+
+  which in turn is equivalent to proving that:
+
+  $$xy = yx[x,y]$$
+
+  which is true by the definition of $[x,y]$.
+
+  {\em Proof of (3)}: We have:
+
+  $$x + 1 = \frac{x1}{\sqrt{[x,1]}} = x$$
+
+  and:
+
+  $$1 + x = \frac{1x}{\sqrt{[1,x]}} = x$$
+
+  Thus, $1$ is an identity element for the Lie ring addition.
+
+  We also have:
+
+  $$x + x^{-1} = \frac{xx^{-1}}{\sqrt{[x,x^{-1}]}} = 1$$
+
+  and:
+
+  $$x^{-1} + x = \frac{x^{-1}x}{\sqrt{[x^{-1},x]}} = 1$$
+
+  {\em Proof of (4) and (5)}: These follow from the corresponding
+  facts for the commutator map in a group of class two.
+
+  {\em Proof of (6)}: This follows from the general fact that
+  $[x,y]^{-1} = [y,x]$.
+
+  {\em Proof of (7)}: In fact, {\em all} Lie products $[[x,y],z]$ are
+  zero, so the Jacobi identity is trivially satisfied.
+
+  {\em Proof of (8)}: We have:
+
+  $$x + x = \frac{x^2}{\sqrt{[x,x]}} = x^2$$
+
+  In other words, the double of an element in the Lie ring is the same
+  as its square in the group. Since the group is 2-powered, the Lie
+  ring is also 2-powered.
+\end{proof}
+
+\subsection{Construction from Lie ring to group}\label{sec:baer-lie-ring-to-group}
+
+Suppose $L$ is a Baer Lie ring with addition $+$ and Lie bracket $[
+  \ , \ ]$. We define a Baer Lie group $\exp(L)$ as follows. The
+underlying set of $\exp(L)$ is the same as the underlying set of
+$L$. The group operations are defined as follows:
+
+\begin{itemize}
+\item The group multiplication on $\exp(L)$ is defined as:
+
+  $$xy = x + y + \frac{1}{2}[x,y]$$
+\item The identity element for the group multiplication of $\exp(L)$ is
+  defined as the element $0$ of $L$.
+\item The inverse operation is defined as $x^{-1} := -x$.
+\end{itemize}
+
+\begin{lemma}\label{lemma:baer-correspondence-lie-ring-to-group}
+  $\exp(L)$ (defined as above, with the same underlying set as $L$) is
+  a Baer Lie group. Moreover, the group commutator in $\exp(L)$
+  coincides with the Lie bracket in $L$.
+\end{lemma}
+
+\begin{proof}
+  The proof requires showing the following:
+
+  \begin{enumerate}
+  \item Multiplication is associative.
+  \item The identity element and inverses work.
+  \item The commutator map in the group agrees with the Lie bracket.
+  \item The group has nilpotency class at most two.
+  \item The group is $2$-powered.
+  \end{enumerate}
+
+  {\em Proof of (1)}: Let $x$, $y$, $z$ be arbitrary (possibly equal,
+  possibly distinct) elements of $L$.
+
+  {\bf To prove}: $(xy)z = x(yz)$
+
+  {\bf Proof}: We begin by simplifying the left side. We have:
+
+  $$(xy)z = \left(x + y + \frac{1}{2}[x,y]\right) + z + \frac{1}{2}\left[x + y + \frac{1}{2}[x,y],z\right]$$
+
+  We use the linearity of the Lie bracket, and also use that the
+  Lie ring has nilpotency class two to simplify $[[x,y],z]$
+  to zero. The expression simplifies to:
+
+  $$(xy)z = x + y + z + \frac{1}{2}\left([x,y] + [x,z] + [y,z]\right)$$
+
+  Similarly, we can show that:
+
+  $$x(yz) = x + y + z + \frac{1}{2}\left([x,y] + [x,z] + [y,z]\right)$$
+
+  Thus, associativity holds.
+
+  {\em Proof of (2)}: From the expression for group multiplication, we
+  obtain that if $[x,y] = 0$, then $xy = x + y$. In particular, this
+  means that:
+
+  $$x(0) = x + 0 = x$$
+
+  and:
+
+  $$(0)x = 0 + x = x$$
+
+  Thus, $x(0) = (0)x = x$, so $0$ is an identity element for
+  multiplication, and we obtain that the multiplication defined turns
+  $L$ into a monoid.
+
+  Further, we obtain that:
+
+  $$x(-x) = x + (-x) = 0$$
+
+  and:
+
+  $$(-x)x = (-x) + x = 0$$
+
+  Thus, $-x$ is a two-sided multiplicative inverse for $x$. $L$ is
+  thus a monoid where every element has a two-sided multiplicative
+  inverse, hence is a group. Further, $-x = x^{-1}$ in this group for
+  all $x$.
+
+  {\em Proof of (3)}: We want to compute an explicit expression for
+  the group commutator $[x,y]_{\text{Group}} = xyx^{-1}y^{-1} = (xy)(yx)^{-1}$ in
+  terms of the Lie ring operations.
+
+  First, we use that $(yx)^{-1} = -(yx)$, so we get:
+
+  $$[x,y]_{\text{Group}} = (xy)(-(yx)) = (xy) + (-(yx)) + \frac{1}{2}[xy,-(yx)]$$
+
+  This simplifies to:
+
+  $$[x,y]_{\text{Group}} = x + y + \frac{1}{2}[x,y] - (y + x + \frac{1}{2}[y,x]) + \frac{1}{2}[x + y + \frac{1}{2}[x,y],-(y + x + \frac{1}{2}[y,x])]$$
+
+  Simplify using the fact that the Lie ring has class two, so that all
+  Lie products of the form $[a,[b,c]]$ or $[[a,b],c]$ are zero. We get:
+
+  $$[x,y]_{\text{Group}} = [x,y]$$
+
+  Thus, the group commutator equals the Lie bracket. Note that the
+  proof above is for the group commutator defined using the left
+  action convention, but an analogous proof exists for the group
+  commutator defined using the right action convention.
+
+  {\em Proof of (4)}: This follows from (3) and the fact that the Lie
+  ring has nilpotency class two.
+
+  {\em Proof of (5)}: For any $x \in L$, $x^2$ with respect to the
+  group structure is given by:
+
+  $$x^2 = x + x + \frac{1}{2}[x,x] = 2x$$
+
+  In other words, the squaring operation in the group coincides with
+  the doubling operation in the Lie ring. The latter is bijective
+  because the Lie ring is $2$-powered. Hence, the former operation is
+  also bijective. Therefore, the group is $2$-powered.
+\end{proof}
+
+\subsection{Mutually inverse nature of the constructions}
+
+We now show that $\exp$ and $\log$ are two-sided inverses of each
+other.
+
+\begin{lemma}\label{lemma:baer-mutual-inverses}
+  The construction of the Baer Lie ring of a Baer Lie group and the
+  construction of the Baer Lie group of a Baer Lie ring are two-sided
+  inverses of each other. Explicitly:
+
+  \begin{enumerate}
+  \item Start with a Baer Lie group $G$. Then, $G = \exp(\log(G))$.
+  \item Start with a Baer Lie ring $L$. Then, $L = \log(\exp(L))$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Note that the identity element and inverse map are the same for the
+  group and Lie ring, and the Lie bracket for the Lie ring is the same
+  as the commutator for the group, so the main thing to check is the
+  interplay between the Lie ring addition and the group
+  multiplication.
+
+  {\em Proof of (1)}: We want to show that the ``new'' group
+  multiplication coincides with the original group multiplication:
+
+  $$(x + y) + \frac{1}{2}[x,y] = xy$$
+
+  We begin by simplifying the left side. We begin by replacing $x + y$
+  by its expression in terms of the group multiplication, and obtain:
+
+  $$\frac{xy}{\sqrt{[x,y]}} + \frac{1}{2}[x,y]$$
+
+  This further simplifies to:
+
+  $$\frac{\frac{xy}{\sqrt{[x,y]}} \sqrt{[x,y]}}{\sqrt{\left[\frac{xy}{\sqrt{[x,y]}},\sqrt{[x,y]}\right]}}$$
+
+  
+  The lower denominator is the identity element because $\sqrt{[x,y]}$
+  is central on account of the group having class two and being
+  2-powered. The numerator simplifies to $xy$. This completes
+  the proof.
+
+  {\em Proof of (2)}: We want to show that the ``new'' Lie ring
+  addition coincides with the original Lie ring addition. Explicitly,
+  we want to show that:
+  
+  $$\frac{xy}{\sqrt{[x,y]}} = x + y$$
+
+  We simplify the left side. Note that $\sqrt{[x,y]} =
+  \frac{1}{2}[x,y]$ is central back in the Lie ring, so this becomes:
+  
+  $(x + y + \frac{1}{2}[x,y]) - \frac{1}{2}[x,y]$
+
+  This simplifies to $x + y$, as desired.
+\end{proof}
+
+\subsection{Understanding the formulas in the Baer correspondence}\label{sec:mean-deviation}
+
+Given two elements $x$ and $y$ in a Baer Lie group $G$, there are two
+possible products we can consider: $xy$ and $yx$. The quotient of
+these products $(xy)/(yx)$ is the commutator $[x,y]$. Note that we get
+the same answer whether we use left or right quotients, because the
+elements $xy$ and $yx$ commute on account of the class being two.
+
+The ``average'' of the two products can be thought of as an element
+$z$ that is midway between $xy$ and $yx$, i.e., we want $z$ to
+satisfy:
+
+$$\frac{xy}{z} = \frac{z}{yx}$$
+
+If we rearrange and solve, we will get:
+
+$$z = \frac{xy}{\sqrt{[x,y]}}$$
+
+The Baer Lie ring construction sets $x + y$ to equal this ``average''
+value and sets the Lie bracket $[x,y]$ to equal the ``distance''
+between $xy$ and $yx$. This agrees with our earlier statement made in
+Section \ref{sec:intro-malcev-and-lazard} about Lie-type
+correspondences in general: ``The addition operation of the Lie ring
+captures the abelian part of the group multiplication, whereas the Lie
+bracket captures the non-abelian part of the group multiplication.''
+
+\subsection{Twisted multiplication of a 2-powered group}\label{sec:twisted-multiplication}
+
+Suppose $G$ is a 2-powered (not necessarily nilpotent) group. For any
+$u \in G$, denote by $\sqrt{u}$ the unique element $v \in G$ such that
+$v^2 = u$.\footnote{The typical case of interest is where $G$ is a
+  finite group, in which case being 2-powered is equivalent to being
+  an odd-order group. However, none of the statements here rely on
+  finiteness.}
+
+The {\em twisted multiplication} on $G$ has two somewhat different but
+related definitions. The two definitions are denoted as $*_1$ and
+$*_2$ below, and the reason for their equivalence is discussed below:
+
+$$x *_1 y := \sqrt{x}y\sqrt{x}$$
+
+$$x *_2 y := \sqrt{xy^2x} = \sqrt{(xy)(yx)}$$
+
+The latter can be thought of as the ``mean'' between $xy$ and $yx$,
+and more explicitly, it is the unique solution $z$ to:
+
+$$z^{-1}xy = z(yx)^{-1}$$
+
+For any $x,y \in G$, we have:
+
+$$x^2 *_1 y^2  = (x *_2 y)^2 = xy^2x$$
+
+Thus, the square map establishes an isomorphism between $(G,*_2)$ and
+$(G,*_1)$.
+
+As proved in \cite{Foguelinv}, $G$ acquires the
+structure of a gyrocommutative gyrogroup (and in particular, the
+structure of a loop) under either of these equivalent
+operations. Explicitly:
+
+\begin{itemize}
+\item The identity element for $*_1$ equals the identity element for
+  $*_2$, and both are equal to the identity element for $G$ as a group.
+\item The inverse map for $*_1$ is the same as the inverse map for
+  $*_2$, and both are equal to the inverse map for $G$ as a group.
+\item In terms of $*_2$, the gyroautomorphism
+  $\operatorname{gyr}([x,y])$ is defined to be conjugation in $G$ by
+  $\sqrt{xy^2x}x^{-1}y^{-1} = (\sqrt{xy^2x})^{-1}xy$. Note that the
+  conjugation element can be thought of as the ``mean deviation'',
+  i.e., it is the distance between either of $xy$ and $yx$ and the
+  ``mean'' between them, in a manner similar to that described in
+  Section \ref{sec:mean-deviation}.
+\end{itemize}
+
+The connection of the twisted multiplication with the Baer
+correspondence is as follows: given a Baer Lie group, the addition
+operation in the corresponding Baer Lie ring coincides with the
+twisted multiplication (in fact, it coincides with {\em both} $*_1$
+and $*_2$). Explicitly, for a Baer Lie group, the Lie ring addition
+has the following equivalent forms:
+
+$$x + y = \frac{xy}{\sqrt{[x,y]}} = \sqrt{x}y\sqrt{x} = \sqrt{xy^2x}$$
+
+\subsection{Preservation of homomorphisms and isomorphism of categories}\label{sec:baer-correspondence-homomorphism-preservation}
+
+In Section
+\ref{sec:abelian-lie-correspondence-homomorphism-preservation}, we
+made a number of observations leading to the conclusion that the
+category of abelian groups is isomorphic to the category of abelian
+Lie rings, with the isomorphisms given explicitly by the $\log$ and
+$\exp$ functors.
+
+The analogous conclusion also holds for the Baer
+correspondence. However, the reasoning behind these steps is somewhat
+different from the abelian case. In the abelian case, the only
+conceptual distinction between the group side and Lie ring side was
+that the latter had a trivial Lie bracket operation. Other than that,
+the operations were the same. In the Baer case, the group operations
+and Lie ring operations are defined somewhat differently. The reason
+that the correspondence works is that {\em any formula commutes with
+  any homomorphism}. For instance, if $w(x,y)$ is the word describing
+the Lie ring addition in terms of the group operations (including
+powering operations), then for any group homomorphism $\varphi$:
+
+$$\varphi(w(x,y)) = w(\varphi(x),\varphi(y))$$
+
+In the case of the Baer correspondence, the formula in question is:
+
+$$w(x,y) = \frac{xy}{\sqrt{[x,y]}}$$
+
+and the assertion becomes:
+
+$$\varphi\left(\frac{xy}{\sqrt{[x,y]}}\right) = \frac{\varphi(x)\varphi(y)}{\sqrt{[\varphi(x),\varphi(y)]}}$$
+
+Since the Lie ring operations are defined in terms of the group
+operations, a homomorphism of groups preserves the Lie ring
+operations, and therefore gives a homomorphism of Lie rings. In the
+opposite direction, since the group operations are defined in terms of
+the Lie ring operations, a homomorphism of Lie rings preserves the
+group operations, and therefore gives a homomorphism of
+groups. Explicitly, in this case, if $\varphi$ is a Lie ring
+homomorphism between Baer Lie rings, then the assertion is that:
+
+$$\varphi\left(x + y + \frac{1}{2}[x,y]\right) = \varphi(x) + \varphi(y) + \frac{1}{2}[\varphi(x),\varphi(y)]$$
+
+The explicit statements are below:
+
+\begin{itemize}
+\item $\log$ defines a functor from Baer Lie groups to Baer Lie rings:
+  Suppose $G_1$ and $G_2$ are Baer Lie groups and $\varphi:G_1 \to
+  G_2$ is a group homomorphism. Then, there exists a unique Lie ring
+  homomorphism $\log(\varphi): \log(G_1) \to \log(G_2)$ that has the
+  same underlying set map as $\varphi$. {\em Reason}: The Lie ring
+  operations are defined as formal expressions in terms of the group
+  operations and the square root operation, and this expression is
+  preserved under homomorphisms.
+\item $\exp$ defines a functor from Baer Lie rings to Baer Lie groups:
+  Suppose $L_1$ and $L_2$ are Baer Lie rings and $\varphi:L_1 \to L_2$
+  is a Lie ring homomorphism. Then, there exists a unique group
+  homomorphism $\exp(\varphi): \exp(G_1) \to \exp(G_2)$ that has the
+  same underlying set map as $\varphi$. {\em Reason}: The group
+  operations are defined as formal expressions in terms of the Lie
+  ring operations and the halving operation, and this expression is
+  preserved under homomorphisms.
+\item The $\log$ and $\exp$ functors are two-sided inverses of each
+  other: This has four parts:
+  \begin{itemize}
+    \item For every Baer Lie group $G$, $G = \exp(\log(G))$. This is
+      part of Lemma \ref{lemma:baer-mutual-inverses}.
+    \item For every Baer Lie ring $L$, $L = \log(\exp(L))$. This is
+      part of Lemma \ref{lemma:baer-mutual-inverses}.
+    \item For every group homomorphism $\varphi:G_1 \to G_2$ of Baer
+      Lie groups, $\exp(\log(\varphi)) = \varphi$. This follows
+      immediately from the fact that both taking $\log$ and taking
+      $\exp$ preserve the underlying set map.
+    \item For every Lie ring homomorphism $\varphi:L_1 \to L_2$ of
+      Baer Lie rings, $\log(\exp(\varphi)) = \varphi$. This follows
+      immediately. This following immediately from the fact that both
+      taking $\log$ and taking $\exp$ preserve the underlying set map.
+  \end{itemize}
+\end{itemize}
+
+The upshot is that the Baer correspondence defines an isomorphism of
+categories over the category of sets between the category of Baer Lie
+groups and the category of Baer Lie rings. Here, by ``category of Baer
+Lie groups'' we mean the full subcategory\footnote{Full subcategory
+  means that all morphisms of the big category (in this case, the
+  category of groups) between objects of the subcategory (in this
+  case, Baer Lie groups) are morphisms in the subcategory.} of the
+category of groups where the objects are the Baer Lie
+groups. Similarly, by ``category of Baer Lie rings'' we mean the full
+subcategory of the category of Lie rings where the objects are Baer
+Lie rings.
+
+Note that all steps of this reasoning can be repeated for the Lazard
+correspondence. To avoid repetition, we will omit the details and
+instead refer back to this section as needed.
+
+\subsection{Consequences for the Baer correspondence of being an isomorphism of categories}\label{sec:baer-correspondence-isocat-consequences}
+
+We have established above that the Baer correspondence defines an
+isomorphism of categories. Mimicking the steps in Section
+\ref{sec:abelian-lie-correspondence}, we obtain the following:
+
+\begin{itemize}
+\item The Baer correspondence preserves endomorphism
+  monoids. Explicitly, if $G$ is a Baer Lie group and $L = \log(G)$,
+  then $\operatorname{End}(G)$ and $\operatorname{End}(L)$ are
+  isomorphic monoids, and define the same collection of set maps. The
+  reasoning mimicks Section
+  \ref{sec:abelian-lie-correspondence-aut-end}.
+\item The Baer correspondence also preserves automorphism
+  groups. Again, the reasoning mimicks Section
+  \ref{sec:abelian-lie-correspondence-aut-end}.
+\item We can define the Baer correspondence {\em up to isomorphism}
+  (mimicking Section
+  \ref{sec:abelian-lie-correspondence-up-to-isomorphism}). This is a
+  correspondence:
+
+  \begin{center}
+    Isomorphism classes of Baer Lie groups $\leftrightarrow$
+    Isomorphism classes of Baer Lie rings
+  \end{center}
+\end{itemize}
+
+%\newpage
+
+\section{Baer correspondence: additional remarks}\label{sec:baer-correspondence-more}
+
+\subsection{Subgroups, quotients, and direct products}\label{sec:baer-correspondence-sub-quot-dp}
+
+In Section \ref{sec:abelian-lie-correspondence-sub-quot-dp}, we noted
+that the abelian Lie correspondence between an abelian group and an
+abelian Lie ring gives rise to a correspondence between all subgroups
+of the group and all subrings of the Lie ring.
+
+A related result holds for the Baer correspondence, but there are more
+caveats. The important caveat is that the 2-powered groups do {\em
+  not} form a sub{\em variety} of the variety of groups. Therefore,
+the Baer Lie groups do not form a subvariety of the variety of
+groups. Let us examine subgroups, quotients, and direct products
+separately:
+
+\begin{itemize}
+\item {\em Subgroups}: A subgroup of a Baer Lie group need not be a
+  Baer Lie group. For instance, the group $\Q$ of rational numbers is
+  a Baer Lie group, but its subgroup $\Z$ is not a Baer Lie group.
+\item {\em Quotients}: A quotient group of a Baer Lie group need not
+  be a Baer Lie group. For instance, the group $\Q$ of rational
+  numbers is a Baer Lie group, but its quotient group $\Q/\Z$ is not a
+  Baer Lie group.
+\item {\em Direct products}: An arbitrary direct product of Baer Lie
+  groups is a Baer Lie group.
+\end{itemize}
+
+Similar observations hold for Baer Lie rings:
+
+\begin{itemize}
+\item {\em Subrings}: A subring of a Baer Lie ring need not be a Baer
+  Lie ring. For instance, the abelian Lie ring with additive group
+  $\Q$ but its subring with additive group $\Z$ is not a Baer Lie ring.
+\item {\em Quotient rings}: A quotient ring of a Baer Lie ring need
+  not be a Baer Lie ring. For instance, the abelian Lie ring with
+  additive group $\Q$ is a Baer Lie ring, but the quotient ring with
+  additive group $\Q/\Z$ is not a Baer Lie ring.
+\item {\em Direct products}: An arbitrary direct product of Baer Lie
+  rings is a Baer Lie ring.
+\end{itemize}
+
+Due to the above considerations, we need to impose some restrictions
+on the nature of the subgroup and nature of the quotient group in
+order to use the Baer correspondence to obtain a correspondence
+between subgroups and subrings, or between quotient groups and
+quotient rings.
+
+Call a subgroup $H$ of a Baer Lie group $G$ a {\em Baer Lie subgroup}
+if $H$ is $2$-powered. In particular, this means that $H$ is a Baer
+Lie group in its own right. Note also that for a normal subgroup $H$
+of $G$, $H$ is a Baer Lie subgroup if and only if the quotient group
+$G/H$ is a Baer Lie group (this follows from the two-out-of-three
+theorem, Theorem \ref{thm:two-out-of-three}). In this case, we say
+that $G/H$ is a {\em Baer Lie quotient group} of $G$.
+
+Call a subring $M$ of a Baer Lie ring $L$ a {\em Baer Lie subring} if
+$M$ is $2$-powered. In particular, this means that $M$ is a Baer Lie
+ring in its own right.  Note also that for an ideal $I$ of $L$, $I$ is
+a Baer Lie subring if and only if the quotient ring $L/I$ is a Baer
+Lie ring (this follows from Theorem
+\ref{lemma:two-out-of-three-lie}). In these equivalent cases, we will
+say that $I$ is a {\em Baer Lie ideal} of $L$ and $L/I$ is a {\em Baer
+  Lie quotient ring} of $L$.
+
+\begin{itemize}
+\item {\em Baer Lie subgroups correspond to Baer Lie subrings}:
+  Suppose a Baer Lie ring $L$ is in Baer correspondence with a Baer
+  Lie group $G$, i.e., $L = \log(G)$ and $G = \exp(L)$. Then, for
+  every Baer Lie subgroup $H$ of $G$, $\log(H)$ is a subring of $L$,
+  and the inclusion map of $\log(H)$ in $L$ is obtained by applying
+  the $\log$ functor to the inclusion map of $H$ in $G$. In the
+  opposite direction, for every Baer Lie subring $M$ of $L$, $\exp(M)$
+  is a subgroup of $G$, and the inclusion map of $\exp(M)$ in $G$ is
+  obtained by applying the $\exp$ functor to the inclusion map of $M$
+  in $L$. The Baer correspondence thus gives rise to a correspondence:
+
+  \begin{center}
+    Baer Lie subgroups of $G$ $\leftrightarrow$ Baer Lie subrings of $L$
+  \end{center}
+
+\item {\em Quotient groups by normal Baer Lie subgroups correspond to
+  quotient rings by Baer Lie ideals}: Suppose a Baer Lie ring $L$ is
+  in Baer correspondence with a Baer Lie group $G$. Then, for every
+  normal Baer Lie subgroup $H$ of $G$, $\log(G/H)$ is a quotient Lie
+  ring of $L$, and the quotient map $L \to \log(G/H)$ is obtained by
+  applying the $\log$ functor to the quotient map $G \to G/H$. In the
+  opposite direction, for every Baer Lie ideal $I$ of $L$, $\exp(L/I)$
+  is a quotient group of $G$, and the quotient map $G \to \exp(L/I)$
+  is obtained by applying the $\exp$ functor to the quotient map $L
+  \to L/I$. The Baer correspondence thus gives rise to
+  correspondences:
+
+  \begin{center}
+    Normal Baer Lie subgroups of $G$ $\leftrightarrow$ Baer Lie ideals of $L$
+  \end{center}
+  
+  \begin{center}
+    Baer Lie quotient groups of $G$ $\leftrightarrow$ Baer Lie
+    quotient rings of $L$
+  \end{center}
+
+\item {\em Direct products correspond to direct products}: Suppose $I$
+  is an indexing set, and $G_i, i \in I$ is a collection of Baer Lie
+  groups. For each $i \in I$, let $L_i = \log(G_i)$. Then, the
+  external direct product $\prod_{i \in I} L_i$ is in Baer
+  correspondence with the external direct product $\prod_{i \in I}
+  G_i$. Moreover, the projection maps from the direct product to the
+  individual direct factors are in Baer correspondence. Also, the
+  inclusion maps of each direct factor in the direct product are in
+  Baer correspondence.
+\end{itemize}
+
+
+\subsection{Twisted subgroups and subrings}
+
+We introduce the notion of {\em twisted subgroup} of a group. Our
+definition differs somewhat from the definition found in the
+literature (see, for instance, \cite{Foguelinv}) in that our
+definition requires twisted subgroups to be closed under taking
+inverses. The condition is not stated in \cite{Foguelinv} because that
+paper, and the other related literature, are interested primarily in
+finite groups, where the condition is redundant.
+
+\begin{definer}[Twisted subgroup]
+  A subset $K$ of a group $G$ is termed a {\em twisted subgroup} if it
+  satisfies the following three conditions:
+
+  \begin{enumerate}
+  \item For any $x,y \in K$ (possibly equal, possibly distinct), $xyx
+    \in K$.
+  \item The identity element of $G$ is in $K$.
+  \item For any $x \in K$, $x^{-1} \in K$.
+  \end{enumerate}
+
+  Note that Conditions (1) and (2) imply closure under taking positive
+  powers, so if every element of $K$ has finite order in $G$,
+  condition (3) is redundant.
+\end{definer}
+
+We will call a twisted subgroup $K$ of a group $G$ {\em powered} over
+a set of primes $\pi$ if the map $x \mapsto x^p$ is a bijection from
+$K$ to itself for every $p \in \pi$.
+
+We had earlier defined the addition in a Baer Lie group as follows:
+
+$$x + y = \frac{xy}{\sqrt{[x,y]}}$$
+
+As described in Section \ref{sec:twisted-multiplication}, we can
+rewrite this as:
+
+$$x + y = \sqrt{x} y \sqrt{x}$$
+
+It follows that under the Baer correspondence, we have a correspondence:
+
+\begin{center}
+  $2$-powered twisted subgroups of the Baer Lie group $\leftrightarrow$ $2$-powered additive subgroups of the Baer Lie ring
+\end{center}
+
+\subsection{Characteristic subgroups and subrings}\label{sec:baer-correspondence-char-sub}
+
+In Section \ref{sec:baer-correspondence-sub-quot-dp}, we noted that
+the Baer correspondence between a Baer Lie group $G$ and a Baer Lie
+ring $L$ induces a correspondence:
+
+\begin{center}
+  Baer Lie subgroups of $G$ $\leftrightarrow$ Baer Lie subrings in $L$
+\end{center}
+
+Recall that a Baer Lie subgroup of a Baer Lie group is simply a
+$2$-powered subgroup. Similarly, a Baer Lie subring of a Baer Lie ring
+is simply a $2$-powered subring.
+
+In Section \ref{sec:baer-correspondence-isocat-consequences}, we noted
+that the Baer correspondence preserves automorphisms groups, i.e.,
+$\operatorname{Aut}(G)$ and $\operatorname{Aut}(L)$ define the same
+collection of permutations on the underlying set. Thus, the above
+correspondence preserves the property of being invariant under
+automorphisms, and we obtain a correspondence:
+
+\begin{center}
+  Characteristic Baer Lie subgroups of $G$ $\leftrightarrow$
+  Characteristic Baer Lie subrings of $L$
+\end{center}
+
+Note that, combined with the fact that normal Baer Lie subgroups of
+$G$ correspond with Baer Lie ideals of $L$, this tells us that any
+characteristic Baer Lie subring of $L$ (i.e., any $2$-powered
+characteristic subring of $L$) is an ideal of $L$. Note that this is a
+nontrivial statement about the structure of $L$, since there do exist
+Lie rings that have characteristic subrings that are not ideals.
+
+Conjecture \ref{conj:charpowering} (respectively, Conjecture
+\ref{conj:charpowering-lie}) stated that for a prime set $\pi$, any
+characteristic subgroup (respectively, characteristic Lie subring) in
+a $\pi$-powered nilpotent group (respectively, $\pi$-powered nilpotent
+Lie ring) must be $\pi$-powered. We can consider restricted versions
+of Conjectures \ref{conj:charpowering} and \ref{conj:charpowering-lie}
+to the case of Baer Lie groups and Baer Lie rings respectively. If
+both restricted conjectures are true, then we have a correspondence:
+
+\begin{center}
+  Characteristic subgroups of $G$ $\leftrightarrow$ Characteristic
+  subrings of $L$
+\end{center}
+
+Analogous remarks to the above remarks for characteristic subgroups
+and subrings apply to the case of fully invariant subgroups and
+subrings. Note that the conjecture that would be necessary for fully
+invariant subgroups and subrings is implied by the conjecture for
+characteristic subgroups.
+
+
+\subsection{The $p$-group case}\label{sec:baer-p-group-case}
+
+Let $p$ be an odd prime. We will use the term {\em $p$-group} for a
+group (not necessarily finite) in which the order of every element is
+a power of $p$. We will use the term {\em $p$-Lie ring} for a Lie ring
+whose additive group is a $p$-group. The Baer correspondence restricts
+to a correspondence:
+
+\begin{center}
+  $p$-groups of nilpotency class (at most) two $\leftrightarrow$ $p$-Lie rings of nilpotency class (at most) two
+\end{center}
+
+The square root operation in this case corresponds to a powering
+operation. Explicitly, if $g$ is an element of a $p$-group $G$, the
+order of $g$ is a prime power $p^k$. $\sqrt{g}$ equals $g^{(p^k +
+  1)/2}$. In particular, it is a positive integral power of $g$.
+
+Thus, {\em every} subset of a $p$-group that is closed under taking
+positive powers is also closed under taking square roots. In
+particular, {\em every} subgroup of a $p$-group is $2$-powered, and
+{\em every} twisted subgroup of a $p$-group is $2$-powered.
+
+Thus, in the case of $p$-groups for odd primes $p$, the
+correspondences discussed in the preceding sections are particularly
+easy. The correspondence between $2$-powered subgroups and $2$-powered
+subrings becomes a correspondence:
+
+\begin{center}
+  Subgroups of $G$ $\leftrightarrow$ Subrings of $L$
+\end{center}
+
+We also obtain correspondences:
+
+\begin{itemize}
+\item Normal subgroups of $G$ $\leftrightarrow$ Ideals of $L$
+\item Quotient groups of $G$ $\leftrightarrow$ Quotient rings of $L$
+\item Characteristic subgroups of $G$ $\leftrightarrow$ Characteristic
+  subrings of $L$
+\item Fully invariant subgroups of $G$ $\leftrightarrow$ Fully
+  invariant subrings of $L$
+\end{itemize}
+
+
+
+The correspondence between $2$-powered twisted subgroups and
+$2$-powered additive subgroups of the Lie ring becomes a
+correspondence:
+
+\begin{center}
+  Twisted subgroups of $G$ $\leftrightarrow$ Subgroups of the additive
+  group of $L$
+\end{center}
+
+\subsection{Relation between the Baer correspondence and the abelian Lie correspondence}\label{sec:baer-correspondence-abelian-lie-correspondence-relation}
+
+In an earlier section (Section
+\ref{sec:abelian-lie-correspondence}), we introduced the abelian Lie
+correspondence:
+
+\begin{center}
+  Abelian groups $\leftrightarrow$ Abelian Lie rings
+\end{center}
+
+In the preceding section (Section
+\ref{sec:baer-correspondence-basics}), we introduced the Baer
+correspondence:
+
+\begin{center}
+  Baer Lie groups $\leftrightarrow$ Baer Lie rings
+\end{center}
+
+We used the same symbols ($\log$ and $\exp$) to describe the functors
+for both correspondences. This leads to a potential for ambiguity:
+what happens if a group happens to be both an abelian group {\em and}
+a Baer Lie group? It turns out that in this case, the two
+correspondences agree. Explicitly:
+
+\begin{itemize}
+\item Suppose $G$ is a 2-powered abelian group, i.e., $G$ is {\em
+  both} an abelian group and a Baer Lie group. Then, the two
+  definitions of $\log G$ (based on the abelian Lie correspondence and
+  Baer correspondence respectively) agree with each other.
+\item Suppose $L$ is a 2-powered abelian Lie ring, i.e., $L$ is {\em
+  both} an abelian Lie ring and a Baer Lie ring. Then, the two
+  definitions of $\exp L$ (using the abelian Lie correspondence and
+  Baer Lie correspondence) agree with each other.
+\item Suppose $G_1$ and $G_2$ are 2-powered abelian groups and
+  $\varphi:G_1 \to G_2$ is a homomorphism of groups. Then, the two
+  definitions of $\log(\varphi)$ (based on the abelian Lie
+  correspondence and Baer correspondence respectively) agree.
+\item Suppose $L_1$ and $L_2$ are 2-powered abelian Lie rings and
+  $\varphi:L_1 \to L_2$ is a homomorphism of Lie rings. Then, the two
+  definitions of $\exp(\varphi)$ (based on the abelian Lie
+  correspondence and Baer correspondence respectively) agree.
+\end{itemize}
+
+Every time we introduce a new correspondence between groups and Lie
+rings, we will attempt to verify whether it is compatible with
+existing correspondences. Checking compatibility will reduce to the
+question of checking whether the formulas agree with each other in the
+case of overlap. For illustrative purposes, consider the proof that
+for a 2-powered abelian Lie ring $L$, the two definitions of $\exp L$
+agree. The definitions of group multiplication in terms of the Lie
+ring operations:
+
+$$x + y \text{ for the abelian Lie correspondence}, \qquad x + y + \frac{1}{2}[x,y] \text{ for the Baer Lie correspondence}$$
+
+These formulas agree for a 2-powered abelian group.
+
+\subsection{Abelian subgroups, abelian quotient groups, center and derived subgroup}\label{sec:baer-correspondence-center-and-derived}
+
+Suppose a group $G$ is in Baer correspondence with a Lie ring $L$. We
+know that $G$ and $L$ have the same underlying set, and the commutator
+map in $G$ coincides with the Lie bracket in $L$. From this, we can
+deduce the following:
+
+\begin{enumerate}
+\item The abelian subgroups of $G$ are in abelian Lie correspondence
+  with the abelian subrings of $L$, and this abelian Lie
+  correspondence arises by restricting the Baer correspondence between
+  $G$ and $L$.
+
+  \begin{center}
+    Abelian subgroups of $G$ $\leftrightarrow$ Abelian subrings of $L$
+  \end{center}
+
+  Note that for the $2$-powered abelian subgroups and $2$-powered
+  abelian subrings, this coincides with the Baer correspondence.
+
+  The correspondence also restricts to a correspondence:
+
+  \begin{center}
+    Abelian normal subgroups of $G$ $\leftrightarrow$ Abelian ideals of $L$
+  \end{center}
+
+  and to a subcorrespondence:
+
+  \begin{center}
+    Abelian characteristic subgroups of $G$ $\leftrightarrow$ Abelian
+    characteristic subrings of $L$
+  \end{center}
+
+  Finally, the correspondence gives rise to a correspondence:
+
+  \begin{center}
+    Quotient groups of $G$ by abelian normal subgroups $\leftrightarrow$ Quotient rings of $L$ by abelian ideals
+  \end{center}
+
+  Note, however, that the instances of this last correspondence are
+  {\em not} instances of the Baer correspondence. They do, however,
+  form instances of the divided Baer correspondence described in
+  Section \ref{sec:divided-baer-correspondence}.
+\item For a subset $S$ of the common underlying set of $G$ and $L$,
+  the subgroup generated by $S$ in $G$ is abelian if and only if the
+  subring generated by $S$ in $L$ is abelian, and if so, the subgroup
+  and subring are in abelian Lie correspondence.
+\item The abelian quotient groups of $G$ are in abelian Lie
+  correspondence with the abelian quotient Lie rings of $L$. Explicitly:
+
+  \begin{center}
+    Abelian quotient groups of $G$ $\leftrightarrow$ Abelian quotient Lie rings of $L$
+  \end{center}
+
+  We obtain a correspondence between the corresponding
+  kernels. Explicitly, the Baer correspondence between $G$ and $L$
+  restricts to a correspondence via identification of the underlying
+  sets:
+
+  \begin{center}
+    Subgroups of $G$ containing $G'$ $\leftrightarrow$ Subrings of $L$ containing $L'$
+  \end{center}
+
+  Note, however, that each individual instance of this correspondence
+  is {\em not} an instance of the Baer correspondence. Rather, it
+  would be an instance of the generalization of the Baer
+  correspondence described in Section
+  \ref{sec:baer-correspondence-lucs-generalization}.
+\item The center $Z(G)$ is in abelian Lie correspondence as well as in
+  Baer correspondence with the center $Z(L)$. Note that the claim has
+  two parts:
+
+  \begin{enumerate}
+  \item $Z(G)$ and $Z(L)$ have the same underlying set: This follows
+    from the fact that the commutator map of $G$ coincides with the
+    Lie bracket map of $L$, so the set of elements whose commutator
+    with every element of $G$ is the identity element coincides with
+    the set of elements whose Lie bracket with every element of $L$ is
+    the zero element.
+  \item Both $Z(G)$ and $Z(L)$ are $2$-powered, so that we can apply
+    the Baer correspondence: This follows from Lemmas
+    \ref{lemma:centerispoweringinvariant} and
+    \ref{lemma:centerispoweringinvariant-lie}.
+  \end{enumerate}
+
+\item The inner automorphism group $G/Z(G)$ is in abelian Lie
+  correspondence as well as in Baer correspondence with the inner
+  derivation Lie ring $L/Z(L)$. This follows from the preceding point
+  about $Z(G)$ being in correspondence with $Z(L)$ and the
+  observations made regarding subgroups and quotients in Section
+  \ref{sec:baer-correspondence-sub-quot-dp}.
+\item The derived subgroup $G'$ is in abelian Lie correspondence as
+  well as in Baer correspondence with the derived subring $L'$. Note
+  that the claim has two parts:
+
+  \begin{enumerate}
+  \item $G'$ and $L'$ have the same underlying set: The commutator map
+    in $G$ coincides with the Lie bracket map in $L$, so the set of
+    commutators in $G$ coincides with the set of elements in $L$ that
+    can be expressed as Lie brackets. We know that both $G'$ is an
+    abelian group and $L'$ is an abelian Lie ring, because both $G$
+    and $L$ have class two.  By point (2) above, $G'$ and $L'$ are in
+    abelian Lie correspondence and have the same underlying set.
+  \item $G'$ and $L'$ are both $2$-powered: This follows from Theorem
+    \ref{thm:powering-lcs} and Lemma
+    \ref{lemma:lie-ring-lcs-divisibility} respectively.
+  \end{enumerate}
+\item The abelianization $G^{\operatorname{ab}} = G/G'$ is in abelian
+  Lie correspondence as well as in Baer correspondence with the
+  abelianization $L^{\operatorname{ab}} = L/L'$. This follows from the
+  preceding point and the observations regarding subgroups and
+  quotients in Section \ref{sec:baer-correspondence-sub-quot-dp}.
+\item The abelian subgroups of $G$ that contain $G'$ and are contained
+  in $Z(G)$ are in abelian Lie correspondence with the abelian
+  subgroups of $L$ that contain $L'$ and are contained in
+  $Z(L)$. Moreover, the corresponding quotient group is in abelian Lie
+  correspondence with the corresponding quotient ring.
+\end{enumerate}
+
+\subsection{Cyclic subgroups, preservation of element orders, and the parallels with one-parameter subgroups}\label{sec:baer-correspondence-cyclic-sub}
+
+We noted in Section \ref{sec:baer-correspondence-center-and-derived}
+that given a group $G$ and a Lie ring $L$ that are in Baer
+correspondence, we obtain a correspondence, with each instance also an
+instance of the abelian Lie correspondence:
+
+\begin{center}
+  Abelian subgroups of $G$ $\leftrightarrow$ Abelian subrings of $L$
+\end{center}
+
+In particular, we get a correspondence:
+
+\begin{center}
+  Cyclic subgroups of $G$ $\leftrightarrow$ Cyclic subrings of $L$
+\end{center}
+
+Another way of framing this is that the additive group of $L$ and the
+group $G$ have the same cyclic subgroup structure. In other words, the
+map $\exp: L \to G$ restricts to an isomorphism on cyclic subgroups of
+the additive group of $L$. Some of the generalizations of the Baer
+correspondence, including all those described in the next section,
+continue to have this property, so that the remarks of the next
+paragraph apply to these generalizations.
+
+For any element of the common underlying set, its order as an element
+of the additive group of $L$ is the same as its order as an element of
+$G$. In the case that the common underlying set of $G$ and $L$ is
+finite, this translates to the requirement that for every positive
+integer $d$, the number of elements of $G$ of order $d$ equals the
+number of elements of the additive group of $L$ as order $d$. In
+particular, we obtain that the order {\em statistics} of $G$
+(information about how many elements are there of any given order)
+coincide with the order statistics of some abelian group. When
+considering whether a group $G$ can participate in a potential
+generalization of the Baer correspondence, this condition serves as a
+potential filter.
+
+The Baer correspondence for cyclic subgroups and subrings is closely
+related to the correspondence between one-dimensional subspaces of the
+real Lie algebra and one-parameter subgroups of the real Lie group
+under the Lie correspondence described in Section
+\ref{sec:lie-correspondence-intro} (we did not describe one-parameter
+subgroups there).
+
+\subsection{Inner automorphisms and inner derivations}\label{sec:baer-adjoint}
+
+Supose $G$ is a Baer Lie group and $L$ is the corresponding Baer Lie
+ring. Under the Baer correspondence, $Z(G)$ is in Baer correspondence
+(and hence also in abelian Lie correspondence) with $Z(L)$, and the
+quotient group $G/Z(G) \cong \operatorname{Inn}(G)$ is in Baer
+correspondence (and hence also in abelian Lie correspondence) with the
+quotient Lie ring $L/Z(L) \cong \operatorname{Inn}(L)$. The former
+gives the inner automorphisms of the group $G$ (that are hence also
+automorphisms of $L$). The latter gives the inner derivations of $L$.
+
+Consider an element $x \in G$ with image $\overline{x}$ in the common
+underlying set of $G/Z(G)$ and $L/Z(L)$. We would like to understand
+the relationship between these two set maps from $L$ to $L$:
+
+\begin{itemize}
+\item The inner automorphism corresponding to $\overline{x}$, i.e.,
+  the map $g \mapsto xgx^{-1}$, now viewed as a automorphism {\em of}
+  $L$ as a Lie ring. As noted in Section
+  \ref{sec:baer-correspondence-isocat-consequences}, the automorphisms
+    of $L$ as a Lie ring coincide with the automorphisms of $G$ as a
+    group. We will denote this map as $\operatorname{Ad}_x$.
+\item The inner derivation corresponding to $\overline{x}$, i.e., the
+  map $g \mapsto [x,g]$ where $[ \ , \ ]$ denotes the Lie bracket. We
+  will denote this map as $\operatorname{ad}_x$. Derivations and inner
+  derivations are discussed in more detail in the Appendix, Sections
+  \ref{appsec:derivation} and \ref{appsec:derivation-lie}.
+\end{itemize}
+
+We first work out the set map $\operatorname{Ad}_x$ in terms of the
+Lie ring operations.
+
+$$\operatorname{Ad}_x(g) = xgx^{-1} = \left(x + g + \frac{1}{2}[x,g]\right)x^{-1}$$
+
+This simplifies to:
+
+$$\operatorname{Ad}_x(g) = x + g + \frac{1}{2}[x,g] + (-x) + \left[\left(x + g + \frac{1}{2}[x,g]\right),-x\right]$$
+
+This simplifies to:
+
+$$\operatorname{Ad}_x(g) = g + [x,g]$$
+
+or equivalently:
+
+$$\operatorname{Ad}_x(g) = g + \operatorname{ad}_x(g)$$
+
+If we view both $\operatorname{Ad}_x$ and $\operatorname{ad}_x$ as
+elements of the ring $\operatorname{End}_\Z(L)$ of endomorphisms of
+the underlying {\em additive group} of $L$, then we can write the
+above relationship as:
+
+$$\operatorname{Ad}_x = 1 + \operatorname{ad}_x$$
+
+The expression for $\operatorname{Ad}_x$ in terms of
+$\operatorname{ad}_x$ is a truncated form of the power series for the
+exponential function. It turns out that this is not a coincidence. We
+will see in Section \ref{sec:lazard-adjoint} that for the Malcev and
+  Lazard correspondences, $\operatorname{Ad}_x =
+  \exp(\operatorname{ad}_x)$.
+
+\section{Generalizations of the Baer correspondence: relaxing the definitions}\label{sec:baer-correspondence-definition-relaxation}
+
+In the construction of the Baer Lie ring and Baer Lie group from one
+another, we did not use the existence of unique square roots in the
+whole group or Lie ring. Rather, we only made use of the fact that we
+be able to make sense of the expression $\sqrt{[x,y]}$ when going from
+groups to Lie rings and of the expression $\frac{1}{2}[x,y]$ when
+going from Lie rings to groups, and further, that the outputs of these
+expressions land in the respective centers.
+
+\subsection{Generalization that allows for division within the lower central series}\label{sec:baer-correspondence-lcs-generalization}
+
+This generalization is a correspondence:
+
+Groups of nilpotency class (at most) two where the derived subgroup is
+$2$-powered $\leftrightarrow$ Lie rings of nilpotency class (at most)
+two where the derived subring is $2$-powered
+
+Note that this correspondence has the advantage of including as
+subcorrespondences {\em both} the abelian Lie correspondence {\em and}
+the Baer correspondence.
+
+This correspondence behaves nicely in a number of ways:
+
+\begin{itemize}
+\item {\em Isomorphism of categories}: We can define $\log$ and $\exp$
+  functors and obtain an isomorphism of categories between the full
+  subcategories of the category of groups and category of Lie rings as
+  described above. We can then deduce consequences similar to those
+  described for the Baer correspondence in Section
+  \ref{sec:baer-correspondence-isocat-consequences}.
+\item {\em Subgroups and subrings}: A subgroup of a group in this
+  subcategory need not be in the subcategory. However, if we do
+  restrict to subgroups that satisfy the condition for being in the
+  category, we can deduce results analogous to the results stated for
+  subgroups in Section \ref{sec:baer-correspondence-sub-quot-dp}. Note
+  in particular that the correspondence between subgroups and subrings
+  here includes two subcorrespondences:
+
+  \begin{center}
+    Abelian subgroups $\leftrightarrow$ Abelian subrings
+  \end{center}
+
+  \begin{center}
+    Baer Lie subgroups $\leftrightarrow$ Baer Lie subrings
+  \end{center}
+\item {\em Direct products}: Direct products on the group side
+  correspond with direct products on the Lie ring side. The statement
+  is similar to that for the abelian Lie correspondence (as described
+  in Section \ref{sec:abelian-lie-correspondence-sub-quot-dp}) and the
+  Baer correspondence (as described in Section
+  \ref{sec:baer-correspondence-sub-quot-dp}).
+\end{itemize}
+
+However, the categories in question are {\em not} well-behaved with
+respect to the relation between subgroups and quotients. Explicitly,
+it is possible to have a group in the category and a normal subgroup
+that is also in the category, but such that the quotient group is not
+in the category. For instance, consider the case that $G = UT(3,\Q)$
+and $H$ is a copy of $\Z$ in the center. Then, both $G$ and $H$ are
+objects of the category, and $H$ is normal in $G$, but the quotient
+group $G/H$ is not an object of the category.
+
+\subsection{Generalization that allows for division starting in the lower central series and ending in the upper central series}\label{sec:baer-correspondence-lucs-generalization}
+
+This generalization is a correspondence:
+
+Groups of nilpotency class (at most) two where every element of the
+derived subgroup has a unique square root in the center
+$\leftrightarrow$ Lie rings of nilpotency class (at most) two where
+every element of the derived subring has a unique half in the center.
+
+Note that the ``unique square root in the center'' clause could be
+interpreted in two ways: one could understand it to mean that there is
+a unique square root in the whole group that happens to be in the
+center, or one could understand it to mean that there is a unique
+square root among the elements in the center. However, for nilpotent
+groups, these are equivalent. If every element of the derived subgroup
+has a unique square root among elements of the center, then in
+particular the identity element has a unique square root among
+elements in the center, so the center is $2$-torsion-free. Thus. by
+Theorem \ref{thm:torsion-free-equivalence-theorem}, the whole group is
+$2$-torsion-free, so the squaring map is injective on the whole group.
+
+Similarly, both ways of interpreting ``unique half in the center'' on
+the Lie ring side are equivalent to each other.
+
+Note also that by Lemma \ref{lemma:centerispoweringinvariant}, the
+condition on the group side can be reformulated as ``group of
+nilpotency class (at most) two where every element of the derived
+subgroup has a unique square root in the whole group.'' A similar
+reformulation is possible on the Lie ring side by Lemma
+\ref{lemma:centerispoweringinvariant-lie}.
+
+The correspondence is nice in a number of ways:
+
+\begin{itemize}
+\item {\em Isomorphism of categories}: We can define $\log$ and $\exp$
+  functors and obtain an isomorphism of categories between the full
+  subcategories of the category of groups and category of Lie rings as
+  described above. We can then deduce consequences similar to those
+  described for the Baer correspondence in Section
+  \ref{sec:baer-correspondence-isocat-consequences}.
+\item {\em Subgroups and subrings}: A subgroup of a group in this
+  subcategory need not be in the subcategory. However, if we do
+  restrict to subgroups that satisfy the condition for being in the
+  category, we can deduce results analogous to the results stated for
+  subgroups in Section \ref{sec:baer-correspondence-sub-quot-dp}.
+\item {\em Direct products}: Direct products on the group side
+  correspond with direct products on the Lie ring side. The statement
+  is similar to that for the abelian Lie correspondence (as described
+  in Section \ref{sec:abelian-lie-correspondence-sub-quot-dp}) and the
+  Baer correspondence (as described in Section
+  \ref{sec:baer-correspondence-sub-quot-dp}).
+\end{itemize}
+
+However, the categories in question are {\em not} well-behaved with
+respect to the relation between subgroups and quotients. Explicitly,
+it is possible to have a group in the category and a normal subgroup
+that is also in the category, but such that the quotient group is not
+in the category. For instance, consider the case that $G = UT(3,\Q)$
+and $H$ is a copy of $\Z$ in the center. Then, both $G$ and $H$ are
+objects of the category, and $H$ is normal in $G$, but the quotient
+group $G/H$ is not an object of the category.
+
+\subsection{Incomparability of the generalizations}
+
+Neither of the two preceding generalizations contains the other. Explicitly:
+
+\begin{itemize}
+\item Any abelian group with $2$-torsion would be covered under the
+  first generalization (described in Section
+  \ref{sec:baer-correspondence-lcs-generalization}) but not the second
+  (described in Section
+  \ref{sec:baer-correspondence-lucs-generalization}).
+\item An example of a group that would be covered under the second
+  generalization but not the first is the group $UT(3,\mathbb{Z})
+  *_{\mathbb{Z}} \mathbb{Q}$ where $*$ denotes the central product where
+  we identify the center of $UT(3,\mathbb{Z})$ with a copy of
+  $\mathbb{Z}$ in $\mathbb{Q}$.
+\end{itemize}
+
+There are generalizations that are strictly more general than both the
+above generalizations. We consider one such generalization below.
+
+\subsection{The divided Baer correspondence: a generalization that uses additional structure}\label{sec:divided-baer-correspondence}
+
+This generalization of the Baer correspondence involves specifying
+additional structure on the Lie ring and on the group. {\em We use new
+  terminology in this section. However, the results of this section
+  are not necessary for our main results, and the terminology used
+  here is not required for our main results.}
+
+\begin{definer}[Baer-divided Lie group]
+  A {\em Baer-divided Lie group} is a group $G$ of nilpotency class at
+  most two equipped with an alternating $\Z$-bilinear map $\{ , \}:G
+  \times G \to G$ (i.e., the map is a homomorphism in each coordinate
+  holding the other coordinate fixed, and $\{ x,x \} = 1$ for all $x
+  \in G$) such that the following hold:
+
+  \begin{enumerate}
+  \item $\{ x,y \}^2 = [x,y]$ for all $x,y \in G$, where $[x,y]$
+    denotes the group commutator.
+  \item $\{ \{x,y \} , z \}$ is the identity element of $G$ for all
+    $x,y,z \in G$.
+  \end{enumerate}
+\end{definer}
+
+\begin{definer}[Baer-divided Lie ring]
+  A {\em Baer-divided Lie ring} is a Lie ring $L$ (with Lie bracket
+  denoted $[ \ , \ ]$) equipped with an alternating $\Z$-bilinear map
+  $\{ , \}: L \times L \to L$ such that the following hold:
+
+  \begin{enumerate}
+  \item $2\{ x, y \} = [x,y]$ for all $x,y \in L$.
+  \item $\{ , \}$ also defines a Lie bracket on the additive group of
+    $L$, and the corresponding Lie ring has nilpotency class two.
+  \end{enumerate}
+
+  In particular, the original Lie ring $L$ with Lie bracket $[ \ ,
+    \ ]$ is also a Lie ring of nilpotency class at most two.
+\end{definer}
+
+
+We can now define the {\em divided Baer correspondence} as a
+correspondence:
+
+\begin{center}
+  Baer-divided Lie groups $\leftrightarrow$ Baer-divided Lie rings
+\end{center}
+
+In the direction from the group to the Lie ring, the correspondence
+uses the formula:
+
+$$x + y := \frac{xy}{\{ x,y \}}$$
+
+and:
+
+$$[x,y] = [x,y]_{\text{Group}}$$
+
+In the direction from the Lie ring to the group, the correspondence
+uses the formula:
+
+$$xy := x + y + \{ x, y \}$$
+
+In other words, the roles of $\frac{1}{2}[x,y]$ and $\sqrt{[x,y]}$ are
+taken over by the operation $\{x, y\}$ (of the group or the Lie
+ring). The key difference is that this operation is an {\em additional
+  structure specified} rather than being purely dependent on the group
+or Lie ring as an abstract structure. 
+
+The Baer correspondence and the generalizations of it described
+earlier can be reframed in terms of the divided Baer correspondence as
+follows:
+
+\begin{enumerate}
+\item In the case of the Baer correspondence, as well as in the
+  generalization described in Section
+  \ref{sec:baer-correspondence-lucs-generalization}, there is a {\em
+    unique} possibility for $\{ x, y \}$. In fact, in the Baer
+  correspondence as well as the generalization, the uniqueness is at
+  the level of {\em elements}: every element of the form $[x,y]$ has a
+  unique square root or half. Note that there could be situations that
+  fall outside this generalization where there is a unique possibility
+  for $\{ x,y \}$, even though individual elements in the derived
+  subgroup (respectively, derived subring) have non-unique halves, as
+  discussed in the example of $UT(3,\Z[1/2]) \times \Z/2\Z$ below.
+\item In the case of the generalization described in Section
+  \ref{sec:baer-correspondence-lcs-generalization}, the possibility
+  for $\{ x, y\}$ need not be unique. Nonetheless, there is a
+  particular {\em canonical} choice we can make for $\{ x, y\}$,
+  namely the unique option available {\em within} the deried subgroup
+  or derived subring.
+\end{enumerate}
+
+Below, we describe some examples of the divided Baer correspondence.
+
+\begin{enumerate}
+\item The case $G = UT(3,\Q)/\Z$ and $L = NT(3,\Q)/\Z$: $G$ is the
+  group described as Example (3) in the counterexample list in Section
+  \ref{sec:group-ctex} and $L$ is the Lie ring described in Example
+  (3) in the counterexample list in Section \ref{sec:lie-ring-ctex}.
+
+  In this case, $G$ is not a Baer Lie group and $L$ is not a Baer Lie
+  ring, because neither $G$ nor $L$ is 2-powered. However, we can give
+  $G$ the structure of a Baer-divided Lie group as follows. Note that
+  $Z(G) = G'$ is isomorphic to the subgroup $\Q/\Z$ in $G$, and
+  $G/Z(G) = G/G'$ is isomorphic to $\Q \times \Q$. The commutator map
+  $G/Z(G) \times G/Z(G) \to G'$ can be described as the composite of
+  the maps:
+
+  $$(\Q \times \Q) \times (\Q \times \Q) \to \Q \to \Q/\Z$$
+
+  where the map on the left is given by:
+
+  $$((a_1,b_1),(a_2,b_2)) \mapsto a_1b_2 - a_2b_1$$
+
+  and the map $\Q \to \Q/\Z$ is the quotient map.
+
+  There is a canonical choice of half for this map, namely, the composite:
+
+  $$(\Q \times \Q) \times (\Q \times \Q) \to \Q \to \Q/\Z$$
+
+  where the first map is:
+
+  $$((a_1,b_1),(a_2,b_2)) \mapsto \frac{1}{2}(a_1b_2 - a_2b_1)$$
+
+  Note that we circumvent the problem of non-unique halves in the
+  derived subgroup or subring by performing the halving in an
+  intermediate group (namely $\Q$) through which we factor the map.
+
+  Similar observations hold on the Lie ring side.
+
+\item The case $G = UT(3,\Z[1/2]) \times \Z/2\Z$ and $L =
+  NT(3,\Z[1/2]) \times \Z/2\Z$: Note that this case actually falls
+  under the earlier generalization described in Section
+  \ref{sec:baer-correspondence-lcs-generalization}. One interesting
+  feature of this example is that although in general the choice of
+  half is non-unique when the center has 2-torsion, in this case,
+  there is a unique choice of divided Baer structure. Explicitly, each
+  element of the derived subgroup has two halves: a half inside the
+  first direct factor, and a half that has a nontrivial second
+  coordinate. However, a linear choice of $\{ , \}$ requires that we
+  choose each half inside the first direct factor. Similar
+  observations hold on the Lie ring side.
+
+\item The case where $G$ and $L$ are as follows:
+
+  $$G = \langle a,b,c \mid a^4 = b^4 = c^4 = 1, ab = ba, ac = ca, [b,c] = a^2 \rangle$$
+
+  $$L = \langle a,b,c \mid 4a = 4a = 4c = 0, [a,b] = 0, [a,c] = 0, [b,c] = 2a \rangle$$
+
+  In this case, $Z(G) = \langle a \rangle$ and $G' = \langle a^2
+  \rangle$. $Z(G)$ is isomorphic to $\Z/4\Z$ and $G'$ is the unique
+  subgroup of order two. We can define $\{ , \}$ as $\{ b,c \} = a$
+  with the rest of the definition following from that. Note that this
+  is not the unique choice of $\{ \ , \ \}$, because we could choose
+  $\{ b,c \} = a^{-1}$ as well. However, it is a choice that works.
+
+  A similar construction works for $L$, and the divided Baer
+  correspondence between $G$ and $L$ works as expected.
+\end{enumerate}
+
+\subsection{Category-theoretic perspective on the divided Baer correspondence}
+
+The Baer-divided Lie groups form a category as follows:
+
+\begin{itemize}
+\item The objects of the category are Baer-divided Lie groups.
+\item For Baer-divided Lie groups $G_1$ and $G_2$, the morphisms from
+  $G_1$ to $G_2$ are group homomorphisms $\varphi:G_1 \to G_2$
+  satisfying the additional condition $\varphi(\{x,y \}) =
+  \{\varphi(x),\varphi(y) \}$ for all $x,y \in G_1$. Note that in the
+  case that $\{ \ , \ \}$ is defined canonically in terms of the group
+  operations, the additional condition is satisfied for {\em all}
+  group homomorphisms.
+\end{itemize}
+
+We can similarly define a category of Baer-divided Lie rings. The
+divided Baer correspondence defines an isomorphism of categories
+between the category of Baer-divided Lie groups and the category of
+Baer-divided Lie rings.
+
+There is a natural forgetful functor from the category of Baer-divided
+Lie groups to the category of groups. This functor forgets the $\{ \ ,
+\ \}$-structure and simply stores the underlying group structure. This
+forgetful functor is faithful but not full: there may well be
+homomorphisms between groups that do not preserve the $\{ \ ,
+\ \}$-structure. The functor is not injective or surjective on
+objects. It is not injective because there exist groups with multiple
+possibilities for $\{ \ , \ \}$. It is not surjective, even to the
+subcategory of groups of nilpotency class two, because there exist
+such groups for which there is no possible $\{ \ , \ \}$-structure.
+
+The following are true.
+
+\begin{itemize}
+\item If $G$ is a Baer Lie group, or more generally, a group that fits
+  the generalization described in Section
+  \ref{sec:baer-correspondence-lucs-generalization}, then the functor
+  is injective to $G$, i.e., there is a unique Baer-divided Lie group
+  structure on $G$. Further, if $G_1$ and $G_2$ are two such groups,
+  then all homomorphisms between them are realized as Baer-divided Lie
+  group homomorphisms, so the functor behaves as a full functor if we
+  restrict to such groups.
+\item If $G$ fits the generalization described in Section
+  \ref{sec:baer-correspondence-lcs-generalization}, then the functor
+  need not be injective to $G$, but there does exist a canonical
+  choice of Baer-divided Lie group structure on $G$. In other words,
+  if we restrict attention to the subcategory of groups described in
+  Section \ref{sec:baer-correspondence-lcs-generalization}, we can
+  obtain a functor from this subcategory to the category of
+  Baer-divided Lie groups that is a one-sided inverse to the forgetful
+  functor.
+\end{itemize}
+
+Analogous observations hold on the Lie ring side.
+
+\subsection{The case of finite $p$-groups}
+
+Note that for odd primes $p$, $p$-groups of class two and $p$-Lie
+rings of class two fall in the domain of the Lazard correspondence,
+and we do not need to rely on any of the generalizations. The case $p
+= 2$ is interesting. In this case, the following are true:
+
+\begin{itemize}
+\item The generalization described in Section
+  \ref{sec:baer-correspondence-lcs-generalization} applies only to
+  abelian $2$-groups and abelian $2$-Lie rings, and not to any others.
+\item The generalization described in Section
+  \ref{sec:baer-correspondence-lucs-generalization} does not apply to
+  any nontrivial $2$-groups or nontrivial $2$-Lie rings, because the
+  center is nontrivial and hence is not $2$-powered.
+\item The divided Baer correspondence generalization applies to some
+  but not all $2$-groups of class two. Explicitly, a necessary but not
+  sufficient condition for a group $G$ to be the underlying group of a
+  Baer-divided Lie group is that $G' \subseteq \mho^1(Z(G))$, where
+  $\mho^1(Z(G))$ denotes the set of squares of elements in $Z(G)$. A
+  similar necessary but not sufficient condition exists on the Lie
+  ring side.
+\end{itemize}
+
+%\newpage
+
+\section{Baer correspondence up to isoclinism}\label{sec:bcuti}
+
+The concept of ``Baer correspondence up to isoclinism'' is a novel
+contribution of this thesis. Many of the results in this section are
+based on joint work with John Wiltshire-Gordon.
+
+\subsection{Motivation}
+
+In Section \ref{sec:baer-correspondence-center-and-derived}, we noted
+that if $G$ and $L$ are in Baer correspondence, the subgroups of $G$
+that contain $G'$ and are contained in $Z(G)$ are in abelian Lie
+correspondence with the subrings of $L$ that contain $L'$ and are
+contained in $Z(L)$. Further, for each such subgroup and subring in
+correspondence, the associated quotient group and quotient ring are
+also in abelian Lie correspondence. In other words, we can build the
+group $G$ as a central extension of groups, and the Lie ring $L$ as a
+central extension of Lie rings, where the central subgroup of $G$ is
+in abelian Lie correspondence with the central subring of $L$, and the
+quotient group of $G$ is in abelian Lie correspondence with the
+quotient ring of $L$.
+
+We describe two extreme cases below.
+
+\begin{enumerate}
+\item The case where the subgroup is $Z(G)$ and the subring is
+  $Z(L)$. We can depict this case as follows:
+
+  $$\begin{array}{lllll}
+    0 \to & Z(G) \to & G \to & G/Z(G) \to & 1 \\
+    & \downarrow^{\log} & \downarrow^{\log} & \downarrow^{\log}&  \\
+    0  \to & Z(L) \to & L \to & L/Z(L) \to & 0\\
+  \end{array}$$
+
+  Note that the $\log$ connecting $G$ and $L$ arises from the Baer
+  correspondence. The $\log$ connecting $Z(G)$ with $Z(L)$, and the
+  $\log$ connecting $G/Z(G)$ with $L/Z(L)$, can be viewed as arising
+  both from the Baer correspondence and from the abelian Lie
+  correspondence, as described in Section
+  \ref{sec:baer-correspondence-center-and-derived}.
+\item The case where the subgroup is $G'$ and the subring is $L'$. We
+  can depict this case as follows:
+
+  $$\begin{array}{lllllllll}
+    0 & \to & G' & \to & G & \to & G/G' \to & 1 \\
+    && \downarrow^{\log} && \downarrow^{\log} && \downarrow^{\log}&  \\
+    0  & \to & L' & \to & L & \to & L/L' \to & 0\\
+  \end{array}$$
+ 
+  An analogous observation to the note in point (1) above applies
+  here, with $Z(G)$, $Z(L)$, $G/Z(G)$, and $L/Z(L)$ replaced by $G'$,
+  $L'$, $G/G'$, and $L/L'$ respectively.
+\end{enumerate}
+
+Our aim is to generalize the Baer correspondence to a situation where
+the middle downward arrow (connecting $G$ with $L$) is missing, but we
+still have an abelian Lie correspondence between the central subgroup
+and central subring, an abelian Lie correspondence between the
+quotient group and quotient ring, and a condition to the effect that
+the commutator map on the group side looks the same as the Lie bracket
+map on the Lie ring side.
+
+\subsection{Definition of the correspondence}\label{sec:bcuti-def}
+
+The Baer correspondence up to isoclinism is a correspondence that we
+will define between the following two sets:
+
+Equivalence classes up to isoclinism of groups of nilpotency class at
+most two $\leftrightarrow$ Equivalence classes up to isoclinism of Lie rings of nilpotency class at most two
+
+Suppose $G$ is a group of nilpotency class at most two and $L$ is a
+Lie ring of nilpotency class at most two. A {\em Baer correspondence
+  up to isoclinism} between $G$ and $L$ is a pair $(\zeta,\varphi)$
+where:
+
+\begin{itemize}
+\item $\zeta$ is an isomorphism from the abelian group
+  $\operatorname{Inn}(G)$ to the abelian group that is the additive
+  group $\exp(\operatorname{Inn}(L))$ of $\operatorname{Inn}(L)$, and
+\item $\varphi$ is an isomorphism from the abelian group $G'$ to the
+  abelian group that is the additive group $\exp(L')$ of $L'$, 
+\end{itemize}
+
+such that the following diagram commutes:
+
+$$\begin{array}{ccc}
+  \operatorname{Inn}(G) \times \operatorname{Inn}(G) & \stackrel{\zeta \times \zeta}{\to} & \exp(\operatorname{Inn}(L)) \times \exp(\operatorname{Inn}(L)) \\
+  \downarrow^{\omega_{G}}  & & \downarrow^{\exp(\omega_{L})}\\
+  G' & \stackrel{\varphi}{\to} & \exp(L')\\
+\end{array}$$
+
+where $\omega_G$ is the map $\operatorname{Inn}(G) \times
+\operatorname{Inn}(G) \to G'$ obtained from the commutator map on $G$,
+and $\omega_L$ is the map $\operatorname{Inn}(L) \times
+\operatorname{Inn}(L) \to L'$ obtained from the Lie bracket on $L$. We
+had introduced the notation for the maps $\omega_G$ and $\omega_L$ in
+Sections \ref{sec:isoclinism-and-homoclinism} and
+\ref{sec:isoclinism-and-homoclinism-lie}.
+
+We say that $G$ and $L$ are {\em in Baer correspondence up to
+  isoclinism} if there exists a Baer correspondence up to isoclinism
+between $G$ and $L$.
+
+The following are easy to verify. All the groups and Lie rings
+referred to below are of nilpotency class at most two. The proofs of
+all the assertions below rely on a similar commutative diagram setup to
+the setup used in Section \ref{sec:homoclinism-composition} to prove
+that a composite of homoclinisms is a homoclinism.
+
+\begin{itemize}
+\item If $G_1$ and $G_2$ are isoclinic groups, and $G_1$ and $L$ are
+  in Baer correspondence up to isoclinism, then $G_2$ and $L$ are also
+  in Baer correspondence up to isoclinism.
+\item If $L_1$ and $L_2$ are isoclinic Lie rings, and $G$ and $L_1$
+  are in Baer correspondence up to isoclinism, then $G$ and $L_2$ are
+  also in Baer correspondence up to isoclinism.
+\item If $G_1$ and $G_2$ are groups and $L$ is a Lie ring such that
+  $G_1$ is in Baer correspondence up to isoclinism with $L$ and $G_2$
+  is also in Baer correspondence up to isoclinism with $L$, then $G_1$
+  and $G_2$ are isoclinic.
+\item If $L_1$ and $L_2$ are Lie rings and $G$ is a group such that
+  $G$ is in Baer correspondence up to isoclinism with $L_1$ and $G$ is
+  in Baer correspondence up to isoclinism with $L_2$, then $L_1$ and
+  $L_2$ are isoclinic Lie rings.
+\end{itemize}
+
+
+In other words, the definition we gave above establishes a
+correspondence between {\em some} equivalences classes up to
+isoclinism of groups and {\em some} equivalence classes up to
+isoclinism of Lie rings. However, it is not yet clear that the
+correspondence applies to {\em every} equivalence class up to
+isoclinism of groups and to {\em every} equivalence class up to
+isoclinism of Lie rings. Essentially, we need to show two things:
+
+\begin{enumerate}
+\item For every group $G$ of nilpotency class at most two, there
+  exists a Lie ring $L$ of nilpotency class at most two such that $G$
+  is in Baer correspondence up to isoclinism with $L$.
+\item For every Lie ring $L$ of nilpotency class at most two, there
+  exists a group $G$ of nilpotency class at most two such that $G$ is
+  in Baer correspondence up to isoclinism with $L$.
+\end{enumerate}
+
+(1) is relatively easy to show: we can take the associated graded Lie
+ring of a group. (2) is harder to show. We will now discuss some ideas
+related to group extension theory that will help us establish both (1)
+and (2) in a better way.
+
+\subsection{Exterior square for an abelian group}\label{sec:exteriorsquare-abelian-group-proofs}
+
+Suppose $G$ is an abelian group. Then, the following are canonically
+isomorphic:
+
+\begin{enumerate}
+\item The exterior square $G \wedge_\Z G$ of $G$ as an abelian group.
+\item The exterior square $G \wedge G$ of $G$ as a group (as defined
+  in section \ref{sec:exteriorsquare}). The map in the forward
+  direction $G \wedge_\Z G \to G \wedge G$ is as follows. Note that
+  the commutator map in a class two group is $\Z$-bilinear, so that
+  the map $G \times G \to G \wedge G$ is $\Z$-bilinear. Thus, it gives
+  rise to a homomorphism $G \wedge_\Z G \to G \wedge G$.
+\item The Schur multiplier $M(G)$ of $G$ as a group.
+\item The exterior square $G \wedge G$ of $G$ as an abelian Lie
+  ring. The exterior square is itself an abelian Lie ring with the
+  same additive group structure. We have already described this map in
+  Section \ref{sec:exteriorsquare-abelian-lie}.
+\item The Schur multiplier $M(G)$ of $G$ as an abelian Lie ring.
+\end{enumerate}
+
+We first note the equivalence of (2) with (3) and also the equivalence
+of (4) with (5). For the equivalence of (2) and (3), note the
+canonical short exact sequence, introduced in Section
+\ref{sec:exteriorsquare}:
+
+$$0 \to M(G) \to G \wedge G \to [G,G] \to 1$$
+
+Since $G$ is abelian, $[G,G]$ is trivial and we get an isomorphism
+$M(G) \cong G \wedge G$.
+
+Similarly, the equivalence of (4) with (5) follows from the analogous
+canonical short exact sequence for Lie rings introduced in Section
+\ref{sec:exteriorsquare-lie}.
+
+It remains to show that the canonical map from (1) to (2) is an
+isomorphism and the canonical map from (1) to (4) is an isomorphism.
+
+To see this, we can rely on the explicit presentations for the
+exterior square provided in Section \ref{sec:exteriorsquare-explicit}
+(for groups) and \ref{sec:exteriorsquare-explicit-lie} (for Lie rings)
+to confirm that in the case that the group (respectively Lie ring) is
+abelian, its exterior square as a group (respectively Lie ring) agrees
+with its exterior square as an abelian group.
+
+In order to better keep track of whether we are thinking of $G$ as an
+abelian group or as an abelian Lie ring, it may sometimes help to use
+the $\log$ and $\exp$ functors of the abelian Lie correspondence (as
+described in Section \ref{sec:abelian-lie-correspondence}) to go back
+and forth between the descriptions. With this language, we can rewrite
+the above results in the form:
+
+\begin{itemize}
+\item For any abelian group $G$, $\log(G \wedge G)$ is canonically
+  isomorphic to $\log G \wedge \log G$, where the $\wedge$ on the left
+  represents the exterior square as a group and the $\wedge$ on the
+  right represents the exterior square as a Lie ring.
+\item For any abelian Lie ring $L$, $\exp(L \wedge L)$ is canonically
+  isomorphic to $\exp L \wedge \exp L$ where the $\wedge$ on the left
+  represents the exterior square as a Lie ring and the $\wedge$ on the
+  right represents the exterior square as a group.
+\end{itemize}
+
+%% The second approach is to explicitly construct extensions that realize
+%% the exterior square. We already did this for the Lie ring case,
+%% establishing the equivalence of (1) and (4), with Lemma
+%% \ref{lemma:exteriorsquare-of-abelian-group}, using the free class two
+%% Lie ring.
+
+%% The equivalence of (1) and (2) is harder because there is no group
+%% theory analogue of the ``free class two Lie ring'' for an arbitrary
+%% abelian group. Instead, we proceed via the free group route. The idea
+%% is to proceed in the following steps:
+
+%% \begin{enumerate}
+%% \item Suppose $F$ is the free abelian group on a set $S$ such that $G
+%%   \cong F/R$ for some normal subgroup $R$ of $F$.
+%% \item Suppose $K$ is the free class two group on $S$. Then, $F =
+%%   K^{\operatorname{ab}}$.
+%% \item We can use an explicit normal form for the elements of $K$ (the
+%%   idea being to use a Malcev basis) to verify that the commutator map
+%%   homomorphism $F \wedge_\Z F \to [K,K]$ is an isomorphism. The
+%%   details are deferred to the Appendix, {\em TONOTDO: Insert section}.
+%% \item By Hopf's formula (Section
+%%   \ref{sec:hopf-formula-class-one-more}), $G \wedge G$ is canonically
+%%   isomorphic to $[K,K]/[K,T]$ where $T$ is the inverse image in $K$ of
+%%   the subgroup $R$ of $F = K^{\operatorname{ab}}$. Thus, $G \wedge G$
+%%   is canonically isomorphic to $(F \wedge_\Z F)/(F \wedge_\Z R)$,
+%%   which is $G \wedge_\Z G$. If we trace what the maps are, they turn
+%%   out to be the same as the map $G \wedge_\Z G \to G \wedge G$.
+%% \end{enumerate}
+
+\subsection{Description of central extensions for an abelian group}\label{sec:ses-uct-abelian}
+
+Suppose $A$ and $G$ are abelian groups. Recall from Section
+\ref{sec:second-cohomology-group-classify-extensions} that $H^2(G;A)$,
+termed the {\em second cohomology group for trivial group action} of
+$G$ on $A$, is a group whose elements correspond with the central
+extensions with central subgroup $A$ and quotient group $G$.
+
+We are now assuming that $G$ is abelian. Hence, all the extension
+groups have nilpotency class at most two. Further,
+$G^{\operatorname{ab}} = G$ and $M(G) = G \wedge G$ as
+discussed. Thus, the short exact sequence described in
+Section \ref{sec:ses-uct} simplifies to:
+
+\begin{equation}\label{eq:ses-uct-abelian}
+  0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G;A) \to H^2(G;A) \to \operatorname{Hom}(G \wedge G,A) \to 0
+\end{equation}
+
+The short exact sequence splits (but not necessarily canonically) and we get:
+
+$$H^2(G;A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(G;A) \oplus \operatorname{Hom}(G \wedge G,A)$$
+
+We will now proceed to explain the meaning of the short exact sequence
+in this context.
+
+\subsubsection{Description of the left map of the sequence}\label{sec:ses-uct-abelian-left-map}
+
+The map:
+
+$$\operatorname{Ext}^1_{\mathbb{Z}}(G;A) \to H^2(G;A)$$
+
+can be interpreted as follows. The underlying set of the group on the
+left is canonically identified with the set of all {\em abelian} group
+extensions with subgroup $A$ and quotient group $G$. The group on the
+right is the group whose elements are all the {\em central} extensions
+with central subgroup $A$ and quotient group $G$. Every abelian group
+extension is a central extension, and there is therefore a canonical
+injective set map from $\operatorname{Ext}^1_{\mathbb{Z}}(G;A)$ to
+$H^2(G;A)$. This set map turns out to be a {\em group homomorphism}
+based on the way the group structures on
+$\operatorname{Ext}^1_{\mathbb{Z}}(G;A)$ and $H^2(G;A)$ are
+defined. Delving into the group structure on
+$\operatorname{Ext}^1_{\mathbb{Z}}(G;A)$ will be too much of a
+diversion from our goal here, so we skip it.
+
+The image of the map is described as precisely the set of those
+cohomology classes whose representative 2-cocycles are {\em
+  symmetric}, i.e., any 2-cocycle $f$ in that cohomology class
+satisfies the property that $f(x,y) = f(y,x)$ for all $x,y \in
+G$. This can be easily deduced from the discussion in Section
+\ref{sec:explicit-cocycle-description-of-extension}.
+
+\subsubsection{Description of the right map of the sequence}\label{sec:ses-uct-abelian-right-map}
+
+The map:
+
+$$H^2(G;A) \to \operatorname{Hom}(G \wedge G,A)$$
+
+can be described as follows. For any group extension $E$, the
+commutator map $E \times E \to E$ descends to a set map:
+
+$$\omega_{E,G}: G \times G \to A$$
+
+Our earlier definition of $\omega_{E,G}$ defined it as a map to
+$[E,E]$, but $[E,E]$ lies in the image of $A$ (under the inclusion of
+$A$ in $E$), so it can be viewed as a map to $A$.
+
+Note that the image of the map is in $A$ {\em because} $G$ is
+abelian. Further, $\omega_{E,G}$ is bilinear, because the image of the map
+is central. It thus defines a group homomorphism $G \wedge G \to A$.
+
+The homomorphism above can also be described in terms of the how it
+operates at the level of $2$-cocycles (this description requires
+understanding the explicit description of the second cohomology group
+using the bar resolution, as given in Section
+\ref{sec:cohomology-explicit}). Explicitly, the map:
+
+$$H^2(G;A) \to \operatorname{Hom}(G \wedge G,A)$$
+
+arises from a homomorphism:
+
+$$Z^2(G;A) \to \operatorname{Hom}(G \wedge G,A)$$
+
+given by:
+
+$$f \mapsto \operatorname{Skew}(f)$$
+
+where $\operatorname{Skew}(f)$ is the map $(x,y) \mapsto f(x,y) -
+f(y,x)$.
+
+Intuitively, this is because the commutator of two elements represents
+the distance between their products in both possible orders, i.e.,
+$[x,y]$ is the quotient $(xy)/(yx)$. Whether we use left or right
+quotients does not matter because the group has class two.
+
+Based on the discussion in Section \ref{sec:extensionsuptoisoclinism},
+the homomorphism:
+
+$$H^2(G;A) \to \operatorname{Hom}(G \wedge G,A)$$
+
+classifies extensions {\em up to isoclinism of group extensions}. In
+other words, the fibers for this map are precisely the equivalence
+classes up to isoclinism of group extensions.
+
+\subsection{Description of central extensions for an abelian Lie ring}\label{sec:ses-uct-lie-abelian}
+
+Suppose $A$ and $L$ are abelian Lie rings. Recall that
+$H^2_{\text{Lie}}(L;A)$, called the {\em second cohomology group for
+  trivial Lie ring action}, is a group whose elements correspond to
+the congruence classes of central extensions with central subring $A$
+and quotient Lie ring $L$.
+
+We are now assuming that $L$ is abelian. Hence, $L^{\operatorname{ab}}
+= L$ and $M(L) = L \wedge L$. The short exact sequence of Section
+\ref{sec:ses-uct-lie} simplifies to:
+
+\begin{equation}\label{eq:ses-uct-lie-abelian}
+0 \to \operatorname{Ext}^1_{\mathbb{Z}}(L;A) \to H^2_{\text{Lie}}(L;A) \to \operatorname{Hom}(L \wedge L, A) \to 0
+\end{equation}
+
+The short exact sequence splits {\em canonically}, and we get a
+canonical isomorphism:
+
+$$H^2_{\text{Lie}}(L;A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(L;A) \oplus \operatorname{Hom}(L \wedge L,A)$$
+
+Note that $L$ being abelian is crucial to the splitting being
+canonical. We will understand the splitting in more detail, but first we need to explain what the maps are.
+
+\subsubsection{Description of the left map of the sequence}\label{sec:ses-uct-lie-abelian-left-map}
+
+The map:
+
+$$\operatorname{Ext}^1_{\mathbb{Z}}(L;A) \to H^2_{\text{Lie}}(L;A)$$
+
+can be described as follows. The group on the left is canonically
+identified with the {\em abelian} Lie rings arising as extensions with
+subring $A$ and quotient ring $L$. The group on the right is
+canonically identified with the {\em central} extensions with subring
+$A$ and quotient ring $L$. Every abelian Lie ring extension is a
+central extension, and there is therefore a canonical injective set
+map from $\operatorname{Ext}^1_{\mathbb{Z}}(L;A)$ to $H^2_{\text{Lie}}(L;A)$. This
+set map turns out to be a {\em group homomorphism} based on the way
+the group structures on $\operatorname{Ext}^1_{\mathbb{Z}}(L;A)$ and
+$H^2_{\text{Lie}}(L;A)$ are defined. Delving into the group structure on
+$\operatorname{Ext}^1_{\mathbb{Z}}(L;A)$ will be too much of a
+diversion from our goal here, so we skip it.
+
+\subsubsection{Description of the right map of the sequence}\label{sec:ses-uct-lie-abelian-right-map}
+
+The map:
+
+$$H^2_{\text{Lie}}(L;A) \to \operatorname{Hom}(L \wedge L,A)$$
+
+is defined as follows. For any extension Lie ring $M$, consider the
+Lie bracket $M \times M \to M$. This descends to a
+$\mathbb{Z}$-bilinear map:
+
+$$\omega_M: L \times L \to A$$
+
+Note that the image is in $A$ because $L$ is abelian. The map can be
+viewed as a homomorphism from $L \wedge L$ to $A$, and hence as an
+element of $\operatorname{Hom}(L \wedge L,A)$.
+
+Note also that, per the discussion in Section
+\ref{sec:extensionsuptoisoclinism-lie}, this homomorphism classifies
+the extension {\em up to isoclinism of Lie ring extensions}. In other
+words, the fibers of this map are precisely the equivalence classes up
+to isoclinism of Lie ring extensions.
+\subsubsection{Canonical splitting}\label{sec:ses-uct-lie-abelian-canonical-splitting}
+
+We will now describe how the short exact sequence below splits:
+
+\begin{equation*}
+0 \to \operatorname{Ext}^1_{\mathbb{Z}}(L;A) \to H^2_{\text{Lie}}(L;A) \to \operatorname{Hom}(L \wedge L, A) \to 0
+\end{equation*}
+
+We can describe the splitting either by specifying the projection
+$H^2_{\text{Lie}}(L;A) \to \operatorname{Ext}^1_{\mathbb{Z}}(L;A)$ or by specifying
+the inclusion $\operatorname{Hom}(L \wedge L,A) \to H^2_{\text{Lie}}(L;A)$. We do both.
+
+The projection:
+
+$$H^2_{\text{Lie}}(L;A) \to \operatorname{Ext}^1_{\mathbb{Z}}(L;A)$$
+
+is defined as follows. For any extension Lie ring $M$, map it to the
+extension Lie ring that is {\em abelian} as a Lie ring and has the
+same additive group as $M$. In other words, keep the additive
+structure intact, but ``forget'' the Lie bracket.
+
+The inclusion:
+
+$$\operatorname{Hom}(L \wedge L,A) \to H^2_{\text{Lie}}(L;A)$$
+
+is defined as follows. Given a bilinear map $b:L \times L \to A$,
+define the extension Lie ring as a Lie ring $M$ whose additive group
+is $L \oplus A$, and where the Lie bracket is:
+
+$$[(x_1,y_1),(x_2,y_2)] = [0,b(x_1,x_2)]$$
+
+In other words, we use the direct sum for the additive structure, and
+use the bilinear map to define the Lie bracket.
+
+In light of this, we can think of the direct sum decomposition as follows:
+
+$$H^2_{\text{Lie}}(L;A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(L;A) \oplus \operatorname{Hom}(L \wedge L,A)$$
+
+The projection onto the first component stores the additive structure
+of the Lie ring, while destroying, or forgetting, the Lie bracket. The
+projection onto the second component preserves the Lie bracket while
+replacing the additive structure with a direct sum of $L$ and
+$A$. Note also that the latter projection is equivalent to passing to
+the associated graded Lie ring. The associated graded Lie ring is
+discussed in more detail in the Appendix, Sections
+\ref{appsec:associated-graded-lie},
+\ref{appsec:associated-graded-group}, and
+\ref{appsec:associated-graded-functor}.
+
+\subsection{The Baer correspondence up to isoclinism for extensions}\label{sec:bcuti-extensions}
+
+Suppose $A$ and $G$ are abelian groups. Denote by $L$ the abelian Lie
+ring whose additive group is $G$. In other words, $L = \log G$ under
+the abelian Lie correspondence described in Section
+\ref{sec:abelian-lie-correspondence}.
+
+We abuse notation regarding $A$, using the same letter $A$ to denote
+the abelian group and the abelian Lie ring, which might more properly
+be written as $\log A$ when viewed as a Lie ring. We engage in this
+abuse because, throughout this document, we deal with central
+extensions, so that the base of the extention is always abelian. We do
+not abuse notation when dealing with $G$ and $L$, because the
+distinction will be helpful when we describe our later generalization,
+the Lazard correspondence up to isoclinism, in Section
+\ref{sec:lcuti}.
+
+We have discussed above two short exact sequences:
+
+\begin{equation*}
+  0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G;A) \to H^2(G;A) \to \operatorname{Hom}(G \wedge G,A) \to 0
+\end{equation*}
+
+and
+
+\begin{equation*}
+0 \to \operatorname{Ext}^1_{\mathbb{Z}}(L;A) \to H^2_{\text{Lie}}(L;A) \to \operatorname{Hom}(L \wedge L, A) \to 0
+\end{equation*}
+
+We have canonical isomorphisms between the left terms of the exact
+sequences and between the right terms of the exact sequences:
+
+$$\begin{array}{ccccccccc}
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(G;A) &\to &H^2(G;A) &\to &\operatorname{Hom}(G \wedge G,A) &\to &0\\
+  & & \downarrow & & & & \downarrow & & \\
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(L;A) & \to & H^2_{\text{Lie}}(L;A) & \to & \operatorname{Hom}(L \wedge L, A) & \to & 0\\
+\end{array}$$
+
+We now try to understand both component isomorphisms in greater
+detail.
+
+\subsubsection{The isomorphism of the $\operatorname{Ext}^1$ groups on the left side, and its relation to the abelian Lie correspondence}
+
+We have a canonical isomorphism of groups:
+
+$$\operatorname{Ext}^1_{\mathbb{Z}}(G;A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(L;A)$$
+
+This is because, although we use different symbols for $G$ and $L$,
+they both have the same underlying additive group, and the
+$\operatorname{Ext}^1$ computation uses only the underlying additive
+group.
+
+The elements of $\operatorname{Ext}^1_{\mathbb{Z}}(G;A)$ correspond to
+the extension groups with subgroup $A$ and quotient group $G$ {\em
+  where the extension group is abelian}. The elements of
+$\operatorname{Ext}^1_{\mathbb{Z}}(L;A)$ correspond to the extension
+Lie rings with subring $A$ and quotient Lie ring $L$ {\em where the
+  extension Lie ring is abelian}. The isomorphism above therefore
+gives a correspondence:
+
+\begin{center}
+Group extensions with subgroup $A$ and quotient group $G$ such that
+the extensions are abelian groups $\leftrightarrow$ Lie ring
+extensions with subring $A$ and quotient ring $L$ such that the
+extensions are abelian Lie rings
+\end{center}
+
+For each group extension and Lie ring extension that are in bijection
+(in other words, each pair of elements in the two isomorphic groups
+that are in bijection with each other), the corresponding extension group is in abelian
+Lie correspondence with the corresponding extension Lie ring.
+
+\subsubsection{The isomorphism of the $\operatorname{Hom}$ groups on the right side, and its relation to the Baer correspondence up to isoclinism}\label{sec:bcuti-extensions-main}
+
+We have a canonical isomorphism:
+
+$$\operatorname{Hom}(G \wedge G,A) \cong \operatorname{Hom}(L \wedge L, A)$$
+
+We reviewed the meanings of the two groups in Sections
+\ref{sec:ses-uct-abelian-right-map} and \ref{sec:ses-uct-lie-abelian-right-map}. The group
+$\operatorname{Hom}(G \wedge G,A)$ classifies the central extensions
+with central subgroup $A$ and quotient group $G$ up to isoclinism of
+extension. The group $\operatorname{Hom}(L \wedge L,A)$ classifies
+the central extensions with central subring $A$ and quotient Lie ring
+$L$ up to isoclinism of the extension.
+
+The two $\operatorname{Hom}$ groups are isomorphic because, since $L =
+\log G$, Section \ref{sec:exteriorsquare-abelian-group-proofs} tells
+us that the additive group of $L \wedge L$ is isomorphic to $G \wedge
+G$ as an abelian group. Thus, the homomorphism groups can also be
+identified with one another.
+
+The isomorphism gives a correspondence:
+
+\begin{center}
+  Equivalence classes up to isoclinism of Lie ring extensions with
+  central subring $A$ and quotient Lie ring $L$ $\leftrightarrow$
+  Equivalence classes up to isoclinism of group extensions with central
+  subgroup $A$ and quotient group $G$
+\end{center}
+
+Any particular instance of this bijection (i.e., an equivalence class
+of Lie ring extensions and an equivalence class of group extensions
+that are in bijection with each other) is termed a {\em Baer
+  correspondence up to isoclinism for extensions}.
+
+We now state an important lemma that relates the Baer correspondence
+up to isoclinism for extensions with the Baer correspondence up to
+isoclinism.
+
+\begin{lemma}\label{lemma:bcuti-extensions-implies-bcuti}
+  Supose $A$ and $G$ are abelian groups and $L = \log G$ is the
+  corresponding abelian Lie ring. Suppose $E$ is a group extension
+  with central subgroup $A$ and quotient group $G$. Suppose $N$ is a
+  Lie ring extension with central subring $\log A$ (which we denote as
+  $A$ via abuse of notation) and quotient Lie ring $L$. Suppose
+  further than the equivalence class up to isoclinism of the group
+  extension $E$ corresponds, via the above bijection, to the
+  equivalence class of the Lie ring extension $N$. Then, the group $E$
+  is in Baer correspondence up to isoclinism with the Lie ring $N$.
+\end{lemma}
+
+\begin{proof}
+  We have the following map induced by the commutator map in $E$:
+
+  $$\omega_{E,G}: G \times G \to A$$
+
+  Similarly, we have the following map induced by the Lie bracket map
+  in $N$:
+
+  $$\omega_{N,L}: L \times L \to A$$
+
+  The extensions being in correspondence up to isoclinism means that
+  $\omega_{N,L} = \log(\omega_{E,G})$, in the sense that the underlying set
+  map of $\omega_{N,L}$ coincides with the underlying set map of
+  $\omega_{E,G}$. Note also that the images of these maps need not be all
+  of $A$. The image of the first map generates a subgroup that can be
+  identified with $E'$, whereas the image of the second map generates
+  a subgroup that can be identified with the additive group of
+  $N'$. Both maps coincide, so $E'$ and $N'$ are in abelian Lie
+  corespondence.
+
+  The image of $Z(E)$ in $G$ coincides with the normal subgroup $\{ x
+  \in G \mid \omega_{E,G}(x,y) = 0 \ \forall \ y \in G\}$. Similarly,
+  the image of $Z(N)$ in $L$ coincides with the ideal $\{ x \in L \mid
+  \omega_{N,L}(x,y) = 0 \ \forall \ y \in L \}$. The underlying sets
+  coincide, so the normal subgroup and ideal are in abelian Lie
+  correspondence. Thus, the quotient group of $G$ by the image of
+  $Z(E)$ in $G$ is in abelian Lie correspondence with the quotient
+  group of $L$ by the image of $Z(N)$ in $L$. Thus, $E/Z(E)$ is in
+  abelian Lie correspondence with $N/Z(N)$. Thus, the descended maps:
+
+  $$\omega_E: E/Z(E) \times E/Z(E) \to E'$$
+
+  and
+
+  $$\omega_N: N/Z(N) \times N/Z(N) \to N'$$
+
+  are in correspondence.
+\end{proof}
+
+\subsubsection{Relation between the middle groups}\label{sec:bcuti-extensions-splitting}
+
+We have demonstrated the existence of canonical isomorphisms between
+the left groups and between the right groups in the two short exact
+sequences:
+
+$$\begin{array}{ccccccccc}
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(G;A) &\to &H^2(G;A) &\to &\operatorname{Hom}(G \wedge G,A) &\to &0\\
+  & & \downarrow & & & & \downarrow & & \\
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(L;A) & \to & H^2_{\text{Lie}}(L;A) & \to & \operatorname{Hom}(L \wedge L, A) & \to & 0\\
+\end{array}$$
+
+As described in Sections \ref{sec:ses-uct-abelian} and
+\ref{sec:ses-uct-lie-abelian}, both short exact sequences
+split. Therefore, it is possible to find an isomorphism $H^2(G;A) \to
+H^2_{\text{Lie}}(L;A)$ that establishes an isomorphism of the short
+exact sequences:
+
+$$\begin{array}{ccccccccc}
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(G;A) &\to &H^2(G;A) &\to &\operatorname{Hom}(G \wedge G,A) &\to &0\\
+  & & \downarrow & & \downarrow & & \downarrow & & \\
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(L;A) & \to & H^2_{\text{Lie}}(L;A) & \to & \operatorname{Hom}(L \wedge L, A) & \to & 0\\
+\end{array}$$
+
+Note, however, that the middle isomorphism is not canonical. In fact,
+choosing a middle isomorphism is equivalent to choosing a splitting of
+the top sequence. This is because the bottom sequence splits
+canonically, as described in Section
+\ref{sec:ses-uct-lie-abelian-canonical-splitting}.  We will return to
+a discussion of this in Sections \ref{sec:bc-and-bcuti} and
+\ref{sec:baer-correspondence-cocycle-level}.
+
+\subsection{The Baer correspondence up to isoclinism for groups: filling the details}
+
+We are now in a position to flesh out the remaining details of the
+Baer correspondence up to isoclinism, which we defined in Section
+\ref{sec:bcuti-def}:
+
+\begin{center}
+  Equivalence classes up to isoclinism of groups of nilpotency class at
+  most two $\leftrightarrow$ Equivalence classes up to isoclinism of Lie
+  rings of nilpotency class at most two
+\end{center}
+There are two pending facts we need to establish:
+
+\begin{enumerate}
+\item For every group $G$ of nilpotency class at most two, there
+  exists a Lie ring $L$ of nilpotency class at most two such that $G$
+  is in Baer correspondence up to isoclinism with $L$.
+\item For every Lie ring $L$ of nilpotency class at most two, there
+  exists a group $G$ of nilpotency class at most two such that $G$ is
+  in Baer correspondence up to isoclinism with $L$.
+\end{enumerate}
+
+We had already noted in Section \ref{sec:bcuti-def} that (1) can be
+achieved by using the associated graded Lie ring for the group. We
+will now provide a better way to think about both (1) and (2). We will
+begin with (1).
+
+\subsubsection{Explicit construction from the group to the Lie ring}
+
+We are given a group $G$ of nilpotency class at most two, and we need
+to find a Lie ring $L$ of nilpotency class at most two such that $L$
+and $G$ are in Baer correspondence up to isoclinism.
+
+\begin{enumerate}[(a)]
+\item Consider $G$ as a central extension:
+
+  $$0 \to Z(G) \to G \to G/Z(G) \to 1$$
+
+  Consider the equivalence class up to isoclinism of this extension.
+
+\item Based on the discussion in Section
+  \ref{sec:bcuti-extensions-main}, this equivalence class corresponds
+  to an equivalence class up to isoclinism of Lie ring extensions with
+  central subring $\log(Z(G))$ and quotient Lie ring $\log(G/Z(G))$. Let
+  $L$ be any extension Lie ring in this equivalence class.
+
+\item By Lemma \ref{lemma:bcuti-extensions-implies-bcuti}, $L$ and $G$
+  are in Baer correspondence up to isoclinism.
+\end{enumerate}
+
+Note that in this direction, one {\em can} make a canonical choice of
+$L$ based on $G$, namely, one can take the associated graded ring for
+the central series $0 \le Z(G) \le G$. Note that this choice of $L$
+will be the same for all $G$ in the equivalence class up to
+isoclinism. The ability to make a canonical choice here is related to
+the canonical splitting of the short exact sequence for Lie ring
+extensions with abelian quotient group, as discussed in Section
+\ref{sec:ses-uct-lie-abelian-canonical-splitting}.
+
+\subsubsection{Explicit construction from the Lie ring to the group}
+
+We are given a Lie ring $L$ of nilpotency class at most two, and we
+need to find a group $G$ of nilpotency class at most two such that $L$
+and $G$ are in Baer correspondence up to isoclinism.
+
+\begin{enumerate}[(a)]
+\item Consider $L$ as a central extension:
+
+  $$0 \to Z(L) \to L \to L/Z(L) \to 0$$
+
+  Consider the equivalence class up to isoclinism of this extension.
+
+\item Based on the discussion in Section
+  \ref{sec:bcuti-extensions-main}, this equivalence class corresponds
+  to an equivalence class up to isoclinism of group extensions with
+  central subgroup $\exp(Z(L))$ and quotient group $\exp(L/Z(L))$. Let
+  $G$ be any extension group in this equivalence class.
+
+\item By Lemma \ref{lemma:bcuti-extensions-implies-bcuti}, $L$ and $G$
+  are in Baer correspondence up to isoclinism.
+\end{enumerate}
+
+\subsubsection{Preservation of order}\label{sec:bcuti-preserves-order}
+
+In both directions, the constructions preserve the orders. In other
+words, if we start with a finite group and use the construction in the
+direction from groups to Lie rings, the Lie ring that we obtain has
+the same order as the group that we started with. Similarly, if we
+start with a finite Lie ring and use the construction in the direction
+from Lie groups to groups, the group that we obtain has the same order
+as the Lie ring that we started with.
+
+This does not imply that {\em every} group and every Lie ring that are
+in Baer correspondence up to isoclinism must have the same
+order. Rather, we are saying that the answer to the existence question
+continues to be affirmative even after we impose the condition that
+the orders have to be equal.
+
+In particular, given a a finite $2$-group of nilpotency class $2$, we
+can find a finite $2$-Lie ring (i.e., a Lie ring whose additive group
+is a finite $2$-group) of nilpotency class $2$ such that the group and
+Lie ring are in Baer correspondence up to
+isoclinism. Similarly, given a finite $2$-Lie ring of nilpotency class
+$2$, we can find a finite $2$-group of nilpotency class $2$ such that
+the group and Lie ring are in Baer correspondence up to isoclinism.
+
+
+\subsection{Relating the Baer correspondence and the Baer correspondence up to isoclinism}\label{sec:bc-and-bcuti}
+
+If a Baer Lie group $G$ is in Baer correspondence with a Baer Lie ring
+$L$, then $G$ and $L$ are in Baer correspondence up to isoclinism (as
+defined in Section \ref{sec:bcuti-def}). Explicitly, the Baer
+correspondence between $G$ and $L$ can be used to define an
+isomorphism $\zeta$ between $\operatorname{Inn}(G)$ and the additive
+group of $\operatorname{Inn}(L)$, and also an isomorphism $\varphi$
+between $G'$ and the additive group of $L'$, satisfying the
+compatibility condition for being a Baer correspondence up to isoclinism.
+
+Another way of framing this is that if we restrict attention to Baer
+Lie groups and Baer Lie rings, then the Baer correspondence up to
+isoclinism can be {\em refined} to a correspondence that works up to
+isomorphism, namely the usual Baer correspondence up to
+isomorphism. In fact, it can be refined even further to obtain the
+strict Baer correspondence between individual groups and Lie rings, as
+has been done in the previous two sections (Sections
+\ref{sec:baer-correspondence-basics} and
+\ref{sec:baer-correspondence-more}).
+
+We now turn to how the Baer correspondence relates to the Baer
+correspondence up to isoclinism for group extensions. Let $G$ and $A$
+be abelian groups, and let $L = \log G$ be the abelian Lie ring with
+additive group $G$. In Section \ref{sec:bcuti-extensions}, we worked
+out the following relation between the universal coefficient theorem
+short exact sequences, where the downward maps are isomorphisms:
+
+$$\begin{array}{ccccccccc}
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(G;A) &\to &H^2(G;A) &\to &\operatorname{Hom}(G \wedge G,A) &\to &0\\
+  & & \downarrow & & & & \downarrow & & \\
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(L;A) & \to & H^2_{\text{Lie}}(L;A) & \to & \operatorname{Hom}(L \wedge L, A) & \to & 0\\
+\end{array}$$
+ 
+We had also noted in Section
+\ref{sec:ses-uct-lie-abelian-canonical-splitting} that the second
+short exact sequence splits canonically, i.e.,:
+
+$$H^2_{\text{Lie}}(L;A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(L;A) \oplus \operatorname{Hom}(L \wedge L, A)$$
+
+Thus, as observed in Section \ref{sec:bcuti-extensions-splitting},
+specifying an isomorphism between the middle groups such that the
+diagram commutes is equivalent to specifying a splitting of the first
+short exact sequence.
+
+Now, consider the case that $G$ and $A$ are both $2$-powered abelian
+groups. In that case, by Lemma \ref{lemma:powering-extension-group},
+all the extensions with central subgroup $A$ and quotient group $G$
+are themselves $2$-powered, and are therefore Baer Lie
+groups. Similarly, all the extension Lie rings with central subring
+$A$ and quotient Lie ring $L$ are Baer Lie rings. Further, the Baer
+correspondence establishes a bijection between the group extensions
+and Lie ring extensions in such a manner that the diagram
+commutes. Equivalently, it provides a canonical splitting of the top
+row. Explicitly, we now obtain a commutative diagram with the middle
+isomorphism filled in:
+
+$$\begin{array}{ccccccccc}
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(G;A) &\to &H^2(G;A) &\to &\operatorname{Hom}(G \wedge G,A) &\to &0\\
+  & & \downarrow & & \downarrow & & \downarrow & & \\
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(L;A) & \to & H^2_{\text{Lie}}(L;A) & \to & \operatorname{Hom}(L \wedge L, A) & \to & 0\\
+\end{array}$$
+
+Equivalently, we have an explicit splitting:
+
+$$H^2(G;A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(G;A) \oplus \operatorname{Hom}(G \wedge G,A)$$
+
+We will now discuss explicitly how this splitting works.
+
+\subsection{Cocycle-level description of the Baer correspondence}\label{sec:baer-correspondence-cocycle-level}
+
+Suppose $G$ and $A$ are abelian groups (we will soon restrict to the
+case that one or both of $G$ and $A$ is $2$-powered). Consider the
+following two short exact sequences. The first is the short exact
+sequence relating the coboundary, cocycle and cohomology groups,
+originally described in Section
+\ref{sec:ses-coboundary-cocycle-cohomology}:
+
+$$0 \to B^2(G;A) \to Z^2(G;A) \to H^2(G;A) \to 0$$
+
+The second is the universal coefficient theorem short exact sequence,
+originally described in Section \ref{sec:ses-uct} and described
+specifically for abelian $G$ in Section \ref{sec:ses-uct-abelian}:
+
+$$0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G;A) \to H^2(G;A) \to \operatorname{Hom}(G \wedge G,A) \to 0$$
+
+The first short exact sequence need not split. An example where it
+does not split was discussed in Section
+\ref{sec:ses-coboundary-cocycle-cohomology}. The second short exact
+sequence does always split but the splitting need not be canonical (see
+Section \ref{sec:ses-uct-non-canonical-splitting}).
+
+The right parts of these short exact sequences give surjective
+homomorphisms, which we can compose:
+
+$$Z^2(G;A) \to H^2(G;A) \to \operatorname{Hom}(G \wedge G,A)$$
+
+As we discussed in Section \ref{sec:ses-uct-abelian-right-map}, the
+composite of these maps is the skew map. Explicitly, the composite is
+the map $f \mapsto \operatorname{Skew}(f)$, that sends a function $f$
+to the function:
+
+$$\operatorname{Skew}(f) = (x,y) \mapsto f(x,y) - f(y,x)$$
+
+Note that the function $\operatorname{Skew}(f)$ is a
+$\mathbb{Z}$-bilinear map $G \times G$ to $A$, which can be
+interpreted as a homomorphism $G \wedge G \to A$.
+
+Now, suppose that $G$ and $A$ are both $2$-powered abelian groups. In
+that case, there is a canonical splitting of the composite map, given
+as follows:
+
+$$f \mapsto \frac{1}{2}f$$
+
+In other words, a $\mathbb{Z}$-bilinear map $f: G \times G \to A$ is
+sent to $\frac{1}{2}f:G \times G \to A$. Note that any
+$\mathbb{Z}$-bilinear map is a $2$-cocycle (in general, any $n$-linear
+map is a $n$-cocycle) so this works.
+
+In particular, {\em both} the short exact sequences split, and we get
+canonical direct sum decompositions:
+
+$$Z^2(G;A) \cong B^2(G;A) \oplus H^2(G;A), \text{ splitting is } H^2(G;A) \to Z^2(G;A)$$
+
+$$H^2(G;A) \cong \operatorname{Ext}^1_{\mathbb{Z}}(G;A) \oplus \operatorname{Hom}(G \wedge G,A), \text{ splitting is } \operatorname{Hom}(G \wedge G,A) \to H^2(G;A)$$
+
+Note that the first short exact sequence need not split for all $G$
+and $A$ (see the discussion in Section
+\ref{sec:ses-coboundary-cocycle-cohomology}) and the existence of a
+splitting is itself a piece of information. The second short exact
+sequence does split for all $G$ and $A$, but the splitting is not in
+general canonical, as discussed in Section
+\ref{sec:ses-uct-non-canonical-splitting}, so the case where $G$ and
+$A$ are both $2$-powered is special in that we obtain a {\em
+  canonical} splitting.
+
+The splitting map $\operatorname{Hom}(G\wedge G,A) \to H^2(G;A)$ is
+the same as the one arising from the Baer correspondence. Explicitly,
+as noted in Section \ref{sec:bcuti-extensions-splitting}, specifying the
+splitting map $\operatorname{Hom}(G \wedge G, A) \to H^2(G;A)$ is
+equivalent to specifying an isomorphism of $H^2(G;A)$ and
+$H^2_{\text{Lie}}(L;A)$ such that the diagram below commutes:
+
+$$\begin{array}{ccccccccc}
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(G;A) &\to &H^2(G;A) &\to &\operatorname{Hom}(G \wedge G,A) &\to &0\\
+  & & \downarrow & & \downarrow & & \downarrow & & \\
+  0 &\to &\operatorname{Ext}^1_{\mathbb{Z}}(L;A) & \to & H^2_{\text{Lie}}(L;A) & \to & \operatorname{Hom}(L \wedge L, A) & \to & 0\\
+\end{array}$$
+
+This isomorphism can be described in an alternative way. Let $E$ be an
+extension group corresponding to an element of $H^2(G;A)$. Let $N =
+\log(E)$ via the Baer correspondence. We can relate two short exact
+sequences via a $\log$ functor.
+
+$$\begin{array}{lllll}
+    0 \to & A \to & E \to & G \to & 1 \\
+    & \downarrow^{\log} & \downarrow^{\log} & \downarrow^{\log}&  \\
+    0  \to & A \to & N \to & L \to & 0\\
+\end{array}$$
+
+Note that we abuse notation again, using the same letter $A$ for $A$
+as a group and as a Lie ring.
+
+Then, the element of $H^2_{\text{Lie}}(L;A)$ that corresponds to the
+second row is the same as the image of the element of $H^2(G;A)$ under
+the isomorphism described earlier.
+
+\subsection{Relaxation of the $2$-powered assumption}
+
+We consider what can be said when the assumption that both $G$ and $A$
+are $2$-powered is relaxed.
+
+$$0 \to \operatorname{Ext}^1_{\mathbb{Z}}(G;A) \to H^2(G;A) \to \operatorname{Hom}(G \wedge G,A) \to 0$$
+
+Note that if the group $\operatorname{Hom}(G \wedge G,A)$ itself is
+$2$-powered, then the preceding construction can still be carried out,
+and we can obtain a splitting of the short exact sequence. The
+correspondence between the extension group and the extension Lie ring
+need no longer be an instance of the Baer correspondence. However, it
+will continue to be an instance of the {\em divided} Baer
+correspondence described in Section
+\ref{sec:divided-baer-correspondence}. Note in particular that this
+includes the case where the group $A$ alone is $2$-powered. It will
+also include the case where the group $G$ alone is $2$-powered.
+
+In the case that $\operatorname{Hom}(G \wedge G,A)$ is not
+$2$-powered, the preceding method for obtaining a splitting will not
+work. However, we know that the short exact sequence must still
+split. For some choices of $G$ and $A$, it is possible to obtain an
+automorphism-invariant splitting, even though such a splitting does
+not arise from the Baer correspondence or any of its generalizations
+described here.
+
+\subsection{Inner automorphisms and inner derivations in the context of the correspondence up to isoclinism}\label{sec:bcuti-adjoint}
+
+Many aspects of the relationship between inner automorphisms and inner
+derivations described in Section \ref{sec:baer-adjoint} continue to be
+valid, with suitable modification, for the Baer correspondence up to
+isoclinism.
+
+Suppose $G$ is a group of nilpotency class two and $L$ is a Lie ring
+of nilpotency class two such that $G$ and $L$ are in Baer
+correspondence up to isoclinism. In particular, this means that the
+groups $G/Z(G) \cong \operatorname{Inn}(G)$ and $L/Z(L) \cong
+\operatorname{Inn}(L)$ are in abelian Lie correspondence up to
+isomorphism.
+
+The adjoint action of $G$ on $L$ is defined as follows:
+
+$$\operatorname{Ad}: G \to \operatorname{Aut}(L)$$
+
+For any $u \in G$, define $\operatorname{Ad}_u$ as follows. Denote by
+$\overline{u}$ the image of $u$ in $G/Z(G)$. Denote by $x$ an element
+of $L$ such that the image of $x$ in $L/Z(L)$ corresponds to the
+element $\overline{u}$ under the abelian Lie correspondence between
+$L/Z(L)$ and $G/Z(G)$. We define $\operatorname{Ad}_u$ as the
+following automorphism of $L$:
+
+$$\operatorname{Ad}_u(g) = g + [x,g]$$
+
+It can easily be verified that $\operatorname{Ad}_u$ is an
+automorphism of $L$. It can also be verified that
+$\operatorname{Ad}_{uv} = \operatorname{Ad}_u\operatorname{Ad}_v$,
+making $\operatorname{Ad}$ a homomorphism. 
+
+More conceptually, we can write the description as follows:
+
+$$\operatorname{Ad}_u = 1 + \operatorname{ad}_x$$
+
+where the images of $u$ and $x$ modulo the respective centers are in
+abelian Lie correspondence.
+
+\section{Examples of the Baer correspondence up to isoclinism}\label{sec:bcuti-ex}
+
+In the case that $G$ and $A$ are odd-order abelian groups, the {\em
+  original} Baer correspondence works. To obtain finite examples where
+the Baer correspondence works only up to isoclinism, we need to look
+at $2$-groups. Further, our examples must be cases where the quotient
+$\operatorname{Hom}(G \wedge G,A)$ is nontrivial, so that there is at
+least some non-abelian extension.\footnote{The abelian extensions can
+  be put in correspondence based on the correspondence between abelian
+  groups and abelian Lie rings, which, although not strictly part of
+  the Baer correspondence as have defined it, falls under the
+  generalization described in Section
+  \ref{sec:baer-correspondence-lcs-generalization}}
+
+\subsection{Extensions with quotient the Klein four-group and center cyclic of order two}
+
+The smallest sized example is: $A = \mathbb{Z}_2$ is the cyclic group
+of order $2$ and $G = V_4$ is the Klein four-group, isomorphic to
+$\mathbb{Z}_2 \times \mathbb{Z}_2$.
+
+The short exact sequences discussed in Sections
+\ref{sec:ses-uct-abelian} and \ref{sec:ses-uct-lie-abelian}, along
+with the canonical isomorphisms discussed in Section
+\ref{sec:bcuti-extensions}, give the following:
+
+$$\begin{array}{ccccccccc}
+0 & \to & \operatorname{Ext}^1(V_4;\mathbb{Z}_2) & \to & H^2(V_4;\mathbb{Z}_2) & \to & \operatorname{Hom}(V_4 \wedge V_4,\mathbb{Z}_2) & \to & 0 \\
+& & \downarrow & & & & \downarrow & & \\
+0 & \to & \operatorname{Ext}^1(V_4;\mathbb{Z}_2) & \to & H^2_{\text{Lie}}(V_4;\mathbb{Z}_2) & \to & \operatorname{Hom}(V_4 \wedge V_4,\mathbb{Z}_2) & \to & 0\\
+\end{array}$$
+
+Recall that both short exact sequences split, and, as per the
+discussion in Section \ref{sec:ses-uct-lie-abelian}, the Lie ring
+short exact sequence splits canonically (with the splitting separating
+out the addition and Lie bracket parts).
+
+It turns out that:
+
+\begin{itemize}
+\item $\operatorname{Ext}^1(V_4;\mathbb{Z}_2)$ is itself isomorphic to $V_4$, the Klein four-group.
+\item $\operatorname(V_4 \wedge V_4)$ is isomorphic to $\mathbb{Z}_2$,
+  and thus, $\operatorname{Hom}(H_2(V_4;\mathbb{Z}),\mathbb{Z}_2)$ is
+  isomorphic to $\mathbb{Z}_2$.
+\item Thus, both of the second cohomology groups (the group and Lie
+  ring side) are isomorphic to the elementary abelian group of order
+  eight.
+\end{itemize}
+
+On the group side, we have the following eight extensions (eight being
+the order of the cohomology group):
+
+\begin{enumerate}[(a)]
+\item Elementary abelian group of order eight (1 time).
+\item $\mathbb{Z}_4 \oplus \mathbb{Z}_2$ (3 times).
+\item $D_8$ (3 times).
+\item $Q_8$ (1 time).
+\end{enumerate}
+
+(a) and (b) together form the image of $\operatorname{Ext}^1$ (total
+size 4) while (c) and (d) form the non-identity coset of that
+image.
+
+On the Lie ring side, the eight extensions (eight being the order of the cohomology group) are:
+
+\begin{enumerate}[(a)]
+\item Abelian Lie ring, additive group elementary abelian of order eight (1 time)
+\item Abelian Lie ring, additive group direct product of
+  $\mathbb{Z}_4$ and $\mathbb{Z}_2$ (3 times).
+\item The niltriangular matrix Lie ring ($3 \times 3$ strictly upper
+  triangular matrices) over the field of two elements. (1 time)
+\item The semidirect product of $\mathbb{Z}_4$ and $\mathbb{Z}_2$ as
+  Lie rings. (3 times).
+\end{enumerate}
+
+(a) and (b) together form the image of $\operatorname{Ext}^1$ (total
+size 4) while (c) and (d) form the non-identity coset of that
+image.
+
+Note that there is no canonical bijection between the set of eight
+group extensions and the set of eight Lie ring extensions, but we can
+naturally correspond the images of $\operatorname{Ext}^1$ in both. The
+problem arises when attempting an element-to-element identification of the
+non-identity cosets in the two cases. In other words, we have a
+correspondence at a coset level:
+
+$$\{ D_8, D_8, D_8, Q_8 \} \leftrightarrow \{ \text{The four non-abelian Lie ring extensions} \} $$
+
+But there is no clear-cut way of making sense of {\em which} Lie ring
+extension to correspond to {\em which} group. This is an example of a
+situation where the Baer correspondence up to isoclinism does not seem
+to have any natural refinement to a correspondence up to isomorphism.
+
+Note that in this case, it so happens that we can use an
+automorphism-invariance criterion and get a unique
+automorphism-invariant bijection. This would map the niltriangular
+matrix Lie ring to the quaternion group and the semidirect product of
+$\Z_4$ and $\Z_2$ to the dihedral group. However, this does not give a
+meaningful bijection at the level of elements. For instance, as
+described in Section \ref{sec:baer-correspondence-cyclic-sub}, one
+feature that holds in all generalizations described so far for the
+Baer correspondence is that the correspondence restricts to
+isomorphism between cyclic subgroups and cyclic subrings. In
+particular, the rder statistics of the group (i.e., the multiset of
+the orders of the elements) in the group must match the order
+statistics of the additive group of the Lie ring. However, the order
+statistics of $D_8$ do not match the order statistics of any abelian
+group of order $8$. The same is true for $Q_8$.
+
+
+\subsection{Extensions with quotient the Klein four-group and center cyclic of order four}
+
+We consider a slight variation of the preceding example. We set $G =
+V_4$ as before, but now set $A = \mathbb{Z}_4$, so $A$ is the cyclic
+group of order four. The extension groups and extension Lie rings are
+all of order 16.
+
+It turns out that:
+
+\begin{itemize}
+\item $\operatorname{Ext}^1(V_4;\mathbb{Z}_4)$ is itself isomorphic to $V_4$, the Klein four-group.
+\item $\operatorname(V_4 \wedge V_4)$ is isomorphic to $\mathbb{Z}_2$,
+  and thus, $\operatorname{Hom}(H_2(V_4;\mathbb{Z}),\mathbb{Z}_4)$ is
+  isomorphic to $\mathbb{Z}_2$.
+\item Thus, both of the second cohomology groups (the group and Lie
+  ring side) are isomorphic to the elementary abelian group of order
+  eight.
+\end{itemize}
+
+On the group side, we have the following eight extensions (eight being
+the order of the cohomology group):
+
+\begin{enumerate}[(a)]
+\item $\mathbb{Z}_4 \oplus V_4$ (1 time).
+\item $\mathbb{Z}_8 \oplus \mathbb{Z}_2$ (3 times).
+\item The group $M_{16} = M_4(2)$, given by the presentation $\langle
+  a,x \mid a^8 = x^2 = 1, xax^{-1} = a^5 \rangle$ (3
+  times). This group has ID (16,6) in the SmallGroups library
+    used in GAP and Magma.
+\item The group $D_8 *_{\Z_2} \Z_4 = Q_8 *_{\Z_2} \Z_4$ (1 time).
+  This group has ID (16,13) in the SmallGroups library used in GAP and
+  Magma.
+\end{enumerate}
+
+(a) and (b) together form the image of $\operatorname{Ext}^1$ (total
+size 4) while (c) and (d) form the non-identity coset of that
+image.
+
+On the Lie ring side, we have the following eight extensions (eight
+being the order of the cohomology group):
+
+\begin{enumerate}[(a)]
+\item Abelian Lie ring with additive group $\mathbb{Z}_4 \oplus V_4$
+  (1 time).
+\item Abelian Lie ring with additive group $\mathbb{Z}_8 \oplus
+  \mathbb{Z}_2$ (3 times).
+\item Lie ring with presentation $\langle
+  a,x \mid 8a = 2x = 0, [a,x] = 4a \rangle$ (3
+  times).
+\item Lie ring with presentation $\langle a,x,y \mid 4a = 2x = 4y = 0,
+  2a = 2y, [a,x] = 2a, [a,y] = [x,y] = 0 \rangle$ (1 time).
+\end{enumerate}
+
+(a) and (b) together form the image of $\operatorname{Ext}^1$ (total
+size 4) while (c) and (d) form the non-identity coset of that
+image.
+
+We can naturally correspond the images of $\operatorname{Ext}^1$ in
+both. We also have a correspondence at a coset level:
+
+$$\text{The four non-abelian group extensions} \leftrightarrow \text{The four non-abelian Lie ring extensions}$$
+
+In general, we cannot refine this to a canonical bijection at the
+level of individual extensions. However, in this case, there does
+exist an automorphism-invariant splitting, under which the type (c)
+for groups corresponds to the type (c) for Lie rings, and the type (d)
+for groups corresponds to the type (d) for Lie rings. The splitting
+here is somewhat nicer than the splitting in the preceding example
+because for each group and Lie ring in correspondence, we can obtain a
+bijection between the group and the Lie ring that preserves the cyclic
+subgroup structure, similar to the description in Section
+\ref{sec:baer-correspondence-cyclic-sub}.
+
+%% There are also larger examples where there is no
+%% automorphism-invariant splitting of the short exact sequence for group
+%% extensions, and thus no hope even of obtaining an
+%% automorphism-invariant bijection. {\em TONOTDO: Either insert example (or
+%%   Appendix link) or delete this para.}
+
+%% {\em TONOTDO: I could insert more background and generalizations worked
+%%   on earlier, perhaps in the Appendix; however, this is not necessary.}
+

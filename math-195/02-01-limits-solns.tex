@@ -1,0 +1,616 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Friday February 1: Limits}
+\author{Math 195, Section 59 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$27$ people took this $14$-question quiz. The score distribution was
+as follows:
+
+\begin{itemize}
+\item Score of $8$: $2$ people.
+\item Score of $9$: $3$ people.
+\item Score of $10$: $2$ people.
+\item Score of $11$: $4$ people.
+\item Score of $12$: $5$ people.
+\item Score of $13$: $5$ people.
+\item Score of $14$: $6$ people.
+\end{itemize}
+
+The question wise answers and performance review were as follows:
+
+\begin{enumerate}
+\item Option (A): All $27$ people.
+\item Option (D): $22$ people.
+\item Option (C): $26$ people.
+\item Option (C): $20$ people.
+\item Option (B): $21$ people.
+\item Option (C): $23$ people.
+\item Option (B): $26$ people.
+\item Option (C): $26$ people.
+\item Option (E): $21$ people.
+\item Option (D): $21$ people.
+\item Option (A): $18$ people.
+\item Option (E): $22$ people.
+\item Option (A): $19$ people.
+\item Option (B): $24$ people.
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+
+\item We call a function $f$ left continuous on an open interval $I$
+  if, for all $a \in I$, $\displaystyle \lim_{x \to a^-} f(x) =
+  f(a)$. Which of the following is an example of a function that is
+  left continuous but not continuous on $(0,1)$? If all are examples,
+  please select Option (E).
+
+  \begin{enumerate}[(A)]
+  \item $f(x) := \left \lbrace\begin{array}{rl}x, & 0 < x \le 1/2 \\ 2x, & 1/2 < x < 1 \\\end{array}\right.$
+  \item $f(x) := \left \lbrace\begin{array}{rl}x, & 0 < x < 1/2 \\ 2x, & 1/2 \le x < 1 \\\end{array}\right.$
+  \item $f(x) := \left \lbrace\begin{array}{rl}x, & 0 < x \le 1/2 \\ 2x - (1/2), & 1/2 < x < 1 \\\end{array}\right.$
+  \item $f(x) := \left \lbrace\begin{array}{rl}x, & 0 < x < 1/2 \\ 2x - (1/2), & 1/2 \le x < 1 \\\end{array}\right.$
+  \item All of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Note that in all four cases, the two pieces of
+  the function are continuous. Thus, the relevant questions are: (i) do
+  the two definitions agree at the point where the definition changes
+  (in all four cases here, $1/2$)? and (ii) is the point (in all cases,
+  $1/2$) where the definition changes included in the left or the
+  right piece?
+
+  For options (C) and (D), the definitions on the left and right piece
+  agree at $1/2$. Namely the function $x$ and $2x - (1/2)$ both take the
+  value $1/2$ at the domain point $1/2$. Thus, options (C) and (D)
+  both define continuous functions (in fact, the same continuous
+  function).
+
+  This leaves options (A) and (B). For these, the left definition $x$
+  and the right definition $2x$ do not match at $1/2$: the former
+  gives $1/2$ and the latter gives $1$. In other words, the function
+  has a jump discontinuity at $1/2$. Thus, (ii) becomes relevant: is
+  $1/2$ included in the left or the right definition?
+
+  For option (A), $1/2$ is included in the left definition, so $f(1/2)
+  = 1/2 = \displaystyle \lim_{x \to 1/2^-} f(x)$. On the other hand, $\displaystyle \lim_{x \to
+  1/2^+} f(x) = 1$. Thus, the $f$ in option (A) is left continuous but
+  not right continuous.
+
+  For option (B), $1/2$ is included in the right definition, so
+  $f(1/2) = 1$ and $f$ is right continuous but not left continuous at
+  $1/2$.
+
+  {\em Performance review}: All $27$ got this.
+
+  {\em Historical note (last time)}: $47$ out of $49$ people got this
+  correct. $1$ person each chose (B) and (C).
+
+  
+\item Suppose $f$ and $g$ are functions $(0,1)$ to $(0,1)$ that are
+  both left continuous on $(0,1)$. Which of the following is {\em not}
+  guaranteed to be left continuous on $(0,1)$? Please see Option (E)
+  before answering.
+
+  \begin{enumerate}[(A)]
+  \item $f + g$, i.e., the function $x \mapsto f(x) + g(x)$
+  \item $f - g$, i.e., the function $x \mapsto f(x) - g(x)$
+  \item $f \cdot g$, i.e., the function $x \mapsto f(x)g(x)$
+  \item $f \circ g$, i.e., the function $x \mapsto f(g(x))$
+  \item None of the above, i.e., they are all guaranteed to be left
+  continuous functions
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We need to construct an explicit example, but we
+  first need to do some theoretical thinking to motivate the right
+  example. The full reasoning is given below.
+
+  {\em Motivation for example}: Left hand limits split under addition,
+  subtraction and multiplication, so options (A)-(C) are guaranteed to
+  be left continuous, and are thus false. This leaves the option $f
+  \circ g$ for consideration. Let us look at this in more detail.
+
+  For $c \in (0,1)$, we want to know whether:
+
+  $$\displaystyle \lim_{x \to c^-} f(g(x)) \stackrel{?}{=} f(g(c))$$
+
+  We do know, by assumption, that, as $x$ approaches $c$ from the
+  left, $g(x)$ approaches $g(c)$. However, we do not know whether
+  $g(x)$ approaches $g(c)$ from the left or the right or in
+  oscillatory fashion. If we could somehow guarantee that $g(x)$
+  approaches $g(c)$ from the left, then we would obtain that the above
+  limit holds. However, the given data does not guarantee this, so (D)
+  is false.
+
+  We need to construct an example where $g$ is {\em not} an increasing
+  function. In fact, we will try to pick $g$ as a decreasing function,
+  so that when $x$ approaches $c$ from the left, $g(x)$ approaches
+  $g(c)$ from the right. As a result, when we compose with $f$, the
+  roles of left and right get switched. Further, we need to construct
+  $f$ so that it is left continuous but not right continuous.
+
+  {\em Explanation with example}: Consider the case where, say:
+
+  $$f(x) := \left \lbrace\begin{array}{rl}1/3,& 0 < x \le 1/2 \\ 2/3, & 1/2 < x < 1 \\\end{array}\right.$$
+
+  and
+
+  $$g(x) := 1 - x$$
+
+  Note that both functions have range a subset of $(0,1)$.
+
+  Composing, we obtain that:
+
+  $$f(g(x)) = \left \lbrace\begin{array}{rl}2/3,& 0 < x < 1/2\\ 1/3, & 1/2 \le x < 1 \\\end{array}\right.$$
+
+  $f$ is left continuous but not right continuous at $1/2$, whereas $f
+  \circ g$ is right continuous but not left continuous at $1/2$.
+
+  {\em Performance review}: $22$ out of $27$ got this. $2$ chose (E),
+  $1$ each chose (C), $1$ chose (B).
+
+  {\em Historical note (last time)}: $20$ out of $49$ people got this
+  correct. $26$ people chose (E), $2$ chose (C), $1$ chose (B).
+
+
+\item Which of these is the correct interpretation of $\displaystyle
+  \lim_{x \to c} f(x) = L$ in terms of the definition of limit? Please
+  see Option (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item For every $\alpha > 0$, there exists $\beta > 0$ such that if
+    $0 < |x - c| < \alpha$, then $|f(x) - L| < \beta$.
+  \item There exists $\alpha > 0$ such that for every $\beta > 0$, and
+    $0 < |x - c| < \alpha$, we have $|f(x) - L| < \beta$.
+  \item For every $\alpha > 0$, there exists $\beta > 0$ such that if
+    $0 < |x - c| < \beta$, then $|f(x) - L| < \alpha$.
+  \item There exists $\alpha > 0$ such that for every $\beta > 0$ and
+    $0 < |x - c| < \beta$, we have $|f(x) - L| < \alpha$.
+  \item None of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: $\alpha$ plays the role of $\varepsilon$ and $\beta$
+  plays the role of $\delta$.
+
+  {\em Performance review}: $26$ out of $27$ got this. $1$ chose (B).
+
+  {\em Historical note (last time)}: $44$ out of $49$ people got this
+  correct. $3$ people chose (A), $2$ chose (B).
+
+\item Suppose $f:\R \to \R$ is a function. Which of the following says
+  that $f$ does not have a limit at any point in $\R$ (i.e., there is
+  no point $c \in \R$ for which $\displaystyle \lim_{x \to c} f(x)$
+  exists)? If all, please select Option (E).
+
+  \begin{enumerate}[(A)]
+  \item For every $c \in \R$, there exists $L \in \R$ such that for
+    every $\varepsilon > 0$, there exists $\delta > 0$ such that for all
+    $x$ satisfying $0 < |x - c| < \delta$, we have $|f(x) - L| \ge
+    \varepsilon$.
+  \item There exists $c \in \R$ such that for every $L \in \R$, there
+    exists $\varepsilon > 0$ such that for every $\delta > 0$, there exists
+    $x$ satisfying $0 < |x - c| < \delta$ and $|f(x) - L| \ge \varepsilon$.
+  \item For every $c \in \R$ and every $L \in \R$, there exists
+    $\varepsilon > 0$ such that for every $\delta > 0$, there exists $x$
+    satisfying $0 < |x - c| < \delta$ and $|f(x) - L| \ge \varepsilon$.
+  \item There exists $c \in \R$ and $L \in \R$ such that for
+    every $\varepsilon > 0$, there exists $\delta > 0$ such that for all
+    $x$ satisfying $0 < |x - c| < \delta$, we have $|f(x) - L| \ge
+    \varepsilon$.
+  \item All of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Our statement should be that {\em every} $c$ has
+  no limit. In other words, for {\em every} $c$ and {\em every} $L$,
+  it is {\em not} true that $\displaystyle \lim_{x \to c} f(x) =
+  L$. That's exactly what option (C) says.
+
+  {\em Performance review}: $20$ out of $27$ got this. $4$ chose (A),
+  $1$ each chose (B), (D), and (E).
+
+  {\em Historical note (last time)}: $20$ out of $49$ people got this
+  correct. $15$ chose (B), $7$ chose (E), $4$ chose (D), $3$ chose
+  (A).
+
+
+\item In the usual $\varepsilon-\delta$ definition of limit for a
+  given limit $\displaystyle \lim_{x \to c} f(x) = L$, if a given
+  value $\delta > 0$ works for a given value $\varepsilon > 0$, then
+  which of the following is true? Please see Option (E) before
+  answering.
+
+  \begin{enumerate}[(A)]
+  \item Every smaller positive value of $\delta$ works for the same
+    $\varepsilon$. Also, the given value of $\delta$ works for every
+    smaller positive value of $\varepsilon$.
+  \item Every smaller positive value of $\delta$ works for the same
+    $\varepsilon$. Also, the given value of $\delta$ works for every
+    larger value of $\varepsilon$.
+  \item Every larger value of $\delta$ works for the same
+    $\varepsilon$. Also, the given value of $\delta$ works for every
+    smaller positive value of $\varepsilon$.
+  \item Every larger value of $\delta$ works for the same
+    $\varepsilon$. Also, the given value of $\delta$ works for every
+    larger value of $\varepsilon$.
+  \item None of the above statements need always be true.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: This can be understood in multiple ways. One is
+  in terms of the prover-skeptic game. A particular choice of $\delta$
+  that works for a specific $\varepsilon$ also works for larger
+  $\varepsilon$s, because the function is already ``trapped'' in a
+  smaller region. Further, smaller choices of $\delta$ also work
+  because the skeptic has fewer values of $x$.
+
+  Rigorous proofs are being skipped here, but you can review the
+  formal definition of limit notes if this stuff confuses you.
+
+  {\em Performance review}: $21$ out of $27$ got this. $3$ chose (E),
+  $2$ chose (D), $1$ chose (C).
+
+  {\em Historical note (last time)}: $31$ out of $49$ people got this
+  correct. $6$ each chose (A) and (E), $5$ chose (C), $1$ chose (D).
+
+\item Which of the following is a correct formulation of the statement
+  $\displaystyle \lim_{x \to c} f(x) = L$, in a manner that avoids the use of
+  $\varepsilon$s and $\delta$s? Please see Option (E) before answering.
+
+  \begin{enumerate}[(A)]
+  \item For every open interval centered at $c$, there is an open
+    interval centered at $L$ such that the image under $f$ of the open
+    interval centered at $c$ (excluding the point $c$ itself) is
+    contained in the open interval centered at $L$.
+  \item For every open interval centered at $c$, there is an open
+    interval centered at $L$ such that the image under $f$ of the open
+    interval centered at $c$ (excluding the point $c$ itself) contains
+    the open interval centered at $L$.
+  \item For every open interval centered at $L$, there is an open
+    interval centered at $c$ such that the image under $f$ of the open
+    interval centered at $c$ (excluding the point $c$ itself) is
+    contained in the open interval centered at $L$.
+  \item For every open interval centered at $L$, there is an open
+    interval centered at $c$ such that the image under $f$ of the open
+    interval centered at $c$ (excluding the point $c$ itself) contains
+    the open interval centered at $L$.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The ``open interval centered at $L$'' describes
+  the ``$\varepsilon > 0$'' part of the definition (where the open
+  interval is the interval $(L - \varepsilon, L + \varepsilon)$). The ``open
+  interval centered at $c$'' describes the ``$\delta > 0$'' part of
+  the definition (where the open interval is the interval $(c -
+  \delta, c + \delta)$). $x$ being in the open interval centered at
+  $c$ (except the case $x = c$) is equivalent to $0 < |x - c| <
+  \delta$, and $f(x)$ being in the open interval centered at $L$ is
+  equivalent to $|f(x) - L| < \varepsilon$.
+
+  {\em Performance review}: $23$ out of $27$ got this. $3$ chose (D),
+  $1$ chose (B).
+
+  {\em Historical note (last time)}: $24$ out of $49$ people got this
+  correct. $12$ chose (A), $8$ chose (D), $3$ chose (E), $2$ chose (B).
+
+
+\item Consider the function:
+
+  $$f(x) := \left \lbrace\begin{array}{rl} x, & x \text{ rational }\\1/x, & x \text{ irrational }\\\end{array}\right.$$
+
+  What is the set of all points at which $f$ is continuous? 
+
+  \begin{enumerate}[(A)]
+  \item $\{ 0, 1 \}$
+  \item $\{ -1,1 \}$
+  \item $\{-1,0 \}$
+  \item $\{ -1,0,1 \}$
+  \item $f$ is continuous everywhere
+  \end{enumerate}
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: In this interesting example, instead of a {\em
+  left} versus {\em right} split, we are splitting the domain into
+  rationals and irrationals. For the overall limit to exist at $c$, we
+  need that: (i) the limit for the function as defined for rationals
+  exists at $c$, (ii) the limit for the function as defined for
+  irrationals exists at $c$, and (iii) the two limits are equal.
+
+  Note that regardless of whether the point $c$ is rational or
+  irrational, we need {\em both} the rational domain limit and the
+  irrational domain limit to exist and be equal at $c$. This is
+  because rational numbers are surrounded by irrational numbers and
+  vice versa -- both rational numbers and irrational numbers are dense
+  in the reals -- hence at any point, we care about the limits
+  restricted to the rationals as well as the irrationals.
+
+  The limit for rationals exists for all $c$ and equals the value
+  $c$. The limit for irrationals exists for all $c \ne 0$ and equals
+  the value $1/c$. For these two numbers to be equal, we need $c =
+  1/c$. Solving, we get $c^2 = 1$ so $c = \pm 1$.
+
+  {\em Performance review}: $26$ out of $27$ got this. $1$ chose (A).
+
+  {\em Historical note (last time)}: $39$ out of $49$ people got this
+  correct. $7$ chose (D), $2$ chose (A), $1$ chose (E).
+
+\item The graph $y = f(x)$ of a function $f$ defined on all reals has
+  a horizontal asymptote $y = c$ as $x$ approaches $+\infty$. Which of
+  the following is the correct definition of this?
+
+  \begin{enumerate}[(A)]
+  \item For every $a \in \R$, there exists $\delta > 0$ such that for
+    all $x$ satisfying $0 < |x - c| < \delta$, we have $f(x) > a$.
+  \item For every $a \in \R$, there exists $\varepsilon > 0$ such that
+    for all $x$ satisfying $x > a$, we have $|f(x) - c| < \varepsilon$.
+  \item For every $\varepsilon > 0$, there exists $a \in \R$ such that
+    for all $x$ satisfying $x > a$, we have $|f(x) - c| < \varepsilon$.
+  \item For every $\delta > 0$, there exists $a \in \R$ such that for
+    all $x$ satisfying $0 < |x - c| < \delta$, we have $f(x) > a$.
+  \item For every $\varepsilon > 0$, there exists $\delta > 0$ such
+    that for all $x$ satisfying $0 < |x - c| < \delta$, we have $|f(x)
+    - c| < \varepsilon$.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The neighborhood of $c$ (picked by the skeptic)
+  is the interval $(c - \varepsilon, c + \varepsilon)$, and it is
+  parametrized by its radius $\varepsilon$. The neighborhood of
+  $+\infty$ (picked by the prover) is the interval $(a,\infty)$, and
+  it is parametrzed by its lower endpoint $a$. The skeptic then picks
+  $x$ in the neighborhood specified by the prover, i.e., $f(x) > a$,
+  and then they check whether $f(x)$ is in the chosen neighborhood of
+  $c$.
+
+  {\em Performance review}: $26$ out of $27$ got this. $1$ chose (B).
+
+  {\em Historical note (last time)}: $35$ out of $46$ got this correct. $4$
+  each chose (B) and (E). $3$ chose (A).
+
+\item Which of the following is the correct definition of
+  $\displaystyle \lim_{x \to c^-} f(x) = -\infty$ (in words: the left
+  hand limit of $f$ at $c$ is $-\infty$)?
+
+  \begin{enumerate}[(A)]
+  \item For every $a \in \R$, there exists $\delta > 0$ such that for
+    all $x$ satisfying $0 < |x - c| < \delta$, we have $f(x) > a$.
+  \item For every $a \in \R$, there exists $\delta > 0$ such that for
+    all $x$ satisfying $0 < x - c < \delta$, we have $f(x) > a$.
+  \item For every $a \in \R$, there exists $\delta > 0$ such that for
+    all $x$ satisfying $0 < x - c < \delta$, we have $f(x) < a$.
+  \item For every $a \in \R$, there exists $\delta > 0$ such that for
+    all $x$ satisfying $0 < c - x < \delta$, we have $f(x) > a$.
+  \item For every $a \in \R$, there exists $\delta > 0$ such that for
+    all $x$ satisfying $0 < c - x < \delta$, we have $f(x) < a$.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: The neighborhood of $-\infty$ chosen by the
+  skeptic is $(-\infty, a)$, and it is parameterized by its upper
+  endpoint $a$. The prover picks the parameter $\delta$ for the left
+  side $\delta$ ``half-neighborhood'' of $c$, namely $(c - \delta,
+  c)$. The skeptic then picks $x$ in this half-neighborhood, and they
+  then check whether $f(x) \in (-\infty,a)$. Translating the interval
+  conditions into inequality notation, we get the definition as stated.
+
+  {\em Performance review}: $21$ out of $27$ got this. $3$ chose (C),
+  $2$ chose (D), $1$ chose (B).
+
+  {\em Historical note (last time)}: $37$ out of $46$ got this correct. $3$
+  each chose (B), (C), and (D).
+
+
+\item Suppose $f$ is a function defined on all of $\R$ and $c \in
+  \R$. Which of the following is the correct $\varepsilon-\delta$
+  definition for the statement ``$f$ is differentiable at $c$''?
+  
+
+  \begin{enumerate}[(A)]
+  \item For every $L \in \R$, there exists $\varepsilon > 0$ such that
+    for every $\delta > 0$, there exists $x$ such that $0 < |x - c| <
+    \delta$ and $|f(x) - f(c) - L(x - c)| \ge |x - c|\varepsilon$.
+  \item For every $L \in \R$, there exists $\varepsilon > 0$ such that
+    for every $\delta > 0$, there exists $x$ such that $0 < |x - c| <
+    \delta$ and $|f(x) - f(c) - L(x - c)| < |x - c|\varepsilon$.
+  \item There exists $L \in \R$ such that for every $\varepsilon > 0$,
+  there exists $\delta > 0$ such that for every $x$ satisfying $0 < |x
+  - c| < \delta$, we have $|f(x) - f(c) - L(x - c)| \ge |x - c|\varepsilon$
+  \item There exists $L \in \R$ such that for every $\varepsilon > 0$,
+  there exists $\delta > 0$ such that for every $x$ satisfying $0 < |x
+  - c| < \delta$, we have $|f(x) - f(c) - L(x - c)| < |x - c|\varepsilon$
+  \item There exists $L \in \R$ such that there exists $\varepsilon > 0$
+    such that for every $\delta > 0$, there exists $x$ such that $0 <
+    |x - c| < \delta$ and $|f(x) - f(c) - L(x - c)| < |x - c|\varepsilon$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We would like to say that there exists $L \in \R$
+  (where $L$ will be the claimed value of $f'(c)$) such that:
+
+  $$\lim_{x \to c} \frac{f(x) - f(c)}{x - c} = L$$
+
+  To do this, we must say that for every $\varepsilon > 0$, there
+  exists $\delta > 0$ such that for all $x$ satisfying $0 < |x - c| <
+  \delta$, we have:
+
+  $$\left|\frac{f(x) - f(c)}{x - c} - L\right| < \varepsilon$$
+
+  Rewriting the final inequality, we get option (D).
+
+  {\em Performance review}: $21$ out of $27$ got this. $3$ chose (B),
+  $1$ each chose (A) and (C), $1$ left the question blank.
+
+  {\em Historical note (last time)}: $17$ out of $44$ got this. $13$ chose (A),
+  $12$ chose (B), $1$ each chose (C) and (E).
+
+
+\item Suppose $f$ is a function defined on all of $\R$ and $c \in
+  \R$. Which of the following is the correct $\varepsilon-\delta$
+  definition for the statement ``$f$ is not differentiable at $c$''?
+
+  \begin{enumerate}[(A)]
+  \item For every $L \in \R$, there exists $\varepsilon > 0$ such that
+    for every $\delta > 0$, there exists $x$ such that $0 < |x - c| <
+    \delta$ and $|f(x) - f(c) - L(x - c)| \ge |x - c|\varepsilon$.
+  \item For every $L \in \R$, there exists $\varepsilon > 0$ such that
+    for every $\delta > 0$, there exists $x$ such that $0 < |x - c| <
+    \delta$ and $|f(x) - f(c) - L(x - c)| < |x - c|\varepsilon$.
+  \item There exists $L \in \R$ such that for every $\varepsilon > 0$,
+  there exists $\delta > 0$ such that for every $x$ satisfying $0 < |x
+  - c| < \delta$, we have $|f(x) - f(c) - L(x - c)| \ge |x - c|\varepsilon$
+  \item There exists $L \in \R$ such that for every $\varepsilon > 0$,
+  there exists $\delta > 0$ such that for every $x$ satisfying $0 < |x
+  - c| < \delta$, we have $|f(x) - f(c) - L(x - c)| < |x - c|\varepsilon$
+  \item There exists $L \in \R$ such that there exists $\varepsilon > 0$
+    such that for every $\delta > 0$, there exists $x$ such that $0 <
+    |x - c| < \delta$ and $|f(x) - f(c) - L(x - c)| < |x - c|\varepsilon$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: We would like to say that for every $L \in \R$,
+  the statement:
+
+  $$\lim_{x \to c} \frac{f(x) - f(c)}{x - c} = L$$
+
+  is false. To do this, we must say that there exists $\varepsilon > 0$
+  such that the difference quotient (i.e., the expression on the left)
+  cannot be trapped within the interval $(L - \varepsilon,L +
+  \varepsilon)$. In other words, for every $\delta > 0$, there is some
+  value of $x$ such that $0 < |x -c| < \delta$ and:
+
+  $$\left|\frac{f(x) - f(c)}{x - c} - L\right| \ge \varepsilon$$
+
+  Rewriting the final inequality, we get option (A).
+
+  {\em Performance review}: $18$ out of $27$ got this. $7$ chose (C),
+  $2$ chose (D).
+
+  {\em Historical note (administered in an earlier year)}: $5$ out of
+  $15$ people got this correct. $4$ people chose (C), $2$ people chose
+  (D), $2$ people chose (E), $1$ person chose (B), and $1$ person left
+  the question blank.
+
+\item Suppose $f:\R \to \R$ is a function. Identify which of these
+  definitions is {\em not} correct for $\displaystyle \lim_{x \to c}
+  f(x) = L$, where $c$ and $L$ are both finite real numbers. If all
+  are correct, please select Option (E).
+
+  \begin{enumerate}[(A)]
+  \item For every $\varepsilon > 0$, there exists $\delta > 0$ such
+    that if $x \in (c - \delta, c + \delta) \setminus \{ c \}$, then
+    $f(x) \in (L - \varepsilon, L + \varepsilon)$.
+  \item For every $\varepsilon_1 > 0$ and $\varepsilon_2 > 0$, there exist
+    $\delta_1 > 0$ and $\delta_2 > 0$ such that if $x \in (c -
+    \delta_1,c+\delta_2)\setminus \{ c \}$, then $f(x) \in (L -
+    \varepsilon_1, L + \varepsilon_2)$.
+  \item For every $\varepsilon_1 > 0$ and $\varepsilon_2 > 0$, there exists
+    $\delta > 0$ such that if $x \in (c - \delta, c + \delta)
+    \setminus \{ c \}$, then $f(x) \in (L - \varepsilon_1, L + \varepsilon_2)$.
+  \item For every $\varepsilon > 0$, there exist $\delta_1 > 0$ and
+    $\delta_2 > 0$ such that if $x \in (c - \delta_1, c + \delta_2)
+    \setminus \{ c \}$, then $f(x) \in (L - \varepsilon, L + \varepsilon)$.
+  \item None of these, i.e., all definitions are correct.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: Although the usual $\varepsilon-\delta$ definition
+  uses centered intervals, i.e., intervals centered at the points $c$
+  and $L$, this is not a necessary aspect of the definition. So,
+  instead of taking centered intervals $(c - \delta, c + \delta)$ or
+  $(L - \varepsilon,L + \varepsilon)$, we could consider open intervals that
+  have different amounts on the left and on the right. Thus, all four
+  definitions are correct.
+
+  {\em Performance review}: $22$ out of $27$ got this. $3$ chose (D),
+  $2$ chose (C).
+
+  {\em Historical note (last time)}: $33$ out of $41$ got this. $3$ chose
+  (C). $2$ each chose (B) and (D), $1$ left the question blank.
+
+
+\item In the usual $\varepsilon-\delta$ definition of limit, we find that
+  the value $\delta = 0.2$ for $\varepsilon = 0.7$ for a function $f$ at
+  $0$, and the value $\delta = 0.5$ works for $\varepsilon = 1.6$ for a
+  function $g$ at $0$. What value of $\delta$ {\em definitely} works
+  for $\varepsilon = 2.3$ for the function $f + g$ at $0$?
+
+  \begin{enumerate}[(A)]
+  \item $0.2$
+  \item $0.3$
+  \item $0.5$
+  \item $0.7$
+  \item $0.9$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: We choose the {\em smaller} of the $\delta$s to
+  guarantee that {\em both} $f$ and $g$ are within their respective
+  $\varepsilon$-distances of the targets -- $0.7$ in the case of $f$ and
+  $1.6$ in the case of $g$. Now, the triangle inequality guarantees
+  that $f + g$ is within $2.3$ of its proposed limit.
+
+  {\em Performance review}: $19$ out of $27$ got this. $6$ chose (D),
+  $1$ each chose (C) and (E).
+
+  {\em Historical note (last time)}: $36$ out of $41$ got this. $3$ chose (D),
+  $1$ each chose (C) and (E).
+
+\item The sum of limits theorem states that $\displaystyle \lim_{x \to c} [f(x) +
+  g(x)] = \displaystyle \lim_{x \to c} f(x) + \displaystyle \lim_{x \to c} g(x)$ {\em if} the
+  right side is defined. One of the choices below gives an example
+  where the left side of the equality is defined and finite but the right side
+  makes no sense. Identify the correct choice.
+
+  \begin{enumerate}[(A)]
+  \item $f(x) := 1/x$, $g(x) := -1/(x + 1)$, $c = 0$.
+  \item $f(x) := 1/x$, $g(x) := (x - 1)/x$, $c = 0$.
+  \item $f(x) := \arcsin x$, $g(x) := \arccos x$, $c = 1/2$.
+  \item $f(x) := 1/x$, $g(x) = x$, $c = 0$.
+  \item $f(x) := \tan x$, $g(x) := \cot x$, $c = 0$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: $f + g$ is the constant function $1$, so it has a
+  limit. On the other hand, both $f$ and $g$ have one-sided limits of
+  $\pm \infty$.
+
+  For options (A), (D), and (E), one of the function $f$ and $g$ has a
+  finite limit, and the other has an infinite or undefined limit, and
+  the sum has an infinite or undefined limit. Option (C) is a case
+  where $f$, $g$, and $f + g$ all have finite limits.
+
+  {\em Performance review}: $24$ out of $27$ got this. $2$ chose (A),
+  $1$ chose (E).
+
+  {\em Historical note (last time)}: $36$ out of $41$ got this. $2$ each chose
+  (A) and (E), $1$ chose (C).
+
+\end{enumerate}
+\end{document}

@@ -1,0 +1,160 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Chain rule and second derivatives}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+
+\maketitle
+
+The homework question is as follows: Suppose $z = f(x,y)$ where $x =
+g(s,t)$ and $y = h(s,t)$.
+
+\begin{enumerate}
+\item Show the formula for $\frac{\partial^2z}{\partial t^2}$ as
+  given in the book. It is a somewhat long formula.
+\item Find a similar formula for $\partial^2z/(\partial s\partial
+  t)$.
+\end{enumerate}
+
+Last year, many people got it correct, but some people didn't clearly
+understand how to proceed.  In anticipation of students facing similar
+difficulties this year, I include a detailed outline of the solution
+below. Even those students who are able to arrive at the correct
+answer by themselves may benefit from reading through this.
+
+\subsection*{Similar one-variable question}
+
+Let's consider a simple situation, where we have $x = g(t)$ and $z =
+f(x)$, with no $y$ and $s$ appearing. We want a formula for
+$d^2z/dt^2$. In other words, we want to compute $(f \circ g)''$
+
+You've all seen this, by the way, in a past quiz (January 9), where
+almost all of you got the question correct. The idea now is to
+carefully understand what we're doing so that it can readily be
+replicated in the multiple variable case.
+
+We have, by the chain rule:
+
+$$\frac{dz}{dt} = \frac{dz}{dx}\frac{dx}{dt} = f'(x)g'(t) = f'(g(t))g'(t)$$
+
+We now want to differentiate this with respect to $t$ again:
+
+$$\frac{d^2z}{dt^2} = \frac{d}{dt}[f'(g(t))g'(t)]$$
+
+Note that the expression to be differentiated on the right side is a
+product, so we use the product rule, and obtain:
+
+$$\frac{d^2z}{dt^2} = \frac{d}{dt}[f'(g(t))]g'(t) + f'(g(t))g''(t)$$
+
+For the derivative of $f'(g(t))$ with respect to $t$, we {\em again}
+use the chain rule, and get $f''(g(t))g'(t)$, so overall:
+
+$$\frac{d^2z}{dt^2} = f''(g(t))(g'(t))^2 + f'(g(t))g''(t)$$
+
+Let's understand this step by step:
+
+\begin{enumerate}
+\item We calculated the first derivative using the chain rule, and
+  got a product of a derivative with respect to the intermediate value
+  $x$ (which became $f'(g(t))$) and a derivative with respect to the
+  initial variable $t$ (which became $g'(t)$).
+\item To differentiate this, we use the product rule.
+\item For one of the pieces in the product rule, we are
+  differentiating $g'(t)$, which becomes $g''(t)$. This is the
+  straightforward piece (second summand in our description above).
+\item For the other piece, we need to differentiate the composite
+  $f'(g(t))$ with respect to $t$. For this, we {\em use the chain rule
+  again}.
+\end{enumerate}
+
+\subsection*{Second partial with a single variable}
+
+Return to the original question: Suppose $z = f(x,y)$ where $x = g(s,t)$
+and $y = h(s,t)$.
+
+We have:
+
+$$\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial z}{\partial y}\frac{\partial y}{\partial t}$$
+
+With the subscript notation, this becomes:
+
+$$\frac{\partial z}{\partial t} = f_xg_t + f_yh_t$$
+
+So far, we are done with the equivalent of Step (1) for one
+variable. Note that instead of just a single produce, we have a sum of
+two products, indicating the two paths of dependence (via $x$ and via
+$y$).
+
+Now, we want to differentiate both sides with respect to $t$:
+
+$$\frac{\partial^2z}{\partial t^2} = \frac{\partial}{\partial t}\left(f_xg_t + f_yh_t\right)$$
+
+We break additively and use the product rule on each piece (analogous
+to Step (2)), and get:
+
+$$\frac{\partial^2z}{\partial t^2} = \frac{\partial(f_x)}{\partial t} g_t + f_x\frac{\partial g_t}{\partial t} + \frac{\partial f_y}{\partial t}h_t + f_y\frac{\partial h_t}{\partial t}$$
+
+Within each product rule, the second summand is easy to rewrite:
+$\partial g_t/\partial t$ becomes $g_{tt}$ and $\partial h_t/\partial
+t = h_{tt}$. These simpler parts are analogous to Step (3) in the
+one-variable scenario.
+
+The harder pieces are $\partial f_x/\partial t$ and $\partial
+f_y/\partial t$. These are analogous to Step (4). Let's look at these
+more carefully.
+
+$f_x(x,y)$ is a function of the variables $x$ and $y$, each of which
+in turn depends on $s$ and $t$. Thus:
+
+$$\frac{\partial f_x}{\partial t} = \frac{\partial f_x}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial f_x}{\partial y} \frac{\partial y}{\partial t} = f_{xx}g_t + f_{xy}h_t$$
+
+Similarly:
+
+$$\frac{\partial f_y}{\partial t} = \frac{\partial f_y}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial f_y}{\partial y}\frac{\partial y}{\partial t} = f_{yx}g_t + f_{yy}h_t$$
+
+Plugging these all back in the original expression, we get:
+
+$$\frac{\partial^2z}{\partial t^2} = (f_{xx}g_t + f_{xy}h_t)g_t + f_xg_{tt} + (f_{yx}g_t + f_{yy}h_t)h_t + f_yh_{tt}$$
+
+There is a total of six terms, but using Clairaut's theorem, we see
+that the term $f_{xy}g_th_t$ appears twice, so combining, we get a sum
+of five terms with a coefficient of $2$ appearing on one of them.
+
+The key difference relative to the situation with one variable: {\em
+dependence on two intermediate variables means that at Step (1), we
+have a sum of two products, and in Step (4), again each of the chain
+derivatives is a sum of two products. Hence we get a total of $6$
+terms.}
+
+\subsection*{Mixed partial with both variables}
+
+Let's try to compute $\partial^2 z/(\partial s\partial t)$. We already have:
+
+$$\frac{\partial z}{\partial t} = f_xg_t + f_yh_t$$
+
+We differentiate both sides with respect to $s$, and get:
+
+$$\frac{\partial^2z}{\partial s \partial t} = \frac{\partial}{\partial s}[f_xg_t + f_yh_t]$$
+
+Using additive splitting and the product rule (analogous to Step (2)), we get:
+
+$$\frac{\partial^2z}{\partial s \partial t} = \frac{\partial f_x}{\partial s}g_t + f_x\frac{\partial g_t}{\partial s} + \frac{\partial f_y}{\partial s}h_t + f_y \frac{\partial h_t}{\partial s}$$
+
+The second and fourth summand are easy to simply: $\partial
+g_t/\partial s = g_{ts}$ and $\partial h_t/\partial s = h_{ts}$. The
+harder ones are $\partial f_x/\partial s$ and $\partial f_y/\partial
+s$. As before, we use the chain rule:
+
+$$\frac{\partial f_x}{\partial s} = \frac{\partial f_x}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial f_x}{\partial y}\frac{\partial y}{\partial s} = f_{xx}g_s + f_{xy}h_s$$
+
+Similarly:
+
+$$\frac{\partial f_y}{\partial s} = \frac{\partial f_y}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial f_y}{\partial y}\frac{\partial y}{\partial s} = f_{yx}g_s + f_{yy}h_s$$
+
+Plugging these in, we get:
+
+$$\frac{\partial^2z}{\partial s\partial t} = (f_{xx}g_s + f_{xy}h_s)g_t + f_xg_{ts} + (f_{yx}g_s + f_{yy}h_s)h_t + f_yh_{ts}$$
+
+As with the previous case, this is a sum of six terms.
+\end{document}

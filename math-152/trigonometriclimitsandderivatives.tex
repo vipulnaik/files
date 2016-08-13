@@ -1,0 +1,600 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Trigonometric limits and derivatives}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 3.6.
+
+{\bf Difficulty level}: Easy to moderate, particularly if you remember
+corresponding stuff from AP level calculus.
+
+{\bf Covered in class?}: Yes, but not necessarily all examples.
+
+{\bf What students should definitely get}: The key trigonometric
+limits. The key differentiation formulas for trigonometric functions.
+
+{\bf What students should eventually get}: Techniques for computing
+limits and derivatives involving composites of trigonometric functions
+with each other and with polynomial and rational functions.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item The following three important limits form the foundation of
+  trigonometric limits: $\lim_{x \to 0} (\sin x)/x = 1$, $\lim_{x \to
+  0} (\tan x)/x = 1$, and $\lim_{x \to 0} (1 - \cos x)/x^2 = 1/2$.
+\item The derivative of $\sin$ is $\cos$, the derivative of $\cos$ is
+  $-\sin$. The derivative of $\tan$ is $\sec^2$, the derivative of
+  $\cot$ is $-\csc^2$, the derivative of $\sec$ is $\sec \cdot \tan$,
+  and the derivative of $\csc$ is $-\csc \cdot \cot$.
+\item The second derivative of any function of the form $x \mapsto
+  a\sin x + b \cos x$ is the negative of that function, and the fourth
+  derivative is the original function.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item Substitution is one trick that we use for trigonometric limits:
+  we translate $\lim_{x \to c}$ to $\lim_{h \to 0}$ where $x = c + h$.
+\item Multiplicative splitting, chaining, and stripping are some
+  further tricks that we often use.
+\item For derivatives of functions that involve composites of
+  trigonometric and polynomial functions, we {\em have} to use the
+  chain rule as well as rules for sums, differences, products, and
+  quotients when simplifying expressions.
+\end{enumerate}
+
+\section{Some critical trigonometric limits}
+
+\subsection*{Sinning by degrees is costly}
+
+For all applications of trigonometry to limits and calculus, {\em all
+angles are expressed in radians}. The radian measurement is the
+natural measurement for an angle.
+
+\subsection{The sinc function}
+
+There are many other minor matters related to trigonometric functions
+that we need to address, but for now, let's get back and focus on one
+very important function -- the so-called sinc function. This function
+is defined as $(\sin x)/x$ for $x \ne 0$.
+
+Now, the function isn't defined at $x = 0$, and it isn't immediately
+clear what the limit is. Because when we just try to substitute the
+value at $0$, we get a $0/0$ form. So it seems we need some angel to
+come and help us out.
+
+Anyway, here's what the angel tells us:
+
+$$\lim_{x \to 0} \frac{\sin x}{x} = 1$$
+
+\subsection{Demystifying our angel}
+
+For an acute angle $\theta$, $\sin \theta$ is the vertical height (the
+$y$-coordinate of the point we get after rotating counter-clockwise by
+an angle of $\theta$ from $(1,0)$ along the unit circle, while
+$\theta$ is the arc length. You can see, from this picture, that the
+arc length $\theta$ is greater than $\sin \theta$. That's because
+$\sin \theta$ falls straight down while the arc moves both
+horizontally and vertically. However, and this is the crucial point --
+as $\theta$ gets smaller and smaller, you see that the arc length and
+the vertical line seem to get closer and closer. And this suggests
+that, perhaps, as $\theta$ tends to zero, $\sin \theta/\theta$ tends
+to $1$.
+
+Now, this is hardly a proof, because two numbers getting really close
+does not necessarily mean that their ratio tends to $1$. But it is
+suggestive. So, with this suggestivity, let's believe that the limit,
+as $x$ tends to $0$, of the fraction $\sin x / x$ is $1$.
+
+\subsection{The substitution idea}
+
+We know that $\lim_{x \to 0} (\sin x)/x = 1$. More generally, it is
+true that if $f$ is continuous at $c$ and $f(c) = 0$, then as $x \to c$,
+we have:
+
+$$\lim_{x \to c} \frac{\sin(f(x))}{f(x)} = 1$$
+
+For instance:
+
+$$\lim_{x \to 0} \frac{\sin(x^2)}{x^2} = 1$$
+
+Similarly:
+
+$$\lim_{x \to 0} \frac{\sin(2x)}{2x} = 1$$
+
+and:
+
+$$\lim_{x \to 0} \frac{\sin(x/2)}{x/2} = 1$$
+
+On the other hand, if we consider the limit:
+
+$$\lim_{x \to 0} \frac{\sin(x + (\pi/3))}{x + (\pi/3)}$$
+
+This limit is not $1$ -- the inner expression does {\em not} go to $0$
+as $x$ goes to $0$.
+\subsection{Chaining limit computations}
+
+Let's consider the computation:
+
+$$\lim_{x \to 0} \frac{\sin(\sin x)}{x}$$
+
+This is a special case of a more general limit computation that you
+have seen in Question 2 of the October 4 quiz. Let's first do this
+specific example, and then return to how it relates to that question.
+
+For the specific example, we note that the limit in question involves
+a composite function. For such problems, we typically {\em chain} the
+limit by multiplying and dividing by the inner function. We get:
+
+$$\lim_{x \to 0} \frac{\sin(\sin x)}{\sin x} \frac{\sin x}{x}$$
+
+We now use that the limit of products is the product of limits, and
+obtain:
+
+$$\lim_{x \to 0} \frac{\sin(\sin x)}{\sin x} \lim_{x \to 0} \frac{\sin x}{x}$$
+
+The second limit is clearly $1$. The first limit is also $1$, because
+it is of the form $[\sin(f(x))]/f(x)$ where $f(x) \to 0$.
+
+Now, the quiz question was that if $\lim_{x \to 0} g(x)/x = A \ne 0$
+with $g$ continuous, then what is $\lim_{x \to 0} g(g(x))/x$?
+
+The same chaining idea applies:
+
+$$\lim_{x \to 0} \frac{g(g(x))}{x} = \lim_{x \to 0} \frac{g(g(x))}{g(x)} \frac{g(x)}{x}$$
+
+We again split the limit multiplicatively, and argue that both
+component limits are $A$. For one of them, we have to argue that as $x
+\to 0$, $g(x) \to 0$ -- an argument that we make in a somewhat
+indirect fashion. Go back to the quiz solution for more.
+
+\subsection{Easier chainings}
+
+Here are some easier examples:
+
+$$\lim_{x \to 0} \frac{\sin(mx)}{x} = m$$
+
+Here, we chain via $mx$.
+
+$$\lim_{x \to 0} \frac{\sin(mx^n)}{x^n} = m$$
+
+where $n$ is positive.
+
+\subsection{The $(1 - \cos x)/x^2$ limit}
+
+We now show another fundamentally important trigonometric limit:
+
+$$\lim_{x \to 0} \frac{1 - \cos x}{x^2} = \frac{1}{2}$$
+
+We first show how to obtain this limit by multiplying both numerator
+and denominator by $1 + \cos x$. We get:
+
+$$\lim_{x \to 0} \frac{1 - \cos^2 x}{x^2(1 + \cos x)}$$
+
+The $1 + \cos x$ in the denominator pulls out by evaluation, and we get:
+
+$$\frac{1}{2} \lim_{x \to 0} \frac{1 - \cos^2 x}{x^2}$$
+
+We now use $1 - \cos^2x = \sin^2x$ and get:
+
+$$\frac{1}{2}\lim_{x \to 0} \frac{\sin^2x}{x^2}$$
+
+This becomes:
+
+$$\frac{1}{2} \lim_{x \to 0} \left(\frac{\sin x}{x}\right)^2$$
+
+The limit of the square is the square of the limit (basically, a
+special case of the fact that the limit of the product is the product
+of the limit, so the inner limit is $1$, and we get a $1/2$.
+
+We can also obtain this limit using a double angle formula as
+described below:
+
+The idea here is to use the identity we saw last time, which was that
+$\cos 2A = 1 - 2\sin^2 A$. So $1 - \cos 2A = 2\sin^2 A$. Here $A =
+x/2$, so we get:
+
+$$\lim_{x \to 0} \frac{2\sin^2(x/2)}{x^2}$$
+
+We can pull the $2$ out, and we get $\sin^2(x/2)/x^2$ inside. Now, the
+thing with calculating these limits is that we only know how to
+calculate the limit of the form $\sin \theta/\theta$, and here,
+$\theta = x/2$. So, we rewrite the denominator as $4(x/2)^2$, and we
+pull out the $4$, so we get:
+
+$$\frac{1}{2} \lim_{x \to 0} \left(\frac{\sin(x/2)}{(x/2)}\right)^2$$
+
+Now, using the {\em limit of product equals product of limits} meme, we get:
+
+$$\frac{1}{2} \lim_{x \to 0} \frac{\sin(x/2)}{(x/2)} \lim_{x \to 0} \frac{\sin(x/2)}{(x/2)}$$
+
+Now, in both cases, we have $x \to 0$, so $x/2 \to 0$, so both limits
+are $1$, and hence, our final answer is $1/2$.
+
+\subsection*{The $\tan x/x$ limit}
+
+Let's now calculate the limit:
+
+$$\lim_{x \to 0} \frac{\tan x}{x} $$
+
+What we do is to write $\tan x = \sin x/\cos x$:
+
+$$\lim_{x \to 0} \frac{\sin x}{x \cos x}$$
+
+We split this as a product:
+
+$$\lim_{x \to 0} \frac{1}{\cos x} \lim_{x \to 0} \frac{\sin x}{x}$$
+
+Both limits are $1$, so the overall limit is $1$.
+
+\subsection{Corollaries}
+
+We can now state some easy corollaries of the above results:
+
+$$\lim_{x \to 0} \frac{1 - \cos(mx)}{x^2} = \frac{m^2}{2}$$
+
+We obtain by chaining via $(mx)^2$.
+
+Similarly:
+
+$$\lim_{x \to 0} \frac{\tan(mx)}{x} = m$$
+
+\subsection{Substitution that involves translation}
+
+There is a {\em substitution of variables} trick that we can use for
+computing limits. When we were computing limits for rational
+functions, we never really needed that trick, primarily because we
+knew how to handle rational functions anyway. But this trick comes in
+useful for trigonometric functions. 
+
+The trick is:
+
+$$\lim_{x \to c} f(x) = \lim_{h \to 0} f(c + h)$$
+
+Similarly:
+
+$$\lim_{x \to c^+} f(x) = \lim_{h \to 0^+} f(c + h)$$
+
+and:
+
+$$\lim_{x \to c^-} f(x) = \lim_{h \to 0^-} f(c + h) = \lim_{h \to 0^+} f(c - h)$$
+
+Why is this useful for trigonometric functions? Because for
+trigonometric functions, the {\em only} nontrivial limit that we know
+is the one I just told you: $\lim_{x \to 0} \frac{\sin x}{x} = 1$. So,
+we need to basically use this for any nontrivial limit that we need to
+compute. For instance, consider the limit:
+
+$$\lim_{x \to \pi/4} \frac{\sin x - (1/\sqrt{2})}{x - \pi/4}$$
+
+Now, we want to change the thing that's limiting to $h$, so we rewrite
+this as:
+
+$$\lim_{h \to 0} \frac{\sin(\pi/4 + h) - (1/\sqrt{2})}{h}$$
+
+We simplify the numerator using the $\sin(A + B)$ formula, which we
+know is $\sin A \cos B + \cos A \sin B$, and we get:
+
+$$\lim_{h \to 0} \frac{(1/\sqrt{2})(\sin(h) + \cos(h) - 1)}{h}$$
+
+We take out the $1/\sqrt{2}$ factor and now try to split the inner
+limit additively:
+
+$$\frac{1}{\sqrt{2}}\left( \lim_{h \to 0} \frac{\sin h}{h} - \lim_{h \to 0} \frac{1 - \cos h}{h} \right)$$
+
+The first limit is $1$. For the second limit, it can be written as
+$\lim_{h \to 0} h \cdot \lim_{h \to 0} (1 - \cos h)/h^2 = 0(1/2) =
+0$. So the second limit is $0$. Overall, the limit is $1/\sqrt{2}$.
+
+We'll see this same calculation a little later when we try to
+calculate the derivative of the $\sin$ function.
+
+\section{Stripping: a sneak peek}
+
+We will cover this somewhat delicate operation a little later in 153,
+when students are more mature (in terms of having seen more kinds of
+functions) and can handle the issue with the requisite care. But some
+of you may be equipped to use this approach to compute trigonometric
+limits more intuitively and rapidly now. [NOTE: To my knowledge, this
+particular intuitive approach to stripping is not found in any high
+school or college calculus text and can be considered my own
+invention, though most people who compute limits on a regular basis do
+this all the time.]
+
+To motivate stripping, let us look at a fancy example:
+
+$$\lim_{x \to 0} \frac{\sin(\tan(\sin x))}{x}$$
+
+This is a composite of three functions, so if we want to chain it, we
+will chain it as follows:
+
+$$\lim_{x \to 0} \frac{\sin(\tan(\sin x))}{\tan(\sin x)}\frac{\tan(\sin x)}{\sin x}\frac{\sin x}{x}$$
+
+We now split the limit as a product, and we get:
+
+$$\lim_{x \to 0} \frac{\sin(\tan(\sin x))}{\tan(\sin x)}\lim_{x \to 0} \frac{\tan(\sin x)}{\sin x}\lim_{x \to 0} \frac{\sin x}{x}$$
+
+Now, we argue that each of the inner limits is $1$. The final limit is
+clearly $1$. The middle limit is $1$ because the inner function $\sin
+x$ goes to $0$. The left most limit is $1$ because the inner function
+$\tan(\sin x)$ goes to $0$. Thus, the product is $1 \times 1 \times 1$
+which is $1$.
+
+If you are convinced, you can further convince yourself that the same
+principle applies to a much more convoluted composite:
+
+$$\lim_{x \to 0} \frac{\sin(\sin(\tan(\sin(\tan(\tan x)))))}{x}$$
+
+However, {\em writing that thing out takes loads of time}. Wouldn't it
+be nice if we could just strip off those $\sin$s and $\tan$s? In fact,
+we can do that.
+
+The key stripping rule is this: {\em in a multiplicative situation}
+(i.e. there is no addition or subtraction happening), if we see
+something like $\sin(f(x))$ or $\tan(f(x))$, and $f(x) \to 0$ in the
+relevant limit, then we can strip off the $\sin$ or $\tan$. In this
+sense, both $\sin$ and $\tan$ are {\em strippable} functions. A
+function $g$ is strippable if $\lim_{x \to 0} g(x)/x = 1$.
+
+The reason we can strip off the $\sin$ from $\sin(f(x))$ is that we
+can multiply and divide by $f(x)$, just as we did in the above
+examples.
+
+Stripping can be viewed as a special case of the l'Hopital rule as
+well, but it's a much quicker shortcut in the cases where it works.
+
+Thus, in the above examples, we could just have stripped off the
+$\sin$s and $\tan$s all the way through.
+
+Here's another example:
+
+$$\lim_{x \to 0} \frac{\sin(2 \tan (3x))}{x}$$
+
+As $x \to 0$, $3x \to 0$, so $2 \tan 3x \to 0$. Thus, we can strip off
+the outer $\sin$. We can then strip off the inner $\tan$ as well,
+since its input $3x$ goes to $0$. We are thus left with:
+
+$$\lim_{x \to 0} \frac{2(3x)}{x}$$
+
+Cancel the $x$ and get a $6$. We could also do this problem by
+chaining or the l'Hopital rule, but stripping is quicker and perhaps
+more intuitive.
+
+Here's yet another example:
+
+$$\lim_{x \to 0} \frac{\sin (x \sin (\sin x))}{x^2}$$
+
+As $x \to 0$, $x \sin(\sin x) \to 0$, so we can strip off the
+outermost $\sin$ and get:
+
+$$\lim_{x \to 0} \frac{x \sin(\sin x)}{x^2}$$
+
+We cancel a factor of $x$ and get:
+
+$$\lim_{x \to 0} \frac{\sin(\sin x)}{x}$$
+
+Two quick $\sin$ strips and we get $x/x$, which becomes $1$.
+
+Yet another example:
+
+$$\lim_{x \to 0} \frac{\sin(ax)\tan(bx)}{x}$$
+
+where $a$ and $b$ are constants. Since this is a multiplicative
+situation, and $ax \to 0$ and $bx \to 0$, we can strip the $\sin$ and
+$\tan$, and get:
+
+$$\lim_{x \to 0} \frac{(ax)(bx)}{x}$$
+
+This limit becomes $0$, because there is a $x^2$ in the numerator and
+a $x$ in the denominator, and cancellation of one factor still leaves
+a $x$ in the numerator.
+
+Here is yet another example:
+
+$$\lim_{x \to 0} \frac{\sin^2(ax)}{\sin^2(bx)}$$
+
+where $a,b$ are nonzero constants. We can pull the square out of the
+whole expression, strip the $\sin$s in both numerator and denominator,
+and end up with $a^2/b^2$.
+
+\subsection*{When you can't strip}
+
+The kind of situations where we are not allowed to strip are where the
+expression $\sin(f(x))$ is not just multiplied but is being added to
+or subtracted from something else. For instance, in order to calculate
+the limit:
+
+$$\lim_{x \to 0} \frac{x - \sin x}{x^3}$$
+
+stripping off the $\sin$ would be a sin. The intuition behind what is
+wrong with this will have to wait till next quarter.
+
+\subsection*{What about $1 - \cos(f(x))$?}
+
+If we see something like $1 - \cos(f(x))$ with $f(x) \to 0$ in the
+limit, then we know that it ``looks like'' $f(x)^2/2$ and we can
+replace it by $f(x)^2/2$. This can be thought of as a sophisticated
+version of stripping. For instance:
+
+$$\lim_{x \to 0} \frac{(1 - \cos(5x^2))}{x^4}$$
+
+Here $f(x) = 5x^2$, so the numerator is like $(5x^2)^2/2$, and the
+limit just becomes $25/2$.
+
+\section{Differentiating the trigonometric functions}
+
+\subsection{Differentiation formulas}
+
+The differentiation formulas are as follows:
+
+\begin{eqnarray*}
+  \sin' & = & \cos\\
+  \cos' & = & -\sin \\
+  \tan' & = & \sec^2\\
+  \sec' & = & \sec \cdot \tan \\
+  \cot' & = & -\csc^2\\
+  \csc' & = & -\csc \cdot \cot
+\end{eqnarray*}
+
+We can obtain all these just from the differentiation formulas for
+$\sin$ and $\cos$, using the quotient rule:
+
+$$\frac{d}{dx}[\sin x] = \cos x$$
+
+and:
+
+$$\frac{d}{dx}[\cos x] = \sin x$$
+
+In fact, the differentiation formula for $\cos$ can be obtained from
+that of $\sin$ using the chain rule as follows:
+
+$$\frac{d}{dx}[\cos x] = \frac{d}{dx}[\sin((\pi/2) - x)] = -\cos((\pi/2) - x) = - \sin x$$
+
+So, in order to obtain all these formulas, all we need to do is obtain
+the differentiation formula for $\sin$. The derivation of this formula
+is given below. Essentially, it uses the fact that $\lim_{h \to 0}
+(\sin h)/h = 1$:
+
+\begin{align*}
+  & \lim_{h \to 0} \frac{\sin(x + h) - \sin x}{h} \\
+  = & \lim_{h \to 0} \frac{\sin x \cos h + \cos x \sin h - \sin x}{h}\\
+  = & \sin x \lim_{h \to 0} \frac{\cos h - 1}{h} + \cos x \lim_{h \to 0} \frac{\sin h}{h}\\
+  = & \sin x \cdot 0 + \cos x \cdot 1 \\
+  = & \cos x
+\end{align*}
+
+The fact that $(\cos h - 1)/h \to 0$ can be deduced by multipled by $1
++ \cos h$ and simplifying. Basically, $\cos h - 1$ goes to $0$ at the
+rate of $h^2$, and the denominator is only $h$.
+
+\subsection{Graphical interpretation of these derivatives}
+
+\includegraphics[width=3in]{sinecosinegraphs.png}
+
+The fascinating thing about the $\sin$ function is that its derivative
+looks just like the function -- except it's shifted over by
+$\pi/2$. Let's see what this means graphically.
+
+At the point $x = 0$, the derivative is $\cos 0 = 1$. This means that
+the tangent is the line $y = x$. And indeed, close to the point $0$,
+the sine graph looks a lot like the line $y = x$. However, there's an
+added subtlety that you may not be able to appreciate right now but
+will be able to later. The graph of the sine function on the right of
+the point $0$ falls slightly on the lower side of the $y = x$ line,
+and the graph to the left of $0$ falls slightly on the upper side of
+the line. In other words, the curve actually passes from one side of
+the tangent line at $0$ to the other side.
+
+This is a very unusual situation, because most of the time that you
+think of tangent lines, the graph of the function {\em close to the
+point} lies entirely on one side of the tangent line. But here, the
+graph is {\em crossing} the tangent line. These kinds of points are
+called {\em points of inflection}, and believe it or not, for a twice
+differentiable function, a point of inflection is a point where the
+{\em second} derivative is zero (though there could be points where
+the second derivative is zero that are not points of inflection --
+funny things could happen with the {\em third} derivative). We'll talk
+more about inflections later.
+
+Anyway, so at zero, the derivative is $1$. What happens as $x$
+increases from $0$ to $\pi/2$? The cosine function keeps decreasing
+form $1$ to $0$. But since the cosine function is positive, the
+tangent to the sine function is still upward-sloping, so the sine
+function is increasing, but the slope of the tangent line is
+falling. Finally at $x = \pi/2$, the sine function reaches its peak of
+$1$, and its derivative, the cosine function, becomes $0$.
+
+So here's the beautiful things you see, and for which you now have a
+powerful explanation based on the derivative:
+
+\begin{enumerate}
+\item The points where the sine function attains its maxima and minima
+  are precisely the points where the cosine function is $0$. Namely,
+  these points are odd multiples of $\pi/2$. The points where the
+  cosine function attains its maxima and minima are precisely the
+  points where the sine function is $0$. Namely, these points are the
+  multiples of $\pi$.
+\item The regions where the sine function is increasing (respectively,
+  decreasing) are the same as the regions where the cosine function is
+  positive (respectively, negative). The regions where the cosine
+  function is increasing (respectively, decreasing) are the same as
+  the regions where the sine function is negative (respectively,
+  positive).
+\end{enumerate}
+
+\subsection{We've done it!}
+
+What I've given you is the complete toolkit with which you can
+calcuate any derivative that involves a mix of trigonometric,
+polynomial, and rational functions. Let's consider an example:
+$\sin(x^2)$.
+
+How do you think of this function? To evaluate this function at a
+particular value of $x$, what you first do is calculate $x^2$, and
+then apply the $\sin$ function to that. So, you're doing two
+operations in sequence, whereby, you're feeding the output of one
+operation as the input of the other. So what you're doing is
+essentially {\em function composition}.
+
+Which brings us back to the chain rule. Remember the way the chain
+rule works? We set $v = x^2$, first differentiate the function with
+respect to $v$, and then multiply by $dv/dx$. So, we get that the
+derivative is $(\cos(x^2)) \cdot 2x$.
+
+For composites of trigonometric functions and polynomial, the chain
+rule is {\em indispensable} -- if you don't want to use the chain
+rule, there's no way of calculating the derivative without {\em
+actually calculating it using the limit definition}. In the case of
+polynomials and rational functions, the chain rule was a
+convenience. Now it's a necessity.
+
+\subsection{Periodicity of the sequence of derivative functions}
+
+The derivative of $\sin$ is $\cos$. The derivative of $\cos$ is
+$-\sin$. The derivative of $-\sin$ is $-\cos$. The derivative of
+$-\cos$ is $\sin$.
+
+In other words, the $\sin$ function equals its {\em fourth}
+derivative. If we consider the sequence of derivative functions of
+$\sin$, this {\em sequence} has a {\em period} of four. (We'll
+formally define sequence and period of a sequence in 153, but you know
+what this means). Thus, for instance, the $101^{th}$ derivative of
+$\sin$ is the same as the first derivative (because the remainder on
+dividing $101$ by $4$ is $1$) and is thus $\cos$.
+
+[Aside: This is significant in many ways. For instance, when we study
+antidifferentiation (indefinite integration) we'll notice that the
+above basically tells us that we can keep taking antiderivatives of
+$\sin$ or $\cos$ and still remain $\sin$ or $\cos$ (up to a plus or
+minus). This is significant when, for instance, we study integration
+by parts. There, we will choose $\sin$ or $\cos$ as the {\em part to
+repeatedly integrate} precisely because repeated integration does not
+increase the complexity of the function.]
+
+\subsection{Second derivative same with a minus sign}
+
+Also note that for the $\sin$ function, the second derivative is the
+{\em negative} of the function. This is also true for the $\cos$
+function. It is also true of all {\em linear combinations} of $\sin$
+and $\cos$, i.e., all functions of the form $x \mapsto a \sin x + b
+\cos x$ where $a, b \in \R$.\footnote{Formally, this is the vector
+space of functions generated by $\sin$ and $\cos$.} For any function
+$f$ of this form, $f''(x) = -f(x)$.
+
+What's so special about this fact? {\em This is the reason why
+trigonometric functions, specifically linear combinations of $\sin$
+and $\cos$, arise in nature.} What happens is that some basic
+physical/biological/chemical/ecological law or constraint forces the
+solution function we have to satisfy the equation $f''(x) =
+-\omega^2f(x)$ or something like that. Now, functions of the above
+form (with appropriate scaling) pop up naturally. More on this when we
+study differential equations.
+
+\end{document}

@@ -1,0 +1,280 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due February 15: Interplay of continuous and discrete}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$11$ people took this quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $4$: $1$ person
+\item Score of $5$: $1$ person
+\item Score of $6$: $7$ people
+\item Score of $7$: $2$ people
+\end{itemize}
+
+The mean score was $5.91$. The question wise answers and performance
+review were as follows:
+
+\begin{enumerate}
+\item Option (C): $11$ people (everybody)
+\item Option (D): $11$ people (everybody)
+\item Option (B): $9$ people
+\item Option (B): $2$ people (the groupthink folk all got it wrong!)
+\item Option (D): $2$ people (the groupthink folk all got it wrong!)
+\item Option (E): $11$ people (everybody)
+\item Option (D): $9$ people
+\item Option (D): $10$ people
+\end{enumerate}
+
+\section{Solutions}
+\begin{enumerate}
+
+\item Consider a function $f$ defined on all real numbers. Consider
+  also the sequence $a_n = f(n)$ defined for $n$ a natural
+  number. Which of the following is true?
+
+  \begin{enumerate}[(A)]
+  \item $\lim_{x \to \infty} f(x)$ is finite if and only if $\lim_{n
+    \to \infty} a_n$ is finite, and if so, both limits are equal.
+  \item $\lim_{x \to \infty} f(x)$ is finite if and only if $\lim_{n
+    \to \infty} a_n$ is finite, but the limits need not be equal.
+  \item If $\lim_{x \to \infty} f(x)$ is finite, then $\lim_{n \to
+    \infty} a_n$ is finite, but the converse is not true. Moreover, if
+    both limits are finite, they must be equal.
+  \item If $\lim_{n \to \infty} a_n$ is finite, then $\lim_{x \to
+    \infty} f(x)$ is finite, but the converse is not true. Moreover, if
+    both limits are finite, they must be equal.
+  \item It is possible for either of the limits $\lim_{x \to \infty}
+    f(x)$ and $\lim_{n \to \infty} a_n$ to be finite, but for the
+    other one not to be finite. Moreover, even if both limits exist,
+    they need not be equal.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The key idea is that the values at the natural
+  numbers only form a part of the behavior of the function. If the
+  function as a whole has a finite limit $L$ at infinity, then that
+  means that for every $\epsilon$ there exists a value of $A$ such
+  that $|f(x) - L| < \epsilon$ for all real $x > A$.
+
+  This in turn forces that all the values that the function takes at
+  {\em integers} bigger than $A$ is also within $\epsilon$-distance of
+  $L$. Thus, $\lim_{n \to \infty} a_n = L$.
+
+  The converse is not true because the function outside of the
+  integers could behave in a completely different way. For instance,
+  take $f(x) =\sin(\pi x)$. We get $a_n = 0$ for all $n$. $\lim_{n \to
+  \infty} a_n = 0$ but $\lim_{x \to \infty} f(x)$ does not exist.
+
+  See the lecture notes on the interplay between continuous and
+  discrete.
+
+  {\em Performance review}: All $11$ people got this.
+
+\item Consider a function $f:\R \to \R$. Restricting the
+  domain of $f$ to the natural numbers, obtain a sequence whose
+  $n^{th}$ member $a_n$ is defined as $f(n)$. Which of the following
+  statements is {\bf false} about the relationship between $f$ and the
+  sequence $(a_n)$?
+
+  \begin{enumerate}[(A)]
+  \item If $f$ is an increasing function, then $(a_n)$ form an
+    increasing sequence.
+  \item If $f$ is a decreasing function, then $(a_n)$ form a
+    decreasing sequence.
+  \item If $f$ is a bounded function, (i.e., its range is a bounded
+    set) then $(a_n)$ form a bounded sequence.
+  \item If $f$ is a periodic function, then $(a_n)$ form a periodic sequence.
+  \item If $f$ has a limit at infinity, then $(a_n)$ is a convergent
+    sequence.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: (A), (B), (C), and (E) are immediately true (see
+  the lecture notes for more information). As for option (D), the
+  problem with it is that $f$ may not have an {\em integer} period
+  even though it is periodic. For instance, if we set $f = \sin$, then
+  $f$ is periodic, but its period is $2\pi$ which has no multiple that
+  is an integer, on account of $\pi$ being irrational.
+
+  {\em Performance review}: All $11$ people got this.
+
+\item We are given a sequence $a_1, a_2, \dots, a_n, \dots$ of real
+  numbers. The goal is to find a {\em continuous} function $f$ on all
+  of $\R$ such that $f(n) = a_n$ for all $n \in \N$. Which of the
+  following is true?
+
+  \begin{enumerate}[(A)]
+  \item There is a unique choice of $f$ that works.
+  \item There exist infinitely many different choices of $f$ that work.
+  \item The number of possible choices of $f$ depends on the
+    sequence. Depending on the sequence, the number of possible
+    choices of $f$ may be zero, one, or infinite.
+  \item The number of possible choices of $f$ depends on the
+    sequence. Depending on the sequence, the number of possible
+    choices of $f$ may be zero or one. It can never be infinite.
+  \item The number of possible choices of $f$ depends on the
+    sequence. Depending on the sequence, the number of possible
+    choices of $f$ may be one or infinite. It can never be zero.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Imagine the graph of the sequence, i.e., we plot
+  the points $(n,a_n)$ in the coordinate plane for all $n \in \N$. The
+  goal is to find a continuous function whose graph passes through all
+  these points. We could do this in many ways. For instance, for each
+  pair of adjacent points, we could join them up by a line segment or
+  some other continuous curve. And to the left of $1$ we could do any
+  of a number of things.
+
+  {\em Performance review}: $9$ out of $11$ got this. $1$ chose (C),
+  $1$ chose (E).
+\item We are given a sequence $a_1, a_2, \dots, a_n, \dots$ of real
+  numbers. The goal is to find an {\em infinitely differentiable}
+  function $f$ on all of $\R$ such that $f(n) = a_n$ for all $n \in
+  \N$. Which of the following is true?
+
+  \begin{enumerate}[(A)]
+  \item There is a unique choice of $f$ that works.
+  \item There exist infinitely many different choices of $f$ that work.
+  \item The number of possible choices of $f$ depends on the
+    sequence. Depending on the sequence, the number of possible
+    choices of $f$ may be zero, one, or infinite.
+  \item The number of possible choices of $f$ depends on the
+    sequence. Depending on the sequence, the number of possible
+    choices of $f$ may be zero or one. It can never be infinite.
+  \item The number of possible choices of $f$ depends on the
+    sequence. Depending on the sequence, the number of possible
+    choices of $f$ may be one or infinite. It can never be zero.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The reasoning is similar to the previous problem,
+  albeit there is more subtletly to this one. Stay tuned for more on
+  this later in the course!
+
+  {\em Performance review}: $2$ out of $11$ got this. $8$ chose (A),
+  $1$ chose (E).
+
+  {\em Action point}: Avoid the perils of groupthink. Follow your
+  conscience.
+\item We are given a sequence $a_1, a_2, \dots, a_n, \dots$ of real
+  numbers. The goal is to find a {\em polynomial}
+  function $f$ on all of $\R$ such that $f(n) = a_n$ for all $n \in
+  \N$. Which of the following is true?
+
+  \begin{enumerate}[(A)]
+  \item There is a unique choice of $f$ that works.
+  \item There exist infinitely many different choices of $f$ that work.
+  \item The number of possible choices of $f$ depends on the
+    sequence. Depending on the sequence, the number of possible
+    choices of $f$ may be zero, one, or infinite.
+  \item The number of possible choices of $f$ depends on the
+    sequence. Depending on the sequence, the number of possible
+    choices of $f$ may be zero or one. It can never be infinite.
+  \item The number of possible choices of $f$ depends on the
+    sequence. Depending on the sequence, the number of possible
+    choices of $f$ may be one or infinite. It can never be zero.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Imagine that there are two polynomials $f$ and
+  $g$ that both satisfy $f(n) = g(n) = a_n$ for all $n \in \N$. Then,
+  the polynomial $f - g$ is zero at all $n\in \N$. A polynomial can
+  have infinitely many roots only if it is the zero polynomial, so $f
+  - g = 0$ and $f = g$.
+
+  This shows that there is {\em at most} one polynomial function
+  fitting the sequence. It is, however, possible for there to be no
+  polynomial function. For instance, if we take a sequence that grows
+  exponentially, such as $a_n = 2^n$, there will be no polynomial
+  function fitting it.
+
+  {\em Performance review}: $2$ out of $11$ got this. $7$ chose (B),
+  $1$ each chose (A) and (E).
+
+  For the remaining questions: For a function $f:\N \to \R$, define
+  $\Delta f$ as the function $n \mapsto f(n+1) -f(n)$. Denote by
+  $\Delta^k f$ the function obtained by applying $\Delta$ $k$ times to
+  $f$.
+\item  If $f(n) = n^2$, what is $(\Delta f)(n)$?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $n$
+  \item $2n - 1$
+  \item $2n$
+  \item $2n + 1$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: We get $f(n + 1) - f(n) = (n + 1)^2 - n^2 = n^2 +
+  2n + 1 - n^2 = 2n + 1$.
+
+  {\em Performance review}: All $11$ people got this.
+
+\item If $f$ is expressible as a polynomial function of degree $d >
+  0$, what is the smallest $k$ for which $\Delta^k f$ is identically
+  the zero function? {\em Hint: Think of the analogous question using
+  continuous derivatives. Although $\Delta$ differs from the
+  continuous derivative, much of the qualitative behavior is the same.}
+
+  \begin{enumerate}[(A)]
+  \item $d - 2$
+  \item $d - 1$
+  \item $d$
+  \item $d + 1$
+  \item $d + 2$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: Every time we apply $\Delta$, the degree of the
+  polynomial goes down by one. After $d$ applications to a polynomial
+  of degree $d$, we get a constant polynomial. The $(d + 1)^{th}$
+  application should therefore yield the zero polynomial.
+
+  {\em Performance review}: $9$ out of $11$ got this. $1$ each chose (B) and (C).
+
+\item If $f$ is a function such that $\Delta f = af$ for some positive
+  constant $a$, and $f(1)$ is positive, which of the following best
+  describes the nature of growth of $f$? {\em Hint: Think of the
+  analogous differential equation using continuous derivatives. The
+  precise solution is different but the nature of the solution is
+  similar.}
+
+  \begin{enumerate}[(A)]
+  \item $f$ grows like a sublinear function of $n$.
+  \item $f$ grows like a linear function of $n$.
+  \item $f$ grows like a superlinear but subexponential function of
+    $n$.
+  \item $f$ grows like an exponential function of $n$.
+  \item $f$ grows like a superexponential function of $n$.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+  
+  {\em Explanation}: The condition tells us that $f(n+1) - f(n) =
+  af(n)$, so $f(n+1) = (a+1)f(n)$. Thus, each term is $(a + 1)$ times
+  its predecessor. Thus, the sequence grows exponentially, and the
+  general term is $f(n) = (a+1)^{n-1}f(1)$.
+
+  {\em Performance review}: $10$ out of $11$ got this. $1$ chose (B).
+\end{enumerate}
+\end{document}

@@ -1,0 +1,119 @@
+\section{The abstract definition of a vector space}
+
+[This section is for additional reading. I may not cover this in class
+and you are not expected to master this for the course.]
+
+This is a good segue for the abstract definition of a vector
+space. It's so deceptively simple that at first it seems unrelated to
+the coordinate description of vector spaces. If/when you take linear
+algebra, you will discover that the concrete and abstract descriptions
+of vector spaces are more or less the same thing when you're working
+in finite dimensions.
+
+\subsection{Vector space: things you can add, multiply by scalars}
+
+A vector space $V$ over $\R$ is a set, whose elements are called {\em
+vectors}, along with the following operations:
+
+\begin{itemize}
+\item A commutative associative binary operation called {\em vector
+  addition}, which takes as input two vectors $v$ and $w$ and outputs
+  a vector that we denote $v + w$.
+\item A zero vector denoted $0$ and called the {\em zero vector}, with
+  the property that $v + 0 = 0 + v = v$ for all $v \in V$.
+\item A unary operation called $-$, with the property that for a
+  vector $v$, we have $v + (-v) = (-v) + v = 0$.
+\item An operation called {\em scalar multiplication} $\R \times V \to
+  V$, which takes as input a real number and a vector and outputs a
+  vector, just dneoted by concatenation. For a real number $a$ and a
+  vector $v$, the product is denoted $av$. The properties are $a(bv) =
+  (ab)v$, $(a + b)v = av + bv$, and $a(v + w) = av+ aw$ for all reals
+  $a$, $b$, and all vectors $v$, $w$.
+\end{itemize}
+
+The $n$-dimensional spaces we have seen so far are vector spaces over
+$\R$. All the operations: addition, zero vector, negative, and scalar
+multiplication, are carried out coordinate-wise.
+
+\subsection{Spaces of functions as vector spaces}
+
+So what's with the abstract definition of vector spaces? One advantage
+is that we can now consider some horribly infinite-dimensional spaces
+-- namely {\em function spaces}, and get a new and improved
+perspective on these.
+
+First, note that {\em the space of all functions from $\R$ to $\R$} is
+a vector space under the usual pointwise addition of functions and the
+scalar multiplication. You've seen how to add functions in single
+variable calculus -- the definition is $(f + g) = x \mapsto f(x) +
+g(x)$.
+
+{\em This satisfies all the conditions for being a vector
+space}. Here's another way of thinking of this. Specifying a function
+is equivalent to specifying the list of values it takes at all of its
+inputs. This is just a comma-separated list of values. Now, if the set
+of inputs is {\em all real numbers}, then we cannot make use of a
+finite (or even countable) comma-separated list of values. But in
+principle, it is very similar. The addition of these functions is just
+the way we add vectors, we add their values at different points.
+
+This is a bit of a mouthful, so hard to digest, so you can ignore
+it. The key take-away is that {\em the space of all functions from
+$\R$ to $\R$} (and in fact, the space of all functions from any fixed
+set to $\R$) is a vector space under pointwise addition and scalar
+multiplication.
+
+\subsection{Subspaces of the space of functions}
+
+We next note some key ideas:
+
+\begin{itemize}
+\item The space of all continuous functions from $\R$ to $\R$ is also
+  a vector space. In fact, it is a {\em vector subspace} of the space
+  of all functions, i.e., it is closed under the vector space
+  operations of addition and scalar multiplication.
+\item The space of all $k$ times continuously differentiable functions
+  from $\R$ to $\R$, denoted $C^k(\R)$, is a vector subspace of the
+  space of continuous functions, i.e., it is closed under the vector
+  space operations and the operations of addition and scalar
+  multiplication.
+\end{itemize}
+
+\subsection{Linear operator}
+
+Suppose $V$ and $W$ are both $\R$-vector spaces and $T:V \to W$ is a
+mapping. We say that $T$ is a {\em linear mapping} or {\em linear
+operator} if it satisfies the following conditions:
+
+\begin{itemize}
+\item $T(a + b) = (Ta) + (Tb)$ for all $a,b \in V$.
+\item $T(\lambda a) = \lambda T(a)$ for all $\lambda \in \R$, $a \in V$.
+\end{itemize}
+
+\subsection{Derivative as a linear operator}
+
+Suppose $C^1(\R)$ denotes the space of continuously differentiable
+functions from $\R$ to $\R$, and $C(\R)$ denotes the space of
+continuous functions from $\R$ to $\R$. Then, {\em differentiation} is
+an operator that takes as input an element of $C^1(\R)$ and outputs an
+element of $C(\R)$. In other words, we have an operator:
+
+$$D:C^1(\R) \to C(\R)$$
+
+This operator is a {\em linear operator}, i.e., we have $D(f + g) =
+(Df) + (Dg)$ for $f,g \in C^1(\R)$ and $D(af) = a(Df)$ for $a \in \R$,
+$f \in C^1(\R)$.
+
+The key take-away here is that: {\em differentiation of scalar-valued
+functions is a linear operator}.
+
+\subsection{Differentiation of vector-valued functions}
+
+The space of {\em vector-valued functions} is also a vector space for
+the same reasons as the space of scalar-valued functions is a vector
+space -- given two vector-valued functions, we can add them pointwise
+and coordinate-wise (note the double wise here). The differentiation
+operator on scalar-valued functions induces a corresponding
+differentiation operator on vector-valued functions, and the operator
+on vector-valued functions is linear because the operation on
+scalar-valued functions is linear.

@@ -1,0 +1,314 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: October 24: Concave, inflections, tangents, cusps, asymptotes}
+\author{Math 152, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$12$ students took the quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $2$: $2$ people
+\item Score of $3$: $3$ people
+\item Score of $4$: $5$ people
+\item Score of $5$: $2$ people
+\end{itemize}
+
+The mean score was $3.6$.
+
+Here are the problem wise answers:
+
+\begin{enumerate}
+\item Option (C): $9$ people
+\item Option (A): $5$ people
+\item Option (C): $6$ people
+\item Option (C): $11$ people
+\item Option (B): $3$ people
+\item Option (A): $6$ people
+\item Option (E): $3$ people
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+
+\item Consider the function $f(x) := x^3(x - 1)^4(x - 2)^2$. Which of
+  the following {\bf is true}?
+
+  \begin{enumerate}[(A)]
+  \item $0$, $1$, and $2$ are all critical points and all of them are
+    points of local extrema.
+  \item $0$, $1$, and $2$ are all critical points, but only $0$ is a
+    point of local extremum.
+  \item $0$, $1$, and $2$ are all critical points, but only $1$ and
+    $2$ are points of local extrema.
+  \item $0$, $1$, and $2$ are all critical points, and none of them is
+    a point of local extremum.
+  \item $1$ and $2$ are the only critical points.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Quick explanation}: $0$, $1$, and $2$ are all roots of $f$ with
+  multiplicity greater than one, hence they are also roots of the
+  derivative. Moreover, their multiplicity in the derivative is one
+  less than their multiplicity in the original function.
+
+  To see which ones are local extrema, just think of the functions
+  $x^3$, $(x - 1)^4$, and $(x - 2)^2$ as isolated functions.
+
+  Alternatively, since all these are critical points where the
+  function is also zero, we can, instead of using the derivative test,
+  directly compute the sign of the function to the left and the right
+  of each critical points. For those critical points where there is an
+  even power, the sign of the original function is the same on both
+  sides close to the point. For thos ecritical points where there is
+  an odd power, the sign of the original function flips.
+
+  {\em Full explanation}: Try it yourself! You need to calculate the
+  first derivative, see where it is zero, etc.
+
+  {\em Performance review}: $9$ out of $12$ got this correct. $2$
+  chose (B), $1$ chose (D).
+
+  {\em Historical note (last year)}: $11$ out of $15$ people got this
+  correct, which is a good showing. Other choices were (B) (2), (A)
+  (1), and (E) (1).
+
+  However, many people did tedious derivative computations for this
+  question. Please try to understand the intuition behind how this
+  problem can be solved without computing derivatives.
+\item Suppose $f$ and $g$ are continuously differentiable functions on
+  $\R$. Suppose $f$ and $g$ are both concave up. Which of the
+  following is {\bf always true}?
+
+  \begin{enumerate}[(A)]
+  \item $f + g$ is concave up.
+  \item $f - g$ is concave up.
+  \item $f \cdot g$ is concave up.
+  \item $f \circ g$ is concave up.
+  \item All of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: The sum of two increasing functions is
+  increasing. Hence, if $f'$ and $g'$ are both increasing, so is the
+  sum $f' + g' = (f + g)'$. The other options are false. In fact, for
+  any two functions that are concave up, both the differences $f - g$
+  and $g - f$ cannot be concave up. As for products, consider the
+  example of $f(x) = x^2$ and $g(x) = (x - 1)^2$, which are both
+  concave up everywhere, but their product is not. As for composites,
+  consider $f(x) = x^2$ and $g(x) = x^2 - 2x$. The composite is $(x^2
+  - 2x)^2$, which is not concave up everywhere.
+
+  {\em Performance review}: $5$ out of $12$ got this correct. $3$
+  chose (D), $2$ each chose (C) and (E).
+
+{\em Historical note (last year)}: $8$ out of $15$ people got this
+  correct. Other choices were (E) (5), (C) (1), and (D) (1).
+
+\item Consider the function $p(x) := x(x-1) \dots (x - n)$, where $n
+  \ge 1$ is a positive integer. How many points of inflection does $p$
+  have?
+
+  \begin{enumerate}[(A)]
+  \item $n - 3$
+  \item $n - 2$
+  \item $n - 1$
+  \item $n$
+  \item $n + 1$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: $p$ has degree $n + 1$, since it is the product
+  of $n + 1$ linear polynomials. Thus, $p''$ has degree $n - 1$, and
+  hence can have at most $n - 1$ roots. Thus, the number of points of
+  inflection of $p$ is at most $n - 1$. If we can locate $n -1$ points
+  of inflection, we will be done.
+
+  Note that since $p$ has zeros at $0,1,2,\dots,n$. By the extreme
+  value theorem, there exists a local extreme value for $p$ between
+  any two consecutive zeros, and this gives a root of $p'$. By degree
+  considerations, there must be exactly one root in each interval $(i
+  - 1,i)$. There are thus $n$ distinct roots of $p'$, each giving a
+  local extreme value of $p$, located in the intervals $(0,1), (1,2),
+  \dots, (n - 1,n)$. Call these roots $a_1, a_2, \dots, a_n$. Then
+  $a_1 < a_2 < \dots < a_n$. Applying the extreme value theorem again
+  on the intervals $[a_{i-1},a_i]$, we see that there is at least one
+  local extremum for $p'$, and hence a zero for $p''$, in that
+  interval. Since $p''$ has degree $n - 1$, there must be exactly one
+  local extremum on each interval. Since local extrema of the
+  derivative correspond to points of inflection, we have found $n - 1$
+  distinct points of inflection, and we are done.
+
+  {\em Performance review}: $6$ out of $12$ got this correct. $3$ each
+  chose (B) and (E).
+
+  {\em Historical note (last year)}: $7$ out of $15$ people got this
+  correct. Other choices were (B) (3), (D) (3), (A) (1), and (E) (1).
+  Those people who chose (D) typically made the error of doing $(n +
+  1) - 1$ instead of $(n + 1) - 2$.
+\item Suppose $f$ is a polynomial function of degree $n \ge 2$. What
+  can you say about the sense of concavity of the function $f$ for
+  {\bf large enough inputs}, i.e., as $x \to +\infty$? (Note that if
+  $n \le 1$, $f$ is linear so we do not have concavity in either
+  sense).
+
+  \begin{enumerate}[(A)]
+  \item $f$ is eventually concave up.
+  \item $f$ is eventually concave down.
+  \item $f$ is eventually either concave up or concave down, and which
+    of these cases occurs depends on the sign of the leading
+    coefficient of $f$.
+  \item $f$ is eventually either concave up or concave down, and which
+    of these cases occurs depends on whether the degree of $f$ is even
+    or odd.
+  \item $f$ may be concave up, concave down, or neither.
+  \end{enumerate}
+
+  {\em Apologies, the language of option (E) was confusing. Although
+  the question did say ``eventually'', option (E) should ideally have
+  read ``$f$ may be eventually concave up, concave down, or neither''
+  rather than forcing you to infer this from the context.}
+
+  {\em Answer}: Option (C).
+
+  {\em Explanation}: Note first that the sign of the leading
+  coefficient of $f''$ is the same as the sign of the leading
+  coefficient of $f$, because the leading coefficient gets multiplied
+  by $n(n-1)$, which is positive for $n \ge 2$. If this sign is
+  positive, then $f''(x) \to \infty$ as $x \to \infty$, and hence must
+  be eventually positive, forcing $f$ to be eventually concave up. If
+  this sign is negative, then $f''(x) \to -\infty$ as $x \to \infty$,
+  and hence must be eventually negative, forcing $f$ to be eventually
+  concave down.
+
+  {\em Performance review}: $11$ out of $12$ got this correct. $1$
+  chose (D).
+
+  {\em Historical note (last year)}: $12$ out of $15$ people got this
+  correct. $2$ people chose option (E). This is probably partly
+  because of the confusing language, see the apology above.
+
+\item Suppose $f$ is a continuously differentiable function on $[a,b]$
+  and $f'$ is continuously differentiable at all points of $[a,b]$
+  except an interior point $c$, where it has a vertical cusp. What can
+  we say is {\bf definitely true} about the behavior of $f$ at $c$?
+
+  \begin{enumerate}[(A)]
+  \item $f$ attains a local extreme value at $c$.
+  \item $f$ has a point of inflection at $c$.
+  \item $f$ has a critical point at $c$ that does not correspond to a
+    local extreme value.
+  \item $f$ has a vertical tangent at $c$.
+  \item $f$ has a vertical cusp at $c$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: A cusp for $f'$ means that $f'$ changes direction
+  at $c$ (either from increasing to decreasing or from decreasing to
+  increasing). This in turn means that the sense of concavity of $f$
+  changes at $c$. Hence, $f$ has a point of inflection at $c$. Note
+  that we cannot have the vertical tangent situation because $f'$ is
+  continuous and finite at $c$.
+
+  An example of such a function $f$ would be $f(x) := x^{5/3}$. The
+  first derivative $f'(x) = (5/3)x^{2/3}$ is everywhere defined and
+  has a vertical cusp at $c = 0$. We note that the derivative switches
+  from decreasing to increasing at $c = 0$, so the original function
+  switches from concave down to concave up.
+  
+  {\em Performance review}: $3$ out of $12$ got this correct. $6$
+  chose (C), $2$ chose (A), $1$ chose (E).
+
+  {\em Historical note (last year)}: $3$ out of $15$ people got this
+  correct. Other options were (A) (4), (E) (3), (D) (3), and (C) (2).
+  It seems that a lot of people did not make a clear enough
+  distinction between the roles of $f$ and $f'$.
+
+  {\em Action point}: This is the kind of question that is hard at
+  first but at some stage should feel obvious to you. (Not immediately
+  obvious, since it still requires you to read carefully, but the kind
+  of thing that would not confuse you).
+
+\item Suppose $f$ and $g$ are continuous functions on $\R$, such that
+  $f$ attains a vertical tangent at $a$ and is continuously
+  differentiable everywhere else, and $g$ attains a vertical tangent
+  at $b$ and is continuously differentiable everywhere else. Further,
+  $a \ne b$. What can we say is {\bf definitely true} about $f - g$?
+
+  \begin{enumerate}[(A)]
+  \item $f - g$ has vertical tangents at $a$ and $b$.
+  \item $f - g$ has a vertical tangent at $a$ and a vertical cusp at $b$.
+  \item $f - g$ has a vertical cusp at $a$ and a vertical tangent at $b$.
+  \item $f - g$ has no vertical tangents and no vertical cusps.
+  \item $f - g$ has either a vertical tangent or a vertical cusp at
+    the points $a$ and $b$, but it is not possible to be more specific
+    without further information.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Note that $\lim_{x \to b} (f - g)'(x) = f'(b) -
+  \lim_{x \to b}g'(x)$, which is an infinity of the sign opposite to
+  that of $g'$. In particular, we hav a vertical tangent at
+  $b$. Similarly, we have a vertical tangent at $a$.
+
+  {\em Performance review}: $6$ out of $12$ got this correct. $5$
+  chose (E), $1$ chose (B).
+
+  {\em Historical note (last year)}: $5$ out of $15$ people got this
+  correct. Other choices were (E) (5), (C) (3), (B) (1), (D) (1).  The
+  main source of confusion here seems to have been that people did not
+  realize if $f$ has a vertical tangent at $c$, so does $-f$, because
+  the whole picture flips over.
+\item Suppose $f$ and $g$ are continuous functions on $\R$, such that
+  $f$ is continuously differentiable everywhere and $g$ is
+  continuously differentiable everywhere except at $c$, where it has a
+  vertical tangent. What can we say is {\bf definitely true} about $f
+  \circ g$?
+
+  \begin{enumerate}[(A)]
+  \item It has a vertical tangent at $c$.
+  \item It has a vertical cusp at $c$.
+  \item It has either a vertical tangent or a vertical cusp at $c$.
+  \item It has neither a vertical tangent nor a vertical cusp at $c$.
+  \item We cannot say anything for certain.
+  \end{enumerate}
+
+  {\em Answer}: Option (E).
+
+  {\em Explanation}: Consider $g(x) := x^{1/3}$. This has a vertical
+  tangent at $c = 0$. If we choose $f(x) = x$, we get (A). If we
+  choose $f(x) = x^2$, we get (B). If we choose $f(x) = x^3$, we get
+  neither a vertical tangent nor a vertical cusp. Hence, (E) is the
+  only viable option.
+
+  {\em Performance review}: $3$ out of $12$ got this correct. $4$
+  chose (C), $2$ each chose (A) and (D), $1$ chose (B).
+
+  {\em Historical note (last year)}: $3$ out of $15$ people got this
+  correct. Other choices were (A) (7), (C) (4), and (D) (1). The main
+  thing that people had trouble with was thinking of possibilities for
+  $f$ that could play the role of converting the vertical tangent
+  behavior of the original function $g$ into vertical cusp or
+  ``neither'' behavior for the composite function.
+
+  {\em Action point}: This is a devilishly tricky question that I
+  don't expect you to get at all in your first try, but that I expect
+  that you will remember for the rest of your life (or at least this
+  course) after you've seen it.
+\end{enumerate}
+
+\end{document}

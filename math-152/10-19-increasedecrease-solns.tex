@@ -1,0 +1,251 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: October 19: Increase/decrease and maxima/minima}
+\author{Math 152, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$11$ people took the quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $2$: $8$ people
+\item Score of $3$: $3$ people
+\end{itemize}
+
+The mean score was $2.08$. The problem wise performance was:
+
+\begin{enumerate}
+\item Option (D): $10$ people
+\item Option (B): $6$ people
+\item Option (B): $2$ people
+\item Option (B): $7$ people
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+
+\item Suppose $f$ is a function defined on a closed interval
+  $[a,c]$. Suppose that the left-hand derivative of $f$ at $c$ exists
+  and equals $\ell$. Which of the following implications is {\bf true
+  in general}?
+
+  \begin{enumerate}[(A)]
+  \item If $f(x) < f(c)$ for all $a \le x < c$, then $\ell < 0$.
+  \item If $f(x) \le f(c)$ for all $a \le x < c$, then $\ell \le 0$.
+  \item If $f(x) < f(c)$ for all $a \le x < c$, then $\ell > 0$.
+  \item If $f(x) \le f(c)$ for all $a \le x < c$, then $\ell \ge 0$.
+  \item None of the above is true in general.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: If $f(x) \le f(c)$ for all $a \le x < c$, then
+  all difference quotients from the left are nonnegative. The limiting
+  value, which is the left-hand derivative, is thus also
+  nonnegative. See the lecture notes for more details.
+
+  {\em The other choices}: Options (A) and (B) predict the wrong
+  sign. Option (C) is incorrect because even though the difference
+  quotients are all strictly positive, their limiting value could be
+  $0$. For instance, $\sin x$ on $[0,\pi/2]$ or $x^3$ on $[-1,0]$.
+
+  {\em Performance review}: $10$ out of $11$ got this correct. $1$
+  person chose (E).
+
+  {\em Historical note (last year)}: $8$ people got this correct. $5$
+  people chose option (B) and $2$ people chose option (E). It is
+  likely that the people who chose option (B) made a sign computation
+  error.
+
+  {\em Action point}: On the plus side, most of you seem to have
+  understood the fact that strict inequality does not guarantee strict
+  positivity or negativity of the one-sided derivative. But, please
+  sort out your sign issues while the quarter is still young! Getting
+  the right sign is a good sign for the future.
+
+\item Suppose $f$ and $g$ are increasing functions from $\R$ to
+  $\R$. Which of the following functions is {\em not} guaranteed to be
+  an increasing function from $\R$ to $\R$?
+
+  \begin{enumerate}[(A)]
+
+  \item $f + g$
+  \item $f \cdot g$
+  \item $f \circ g$
+  \item All of the above, i.e., none of them is guaranteed to be increasing.
+  \item None of the above, i.e., they are all guaranteed to be increasing.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The problem with option (B) arises when one or
+  both functions take negative values. For instance, consider the case
+  $f(x) := x$ and $g(x) := x$. Both are increasing functions on all of
+  $\R$. However, the pointwise product is the function $x \mapsto
+  x^2$, which is a decreasing function for negative $x$.
+
+  Formally, the issue is that we cannot multiply inequalities of the
+  form $A < B$ and $C < D$ unless we are guaranteed to be working with
+  positive numbers.
+
+  {\em The other choices}:
+
+  Option (A): For any $x_1 <
+  x_2$, we have $f(x_1) < f(x_2)$ and $g(x_1) < g(x_2)$. Adding up, we
+  get $f(x_1) + g(x_1) < f(x_2) + g(x_2)$, so $(f + g)(x_1) < (f + g)(x_2)$.
+
+  Option (C): For any $x_1 < x_2$, we have $g(x_1) < g(x_2)$ since $g$
+  is increasing. Now, we use the factthat $f$ is increasing to compare
+  its values at the two points $g(x_1)$ and $g(x_2)$, and we get
+  $f(g(x_1)) < f(g(x_2))$. We thus get $(f \circ g)(x_1) < (f \circ
+  g)(x_2)$.
+
+  {\em Performance review}: $6$ out of $11$ got this correct. $2$
+  chose (C) and $3$ chose (E).
+
+  {\em Historical note (last year)}: Only $1$ person got this correct!
+  $8$ people chose option (E), $4$ people chose option (C), $1$ person
+  chose option (D), and $1$ person chose (A)+(B). Note that you'll
+  always have exactly one correct answer option.
+
+  From the rough work shown by a few people, it
+  seems that a lot of people were trying to reason this problem using
+  derivatives. Using derivatives is {\em not} a sound approach to
+  tackling this problem because it is not given that the function is
+  differentiable or even continuous. Nonetheless, it is possible to
+  obtain the correct answer using the flawed approach of derivatives,
+  and it is sad that so few of you did so.
+
+  Others seem to have used examples. With examples, you should have
+  found the counterexample rather easily, if you'd chosen $f(x) = g(x)
+  = x$. However, most of you don't seem to have considered a
+  sufficiently wide range of examples and to have settled with a few
+  random ones. This is {\em not} the right way to use examples. When
+  searching for counterexamples, you should look systematically and
+  try to vary the essential features in a meaningful manner. More on
+  this if we get time to cover this material in problem session.
+
+  {\em Action point}: Please, please make sure you understand this
+  kind of problem so well that in the future, you're puzzled that this
+  ever confused you. Unlike formulas for differentiating complicated
+  functions, which you may forget a few years after doing calculus,
+  the reasoning methods for these kinds of questions should stick with
+  you for a lifetime.
+
+\item Suppose $f$ is a continuous function defined on an open interval
+  $(a,b)$ and $c$ is a point in $(a,b)$. Which of the following
+  implications is {\bf true}?
+  \begin{enumerate}[(A)]
+
+  \item If $c$ is a point of local minimum for $f$, then there is a
+    value $\delta > 0$ and an open interval $(c - \delta, c + \delta)
+    \subseteq (a,b)$ such that $f$ is non-increasing on $(c -
+    \delta,c)$ and non-decreasing on $(c,c+\delta)$.
+  \item If there is a value $\delta > 0$ and an open interval $(c -
+    \delta, c + \delta) \subseteq (a,b)$ such that $f$ is
+    non-increasing on $(c - \delta,c)$ and non-decreasing on
+    $(c,c+\delta)$, then $c$ is a point of local minimum for $f$.
+  \item If $c$ is a point of local minimum for $f$, then there is a
+    value $\delta > 0$ and an open interval $(c - \delta, c + \delta)
+    \subseteq (a,b)$ such that $f$ is non-decreasing on $(c -
+    \delta,c)$ and non-increasing on $(c,c+\delta)$.
+  \item If there is a value $\delta > 0$ and an open interval $(c -
+    \delta, c + \delta) \subseteq (a,b)$ such that $f$ is
+    non-decreasing on $(c - \delta,c)$ and non-increasing on
+    $(c,c+\delta)$, then $c$ is a point of local minimum for $f$.
+  \item All of the above are true.
+  \end{enumerate}
+
+  {\em Answer}: Option (B).
+
+  {\em Explanation}: Since $f$ is continuous, being non-increasing on
+  $(c - \delta, c)$ implies being non-increasing on $(c -
+  \delta,c]$. Similarly on the right side. In particular, this means
+  that $f(c) \le f(x)$ for all $x \in (c - \delta, c + \delta)$,
+  establishing $c$ as a point of local minimum.
+
+  {\em The other choices}: Options (C) and (D) have the wrong kind of
+  increase/decrease. Option (A) is wrong, though counterexamples are
+  hard to come by. The reason Option (A) is wrong is the core of the
+  reason that the first-derivative test does not always work: the
+  function could be oscillatory very close to the point $c$, so that
+  even though $c$ is a point of local minimum, the function does not
+  steadily become non-increasing to the left of $c$. The example
+  discussed in the lecture notes is $|x|(2 + \sin(1/x))$.
+
+  {\em Performance review}: $2$ out of $11$ got this. $6$ chose (A)
+  and $1$ each chose (C), (D), and (E).
+
+  {\em Historical note (last year)}: $5$ people got this correct. $5$
+  people chose (A), which is the converse of the statement. $2$ people
+  chose (D) and $1$ person each chose (C) and (E). Thus, most people
+  got the sign/direction part correct but messed up on which way the
+  implication goes.
+
+  {\em Action point}: This is tricky to get when the lecture material
+  is still very new to you. However, you should consistently get this
+  kind of question correct once you have reviewed and mastered the
+  lecture material.
+\item Suppose $f$ is a continuously differentiable function on $\R$
+  and $f'$ is a periodic function with period $h$. (Recall that
+  periodic derivative implies that the original function is a sum of
+  ...). Suppose $S$ is the set of points of local maximum for $f$, and
+  $T$ is the set of local maximum values. Which of the following is
+  {\bf true in general} about the sets $S$ and $T$?
+
+  \begin{enumerate}[(A)]
+  \item The set $S$ is invariant under translation by $h$ (i.e., $x
+    \in S$ if and only if $x + h \in S$) and all the values in the set
+    $T$ are in the image of the set $[0,h]$ under $f$.
+  \item The set $S$ is invariant under translation by $h$ (i.e., $x
+    \in S$ if and only if $x + h \in S$) but all the values in the set
+    $T$ need not be in the image of the set $[0,h]$ under $f$.
+  \item Both the sets $S$ and $T$ are invariant under translation by $h$.
+  \item Both the sets $S$ and $T$ are finite.
+  \item Both the sets $S$ and $T$ are infinite.
+  \end{enumerate}
+
+  {\em Answer}: Option (B).
+
+  {\em Explanation}: For a differentiable function, whether a point is
+  a point of local maximum or not depends only on the derivative
+  behavior near the point. Since the derivative is periodic with
+  period $h$, $S$ is invariant under translation by $h$.
+
+  The set of values $T$ may be finite or infinite. If $f$ itself is
+  periodic, then the set of maximum values over a single period is the
+  same as the set of maximum values overall. Thus, for instance, in
+  the case of the function $f(x) := \sin x$, $T = \{ 1 \}$ and $S = \{
+  \pi/2 + 2n\pi : n \in \Z\}$. On the other hand, for the function
+  $f(x) := 2\sin x - x$, the derivative is $f'(x) = 2\cos x - 1$,
+  which is zero at $2n\pi \pm \pi/3$. The local maxima are attained at
+  $2n\pi + \pi/3$ (as we can see from either derivative
+  test). However, the set of local maximum {\em values} is infinite --
+  in fact, each $n$ gives a different local maximum value, and the set
+  of local maximum values is infinite and unbounded. For instance, for
+  $n = 0$, the local maximum value is $f(\pi/3) = \sqrt{3} -
+  \pi/3$. For $n = 1$, the local maximum value is $f(7\pi/3) =
+  \sqrt{3} - (7\pi/3)$. And so on.
+
+  {\em Performance review}: $7$ out of $11$ got this correct. $3$
+  chose (E) and $1$ chose (C).
+
+  {\em Historical note (last year)}: $3$ people got this correct. $3$
+  people each chose (A) and (D), $4$ people chose (C), and $2$ people
+  chose (E).
+
+  {\em Action point}: This was a fairly hard problem. However, it
+  should become easy after we've seen a little more about functions
+  with periodic derivative.
+\end{enumerate}
+
+\end{document}

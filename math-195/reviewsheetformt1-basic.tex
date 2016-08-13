@@ -1,0 +1,533 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul, graphicx}
+\title{Review sheet for midterm 1: basic}
+\author{Math 195, Section 59 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+We will not be going over this sheet, but rather, we'll be going over
+the advanced review sheet in the session. Please review this sheet on your own time.
+
+\section{Formula summary}
+
+\subsection{Parametric}
+
+Set $x = f(t)$, $y = g(t)$, parametric curve in $\R^2$.
+\begin{itemize}
+\item $dy/dt = g'(t)$ and $dx/dt = f'(t)$.
+\item $\frac{dy}{dx} = \frac{g'(t)}{f'(t)}$.
+\item $\frac{d^2y}{dx^2} = \frac{f'(t)g''(t) - g'(t)f''(t)}{(f'(t))^3}$
+\item Arc length: $\int \sqrt{(f'(t))^2 + (g'(t))^2} \, dt$
+\end{itemize}
+
+\subsection{Polar}
+
+Set $r = F(\theta)$, polar equation of a curve.
+
+\begin{itemize}
+\item $y = F(\theta)\sin \theta$ and $x = F(\theta)\cos \theta$.
+\item $dy/d\theta = F'(\theta)\sin \theta + F(\theta)\cos \theta$ and
+  $dx/d\theta = F'(\theta) \cos \theta - F(\theta) \sin \theta$.
+\item $\frac{dy}{dx} = \frac{F'(\theta)\sin \theta + F(\theta)\cos
+  \theta}{F'(\theta)\cos \theta - F(\theta)\sin \theta}$
+\item Arc length: $\int \sqrt{(F(\theta))^2 + (F'(\theta))^2} \,
+  d\theta$
+\end{itemize}
+
+\subsection{Three-dimensional geometry}
+
+\begin{itemize}
+\item Distance formula between $(x_1,y_1,z_1)$ and $(x_2,y_2,z_2)$:
+  $\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$.
+\item Sphere with center having coordinates $(h,k,l)$ and radius $r$
+  is $(x - h)^2 + (y - k)^2 + (z - l)^2 = r^2$.
+\end{itemize}
+
+\subsection{Vectors}
+
+\begin{itemize}
+\item Vector dot product: $\langle v_1,v_2,\dots, v_n \rangle \cdot
+  \langle w_1,w_2,\dots,w_n \rangle = v_1w_1 + v_2w_2 + \dots + v_nw_n$.
+\item Length of vector $\langle v_1,v_2,\dots,v_n \rangle$ is
+  $\sqrt{v_1^2 + v_2^2 + \dots + v_n^2}$.
+\item Unit vector in the direction of a vector $v$ is $v/|v|$. Unit
+  vector in opposite direction but along same line (so parallel) is
+  $-v/|v|$.
+\item Vector cross product: $\langle a_1, a_2, a_3 \rangle \times
+  \langle b_1, b_2, b_3 \rangle = \langle a_2b_3 - a_3b_2, a_3b_1 -
+  a_1b_3, a_1b_2 - a_2b_1 \rangle$.
+\item For nonzero vectors $v$ and $w$ in three dimensions, we have $|v
+  \times w| = |v||w|\sin \theta$ where $\theta$ is the angle between
+  $v$ and $w$.
+\item Scalar triple product is $a \cdot (b \times c)$.
+\item Angle between nonzero vectors $v$ and $w$ is
+  $\arccos\left(\frac{v \cdot w}{|v||w|}\right)$.
+\item Scalar projection of $b$ onto $a$ is $(a \cdot b)/|a|$. {\em
+  Note: Be careful what is being projected onto what}.
+\item Vector projection of $b$ onto $a$ is $((a \cdot b)/|a|^2)a$.
+\item Area of triangle with vertices $P$, $Q$ and $R$ is $(1/2)|PQ
+  \times PR|$. Need to: (i) compute difference vectors, (ii) take
+  cross product, (iii) compute length of the cross product, (iv)
+  divide by 2.
+\item Area of parallelogram with vertices $P$, $Q$, $R$, $S$ is $|PQ
+  \times PR|$ or $|PQ \times PS|$ (same number). Steps (i)-(iii) of above.
+\item Volume of parallelepiped is {\em absolute value of} scalar triple
+  product of vectors for adjacent triple of edges.
+\end{itemize}
+
+\section{Quickly: what you should know from one-variable calculus}
+
+You need to be able to do the following from one-variable calculus and
+before:
+
+\begin{enumerate}
+\item Finding domains of functions
+\item Basic algebraic manipulation and trigonometric identities
+\item Graphing: Know equation of circle centered at origin, graph
+  linear functions, sine, cosine.
+\item Differentiation and integration: Everything you saw in
+  one-variable calculus. However, for this midterm, you will get only
+  simple integrations that rely on the very basic formulas and not,
+  for instance, those that use integration by parts.
+\end{enumerate}
+
+\section{Parametric stuff}
+
+Words ...
+
+\begin{enumerate}
+\item A parametric description of a curve is one where both
+  coordinates are expressed as functions of of a parameter, typically
+  denoted $t$. Parametric descriptions offer an alternative to
+  functional and implicit (relational) descriptions of curves. Here,
+  $t$ varies over some subset of the real numbers. In symbols, we have
+  something like $x = f(t)$, $y = g(t)$, where $t$ varies over some
+  subset $D$ of the real numbers.
+\item Descriptions where $x$ is a function of $y$ or $y$ is a function
+  of $x$ are special cases of parametric descriptions.
+\item The same curve may admit multiple parametrizations, and
+  different parameterizations may correspond to different speeds and
+  different orderings of traversal of the point. The curve itself only
+  contains the information of {\em what} points were traversed, not
+  the information of the {\em sequence} and {\em pace} in which they
+  were traversed.
+\item The curve traced by a parameterization depends not only on the
+  coordinate functions but also the domain for the parameter. The
+  larger the domain, in general, the larger the curve traced. However,
+  in some cases, expanding the domain may not make the curve strictly
+  larger. This happens in cases where both coordinate functions are
+  even or have commensurable periods.
+\item A parameterization of a curve may involve self-intersections,
+  retracings (e.g., tracing back for even function pairs), or even
+  wrapping around itself (for periodic function pairs).
+\item Function composition allows us to switch between multiple
+  parameterizations.
+\item In some cases, it is possible to move back and forth between
+  parametric and relational descriptions.
+\item Parametric differentiation: if $x = f(t)$ and $y = g(t)$, then
+  $dy/dx = (dy/dt)/(dx/dt) = g'(t)/f'(t)$. This can also be used to
+  differentiate repeatedly. Note that the derivative is a function of
+  $t$ rather than of $(x,y)$, so to find the derivative given the
+  point $(x,y)$ we need to go back and determine $t$.
+\item Higher derivatives can be computed iteratively using parametric
+  differentiation. But note that it is {\em not} true that $d^2y/dx^2
+  = (d^2y/dt^2)/(d^2x/dt^2)$. The actual formula/procedure is more
+  complicated (see lecture notes or formula summary).
+\item Arc length: The formula for arc length from $t = a$ to $t = b$
+  (with $a < b$) is $\int_a^b \sqrt{(dx/dt)^2 + (dy/dt)^2} \, dt$.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item {\em Parametric to relational: elimination of parameter}: In
+  many cases, it is possible to eliminate a parameter from a
+  parametric description. The idea is to use some well known
+  identities or manipulation techniques to try to directly relate $x$
+  and $y$ by finding some equation between them that is true for all
+  $t$. However, this is not the full story. We next need to see if
+  there are additional restrictions on $x$ and $y$ deducible from the
+  fact that they arose as function of $t$, also keeping in mind the
+  domain restrictions on $t$.
+
+  For instance, the parameterization $x = t^2, y = t^4$ for $t \in \R$
+  can be rewritten as $y = x^2$, but we need the additional condition
+  that $x \ge 0$.
+
+  See more examples in the lecture notes, quizzes, and homeworks.
+\item {\em Relational to parametric}: Here, we see a relation between
+  $x$ and $y$, and try to choose a parametric description that would
+  give rise to the relation. Again, the domain of choice for the
+  parameter needs to be chosen wisely.
+
+  See more examples in the lecture notes and quizzes.
+\item {\em Parametric differentiation and geometric consequences}: We
+  use the formula $(dy/dt)/(dx/dt)$. If $x = f(t)$ and $y = g(t)$,
+  then this becomes $g'(t)/f'(t)$. This is valid for all $t$ in the
+  interior of the domain of definition where both $f'$ and $g'$ are
+  defined and $f' \ne 0$. If $f'(t) = 0$ but $g'(t) \ne 0$, we have a
+  vertical tangent situation. If $g'(t) = 0$ but $f'(t) \ne 0$, we
+  have a horizontal tangent situation.
+\end{enumerate}
+
+\section{Polar coordinates}
+
+Words ...
+
+\begin{enumerate}
+\item {\em Specifying a polar coordinate system}: To specify a polar
+  coordinate system, we need to choose a point (called the {\em
+  origin} or {\em pole}), a half-line starting at the point (called
+  the {\em polar axis} or {\em reference line}) and an orientation of
+  the plane (chosen counter-clockwise in the usual depictions).
+\item {\em Finding the polar coordinates of a point and vice versa}:
+  The radial coordinate $r$ is the distance between the point and the
+  pole. The angular coordinate $\theta$ is the angle (measured in the
+  counter-clockwise direction) from the polar axis to the line segment
+  from the pole to the point. Note that $\theta$ is uniquely defined
+  up to addition of multiples of $2\pi$, and it becomes truly unique
+  if we restrict it to a half-open half-closed interval of length
+  $2\pi$. {\em The exception is the pole itself, for which $\theta$ is
+  undefined} in the sense that any value of $\theta$ could be chosen.
+\item {\em Converting between Cartesian and polar coordinates}: If we
+  take the polar axis as the positive $x$-axis and the axis at an
+  angle of $+\pi/2$ from it as the positive $y$-axis, we get a
+  Cartesian coordinate system. The point defined by polar coordinates
+  $(r,\theta)$ has Cartesian coordinates $(r\cos \theta,r \sin
+  \theta)$. Conversely, given a point with Cartesian coordinates
+  $(x,y)$ the corresponding polar coordinates are $r = \sqrt{x^2 +
+  y^2}$ and $\theta$ is the unique angle (up to addition of multiples
+  of $2\pi$) such that $x = r \cos \theta$, $y = r\sin \theta$.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item A functional description of the form $r = F(\theta)$ gives rise
+  to a parametric description in Cartesian coordinates: $x =
+  F(\theta)\cos \theta$ and $y = F(\theta)\sin \theta$. We can do the
+  usual things (like find slopes of tangent lines) using this
+  parametric description. Note that here, $\theta$ is typically
+  allowed to vary over all of $\R$ rather than simply being restricted
+  to an interval of length $2\pi$. The slope of the tangent line in
+  Cartesian terms is given by:
+
+$$\frac{dy}{dx} = \frac{dy/d\theta}{dx/d\theta} = \frac{d(F(\theta)\sin \theta)/d\theta}{d(F(\theta)\cos \theta)/d\theta} = \frac{F'(\theta)\sin \theta + F(\theta)\cos \theta}{F'(\theta) \cos \theta - F(\theta)\sin \theta}$$
+
+\item The arc length is given by integrating $\sqrt{(F(\theta))^2 +
+  (F'(\theta))^2}$ for $\theta$ in the suitable interval. (See quiz
+  question on this).
+\item An implicit (relational) description in Cartesian coordinates
+  can be converted to a description in polar coordinates by replacing
+  $x$ by $r\cos \theta$ and $y$ by $r\sin \theta$.
+\item An implicit (relational) description in polar coordinates can
+  sometimes be converted to a description in Cartesian coordinates,
+  but with some ambiguity. General idea: replace $r$ by $\sqrt{x^2 +
+  y^2}$, $\cos \theta$ by $x/\sqrt{x^2 + y^2}$, and $\sin \theta$ by
+  $y/\sqrt{x^2 + y^2}$.
+\end{enumerate}
+
+\section{Three-dimensional geometry}
+
+Words ...
+
+\begin{enumerate}
+\item Three-dimensional space is coordinatized using a Cartesian
+  coordinate system by selecting three mutually perpendicular axes
+  passing through a point called the origin: the $x$-axis, $y$-axis,
+  and $z$-axis. These satisfy the right-hand rule. The coordinates of
+  a point are written as a $3$-tuple $(x,y,z)$.
+\item There are $2^3 = 8$ octants based on the signs of each of the
+  coordinates. There are three coordinate planes, each corresponding
+  to the remaining coordinate being zero (the $xy$-plane corresponds
+  to $z = 0$, etc.). There are three axes, each corresponding to the
+  other two coordinates being zero (e.g., the $x$-axis corresponds to
+  $y = z = 0$).
+\item The distance formula between points with coordinates
+  $(x_1,y_1,z_1)$ and $(x_2,y_2,z_2)$ is: $$\sqrt{(x_2 - x_1)^2 + (y_2
+  - y_1)^2 + (z_2 - z_1)^2}$$ This is similar to the formula in two
+  dimensions and the squares and square root arises from the
+  Pythagorean theorem.
+\item The equation of a sphere with center having coordinates
+  $(h,k,l)$ and radius $r$ is $(x - h)^2 + (y - k)^2 + (z - l)^2 =
+  r^2$. Given an equation, we can try completing the square to see if
+  it fits the model for the equation of a sphere.
+\end{enumerate}
+
+\section{Introduction to vectors and relation with geometry}
+
+\subsection{$n$-dimensional generality}
+
+Words ...
+
+\begin{enumerate}
+\item A vector is an ordered $n$-tuple of real numbers (or quantities
+  measured using real numbers). The space of such $n$-tuples is a
+  $n$-dimensional vector space over the real numbers. Vectors can be
+  used to store tuples of prices, probabilities, and other kinds of
+  quantities.
+\item There is a zero vector. We can add vectors and we can multiply a
+  vector by a scalar. Note that these operations may or may not have
+  an actual meaning based on the thing we are storing using the vector.
+\item We can take the dot product $v \cdot w$ of two vectors $v$ and
+  $w$ in $n$-dimensional space. if $v = \langle v_1, v_2, \dots, v_n
+  \rangle$ and $w = \langle w_1, w_2, \dots, w_n \rangle$, then $v
+  \cdot w = \sum_{i=1}^n v_iw_i$. The dot product is a real number
+  (though if we put units to the coordinates of the vector, it gets
+  corresponding squared units).
+\item The length or norm of a vector $v$, denoted $|v|$, is defined as
+  $\sqrt{v \cdot v}$. It is a nonnegative real number.
+\item The correlation between two vectors $v$ and $w$ is defined as
+  $(v \cdot w)/(|v||w|)$. It is in $[-1,1]$. (For geometric
+  interpretation, see the three-dimensional case).
+\item {\em Properties of the dot product}: The dot product is
+  symmetric, the dot product of any vector with the zero vector is
+  $0$, the dot product is additive (distributive) in each coordinate
+  and scalars can be pulled out.
+\item {\em Properties of length}: The only vector with length zero is
+  the zero vector, all other vectors have positive length. The length
+  of $\lambda v$ is $|\lambda|$ times the length of $v$. We also have
+  $|v + w| \le |v| + |w|$ for any vectors $v$ and $w$, with equality
+  occurring if either is a positive scalar multiple of the other or
+  one of them is the zero vector.
+\end{enumerate}
+
+\subsection{Three-dimensional geometry}
+
+Words ...
+
+\begin{enumerate}
+\item We can identify points in three-dimensional space with
+  three-dimensional vector as follows: the vector corresponding to a
+  point $(x,y,z)$ is the vector $\langle x,y,z \rangle$. Physically,
+  this can be thought of as a directed line segment or arrow from the
+  origin to the point $(x,y,z)$.
+\item We can also consider vectors starting at any point in
+  three-dimensional space and ending at any point. The corresponding
+  vector can be obtained by subtracting the coordinates of the
+  points. The vector from point $P$ to point $Q$ is denoted
+  $\overline{PQ}$.
+\item There are unit vectors $\mathbf{i} = \langle 1,0,0 \rangle$,
+  $\mathbf{j} = \langle 0,1,0 \rangle$, and $\mathbf{k} = \langle
+  0,0,1 \rangle$. These are thus the vectors of length $1$ along the
+  positive $x$, $y$, and $z$ directions respectively. A vector
+  $\langle x,y,z \rangle$ can be written as $x\mathbf{i} + y\mathbf{j}
+  + z\mathbf{k}$.
+\item Vectors can be added geometrically using the {\em parallelogram
+  law}. This procedure gives the same answer as the usual
+  coordinate-wise addition.
+\item Scalar multiplication also has a geometric interpretation -- the
+  length gets scaled by the scalar multiple, and the direction remains
+  the same or is reversed depending on the scalar's sign.
+\item For vectors $v$ and $w$, we have $v \cdot w = |v||w|\cos \theta$
+  where $\theta$ is the angle between $v$ and $w$. We can use this
+  procedure to find the angle between two vectors. The correlation
+  between the vectors is thus $\cos \theta$. We can interpret this
+  specifically for $\theta = 0$, $\theta$ an acute angle, $\theta =
+  \pi/2$, $\theta$ an obtuse angle, and $\theta = \pi$ (see the table
+  in the lecture notes).
+\item We can define the vector cross product $v \times w$ using a
+  matrix determinant. Equivalently, if $v = \langle v_1,v_2,v_3
+  \rangle$ and $w = \langle w_1,w_2,w_3 \rangle$, then $v \times w =
+  \langle v_2w_3 - v_3w_2, v_3w_1 - v_1w_3, v_1w_2 - v_2w_1
+  \rangle$. {\em This is a specifically three-dimensional construct}.
+\item The cross product has the property that cross product of any two
+  collinear vectors is zero, cross product of any vector with the
+  zero vector is zero, the cross product is skew-symmetric,
+  distributive in each variable, and allows scalars to be pulled
+  out. It is not associative in general. There is an identity relating
+  cross product and dot product: $a \times (b \times c) = (a \cdot c)b
+  - (a \cdot b)c$. Also, the cross product satisfies the relation: $$a
+  \times (b \times c) + b \times (c \times a) + c \times (a \times b)
+  = 0$$
+\item The cross product of $a$ and $b$ satisfies $|a \times b| =
+  |a||b| \sin \theta$ where $\theta$ is the angle between $a$ and $b$,
+  and further, the cross product vector is perpendicular to both $a$
+  and $b$, and its direction is given by the right hand rule.
+\item There is a scalar triple product. The scalar triple product of
+  vectors $a$, $b$, and $c$ is defined as the number $a \cdot (b
+  \times c)$. It can also be viewed as the determinant of a matrix
+  whose rows are the coordinates of $a$, $b$, and $c$
+  respectively. The scalar triple product is preserved under cyclic
+  permutations of the input vectors and gets negated under flipping
+  two of the input vectors. It is linear in each input variable (i.e.,
+  distributive and pulls out scalars). The scalar triple product is
+  zero if and only if the three input vectors can all be made to lie
+  in the same plane.
+\item {\em Added for clarification}: In particular, $a \cdot (a \times
+  b) = 0$ and $b \cdot (a \times b) = 0$ for any vectors $a$ and $b$
+  in three dimensions.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item Vector and scalar projections: Given vectors $a$ and $b$, the
+  {\em vector projection} of $b$ onto $a$, denoted
+  $\operatorname{proj}_ab$, is given by the vector $\frac{a \cdot
+    b}{|a|^2} a$. The scalar projection or component of
+  $b$ along $a$, denoted $\operatorname{comp}_ab$, is given by
+  $\frac{a \cdot b}{|a|}$. The vector projection is what we obtain by
+  taking the vector from the origin to the foot of the perpendicular
+  from the head of $b$ to the line of $a$. The scalar projection is
+  the {\em directed} length of this vector, measured positive in the
+  direction of $a$.
+\item Finding the angle between vectors: This is done using the dot
+  product. The angle between vectors $v$ and $w$ is $\arccos((v \cdot
+  w)/|v||w|)$.
+\item Finding the area of a triangle or a parallelogram: We first find
+  two adjacent sides as vectors both with the same starting vertex (by
+  taking the differences of coordinates of endpoints). For the
+  parallelogram, we take the length of the cross product of these two
+  vectors. For the triangle, we take {\em half} the length.
+\item Finding the volume of a parallelopiped: We find three sides as
+  vectors, all with the same starting vertex. Then we take the {\em
+  absolute value of} the scalar triple product of these sides.
+\item Finding a vector orthogonal to two given vectors: Simply take
+  the cross product if they are linearly independent. Otherwise, just
+  pick anything that dots with one of them to zero.
+\item Testing orthogonality: We check whether the dot product is zero.
+\item Testing coplanarity of points: We take one point as the
+  basepoint, compute difference vectors to it from the other three
+  points. We then take the scalar triple product of these three
+  vectors. If we get zero, then the four points are coplanar,
+  otherwise they are not.
+\end{enumerate}
+
+\section{Vector-valued functions}
+
+\subsection{Vector-valued functions, limits, and continuity}
+
+\begin{enumerate}
+\item {\em Not for review discussion}: A vector-valued function is a
+  function from $\R$, or a subset of $\R$, to a vector space
+  $\R^n$. It comprises $n$ scalar functions, one for each of the
+  coordinates. For instance, given scalar functions $f_1, f_2, \dots,
+  f_n$, we can construct a vector-valued function $f = \langle f_1,
+  f_2, \dots, f_n \rangle$ defined by $t \mapsto \langle f_1(t),
+  f_2(t), \dots, f_n(t) \rangle$.
+\item {\em Not for review discussion}: A vector-valued function in $n$
+  dimensions corresponds to a parametric description of a curve in
+  $\R^n$ whose points are just the heads of the corresponding
+  vectors. The vector-valued function from the previous observation
+  has corresponding curve $\{ (f_1(t),f_2(t),\dots,f_n(t)): t \in D \}$
+  where $D$ is the appropriate domain.
+\item To add two vector-valued functions in $n$ dimensions, we add
+  them coordinate-wise, where the corresponding scalar functions are
+  added pointwise as usual. This sum is also a vector-valued function
+  in $n$ dimensions.
+\item We can multiply a scalar function and a vector-valued function
+  to get a new vector-valued function. At each point in the domain,
+  this is just multiplication of the corresponding scalar number and
+  the corresponding vector.
+\item We can take the dot product of two vector-valued functions in
+  $n$ dimensions. The dot product is a scalar-valued function. At each
+  point in the domain, it is obtained by taking the dot product of the
+  corresponding vector values.
+\item For $n = 3$, we can take the cross product of two vector-valued
+  functions and get a vector-valued function. This cross product is
+  taken pointwise.
+\item To calculate the limit of a vector-valued function at a point,
+  we calculate the limit separately for each coordinate. We use this
+  idea to define the {\em limit}, {\em left hand limit}, and {\em
+  right hand limit} at any point in the domain.
+\item Limit theorems: Limit of sum is sum of limits, constant scalars
+  pull out of limits, limit of scalar-vector product is product of
+  scalar limit and vector limit, limit of dot product is dot product
+  of limits, limit of cross product (case $n = 3$) is cross product of limits.
+\item A vector-valued function is {\em continuous} at a point in its
+  domain if each coordinate function is continuous, or equivalently,
+  if the limit equals the value. We say it is continuous on its
+  interval if it is continuous at every point in the interior of the
+  interval and has one-sided continuity at one of the endpoints.
+\item Continuity theorems: Sum of continuous vector-valued functions
+  is continuous, product of continuous scalar function and continuous
+  vector-valued function is continuous, dot product of continuous
+  vector-valued functions is continuous, cross product (case $n = 3$)
+  of continuous vector-valued functions is continuous.
+\item There is no $n$-dimensional analogue of the intermediate value
+  theorem, multiple things fail.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item If no domain is specified, the domain of a vector-valued
+  function is the intersection of the domains of all the constituent
+  scalar functions.
+\end{enumerate}
+
+\subsection{Top-down and bottom-up descriptions}
+
+Words ...
+
+\begin{enumerate}
+\item A top-down description of a subset of $\R^n$ is in terms of a
+  system of equations and inequality constraints. Each equation
+  (equality constraint) is expected to reduce the dimension by $1$ (we
+  start from $n$) whereas inequality constraints usually have no
+  effect on the dimension. So if there are $k$ independent equality
+  constraints describing a subset of $\R^n$, we expect the subset to
+  have dimension $n - k$.
+\item A bottom-up description is a parametric description with
+  possibly more than one parameter. The number of parameters needed is
+  the dimension of the subset. The parametric descriptions we have
+  seen so far are $1$-parameter descriptions and hence they describe
+  curves -- $1$-dimensional subsets.
+\item The codimension of a $m$-dimensional subset is $n - m$.
+\item When intersecting, codimensions are expected to add. If the
+  total codimension we get after adding is greater than the dimension of
+  the space, the intersection is expected to be empty.
+\item In $\R^3$, curves are one-dimensional, surfaces are
+  two-dimensional. Thus, curves are not expected to intersect each
+  other, but curves and surfaces are expected to intersect at finite
+  collections of points (in general).
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item Strategy for finding intersection of subsets in $\R^n$
+  (specifically, curves and surfaces in $\R^3$) given with top-down
+  descriptions: Take all the equations together and solve
+  simultaneously.
+\item Strategy for finding intersection of curve given parametrically
+  and curve or surface given by top-down description: Plug in the
+  functions of the parameter for the coordinates in the top-down description.
+\item Strategy for finding intersection of curves given
+  parametrically: Choose different letters for parameter values, and
+  then equate coordinate by coordinate. We get a bunch of equations in
+  two variables (the two parameter values).
+\item Strategy for finding collision of curves given parametrically:
+  Just equate coordinates, using the same letter for parameter
+  values. Get a bunch of equations all in one variable.
+\end{enumerate}
+
+\subsection{Differentiation, tangent vectors, integration}
+
+\begin{enumerate}
+\item The derivative of a $n$-dimensional vector-valued function is
+  again a $n$-dimensional vector-valued function. It can be defined by
+  differentiating each coordinate with respect to the parameter, or by
+  using a difference quotient expression. These definitions are
+  equivalent.
+\item This derivative operation satisfies the sum rule, pulling out
+  constant scalars, and product rules for scalar-vector
+  multiplication, dot product, and cross product (case $n = 3$).
+\item As a free vector, the tangent vector at $t = t_0$ to a
+  parametric description of a curve is just the derivative vector for
+  the corresponding vector-valued function. As a localized vector, it
+  starts off at the corresponding point in $\R^n$.
+\item The tangent vector for a curve with parametric description
+  depends on the choice of parameterization. The {\em unit tangent
+  vector} does not, apart from the issue of direction (forward or
+  backward). The unit tangent vector is a unit vector (i.e., length
+  $1$ vector) in the direction of the tangent vector. It is unique for
+  a given curve (independent of parameterization) up to
+  forward-backward issues.
+\item To perform definite or indefinite integration of a vector-valued
+  function, we perform the integration coordinate-wise.
+\end{enumerate}
+
+\end{document}

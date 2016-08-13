@@ -1,0 +1,764 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Inverse trigonometric functions}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\newcommand{\arccot}{\operatorname{arccot}}
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 7.7.
+
+{\bf What students should already know}: The definitions of the
+trigonometric functions and the key identities relating them.
+
+{\bf What students should definitely get}: The definitions of the
+inverse trigonometric functions for sine and cosine. The definitions
+of the other inverse trigonometric functions, and the differentiation
+rules for these functions. The application of these to some specific
+types of indefinite integration.
+
+{\bf What students should hopefully get}: The domain/range subtleties
+for inverse trigonometric functions. The one-sided nature of inverses,
+and how to compute $\arcsin \circ \sin$ and similar things in
+general. The ``magic'' of finding inverse trigonometric functions as
+antiderivatives of algebraic functions (rational functions and radical
+functions).
+
+{\em Note}: If you would like a more detailed review of trigonometry
+concepts and ideas, please look at the notes titled {\em Trigonometry
+review} back from 152. These notes were not covered in class, but were
+included for reference.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item The functions $\sin$, $\cos$, $\tan$, and their reciprocals are
+  all periodic functions. While $\tan$ and $\cot$ have a period of
+  $\pi$, the other four have a period of $2\pi$ each. While $\sin$ and
+  $\cos$ are continuous and defined for all real numbers, the other
+  four functions have points of discontinuity where they approach
+  infinities of different signs from both sides. Also, $\tan$ and
+  $\cot$ are one-to-one on a single period domain, while the other
+  functions are usually two-to-one.
+\item To construct inverses to these functions, we take intervals
+  small enough such that the function is one-to-one restricted to that
+  interval, but the range of the function restricted to that interval
+  is the whole range. We also try to make our choice in such a manner
+  that the {\em other function in the square sum/difference
+  relationship} is nonnegative on the domain.
+\item The choices are: $[-\pi/2,\pi/2]$ for $\sin$ (note that $\cos$
+  is nonnegative on this), $[0,\pi]$ for $\cos$ (note that $\sin$ is
+  nonnegative on this), $(-\pi/2,\pi/2)$ for $\tan$ (note that $\sec$
+  is nonnegative on this), and $(0,\pi)$ for $\cot$ (note that $\csc$
+  is nonnegative on this).
+\item We define the corresponding inverse trigonometric functions
+  $\arcsin$, $\arccos$, $\arctan$ and $\operatorname{arccot}$. The
+  domains for both $\arcsin$ and $\arccos$ equal $[-1,1]$ while the
+  domains for both $\arctan$ and $\operatorname{arccot}$ equal all of
+  $\R$. The range of $\arcsin$ is $[-\pi/2, \pi/2]$ and the range of
+  $\arccos$ is $[0,\pi]$. The range of $\arctan$ is $(-\pi/2,\pi/2)$
+  and the range of arccot is $(0,\pi)$.
+\item $\arcsin$ is an increasing function with vertical tangents at
+  the endpoints, and $\arccos$ is a decreasing function with vertical
+  tangents at the endpoints. For all $x$, we have $\arcsin x + \arccos
+  x = \pi/2$. $\arctan$ is an increasing function with horizontal
+  asymptotes valued at $-\pi/2$ and $\pi/2$ and arccot is a decreasing
+  function with horizontal asymptotes valued at $\pi$ and $0$.
+\item We define the arc secant function and the arc cosecant function
+  as $\operatorname{arcsec}(x) = \arccos(1/x)$ and
+  $\operatorname{arccsc}(x) = \arcsin(1/x)$. These are defined for all
+  $x$ outside $(-1,1)$.
+\item Using the formula for differentiating the inverse function, we
+  obtain that $\arcsin'(x) = 1/\sqrt{1 - x^2}$ and $\arccos'(x) =
+  -1/\sqrt{1 - x^2}$. Thus, $\int dx/\sqrt{1 - x^2} = \arcsin x +
+  C$. Also, we obtain $\int dx/\sqrt{a^2 - x^2} = \arcsin(x/a) + C$.
+\item Similarly, we obtain that $\arctan'(x) = 1/(1 + x^2)$ and
+  $\operatorname{arcsec}'(x) = 1/(|x|\sqrt{x^2 - 1})$. Note that in
+  the case of arc secant, we need the absolute value to account for
+  the fact that tangent is not nonnegative on the range of arc secant.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+
+\item $\sin(\arcsin x) = x$ if $x$ lies in the domain of the $\arcsin$
+  function. Note that otherwise $\sin(\arcsin x)$ does not make
+  sense. Similar observations hold for the other trigonometric
+  functions.
+\item {\em Solving equations}: The solutions to $\sin x = \alpha$,
+  where $\alpha \in [-1,1]$ come in two families: $\{ 2n\pi + \arcsin
+  \alpha : n \in \mathbb{Z} \}$ and $\{ 2n\pi + (\pi - \arcsin \alpha)
+  : n \in \mathbb{Z} \}$. Similarly, the solutions to $\cos x =
+  \alpha$ where $\alpha \in [-1,1]$ come in two families: $\{ 2n \pi +
+  \arccos \alpha: n \in \mathbb{Z} \}$ and $\{ 2n\pi - \arccos \alpha
+  : n \in \mathbb{Z} \}$. In the special case where $\alpha = 1$
+  (respectively, $\alpha = -1$), the two solution families for $\sin$
+  (respectively, $\cos$) collapse into one solution family.
+\item $\arcsin(\sin x)$ need not be equal to $x$ -- they are equal if
+  and only if $x$ is in the range of $\arcsin$.
+\item We often want to compute things like $\cos(2 \arctan x)$. To
+  tackle these situations, we set $\theta = \arctan x$, so we obtain
+  $\tan \theta = x$. The problem now reduces to determining
+  $\cos(2\theta)$ in terms of $\tan \theta$, which is some elementary
+  trigonometry. (It's elementary only if you know at least some of the
+  double-angle formulas).
+\item The integration formulas for $1/\sqrt{1 - x^2}$ etc. give rise
+  to many slightly more general integration formulas. A short list is
+  given in the book; a longer list is given on the last page of the
+  the lecture notes. Rather than {\em just} memorize the long list,
+  try to make sure you can {\em see} how the more complicated formulas
+  arise from the basic ones, and also how you would apply them to
+  actual integration problems. Internalize it to the level that you
+  {\em just know it}.
+\end{enumerate}
+
+\section{A brief review of trigonometry}
+
+In this lecture, we will discuss the inverse trigonometric
+functions. But before doing that, we will quickly review our knowledge
+of trigonometric functions.
+
+\subsection{A review of sine and cosine}
+
+So far, we have seen two broad definitions of sine and cosine. We
+review those two definitions:
+
+\begin{enumerate}
+\item The definition in terms of right triangles. Here, if $\theta$ is
+  one of the acute angles of a right-angled triangle, $\sin \theta$ is
+  defined as the quotient of the side opposite to $\theta$ to the
+  hypotenuse of the right-angled triangle. $\cos \theta$ is defined as
+  the quotient of the leg adjacent to $\theta$ to the hypotenuse. This
+  definition works for $\theta \in (0,\pi/2)$. That the definition
+  makes sense relies on the notion of similar triangles: any two
+  triangles with a common value of $\theta$ are {\em similar}, hence
+  the quotients of corresponding side lengths are equal.
+\item The definition in terms of the unit circle in the coordinate
+  plane: Here, we start at the point $(1,0)$ in the coordinate plane,
+  and move a length of $\theta$ along the circle $x^2 + y^2 = 1$ in
+  the counter-clockwise direction. The $x$-coordinate of the point we
+  land at is defined as $\cos \theta$ and the $y$-coordinate is
+  defined as $\sin \theta$. This definition works for all $\theta \in
+  \R$.
+\end{enumerate}
+
+We have seen the following key identities relating $\sin$ and $\cos$:
+
+\begin{enumerate}
+\item $\sin^2 \theta + \cos^2 \theta = 1$.
+\item $\sin(\pi/2 - \theta) = \cos \theta$.
+\item $\cos(\pi/2 - \theta) = \sin \theta$.
+\item $\sin(-\theta) = - \sin \theta$, i.e., $\sin$ is an odd function.
+\item $\cos(-\theta) = \cos \theta$, i.e., $\cos$ is an even function.
+\item $\sin(\pi/2 + \theta) = \cos \theta$.
+\item $\cos(\pi/2 + \theta) = -\sin \theta$.
+\item $\sin(\pi - \theta) = \sin \theta$.
+\item $\cos(\pi - \theta) = -\cos \theta$.
+\item $\sin(\pi + \theta) = - \sin \theta$.
+\item $\cos(\pi + \theta) = - \cos \theta$.
+\item $\sin(2\pi + \theta) = \sin \theta$.
+\end{enumerate}
+
+Most of these can be deduced from the following four angle sum formulas:
+
+\begin{enumerate}
+\item $\sin(x + y) = \sin x \cos y + \cos x \sin y$.
+\item $\cos(x + y) = \cos x \cos y - \sin x \sin y$.
+\item $\sin(x - y) = \sin x \cos y - \cos x \sin y$.
+\item $\cos(x - y) = \cos x \cos y + \sin x \sin y$.
+\end{enumerate}
+
+From these, we have the following double-angle formulas:
+
+\begin{enumerate}
+\item $\sin(2x) = 2 \sin x \cos x$.
+\item $\cos(2x) = \cos^2 x - \sin^2 x = 2\cos^2 x - 1 = 1 - 2\sin^2
+  x$. This also translates to $\cos^2 x = (1 + \cos (2x))/2$ and $\sin^2 x
+  = (1 - \cos(2x))/2$.
+\end{enumerate}
+
+The integration and differentiation relationships are:
+
+\begin{enumerate}
+\item The derivative of $\sin$ is $\cos$.
+\item The derivative of $\cos$ is $-\sin$.
+\item An antiderivative of $\sin$ is $-\cos$.
+\item An antiderivative of $\cos$ is $\sin$.
+\end{enumerate}
+
+\subsection*{Aside: The tyranny of great expectations}
+
+Unlike the earlier, carefree days, you are now expected to be able to
+do all the following:
+
+\begin{enumerate}
+\item Remember or be able to quickly reconstruct all the above formulas.
+\item Relate the above formulas to facts about the graphs. For
+  instance, the fact that $\sin(\pi - \theta) = \sin \theta$ indicates
+  that the graph of $\sin$ exhibits mirror symmetry about the line $x
+  = \pi/2$. Similarly, the fact that $\sin(2 \pi - \theta) = - \sin
+  \theta$ indicates a half-turn symmetry about $\pi$. If your
+  graphical intuition is strong, you may be able to reconstruct the
+  algebraic identities from their self-evident graphical
+  interpretations.
+\item Derive the results from each other, and reconcile them. For
+  instance, what is the derivative of $\sin (x + \pi)$? There are two
+  ways of computing this. You should be able to do things in both ways
+  and quickly reconcile your answers.
+\end{enumerate}
+
+\subsection{Finding solutions to $\sin x = a$}
+
+What are the solutions to $\sin x = a$? Obviously, the answer depends
+on $a$. We first consider four special cases:
+
+\begin{enumerate}
+\item If $|a| > 1$, there are {\em no} solutions.
+\item If $a = 0$, then the solutions are the integer multiples of
+  $\pi$.
+\item If $a = 1$, the solutions are of the form $2n\pi + \pi/2$, $n
+  \in \Z$.
+\item If $a = -1$, the solutions are of the form $2n\pi - \pi/2$, $n
+  \in \Z$.
+\end{enumerate}
+
+What about the other values of $a$? In these cases, we first find some
+angle $\theta$ such that $\sin \theta = a$. There are then two solution families:
+
+$$\{ 2n\pi + \theta : n \in \Z \}$$
+
+and
+
+$$\{ 2n\pi + (\pi - \theta) : n \in \Z \}$$
+
+Basically, these are the $2\pi$-translates of $\theta$ and of $\pi -
+\theta$. In particular, in any interval of length $2\pi$, there are
+two solutions.  
+
+Note that this general solution applies to the cases (2), (3) and (4)
+listed above. However, something special happens in each of the
+cases. In case (2), the two families are the even and odd multiples of
+$\pi$: they can be readily collapsed into a single family, namely, all
+multiples of $\pi$. In case (3), the two families coincide, because
+$\pi - \pi/2 = \pi/2$. For similar reasons, the two families coincide
+in case (4).
+
+\subsection{Finding solutions to $\cos x = a$}
+
+Here, if $|a| > 1$, there is no solution. Otherwise, we first find an
+angle $\theta$ such that $\cos \theta = a$. The two families are then:
+
+$$ \{ 2n \pi + \theta : n \in \mathbb{Z} \}$$
+
+and
+
+$$\{ 2n\pi - \theta : n \in \mathbb{Z} \}$$
+
+The two families can be combined using the $\pm$ symbol:
+
+$$\{ 2n \pi \pm \theta : n \in \mathbb{Z} \} $$
+
+Note that in the special case where $a = 1$, the two families
+coincide, and we simply obtain the multiples of $2\pi$. In the case $a
+= -1$, the two families coincide, and we simply obtain the odd
+multiples of $\pi$. In the case where $a = 0$, the two families can be
+combined into one family: odd multiples of $\pi/2$. 
+
+\subsection{The underclass of trigonometric functions}
+
+We recall a bunch of trigonometric functions that are usually under
+the radar, but recently surfaced in integration problems:
+
+\begin{enumerate}
+
+\item The $\tan$ function is defined as the quotient of the opposite
+  side to the adjacent side. It is defined as $\sin/\cos$. Note that
+  $\tan$ is undefined wherever $\cos$ is zero, which is to say, at odd
+  multiples of $\pi/2$.
+\item The $\cot$ function is defined as the quotient of the adjacent
+  side to the opposite side. It is defined as $\cos/\sin$. Note that
+  $\cot$ is undefined wherever $\sin$ is zero, which is to say, at all
+  multiples of $\pi$.
+\item The $\sec$ function is defined as the quotient of the hypotenuse
+  to the adjacent side. It is defined as $1/\cos$. Note that $\sec$ is
+  undefined wherever $\cos$ is zero, which is to say, at odd multiples
+  of $\pi/2$.
+\item The $\csc$ function is defined as the quotient of the hypotenuse
+  to the opposite side. It is defined as $1/\sin$. Note that $\csc$ is
+  undefined wherever $\sin$ is zero, which is to say, at all multiples
+  of $\pi$.
+\end{enumerate}
+
+$\tan$ and $\cot$ have periods of $\pi$ each. $\tan$ is increasing on
+each interval where defined (but more than makes up for it at the
+isolated points where it is undefined) while $\cot$ is decreasing on
+each interval where defined (but more than makes up for it at the
+isolated points where it is undefined). You can think of these as
+phoenix functions -- they start out as cute little creatures, grow to
+ugly monsters, then vanish and reappear as cute little creatures. 
+
+Here are the key relationships:
+
+\begin{enumerate}
+\item $\tan^2 x + 1 = \sec^2 x$.
+\item $\cot^2 x + 1 = \csc^2 x$.
+\item $\tan$ and $\cot$ are reciprocals of each other where both are defined.
+\item $\sec$ and $\cos$ are reciprocals of each other where both are defined.
+\item $\csc$ and $\sin$ are reciprocals of each other where both are defined.
+\item $\tan(\pi/2 - x) = \cot x$.
+\item $\sec(\pi/2 - x) = \csc x$.
+\item The derivative of $\tan$ is $\sec^2$.
+\item The derivative of $\cot$ is $-\csc^2$.
+\item The derivative of $\sec$ is $\sec \cdot \tan$.
+\item The derivative of $\csc$ is $-\csc \cdot \cot$.
+\item The antiderivative of $\tan$ is $-\ln | \cos |$.
+\item The antiderivative of $\cot$ is $\ln | \sin |$.
+\item The antiderivative of $\sec$ is $\ln | \sec + \tan |$.
+\item The antiderivative of $\csc$ is $\ln | \csc - \cot |$.
+\end{enumerate}
+
+\subsection{Three forms of complementarity}
+
+There are six trigonometric functions, $\sin$, $\cos$, $\tan$, $\cot$,
+$\sec$, and $\csc$, and there are three ways we can pair them up.
+
+\begin{enumerate}
+\item {\em Complementary angle pairing}: Here, we pair $f$ and $g$ if
+  $f(x) = g(\pi/2 - x)$ for all $x$ where $f$ is well-defined. Under
+  this pairing $\sin \leftrightarrow \cos$, $\tan \leftrightarrow
+  \cot$, and $\sec \leftrightarrow \csc$. The prefix {\em co}
+  basically refers to this pairing, hence {\em co}sine, {\em
+  co}tangent, and {\em co}secant.
+\item {\em Reciprocal pairing}: Here, we pair $f$ and $g$ if $f(x) =
+  1/g(x)$ for all $x$ where both sides make sense. Under this pairing,
+  $\sin \leftrightarrow \csc$, $\cos \leftrightarrow \sec$, and $\tan
+  \leftrightarrow \cot$.
+\item {\em Square sum/difference relation pairing}: Here, we pair $f$
+  and $g$ if the sum or difference of their squares is constant. Under
+  this pairing, $\sin \leftrightarrow \cos$, $\tan \leftrightarrow
+  \sec$, and $\cot \leftrightarrow \csc$.
+\end{enumerate}
+
+\section{Ready to invert now}
+
+\subsection{Looking before we leap}
+
+With this brief primer on trigonometric functions, we are almost ready
+to explore {\em inverse trigonometric functions}.
+
+Recall that one of the conditions for inverting a function is that the
+function be one-to-one. However, even if a function is not one-to-one
+on its entire domain, it is possible that the function is one-to-one
+on some subset of the domain. If the image of that subset equals the
+range of the function on the whole domain, then we can try to get an
+inverse by picking the representative in that subset.
+
+For instance the squaring function is not one-to-one on $\R$. However,
+its restriction to the nonnegative reals is one-to-one. And we can
+define an inverse, otherwise known as the {\em square root} function,
+from the nonnegative reals to the nonnegative reals.
+
+The trigonometric functions are far from one-to-one when viewed on
+their entire domain: after all, they're periodic. So the first step
+will be to find a subset of the domain that is small enough for the
+function to be one-to-one, but large enough for its image to be the
+whole range of the function. We will observe a lot of interesting
+things in the process. Enough looking, let's leap.
+
+\subsection*{Aside: Photographic memories}
+
+When you hear a person's name, the person's face probably pops in your
+mind. When you hear the word ``apple'', the picture (and perhaps the
+taste/smell) of an apple probably pops into your mind. In the same
+way, when you hear the name of a familiar function, the picture of
+that function should immediately pop into your mind. Not a very
+refined picture with labels, just a crude picture. If the situation
+demands it, you should be able to refine the picture.
+
+You should also be able to recall the graphs of multiple functions
+together, particularly functions that are commonly juxtaposed with
+each other. For instance, you should be able to imagine $\sin$ and
+$\cos$ graphed together, or $x$ and $x^2$ graphed together, etc.
+\subsection{Inverting the sine function}
+
+We see that the sine function has a period of $2\pi$, so definitely,
+if we take an interval of length $2\pi$, the sine function takes all
+the values in its range, which is $[-1,1]$. However, we observe that
+within an interval of length $2\pi$, there are repetitions, and the
+function is not one-to-one.
+
+In fact, all we need to do is look at an interval where the $\sin$
+function is increasing from $-1$ to $1$ or decreasing from $1$ to
+$-1$. Several such intervals come to mind. For instance, the interval
+$[-\pi/2,\pi/2]$ sees the sine function go from $-1$ to $1$, starting
+off at a sluggish pace, picking pace to max right in the middle (at
+$0$), and then coming to a graceful halt at $\pi/2$. There are other
+such intervals, but we will stick t othe interval $[-\pi/2,\pi/2]$,
+which we will call the {\em principal branch}.
+
+\includegraphics[width=3in]{principalbranchofsine.png}
+
+We now define the {\em inverse sine function} or the {\em arcsine
+function}, as the function from $[-1,1]$ to $[-\pi/2,\pi/2]$ that
+sends $a$ to the unique $\theta \in [-\pi/2,\pi/2]$ such that $\sin
+\theta = a$. This function is denoted $\arcsin$, and sometimes as
+$\sin^{-1}$. It is a one-to-one increasing function from $[-1,1]$ to
+$[-\pi/2,\pi/2]$. Its graph can be obtained by reflecting about the $y
+= x$ line the graph of the sine function on the interval
+$[-\pi/2,\pi/2]$. Note that this has vertical tangents at the
+endpoints, and its sense of concavity is opposite to that of $\sin$ on
+the relevant intervals.
+
+Now, consider the function $\cos$ on this interval. You see something
+very interesting: on the range of the arcsine function (which is the
+interval $[-\pi/2,\pi/2]$) the cosine function is $\ge 0$. This
+observation is very important for some of the trigonometric
+substitutions that we will see in integrations. Let's repeat: {\em
+cosine is nonnegative on the range of the arc sine function}.
+
+\subsection*{Aside: Something to feel good about next time}
+
+In the next class, we will study integrations involving inverse
+trigonometric functions. It would be great if, when we do that, one of
+you can point out this observation at the particular juncture in the
+reasoning where it becomes crucial.
+
+\subsection{Inverting the cosine function}
+
+For the cosine function, we choose the interval $[0,\pi]$, where the
+function decreases from $1$ to $-1$. 
+
+\includegraphics[width=3in]{principalbranchofcosine.png}
+
+We define $\arccos(a)$ as the unique value $\theta \in [0,\pi]$ such
+that $\cos \theta = a$. $\arccos$ is thus a decreasing function from
+$[-1,1]$ to $[0,\pi]$. As in the previous example, we see that $\sin$
+is nonnegative on the range of $\arccos$.
+
+Below are the pictures of the arc sine and arc cosine functions:
+
+\includegraphics[width=1.5in]{arcsinandarccos.png}
+
+\subsection{An important relationship}
+
+We have the following relationship:
+
+$$\arcsin(x) + \arccos(x) = \pi/2$$
+
+This basically follows from the fact that $\sin \theta = \cos(\pi/2 -
+\theta)$. We also need to use the fact that $\theta \in [-\pi/2,\pi/2]
+\iff \pi/2 - \theta \in [0,\pi]$.
+
+\subsection{Solving $\sin x = a$ and $\cos x = a$, again}
+
+Earlier, we talked about solving $\sin x = a$ (respectively, $\cos x =
+a$). The first step of the solution in the general case was finding a
+$\theta$ such that $\sin \theta = a$ (respectively, $\cos \theta =
+a$). Now, for that first step, we can simply write $\theta =
+\arcsin(a)$ (respectively, $\arccos(a)$).
+
+\subsection*{Aside: No easy way out}
+
+Don't use $\arcsin$ and $\arccos$ mindlessly. For instance, when
+solving $\sin x = 2$, don't just write answers in terms of
+$\arcsin(2)$ -- you should know that $2$ lies outside the domain of
+$\arcsin$. Also, for values where you can easily find an angle
+$\theta$, such as $a = 0, \pm 1, \pm 1/\sqrt{2}, \pm \sqrt{3}/2, \pm
+1/2$, you must do so.
+
+\section{Differentiating the inverse sine and cosine functions}
+
+\subsection{A review of arc sine and arc cosine}
+
+We recall, in point form, some key facts about the arc sine and the
+arc cosine functions:
+
+\begin{enumerate}
+\item The arc sine function has domain $[-1,1]$, range
+  $[-\pi/2,\pi/2]$. It is an increasing function, and has vertical
+  tangents at its ends. Further, by definition, $\sin(\arcsin x) = x$
+  for all $x \in [-1,1]$.
+\item The arc cosine function has domain $[-1,1]$ and range
+  $[0,\pi]$. It is a decreasing function, and has vertical tangents at
+  both ends. Further, by definition, $\cos(\arccos x) = x$ for all $x
+  \in [-1,1]$.
+\item $\arcsin(x) + \arccos(x) = \pi/2$ for all $x \in [-1,1]$.
+\item $\cos$ is nonnegative on the range of $\arcsin$, and $\sin$ is
+  nonnegative on the range of $\arccos$.
+\end{enumerate}
+
+\subsection*{Aside: odd and even}
+
+A little point of interest: if you take an odd one-to-one function, and
+consider the inverse function, that is also odd. Since $\sin$ is odd,
+and the domain $[-\pi/2,\pi/2]$ to which we restrict it is symmetric
+about $0$, the restriction of $\sin$ to this domain is also an odd
+function -- hence, its inverse function $\arcsin$ is an odd function.
+
+Is the inverse function to an even function also even? It turns out
+that the question does not make sense, because an even function
+cannot be one-to-one if it is defined anywhere other than $0$. To get
+an inverse, we first need to restrict the domain -- but the restricted
+domain cannot have any values $a$ and $-a$ simultaneously. And then,
+since the inverse function is again one-to-one, it cannot be even.
+
+\subsection{Finding $\arcsin(\sin x)$}
+
+We next turn to problems of the form: find $\arcsin(\sin x)$.
+
+Your first temptation may be to say that the answer is $x$. This is
+indeed true if $x$ is in the principal branch, i.e., $x$ is in the
+range of $\arcsin$. Otherwise, the answer cannot be $x$. What then? We
+know that if $t = \arcsin(\sin x)$, then $\sin t = \sin x$. Thus, $t$
+is the unique value in the principal branch $[-\pi/2,\pi/2]$ such that
+$\sin t = \sin x$. Finding this $t$ essentially involves using the
+general solution method discussed last time or just an inspection based on the graph.
+
+For instance, $\arcsin(\sin(7\pi/9))$ is an angle $\theta \in
+[-\pi/2,\pi/2]$ such that $\sin \theta = \sin(7\pi/9)$. Now, we know
+that $\sin(\pi - x) = \sin x$, so we have $\sin(\pi - 7\pi/9) =
+\sin(7\pi/9)$, giving that $\sin(2\pi/9) = \sin(7\pi/9)$. And $2\pi/9$
+lies in the range of $\arcsin$, so the much coveted $\theta$ is
+$2\pi/9$.
+
+The $\arcsin \circ \sin$ function is a continuous, periodic, and
+piecewise linear function. It has a different linear definition on
+each interval between successive odd multiples of $\pi/2$. The graph
+of the function overall has a sawtooth shape with sharp turns at odd
+multiples of $\pi/2$. Below is the picture:
+
+\includegraphics[width=3in]{arcsinsin.png}
+
+\subsection{Differentiating $\arcsin$}
+
+Recall a tidbit about inverse functions: if $f(a) = b$, then:
+
+$$(f^{-1})'(b) = \frac{1}{f'(a)}$$
+
+Equivalently:
+
+$$(f^{-1})'(x) = \frac{1}{f'(f^{-1}(x))}$$
+
+In particular, we have that:
+
+$$\arcsin'(x) = \frac{1}{\sin'(\arcsin(x))}$$
+
+Since $\sin' = \cos$, we obtain that:
+
+$$\arcsin'(x) = \frac{1}{\cos(\arcsin(x))}$$
+
+The next key step involves trying to figure out if we can simplify
+$\cos(\arcsin x)$. So let's say $\arcsin x = \theta$. Then, $\sin
+\theta = x$ by definition. And we have the relationship:
+
+$$\sin^2 \theta + \cos^2 \theta = 1$$
+
+We need to find $\cos \theta$. The above relation gives:
+
+$$\cos^2 \theta = 1 - \sin^2 \theta = 1 - x^2$$
+
+Thus, either $\cos \theta = \sqrt{1 - x^2}$ or $\cos \theta = -\sqrt{1
+- x^2}$. how do we figure out which one it is?
+
+It turns out that it is always the nonnegative square root, because, by
+the choice of principal branch, $\cos$ is nonnegative on the range of
+$\arcsin$. Thus, we obtain that:
+
+$$\arcsin'(x) = \frac{1}{\sqrt{1 - x^2}}$$
+
+Here is a graphical illustration of $\arcsin$ and its derivative {\em
+on the same graph}:
+
+\includegraphics[width=1.5in]{arcsinanditsderivative.png}
+\subsection{Voodoo magic}
+
+Something amazing just happened. We defined trigonometric
+functions. First we did it for acute angles. Then we extended the
+definition to all real numbers. We developed the machinery of
+differentiation and integration. We developed the machinery of inverse
+functions. We used this machinery to define inverse trigonometric
+functions. And then we differentiated an inverse trigonometric
+function, and what did we get? We got something that looks {\em purely
+algebraic}! We got something that involves polynomials and
+squareroots, with nary a hint of trigonometry.
+
+To see how magical this is, consider if, instead, I had presented the
+indefinite integration problem:
+
+$$\int \frac{dx}{\sqrt{1 - x^2}}$$
+
+From what we just saw above, the answer is $\arcsin(x) + C$. Thus, the
+entire machinery of trigonometry is necessary to unlock an innocuous
+indefinite integration problem arising from algebra.
+
+Note that this is similar to the way we saw the natural logarithm pop
+up when integrating $(dx)/x$. However, there is a key difference. In
+that example, we used the integration of $(dx)/x$ to {\em define} the
+natural logarithm, and then noticed that the function relates quite a
+bit with our existing notions of exponentiation. In the trigonometric
+case, we obtained the $\arcsin$ function through other means, and then
+noticed that it works as an antiderivative for $(1 - x^2)^{-1/2}$.
+
+\subsection{A general observation}
+
+In the previous quarter, we saw that if $f'(x) = g(f(x))$, then
+$f^{-1}$ is an antiderivative for $1/g$. The above is a special case,
+where $f = \sin$ (restricted to $[-\pi/2,\pi/2]$), and $g(t) = \sqrt{1
+- t^2}$.
+
+\subsection{The derivative of arc cosine}
+
+By similar reasoning to the above:
+
+$$\arccos'(x) = \frac{-1}{\sqrt{1 - x^2}}$$
+
+Note that this makes sense because $\arcsin + \arccos$ is a constant,
+hence its derivative shoud be zero, and hence, $\arccos' = -\arcsin'$.
+
+\section{The other inverse trigonometric functions}
+
+\subsection{The inverse of the tangent function}
+
+Recall that $\tan$ is not defined at odd multiples of $\pi/2$, and is
+increasing on each of the intervals on which it is defined. Thus, a
+natural choice of principal branch for $\tan$ is
+$(-\pi/2,\pi/2)$.
+
+\includegraphics[width=1in]{principalbranchoftan.png}
+
+The inverse function, denoted $\arctan$ or sometimes $\tan^{-1}$, and
+called the arc tangent function, takes as input $x \in \R$ and outputs
+the unique $\theta \in (-\pi/2,\pi/2)$ such that $\tan \theta =
+x$. Thus, it is a one-to-one increasing function with domain $\R$ and
+range $(-\pi/2,\pi/2)$. In particular, it has two horizontal
+asymptotes: the horizontal asymptote $y = +\pi/2$ for $x \to +\infty$
+and the horizontal asymptote $y = -\pi/2$ for $x \to -\infty$.
+
+\includegraphics[width=3in]{arctan.png}
+
+The derivative of this is given by:
+
+$$\arctan'(x) = \frac{1}{\sec^2(\arctan x)} = \frac{1}{1 + x^2}$$
+
+This also gives another indefinite integration formula:
+
+$$\int \frac{dx}{1 + x^2} = \arctan x + C$$
+
+{\em We saw a variant of this in Homework 9 of Math 152, Advanced
+Problem 1.}
+
+Below is a graph showing $\arctan$ and its derivative together:
+
+\includegraphics[width=3in]{arctananditsderivative.png}
+
+\subsection{The inverse of the cotangent function}
+
+Recall that $\cot$ is not defined at multiples of $\pi$, and is
+decreasing on each of the intervals where it is defined. Thus, a
+natural choice of principal branch for $\cot$ is $(0,\pi)$.
+
+The inverse function, denoted $\arccot$ or sometimes $\cot^{-1}$, and
+called the arc cotangent function, is thus a one-to-one decreasing
+function from $\R$ to $(0,\pi)$. Further, its derivative is:
+
+$$\arccot'(x) = \frac{-1}{1 + x^2}$$
+
+Also, we have that:
+
+$$\arctan(x) + \arccot(x) = \frac{\pi}{2}$$
+
+As was the case with arc sine and arc cosine, the sum of the
+derivatives of $\arctan$ and $\arccot$ is zero, as it should be.
+
+\subsection{The inverse of the secant and cosecant function}
+
+We do not talk much about these, but we formally define:
+
+$$\operatorname{arcsec}(x) = \arccos(1/x)$$
+
+with domain $(-\infty,-1] \cup [1,\infty)$ and range $[0,\pi]
+\setminus \{ \pi/2 \}$.
+
+And we define:
+
+$$\operatorname{arccsc}(x) = \arcsin(1/x)$$
+
+with domain $(-\infty,-1] \cup [1,\infty)$ and range $[-\pi/2,\pi/2]
+\setminus \{ 0 \}$. We have:
+
+$$\operatorname{arcsec}(x) + \operatorname{arccsc}(x) = \frac{\pi}{2}$$
+
+We also have the derivative formulas:
+
+$$\operatorname{arcsec}'(x) = \frac{1}{|x|\sqrt{x^2 - 1}}$$
+
+and:
+
+$$\operatorname{arccsc}'(x) = \frac{-1}{|x|\sqrt{x^2 - 1}}$$
+
+The proof of these requires multiple cases, basically because $\tan$
+is not nonnegative on the entire range of arcsec, and $\cot$ is not
+nonnegative on the entire range of arccsc. Look up the proof in the
+book if you are interested.
+
+\section{Note on improper integrals}
+
+Consider the definite integral:
+
+$$\int_0^1 \frac{dx}{\sqrt{1 - x^2}}$$
+
+This becomes:
+
+$$[\arcsin x]_0^1 = \arcsin 1 - \arcsin 0 = \frac{\pi}{2}$$
+
+This integration is correct. However, the integrand itself ($1/\sqrt{1
+  - x^2}$) is not defined at $1$. In fact, $\arcsin$ is defined at $1$
+but has a one-sided vertical tangent, with the derivative approaching
+$+\infty$.
+
+This is an example of an {\em improper integration}. We will come back
+to improper integrations later in the course.
+\section{The formulas for indefinite integration}
+
+We have the following formulas for indefinite integration:
+
+\begin{eqnarray*}
+  \int \frac{dx}{\sqrt{1 - x^2}} & = & \arcsin(x) + C \\
+  \int \frac{dx}{1 + x^2} & = & \arctan(x) + C\\
+  \int \frac{dx}{|x|\sqrt{x^2 - 1}} & = & \operatorname{arcsec}(x) + C
+\end{eqnarray*}
+
+We now consider slight variants of these. In all the formulas below,
+$a > 0$ is a constant:
+
+\begin{eqnarray*}
+  \int \frac{dx}{\sqrt{a^2 - x^2}} & = & \arcsin\left(\frac{x}{a}\right) + C\\
+  \int \frac{dx}{a^2 + x^2} & = & \frac{1}{a} \arctan \left(\frac{x}{a}\right) + C\\
+  \int \frac{dx}{|x|\sqrt{x^2 - a^2}} & = & \frac{1}{a} \operatorname{arcsec}\left(\frac{x}{a}\right) +C
+\end{eqnarray*}
+
+We consider yet more variants of these. Here, $a > 0$ and $b$ is
+arbitrary, but both are constants:
+
+\begin{eqnarray*}
+  \int \frac{dx}{\sqrt{a^2 - (x - b)^2}} & = & \arcsin\left(\frac{x - b}{a}\right) + C\\
+  \int \frac{dx}{a^2 + (x - b)^2} & = & \frac{1}{a} \arctan \left(\frac{x - b}{a} \right) + C\\
+  \int \frac{dx}{|x - b|\sqrt{(x - b)^2 - a^2}} & = & \frac{1}{a} \operatorname{arcsec}\left(\frac{x - b}{a}\right) + C
+\end{eqnarray*}
+
+Next, we see how these can be combined with other ideas. As before, $a
+> 0$ is a constant:
+
+\begin{eqnarray*}
+  \int \frac{f'(x) \, dx}{\sqrt{a^2 - (f(x))^2}} & = & \arcsin\left(\frac{f(x)}{a}\right) + C\\
+  \int \frac{f'(x) \, dx}{(f(x))^2 + a^2} & = & \frac{1}{a}\arctan\left(\frac{f(x)}{a}\right) + C\\
+  \int \frac{f'(x) \, dx}{|f(x)|\sqrt{(f(x))^2 - a^2}} & = & \frac{1}{a} \operatorname{arcsec}\left(\frac{f(x)}{a}\right) + C\\
+  \int \frac{f(\arctan (x/a))}{a^2 + x^2}  \, dx& = & \frac{1}{a} \int f(u) \, du \text{ where } u = \arctan(x/a)\\
+  \int \frac{f(\arcsin(x/a))}{\sqrt{a^2 - x^2}} \, dx& = & \int f(u) \, du \text{ where } u = \arcsin(x/a)
+\end{eqnarray*}
+
+\end{document}

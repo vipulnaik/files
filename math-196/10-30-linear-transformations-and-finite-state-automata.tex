@@ -1,0 +1,197 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz: due Wednesday October 30: Linear transformations and finite state automata}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+Your name (print clearly in capital letters): $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+
+{\bf PLEASE FEEL FREE TO DISCUSS {\em ALL} QUESTIONS.}
+
+The purpose of this quiz is to explore in greater depth particular
+types of matrices, the corresponding linear transformations, and the
+relationship between operations on sets and similar operations on
+vector spaces. The material covered in the quiz will also prove to be
+a fertile source of {\em examples} and {\em counterexamples} for later
+content: in the future, when you are asked to come up with matrices
+that satisfy some very loosely stated conditions, the matrices of the
+type described here can be a place to begin your search.
+
+\vspace{0.2in}
+
+Let $n$ be a natural number greater than $1$. Suppose $f: \{
+0,1,2,\dots,n\} \to \{ 0,1,2,\dots,n\}$ is a function satisfying $f(0)
+= 0$. Let $T_f$ denote the linear transformation from $\R^n$ to $\R^n$
+satisfying the following for all $i \in \{ 1,2,\dots,n\}$:
+
+$$T_f(\vec{e}_i) = \left \lbrace \begin{array}{rl} \vec{e}_{f(i)}, & f(i) \ne 0\\ \vec{0}, & f(i) = 0\\\end{array}\right.$$
+
+Let $M_f$ denote the matrix for the linear transformation $T_f$. $M_f$
+can be described explicitly as follows: the $i^{th}$ column of $M_f$
+is $\vec{0}$ if $f(i) = 0$ and is $\vec{e}_{f(i)}$ if $f(i) \ne 0$.
+
+Note that if $f,g: \{ 0,1,2,\dots,n \} \to \{ 0,1,2,\dots,n\}$ are
+functions with $f(0)= g(0) = 0$, then $M_{f \circ g} = M_fM_g$ and
+$T_{f \circ g} = T_f \circ T_g$.
+
+We will also use the following terminology:
+
+\begin{itemize}
+\item A $n \times n$ matrix $A$ is termed {\em idempotent} if $A^2 = A$.
+\item A $n \times n$ matrix $A$ is termed {\em nilpotent} if there
+  exists a positive integer $r$ such that $A^r = 0$.
+\item A $n \times n$ matrix $A$ is termed a {\em permutation matrix}
+  if every row contains one $1$ and all other entries $0$, {\em and}
+  every column contains one $1$ and all other entries $0$.
+\end{itemize}
+
+\begin{enumerate}
+\item What condition on a function $f: \{ 0,1,2,\dots, n\} \to \{
+  0,1,2,\dots,n\}$ (satisfying $f(0) = 0$) is equivalent to requiring
+  $M_f$ to be idempotent?
+
+  \begin{enumerate}[(A)]
+  \item $(f(x))^2 = x$ for all $x \in \{ 0,1,2,\dots,n\}$
+  \item $f(x^2) = x$ for all $x \in \{ 0,1,2,\dots,n \}$
+  \item $(f(x))^2 = f(x)$ for all $x \in \{ 0,1,2,\dots,n\}$
+  \item $f(f(x)) = x$ for all $x \in \{ 0,1,2,\dots,n\}$
+  \item $f(f(x)) = f(x)$ for all $x \in \{0,1,2,\dots,n \}$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item What condition on a function $f: \{ 0,1,2,\dots, n\} \to \{
+  0,1,2,\dots,n\}$ (satisfying $f(0) = 0$) is equivalent to requiring
+  $M_f$ to be nilpotent?
+
+  \begin{enumerate}[(A)]
+  \item Composing $f$ enough times with itself gives the identity
+    function (i.e., the function that sends everything to itself).
+  \item Composing $f$ enough times with itself gives the function that
+    sends everything to $0$.
+  \item Composing $f$ enough times with itself gives the function that
+    sends everything to $1$.
+  \item Multiplying $f$ enough times with itself gives the identity
+    function (i.e., the function that sends everything to itself).
+  \item Multiplying $f$ enough times with itself gives the function
+    that sends everything to $0$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item What condition on a function $f: \{ 0,1,2,\dots, n\} \to \{
+  0,1,2,\dots,n\}$ (satisfying $f(0) = 0$) is equivalent to requiring
+  $M_f$ to be a permutation matrix?
+
+  \begin{enumerate}[(A)]
+  \item Composing $f$ enough times with itself gives the identity
+    function (i.e., the function that sends everything to itself).
+  \item Composing $f$ enough times with itself gives the function that
+    sends everything to $0$.
+  \item Composing $f$ enough times with itself gives the function that
+    sends everything to $1$.
+  \item Multiplying $f$ enough times with itself gives the identity
+    function (i.e., the function that sends everything to itself).
+  \item Multiplying $f$ enough times with itself gives the function
+    that sends everything to $0$.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Consider a function $f: \{ 0,1,2,\dots,n \} \to
+  \{0,1,2,\dots,n\}$ with the property that $f(0) = 0$ and, for each
+  $i \in \{ 1,2,\dots,n\}$, $f(i)$ is either $i$ or $0$. Note that the
+  behavior may be different for different values of $i$ (so some of
+  them may go to themselves, and others may go to $0$). What can we say
+  $M_f$ must be?
+
+  \begin{enumerate}[(A)]
+  \item $M_f$ must be the identity matrix.
+  \item $M_f$ must be the zero matrix.
+  \item $M_f$ must be an idempotent matrix.
+  \item $M_f$ must be a nilpotent matrix.
+  \item $M_f$ must be a permutation matrix.
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Which of the following pairs of candidates for $f,g: \{ 0,1,2 \}
+  \to \{ 0,1,2 \}$ satisfies the condition that $M_fM_g = 0$ but
+  $M_gM_f \ne 0$? 
+
+  \begin{enumerate}[(A)]
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 2$, whereas $g(0) = 0$, $g(1)
+    = 2$, $g(2) = 1$
+  \item $f(0) = 0$, $f(1) = 0$, $f(2) = 1$, whereas $g(0) = 0$, $g(1)
+    = 2$, $g(2) = 0$
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 0$, whereas $g(0) = 0$, $g(1)
+    = 0$, $g(2) = 2$
+  \item $f(0) = 0$, $f(1) = 0$, $f(2) = 1$, whereas $g(0) = 0$, $g(1)
+    = 1$, $g(2) = 0$
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 0$, whereas $g(0) = 0$, $g(1)
+    = 0$, $g(2) = 1$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Which of the following pairs of candidates for $f,g: \{ 0,1,2 \}
+  \to \{ 0,1,2 \}$ satisfies the condition that $M_f$ and $M_g$ are
+  both nilpotent but $M_fM_g$ is not nilpotent?
+
+  \begin{enumerate}[(A)]
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 2$, whereas $g(0) = 0$, $g(1)
+    = 2$, $g(2) = 1$
+  \item $f(0) = 0$, $f(1) = 0$, $f(2) = 1$, whereas $g(0) = 0$, $g(1)
+    = 2$, $g(2) = 0$
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 0$, whereas $g(0) = 0$, $g(1)
+    = 0$, $g(2) = 2$
+  \item $f(0) = 0$, $f(1) = 0$, $f(2) = 1$, whereas $g(0) = 0$, $g(1)
+    = 1$, $g(2) = 0$
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 0$, whereas $g(0) = 0$, $g(1)
+    = 0$, $g(2) = 1$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\item Which of the following pairs of candidates for $f,g: \{ 0,1,2 \}
+  \to \{ 0,1,2 \}$ satisfies the condition that neither $M_f$ and
+  $M_g$ is nilpotent but $M_fM_g$ is nilpotent?
+
+  \begin{enumerate}[(A)]
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 2$, whereas $g(0) = 0$, $g(1)
+    = 2$, $g(2) = 1$
+  \item $f(0) = 0$, $f(1) = 0$, $f(2) = 1$, whereas $g(0) = 0$, $g(1)
+    = 2$, $g(2) = 0$
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 0$, whereas $g(0) = 0$, $g(1)
+    = 0$, $g(2) = 2$
+  \item $f(0) = 0$, $f(1) = 0$, $f(2) = 1$, whereas $g(0) = 0$, $g(1)
+    = 1$, $g(2) = 0$
+  \item $f(0) = 0$, $f(1) = 1$, $f(2) = 0$, whereas $g(0) = 0$, $g(1)
+    = 0$, $g(2) = 1$
+  \end{enumerate}
+
+  \vspace{0.1in}
+  Your answer: $\underline{\qquad\qquad\qquad\qquad\qquad\qquad\qquad}$
+  \vspace{0.1in}
+
+\end{enumerate}
+\end{document}

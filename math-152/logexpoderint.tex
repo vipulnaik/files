@@ -1,0 +1,734 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul,graphicx}
+\title{Logarithm, exponential, derivative, and integral}
+\author{Math 152, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 7.2, 7.3, 7.4.
+
+{\bf What students should definitely get}: The definition of logarithm
+as an integral, its key properties. The differentiation and
+integration formulas for logarithm and exponential, the key ideas
+behind combining these with the chain rule and $u$-substitution to
+carry out other integrals.
+
+\section*{Executive summary}
+
+\subsection{Logarithm and exponential: basics}
+
+\begin{enumerate}
+\item The {\em natural logarithm} is a one-to-one function with domain
+  $(0,\infty)$ and range $\R$, and is defined as $\ln(x) := \int_1^x
+  (dt/t)$.
+\item The natural logarithm is an increasing function that is concave
+  down. It satisfies the identities $\ln(1) = 0$, $\ln(ab) = \ln(a) +
+  \ln(b)$, $\ln(a^r) = r\ln a$, and $\ln(1/a) = -\ln a$.
+\item The limit $\lim_{x \to 0} \ln(x)$ is $-\infty$ and the limit
+  $\lim_{x \to \infty} \ln(x)$ is $+\infty$. Note that $\ln$ goes off
+  to $+\infty$ at $\infty$ even though its derivative goes to zero as
+  $x \to + \infty$.
+\item The derivative of $\ln(x)$ is $1/x$ and the derivative
+  \underline{of} $\ln(kx)$ is also $1/x$. The derivative of $\ln(x^r)$
+  is $r/x$.
+\item The antiderivative of $1/x$ is $\ln |x| + C$. What this really
+  means is that the antiderivative is $\ln(-x) + C$ when $x$ is
+  negative and $\ln(x) + C$ when $x$ is positive. If we consider $1/x$
+  on both positive and negative reals, the constant on the negative
+  side is unrelated to the constant on the positive side.
+\item $e$ is defined as the unique number $x$ such that $\ln(x) =
+  1$. $e$ is approximately $2.718$. In particular, it is between $2$ and
+  $3$.
+\item The inverse of the natural logarithm function is denoted $\exp$,
+  and $\exp(x)$ is also written as $e^x$. When $x$ is a rational
+  number, $e^x = e^x$ (i.e., the two definitions of exponentiation
+  coincide). In particular, $e^1 = e$, $e^0 = 1$, etc.
+\item The function $\exp$ equals its own derivative and hence also its
+  own antiderivative. Further, the derivative of $x \mapsto e^{mx}$ is
+  $me^{mx}$. Similarly, the integral of $e^{mx}$ is $(1/m)e^{mx} +C$.
+\item We have $\exp(x + y) = \exp(x)\exp(y)$, $\exp(rx) =
+  (\exp(x))^r$, $\exp(0) = 1$, and $\exp(-x) = 1/\exp(x)$. All of
+  these follow from the corresponding identities for $\ln$.
+\end{enumerate}
+
+Actions...
+
+\begin{enumerate}
+\item We can calculate $\ln(x)$ for given $x$ by using the usual
+  methods of estimating the values of integrals, applied to the
+  function $1/x$. We can also use the known properties of logarithms,
+  as well as approximate $\ln$ values for some specific $x$ values, to
+  estimate $\ln x$ to a reasonable approximation. For this, it helps
+  to remember $\ln 2$, $\ln 3$, and $\ln 5$ or $\ln 10$.
+\item Since both $\ln$ and $\exp$ are one-to-one, we can {\em cancel}
+  $\ln$ from both sides of an equation and similarly {\em cancel}
+  $\exp$. Technically, we cancel $\ln$ by applying $\exp$ to both
+  sides, and we cancel $\exp$ by applying $\ln$ to both sides.
+\end{enumerate}
+
+\subsection{Integrations involving logarithms and exponents}
+
+Words/actions ...
+
+\begin{enumerate}
+\item If the numerator is the derivative of the denominator, the
+  integral is the logarithm of the (absolute value of) the
+  denominator. In symbols, $\int g'(x)/g(x) \, dx = \ln|g(x)| + C$.
+\item More generally, whenever we see an expression of the form
+  $g'(x)/g(x)$ inside the integrand, we should consider the
+  substitution $u = \ln |g(x)|$. Thus, $\int f(\ln|g(x)|)g'(x)/g(x) \,
+  dx = \int f(u) \, du$ where $u = \ln|g(x)|$.
+\item $\int f(e^x) e^x \, dx = \int f(u) \, du$ where $u = e^x$.
+\item $\int e^x[f(x) + f'(x)] \, dx = e^x f(x) + C$.
+\item $\int e^{f(x)} f'(x) \, dx = e^{f(x)} + C$.
+\item Trigonometric integrals: $\int \tan x \, dx = -\ln|\cos x| + C$,
+  and similar integration formulas for $\cot$, $\sec$ and $\csc$:
+  $\int \cot x \, dx = \ln|\sin x| + C$, $\int \sec x = \ln|\sec x +
+  \tan x| + C$, and $\int \csc x \, dx = \ln |\csc x - \cot x| + C$.
+\end{enumerate}
+
+
+\section{Logarithms: the adventure begins}
+
+\subsection{Finding an antiderivative of the reciprocal function}
+
+Recall that the process of differentiation never gave us fundamentally
+new functions, because the derivatives of all the basic functions that
+we knew were expressible in terms of other basic functions, and using
+the operations of pointwise combination and composition did not allow
+us to break ground into new functions. The situation differs somewhat
+for integration. We have seen that we often come across functions for
+which we have no clue as to how to find an antiderivative. We now
+discuss how to handle one such function.
+
+This function is the function $1/x$, which, for now, we will assume to
+be a function on $(0,\infty)$. We want to find an antiderivative for
+this function.
+
+The basic results of integration tell us that one way of defining an
+antiderivative is by using a definite integral from a fixed value to
+$x$, as long as that fixed value is in the domain. For reasons that
+are not immediately obvious, we choose the fixed value (the reference
+point) as $1$. We thus define the following function:
+
+$$L(x) := \int_1^x \frac{dt}{t}$$
+
+Note that this is the {\em unique} antiderivative which has the
+property that its value at $1$ is $0$. By definition, $L'(x) = 1/x$
+for all $x$. What further information can we derive about $L$?
+
+\subsection{Using the multiplicative transform}
+
+By the $u$-substitution method, we can readily verify that, for $a,b >
+0$:
+
+$$\int_1^a \frac{dt}{t} = \int_b^{ab} \frac{dt}{t}$$
+
+The key thing that is special about $1/x$ is that the multiplicative
+factor on the $dt$ part cancels the multiplicative factor on the $t$
+part.
+
+This gives us that:
+
+$$L(a) - L(1) = L(ab) - L(b)$$
+
+Since $L(1) = 0$, we obtain that $L$ is a function satisfying the property:
+
+$$L(ab) = L(a) + L(b) \ \forall \ a,b > 0$$
+
+Thus, even though we do not have an explicit description of $L$, we
+know that $L$ converts products to sums. In particular, we also see,
+for instance, that:
+
+$$L(a^n) = nL(a) \ \forall a > 0, n \in \mathbb{Z}$$
+
+In particular, $L(1/a) = -L(a)$.
+
+We can further see that for any rational number $r$, we have:
+
+$$L(a^r) = rL(a) \ \forall a > 0, r \in \mathbb{Q}$$
+
+In other words, the function $L$ converts products to sums and pulls
+the exponent into a multiple. We also know that since $L'(x) > 0$ for
+all $x > 0$, $L$ is continuous and increasing. In particular, we see
+that $L$ is a one-to-one map on $(0,\infty)$.
+
+What is the range of $L$? Consider $a = 2$. Then, $L(a) = L(2) >
+0$. As $n \to \infty$, $L(a^n) = nL(a) \to \infty$, and as $n \to
+-\infty$, $L(a^n) = nL(a) \to -\infty$. Since $L$ is increasing, we
+can use this to see that $\lim_{x \to \infty} L(x) = \infty$ and
+$\lim_{x \to 0} L(x) = -\infty$. Further, by the intermediate value
+theorem, we see that the range of $L$ is $\R$. 
+
+The upshot: $L$ is a continuous increasing one-to-one function from
+$(0,\infty)$ to $\R$ that sends $1$ to $0$ and converts products to
+sums.
+
+\subsection{L for (natural) logarithm}
+
+The function $L$ that is described above is termed the {\em natural
+logarithm} function. It is ubiquitous in mathematics, and is denoted
+$\ln$. Thus, we have the definition:
+
+$$\ln x := \int_1^x \frac{dt}{t} \ \forall \ x > 0$$
+
+It turns out that this natural logarithm behaves in ways very similar
+to logarithms to base $10$. A quick primer for those who didn't live
+in prehistoric times: in the olden days, when people had to do
+multiplications by hand, they used a tool called {\em logarithm
+tables} to do these multiplications. The logarithm tables basically
+converted the multiplication problem to an addition problem.
+
+Here is the principle on which the logarithm tables worked. These
+tables allowed you to, for a given number $x$, find the approximate
+value of $r$ such that $10^r = x$. This value of $r$ is called
+$\log_{10}x$. Then, if you had to multiply $x$ and $y$, you first
+found $\log_{10}x$ and $\log_{10}y$. It turns out that $\log_{10}(xy)
+= \log_{10}(x) + \log_{10}y$, because if $10^r = x$ and $10^s = y$,
+then $10^{r + s} = xy$ by properties of exponents. Thus, to find $xy$,
+we find $\log_{10}x$ and $\log_{10}(y)$ and add them. Then, there are
+antilogarithm tables, that allow us to find the antilogarithm of this
+sum that we have computed (or basically, raise $10$ to the power of
+that number).
+
+The principle of logarithm tables was later converted to a {\em
+mechanical device} called the {\em slide rule}. How many people have
+used slide rules? What a slide rule does is use a {\em logarithmic
+scale}, i.e., it places numbers on a scale in such a way that the
+distance between the positions of two numbers is determined by their
+quotient. So, on a logarithmic scale, the distance between $1$ and
+$10$ is the same as the distance between $10$ and $100$, and also the
+same as the distance between $0.01$ and $0.1$. The distance between
+$3$ and $7$ is the same as the distance between $30$ and $70$. (If
+you're interested in pictures of slide rules, do a Google image
+search. I haven't included any picture here because of potential
+copyright considerations).
+
+A slide rule comprises two logarithmic scales (using the same
+calibration) but one of them can slide against each other. We can use
+the sliding scale to add lengths along the scale, but since the scale
+is logarithmic, this ends up multiplying the numbers. You may have
+heard about how people with an abacus can often do simple calculations
+faster than people with a calculator. It turns out that people with a
+slide rule can usually do multiplications faster than people with a
+calculator.\footnote{On the other hand, the calculator is a lot more
+versatile than the slide rule, and is probably faster for computing
+roots, multiplying long sequences of numbers, or combinations of
+multiplication and addition.}
+
+Logarithmic scales are used in many measurements. Here are some
+examples:
+
+\begin{enumerate}
+
+\item The {\bf Richter magnitude scale} measures the intensity of
+  earthquakes. It is calibrated logarithmically to base $10$. An
+  earthquake one point higher on the Richter scale is ten times as
+  intense. 
+\item The {\bf pH scale} in chemistry is a logarithmic scale to
+  measure the concentration of the $H^+$ (more precisely, $H_3O^+$)
+  ions. It is a negative logarithmic scale to base $10$. An increase
+  in the pH value by $1$ corresponds to a decrease in the hydronium
+  ion concentration to $1/10$ of its original value.
+\item The {\bf decibel scale}, used for sound levels and other level
+  measurements, is a logarithmic scale where an increase in $10$
+  points along the scale corresponds to a ten-fold increase in
+  amplitude. Thus, $20 dB$ is ten times as loud as $10 dB$.
+
+\end{enumerate}
+
+The natural logarithm function can be thought of as creating a
+logarithmic scale on the positive reals. But the question we are
+concerned with is: what precisely is this scale? How does this compare
+with the usual logarithm to base $10$? Our hunch is that there should
+be a number $e$ such that $\ln(x)$ is the value $r$ such that $x =
+e^r$. What must this number $e$ be?
+
+\section{The back and forth of things: logarithm and exponential}
+
+\subsection{In search of $e$}
+
+If such a number $e$ exists, then it must be the unique number $x$
+satisfying $\ln (x) = 1$. Further, since $\ln$ is an increasing
+function, we can try locating $e$ between two consecutive integers by
+determining $\ln 2$, $\ln 3$, and so on. Actually, we can be more
+clever.
+
+We can begin by trying to compute $\ln 2$. We could do this using
+upper and lower sums. We could also do it by noting that $\ln x =
+\int_1^x dt/t$, and must be located between the antiderivatives of
+$x^{-1/2}$ and $x^{-3/2}$. We did this approximation a few weeks ago
+and found that $\ln 2$ is located between $0.58$ and $0.83$. Further
+approximations using either this method or upper and lower sums for
+partitions yields than $\ln 2$ is between $0.69$ and $0.70$. We will
+assume $\ln 2 \approx 0.7$ for calculations.
+
+Now that we know $\ln 2$, we do not need to do any more messy work
+with upper and lower sums. We know that $2 < 2\sqrt{2} < 3$. We also
+have that $\ln(2\sqrt{2}) = (3/2) \ln 2 \approx 1.05$, which is bigger
+than $1$. Thus, $\ln 3 > 1$, so $2 < e < 3$. In fact, $2 < e <
+2\sqrt{2} \approx 2.83$. We can also calculate, for instance, that the
+cuberoot of $2$ is about $1.26$. Thus, $\ln(2.52)$ is approximately
+$(4/3)(\ln 2)$ which is approximately $0.93$. Thus, we get that $e$
+should be bigger than $2.52$. A similar process of successive
+approximations yields that the value of $e$ is approximately
+$2.718281828$. You should know $e$ to at least three decimal
+places: $2.718$.
+
+Clearly, since $\ln(e) = 1$, we have that $\ln(e^{p/q}) = p/q$ for
+integers $p$ and $q$, with $q \ne 0$. It is not clear a priori what we
+would mean by the notation $e^r$ for irrational numbers $r$, but
+whatever we may mean, it should be the case that $\ln(e^r) = r$. In
+other words, the function $x \mapsto e^x$ must be the inverse function
+of the one-to-one function $\ln$. The function $x \mapsto e^x$ is also
+called the exponentiation function, and sometimes denoted $\exp$. By
+the way, the letter $e$ could be thought of as standing for {\em
+exponentiation}, but historically it is believed to be named after
+Leonhard Euler, a prolific mathematician who studied the properties
+both of the number $e$ and the exponentiation function.
+
+\subsection{Logarithms and exponents: some rules}
+
+Here are some of the rules:
+
+\begin{enumerate}
+\item $\ln$ is a one-to-one function from $(0,\infty)$ to $\R$ and
+  $\exp$ is a one-to-one function from $\R$ to $(0,\infty)$. The two
+  functions are inverse functions of each other.
+\item $\ln$ converts products to sums and $\exp$ converts sums to
+  products. In other words, $\ln(xy) = \ln(x) + \ln(y)$ and $\exp(x +
+  y) = \exp(x)\exp(y)$.
+\item $\ln(1) = 0$ and $\exp(0) = 1$.
+\item $\ln(1/x) = - \ln x$ and $\exp(-x) = 1/\exp(x)$.
+\item $\ln(x^r) = r \ln x$ and $\exp(rx) = (\exp(x))^r$.
+\item Both $\exp$ and $\ln$ are continuous and increasing functions.
+\item $\exp$ has the $x$-axis as a horizontal asymptote as $x \to
+  -\infty$, while $\ln$ has the $y$-axis as a vertical asymptote as $x
+  \to 0$.
+\item $\exp$ is concave up and $\ln$ is concave down.
+\end{enumerate}
+
+Here are the graphs:
+
+The logarithm graph, zoomed in for small inputs:
+
+\includegraphics[width=4in]{loggraphforsmallinputs.png}
+
+The logarithm graph, zoomed out:
+
+\includegraphics[width=4in]{loggraphforlargeinputs.png}
+
+The exponential graph:
+
+\includegraphics[width=4in]{expgraph.png}
+
+Here are the logarithm and exponential graphs together, so that we can
+see that the graphs are reflections of each other about the $y = x$ line:
+
+\includegraphics[width=2in]{logandexptogether.png}
+\subsection{Numerical shennanigans}
+
+In his autobiographical book, Richard Feynmann discusses how he
+impressed a bunch of mathematicians by being able to calculate natural
+logarithms of many numbers to one or two decimal places. However, what
+he did was hardly impressive. It turns out that remembering the
+natural logarithms of a few numbers allows us to compute them
+approximately for many numbers.
+
+For instance, it is useful to remember that $\ln(2) \approx 0.6931$,
+$\ln(3) \approx 1.0986$, $\ln(10) \approx 2.3026$, and $\ln(7) \approx
+1.9459$. We can now calculate the logarithm values for most
+integers. How? Using the fact that logarithms translate multiplication
+to addition. Thus, $\ln(4) = 2\ln(2) \approx 1.3862$, while $\ln(5) =
+\ln(10) - \ln(2) \approx 1.6095$. In fact, we can readily calculate
+the natural logarithm of any positive integer all of whose prime
+factors are among $2$, $3$, $5$, and $7$. What about $\ln(11)$? While
+we cannot calculate this precisely, we can calculate $\ln(10)$
+and $\ln(12)$ and thus obtain reasonable upper and lower bounds for
+$\ln(11)$. Even better, we know that $\ln(120) < 2 \ln(11) <
+\ln(125)$, and since we can calculate both $\ln(120)$ and $\ln(125)$,
+we get a pretty small range for $\ln(11)$.
+
+In fact, Feynman was able to impress physicists by doing calculations
+that essentially relied on only two facts: $\ln(2) \approx 0.7$ and
+$\ln(10) \approx 2.3$.
+
+If we are able to quickly calculate natural logarithms, a happy
+corollary of that is that we can quickly integrate $dx/x$ on intervals.
+
+\subsection{Domain and range issues}
+
+For domain computations in the past, we used the following basic
+guidelines:
+
+\begin{enumerate}
+\item Things in the denominator must be nonzero.
+\item Things with squareroots or even roots must be nonnegative.
+\item Things with squareroots or even roots in the denominator must be
+positive.\\
+\vspace{0.2in}
+We now add two more criteria:
+\vspace{0.2in}
+\item Things under logarithm must be positive.
+\item Things under logarithm of the absolute value must be nonzero.
+\end{enumerate}
+
+\subsection{Logarithm of the absolute value}
+
+The natural logarithm function is defined only for positive
+reals. However, we can extend it to a function on all reals by taking
+the absolute value first, i.e., we look at the function $x \mapsto
+\ln(|x|)$. This is an even function and its graph is obtained by
+takingthe graph of the logarithm function and adding its mirror image
+about the $y$-axis
+
+It turns out that the derivative of $\ln(|x|)$ is $1/x$. In
+particular, we see that $\ln(|x|)$ serves as an antiderivative of
+$1/x$ for {\em all nonzero $x$}. This is an improvement on $\ln(x)$,
+which worked only for positive $x$. However, we should be careful
+because the domain of $1/x$ as well as of $\ln|x|$ excludes
+zero. Hence, the behavior on the positive and negative side are
+totally independent of each other. We shall return to this point in a
+later lecure.
+
+\section{Formulas for derivatives and integrals}
+
+\subsection{Derivative and integral formulas for logarithms}
+
+The main formula that we have, which follows from our definition of
+natural logarithm, is the following:
+
+$$\frac{d}{dx} (\ln x) = \frac{1}{x}$$
+
+This is the formula for $x > 0$. A more general version, for $x \ne
+0$, is:
+
+$$\frac{d}{dx} (\ln |x|) = \frac{1}{x}$$
+
+The corresponding antiderivative formula for $x > 0$ is:
+
+$$\int \frac{dx}{x} = \ln(x) + C$$
+
+In general, the antiderivative formula is:
+
+$$\int \frac{dx}{x} = \ln(|x|) + C$$
+
+However, it should be remembered that this formula is valid only when
+we are working with $x$ either in $(0,\infty)$ or in $(-\infty,0)$,
+i.e., we cannot use the formula to cross between the interval
+$(0,\infty)$ and $(-\infty,0)$. In fact, if we have a function $f: \R
+\setminus \{ 0 \} \to \R$ such that $f'(x) = 1/x$, then we can
+guarantee that $f(x) - \ln(|x|)$ is constant on $x > 0$ and is
+constant on $x < 0$. However, these constants may differ. The behavior
+on the $(0,\infty)$ connected component does not in any way constrain
+the behavior on the $(-\infty,0)$ connected component.
+
+\subsection{The exponential and its derivative and integral formulas}
+
+Recall that $\exp$ is the inverse of the $\ln$ function. Thus, we can
+use the rule for differentiating the inverse function to find $\exp'$. We have:
+
+$$\exp'(x) = \frac{1}{\ln'(\exp x)} = \frac{1}{\frac{1}{\exp(x)}} = \exp(x)$$
+
+Thus, we have the remarkable property that the exponential function,
+i.e., the function $x \mapsto e^x$, is its own derivative. Another way
+of thinking about this is that the rate of growth of the exponential
+function is {\em equal} to its value. Note that this also implies that
+the exponential function is infinitely differentiable and all higher
+derivatives equal the same function.
+
+We rewrite the above in Liebniz notation:
+
+$$\frac{d}{dx}(e^x) = e^x$$
+
+We also note the corresponding statement for indefinite integration:
+
+$$\int e^x \, dx = e^x + C$$
+
+\subsection{Some corollaries}
+
+Using the above, we obtain the following identities for the logarithm
+and exponent:
+
+\begin{eqnarray*}
+  \frac{d}{dx} (\ln (kx)) & = & \frac{1}{x}\\
+  \frac{d}{dx} (\ln (x^r)) & = & \frac{r}{x}\\
+  \frac{d}{dx} (e^{mx}) & = & me^{mx}\\
+  \int e^{mx} \, dx & = & \frac{1}{m}e^{mx} + C\\
+\end{eqnarray*}
+
+Each of these identities can be derived in two ways: either by using
+the properties of logarithms and exponents on the inside and then
+differentiating, or by first differentiating and then simplifying. For
+instance, for the second identity, we can either simplify $\ln(x^r)$
+as $r \ln(x)$ first and then pull the constant $r$ out before
+differentiating, or we can use the chain rule to obtain $(1/x^r) \cdot
+rx^{r-1}$. It is gratifying to know that the answers we obtain both
+ways are the same.
+
+\section{Application to indefinite and definite integration}
+
+\subsection{The $u$-substitution: a textbook example}
+
+We begin with an easy example:
+
+$$\int_{\sqrt{n}}^n \frac{1}{x \ln x} \, dx$$
+
+Here, $n$ is an integer greater than $1$.
+
+Believe it or not, this integral actually came up in some asymptotic
+approximations I was doing some time ago to figure out whether some
+numbers have large prime divisors! Let us first look at the indefinite
+integral. The substitution $u = \ln x$ gives us:
+
+$$\int \frac{1}{x \ln x} = \int \frac{du}{u} = \ln(u) = \ln(\ln x) + C$$
+
+Note that we do not need to put absolute values here because on the
+interval of integration, $\ln$ is positive. Now, we can evaluate
+between limits:
+
+$$\left[ \ln(\ln x) \right]_{\sqrt{n}}^n = \ln(\ln n) - \ln (\ln \sqrt{n}) = \ln \left[\frac{\ln n}{\ln \sqrt{n}}\right] = \ln \left[\frac{\ln n}{(1/2)\ln n}\right] = \ln 2$$
+
+So, the answer is $\ln 2$, which, as we computed earlier, is
+approximate $0.693$. Apparently, this is the rough heuristic argument
+for why about $69.3 \%$ of the numbers have a prime divisor greater
+than their squareroot.
+
+\subsection{Numerator as derivative of denominator}
+
+The gist of this logarithmic substitution can be captured by the formula:
+
+$$\int \frac{g'(x)}{g(x)} \, dx = \ln|g(x)| + C$$
+
+The proof of this proceeds via setting $u = g(x)$. Thus, the general
+idea when using logarithmic substitutions is to try to obtain the
+numerator as the derivative of the denominator. For instance, consider
+the integral:
+
+$$\int \frac{x}{x^2 + 1} \, dx$$
+
+Here, the derivative of the denominator is $2x$, so we adjust by a
+factor of $2$ to obtain:
+
+$$\frac{1}{2} \int \frac{2x}{x^2 + 1} \, dx = \frac{1}{2} \ln(|x^2 + 1|) + C$$
+
+Note that in this case, since $x^2 + 1$ is always positive, the
+absolute value can be dropped and we get $\frac{1}{2})(x^2 + 1) +
+C$. Further, this antiderivative is valid over all reals.
+
+\subsection{Trigonometric integrals involving logarithms}
+
+Recall so far that we have seen the antiderivatives of $\sin$, $\cos$,
+$\sec^2$, $\sec \cdot \tan$, $\csc^2$, and $\csc \cdot \cot$. We also
+used these, along with trigonometric identities, to compute
+antiderivatives for $\sin^2$, $\cos^2$, $\tan^2$, and $\cot^2$. All
+these results were obtained as corollaries of the differentiation
+formulas.
+
+We now try to obtain a formula to integrate $\cot$. The key idea is to
+note that:
+
+$$\cot x = \frac{\cos x}{\sin x}$$
+
+Since $\cos$ is the derivative of $\sin$, this matches up with the
+general pattern that we just discussed, and we obtain that the
+antiderivative of $\cot$ is $\ln \circ |\sin|$. In other words:
+
+$$\int \cot x \, dx = \ln|\sin x| + C$$
+
+Note that $\cot$ is undefined at multiples of $\pi$, and so any
+integration of this sort is valid only if the entire interval of
+integration lies strictly between two consecutive multiples of
+$\pi$. It is also instructive to graph the antiderivative of $\cot$.
+
+Here is the graph of $\cot$ and its antiderivative on the interval
+$(0,\pi)$, where both are defined:
+
+\includegraphics[width=3in]{cotanditsantiderivative.png}
+
+Similarly, we obtain:
+
+$$\int \tan x \, dx = - \ln|\cos x| + C = \ln|\sec x| + C$$
+
+Here is the picture of $\tan$ and $-\ln|\cos|$ on the interval
+$(-\pi/2,\pi/2)$, where both are defined:
+
+\includegraphics[width=3in]{tananditsantiderivative.png}
+
+Note that those two expressions are the same because
+$\cos$ and $\sec$ are reciprocals of each other.
+
+Let us look at a somewhat harder integral: the integral of the secant
+function:
+
+$$\int \sec x \, dx = \int \frac{\sec x (\sec x + \tan x)}{\sec x + \tan x} \, dx = \int \frac{\sec^2 x + \sec x \tan x}{\tan x + \sec x} \, dx$$
+
+The numerator is the derivative of the denominator, and we obtain:
+
+$$\int \sec x \, dx = \ln|\sec x + \tan x| + C$$
+
+In a similar vein, we obtain that:
+
+$$\int \csc x \, dx = \ln|\csc x - \cot x| + C$$
+
+\subsection{Domain and range issues}
+
+When doing indefinite integration, it is often best to forget about
+issues of domain and range and just let the algebraic manipulations
+flow. However, to interpret the results at the end, it is important to
+look at the domain and range issues. Ideally, the antiderivative
+should be defined and should make sense on all intervals where the
+function itself is continuous. Further, if there are points where the
+function is continuous but the {\em expression obtained for the
+antiderivative} is not defined, we should try to obtain the limit at
+that point.
+
+\subsection{An application: integrating the cube of the tangent function}
+
+Let us look at an application of the above:
+
+$$\int \tan^3 x \, dx$$
+
+Before we proceed, it is worth remarking how different integration is
+from differentiation. For differentiation, there was just the formula
+for differentiating $\sin$ and $\cos$, and everything else followed
+using the product rule and quotient rule. We still memorized more, but
+that was mainly to speed things up, not out of necessity. With
+integration, on the other hand, we need to have a whole bag of {\em ad
+hoc} tricks that we try one after the other.
+
+Let us look at this integral. The key thing to do here is to break
+down $\tan^3 x = \tan x \cdot \tan^2 x$. Next, we use $\tan^2 x =
+\sec^2 x - 1$, and we have:
+
+$$\int \tan x \sec^2x \, dx - \int \tan x \, dx$$
+
+The first integral can be quickly calculated using the chain rule or
+$u$-substitution, since $\sec^2 x$ is the derivative of $\tan x$. The
+second integral comes from our formula, and we get:
+
+$$\frac{\tan^2 x}{2} + \ln|\cos x| + C$$
+
+\subsection{A fancier formula}
+
+Here is a formula that uses the chain rule twice:
+
+$$\int \frac{g'(x)f(\ln|g(x)|)}{g(x)} \, dx = \int f(u) \, du$$
+
+where $u = \ln(|g(x)|)$. For instance:
+
+$$\int \frac{2x(\ln(x^2 + 1))^3}{x^2 + 1} \, dx = \int u^3 \, du$$
+
+where $u = \ln(x^2 + 1)$. This further simplifies to:
+
+$$\frac{1}{4}[\ln(x^2 + 1)]^4 + C$$
+
+\section{More tricks and techniques}
+
+\subsection{Logarithmic differentiation}
+
+Logarithmic derivatives are both a conceptual and a computational
+tool. Currently, we focus on the computational aspects. The idea is to
+use the same formula that we obtained earlier, but in reverse:
+
+$$\frac{d}{dx} \ln(|g(x)|) = \frac{g'(x)}{g(x)}$$
+
+Rearranging the terms yields:
+
+$$g'(x) = g(x) \frac{d}{dx} \ln(|g(x)|)$$
+
+If $g$ is a product of functions $g_1, g_2, \dots, g_n$, then
+$\ln|g(x)| = \ln|g_1(x)| + \dots + \ln|g_n(x)|$, and we get:
+
+$$g'(x) = g(x) \left[\frac{g_1'(x)}{g_1(x)} + \frac{g_2'(x)}{g_2(x)} + \dots + \frac{g_n'(x)}{g_n(x)}\right]$$
+
+Note that this expression is not {\em really} new and did not {\em
+really} require logarithms. You can in fact convince yourself that it
+is just a reformulation of the product rule. When $g = g_1g_2$, for
+instance, this says that:
+
+$$g' = g\left[\frac{g_1'}{g_1} + \frac{g_2'}{g_2}\right]$$
+
+Substituting $g = g_1g_2$, this simplifies to the usual product
+rule. However, the logarithmic formulation has some conceptual
+advantages.
+
+For instance, suppose $g(x) := x(x-1)(x-2)$. Then, we immediately
+obtain that:
+
+$$\frac{g'(x)}{g(x)} = \frac{1}{x} + \frac{1}{x - 1} + \frac{1}{x - 2}$$
+
+Further, of we have $g(x) = g_1(x)^{a_1}g_2(x)^{a_2} \dots
+g_n(x)^{a_n}$, we obtain that:
+
+$$\frac{g'(x)}{g(x)} = \frac{a_1g_1'(x)}{g_1(x)} + \frac{a_2g_2'(x)}{g_2(x)} + \dots + \frac{a_ng_n'(x)}{g_n(x)}$$
+
+So, if $g(x) = x^3(x-1)^4(x-2)^5$, we obtain that:
+
+$$\frac{g'(x)}{g(x)} = \frac{3}{x} + \frac{4}{x - 1} + \frac{5}{x - 2}$$
+
+\subsection{Exponentiation tricks}
+
+We have already seen basic integration and differentiation identities
+for the exponentiation function. There are some ways of combining
+these identities with the chain rule. I note some special cases here.
+
+\begin{enumerate}
+\item For any function $f$, the derivative of $f(x)e^x$ is $(f(x) +
+  f'(x))e^x$. Thus, the integral of $g(x)e^x$ is $f(x)e^x + C$ where
+  $f + f' = g$.
+\item (1) is particularly useful when integrating polynomial function
+  times $e^x$. This is because we can use linear algebra to find, for
+  a given polynomial $g$, the unique polynomial $f$ such that $f + f'
+  = g$.
+\item The integral $\int f(e^x)e^x \, dx$ is $\int f(u) \, du$ where
+  $u = e^x$.
+\item The integral $e^{f(x)}f'(x) \, dx$ is $e^{f(x)} + C$.
+\end{enumerate}
+
+Let us consider an example to illustrate this. Consider the function:
+
+$$F(x) := (x^2 + 5x + 1)e^x $$
+
+The derivative of this, by the product rule, turn out to be $e^x$
+times the sum of $x^2 + 5x + 1$ and its derivative, giving:
+
+$$F'(x) = (x^2 + 7x + 6)e^x$$
+
+Note that this is a new polynomial times $e^x$. An intersting question
+would be how we could reverse this procedure, i.e., given $g(x)e^x$
+where $g$ is a polynomial, how do we find a polynomial $f$ such that
+the derivaitve of $f(x)e^x$ is $g(x)e^x$? By the product rule, we
+obtain that:
+
+$$g(x) = f(x) + f'(x)$$
+
+Thus, we need to find the coefficients of $f$. Let us do this in our
+concrete case where $g(x) = x^2 + 7x + 6$.
+
+We know that the degree of $f'$ is strictly smaller than the degree of
+$f$, so $f + f'$ has the same degree and same leading coefficient as
+$f$. In this case, this forces $f$ to be a quadratic polynomial of the
+form $x^2 + mx + n$. We then get $f'(x) = 2x + m$, and we obtain that:
+
+$$f(x) + f'(x) = x^2 + (m + 2)x + (m + n)$$
+
+Since we are given that $g(x) = x^2 + 7x + 6$, we can match
+coefficients and obtain:
+
+$$m + 2 = 7, \qquad m + n = 6$$
+
+Solving, we get $m = 5$, and $n = 1$, and we get $f(x) = x^2 + 5x +
+1$, recovering our original polynomial.
+
+Although the {\em specific procedure involving comparing coefficients}
+does require that we are {\em dealing with polynomials}, the general
+idea remains true in a broader sense: integrating $\int g(x)e^x$ is
+equivalent to finding a function $f$ such that $f + f' = g$. In some
+cases, it is easier to think of it as an integration problem, and in
+others, it is easier to think of it in terms of the differental
+equation $f + f' = g$. The idea that these two apparently different
+computations measure the same thing is extremely important.
+
+\end{document}

@@ -1,0 +1,142 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: May 13: Multi-variable integration}
+\author{Math 195, Section 59 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$19$ people took this quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $0$: $5$ people
+\item Score of $1$: $8$ people
+\item Score of $2$: $5$ people
+\item Score of $3$: $1$ person
+\end{itemize}
+
+The question wise answers were as follows:
+
+\begin{enumerate}
+\item (To be done later)
+\item (To be done later)
+\item (To be done later)
+\item (To be done later)
+\item (To be done later)
+\item Option (C): $12$ people. {\em Please review this solution!}
+\item Option (C): $8$ people. {\em Please review this solution!}
+\item Option (D): $1$ person. {\em Please review this solution!}
+\end{enumerate}
+\section{Solutions}
+\begin{enumerate}
+
+\item (To be done later)
+\item (To be done later)
+\item (To be done later)
+\item (To be done later)
+\item (To be done later)
+\item Suppose $f$ is a homogeneous polynomial of degree $d >
+  0$. Define $g$ as the following function on positive reals: $g(a)$
+  is the double integral of $f$ on the square $[0,a] \times
+  [0,a]$. Assuming that $g(a)$ is not identically the zero function,
+  which of these best describes the nature of $g(a)$?
+
+  \begin{enumerate}[(A)]
+  \item A constant times $a^d$
+  \item A constant times $a^{d + 1}$
+  \item A constant times $a^{d + 2}$
+  \item A constant times $a^{2d + 1}$
+  \item A constant times $a^{2d + 2}$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Each monomial is of the form a constant times
+  $x^py^q$ where $p + q = d$. Integrating this as a multiplicatively
+  separable function gives $x^{p+1}y^{q+1}$ times a
+  constant. Evaluating between limits gives $a^{d + 2}$ times a
+  constant. This is the form of the double integral of each monomial,
+  and hence the double integral of the sum is also of the same form.
+
+  {\em Performance review}: $12$ people got this correct. $3$ people
+  chose (D), $2$ each chose (A) and (E).
+\item Suppose $g(x,y)$ and $G(x,y)$ are continuous functions of two
+  variables and $G_{xy} = g$. How can the double integral $\int_s^t
+  \int_u^v g(x,y) \, dy \, dx$ be described in terms of the values of
+  $G$?
+
+  \begin{enumerate}[(A)]
+  \item $G(v,t) + G(u,s) - G(u,t) - G(v,s)$
+  \item $G(v,t) - G(v,s) + G(u,t) - G(u,s)$
+  \item $G(t,v) + G(s,u) - G(t,u) - G(s,v)$
+  \item $G(t,v) - G(s,v) + G(t,u) - G(s,u)$
+  \item $G(t,v) + G(v,t) - G(s,u) - G(u,s)$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Note that the integration is over $[s,t] \times
+  [u,v]$, i.e., the rectangular region with corner points $(s,u)$,
+  $(s,v)$, $(t,u)$, and $(t,v)$. Recall that for the double integral,
+  we put positive signs on the two extreme points (top right and
+  bottom left) and negative signs on the other two points (top left
+  and bottom right). See more in the lecture notes.
+
+  {\em Performance review}: $8$ people got this correct. $6$ people
+  chose (D), $2$ each chose (A) and (E), $1$ chose (B).
+
+\item Suppose $f$ is an elementarily integrable function, but $f(x^k)$
+  is not elementarily integrable for any integer $k > 1$ (examples are
+  $\sin$, $\exp$, $\cos$). For which of the following types of regions
+  $D$ are we {\em guaranteed to be able} to compute, in elementary
+  function terms, the double integral $\int \int_D f(x^2) \, dA$ over
+  the region (note that $f$ is just a function of $x$, but we treat it
+  as a function of two variables)?
+
+  \begin{enumerate}[(A)]
+  \item A rectangle with vertices $(0,0)$, $(0,b)$, $(a,0)$, and
+    $(a,b)$, with $a,b > 0$.
+  \item A triangle with vertices $(0,0)$, $(0,b)$, $(a,0)$, with $a, b
+    > 0$.
+  \item A triangle with vertices $(0,0)$, $(0,b)$, $(a,b)$, with $a, b
+    > 0$.
+  \item A triangle with vertices $(0,0)$, $(a,0)$, $(a,b)$, with $a, b
+    > 0$.
+  \item All of the above
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: For such a triangle, we integrate on $y$ inner
+  and $x$ outer. For a fixed value of $x$, the $y$-value ranges from
+  $0$ to $bx/a$, so the integral becomes:
+
+  $$\int_0^a \int_0^{bx/a} f(x^2) \, dy \, dx$$
+
+  $\sin(x^2)$ pulls out of the inner integral and the inner integral
+  just gives $(bx/a)$, so we get:
+
+  $$\int_0^a \frac{b}{a} xf(x^2) \, dx$$
+
+  This can be done by the substitution $u = x^2$ and the knowledge
+  that $f$ is elementarily integrable.
+
+  All the other integrations stumble because they require knowledge of
+  an antiderivative of $f(x^2)$.
+
+  {\em Please review the similar example done in class to better
+    understand this issue}.
+
+  {\em Performance review}: $1$ person got
+  this correct. $8$ chose (E), $5$ chose (A), $3$ chose (B), $2$ chose
+  (C).
+\end{enumerate}
+
+\end{document}

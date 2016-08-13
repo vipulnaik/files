@@ -1,0 +1,175 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: January 11: Hyperbolic functions}
+\author{Math 153, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$11$ people took this $5$-question quiz. The score distribution was as
+follows:
+
+\begin{itemize}
+\item Score of $1$: $3$ people
+\item Score of $2$: $4$ people.
+\item Score of $3$: $1$ person
+\item Score of $4$: $1$ person
+\item Score of $5$: $2$ people
+\end{itemize}
+
+The answers by question number are:
+
+\begin{enumerate}
+\item Option (B): $6$ people
+\item Option (E): $6$ people
+\item Option (D): $4$ people
+\item Option (C): $8$ people
+\item Option (C): $4$ people
+\end{enumerate}
+\section{Solutions}
+
+\begin{enumerate}
+\item What is the limit $\lim_{x \to \infty} (\cosh x)/e^x$?
+
+  \begin{enumerate}[(A)]
+  \item $0$
+  \item $1/2$
+  \item $1$
+  \item $2$
+  \item The limit does not exist.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: We have:
+
+  $$\lim_{x \to \infty} \frac{\cosh x}{e^x} = \lim_{x \to \infty} \frac{e^x + e^{-x}}{2e^x} = \frac{1}{2} + \lim_{x \to \infty} \frac{e^{-2x}}{2} = \frac{1}{2}$$
+
+  The key thing to note is that as $x \to \infty$, $e^{-2x}$ tends to $0$.
+
+  {\em Performance review}: $6$ out of $11$ people got this. $2$ chose
+  (A), $3$ chose (E).
+
+  {\em Historical note (last year)}: $21$ out of $28$ students got
+  this correct. $3$ people chose (C), $3$ people chose (E), and $1$
+  person chose (A).
+\item What is the limit $\lim_{x \to -\infty} (\cosh x)/e^x$?
+
+  \begin{enumerate}[(A)]
+  \item $0$
+  \item $1/2$
+  \item $1$
+  \item $2$
+  \item The limit does not exist.
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: We have
+
+  $$\lim_{x \to -\infty} \frac{\cosh x}{e^x} = \lim_{x \to -\infty} \frac{e^x + e^{-x}}{2e^x} = \frac{1}{2} + \lim_{x \to -\infty} \frac{e^{-2x}}{2}$$
+
+  As $x \to -\infty$, $e^{-2x} \to \infty$, so the overall limit is undefined.
+
+  Alternatively, we can note that as $x \to -\infty$, $\cosh x \to
+  +\infty$ and $e^x \to 0$, so the quotient goes off to infinity.
+
+  {\em Performance review}: $6$ out of $11$ got this. $4$ chose (A),
+  $1$ chose (B).
+
+  {\em Historical note (last year)}: $24$ out of $28$ people got this
+  correct. $3$ people chose (C) and $1$ person chose (B).
+\item Consider the function $y = f(x)$ where $f(x) := \arctan(\sinh
+  x)$. Which of the following does $\cosh x$ necessarily equal?
+
+  \begin{enumerate}[(A)]
+  \item $\sin y$
+  \item $\cos y$
+  \item $\cot y$
+  \item $\sec y$
+  \item $\csc y$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We have the relationship $\tan y = \sinh
+  x$. Squaring and adding $1$ to both sides, we get:
+
+  $$\sec^2 y = \cosh^2 x$$
+
+  Now, we note that $\cosh$ is always positive, and for $y \in
+  (-\pi/2,\pi/2)$, which it must be to be $\arctan$ of something,
+  $\sec y$ is also positive. Thus, taking square roots on both sides
+  yields:
+
+  $$\sec y = \cosh x$$
+
+  {\em Performance review}: $4$ out of $11$ got this. $3$ chose (C),
+  $2$ chose (B), $1$ each chose (A) and (E).
+
+  {\em Historical note (last year)}: $19$ out of $28$ people got this
+  correct. $8$ people chose (C) and $1$ person chose (A).
+
+\item Consider the function $y = f(x)$ where $f(x) := \arctan(\sinh
+  x)$ (same as in the previous question). The function is a one-to-one
+  increasing function on its domain. What are its domain and range?
+
+  \begin{enumerate}[(A)]
+  \item The domain and range are both equal to $\R$
+  \item The domain and range are both equal to the open interval
+    $(-\pi/2,\pi/2)$
+  \item The domain equals $\R$ and the range equals the open interval
+    $(-\pi/2,\pi/2)$
+  \item The domain equals the open interval $(-\pi/2,\pi/2)$ and the range
+    equals $\R$
+  \item The domain equals the open interval $(-\pi/2,\pi/2)$ and the
+    range equals the closed interval $[-\pi/2,\pi/2]$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: The $\sinh$ function has domain and range both
+  $\R$. The $\arctan$ function has domain $\R$ and range
+  $(-\pi/2,\pi/2)$. Thus, the composite has domain $\R$ (any real
+  input is permisible) and range equal to $(-\pi/2,\pi/2)$.
+
+  {\em Performance review}: $8$ out of $11$ got this. $3$ chose (D).
+
+  {\em Historical note (last year)}: $24$ out of $28$ people got this
+  correct. $3$ people chose (D) and $1$ person chose (B).
+\item $\sinh$ is a one-to-one function with domain and range both
+  equal to $\R$. Hence, it must have an inverse function with domain
+  and range both equal to $\R$. What is this inverse function?
+  \begin{enumerate}[(A)]
+  \item $x \mapsto (\ln(x) - \ln(-x))/2$
+  \item $x \mapsto (1/2)\ln(x^2 + 1)$
+  \item $x \mapsto \ln[x + \sqrt{x^2 + 1}]$
+  \item $x \mapsto \ln[x - \sqrt{x^2 + 1}]$
+  \item $x \mapsto \ln[\sqrt{x^2 + 1} - x]$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: If $x = \sinh t$, then $\cosh^2 t = x^2 +
+  1$. Taking square roots, and using that $\cosh$ is always positive,
+  we get $\cosh t = \sqrt{x^2 + 1}$. Thus, $\exp(t) = \sinh(t) +
+  \cosh(t) = x + \sqrt{x^2 + 1}$. Taking $\ln$ both sides, we get $t =
+  \ln[x + \sqrt{x^2 + 1}]$.
+
+  {\em Performance review}: $4$ out of $11$ got this. $3$ each chose
+  (A) and (D), $1$ chose (B).
+
+  {\em Historical note (last year)}: $15$ out of $28$ people got this
+  correct. $1$ person appears to have missed the question because it
+  was printed on the back side page. $6$ people chose (B), $3$ people
+  chose (A), $2$ people chose (E), and $1$ person chose (D).
+\end{enumerate}
+
+\end{document}

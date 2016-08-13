@@ -1,0 +1,428 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Monday October 7: Linear functions and equation-solving (part 2)}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+28 people took this $5$-question quiz. The score distribution was as
+follows:
+
+\begin{itemize}
+\item Score of 0: 3 people
+\item Score of 1: 3 people
+\item Score of 2: 9 people
+\item Score of 3: 5 people
+\item Score of 4: 6 people
+\item Score of 5: 2 people
+\end{itemize}
+
+The question-wise answers and performance summary are given below.
+
+\begin{enumerate}
+\item Option (C): 25 people
+\item Option (D): 12 people
+\item Option (E): 12 people
+\item Option (C): 15 people
+\item Option (D): 6 people
+\end{enumerate}
+
+{\em On comparison with last time}: Last year, I had set the due date
+for the take-home quiz as Wednesday rather than Monday, so that might
+partly explain the better performance of students on the quiz last
+time. The main question where performance diverged considerable from
+last time was Q5, and this is the question where the sophistication of
+one extra class can go a long way.
+
+\section{Solutions}
+
+This quiz covers some basics involving linear functions and
+equation-solving (notes at {\tt Linear functions: a primer} and {\tt
+  Equation-solving with a special focus on the linear case}). The quiz
+tests for the following:
+
+\begin{itemize}
+\item The distinction between behavior relative to the variables (the
+  inputs) and behavior relative to the parameters.
+\item Counting the number of parameters by creating the explicit
+  general functional form from a verbal description (with a special
+  focus on polynomial functional forms).
+\item Figuring out how to ``ask the right questions'' with respect to
+  input choices, so that the answers provide meaningful
+  information. This builds towards the ideas of hypothesis testing,
+  rank, and overdetermination that we will see in the future.
+\end{itemize}
+
+\begin{enumerate}
+\item Suppose $f$ is a polynomial function of $x$ of degree at most a
+  {\em known number} $n$. What is the minimum number of (input,output)
+  pairs that we need in order to determine $f$ uniquely? {\em Extra
+    information: Somewhat surprisingly, in this case, we do not need
+    to be judicious about our input choices. Any set of distinct
+    inputs of the required number will do. This has something to do
+    with the ``Vandermonde matrix'' and ``Vandermonde determinant''
+    and is also related to the Lagrange interpolation formula.}
+
+  \begin{enumerate}[(A)]
+  \item $n - 1$
+  \item $n$
+  \item $n + 1$
+  \item $2n$
+  \item $n^2$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: There are $n + 1$ unknown coefficients, namely,
+  the coefficients of $x^i$ for $0 \le i \le n$. In general, a
+  polynomial of degree $n$ is of the form:
+
+  $$a_0 + a_1x + a_2x^2 + \dots + a_nx^n$$
+
+  Every input-output pair gives rise to a linear equation in terms of
+  the coefficients. With $n + 1$ input-output pairs, we get $n + 1$
+  equations in $n + 1$ variables where the ``variables'' here are the
+  parameters). Due to linearity in the parameters, we actually get a
+  system of $n + 1$ {\em linear} equations in the $n + 1$
+  variables. We would expect the system to have a unique solution if
+  the inputs are chosen judiciously.
+
+  In fact, it turns out that the system always has a unique
+  solution. The existence of a solution is given by the Lagrange
+  interpolation formula, and its uniqueness follows from the fact that
+  any polynomial of degree $\le n$ that has $n + 1$ distinct roots
+  must be the zero polynomial. This is also related to the idea of the
+  Vandermonde determinant, but that is beyond the scope of the current
+  discussion.
+
+  {\em Update for after understanding coefficient matrices and ranks}:
+  Choosing the inputs judiciously basically amounts to choosing the
+  inputs in a manner that the coefficient matrix (a $(n + 1) \times (n
+  + 1)$ square matrix) has full rank $n + 1$. The statement above, that
+  distinct inputs always work, is the statement that the coefficient
+  matrix always has full rank $n + 1$ as long as the inputs are
+  distinct. This type of matrix is called a Vandermonde matrix and
+  there is a considerable theory related to these in algebra.
+
+  {\em Performance review}: 25 out of 28 got this. 3 chose (B).
+
+  {\em Historical note (last time)}: $27$ out of $28$ got this. $1$ chose (B).
+
+\item $f$ is a polynomial function of two variables $x$ and $y$ of
+  total degree at most $2$. In other words, for each monomial
+  occurring in $f$, the total of the degrees of $x$ and $y$ in that
+  monomial is at most $2$. No other information is given about
+  $f$. What is the minimum number of judiciously chosen (input,output)
+  pairs we need in order to determine $f$ uniquely?
+
+  \begin{enumerate}[(A)]
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $6$
+  \item $7$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: First, a little bit to clarify the question. The
+  total degree of a monomial $x^iy^j$ is $i + j$. For instance, the
+  degree of $x^3y^2$ is $3 + 2 = 5$.
+
+  The total degree of a polynomial that involves addition and scalar
+  multiplication of monomials is the maximum of the degrees of the
+  individual monomials. This is very similar to the situation with
+  polynomials of one variable: the degree of the polynomial is the
+  maximum of the degrees of the constituent monomials. Thus, for
+  instance, $x - y + 17xy - x^2y$ has total degree $3$ because the
+  constituent monomials have degree $1$, $1$, $2$, and $3$, and the
+  maximum of these is $3$.
+
+  In order to determine how many input-output pairs we would need, we
+  need to count the number of parameters in the generic functional
+  form. So, the first step is to figure out a {\em general} expression
+  for all the possibilities we can have such polynomials of total
+  degree at most $2$. Since all such polynomials are obtained by
+  (linearly) combining monomials of the sort, our first step is to
+  list the monomials that are allowed.
+
+  The possible monomials involved in $f$ are $1$,
+  $x$, $y$, $x^2$, $xy$, and $y^2$. There are six of them, hence there
+  are $6$ coefficients to be determined by setting up and solving the
+  linear system. The generic form is:
+
+  $$a_1 + a_2x + a_3y + a_4x^2 + a_5xy + a_6y^2$$ 
+
+  Each (input,output) pair gives a {\em linear} equation in terms of
+  $a_1,a_2,\dots,a_6$. Six suitably chosen inputs will give six linear
+  equations that we can then solve to uniquely determine the
+  inputs. Note that unlike the functions of one variable case, it is
+  possible to choose the inputs ``badly'', i.e., in a way that does
+  not reveal information.
+
+  {\em Update for after understanding coefficient matrices and ranks}:
+  Choosing the inputs judiciously basically amounts to choosing the
+  inputs in a manner that the coefficient matrix (a $6 \times 6$
+  square matrix) has full rank $6$. In this case, a bad choice of
+  inputs could lead to a coefficient matrix of lower rank, leading to
+  redundant equations. Unfortunately, it is beyond the current scope
+  to describe the geometry of sets of inputs for which the system does
+  not have full rank (though one example would be where all inputs
+  have the same $y$-value), but anyway, ``most'' random choices of
+  inputs will give systems with full rank.
+
+  {\em Performance review}: 12 out of 28 got this. 6 chose (B), 5
+  chose (C), 4 chose (A), 1 chose (E).
+
+  {\em Historical note (last time)}: $15$ out of $28$ got this. $7$
+  chose (B), $3$ chose (A), $2$ chose (C), $1$ chose (E).
+
+\item $f$ is a polynomial function of two variables $x$ and $y$ of
+  total degree at most $3$. In other words, for each monomial
+  occurring in $f$, the total of the degrees of $x$ and $y$ in that
+  monomial is at most $3$. No other information is given about
+  $f$. What is the minimum number of judiciously chosen (input,output)
+  pairs we need in order to determine $f$ uniquely?
+
+  \begin{enumerate}[(A)]
+  \item $3$
+  \item $6$
+  \item $8$
+  \item $9$
+  \item $10$
+  \end{enumerate}
+
+  {\em Answer}: Option (E)
+
+  {\em Explanation}: In addition to the $6$ monomials for the
+  preceding question, there are $4$ monomials of degree three, namely
+  $x^3$, $x^2y$, $xy^2$, and $y^3$. Thus, there is a total of $10$
+  monomials with unknown coefficients, so we need $10$ data points to
+  pin down the values of the coefficients. Explicitly, the general form looks like:
+
+  $$a_1 + a_2x + a_3y + a_4x^2 + a_5xy + a_6y^2 + a_7x^3 + a_8x^2y + a_9xy^2 + a_{10}y^3$$   
+
+  Each (input,output) pair gives a {\em linear} equation in terms of
+  $a_1,a_2,\dots,a_{10}$. We want 10 such equations, so we want 10
+  judiciously chosen input-output pairs.
+
+  {\em Update for after understanding coefficient matrices and ranks}:
+  Choosing the inputs judiciously basically amounts to choosing the
+  inputs in a manner that the coefficient matrix (a $10 \times 10$
+  square matrix) has full rank $10$. In this case, a bad choice of
+  inputs could lead to a coefficient matrix of lower rank, leading to
+  redundant equations. Unfortunately, it is beyond the current scope
+  to describe the geometry of sets of inputs for which the system does
+  not have full rank (though one example would be where all inputs
+  have the same $y$-value), but anyway, ``most'' random choices of
+  inputs will give systems with full rank.
+
+  {\em Performance review}: 12 out of 28 got this. 7 chose (A), 5
+  chose (B), 2 each chose (C) and (D).
+
+  {\em Historical note (last time)}: $14$ out of $28$ got this. $8$ chose (A),
+  $2$ each chose (B), (C), and (D).
+
+\item (*) {\em The perils of overfitting; see also Occam's Razor}:
+  Suppose we are trying to model a function that we expect to behave
+  in a polynomial-like manner, though we don't really have a good
+  reason to believe this. Additionally, there is a possibility for
+  measurement error in our observations. Our goal is to find the
+  parameters so that we can both predict unmeasured values and do a
+  qualitative analysis of the nature of the function and its
+  derivatives and integrals.
+
+  We have a large number of observations (say, several thousands). We
+  could attempt to ``fit'' the function using a polynomial of degree
+  $n$ for some fixed $n$ using all those data points, and we will get
+  a certain ``best fit'' that minimizes the deviation between the
+  curve used for fitting and the function being fit. For instance, for
+  $n = 1$, we are trying to find the best fit by a straight line
+  function. For $n = 2$, we are trying to find the best fit by a
+  polynomial of degree at most $2$. We could try fitting using
+  different values of $n$. Which of the following is true?
+
+  {\em If you are interested in more on this, look up
+    ``overfitting''. A revealing quote is by mathematician and
+    computer scientist John von Neumann: ``With four parameters I can
+    fit an elephant. And with five I can make him wiggle his trunk.''
+    Another is by prediction guru Nate Silver: ``The wide array of
+    statistical methods available to researchers enables them to be no
+    less fanciful and no more scientific than a child finding animal
+    patterns in clouds.''}
+
+  \begin{enumerate}[(A)]
+  \item Larger values of $n$ give better fits, therefore the larger
+    the value of $n$ we use, the better.
+  \item Smaller values of $n$ give better fits, therefore the smaller
+    the value of $n$ we use, the better.
+  \item Larger values of $n$ give better fits, therefore the larger
+    the value of $n$ we use, the less impressive a good fit (i.e., low
+    deviation between the polynomial and the actual set of
+    observations) should be.
+  \item Smaller values of $n$ give better fits, therefore the smaller
+    the value of $n$ we use, the less impressive a good fit (i.e., low
+    deviation between the polynomial and the actual set of
+    observations) should be.
+  \item The value of $n$ we use for trying to get a good fit is
+    irrelevant. A good fit is a good fit, regardless of the type of
+    function used.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Larger values of $n$ mean more parameters, and we
+  can use more parameters to get a better fit, generally
+  speaking. However, that better fit may well be {\em fitting the
+    noise in the measurements rather than the signal}. Even without
+  measurement error, if we do not have {\em a priori} theoretical
+  reasons to be sure of the model, it may just be fitting
+  idiosyncracies of the observed values that do not extend to other
+  values. For both these reasons, using too many parameters gives a
+  misleading sense of complacency based on what appears like a good
+  fit, but is a result of sheer chance.
+
+  For instance, {\em any} collection of $n$ data points can be fitted
+  (without need for error tolerance!) on a polynomial of degree at
+  most $n - 1$. But what if there were actually measurement error?
+  Then that polynomial of degree $n - 1$ would be a fake good
+  fit. Imagine that the actual function is $f(x) = x$, but we are
+  measuring values near $0$ and the best fit for the measured values
+  turns out to be $f(x) = x + x^3$. This may very well be a much
+  better fit for values close to the origin because of biased
+  measurement errors, but extrapolating it to a larger domain could go
+  really awry.
+
+  {\em Performance review}: 15 out of 28 got this. 9 chose (E), 2
+  chose (B), 1 chose (A), and 1 did not attempt the question.
+
+  {\em Historical note (last time)}: $14$ out of $28$ people got this. $9$
+  chose (D), $4$ chose (E), and $1$ chose (A).
+
+\item (*) $F$ is an affine linear function of two variables $x$ and
+  $y$, i.e., it has the form $F(x,y) := ax + by + c$ with $a$, $b$,
+  and $c$ real numbers. We want to determine the values of the
+  parameters $a$, $b$, and $c$ by using input-output pairs. It is,
+  however, costly to find input-output pairs. We have already found
+  $F(1,3)$ and $F(3,7)$. We want to find $F$ for one other pair of
+  inputs to determine $a$, $b$, and $c$. Which of these will {\em not}
+  be a good choice?
+
+  \begin{enumerate}[(A)]
+  \item $F(2,2)$, i.e., the input $x = 2$, $y = 2$
+  \item $F(2,3)$, i.e., the input $x = 2$, $y = 3$
+  \item $F(2,4)$, i.e., the input $x = 2$, $y = 4$
+  \item $F(2,5)$, i.e., the input $x = 2$, $y = 5$
+  \item $F(2,6)$, i.e., the input $x = 2$, $y = 6$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: The point $(2,5)$ is collinear with the points
+  $(1,3)$ and $(3,7)$ (in fact, it is their midpoint) so the value at
+  that point can be predicted based on the values at $(1,3)$ and
+  $(3,7)$ as being the arithmetic mean between these values. Thus, it
+  does not provide new information. Mathematically, if we use this
+  point to get the third equation, that equation will be redundant
+  with the existing equations. In equational form:
+
+  $$F(2,5) = \frac{F(1,3) + F(3,7)}{2}$$
+
+  {\em Purely arithmetic version of observation}: We can obtain this
+  observation computationally even without explicitly noting the
+  observation about the midpoint.  Explicitly, we have:
+
+  \begin{eqnarray*}
+    F(1,3) & = & a + 3b + c \\
+    F(3,7) & = & 3a + 7b + c\\
+  \end{eqnarray*}
+
+  Adding, we get:
+
+  $$F(1,3) + F(3,7) = 4a + 10b + 2c = 2(2a + 5b + c) = 2F(2,5)$$
+
+  Thus, we get:
+
+  $$F(2,5) = \frac{F(1,3) + F(3,7)}{2}$$
+
+  {\em Alternative geometric explanation}: Think of the inputs as
+  living in the $xy$-plane, and the output axis as the $z$-axis. The
+  graph $z = F(x,y) = ax + by + c$ gives a plane in the
+  three-dimensional space with coordinates $x,y,z$. We know that a
+  plane is determined by knowing three non-collinear points on it. The
+  points are of the form $(x,y,F(x,y))$ where $x$ and $y$ vary
+  freely. The graph is a plane {\em because} $F$ is a linear
+  function. In general, the graph would be a surface.
+
+  The inputs $(1,3)$, $(2,5)$, and $(3,7)$ being collinear, along with
+  the fact that $F$ is affine linear, tells us that the triples
+  $(1,3,F(1,3))$, $(2,5,F(2,5))$, and $(3,7,F(3,7))$ are collinear in
+  three-dimensional space. In fact, they lie on the line obtained by
+  intersecting the plane that is the graph of $F$ with the plane
+  parallel to the z-axis whose intersection with the xy-plane passes
+  through the points $(1,3)$ and $(3,7)$ (explicitly, this is the
+  plane with equation $y = 2x + 1$). In this particular case, since
+  $(2,5)$ is the midpoint between the points $(1,3)$ and $(3,7)$, the
+  point $(2,5,F(2,5))$ is the midpoint between the points
+  $(1,3,F(1,3))$ and $F(3,7,F(3,7))$.
+
+  Thus, if we use these three input-output pairs, then we get three
+  {\em collinear} points in the plane we are trying to find, and we
+  cannot determine the plane uniquely (any plane through the line
+  joining the points works). If we chose an input $(x_0,y_0)$ that was
+  not collinear with the points $(1,3)$ and $(3,7)$, we would get a
+  point $(x_0,y_0,F(x_0,y_0))$ that was not collinear with the points
+  $(1,3,F(1,3))$ and $(3,7,F(3,7))$, and therefore, the plane would be
+  determined uniquely.
+
+  {\em Update for after understanding coefficient matrices and ranks}:
+  When trying to find the parameters $a$, $b$, and $c$, we need to set
+  up a system of simultaneous linear equations. Each input-output pair
+  gives one equation, and therefore, one row of the augmenting
+  matrix. The augmenting column corresponds to the outputs, and the
+  coefficient matrix part corresponds to the inputs. In other words,
+  each input determines a row of the coefficient matrix.
+
+  For an input $(x_i,y_i)$, the corresponding equation is:
+
+  $$ax_i + by_i + c = F(x_i,y_i)$$
+
+  We are now viewing this as an equation in the variables $a$, $b$,
+  and $c$. The row of the coefficient matrix when we set up the linear
+  system in terms of the parameters is:
+
+  $$\left[\begin{matrix} x_i & y_i & 1 \\\end{matrix}\right]$$
+
+  For our system with three input-output pairs, the coefficient matrix
+  becomes:
+
+  $$\left[\begin{matrix} 1 & 3 & 1 \\ 3 & 7 & 1 \\ x & y & 1 \\\end{matrix} \right]$$
+  
+  where $(x,y)$ is the third input that we choose. The input that
+  would be bad to choose is the input for which the coefficient matrix
+  has rank two rather than the expected rank of three. We can see that
+  $x = 2$, $y = 5$ is the only such input. In other words, the matrix:
+
+  $$\left[\begin{matrix} 1 & 3 & 1 \\ 3 & 7 & 1 \\ 2 & 5 & 1 \\\end{matrix} \right]$$
+
+  has rank two. We can verify this by carrying out Gauss-Jordan
+  elimination (the row reduction process) and obtaining that the last
+  column is all zeros. On the other hand, the coefficient matrices for
+  all the other choices of the third input have full rank three.
+
+  {\em Performance review}: 6 out of
+  28 got this. 10 chose (B), 7 chose (E), 3 chose (A), 2 chose (C).
+
+  {\em Historical note (last time)}: $16$ out of $28$ got this. $9$ chose (E),
+  $2$ chose (B), $1$ chose (C).
+\end{enumerate}
+
+\end{document}

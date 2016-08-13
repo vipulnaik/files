@@ -1,0 +1,291 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Class quiz solutions: November 30: Integration}
+\author{Math 152, Section 55 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+$11$ people took this $7$-question quiz. The score distribution was as follows:
+
+\begin{itemize}
+\item Score of $2$: $1$ person
+\item Score of $3$: $2$ people
+\item Score of $4$: $2$ people
+\item Score of $5$: $2$ people
+\item Score of $6$: $4$ people
+\end{itemize}
+
+The mean score was $4.17$ out of $7$. Here are the problem answers:
+
+\begin{enumerate}
+\item (A): $7$ people
+\item (B): $8$ people
+\item (C): $6$ people
+\item (D): $8$ people
+\item (A): $10$ people
+\item (B): $5$ people
+\item (B): $6$ people
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+\item What is the limit $\lim_{x \to \infty} \left[\left(\int_0^x
+  \sin^2 \theta d\theta\right)/x\right]$?
+
+  \begin{enumerate}[(A)]
+  \item $1/2$
+  \item $1$
+  \item $1/\pi$
+  \item $2/\pi$
+  \item $1/(2\pi)$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: The average over a period is $1/2$. Thus, this is
+  also the limit of the average over intervals of arbitrarily large
+  length. See the notes on the mean value of a periodic function over
+  a period.
+
+  {\em Performance review}: $7$ out of $11$ got this correct. $3$
+  chose (B) and $1$ chose (D).
+
+  {\em Historical note (last year)}: $13$ out of $16$ people got this
+  correct. $1$ person each chose (C) and (E) and $1$ person left the
+  question blank.
+
+\item Consider the substitution $u = -1/x$ for the integral $\int
+  \frac{dx}{x^2 + 1}$. What is the {\bf new integral}?
+
+  \begin{enumerate}[(A)]
+  \item $\int \frac{du}{u(u^2 + 1)}$
+  \item $\int \frac{du}{u^2 + 1}$
+  \item $\int \frac{ u du}{u^2 + 1}$
+  \item $\int \frac{u^2 du}{u^2 + 1}$
+  \item $\int \frac{u^2 du}{(u^2 + 1)^2}$ 
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Setting $u = -1/x$, we get $x = -1/u$, so $dx/du
+  = 1/u^2$. Plugging in, we get:
+
+  $$\int \frac{(1/u^2) \, du}{(-1/u)^2 + 1} = \int \frac{du}{1 + u^2}$$
+
+  {\em Performance review}: $8$ out of $11$ got this correct. $2$
+  chose (D), $1$ chose (A).
+
+  {\em Historical note (last year)}: $8$ out of $16$ people got this
+  correct. $6$ people chose (D), $1$ person chose (C), and $1$ person
+  left the question blank.
+
+  {\em Action point}: Those who chose (D) either made a calculation
+  error or forgot the relative derivative $1/u^2$ in the
+  numerator. Please make sure you review $u$-substitutions and get
+  this kind of question correct in the future.
+\item {\em Hard}: What is the {\bf value} of $c \in (0,\infty)$ such
+  that $\int_0^c \frac{dx}{x^2 + 1} = \lim_{a \to \infty} \int_c^a
+  \frac{dx}{x^2 + 1}$?
+
+  \begin{enumerate}[(A)]
+  \item $\frac{1}{\sqrt{3}}$
+  \item $\frac{1}{\sqrt{2}}$
+  \item $1$
+  \item $\sqrt{2}$
+  \item $\sqrt{3}$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: By the previous question, we get:
+
+  $$\lim_{a \to \infty} \int_c^a \frac{dx}{x^2 + 1} = \int_{-1/c}^0 \frac{du}{u^2 + 1}$$
+
+  Because the integrand is even, we get that:
+
+  $$\lim_{a \to \infty} \int_c^a \frac{dx}{x^2 + 1} = \int_0^{1/c} \frac{dx}{x^2 + 1}$$
+
+  Thus, from the given data, we get:
+
+  $$\int_0^c \frac{dx}{x^2 + 1} = \int_0^{1/c} \frac{dx}{x^2 + 1}$$
+
+  This gives:
+
+  $$\int_c^{1/c} \frac{dx}{x^2 + 1} = 0$$
+
+  But the function in question is a positive function, hence the only
+  way the above can hold is if $c = 1/c$, giving $c = 1$ (since $c$ is
+  positive).
+
+  Note that the problem can also be solved using the ``fact'' that
+  $\arctan$ is an indefinite integral, so we note that the integral
+  from $0$ to $1$, as well as the integral from $1$ to $\infty$, are
+  both $\pi/4$. However, that solution requires a knowledge of the
+  antiderivative and of the properties of inverse trigonometric
+  functions, whereas this proof does not require any development of
+  that theory.
+
+  {\em Performance review}: $6$ out of $11$ got this correct. $3$
+  chose (E), $1$ chose (B), $1$ chose (D).
+
+  {\em Historical note (last year)}: $8$ out of $16$ people got this
+  correct. $6$ people chose (B), for reasons unclear. $1$ person chose
+  (A) and $1$ person left the question blank.
+\item Suppose $f$ is a continuous nonconstant even function on
+  $\R$. Which of the following is {\bf true}?
+  
+  \begin{enumerate}[(A)]
+  \item Every antiderivative of $f$ is an even function.
+  \item $f$ has exactly one antiderivative that is an even function.
+  \item Every antiderivative of $f$ is an odd function.
+  \item $f$ has exactly one antiderivative that is an odd function.
+  \item None of the antiderivatives of $f$ is either an even or an odd
+    function.
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: The odd function will be the unique
+  antiderivative that takes the value $0$ at $0$. Specifically, if $F$
+  is an antiderivative of $f$, we can easily check that:
+
+  $$F(x) - F(0) = \int_0^x f(t) \, dt = \int_{-x}^0 f(t) \, dt = F(0) - F(-x)$$
+
+  Thus, we get that:
+
+  $$F(0) = \frac{F(x) + F(-x)}{2}$$
+
+  Thus, $F$ has half-turn symmetry about $(0,F(0))$. It is odd iff
+  $F(0) = 0$. We see that, among the family of antiderivatives, there
+  is a unique one with the property.
+
+  {\em Additional note}: A little while ago, you proved that a cubic
+  function enjoys half-turn symmetry about its point of inflection,
+  and were supposed to give a computational proof thereof. The fact
+  can actually be deduced without any computation using the fact that
+  the derivative function, the quadratic, has {\em mirror symmetry}
+  about the same $x$-value. The proof of that fact follows the same
+  lines as the proof given above.
+
+  {\em Performance review}: $8$ out of $11$ got this correct. $3$
+  chose (C).
+
+  {\em Historical note (last year)}: $4$ out of $16$ people got this
+  correct. $9$ people chose (C), apparently forgetting the fact that
+  an odd function must be $0$ at $0$. $1$ person chose (A) and $2$
+  people chose (B).
+
+
+\item Suppose $f$ is a continuous nonconstant odd function on
+  $\R$. Which of the following is {\bf true}?
+
+  \begin{enumerate}[(A)]
+  \item Every antiderivative of $f$ is an even function.
+  \item $f$ has exactly one antiderivative that is an even function.
+  \item Every antiderivative of $f$ is an odd function.
+  \item $f$ has exactly one antiderivative that is an odd function.
+  \item None of the antiderivatives of $f$ is either an even or an odd
+    function.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Fill this in yourself; it is similar to the
+  previous exercise. Note that the key difference here is that an even
+  function does not have to be $0$ at $0$, and adding a constant
+  preserves the property of being even.
+
+  {\em Performance review}: $10$ out of $11$ got this correct. $1$
+  chose (E).
+
+  {\em Historical note (last year)}: $13$ out of $16$ people got this
+  correct. $1$ person each chose (B), (C), and (D).
+
+\item Suppose $f$ is a continuous nonconstant periodic function on
+  $\R$ with period $h$. Which of the following is {\bf true}?
+
+  \begin{enumerate}[(A)]
+  \item Every antiderivative of $f$ is a periodic function with period
+    $h$, regardless of the choice of $f$.
+  \item For some choices of $f$, every antiderivative of $f$ is a
+    periodic function; for all others, $f$ has no periodic antiderivative.
+  \item $f$ has exactly one periodic antiderivative for every choice of $f$.
+  \item For some choices of $f$, $f$ has exactly one periodic
+    antiderivative; for all others, $f$ has no periodic
+    antiderivative.
+  \item Regardless of the choice of $f$, no antiderivative of $f$ can
+    be periodic.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: What this crucially depends on is the mean value
+  of $f$ over a period. If this mean value is $0$ (e.g., for $\sin$
+  and $\cos$), then every antiderivative is periodic. If the mean
+  value is nonzero (e.g., $x \mapsto 1 + \sin x$ or $\sin^2$) then the
+  antiderivative is (linear + periodic), and that mean value is the
+  slope of the linear component of any antiderivative. For instance,
+  $1 + \cos x$ has mean value $1$, and its antiderivative, $x + \sin
+  x$, has linear part $x$ of slope $1$ and periodic part $\sin x$.
+
+  {\em Performance review}: $5$ out of $11$ got this correct. $4$
+  chose (A), $2$ chose (D).
+
+ {\em Historical note (last year)}: $5$ out of $16$ people
+  got this correct. $9$ people chose (A), suggesting that they didn't
+  remember the ideas about non-periodic functions with periodic
+  derivatives. $2$ people chose (A).
+  
+  {\em Action point}: Review the material on functions that are
+  ``periodic with shift'' -- discussed when we covered graphing of
+  functions.
+\item Consider a continuous increasing function $f$ defined on the
+  nonnegative real numbers. Define $m_f(a)$, for $a > 0$, as the
+  unique value $c \in [0,a]$ such that $f(c)$ is the mean value of $f$
+  on the interval $[0,a]$.
+  
+  If $f(x) := x^n$, $n$ an integer greater than $1$, what kind of
+  function is $m_f$ (your answer should be valid for all $n$)?
+
+  \begin{enumerate}[(A)]
+  \item $m_f(a)$ is a constant $\lambda$ dependent on $n$ but
+    independent of $a$.
+  \item It is a function of the form $m_f(a) = \lambda a$, where
+    $\lambda$ is a constant depending on $n$.
+  \item It is a function of the form $m_f(a) = \lambda a^{n-1}$, where
+    $\lambda$ is a constant depending on $n$.
+  \item It is a function of the form $m_f(a) = \lambda a^n$, where
+    $\lambda$ is a constant depending on $n$.
+  \item It is a function of the form $m_f(a) = \lambda a^{n+1}$, where
+    $\lambda$ is a constant depending on $n$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The integral on the interval $[0,a]$ is
+  $a^{n+1}/(n + 1)$. The mean value is $a^n/(n + 1)$. The value $c$ is
+  thus $(a^n/(n + 1))^{1/n} = a/(n + 1)^{1/n}$. Setting $\lambda =
+  1/(n + 1)^{1/n}$, we see that option (B) works.
+  
+  {\em Performance review}: $6$ out of $11$ got this correct. $4$
+  chose (C), $1$ chose (D).
+
+  {\em Historical note (last year)}: $1$ out of $16$ people got this
+  correct. $5$ people chose (D), $4$ people chose (E), $3$ people
+  chose (C), $2$ people chose (A), and $1$ person left the question
+  blank. Most probably, people forgot the step of raising to the power
+  of $1/n$, and of course, many people just guessed.
+
+  {\em Action point}: Make sure that you can solve the problem under
+  fewer time constraints.
+\end{enumerate}
+\end{document}

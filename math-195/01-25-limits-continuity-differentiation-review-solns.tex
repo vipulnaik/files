@@ -1,0 +1,451 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: Friday January 25: Limits, continuity, differentiation review}
+\author{Math 195, Section 59 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+{\em Note: Please see somewhat updated/improved language for Q9 -- I
+should have stated clearly in the question that you should see options
+(D) and (E) before answering. However, doing so would not have
+improved your score, as (D) is an incorrect option.}
+
+\section{Performance review}
+
+$24$ people took this $10$ question quiz. The score distribution was
+as follows:
+
+\begin{itemize}
+\item score of $2$: $2$ people.
+\item Score of $3$: $3$ people.
+\item Score of $4$: $1$ person.
+\item Score of $5$: $2$ people.
+\item Score of $6$: $1$ person.
+\item Score of $8$: $2$ people.
+\item Score of $10$: $13$ people.
+\end{itemize}
+
+The question-wise answers and performance summary are below:
+
+\begin{enumerate}
+\item Option (B): $17$ people.
+\item Option (B): $20$ people.
+\item Option (B): $23$ people.
+\item Option (D): $14$ people.
+\item Option (D): $18$ people.
+\item Option (B): $17$ people.
+\item Option (B): $21$ people.
+\item Option (A): $18$ people.
+\item Option (C): $16$ people.
+\item Option (A): $15$ people.
+\end{enumerate}
+
+\section{Solutions}
+
+\begin{enumerate}
+\item Which of the following statements is {\bf always true}? {\em
+  Earlier scores: $2/11$, $9/16$, $16/28$}
+
+  \begin{enumerate}[(A)]
+  \item The range of a continuous nonconstant function on an open
+    bounded interval (i.e., an interval of the form $(a,b)$) is an
+    open bounded interval (i.e., an interval of the form $(m,M)$).
+  \item The range of a continuous nonconstant function on a closed
+    bounded interval (i.e., an interval of the form $[a,b]$) is a
+    closed bounded interval (i.e., an interval of the form $[m,M]$).
+  \item The range of a continuous nonconstant function on an open
+    interval that may be bounded or unbounded (i.e., an interval of
+    the form $(a,b)$,$(a,\infty)$, $(-\infty,a)$, or
+    $(-\infty,\infty)$), is also an open interval that may be bounded
+    or unbounded.
+  \item The range of a continuous nonconstant function on a closed
+    interval that may be bounded or unbounded (i.e., an interval of
+    the form $[a,b]$, $[a,\infty)$, $(-\infty,a]$, or
+    $(-\infty,\infty)$) is also a closed interval that may be bounded
+    or unbounded.
+  \item None of the above.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: This is a combination of the extreme-value
+  theorem and the intermediate-value theorem. By the extreme-value
+  theorem, the continuous function attains a minimum value $m$ and a
+  maximum value $M$. By the intermediate-value theorem, it attains
+  every value between $m$ and $M$. Further, it can attain no other
+  values because $m$ is after all the minimum and $M$ the maximum.
+
+  {\em The other choices}:
+
+  Option (A): Think of a function that increases first and then
+  decreases. For instance, the function $f(x) := \sqrt{1 - x^2}$ on
+  $(-1,1)$ has range $(0,1]$, which is not open. Or, the function
+  $\sin x$ on the interval $(0,2\pi)$ has range $[-1,1]$.
+
+  Option (C): The same counterexample as for option (A) works.
+
+  Option (D): We can get counterexamples for unbounded intervals. For
+  instance, consider the function $f(x) := 1/x$ on $[1,\infty)$. The
+  range of this function is $(0,1]$, which is not closed. The idea is
+  that we make the function approach but not reach a finite value as
+  $x \to \infty$ (we'll talk more about this when we deal with
+  asymptotes).
+
+  {\em Performance review}: $17$ out of $24$ got this. $4$ chose (D),
+  $3$ chose (E).
+
+  {\em Historical note 1}: $7$ out of $20$ students got this
+  correct. $6$ chose (D), $5$ chose (C), $2$ chose (A).
+
+  {\em Historical note 2}: In the last appearance in a 153 quiz, $16$
+  out of $28$ people got this correct. $7$ people chose (A), $2$
+  people each chose (C) and (E), and $1$ person chose (D).
+\item For which of the following specifications is there {\bf no
+  continuous function} satisfying the specifications? {\em Earlier
+  scores: $7/14$, $21/28$}
+
+  \begin{enumerate}[(A)]
+  \item Domain $(0,1)$ and range $(0,1)$
+  \item Domain $[0,1]$ and range $(0,1)$
+  \item Domain $(0,1)$ and range $[0,1]$
+  \item Domain $[0,1]$ and range $[0,1]$
+  \item None of the above, i.e., we can get a continuous function for
+    each of the specifications.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: By the extreme value theorem, any continuous
+  function on a closed bounded interval must attain its maximum and
+  minimum, and hence its image cannot be an open interval.
+
+  {\em The other choices}:
+
+  For options (A) and (D), we can pick the identity functions $f(x) :=
+  x$ on the respective domains.
+
+  For option (C), we can pick the function $f(x) := \sin^2(2\pi x)$ on
+  the domain $(0,1)$. 
+
+  {\em Performance review}: $20$ out of $24$ got this. $2$ chose (E),
+  $1$ each chose (A) and (C).
+
+  {\em Historical note 1}: $7$ out of $20$ people got this
+  correct. $7$ chose (E), $4$ chose (C), $1$ each chose (A) and (D).
+
+  {\em Historical note 2}: In the last appearance in a 153 quiz, $21$
+  out of $28$ people got this correct. $5$ people chose (C) and $2$
+  people chose (E).
+
+\item Suppose $f$ is a continuously differentiable function from the
+  open interval $(0,1)$ to $\R$. Suppose, further, that there are
+  exactly $14$ values of $c$ in $(0,1)$ for which $f(c) = 0$. What can
+  we say is {\bf definitely true} about the number of values of $c$ in
+  the open interval $(0,1)$ for which $f'(c) = 0$? {\em Earlier scores:
+  $7/15$, $19/28$}
+
+  \begin{enumerate}[(A)]
+  \item It is at least $13$ and at most $15$.
+  \item It is at least $13$, but we cannot put any upper bound on it
+    based on the given information.
+  \item It is at most $15$, but we cannot put any lower bound (other
+  than the meaningless bound of $0$) based on the given information.
+  \item It is at most $13$.
+  \item It is at least $15$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Suppose the zeros of $f$ are $a_1 < a_2 < \dots <
+  a_{14}$. By Rolle's theorem, there is {\em at least one} zero of
+  $f'$ between each $a_i$ and $a_{i+1}$. There may be more, since
+  Rolle's theorem gives only a {\em lower} bound. This gives thirteen
+  solutions $c$ to $f'(c) = 0$.
+
+  Note that in order to apply Rolle's theorem, it is enough to be
+  given that $f$ is differentiable, so the additional hypothesis that
+  $f'$ is continuous is not necessary.
+
+  {\em Performance review}: $23$ out of $24$ got this. $1$ chose (A).
+
+  {\em Historical note 1}: $12$ out of $20$ people got this
+  correct. $4$ chose (A), $2$ chose (E), $1$ each chose (C) and (D).
+
+  {\em Historical note 2}: In the last appearance in a 153 quiz, $19$
+  out of $28$ people got this correct. $5$ people chose (A), $2$
+  people chose (C), and $1$ person each chose (D) and (E).
+\item Consider the function $f(x) := \lbrace\begin{array}{rl} x, & 0
+  \le x \le 1/2 \\ x - (1/7), & 1/2 < x \le 1 \\\end{array}$. Define by
+  $f^{[n]}$ the function obtained by iterating $f$ $n$ times, i.e.,
+  the function $f \circ f \circ f \circ \dots \circ f$ where $f$
+  occurs $n$ times. What is the smallest $n$ for which $f^{[n]} =
+  f^{[n + 1]}$? {\em Earlier score: $3/16$}
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $5$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: We need to iterate $f$ enough times that
+  everything gets inside $[0,1/2]$, after which it becomes
+  stable. Note that each time, the value goes down by $1/7$. Thus, for
+  any $x \le 1$, we need at most four steps to bring it in $[0,1/2]$,
+  with the upper bound of $4$ being attained for $1$.
+
+  {\em Performance review}: $14$ out of $24$ got this. $5$ chose (C),
+  $4$ chose (A), $1$ chose (E).
+
+  {\em Historical note 1}: $4$ out of $20$ people got this
+  correct. $7$ chose (B), $7$ chose (C), $1$ each chose (A) and (E).
+
+  {\em Historical note 2}: In the last appearance in a 153 quiz, $10$
+  out of $28$ people got this correct. $9$ people chose (C), $5$
+  people chose (B), $2$ people chose (A), and $2$ people left the
+  question blank.
+\item Suppose $f$ and $g$ are functions $(0,1)$ to $(0,1)$ that are
+  both right continuous on $(0,1)$. Which of the following is {\em
+  not} guaranteed to be right continuous on $(0,1)$? {\em Earlier
+  scores: $3/11$, $9/14$, $20/28$}
+
+  \begin{enumerate}[(A)]
+  \item $f + g$, i.e., the function $x \mapsto f(x) + g(x)$
+  \item $f - g$, i.e., the function $x \mapsto f(x) - g(x)$
+  \item $f \cdot g$, i.e., the function $x \mapsto f(x)g(x)$
+  \item $f \circ g$, i.e., the function $x \mapsto f(g(x))$
+  \item None of the above, i.e., they are all guaranteed to be right
+    continuous functions
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: See the explanation for Question 2 on the October
+  1 quiz. Note that that quiz uses left continuity, but the example
+  can be adapted to right continuity.
+
+  {\em Performance review}: $18$ out of $24$ got this. $3$ chose (B),
+  $2$ chose (E), $1$ chose (C).
+
+  {\em Historical note 1}: $7$ out of $20$ people got this
+  correct. $6$ chose (E), $5$ chose (C), $2$ chose (B).
+
+  {\em Historical note 2}: In the last appearance in a 153 quiz, $20$ out
+  of $28$ people got this correct. $4$ people chose (C), $2$ people
+  chose (B), $1$ person chose (E), and $1$ person left the question
+  blank.
+\item Suppose $f$ and $g$ are increasing functions from $\R$ to
+  $\R$. Which of the following functions is {\em not} guaranteed to be
+  an increasing functions from $\R$ to $\R$? {\em Earlier scores:
+  $1/15$, $9/16$, $18/28$}
+
+  \begin{enumerate}[(A)]
+
+  \item $f + g$
+  \item $f \cdot g$
+  \item $f \circ g$
+  \item All of the above, i.e., none of them is guaranteed to be increasing.
+  \item None of the above, i.e., they are all guaranteed to be increasing.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The problem with option (B) arises when one or
+  both functions take negative values. For instance, consider the case
+  $f(x) := x$ and $g(x) := x$. Both are increasing functions on all of
+  $\R$. However, the pointwise product is the function $x \mapsto
+  x^2$, which is a decreasing function for negative $x$.
+
+  Formally, the issue is that we cannot multiply inequalities of the
+  form $A < B$ and $C < D$ unless we are guaranteed to be working with
+  positive numbers.
+
+  {\em The other choices}:
+
+  Option (A): For any $x_1 <
+  x_2$, we have $f(x_1) < f(x_2)$ and $g(x_1) < g(x_2)$. Adding up, we
+  get $f(x_1) + g(x_1) < f(x_2) + g(x_2)$, so $(f + g)(x_1) < (f + g)(x_2)$.
+
+  Option (C): For any $x_1 < x_2$, we have $g(x_1) < g(x_2)$ since $g$
+  is increasing. Now, we use the factthat $f$ is increasing to compare
+  its values at the two points $g(x_1)$ and $g(x_2)$, and we get
+  $f(g(x_1)) < f(g(x_2))$. We thus get $(f \circ g)(x_1) < (f \circ
+  g)(x_2)$.
+
+  {\em Performance review}: $17$ out of $24$ got this. $4$ chose (E),
+  $1$ each chose (A), (C), and (D).
+
+  {\em Historical note 1}: $8$ out of $20$ people got this
+  correct. $7$ chose (E), $4$ chose (C), $1$ chose (D).
+
+  {\em Historical note 2}: In the last appearance in a 153 quiz, $18$
+  out of $28$ people got this correct. $6$ people chose (E) and $4$
+  people chose (C).
+
+\item Suppose $F$ and $G$ are two functions defined on $\R$ and $k$ is
+  a natural number such that the $k^{th}$ derivatives of $F$ and $G$
+  exist and are equal on all of $\R$. Then, $F - G$ must be a
+  polynomial function. What is the {\bf maximum possible degree} of $F
+  - G$?  (Note: Assume constant polynomials to have degree zero) {\em
+  Earlier score: $6/16$, $10/28$}
+
+  \begin{enumerate}[(A)]
+  \item $k - 2$
+  \item $k - 1$
+  \item $k$
+  \item $k + 1$
+  \item There is no bound in terms of $k$.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: $F$ and $G$ having the same $k^{th}$ derivative
+  is equivalent to requiring that $F - G$ have $k^{th}$ derivative
+  equal to zero. For $k = 1$, this gives constant functions
+  (polynomials of degree $0$). Each time we increment $k$, the degree
+  of the polynomial could potentially go up by $1$. Thus, the answer
+  is $k - 1$.
+
+  {\em Performance review}: $21$ out of $24$ got this. $2$ chose (A),
+  $1$ chose (E).
+
+  {\em Historical note 1}: $8$ out of $20$ people got this
+  correct. $6$ chose (D), $3$ chose (C), $2$ chose (E), $1$ chose (A).
+
+  {\em Historical note 2}: In the last appearance in a 153 quiz, $10$
+  out of $28$ people got this correct. $5$ people each chose (D) and
+  (E) and $4$ people each chose (A) and (C).
+
+  {\em Action point}: This is a question you really {\em should} get
+  correct!
+\item Suppose $f$ is a continuous function on $\R$. Clearly, $f$ has
+  antiderivatives on $\R$. For all but one of the following
+  conditions, it is possible to guarantee, without any further
+  information about $f$, that there exists an antiderivative $F$
+  satisfying that condition. {\bf Identify the exceptional condition}
+  (i.e., the condition that it may not always be possible to
+  satisfy). {\em Earlier score: $3/16$, $10/28$}
+
+  \begin{enumerate}[(A)]
+  \item $F(1) = F(0)$.
+  \item $F(1) + F(0) = 0$.
+  \item $F(1) + F(0) = 1$.
+  \item $F(1) = 2F(0)$.
+  \item $F(1)F(0) = 0$.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: Suppose $G$ is an antiderivative for $f$. The
+  general expression for an antiderivative is $G + C$, where $C$ is
+  constant. We see that for options (b), (c), and (d), it is always
+  possible to solve the equation we obtain to get one or more real
+  values of $C$. However, (a) simplifies to $G(1) + C = G(0) + C$,
+  whereby $C$ is canceled, and we are left with the statement $G(1) =
+  G(0)$. If this statement is true, then {\em all} choices of $C$
+  work, and if it is false, then {\em none} works. Since we cannot
+  guarantee the truth of the statement, (a) is the exceptional
+  condition.
+
+  Another way of thinking about this is that $F(1) - F(0) = \int_0^1
+  f(x) \, dx$, regardless of the choice of $F$. If this integral is
+  $0$, then any antiderivative works. If it is not zero, no
+  antiderivative works.
+
+  {\em Performance review}: $18$ out of $24$ got this. $3$ chose (C),
+  $2$ chose (E), $1$ chose (B).
+
+  {\em Historical note 1}: $2$ out of $20$ people got this
+  correct. $10$ chose (E), $4$ chose (D), $3$ chose (C), $1$ chose
+  (B).
+  
+  {\em Historical note 2}: In the last appearance in a 153 quiz, $10$
+  out of $28$ people got this correct. $6$ people chose (B), $5$
+  people chose (E), $4$ people chose (D), $2$ people chose (C), and
+  $1$ person left the question blank.
+\item Suppose $F$ is a function defined on $\R \setminus \{ 0 \}$ such
+  that $F'(x) = -1/x^2$ for all $x \in \R \setminus \{ 0 \}$. Which of
+  the following pieces of information is/are {\bf sufficient} to determine
+  $F$ completely? Please see Options (D) and (E) before answering.
+  \begin{enumerate}[(A)]
+  \item The value of $F$ at any two positive numbers.
+  \item The value of $F$ at any two negative numbers.
+  \item The value of $F$ at a positive number and a negative number.
+  \item Any of the above pieces of information is sufficient, i.e., we
+    need to know the value of $F$ at any two numbers.
+  \item None of the above pieces of information is sufficient.
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: There are two open intervals: $(-\infty,0)$ and
+  $(0,\infty)$, on which we can look at $F$. On each of these
+  intervals, $F(x) = 1/x + $ a constant, but the constant for
+  $(-\infty,0)$ may differ from the constant for $(0,\infty)$. Thus,
+  we need the initial value information at one positive number and one
+  negative number.
+
+  {\em Performance review}: $16$ out of $24$ got this. $8$ chose (D).
+
+  {\em Historical note 1}: $5$ out of $20$ people got this
+  correct. $12$ chose (D), $3$ chose (A).
+
+  {\em Historical note 2}: In the last appearance in a 153 quiz, $15$
+  out of $28$ people got this correct. $9$ people chose (D), $2$
+  people chose (E), and $1$ person each chose (A) and (B).
+
+\item Suppose $F$ and $G$ are continuously differentiable functions on
+  all of $\R$ (i.e., both $F'$ and $G'$ are continuous). Which of the
+  following is {\bf not necessarily true}? {\em Earlier scores: $0$,
+  $10/16$}
+
+  \begin{enumerate}[(A)]
+  \item If $F'(x) = G'(x)$ for all integers $x$, then $F - G$ is a
+    constant function when restricted to integers, i.e., it takes the
+    same value at all integers.
+  \item If $F'(x) = G'(x)$ for all numbers $x$ that are not integers,
+    then $F - G$ is a constant function when restricted to the set of
+    numbers $x$ that are not integers.
+  \item If $F'(x) = G'(x)$ for all rational numbers $x$, then $F - G$
+    is a constant function when restricted to the set of rational
+    numbers.
+  \item If $F'(x) = G'(x)$ for all irrational numbers $x$, then $F -
+    G$ is a constant function when restricted to the set of irrational
+    numbers.
+  \item None of the above, i.e., they are all necessarily true.
+  \end{enumerate}
+
+  {\em Answer}: Option (A).
+
+  {\em Explanation}: The fact that the derivatives of two functions
+  agree at integers says nothing about how the derivatives behave
+  elsewhere -- they could differ quite a bit at other places. Hence,
+  (A) is not necessarily true, and hence must be the right option. All
+  the other options are correct as statements and hence cannot be the
+  right option. This is because in all of them, the set of points
+  where the derivatives agree is {\em dense} -- it intersects every
+  open interval. So, continuity forces the functions $F'$ and $G'$ to
+  be equal everywhere, forcing $F - G$ to be constant everywhere.
+
+  {\em Performance review}: $15$ out of $24$ got this. $6$ chose (E),
+  $3$ chose (B).
+
+  {\em Historical note 1}: $7$ out of $20$ people got this
+  correct. $7$ chose (E), $3$ chose (D), $3$ chose (C).
+
+  {\em Historical note 2}: In the last appearance in a 153 quiz, $11$
+  out of $28$ people got this correct. $8$ people chose (E), $5$
+  people chose (C), and $2$ people each chose (B) and (D).
+
+\end{enumerate}
+
+\end{document}

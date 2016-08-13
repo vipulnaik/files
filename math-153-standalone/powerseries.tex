@@ -1,0 +1,784 @@
+\documentclass{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Power series and convergence issues}
+\author{Math 153, Section 55 (Vipul Naik)}
+
+\begin{document}
+\maketitle
+
+{\bf Corresponding material in the book}: Section 12.8, 12.9.
+
+{\bf What students should definitely get}: The meaning of power
+series. The relation between Taylor series and power series, the
+notion of convergence, interval of convergence, and radius of
+convergence. The theorems for differentiation and integration of power
+series. Convergence at the boundary and Abel's theorem.
+
+{\bf What students should hopefully get}: How notions of power series
+provide an alternative interpretation for many of the things we have
+studied earlier in calculus. How results about power series combine
+with ideas like the root and ratio tests and facts about $p$-series.
+
+\section*{Executive summary}
+
+Words ...
+
+\begin{enumerate}
+\item The objects of interest here are power series, which are series
+  of the form $\sum_{k=0}^\infty a_kx^k$. Note that for power series,
+  we start by default with $k = 0$. If the set of values of the index
+  of summation is not specified, assume that it starts from $0$ and
+  goes on to $\infty$. The exception is when the index of summation
+  occurs in the denominator, or some other such thing that forces us
+  to exclude $k = 0$.
+\item Also note that $x^0$ is shorthand for $1$. When
+  evaluating a power series at $0$, we simply get $a_0$. {\em We do
+  not actually do $0^0$}.
+\item If a power series converges for $c$, it converges absolutely for
+  all $|x| < |c|$. If a power series diverges for $c$, it diverges for
+  all $|x| > |c|$.
+\item Given a power series $\sum a_kx^k$, the set of values where it
+  converges is either $0$, or $\R$, or an interval that (apart from
+  the issue of inclusion of endpoints) is symmetric about $0$. In
+  particular, the interval could be of the following four forms:
+  $(-c,c)$, $[-c,c]$, $[-c,c)$, and $(-c,c]$. The radius of
+  convergence is $c$. Note that if the set of convergence is $\{ 0
+  \}$, we say that the radius of convergence is $0$, and if the power
+  series converges everywhere, we say that the radius of convergence
+  is $\infty$.
+\item Suppose a power series $\sum a_kx^k$ converges on an interval
+  $(-c,c)$ to a function $f$. Then, $f$ is infinitely differentiable
+  on $(-c,c)$ and the power series for $f'$ is obtained by
+  differentiating the power series for $f$. In fact, the radius of
+  convergence of the power series for $f'$ is precisely the same as
+  the radius of convergence of the power series for $f$. {\em On the
+  other hand, the interval of convergence may differ} -- the power
+  series for $f$ may converge at boundary points where the power
+  series for $f'$ does not. An example is $\arctan$, which has
+  interval of convergence $[-1,1]$, but whose derivative has interval
+  of convergence $(-1,1)$.
+\item Suppose a power series $\sum a_kx^k$ converges on an interval
+  $(-c,c)$ to a function $f$. Then, term wise integration of this
+  power series gives an antiderivative of $f$ on $(-c,c)$. In
+  particular, if we choose the power series with constant term $0$, we
+  get the unique antiderivative that takes the value $0$ at $0$.
+\item Abel's theorem states that if $\sum a_kx^k = f(x)$ on $(-c,c)$,
+  $f$ is left continuous at $c$, and $\sum a_kc^k$ exists, then $f(c)
+  = \sum a_kc^k$. Similarly, if $f$ is right continuous at $-c$, and
+  $\sum a_k(-c)^k$ exists, then $f(-c) = \sum a_k(-c)^k$.
+\item We can also consider power series centered at $a$: $\sum a_k (x
+  - a)^k$. Everything translates nicely.
+\end{enumerate}
+
+Deeper elaboration ...
+
+\begin{enumerate}
+\item We have two kinds of operators: one from functions to power
+  series (which involves taking the Taylor series) and the other from
+  power series to functions (which involves summing up). It turns out
+  that, if we start with a power series with a nonzero (possibly
+  infinite) radius of convergence, look at the function it converges
+  to, and take the Taylor series of that function, we retrieve the
+  original power series. {\em This follows from the differentiation
+  theorem stated above, which states that the derivative of a power
+  series converges to the derivative of the function that the power
+  series converges to.}
+\item On the other hand, it is possible to start with a function $f$
+  infinitely differentiable on $\R$, take the Taylor series, and have
+  the Taylor series converge to some function other than $f$. An
+  example is the function that is $e^{-1/x^2}$ for all $x \ne 0$ and
+  $0$ at $x = 0$. The function is infinitely differentiable everywhere
+  and all its derivatives at $0$ take the value $0$. Thus, its Taylor
+  series is $0$, which obviously converges to the zero function rather
+  than the specified function.
+\item It is also possible to have a function $f$ that is infinitely
+  differentiable on all of $\R$ such that the Taylor series of $f$
+  converges to $f$, but the radius of convergence of the Taylor series
+  is finite. More generally, it is possible that the interval of
+  convergence of the Taylor series is smaller than the domain of the
+  function. Two important examples in this direction are the $\arctan$
+  function (infinitely differentiable on all of $\R$ but interval of
+  convergence $[-1,1]$) and the function $\ln(1 + x)$ (infinitely
+  differentiable on $(-1,\infty)$ but interval of convergence $(-1,1]$).
+\item Call a function {\em globally analytic} if it is defined on all
+  of $\R$ and has a power series about $0$ that converges to the
+  function everywhere. Sine, cosine, the exponential function, and
+  polynomial functions are all globally analytic. Moreover, globally
+  analytic functions are closed under addition, subtraction,
+  multiplication, and composition.
+\item Call a function $C^\infty$ on $\R$ if it is defined and
+  infinitely differentiable on all of $\R$. The space of $C^\infty$
+  functions is closed under addition, subtraction, multiplication, and
+  composition. Moreover, any globally analytic function is
+  $C^\infty$. The converse is not true.
+\item A function is termed {\em analytic about $0$} if its Taylor
+  series converges to it on an interval of nonzero radius. Any
+  function that is analytic about $0$ is infinitely differentiable
+  ($C^\infty$) around $0$. However, the function may well be
+  $C^\infty$ on a bigger interval than the interval on which the
+  Taylor series converges.
+\item If $f$ and $g$ have Taylor series that both converge on $(-c,c)$
+  to the respective functions, the Taylor series for $f + g$ also
+  converges on $(-c,c)$ to it.
+\end{enumerate}
+
+Actions ...
+
+\begin{enumerate}
+\item We can consider functions in the following decreasing order of
+  the behavior as $x \to \infty$: double exponential (like $e^{e^x}$,
+  $e^{2^x}$), exponential in higher powers of $x$ ($e^{x^\lambda}$,
+  $\lambda > 1$), factorial ($x!$, $\Gamma(x)$, $x^x$), exponential
+  ($a^x$, $a > 1$), exponential in lower powers of $x$
+  ($e^{x^\lambda}$, $0 < \lambda < 1$), exponential in higher powers
+  of $\ln x$ ($e^{(\ln x)^\lambda}$, $\lambda > 1$), polynomial or
+  power functions of $x$ ($x^\lambda$, which we can again split into
+  cases based on whether $\lambda > 1$, $\lambda = 1$, or $0 < \lambda
+  < 1$), polynomials in $\ln x$, $\ln(\ln x)$, and so on down.
+\item There is often quite a bit of separation within each level of
+  the hierarchy (allowing for further stratification). Anything at a
+  higher level in the hierarchy beats anything at a lower level in the
+  hierarchy, so that the quotients tend to $\infty$ or $0$ depending
+  on which one is higher.
+\item The decay rates of the reciprocal functions mirror the growth
+  rates of the functions.
+\item We use the term {\em superexponential} for functions that grow
+  faster than exponential functions (for instance, $e^{e^x}$,
+  $e^{x^2}$, and $x!$), {\em exponential} for functions that grow
+  exponentially, and {\em subexponential} for functions that grow
+  smaller than exponential.
+\item In general, when adding, subtracting, and multiplying, the
+  larger one dominates. Division by a superexponential function leads
+  to superexponential decay.
+\item Consider a power series $\sum a_kx^k$. If the $a_k$ grow
+  superexponentially in $k$, then the series converges only at $0$. If
+  the $a_k$ decay superexponentially in $k$ (i.e., $1/a_k$ grow
+  superexponentially in $k$), then the series converges
+  everywhere. [Justify to yourself using the ratio and/or root test]
+\item For $\sum a_kx^k$, if the $a_k$ grow or decay exponentially,
+  then the radius of convergence is finite and nonzero, and equals
+  $\lim_{k \to \infty} 1/|a_k|^{1/k}$ -- in other words, the
+  reciprocal of the limiting common ratio of the $a_k$s. This is
+  because at exponential growth, the $a_k$s match the $x^k$s and can
+  affect the radius of convergence.
+\item For $\sum a_kx^k$, if the $a_k$ grow or decay subexponentially,
+  they have no effect on the radius of convergence -- it is still
+  $1$. More generally, if $a_k$ is the product of an exponential and a
+  subexponential function, only the exponential function affects the
+  radius of convergence. {\em The subexponential component does affect
+  whether the endpoints are included in the interval of convergence.}
+\item As regards endpoints, the following is a rough
+  statement. Consider $\sum a_kx^k$. If the $a_k$s are growing or
+  constant, the series diverges at $\pm 1$, so the interval of
+  convergence is $(-1,1)$. If the $a_k$s are decaying at a rate that
+  is linear or slower, then the series does not absolutely converge,
+  but it may conditionally converge at one or both ends due to the
+  alternating series theorem. If the $a_k$s are decaying at a rate
+  that is $k^{-\lambda}, \lambda > 1$, then the series converges at
+  both $+1$ and $-1$. Note that cases like $1/[k(1 + (\ln k)^2)]$ are
+  ambiguous, as discussed earlier.
+\item In particular, if $a_k = p(k)/q(k)$ where $p$ and $q$ are
+  polynomials, the following can be said: if the degree of $q$ is at
+  least $2$ greater than the degree of $p$, the interval of
+  convergence is $[-1,1]$. If the degree of $q$ is equal to or less
+  than the degree of $p$, the interval of convergence is $(-1,1)$. If
+  the degree of $q$ is exactly one more than the degree of $p$, the
+  interval of convergence is $[-1,1)$. Note that the endpoint included
+  may change under slight modifications of the situation, so you
+  should also be aware of the reasoning process that leads to this
+  conclusion. For instance, if there are only odd degree terms and
+  nonnegative coefficients, we do not get any alternating series and
+  the interval of convergence is $(-1,1)$. On the other hand, if there
+  are odd degree terms and alternating signs of coefficients among the
+  odd degree terms, then the alternating series theorem applies at
+  {\em both} ends $-1$ and $1$.
+\end{enumerate}
+
+\section{Power series and convergence}
+
+So far, we have started with a function $f$ and looked at the Taylor
+series for $f$, which is a power series -- like a polynomial, except
+that the terms just keep going on. We now develop a general theory of
+power series, without being concerned about whether the power series
+arises as the Taylor series of a function. We define a power series as
+a series that looks like:
+
+$$\sum_{k=0}^\infty a_kx^k$$
+
+{\em Note that we start the summation at $0$, and we interpret $x^0$
+to be $1$}.
+
+For any particular value of $x$, we get a {\em series} in the usual
+sense -- a series of numbers. Thus, for any particular value of $x \in
+\R$, we can ask whether this power series converges. We say that the
+power series converges on a set if it converges for all elements in
+the set.
+
+We now state two basic results:
+
+\begin{enumerate}
+\item If a power series converges for $x = c$, then it {\em converges
+  absolutely} for all $x$ satisfying $|x| < |c|$.
+\item If a power series diverges for $x = c$, then it diverges for all
+  $x$ satisfying $|x| > |c|$.
+\end{enumerate}
+
+\subsection{The interval of convergence}
+
+From the above, we see the following possibilities for the set of
+values where a power series converges:
+
+\begin{enumerate}
+\item Only $0$: Note that a power series always converges at $0$ to
+  $a_0$. It is possible to have power series that do not converge
+  anywhere else. What's happening is that the coefficients grow so
+  fast that they overwhelm the geometric series $x^k$. For instance
+  $\sum_{k=0}^\infty 2^{k^2}x^k$ diverges for all $x \ne 0$.
+\item Everywhere: This means that the power series converges for all
+  real inputs. This happens when the coefficients go down so quickly
+  as to overwhelm any geometric progression. Typical examples are the
+  finite power series (i.e., polynomials) and the power series for
+  $\sin$, $\cos$, and $\exp$.
+\item There is a finite positive $c$ such that the power series
+  converges for all $|x| < |c|$ and diverges for all $|x| > |c|$. Such
+  a $c$ can be defined as the least upper bound over all $|x|$ where
+  the series converges for $x$. This value $c$ is termed the {\em radius
+  of convergence}. Note that what happens {\em at} $c$ and $-c$ is
+  unclear. There are four possibilities for the interval of
+  convergence: $[-c,c]$ (which means that convergence occurs both at
+  $c$ and at $-c$), $(-c,c)$ (which means that convergence occurs at
+  neither endpoint), $[-c,c)$ and $(-c,c]$.
+\end{enumerate}
+
+Here are examples for each of the four possibilities mentioned in (3):
+$\sum_{k=0}^\infty x^k$ converges only on $(-1,1)$, $\sum_{k=1}^\infty
+x^k/k$ converges on $[-1,1)$, $\sum_{k=1}^\infty (-1)^k x^k/k$
+converges on $(-1,1]$, and $\sum_{k=0}^\infty x^k/k^2$ converges on
+$[-1,1]$. 
+
+Note that one remarkable thing about the interval of convergence is
+that, apart from the issue of inclusion of endpoints, it is symmetric
+about $0$. This means that if we try to define the function:
+
+$$f(x) = \sum_{k=0}^\infty a_kx^k$$
+
+then the domain of $f$ is almost symmetric about $0$.
+
+\subsection{Determining the radius of convergence}
+
+We use the root test to determine the radius of
+convergence. Specifically, we note that if $c$ is the radius of
+convergence, then for $|x| < c$, we expect $|a_nx^n|^{1/n}$ approaches
+something less than $1$, and for $|x| > c$, it approaches something
+greater than $1$. The radius of convergence should thus be chosen so
+that $|a_nc^n|^{1/n} \to 1$.
+
+This gives us a formula for the radius of convergence:
+
+$$c = \lim_{n \to \infty} \frac{1}{|a_n|^{1/n}}$$
+
+if such a limit exists.
+
+In case the limit on the right side is $0$, then we are in case
+(1). If the limit in the denominator is $0$, the radius of convergence
+is $\infty$.
+
+There is a little problem with this, which is that some of the $a_n$s
+may be $0$. The way to get around it is to use a notion of {\em limit
+superior} and {\em limit inferior} instead of limit. However, we have
+not developed these notions in detail, so will skip it. In practice,
+just take the limit for that subcollection of $a_n$s that are
+nonzero. This will suffice for most of the examples that we consider,
+though a foolproof approach must use the limit superior/limit inferior
+idea.
+
+We can also adapt the ratio test to determine the radius of
+convergence. The adaptation of the ratio test yields that:
+
+$$c = \lim_{n \to \infty} \frac{|a_n|}{|a_{n+1}|}$$
+
+if such a limit exists. This works particularly well when the $a_n$s
+involve factorials.
+
+\section{Differentiation and integration of power series}
+
+Given a power series:
+
+$$\sum_{k=0}^\infty a_kx^k$$
+
+We can apply a procedure called {\em formal differentiation} or {\em
+term wise differentiation}, which basically just differentiates it
+term by term. We get:
+
+$$\sum_{k=1}^\infty ka_kx^{k-1}$$
+
+Re-indexing the dummy variable for summation, we get:
+
+$$\sum_{k=0}^\infty (k+1)a_{k+1}x^k$$
+
+This is also a power series.
+
+We have the following results:
+
+\begin{enumerate}
+\item If a power series converges on $(-c,c)$, the power series
+  obtained by term wise differentiation also converges on $(-c,c)$
+  (Theorem 12.9.1). Note that this does {\em not} mean that wherever a
+  power series converges, so does the formal derivative. It is
+  possible that a power series converges on $[-c,c]$ but its
+  derivative does not converge at one or both of the boundary points.
+\item {\em The differentiability theorem} (Theorem 12.9.2): If a power
+  series converges on $(-c,c)$, then its formal derivative power
+  series converges on $(-c,c)$, and the function to which the formal
+  derivative converges is the derivative of the function to which the
+  series converges. Formally, if $f(x) = \sum_{k=0}^\infty a_kx^k$,
+  then $f'(x) = \sum_{k=1}^\infty ka_kx^{k-1}$.
+\item As a corollary of the differentiability theorem, if $f$ is the
+  function to which the power series $\sum_{k=0}^\infty a_kx^k$
+  converges on $(-c,c)$, then $f$ is infinitely differentiable on
+  $(-c,c)$ and each of its derivatives can be expressed using a power
+  series obtained by differentiating the power series for $f$ the
+  required number of times.
+\item {\em Term by term integration} (Theorem 12.9.3): If $f(x) =
+  \sum_{k=0}^\infty a_kx^k$ on $(-c,c)$, then term by term integration
+  of the power series of $f$ converges to an antiderivative of $f$ on
+  $(-c,c)$. The new series is $\sum_{k=0}^\infty
+  a_kx^{k+1}/(k+1)$. Note that this is the particular antiderivative
+  that takes the value $0$ at $0$. Adding a constant $C$ gives the
+  antiderivative that takes the value $C$ at $0$.
+\item {\em Abel's theorem} (Theorem 12.9.5): Suppose that $f(x) =
+  \sum_{k=0}^\infty a_kx^k$ on $(-c,c)$. Then, if $f$ is left
+  continuous at $c$ and $\sum_{k=0}^\infty a_kc^k$ converges, it
+  converges to $f(c)$. Similarly, if $f$ is right continuous at $c$
+  and $\sum_{k=0}^\infty a_k(-c)^k$ converges, it converges to $f(-c)$.
+\end{enumerate}
+
+In particular, when a power series converges everywhere, we can
+merrily differentiate and integrate to our hearts' contents. Combining
+these theorems, we can conclude that the radius of convergence of a
+power series and of its formal derivative are exactly equal, though it
+is possible that the power series converges at one or both endpoints
+for the function but not at the derivative..
+
+\section{Power series and Taylor series}
+
+\subsection{Back and forth}
+
+We have done two kinds of things:
+
+\begin{enumerate}
+\item Start from a (infinitely differentiable) function and compute
+  the Taylor polynomials and Taylor series of the function. The goal
+  is to approximate the function using polynomials.
+\item Start from a power series, figure out where it converges, and
+  consider the function to which it converges. On the interior of the
+  interval of convergence, the function is infinitely differentiable.
+\end{enumerate}
+
+We have two kinds of mappings:
+
+Infinitely differentiable functions $\leadsto$ Power series (i.e., the Taylor series of the function)
+
+Power series $\leadsto$ Infinitely differentiable functions (i.e., the
+function obtained by actually doing the summation at each point)
+
+\subsection{Inverses of each other?}
+
+The next natural question is whether the two mappings are inverses of
+each other. This breaks up into two questions:
+
+\begin{enumerate}
+\item Start with an infinitely differentiable function $f$. Take its
+  Taylor series and now consider the interval of convergence of this
+  power series. Does the Taylor series converge to $f$ on its interval
+  of convergence?
+\item Start with a power series with a nonzero (positive or infinite)
+  radius of convergence. Consider the function to which it converges
+  on the interval of convergence, and take the Taylor series of that
+  function. Do we get back the original power series?
+\end{enumerate}
+
+The answer to the first question is {\em no} and the answer to the
+second question is {\em yes}.
+
+\subsection{The answer to (2) is yes}
+
+If we start with a series, look at the function it converges to, and
+take the Taylor series of that function, we get back the original
+series. This can easily be verified from the differentiability theorem.
+
+The way this works is as follows: suppose $f$ is the function obtained
+from the power series $\sum a_kx^k$. Then, by the differentiability
+theorem applied $m$ times and evaluate at $0$. The value at $0$ turns
+out to be $k!a_k$. This means that $f^{(k)}(0) = k!a_k$. Rearranging,
+we see that $a_ k = f^{(k)}(0)/k!$, so the power series we started
+with has the same coefficients as the Taylor series of $f$.
+\subsection{Why the answer to (1) is no}
+
+There are three things that could go wrong:
+
+\begin{itemize}
+\item The Taylor series for the function does not converge anywhere,
+  so the question that (1) poses becomes meaningless.
+\item The Taylor series for the function converges, but not to the
+  original function. An example of this is the function described below.
+\item The Taylor series does converge to the function, but the
+  interval of convergence of the Taylor series is a lot smaller than
+  the domain of definition of the function.
+\end{itemize}
+
+Consider the function:
+
+$$f(x) := \lbrace\begin{array}{rl}e^{-1/x^2}, & x \ne 0\\ 0, & x = 0 \end{array}$$
+
+By definition $f(0) = 0$. We can check that $f$ is continuous at $0$,
+and in fact, it is infinitely differentiable at $0$ and all its
+derivatives take the value $0$ at $0$. Thus, the Taylor series for $f$
+is the zero series. However, $f$ is {\em not} the zero function.
+
+On the other hand, for polynomials, the sine function, the cosine
+function, and the exponential function, the power series {\em does}
+converge back to the original function, and the radius of convergence
+is all of $\R$. One way to establish this (which we did in the
+previous lecture) is using the Lagrange formula for the remainder, and
+show that, as $n \to \infty$, the remainder goes to zero.
+
+For some other functions, the power series converges to the function
+on a small interval, even though the function is defined on a bigger
+interval. For instance, the function $\ln(1 + x)$ has a power series
+that converges on $(-1,1]$ even though the function is defined on
+$(-1,\infty)$. Intuitively, the interval of convergence of the power
+series must be roughly symmetric about $0$, whereas the domain of
+definition of the function may be a lot bigger.
+
+We can make this more precise. For any infinitely differentiable
+function $f$ whose domain $D$ is an open interval containing $0$
+(possibly infinite in one direction) and such that the function cannot
+be extended immediately beyond $D$, then the radius of convergence of
+the Taylor series of $f$ cannot be more than the {\em smaller} of the
+two sides about $0$. For instance, for a function defined on $(-1,3)$,
+the radius of convergence of the Taylor series about $0$ cannot be
+more than $1$, while for a function defined on $(-\infty,2.3)$, the
+radius of convergence of the Taylor series cannot be more than $2.3$.
+
+Thus, we can say offhand that, for the function $\tan$, the radius of
+convergence of its power series cannot be more than $\pi/2$, because
+the function goes off to $\infty$ at $\pi/2$ and to $-\infty$ at
+$-\pi/2$.
+
+Is it possible for the Taylor series to converge to the function on an
+open interval about $0$, but not on the largest possible symmetric
+interval? Indeed it is. An example of this is the $\arctan$
+function. This function is defined and infinitely differentiable on
+all of $\R$. However, its interval of convergence is $[-1,1]$. This is
+an application of the integration theorem, the theorem on convegence
+of alternating series, and Abel's theorem, and we will see this in the
+next section.
+
+\subsection{Power series centered at points other than $0$}
+
+We discussed Taylor series centered at points $a$ other than $0$. We
+can analogously discuss power series centered at any point $\lambda$:
+there are series of the form $\sum a_k(x - \lambda)^k$. The results
+stated above are easy to translate (in both senses of the word) to
+this putatively more general context.
+
+\subsection{Real-analytic functions: where the answer to (1) is yes}
+
+A {\em globally analytic function} is a function that has a Taylor
+series that converges to the function everywhere. Globally analytic
+functions are everywhere infinitely differentiable, but infinitely
+differentiable functions need not be globally analytic (as the
+$e^{-1/x^2}$ example illustrates). Here are some important facts about
+globally analytic functions:
+
+\begin{enumerate}
+\item Sine, cosine, the exponential function, and polynomials are all
+  globally analytic functions.
+\item Globally analytic functions are closed under addition,
+  subtraction, and scalar multiplication. Moreover, addition of
+  functions corresponds to addition of the series, subtraction of
+  functions corresponds to subtraction of series, and scalar
+  multiplication of a function corresponds to scalar multiplication of
+  its series. Thus, the globally analytic functions form a $\R$-vector
+  space.
+\item Globally analytic functions are closed under
+  multiplication. Multiplication of functions corresponds to
+  multiplication of series, where the multiplication of power series
+  is carried out in a manner generalizing multiplication of
+  polynomials. Combining with the previous observation, we obtain that
+  globally analytic functions form a $\R$-algebra.
+\item Globally analytic functions are closed under differentiation and
+  integration. Any derivative of a globally analytic function is
+  globally analytic. Any antiderivative of a globally analytic
+  function is globally analytic.
+\item Globally analytic functions are closed under
+  composition. Composition of functions corresponds to basically
+  plugging in place of the $x$ in one series the entirety of the other
+  series. For instance, for $\sin(x^2)$, we plug in $x^2$ in place of
+  $x$ in the power series of $x$. For $\sin(\cos x)$, we plug in the
+  entire power series for $\cos x$ in place of $x$ in the power series
+  for $\sin$.
+\item Globally analytic functions are {\em not} closed under taking
+  quotients. For instance, $1/(x^2 + 1)$ is not globally analytic. This
+  is a very important observation because it is one of the reasons why
+  we can exit the world of globally analytic functions.
+\end{enumerate}
+
+In addition to globally analytic functions, we are also interested in
+locally analytic functions: functions whose Taylor series have nonzero
+radius of convergence and converge to the function on that nonzero
+radius. Some examples of locally analytic functions that are not
+globally analytic include the tangent, arc tangent, and logarithm
+function. Analogues of all the observations (except the last one)
+about globally analytic functions can be made about locally analytic
+functions. Note that when we add two functions with different radii of
+convergence, the radius of convergence of the sum could be as low as
+the {\em minimum} of the two radii of convergence.
+
+\section{Playing around with power series, differentiation, and integration}
+
+\subsection{Rational functions: basics}
+
+We begin by exploring the power series for rational functions. We
+already know, by the geometric series formula, that:
+
+$$\frac{1}{1 - x} = 1 + x + x^2 + \dots$$
+
+with the radius of convergence equal to $1$.
+
+Some corollaries and related formulas, all with radius of convergence
+$1$, are:
+
+\begin{eqnarray*}
+  \frac{1}{1 + x} & = & 1 - x + x^2 - x^3 + x^4 - \dots\\
+  \frac{1}{1 + x^2} & = & 1 - x^2 + x^4 - x^6 + x^8 - x^{10} + x^{12} - \dots\\
+  \frac{1}{1 - x^n} & = & 1 + x^n + x^{2n} + \dots \\
+  \frac{1}{1 + x^n} & = & 1 - x^n + x^{2n} - x^{3n} + x^{4n} - \dots\\
+  \frac{1}{(1 - x)^2} & = & 1 + 2x + 3x^2 + \dots
+\end{eqnarray*}
+
+We can use these to quickly determine the power series expansions for
+$x/(1 + x^2)$, $1/(1 + x^2)^2$, and so on, using composition and
+multiplication.
+
+\subsection{Logarithm function}
+
+Using the integration theorem, we see that:
+
+$$\int_0^x \frac{dt}{1 + t} = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \dots$$
+
+The left side is $\ln(1 + x)$ for $x \in (-1,\infty)$, and we thus get
+that, at least for $x \in (-1,1)$:
+
+$$\ln(1 + x) =  x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4}
+ + \dots$$
+
+The limit of the function at $-1$ is $-\infty$, and the limit of the
+function at $1$ is $\ln 2$. By the theorem on alternating series, the
+series converges at $1$. Hence, by Abel's theorem, the series
+converges at $1$ to $\ln 2$, and we get:
+
+$$\ln 2 = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \dots$$
+
+which can be written more compactly as:
+
+$$\ln 2 = \sum_{k=1}^\infty \frac{(-1)^{k-1}}{k}$$
+\subsection{Arc tangent function}
+
+Using the integration theorem, we see that:
+
+$$\int_0^x \frac{dt}{1 + t^2} = x - \frac{x^3}{3} + \frac{x^5}{5} - \dots$$
+
+with the radius of convergence again equal to $1$. We already know
+that the left side is $\arctan x$, so we obtain:
+
+$$\arctan x = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \dots$$
+
+The radius of convergence is $1$, so the series converges absolutely
+on $(-1,1)$. Does the series converge at $-1$ and at $1$? It turns out
+that:
+
+\begin{itemize}
+\item By the theorem of alternating series, the series does converge
+  at $1$. Thus, by Abel's theorem, we obtain that $\arctan 1$ equals
+  the value of the series at $1$. We thus obtain:
+
+  $$\frac{\pi}{4} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} - \dots$$
+
+\item The same theorem works at $-1$, giving:
+
+  $$\frac{-\pi}{4} = -1 + \frac{1}{3} - \frac{1}{5} + \frac{1}{7} - \dots$$
+
+\end{itemize}
+
+\subsection{Other rational functions}
+
+Consider:
+
+$$\frac{1}{(1 - x)(2 - x)}$$
+
+Using Taylor series to find its expansion is tedious. Instead, we use
+the known expansion for $(1 - x)^{-1}$ and $(1 - (x/2))^{-1}$ and get:
+
+$$\frac{1}{2}(1 + x + x^2 + \dots)(1 + (x/2) + (x/2)^2 + \dots)$$
+
+The radii of convergence for the two series are $1$ and $2$
+respectively, and so the overall radius of convergence is $1$. We can
+now do polynomial-style multiplication to determine the coefficients
+of the power series.
+
+\subsection{Integrating the unintegrable}
+
+Earlier in the course, we encountered many functions that could not be
+integrated in terms of other elementary functions. Power series,
+however, allow us to integrate many more functions. Specifically, if
+we can express a function in terms of a power series, we can express
+its integral in terms of a power series, even if there is no
+description of the power series directly in terms of elementary
+functions.
+
+We use this to re-explore some of the unintegrable functions seen
+earlier in the course.
+
+Recall the function, which we'll here call ERF:
+
+$$ERF(x) = \int_0^x e^{-t^2} \, dt$$
+
+The power series expansion for $e^{-x^2}$ is:
+
+$$1 - \frac{x^2}{1!} + \frac{x^4}{2!} - \frac{x^6}{3!} + \dots$$
+
+Integrating term wise, we obtain that:
+
+$$ERF(x) = x - \frac{x^3}{1!\cdot 3} + \frac{x^5}{2! \cdot 5} - \frac{x^7}{3! \cdot 7} + \dots$$
+
+This power series expansion allows us to calculate $ERF(x)$ to any
+desired degree of accuracy without having to use the various
+techniques of integration such as partitions, upper sums, and lower sums.
+
+Another function that we looked at in the part was:
+
+$$Si(x) = \int_0^x \frac{\sin t}{t} \, dt$$
+
+Again, we can write:
+
+$$\frac{\sin x}{x} = 1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \frac{x^6}{7!} + \dots$$
+
+Integrating term wise, we obtain that:
+
+$$Si(x) = x - \frac{x^3}{3 \cdot 3!} + \frac{x^4}{5 \cdot 5!} - \frac{x^6}{7 \cdot 7!} + \dots$$
+
+\section{Eyeballing to determine convergence}
+
+\subsection{Hierarchy of functions}
+
+Here is a useful hierarchy to remember:
+
+\begin{enumerate}
+\item Double exponential and other such monstrosity.
+\item Exponential in $x^r, r > 1$.
+\item Factorial, or $\Gamma$ function. Roughly, exponential in $x \ln
+  x$.
+\item Exponential or geometric.
+\item Exponential in $x^r, r < 1$.
+\item Exponential in $(\ln x)^r, r > 1$.
+\item Polynomial, or about $x^r, r > 0$.
+\item Polynomial in the logarithm.
+\end{enumerate}
+
+This is a rough hierarchy of the important functions. Note that the
+ones above geometric are double exponential, exponential in $x^r, r >
+1$, and factorial. These are the functions that totally dominate the
+behavior of geometric series. If this kind of function is in the
+numerators of terms of a power series, the power series has radius of
+convergence $0$. If this kind of function is in the denominators of
+terms of power series, the power series has radius of convergence
+$\infty$.
+
+Thus, the following power series have radius of convergence $0$:
+
+\begin{enumerate}
+\item $\sum k!x^k$
+\item $\sum 2^{k^2}x^k$
+\item $\sum 2^{2^k} x^k$
+\end{enumerate}
+
+On the other hand, the following power series have radius of
+convergence $\infty$:
+
+\begin{enumerate}
+\item $\sum x^k/k!$ or similar power series.
+\item $\sum e^{-k^2}x^k$
+\item $\sum e^{-2^k} x^k$.
+\end{enumerate}
+
+On the middle hand, if the coefficients of the power series are
+exponential or subexponential, then the power series usually has a
+finite radius of convergence. We consider some of these cases below.
+
+\subsection{Power series where the coefficients are exponential}
+
+If the coefficients are exponential, then these determine the radius
+of convergence, For instance $\sum 2^kx^k$ has radius of convergence
+$1/2$.
+\subsection{Power series where the coefficients are rational functions}
+
+Consider a situation where the coefficients $a_k$ are rational
+functions. In this case, the geometric behavior of the series
+dominates over the coefficients, and the radius of convergence is
+$1$.
+
+The rational function does affect something: convergence at the
+boundary, i.e., convergence at $1$ and $-1$. Here, we follow two major
+rules:
+
+\begin{enumerate}
+\item The rule for alternating series usually settles zero or one of
+  the two boundary points, where the terms of the series have
+  alternating signs.
+\item For the other boundary point(s), where all terms have the same
+  sign, the criterion for convergence is that the degree of the
+  denominator should be at least $2$ more than the degree of the
+  numerator.  
+\end{enumerate}
+
+Thus, $\sum x^k/k^2$ converges on $[-1,1]$, because the series has
+positive terms at both boundary points and the denominator has degree
+$2$ more than the numerator. $\sum x^k/k$ converges on $[-1,1)$ --
+convergence at $-1$ because of alternating series, and diverging at
+$1$ because the degree gap between the numerator and the denominator
+is just $1$.
+
+\subsection{Power series where the coefficients are product of rational function and exponential function}
+
+In this case, the exponential part determines the radius of
+convergence, and the rational function part determines the issue of
+convergence at the boundary.
+
+For instance, consider the power series:
+
+$$\sum_{k=0}^\infty \frac{(2x)^k}{k^2 + 1}$$
+
+The coefficients have an exponential component $2^k$ and a
+subexponential component $1/(k^2 + 1)$. The exponential component
+determines the radius of convergence, which in this case becomes
+$1/2$. The subexponential components determines whether the series
+converges at the endpoints $-1/2$ and $1/2$. In this case, since $\sum
+1/(k^2 + 1)$ is absolutely convergent, convergence occurs at {\em
+both} endpoints.
+
+Consider another power series:
+
+$$\sum_{k=0}^\infty \frac{x^{2k}}{k\ln(2 + k)3^k}$$
+
+The radius of convergence is $\sqrt{3}$. At the endpoint $\sqrt{3}$, we get:
+
+$$\sum_{k=0}^\infty \frac{1}{k\ln(2 + k)}$$
+
+which diverges by the integral test. At the other endpoint
+$-\sqrt{3}$, we get the same summation, which again diverges by the
+integral test. So the interval of convergence is
+$(-\sqrt{3},\sqrt{3})$.
+
+\end{document}

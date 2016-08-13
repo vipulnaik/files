@@ -1,0 +1,253 @@
+\documentclass[10pt]{amsart}
+\usepackage{fullpage,hyperref,vipul}
+\title{Chemical reactions and differential equations}
+\author{Math 15300, Section 21 (Vipul Naik)}
+\begin{document}
+
+\maketitle
+
+\section{The question}
+
+Here is the homework problem that you need to solve:
+
+It is known that $m$ parts of chemical $A$ combine with $n$ parts of
+chemical $B$ to produce a compound $C$. Suppose that the rate at which
+$C$ is produced varies directly with the products of the amounts of
+$A$ and $B$ present at that instant. Find the amount of $C$ produced
+in $t$ minutes from an initial mixing of $A_0$ pounds of $A$ with
+$B_0$ pounds of $B$, given that:
+
+\begin{enumerate}
+\item $n = m$, $A_0 = B_0$, and $A_0$ pounds of $C$ are produced in
+  the first minute.
+\item $n = m$, $A_0 = \frac{1}{2} B_0$, and $A_0$ pounds of $C$ are
+  produced in the first minute.
+\item $n \ne m$, $A_0 = B_0$, and $A_0$ pounds of $C$ are produced in
+  the first minute.
+\end{enumerate}
+
+If you just want to solve the problem, you can directly follow the
+hint in the book. However, it might be more helpful to understand the
+background, which is what we explore in this short note.
+
+\section{Forgetting time: the line of possible configurations}
+
+\subsection{Conservation of mass and constant proportions}
+
+For now, let us forget how the reaction proceeds with time, and
+understand what exactly is happening in the reaction.
+
+The reaction is of the form:
+
+$$A + B \to C$$
+
+We are also given that $m$ parts of $A$ combine with $n$ parts of $B$
+to yield $C$. Although the question does not state this explicitly,
+the {\em parts} here are by mass. This means, for instance, that $m$
+pounds of $A$ combine with $n$ pounds of $B$. By the {\em law of
+conservation of mass}, the output of $C$ is $m + n$ pounds.
+
+For instance, consider the reaction:
+
+$$2H_2 + O_2 \to 2H_2O$$
+
+Here, the total weight of $2H_2$ is $4$ units and the total weight of
+$O_2$ is $32$ units, so $4$ units (By mass) of hydrogen combine with
+$32$ units (by mass) of oxygen to yield $36$ units (by mass) of
+water. The proportions are thus $m:n = 4:32$, which can also be
+written as $1:8$. Thus, $1$ part of hydrogen combines with $8$ parts
+of oxygen to yield $9$ parts of water. Note that it is the ratio of
+$m$ to $n$ that matters, not the values of $m$ and $n$ per se.
+
+The fact that specific chemical reactions occur in specific
+proportions was once considered so important as to actually be given a
+name. This name is the {\em law of constant proportions} or the {\em
+law of definite proportions}.
+
+\subsection{Stoichiometric constraints}
+
+Since a given chemical reaction occurs with constant proportions, this
+indicates that the {\em change in mass} of each of the reactants and
+products through the course of the reaction is in the same
+proportion. For instance, in the hydrogen-oxygen reaction to produce
+water, we know that $1$ pound of hydrogen would combine with $8$
+pounds of oxygen to produce $9$ pounds of water. This means that if
+$x$ pound of hydrogen are lost, then $8x$ pounds of oxygen are lost,
+and $9x$ pounds of water are gained. Thus, if we know the initial
+amounts of hydrogen, oxygen, and water, and we know the final amount
+of hydrogen, we can measure the hydrogen lost, and use that to deduce
+the oxygen lost (and hence the final amount of oxygen) and the amount
+of water gained (and hence the final amount of water).
+
+This can be viewed in terms of a three-dimensional configuration
+space. Consider a three-dimensional space with the three axes marked
+respectively by the current mass of hydrogen, the current mass of
+oxygen, and the current mass of water.
+
+What the stoichiometric constraint (or the law of constant
+proportions) says is that, as the reaction proceeds, the configuration
+moves along a straight line whose direction is determined by the
+nature of the reaction. The straight line has the property that the
+oxygen axis coordinate changes at eight times the rate of change of
+the hydrogen axis coordinate, and the water axis coordinate changes in
+the opposite direction at nine times the rate.
+
+In the more general case, with:
+
+$$A + B \to C$$
+
+the coordinate change ratios are $m:n:-(m + n)$, and the path of the
+reaction is along a straight line.
+
+\subsection{Initial condition}
+
+The path of the reaction is along a straight line whose direction is
+determined by the nature of the reaction (i.e., by the ratio
+$m:n$). However, there are many different straight lines with the same
+direction. The {\em particular} straight line that the reaction is
+confined to depends on the initial configuration.
+
+Typically, we start out without any of the product (i.e., we only have
+the reactants $A$ and $B$. In terms of the three-dimensional picture
+with coordinates $A$, $B$, and $C$, the initial configuration is in
+the $AB$-plane. {\em Where} it is in the $AB$-plane determines {\em
+which} line the reaction moves against. (This can be thought of as a
+three-dimensional analogue of the point-slope form).
+
+\subsection{Keeping track of just one coordinate}
+
+Suppose we want to know each coordinate at every point in time. We
+claim that it is enough to know:
+
+\begin{enumerate}
+\item The initial value of each coordinate.
+\item The value, at any given time $t$, of just one coordinate.
+\end{enumerate}
+
+In particular, if we know the initial amounts of $A$, $B$ and $C$
+(which we assume to be zero), then knowing the quantity of $C$ at time
+$t$ allows us to determine the quantities of $A$ and $B$ at time
+$t$.
+
+Here's how we can deduce what these quantities are. Let $C(t)$ denote
+the quantity of $C$ at time $t$. We're assuming $C(0) = 0$, so $C(t)$
+amount of $C$ was gained. By constant proportions, we note that the
+amount of $A$ lost is $mC(t)/(m + n)$ and the amount of $B$ lost is
+$nC(t)/(m + n)$. Thus, the amount of $A$ at time $t$ is:
+
+$$A(t) = A(0) - \frac{m}{m + n}C(t)$$
+
+Similarly, the amount of $B$ at time $t$ is:
+
+$$B(t) = B(0) - \frac{n}{m + n}C(t)$$
+
+In the problem setup, we are given that $A(0) = A_0$ and $B(0) =
+B_0$.
+
+\section{Bringing time and rates into the equation}
+
+So far, we have largely focused on the path that the reaction
+takes. The next relevant question is the {\em rate} at which the
+reaction occurs. In the three-dimensional graphical representation,
+this is basically determining how fast we're moving along the line.
+
+When trying to measure the rate of a reaction, there is a little
+ambiguity. Should we measure the rate at which $A$ is being lost, the
+rate at which $B$ is being lost, or the rate at which $C$ is being
+gained? By the law of constant proportions, these rates are all related:
+
+$$\frac{-1}{m} \frac{dA}{dt} = \frac{-1}{n} \frac{dB}{dt} = \frac{1}{m + n} \frac{dC}{dt}$$
+
+We can keep track of just {\em one} of the three, and the one we
+choose to keep track of is $C$. Note that the proportionality in the
+rates of change is the {\em differential version} of the expressions
+$A(t) = A(0) - mC(t)/(m + n)$ and $B(t) = B(0) - nC(t)/(m + n)$.
+
+Thus, when we say that the {\em rate of reaction} is proportional to
+some quantity, that statement would apply to all the three rates of
+change $dA/dt$ $dB/dt$, and $dC/dt$, with the constants of
+proportionality themselves in the ratio $m:n:-(m + n)$.
+
+\section{Formulating and solving the differential equation}
+
+\subsection{Formulating the differential equation}
+
+For convenience, we take pounds (the mass measure) as our unit of
+measurement. Let $A_0$ and $B_0$ be the initial number of pounds of
+$A$ and $B$ respectively.
+
+If the number of pounds of $C$ at time $t$ is $C(t)$, then $A(t) = A_0
+- mC(t)/(m + n)$ and $B(t) = B_0 - nC(t)/(m + n)$.
+
+We know that the rate $dC/dt$ equals $kAB$, where $k$ is some unknown
+constant. We thus have:
+
+$$\frac{dC}{dt} = k\left[A_0 - \frac{m}{m + n}C(t) \right]\left[B_0 - \frac{n}{m + n}C(t) \right]$$
+
+Note that this is an {\em autonomous} differential equation, which is
+to be expected since it arises from a physical law that is time
+translation invariant. (Note: The {\em law} is time translation
+invariant, not the actual configuration).
+
+Notice another feature of this problem. In general, when we solve a
+differential equation, we introduce one free parameter. For this
+differential equation, we {\em already} have a bunch of parameters,
+and we will introduce {\em one more} parameter when we solve the
+differential equation. However, the added parameter can easily be
+determined from the initial condition $C(0) = 0$.
+\subsection{Solving the differential equation}
+
+The equation is autonomous and separable, and we can rearrange terms to get:
+
+$$\int \frac{dC}{\left[A_0 - \frac{m}{m + n}C \right]\left[B_0 - \frac{n}{m + n}C \right]} = \int k \, dt$$
+
+The right side integrates to $kt + c_1$, and the left side can be
+integrated in one of the standard ways. Once we integrate the left
+side, we can choose $c_1$ in such a way that $C(0) = 0$.
+
+There are two natural cases for the left side:
+
+\begin{enumerate}
+\item The two linear factors in the denominator are equal, or
+  proportional: In this case, the integrand is the reciprocal of the
+  square of a linear function of $C$, and that is directly
+  integrated. Note that this case occurs if $A_0/B_0 = m/n$, i.e., if
+  the initial proportion of masses is the {\em stoichiometric
+  proportion}. In the homework problem, part (a) is of this type.
+\item The two linear factors in the denominator are not proportional:
+  In this case, we need to use the partial fractions approach to
+  integrate. In the homework problem, parts (b) and (c) are of this type.
+\end{enumerate}
+
+\subsection{An additional piece of information}
+
+Suppose we are given $m/n$ as well as $A_0$, $B_0$. Then, the only
+unknown in the original differential equation is $k$. Integration
+yields another unknown parameter (arising as the additive constant
+from integration) which can be determined using $C(0) = 0$. We thus
+get a general expression for $C(t)$ that features $k$. However, since
+$k$ is not given, we would like to determine it.
+
+To determine $k$, we need some other piece of information. In the
+question here, the additional piece of information is in the form of
+the value $C(1)$. Specifically, we {\em plug in} the value $C(1)$ in
+the general expression for $C(t)$ and {\em solve the corresponding
+equation} to determine the value of $k$. Having obtained this value of
+$k$, we {\em plug back} in the general expression for $C(t)$.
+
+The use of a point-in-time measurement to determine $k$ is analogous
+to many experimental approaches in physics and chemistry. In most of
+these, a general physical or chemical law tells us that the expression
+for a quantity is of some type, with one or more parameters
+appearing. These parameters are physical constants but we do not have
+the theoretical tools to determine them. So, we do an experiment that
+measures certain things, from which we deduce the value of the parameter.
+
+For instance, in physics, there are some laws of friction between dry
+bodies, which explain how the magnitude of the friction force between
+two bodies depends on a certain dimensionless constant called the
+coefficient of friction, that depends on the surfaces in
+contact. However, the coefficient of friction cannot be determined
+theoretically. So, we do an experimental study that measures certain
+quantities, from which we can deduce the coefficient of friction.
+\end{document}

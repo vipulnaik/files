@@ -1,0 +1,607 @@
+\documentclass[10pt]{amsart}
+
+%Packages in use
+\usepackage{fullpage, hyperref, vipul, enumerate}
+
+%Title details
+\title{Take-home class quiz solutions: due Friday October 11: Linear systems}
+\author{Math 196, Section 57 (Vipul Naik)}
+%List of new commands
+
+\begin{document}
+\maketitle
+
+\section{Performance review}
+
+29 people took this $10$-question quiz. The score distribution was
+as follows:
+
+\begin{itemize}
+\item Score of 2: 1 person
+\item Score of 3: 2 people
+\item Score of 4: 2 people
+\item Score of 5: 4 people
+\item Score of 6: 3 people
+\item Score of 7: 7 people
+\item Score of 8: 3 people
+\item Score of 9: 3 people
+\item Score of 10: 4 people
+\end{itemize}
+
+The mean score was 6.69.
+
+The question-wise answers and performance review were as follows:
+
+\begin{enumerate}
+\item Option (B): 12 people
+\item Option (A): 20 people
+\item Option (B): 17 people
+\item Option (C): 15 people
+\item Option (D): 19 people
+\item Option (D): 19 people
+\item Option (B): 27 people
+\item Option (A): 23 people
+\item Option (C): 22 people
+\item Option (B): 20 people
+\end{enumerate}
+
+\section{Solutions}
+
+The quiz questions here, although not hard {\em per se}, are
+conceptually demanding: answering them requires a clear understanding
+of multiple concepts and an ability to execute them
+conjunctively. Even if you feel that you've understood the material as
+presented in class, you will need to think through each question
+carefully. Some of the questions are related to similar homework
+problems (Homeworks 1 and 2), and they test a conceptual understanding
+of the solutions to these problems. You might want to view them in
+conjunction with the homework problems. Other questions sow the seeds
+of ideas we will explore later. The quiz should seem relatively easier
+when you review it later, assuming that you work hard on attempting
+the questions right now and read the solutions once they're put up.
+
+\begin{enumerate}
+\item (*) Rashid and Riena are trying to study a function $f$ of two
+  variables $x$ and $y$. Rashid is convinced that the function is
+  linear (i.e., it is of the form $f(x,y) := ax + by + c$) but has no
+  idea what $a$, $b$, and $c$ are. Riena thinks a linear model is
+  completely out-of-place. Rashid is eager to find $a$, $b$, and $c$,
+  whereas Riena is eager to disprove Rashid's linear
+  model. Unfortunately, all they have is a black box that will output
+  the value of the function for a given input pair $(x,y)$, and that
+  black box can only be called three times. What should Rashid and
+  Riena try for?
+
+  \begin{enumerate}[(A)]
+  \item Rashid and Riena would both like to provide three input pairs that
+    are non-collinear as points in the $xy$-plane
+  \item Rashid would like to provide three input pairs that are
+    non-collinear, while Riena would like to provide three input pairs
+    that are collinear as points in the $xy$-plane.
+  \item Rashid and Riena would both like to provide three input pairs
+    that are collinear as points in the $xy$-plane.
+  \item Rashid would like to provide three input pairs that are
+    collinear, while Riena would like to provide three input pairs
+    that are non-collinear as points in the $xy$-plane.
+  \item Both Rashid and Riena are indifferent regarding how the three
+    input pairs are picked.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: Rashid wants to pick three independent
+  constraints, i.e., pick three linear equations that are independent
+  of each other. This would give him three independent equations in
+  three variables, allowing him to uniquely determine the values of
+  the parameters $a$, $b$, and $c$. Thus, he wishes to pick three
+  non-collinear points. If he picked three collinear points, one of
+  his equations would be redundant (deducible from the other two).
+
+  Riena, on the other hand, wants to pick three points with some
+  redundancy between them. If she picks three collinear points, then,
+  assuming Rashid's model is correct, the values of the outputs at two
+  of the three points determine the value of the output at the
+  third. If it turns out that the actual value differs from the
+  predicted value, this {\em falsifies} Rashid's model.
+
+  The reason Riena wants them to be collinear is thus the same as the
+  reason Rashid wants them to be non-collinear. Rashid already thinks
+  he knows the predicted result from the collinear case, so he is not
+  interested in it. Riena wants to show Rashid that his prediction is
+  wrong, so she cares about it. The non-collinear case would not be
+  interesting to Riena because it offers no evidence against Rashid.
+
+  Note that if $4$ or more inputs can be queried, then both Rashid's
+  and Riena's concerns can be addressed. {\em Scarcity breeds
+    conflict}.
+
+  More about this is discussed in the notes on {\tt Hypothesis
+    testing, rank, and overdetermination} that we intend to discuss
+  next week.
+
+  {\em Not clear to you?}: Pick some function of two variables that is
+  not linear, and put yourself in Riena's shoes. How would you
+  convinced Rashid that the function is not linear? What types of
+  inputs would you choose? Similarly, put yourself in Rashid's shoes
+  and try to determine what types of inputs will help you determine
+  uniqueness.
+
+  {\em Performance review}: 12 out of 29 got this. 7 each chose (A)
+  and (D), 2 chose (E), 1 chose (C).
+
+  {\em Historical note (last time)}: $18$ out of $29$ got this. $6$ chose (D),
+  $4$ chose (C), $1$ chose (A).
+
+\item (*) Let $m$ and $n$ be natural numbers with $m \ge 3$. We are
+  given a bunch of numbers $x_1< x_2< \dots<x_m$ and another bunch of
+  numbers $y_1,y_2,\dots,y_m$. We want to find a continuous function
+  $f$ on $[x_1,x_m]$, such that $f(x_i) = y_i$ for all $1 \le i \le
+  m$, and such that the restriction of $f$ to any interval of the form
+  $[x_i,x_{i+1}]$ (for $1 \le i \le m - 1$) is a polynomial of degree
+  $\le n$. What is the smallest value of $n$ for which we are
+  guaranteed to be able to find such a function $f$?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $5$
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: The brief explanation is that we can construct a
+  piecewise linear function: a function whose graph comprises straight
+  line segments joining $(x_i,y_i)$ to $(x_{i+1},y_{i+1})$.
+
+  The more sophisticated explanation is that for each pair of adjacent
+  points, we have to choose a functional form between the two points,
+  and there are two input-output pairs constraining the functional
+  form (namely, the two endpoints). We thus need a functional form
+  with two parameters. The linear functional form works well for that
+  purpose. If we were to count the {\em total} number of parameters,
+  it would work out to $2(m - 1)$ ($2$ parameters for each of the $m -
+  1$ intervals $(x_1,x_2)$, $(x_2,x_3)$, $\dots$,
+  $(x_{m-1},x_m)$). The number of equations would also work out to
+  $2(m - 1)$. The number of parameters equals the number of
+  equations. However, the equality of the number of parameters and the
+  number of equations in the abstract is not {\em completely
+    sufficient} to argue that we can always find a solution, because
+  of concerns about redundant equations. In this case, it is
+  sufficient, based on the explanation offered earlier. It is still a
+  good working heuristic, though.
+
+  {\em Note on subtle difference in goals from previous situations}:
+  The situation of this question, and the next three questions, is
+  different in a subtle but important way from earlier
+  situations. Broadly, consider two types of situations.
+
+  \begin{enumerate}
+  \item {\em Prediction/forecasting/extrapolation situation}: The
+    situation where we are trying to model some pre-existing
+    phenomenon and we have a model with a general functional form
+    (involving not-yet-known parameters) that we believe applies to
+    the phenomenon. We are trying to find the parameters using
+    input-output pairs. In this case, we are trying to find
+    information about a function that, in some sense, already
+    exists. This means that out job isn't just to find {\em some
+      function that fits the known data}, but to find {\em the right
+      function}. In this situation, having more input-output pairs
+    (and hence equations) than parameters (that become our new
+    variables) is desirable.
+  \item {\em Engineering solution situation}: The situation where our
+    goal is just to find some function that fits the existing data,
+    rather than to find a particular function. In this case, having
+    more variables than equations, resulting in the system being
+    underdetermined (i.e., the solution being non-unique and having
+    degrees of freedom) is a {\em good} thing.
+  \end{enumerate}
+
+  The type of situation we are dealing with in these questions is type
+  (b). We are interested in just finding some function satisfying
+  certain constraints, not in finding a specific function that already
+  exists.
+
+  Note that all situations that involve prediction and trend
+  forecasting fall under (a) rather than (b). Situation (b) arises in
+  cases where we are solving specific engineering problems to come up
+  with one-time constructs that satisfy constraints (such as the
+  roller-coaster ride example in the book). From the social science
+  perspective, the more common situation is situation (a), where we
+  are trying to predict or forecast for an existing model that we do
+  not yet fully understand.
+
+  {\em Not clear to you?}: Make a picture with points marked for the
+  values of the function at $x_1,x_2,\dots,x_m$. Now notice that we
+  can make a graph that uses a straight line segment for each interval
+  between adjacent $x_i$s.
+
+  {\em Performance review}: 20 out of 29 people got this. 8 chose (B),
+  1 chose (C).
+
+  {\em Historical note (last time)}: $17$ out of $29$ got this. $10$ chose (C),
+  $2$ chose (D).
+
+\item (*) Let $m$ and $n$ be natural numbers with $m \ge 3$. We are
+  given a bunch of numbers $x_1< x_2< \dots<x_m$ and another bunch of
+  numbers $y_1,y_2,\dots,y_m$. We want to find a continuous function
+  $f$ on $[x_1,x_m]$, such that $f(x_i) = y_i$ for all $1 \le i \le
+  m$, and such that the restriction of $f$ to any interval of the form
+  $[x_i,x_{i+1}]$ (for $1 \le i \le m - 1$) is a polynomial of degree
+  $\le n$. In addition, we want to make sure that $f$ is
+  differentiable on the open interval $(x_1,x_m)$. What is the
+  smallest value of $n$ for which we are guaranteed to be able to find
+  such a function $f$?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $5$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: We can take the first piece to be linear (simply
+  join the points $(x_1,y_1)$ and $(x_2,y_2)$). For each subsequent
+  piece, we have three constraints. For the $i^{th}$ piece, the
+  constraints include the value at $x_i$, the value at $x_{i+1}$, and
+  the derivative at $x_i$ (which must equal the corresponding
+  derivative from the preceding piece). In order to be able to fit all
+  three constraints, we need to use $n = 2$ so as to have three
+  parameters. It is also straightforward to check that the system we
+  get this way is not redundant.
+
+  Here is the accounting regarding parameters and equations. The
+  number of equations is $2(m - 1) + (m - 2)$. The $2(m - 1)$
+  equations arise from the values at the endpoints of each of the $m -
+  1$ intervals. The extra $m - 2$ equations arise from the equality of
+  the formal expressions for the left hand derivative and right hand
+  derivative at each of the $m-2$ transition points $x_2,x_3,\dots,
+  x_{m-1}$. The total number of equations is therefore $3m -
+  4$. Whatever value of $n$ we choose, the total number of parameters
+  is $(n + 1)(m - 1)$ (we need $n + 1$ parameters for the piece
+  definition on each of the $m - 1$ intervals $(x_1,x_2)$,
+  $(x_2,x_3)$, $\dots$, $(x_{m-1},x_m)$). We want to choose $n$ such
+  that the number of parameters is greater than or equal to the number
+  of equations, and the smallest value that works is $n = 2$, in which
+  case we get $(n + 1)(m - 1) = 3m - 3 \ge 3m - 4$. Note that we have
+  one extra parameter over the number of equations, so we have a bit
+  of ``slack'' here, at least in principle. Again, the crude
+  comparison of parameters and equations is not conclusive because of
+  the potential for redundancy, so we need an explanation of the sort
+  offered in the preceding paragraph to be sure. Note that the slight
+  excess of parameters over equations corresponds to the fact that for
+  the piece definition in the very first interval $(x_1,x_2)$, we have
+  some flexibility.
+
+  {\em Note on subtle difference in goals from previous situations}:
+  See the note at the end of the answer to Question 2.
+
+  {\em Not clear to you?}: Make a picture similar to the preceding
+  question, but notice now that from the second interval onward, you
+  have a constraint on the initial slope.
+
+  {\em Performance review}: 17 out of 29 got this. 10 chose (C), 2 chose (A).
+
+  {\em Historical note (last time)}: $25$ out of $29$ got this. $2$
+  chose (C), $1$ each chose (A) and (D).
+\item (*) Let $m$ and $n$ be natural numbers with $m \ge 3$. We are given
+  a bunch of numbers $x_1< x_2< \dots<x_m$ and another bunch of
+  numbers $y_1,y_2,\dots,y_m$. We want to find a continuous function
+  $f$ on $[x_1,x_m]$, such that $f(x_i) = y_i$ for all $1 \le i \le
+  m$, and such that the restriction of $f$ to any interval of the form
+  $[x_i,x_{i+1}]$ (for $1 \le i \le m - 1$) is a polynomial of degree
+  $\le n$. In addition, we want to make sure that $f$ is
+  differentiable on the open interval $(x_1,x_m)$. In addition, we are
+  told the value of the right hand derivative of $f$ at $x_1$ and the
+  left hand derivative of $f$ at $x_m$. What is the smallest value of
+  $n$ for which we are guaranteed to be able to find such a function
+  $f$?
+
+  \begin{enumerate}[(A)]
+  \item $1$
+  \item $2$
+  \item $3$
+  \item $4$
+  \item $5$
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: This is similar to the cubic spline question on
+  your advanced homework.
+
+  The key reason why this differs from the preceding question is that,
+  here, we have a specification of the one-sided derivatives at the
+  endpoint. The specification at $x_1$ constrains how we start, but
+  that is stil acceptable. We'll need something quadratic to begin
+  with, but we can keep choosing quadratics all the way, since at each
+  piece we need to satisfy three conditions. The problem occurs in the
+  final stage, i.e., the interval $[x_{m-1},x_m]$. Here, we have {\em
+    four} constraints: the values at the endpoints, and the
+  derivatives at both endpoints. So, we need a functional form with
+  four parameters. In other words, we need a cubic for the last piece.
+
+  It would be acceptable to use quadratics for all except the last
+  piece, and a cubic for the last piece. The options available to us,
+  however, require us to declare a single degree that works for all,
+  so the smallest available is $3$.
+
+  Using the accounting for parameters and equations similar to the
+  preceding question, we obtain $3m - 2$ equations (the $3m - 4$
+  equations of the preceding question, plus $2$ additional equations
+  for the one-sided derivative conditions at the endpoints). We
+  therefore need to choose $n$ such that $(n + 1)(m - 1) \ge 3m -
+  2$. The value $n = 2$ {\em just} falls short: it would give $3m -3$
+  parameters, and this corresponds to the fact that if we tried to fit
+  a quadratic, we could run into trouble in the very last piece. The
+  value $n = 3$, on the other hand, offers us considerable slack.
+
+  {\em Note on subtle difference in goals from previous situations}:
+  See the note at the end of the answer to Question 2.
+
+  {\em Performance review}: 15 out of 29 got this. 7 chose (B), 3
+  chose (A), 2 chose (D), 1 chose (E), 1 left the question blank.
+
+  {\em Historical note (last time)}: $11$ out
+  of $29$ got this. $10$ chose (B), $6$ chose (D), $2$ chose (A).
+
+\item (*) Let $k$, $m$, and $n$ be natural numbers with $m \ge 3$. We are
+  given a bunch of numbers $x_1< x_2< \dots<x_m$ and another bunch of
+  numbers $y_1,y_2,\dots,y_m$. We want to find a continuous function
+  $f$ on $[x_1,x_m]$, such that $f(x_i) = y_i$ for all $1 \le i \le
+  m$, and such that the restriction of $f$ to any interval of the form
+  $[x_i,x_{i+1}]$ (for $1 \le i \le m - 1$) is a polynomial of degree
+  $\le n$. In addition, we want to make sure that $f$ is at least $k$
+  times differentiable on the open interval $(x_1,x_m)$. What is the
+  smallest value of $n$ for which we are guaranteed to be able to find
+  such a function $f$?
+
+  \begin{enumerate}[(A)]
+  \item $k - 2$
+  \item $k - 1$
+  \item $k$
+  \item $k + 1$
+  \item $k + 2$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: For the part $[x_1,x_2]$, we can simply fit a
+  straight line. For each subsequent piece, we have $k + 1$
+  constraints: the left and right endpoint values, and all the
+  derivative values up to the $k^{th}$ derivative at the left
+  endpoint. This gives a total of $k + 2$ constraints. A polynomial of
+  degree $k + 1$ has the necessary number of parameters, namely $k +
+  2$. We can also use Taylor polynomials to see that the system can
+  always be solved.
+
+  If we account for the total number of parameters and equations, the
+  numbers we get are as follows. We have $2(m - 1) + k(m - 2)$
+  equations. The $2(m - 1)$ equations are from the values at the
+  endpoins of the $m - 1$ intervals. The $k(m - 2)$ equations are from
+  the equality of the first $k$ derivatives of the piece functions at
+  the transition points $x_2,x_3,\dots,x_{m-1}$. The total number of
+  equations is $(k + 2)(m - 1) - k$. We have $(n + 1)(m - 1)$
+  parameters. Therefore, choosing $n = k + 1$ gives more parameters
+  than equations. On the other hand, choosing $n = k$ gives $(k + 1)(m
+  - 1)$ parameters, so that the number of parameters - the number of
+  equations is $k - (m - 1)$. Since we are not given any concrete
+  information about the sign relationship between $k$ and $m - 1$, we
+  cannot be sure that this will work.
+
+  {\em Note on subtle difference in goals from previous situations}:
+  See the note at the end of the answer to Question 2.
+
+  {\em Performance review}: 19 out of 29 got this. 5 chose (B), 3
+  chose (E), 2 chose (C).
+
+  {\em Historical note (last time)}: $12$ out of $29$ got this. $14$
+  chose (B), $2$ chose (C), $1$ chose (A).
+
+  \vspace{0.1in}
+
+  The next few questions are framed deterministically, though similar
+  real-world applications would be probabilistic, with some square
+  roots floating around. Unfortunately, we do not have the tools yet
+  to deal with the probabilistic versions of the questions.
+
+\item (*) A function $f$ of one variable is known to be linear. We know
+  that $f(1) = 1.5 \pm 0.5$ and $f(2) = 2.5 \pm 0.5$. Assume these are
+  the full ranges, without any probability distribution known. Assuming
+  nothing is known about how the measurement errors for $f$ at
+  different points are related, what can we say about $f(3)$?
+
+  \begin{enumerate}[(A)]
+  \item $f(3) = 3.5$ (exactly)
+  \item $f(3) = 3.5 \pm 0.5$
+  \item $f(3) = 3.5 \pm 1$
+  \item $f(3) = 3.5 \pm 1.5$
+  \item $f(3) = 3.5 \pm 2.5$
+  \end{enumerate}
+
+  {\em Answer}: Option (D)
+
+  {\em Explanation}: The highest value occurs if we take $f(1) = 1$
+  and $f(2) = 3$, giving $f(3) = 5$. The lowest value occurs if we
+  take $f(1) = f(2) = 2$, giving $f(3) = 2$. Overall, $f(3)$ is
+  between $2$ and $5$, so $3.5 \pm 1.5$ is a reasonable description.
+
+  {\em Graphical interpretation}: Make a picture of the coordinate
+  $xy$-plane with a vertical line segment joining the points with
+  coordinates $(1,1)$ and $(1,2)$ (depicting the range of
+  possibilities for $f(1)$) and another line segment joining the
+  points with coordinates $(2,2)$ and $(2,3)$ (depicting the range of
+  possibilities for $f(2)$). The actual value of $f(1)$ could be
+  anywhere on the first line segment and the actual value of $f(2)$
+  could be anywhere on the second line segment. The slowest growth
+  case is the case where $f(1) = 2$ and $f(2) = 2$, so in fact we get
+  a constant function $f(x) = 2$ in this case, and the graph of this
+  is the line $y = 2$, and $f(3) = 2$ in this case.. The fastest
+  growth case is the case $f(1) = 1$ and $f(2) = 3$, and we get the
+  function $f(x) = 2x - 1$ in this case, and the graph is the line $y
+  = 2x - 1$. We get $f(3) = 5$ in this case. Thus, $f(3)$ could be any
+  value between $2$ and $5$, or equivalently, the range of values for
+  $f(3)$ is given by the line segment in the $xy$-plane joining the
+  points $(3,2)$ and $(3,5)$.
+
+  The picture might remind you of eclipses. The region in the
+  ``shadow'' so to speak is the penumbral region of the eclipse.
+
+  {\em Performance review}: 19 out of 29 got this. 6 chose (B), 3
+  chose (C), 1 chose (A).
+
+  {\em Historical note (last time)}: $25$ out of $29$ got this. $3$ chose (C),
+  $1$ chose (B).
+\item (*) A function $f$ of one variable is known to be linear. We know
+  that $f(1) = 1.5 \pm 0.5$ and $f(2) = 2.5 \pm 0.5$. Assume these are
+  the full ranges, without any probability distribution known. Assume
+  also that the measurement error for $f$ at all points is the same in
+  magnitude and sign. What can we say about $f(3)$?
+
+  \begin{enumerate}[(A)]
+  \item $f(3) = 3.5$ (exactly)
+  \item $f(3) = 3.5 \pm 0.5$
+  \item $f(3) = 3.5 \pm 1$
+  \item $f(3) = 3.5 \pm 1.5$
+  \item $f(3) = 3.5 \pm 2.5$
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: $f(1) = 1.5 + m$ where $m$ is measurement error
+  with $|m| \le 0.5$. Since all measurement errors are equal, $f(2) =
+  2.5 + m$. Thus, $f(3) = 3.5 + m$, with $|m| \le 0.5$, giving the
+  answer.
+
+  {\em Graphical interpretation}: The vertical line segments are the
+  same as before: one joins $(1,1)$ and $(1,2)$, the other joins
+  $(2,2)$ and $(2,3)$. However, since we now know that the errors are
+  the same, the lower bounding line connects the lowest ends of both
+  vertical line segments, and the upper bounding line connects the
+  upper ends of both vertical line segments. In other words, we get a
+  pair of parallel lines. The lower line passes through $(3,3)$ and
+  the upper line passes through $(3,4)$. The range of possibilities
+  for $f(3)$ is therefore the set of values between $3$ and $4$, i.e.,
+  it is $3.5 \pm 0.5$.
+
+  {\em Performance review}: 27 out of 29 got this. 2 chose (C).
+ 
+  {\em Historical note (last time)}: $26$ out of $29$ got this. $2$ chose (D),
+  $1$ chose (C).
+\item (*) Suppose $f$ is a linear function on a bounded interval $[a,b]$
+  but our measurement of outputs for given inputs has some measurement
+  error (with the range of measurement error the same regardless of
+  the input, and no known correlation between the magnitude of
+  measurement error at different points). Assume we can get the
+  outputs for any two specified inputs we desire, and we will then fit
+  a line through the (input,output) pairs to get the graph of $f$. How
+  should we choose our inputs?
+
+  \begin{enumerate}[(A)]
+  \item Choose the inputs as far as possible from each other, i.e.,
+    choose them as $a$ and $b$.
+  \item Choose the inputs to be as close to each other as possible,
+    i.e., choose them to be nearby points but not equal to each other.
+  \item It does not matter. Any choice of two distinct inputs is good
+    enough.
+  \end{enumerate}
+
+  {\em Answer}: Option (A)
+
+  {\em Explanation}: If the inputs are chosen close together, then
+  even small errors in the input can cause large errors in the
+  measurement of the slope. The error in slope is the signed
+  difference of measurement errors divided by the distance between the
+  inputs. The former is beyond our control, because we noted that the
+  magnitude and sign of measurement error does not depend on where we
+  choose the inputs. Thus, choosing the inputs as far as possible
+  brings us a larger denominator, and therefore keeps the slope error
+  at a minimum.
+
+  {\em Performance review}: 23 out of 29 got this. 4 chose (B), 2
+  chose (C).
+
+  {\em Historical note (last time)}: $11$ out of $29$ got this. $15$ chose (C),
+  $3$ chose (B).
+\item (*) $f$ is a function of one variable defined on an interval
+  $[a,b]$. You are trying to find an explicit function that fits $f$
+  well. You initially try a straight line fit that works at the points
+  $a$ and $b$. It turns out that this fit systematically overestimates
+  $f$ for points in between (i.e., the actual function $f$ is below
+  the linear function) with the maximum magnitude of discrepancy
+  occurring at the midpoint $(a + b)/2$. Based on this information,
+  what kind of fit should you try to look for?
+
+  \begin{enumerate}[(A)]
+  \item Try to fit $f$ using a logarithmic function
+  \item Try to fit $f$ using an exponential function
+  \item Try to fit $f$ using a quadratic function
+  \item Try to fit $f$ using a polynomial of degree at most $3$
+  \item Try to fit $f$ using the reciprocal of a linear function
+  \end{enumerate}
+
+  {\em Answer}: Option (C)
+
+  {\em Explanation}: Let $L$ be the linear function obtained and let
+  $g = f - L$. $g$ is zero at both endpoints $a$ and $b$, below zero
+  in between, and has its minimum at the midpoint. These
+  characteristics strongly suggest that $g$ is a quadratic function
+  with positive leading coefficient. Any quadratic function with
+  positive leading coefficient that has zeros has its absolute minimum
+  precisely at the midpoint between its zeros.
+
+  Since $g$ is expected to be quadratic, $f = g + L$ is also expected to be
+  quadratic.
+  
+  Note that we could try fitting using a polynomial of degree at most
+  $3$. This, however, might run us into overfitting problems. As a
+  general rule, we should try to fit using a function with as few
+  parameters as possible and where the functional form is justified by
+  broad theoretical considerations. If after fitting the quadratic, we
+  discover some systemic errors that are best explained by a cubic
+  type of discrepancy, we could then try a cubic.
+
+  {\em Performance review}: 22 out of 29 got this. 3 each chose (B)
+  and (D), 1 chose (A).
+
+  {\em Historical note (last time)}: $25$ out of $29$ got this. $3$ chose (B),
+  $1$ chose (D).
+\item (*) Recall the Leontief input-output model. Recall that the GDP is
+  defined as the total money value of all the {\em final} goods and
+  services produced in the economy, which in this case means only
+  those that go into meeting consumer demand, not interindustry demand
+  (note that we are assuming away the existence of investment and
+  government spending, which complicate the GDP calculation). Assuming
+  that the unit prices of the goods are constant (a very unrealistic
+  assumption given that price itself responds to supply and demand,
+  but fortunately it does not affect the conclusion we draw here) what
+  might be a way of increasing GDP while keeping the magnitude of
+  output of each industry the same?
+
+  \begin{enumerate}[(A)]
+  \item Increase interindustry dependence, i.e., increase the amount
+    needed from each industry that is necessary to produce a given
+    amount in another industry.
+  \item Reduce interindustry dependence, i.e., reduce the amount
+    needed from each industry that is necessary to produce a given
+    amount in another industry.
+  \item Changes in interindustry dependence have no effect.
+  \end{enumerate}
+
+  {\em Answer}: Option (B)
+
+  {\em Explanation}: The lower the interindustry dependence, the
+  larger the share of the industries' output that can be used to meet
+  consumer demand, i.e., contribute to GDP.
+
+  {\em Performance review}: 20 out of 29 got this. 6 chose (C), 3
+  chose (A).
+
+  {\em Historical note (last time)}: $26$ out of $29$ got this. $3$ chose (C).
+\end{enumerate}
+
+\end{document}
